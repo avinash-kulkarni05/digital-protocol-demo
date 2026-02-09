@@ -107,6 +107,41 @@ export async function registerRoutes(
     }
   });
 
+  app.get("/api/protocols/:studyId/pdf", async (req, res) => {
+    try {
+      const { studyId } = req.params;
+      const sanitized = studyId.replace(/[^a-zA-Z0-9._-]/g, "_");
+      const filename = `${sanitized}.pdf`;
+      const filePath = path.join(UPLOADS_DIR, filename);
+
+      if (fs.existsSync(filePath)) {
+        res.setHeader("Content-Type", "application/pdf");
+        res.setHeader("Cache-Control", "no-cache");
+        return res.sendFile(filePath);
+      }
+
+      const directPath = path.join(UPLOADS_DIR, `${studyId}.pdf`);
+      if (fs.existsSync(directPath)) {
+        res.setHeader("Content-Type", "application/pdf");
+        res.setHeader("Cache-Control", "no-cache");
+        return res.sendFile(directPath);
+      }
+
+      const files = fs.readdirSync(UPLOADS_DIR).filter(f => f.endsWith('.pdf'));
+      const match = files.find(f => f.toLowerCase() === `${sanitized}.pdf`.toLowerCase());
+      if (match) {
+        res.setHeader("Content-Type", "application/pdf");
+        res.setHeader("Cache-Control", "no-cache");
+        return res.sendFile(path.join(UPLOADS_DIR, match));
+      }
+
+      res.status(404).json({ error: "PDF not found" });
+    } catch (error) {
+      console.error("Error serving PDF:", error);
+      res.status(500).json({ error: "Failed to serve PDF" });
+    }
+  });
+
   app.get("/api/documents", async (req, res) => {
     try {
       const documents = await storage.getAllDocumentsSummary();
