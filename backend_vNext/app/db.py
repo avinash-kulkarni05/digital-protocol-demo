@@ -519,7 +519,7 @@ def get_engine():
     global _engine
     if _engine is None:
         _engine = create_engine(
-            settings.database_url,
+            settings.effective_database_url,
             poolclass=QueuePool,
             pool_size=5,
             max_overflow=10,

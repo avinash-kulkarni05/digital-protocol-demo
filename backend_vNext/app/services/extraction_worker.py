@@ -208,7 +208,7 @@ def spawn_extraction_process(
             str(protocol_id),
             pdf_path,
             resume,
-            settings.database_url,
+            settings.effective_database_url,
         ),
         daemon=False,  # Don't kill when parent exits (let extraction complete)
         name=f"extraction-{str(job_id)[:8]}",

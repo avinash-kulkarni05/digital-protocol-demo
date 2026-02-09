@@ -57,3 +57,8 @@ externalPort = 8080
 deploymentTarget = "autoscale"
 run = ["bash", "-c", "cd frontend-vNext && npm run start"]
 build = ["bash", "-c", "cd frontend-vNext && npm run build"]
+
+[userenv]
+
+[userenv.shared]
+EXTERNAL_DATABASE_URL = "postgresql://neondb_owner:npg_4XMRv1ielNWj@ep-soft-darkness-ais1172f-pooler.c-4.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"

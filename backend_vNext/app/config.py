@@ -38,11 +38,20 @@ class Settings(BaseSettings):
     )
 
     # Database - NeonDB PostgreSQL
+    external_database_url: str = Field(
+        default="",
+        alias="EXTERNAL_DATABASE_URL",
+        description="External PostgreSQL connection URL (preferred)"
+    )
     database_url: str = Field(
         default="",
         alias="DATABASE_URL",
-        description="PostgreSQL connection URL for NeonDB"
+        description="PostgreSQL connection URL for NeonDB (fallback)"
     )
+
+    @property
+    def effective_database_url(self) -> str:
+        return self.external_database_url or self.database_url
 
     # Gemini API
     gemini_api_key: str = Field(
@@ -191,7 +200,7 @@ class Settings(BaseSettings):
 
     def get_database_url_with_schema(self) -> str:
         """Return database URL with schema search path."""
-        url = self.database_url
+        url = self.effective_database_url
         if "?" in url:
             return f"{url}&options=-csearch_path%3D{self.db_schema}"
         return f"{url}?options=-csearch_path%3D{self.db_schema}"

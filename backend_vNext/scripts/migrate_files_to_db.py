@@ -250,7 +250,7 @@ def main():
     logger.info("=" * 60)
     logger.info("PDF MIGRATION: Filesystem → Database")
     logger.info("=" * 60)
-    logger.info(f"Database: {settings.database_url.split('@')[1] if '@' in settings.database_url else 'configured'}")
+    logger.info(f"Database: {settings.effective_database_url.split('@')[1] if '@' in settings.effective_database_url else 'configured'}")
     logger.info(f"Mode: {'DRY RUN' if args.dry_run else 'LIVE'}")
     logger.info("=" * 60)
 
