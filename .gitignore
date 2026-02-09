@@ -35,6 +35,10 @@ multiple_myeloma/
 backend_vNext/outputs/
 backend_vNext/checkpoints/
 
+# Node.js
+node_modules/
+dist/
+
 # Frontend temporary assets
 frontend-vNext/attached_assets/
 Archive.zip
