@@ -55,6 +55,27 @@ export async function registerRoutes(
       const filePath = path.join(UPLOADS_DIR, savedFilename);
       fs.writeFileSync(filePath, file.buffer);
 
+      // Also register with Python backend for extraction support
+      try {
+        const FormData = (await import("form-data")).default;
+        const backendForm = new FormData();
+        backendForm.append("file", file.buffer, { filename: savedFilename, contentType: "application/pdf" });
+
+        const backendResponse = await fetch(`${BACKEND_URL}/api/v1/protocols/upload`, {
+          method: "POST",
+          body: backendForm as any,
+          headers: backendForm.getHeaders(),
+        });
+        if (backendResponse.ok) {
+          const backendData = await backendResponse.json() as any;
+          console.log(`[UPLOAD] Registered with Python backend: protocol_id=${backendData.id}`);
+        } else {
+          console.warn(`[UPLOAD] Python backend registration failed (${backendResponse.status}), extraction may not work`);
+        }
+      } catch (err: any) {
+        console.warn(`[UPLOAD] Could not register with Python backend: ${err.message}`);
+      }
+
       const existing = await storage.getDocument(studyId);
       if (existing) {
         return res.json({
@@ -89,7 +110,32 @@ export async function registerRoutes(
   app.get("/api/documents", async (req, res) => {
     try {
       const documents = await storage.getAllDocumentsSummary();
-      res.json(documents);
+
+      const enriched = await Promise.all(documents.map(async (doc) => {
+        let extractionStatus = 'pending';
+        const hasData = doc.usdmData && typeof doc.usdmData === 'object' && Object.keys(doc.usdmData).length > 0 && (doc.usdmData as any).study;
+        if (hasData) {
+          extractionStatus = 'completed';
+        } else {
+          try {
+            const jobRes = await fetch(`${BACKEND_URL}/api/v1/jobs/protocol/${encodeURIComponent(doc.studyId)}/latest`);
+            if (jobRes.ok) {
+              const jobData = await jobRes.json() as any;
+              if (jobData.status === 'running' || jobData.status === 'pending') {
+                extractionStatus = 'processing';
+              } else if (jobData.status === 'completed' || jobData.status === 'completed_with_errors') {
+                extractionStatus = jobData.status;
+              } else if (jobData.status === 'failed') {
+                extractionStatus = 'failed';
+              }
+            }
+          } catch {
+          }
+        }
+        return { ...doc, extractionStatus };
+      }));
+
+      res.json(enriched);
     } catch (error) {
       console.error("Error fetching documents:", error);
       res.status(500).json({ error: "Failed to fetch documents" });
@@ -110,6 +156,29 @@ export async function registerRoutes(
     } catch (error) {
       console.error("Error fetching document:", error);
       res.status(500).json({ error: "Failed to fetch document" });
+    }
+  });
+
+  app.put("/api/documents/:studyId/usdm", async (req, res) => {
+    try {
+      const { studyId } = req.params;
+      const { usdmData } = req.body;
+
+      if (!usdmData) {
+        return res.status(400).json({ error: "usdmData is required" });
+      }
+
+      const doc = await storage.getDocument(studyId);
+      if (!doc) {
+        return res.status(404).json({ error: "Document not found" });
+      }
+
+      await storage.updateDocumentUsdm(studyId, usdmData);
+      console.log(`[USDM SYNC] Updated USDM data for ${studyId}`);
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Error updating USDM data:", error);
+      res.status(500).json({ error: "Failed to update USDM data" });
     }
   });
 

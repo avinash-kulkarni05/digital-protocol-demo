@@ -60,6 +60,12 @@ export class DatabaseStorage implements IStorage {
     }).from(usdmDocuments).orderBy(usdmDocuments.createdAt);
   }
 
+  async updateDocumentUsdm(studyId: string, usdmData: any): Promise<void> {
+    await db.update(usdmDocuments)
+      .set({ usdmData })
+      .where(eq(usdmDocuments.studyId, studyId));
+  }
+
   async getDocumentById(id: number): Promise<UsdmDocument | undefined> {
     const docs = await db
       .select()

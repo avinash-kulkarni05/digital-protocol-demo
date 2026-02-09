@@ -276,16 +276,23 @@ async def cancel_job(
 
 @router.get("/protocol/{protocol_id}/latest")
 async def get_latest_job_for_protocol(
-    protocol_id: UUID,
+    protocol_id: str,
     db: Session = Depends(get_db),
 ):
     """
     Get the latest job for a protocol.
 
     Useful for resuming progress tracking after page refresh.
+    Accepts either a UUID or a studyId (filename without .pdf).
     """
+    from app.routers.protocol import get_protocol_by_id_or_study_id
+
+    protocol = get_protocol_by_id_or_study_id(protocol_id, db)
+    if not protocol:
+        return {"job_id": None, "status": "no_job", "message": "Protocol not found"}
+
     job = db.query(Job).filter(
-        Job.protocol_id == protocol_id
+        Job.protocol_id == protocol.id
     ).order_by(Job.created_at.desc()).first()
 
     if not job:

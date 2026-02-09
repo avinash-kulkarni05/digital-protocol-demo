@@ -119,7 +119,11 @@ export default function ReviewPage() {
   }
 
   const usdmData = document.usdmData as any;
-  const { study, domainSections, agentDocumentation, extractionMetadata } = usdmData;
+  const hasUsdmData = usdmData && Object.keys(usdmData).length > 0 && usdmData.study;
+  const study = usdmData?.study;
+  const domainSections = usdmData?.domainSections;
+  const agentDocumentation = usdmData?.agentDocumentation;
+  const extractionMetadata = usdmData?.extractionMetadata;
 
   // Map section IDs to agent IDs for looking up documentation
   const sectionToAgentId: Record<string, string> = {
@@ -401,6 +405,7 @@ export default function ReviewPage() {
                     className="h-9 px-3 text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900 hover:border-gray-400 transition-colors"
                     onClick={handleExportJSON}
                     data-testid="export-usdm-json"
+                    disabled={!hasUsdmData}
                   >
                     <Download className="h-4 w-4 mr-2" />
                     {getExportLabel()}
@@ -415,15 +420,34 @@ export default function ReviewPage() {
                   </Button>
                 </div>
 
-            {section === "study_metadata" && (
+            {!hasUsdmData ? (
+              <div className="flex flex-col items-center justify-center py-20 text-center">
+                <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mb-4">
+                  <ExternalLink className="w-8 h-8 text-gray-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-700 mb-2">No Extraction Data Yet</h3>
+                <p className="text-muted-foreground max-w-md mb-6">
+                  This protocol has been uploaded but hasn't been extracted yet. 
+                  Go back to the home page and click "Start Extraction" on the protocol card to begin processing.
+                </p>
+                <Button
+                  variant="outline"
+                  onClick={() => window.location.href = '/'}
+                >
+                  Go to Home Page
+                </Button>
+              </div>
+            ) : null}
+
+            {hasUsdmData && section === "study_metadata" && (
               <StudyMetadataView data={study} onViewSource={handleViewSource} onFieldUpdate={handleFieldUpdate} {...getAgentInfo("study_metadata")} />
             )}
 
-            {section === "study_population" && (
+            {hasUsdmData && section === "study_population" && (
               <PopulationView data={study.studyPopulation} onViewSource={handleViewSource} onFieldUpdate={handleFieldUpdate} {...getAgentInfo("study_population")} />
             )}
 
-            {section === "arms_design" && (
+            {hasUsdmData && section === "arms_design" && (
               <ArmsDesignView
                 studyDesignInfo={study.studyDesignInfo}
                 studyArms={domainSections?.studyDesign?.data?.studyArms || []}
@@ -433,47 +457,47 @@ export default function ReviewPage() {
               />
             )}
 
-            {section === "endpoints" && (
+            {hasUsdmData && section === "endpoints" && (
               <EndpointsView data={domainSections?.endpointsEstimandsSAP?.data} onViewSource={handleViewSource} onFieldUpdate={handleFieldUpdate} {...getAgentInfo("endpoints")} />
             )}
 
-            {section === "safety" && (
+            {hasUsdmData && section === "safety" && (
               <SafetyView data={domainSections?.adverseEvents?.data} onViewSource={handleViewSource} onFieldUpdate={handleFieldUpdate} {...getAgentInfo("safety")} />
             )}
 
-            {section === "safety_decision_points" && (
+            {hasUsdmData && section === "safety_decision_points" && (
               <SafetyDecisionPointsView data={domainSections?.safetyDecisionPoints?.data} onViewSource={handleViewSource} onFieldUpdate={handleFieldUpdate} {...getAgentInfo("safety_decision_points")} />
             )}
 
-            {section === "medications" && (
+            {hasUsdmData && section === "medications" && (
               <ConcomitantMedsView data={domainSections?.concomitantMedications?.data} onViewSource={handleViewSource} onFieldUpdate={handleFieldUpdate} {...getAgentInfo("medications")} />
             )}
 
-            {section === "biospecimen" && (
+            {hasUsdmData && section === "biospecimen" && (
               <BiospecimenView data={domainSections?.biospecimenHandling?.data} onViewSource={handleViewSource} onFieldUpdate={handleFieldUpdate} {...getAgentInfo("biospecimen")} />
             )}
 
-            {section === "laboratory_specifications" && (
+            {hasUsdmData && section === "laboratory_specifications" && (
               <LabSpecsView data={domainSections?.laboratorySpecifications?.data} onViewSource={handleViewSource} onFieldUpdate={handleFieldUpdate} {...getAgentInfo("laboratory_specifications")} />
             )}
 
-            {section === "consent" && (
+            {hasUsdmData && section === "consent" && (
               <InformedConsentView data={domainSections?.informedConsent?.data} onViewSource={handleViewSource} onFieldUpdate={handleFieldUpdate} {...getAgentInfo("consent")} />
             )}
 
-            {section === "pro_specifications" && (
+            {hasUsdmData && section === "pro_specifications" && (
               <PROSpecsView data={domainSections?.proSpecifications?.data} onViewSource={handleViewSource} onFieldUpdate={handleFieldUpdate} {...getAgentInfo("pro_specifications")} />
             )}
 
-            {section === "data_management" && (
+            {hasUsdmData && section === "data_management" && (
               <DataManagementView data={domainSections?.dataManagement?.data} onViewSource={handleViewSource} onFieldUpdate={handleFieldUpdate} {...getAgentInfo("data_management")} />
             )}
 
-            {section === "site_operations_logistics" && (
+            {hasUsdmData && section === "site_operations_logistics" && (
               <SiteLogisticsView data={domainSections?.siteOperationsLogistics?.data} onViewSource={handleViewSource} onFieldUpdate={handleFieldUpdate} {...getAgentInfo("site_operations_logistics")} />
             )}
 
-            {section === "quality_management" && domainSections?.qualityManagement?.data && (
+            {hasUsdmData && section === "quality_management" && domainSections?.qualityManagement?.data && (
               <QualityManagementView
                 data={domainSections.qualityManagement.data}
                 onViewSource={handleViewSource}
@@ -482,23 +506,25 @@ export default function ReviewPage() {
               />
             )}
 
-            {section === "withdrawal_procedures" && (
+            {hasUsdmData && section === "withdrawal_procedures" && (
               <WithdrawalView data={domainSections?.withdrawalProcedures?.data} onViewSource={handleViewSource} onFieldUpdate={handleFieldUpdate} {...getAgentInfo("withdrawal_procedures")} />
             )}
 
-            {section === "imaging_central_reading" && (
+            {hasUsdmData && section === "imaging_central_reading" && (
               <ImagingView data={domainSections?.imagingCentralReading?.data} onViewSource={handleViewSource} onFieldUpdate={handleFieldUpdate} {...getAgentInfo("imaging_central_reading")} />
             )}
 
-            {section === "pkpd_sampling" && (
+            {hasUsdmData && section === "pkpd_sampling" && (
               <PKPDSamplingView data={domainSections?.pkpdSampling?.data} onViewSource={handleViewSource} onFieldUpdate={handleFieldUpdate} {...getAgentInfo("pkpd_sampling")} />
             )}
             
+            {hasUsdmData && (
             <div className="mt-12 flex justify-center pb-8">
               <Button size="lg" className="rounded-full px-8 h-12 bg-primary hover:bg-gray-800 text-white shadow-lg shadow-gray-500/20 text-base font-semibold transition-all hover:scale-105 active:scale-95">
                 Mark Section as Complete
               </Button>
             </div>
+            )}
               </div>
             </ScrollArea>
           </div>

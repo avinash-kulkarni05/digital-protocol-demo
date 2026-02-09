@@ -25,8 +25,13 @@ Two workflows run concurrently:
 
 - Frontend routes `/api/backend/*` are proxied via `http-proxy-middleware` to `http://127.0.0.1:8080/api/v1/*`
 - Protocol uploads go through Express (`/api/protocols/upload`) and save PDFs to `frontend-vNext/attached_assets/`
+- Upload also registers protocol with Python backend (`POST /api/v1/protocols/upload`) for extraction support
 - Document CRUD is handled by Express routes with Drizzle ORM
 - Extraction, SOA, and eligibility features are handled by the Python FastAPI backend
+- Protocol identification uses `studyId` (filename without .pdf extension) throughout the system
+- Python backend endpoints accept both UUID and studyId string for protocol identification
+- After extraction completes, USDM JSON is fetched from Python backend and synced to Drizzle via `PUT /api/documents/:studyId/usdm`
+- Document list endpoint enriches documents with extraction status from Python backend
 
 ## Key Technologies
 

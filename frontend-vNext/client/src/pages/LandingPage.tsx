@@ -38,19 +38,31 @@ export default function LandingPage() {
       });
 
       if (status.status === 'completed' || status.status === 'completed_with_errors') {
-        // Stop polling
         setPollingJobs(prev => {
           const next = new Set(prev);
           next.delete(protocolId);
           return next;
         });
-        // Clear progress
         setExtractionProgress(prev => {
           const next = new Map(prev);
           next.delete(protocolId);
           return next;
         });
-        // Show toast notification
+
+        try {
+          const usdmRes = await fetch(`/api/backend/jobs/${status.job_id}/outputs/usdm_json`);
+          if (usdmRes.ok) {
+            const usdmJson = await usdmRes.json();
+            await fetch(`/api/documents/${encodeURIComponent(studyId)}/usdm`, {
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ usdmData: usdmJson }),
+            });
+          }
+        } catch (err) {
+          console.error('[Extraction] Failed to sync USDM data:', err);
+        }
+
         const hasErrors = status.status === 'completed_with_errors';
         toast({
           title: hasErrors ? "Extraction Completed with Errors" : "Extraction Complete",
@@ -58,9 +70,7 @@ export default function LandingPage() {
             ? `${studyId} is ready for review (some modules failed)`
             : `${studyId} is ready for review`,
         });
-        // Refetch documents
         queryClient.invalidateQueries({ queryKey: ["documents"] });
-        // Navigate to review page
         setLocation(`/review/study_metadata?studyId=${encodeURIComponent(studyId)}&protocolId=${encodeURIComponent(protocolId)}`);
       } else if (status.status === 'failed') {
         // Stop polling on failure
@@ -100,7 +110,7 @@ export default function LandingPage() {
 
     documents.forEach(async (doc) => {
       const status = (doc as any).extractionStatus;
-      const protocolId = String(doc.id);
+      const protocolId = doc.studyId;
       const studyId = doc.studyId;
 
       // If processing and not already polling
@@ -420,8 +430,8 @@ export default function LandingPage() {
                 const study = usdm?.study;
                 const status = (doc as any).extractionStatus;
                 const isCompleted = status === 'completed' || status === 'completed_with_errors';
-                const isProcessing = extractingProtocols.has(String(doc.id)) || pollingJobs.has(String(doc.id)) || status === 'processing';
-                const progressPercent = extractionProgress.get(String(doc.id)) || 0;
+                const isProcessing = extractingProtocols.has(doc.studyId) || pollingJobs.has(doc.studyId) || status === 'processing';
+                const progressPercent = extractionProgress.get(doc.studyId) || 0;
 
                 // Get study acronym/short name (e.g., ADAURA)
                 const studyAcronym = study?.name || doc.studyId;
@@ -579,7 +589,7 @@ export default function LandingPage() {
                         if (isCompleted) {
                           setLocation(`/review/study_metadata?studyId=${encodeURIComponent(doc.studyId)}`);
                         } else if (!isProcessing) {
-                          handleStartExtraction(String(doc.id), doc.studyId);
+                          handleStartExtraction(doc.studyId, doc.studyId);
                         }
                       }}
                       className={`relative w-full flex items-center justify-between px-4 py-2.5 rounded-full border border-gray-200 bg-white overflow-hidden transition-all duration-200 group/btn ${

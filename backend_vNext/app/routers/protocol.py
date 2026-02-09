@@ -330,12 +330,14 @@ async def get_annotated_pdf(
 
 @router.post("/{protocol_id}/extract", response_model=ExtractionResponse)
 async def start_extraction(
-    protocol_id: UUID,
+    protocol_id: str,
     request: ExtractionRequest,
     db: Session = Depends(get_db),
 ):
     """
     Start extraction job for a protocol.
+
+    Accepts either a UUID or a studyId (filename without .pdf extension).
 
     Extraction runs in a **separate OS process** to ensure the API
     remains responsive. This is a fire-and-forget operation - poll
@@ -348,10 +350,9 @@ async def start_extraction(
     4. Extraction runs independently (30+ minutes)
     5. Process updates database directly as modules complete
     """
-    # Get protocol
-    protocol = db.query(Protocol).filter(Protocol.id == protocol_id).first()
+    protocol = get_protocol_by_id_or_study_id(protocol_id, db)
     if not protocol:
-        raise HTTPException(status_code=404, detail="Protocol not found")
+        raise HTTPException(status_code=404, detail=f"Protocol not found: {protocol_id}")
 
     # Check if PDF data is available (either in database or on filesystem)
     has_db_data = protocol.file_data is not None
@@ -376,9 +377,12 @@ async def start_extraction(
     protocol.extraction_status = "processing"
     db.commit()
 
+    # Use the actual protocol UUID for downstream operations
+    actual_protocol_id = protocol.id
+
     # Create job record
     checkpoint_service = CheckpointService(db)
-    job = checkpoint_service.create_job(protocol_id=protocol_id)
+    job = checkpoint_service.create_job(protocol_id=actual_protocol_id)
 
     # Spawn extraction in a separate OS process
     # This returns IMMEDIATELY - extraction runs independently
@@ -389,8 +393,8 @@ async def start_extraction(
 
     process = spawn_extraction_process(
         job_id=job.id,
-        protocol_id=protocol_id,
-        pdf_path=pdf_path,  # Use pdf_path (includes temp file path if needed)
+        protocol_id=actual_protocol_id,
+        pdf_path=pdf_path,
         resume=request.resume,
     )
 
@@ -399,12 +403,12 @@ async def start_extraction(
 
     logger.info(
         f"Started extraction job {job.id} in process {process.pid} "
-        f"for protocol {protocol_id}"
+        f"for protocol {actual_protocol_id} (lookup: {protocol_id})"
     )
 
     return ExtractionResponse(
         job_id=str(job.id),
-        protocol_id=str(protocol_id),
+        protocol_id=str(actual_protocol_id),
         status="running",
         message=f"Extraction started in background process (PID: {process.pid})",
     )
