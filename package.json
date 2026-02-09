@@ -1,0 +1,10 @@
+{
+  "name": "clinical-protocol-platform",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install": "cd frontend-vNext && npm install",
+    "build": "cd frontend-vNext && npm run build",
+    "start": "cd frontend-vNext && npm run start"
+  }
+}
