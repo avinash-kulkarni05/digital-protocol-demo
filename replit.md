@@ -11,32 +11,66 @@ Clinical trial protocol digitalization system that extracts structured USDM 4.0 
 
 ## Running the Application
 
-The frontend runs via the "Start application" workflow:
-```bash
-cd frontend-vNext && npm run dev
-```
-This starts an Express server on port 5000 that serves the React frontend with Vite HMR in development.
+Two workflows run concurrently:
+
+1. **Start application** (frontend): `cd frontend-vNext && npm run dev`
+   - Express server on port 5000 serving React frontend with Vite HMR
+   - Proxies `/api/backend/*` requests to Python backend (`/api/v1/*` on port 8080)
+
+2. **Python Backend**: `cd backend_vNext && python run.py --host 0.0.0.0 --port 8080`
+   - FastAPI server for extraction, SOA analysis, eligibility features
+   - Requires `GEMINI_API_KEY` secret for LLM-powered extraction
+
+## Architecture
+
+- Frontend routes `/api/backend/*` are proxied via `http-proxy-middleware` to `http://127.0.0.1:8080/api/v1/*`
+- Protocol uploads go through Express (`/api/protocols/upload`) and save PDFs to `frontend-vNext/attached_assets/`
+- Document CRUD is handled by Express routes with Drizzle ORM
+- Extraction, SOA, and eligibility features are handled by the Python FastAPI backend
 
 ## Key Technologies
 
 - **Frontend**: React 19, TypeScript, Vite, Express.js (BFF), Tailwind CSS, shadcn/ui, Drizzle ORM
-- **Backend**: FastAPI, Python (separate service, not always needed)
-- **Database**: PostgreSQL with Drizzle ORM (schema: `backend_vnext`)
+- **Backend**: FastAPI, Python 3.11, SQLAlchemy, Google Gemini API
+- **Database**: PostgreSQL with Drizzle ORM (frontend) + SQLAlchemy (backend), schema: `backend_vnext`
 - **Build**: esbuild (server) + Vite (client)
 
 ## Database
 
-Uses PostgreSQL with Drizzle ORM. All tables live in the `backend_vnext` schema.
+Uses PostgreSQL. All tables live in the `backend_vnext` schema.
+
+Frontend tables (Drizzle ORM):
 - `usdm_documents` - Stores extracted USDM JSON documents
 - `usdm_edit_audit` - Tracks field edit history
 
-Schema management: `cd frontend-vNext && npx drizzle-kit push`
+Backend tables (SQLAlchemy):
+- `protocols` - Uploaded protocol PDFs with Gemini cache
+- `jobs` - Extraction job tracking
+- `module_results` - Per-module extraction results
+- `job_events` - Job events for SSE streaming
+- `extraction_outputs` - Extraction output files
+- `extraction_cache` - DB-backed extraction cache
+- `soa_jobs` - SOA extraction jobs
+- `soa_table_results` - Per-table SOA results
+- `soa_edit_audit` - SOA field edit audit trail
+- `soa_merge_plans` - SOA merge plans
+- `soa_merge_group_results` - SOA merge group results
+- `eligibility_jobs` - Eligibility extraction jobs
+
+Schema management:
+- Frontend: `cd frontend-vNext && npx drizzle-kit push`
+- Backend: Auto-initialized on startup via `init_schema()`
 
 ## Deployment
 
 - Build: `cd frontend-vNext && npm run build`
 - Start: `cd frontend-vNext && npm run start`
 - Target: autoscale
+
+## Required Secrets
+
+- `GEMINI_API_KEY` - Google Gemini API key for LLM extraction
+- `DATABASE_URL` - PostgreSQL connection (auto-provided by Replit)
 
 ## User Preferences
 

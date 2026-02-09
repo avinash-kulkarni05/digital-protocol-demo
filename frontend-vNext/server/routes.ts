@@ -5,8 +5,10 @@ import { insertUsdmDocumentSchema } from "@shared/schema";
 import multer from "multer";
 import fs from "fs";
 import path from "path";
+import { createProxyMiddleware } from "http-proxy-middleware";
 
 const UPLOADS_DIR = path.resolve(process.cwd(), "attached_assets");
+const BACKEND_URL = process.env.BACKEND_URL || "http://127.0.0.1:8080";
 
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 100 * 1024 * 1024 } });
 
@@ -17,6 +19,26 @@ export async function registerRoutes(
   if (!fs.existsSync(UPLOADS_DIR)) {
     fs.mkdirSync(UPLOADS_DIR, { recursive: true });
   }
+
+  app.use(
+    "/api/backend",
+    createProxyMiddleware({
+      target: BACKEND_URL,
+      changeOrigin: true,
+      pathRewrite: { "^/api/backend": "/api/v1" },
+      on: {
+        error: (err, req, res) => {
+          console.error("[PROXY] Backend proxy error:", err.message);
+          if ('status' in res && typeof res.status === 'function') {
+            (res as any).status(502).json({
+              error: "Backend service unavailable",
+              message: "The extraction backend is not running. Please ensure the Python backend is started.",
+            });
+          }
+        },
+      },
+    })
+  );
 
   app.post("/api/protocols/upload", upload.single("file"), async (req, res) => {
     try {
