@@ -135,10 +135,47 @@ export async function registerRoutes(
         return res.sendFile(path.join(UPLOADS_DIR, match));
       }
 
+      try {
+        const backendUrl = `${BACKEND_URL}/api/v1/protocols/${encodeURIComponent(studyId)}/pdf`;
+        const backendRes = await fetch(backendUrl);
+        if (backendRes.ok) {
+          const pdfBuffer = Buffer.from(await backendRes.arrayBuffer());
+          res.setHeader("Content-Type", "application/pdf");
+          res.setHeader("Cache-Control", "no-cache");
+          if (backendRes.headers.get("Content-Disposition")) {
+            res.setHeader("Content-Disposition", backendRes.headers.get("Content-Disposition")!);
+          }
+          return res.send(pdfBuffer);
+        }
+      } catch (backendErr) {
+        console.error("Backend PDF fetch failed:", backendErr);
+      }
+
       res.status(404).json({ error: "PDF not found" });
     } catch (error) {
       console.error("Error serving PDF:", error);
       res.status(500).json({ error: "Failed to serve PDF" });
+    }
+  });
+
+  app.get("/api/protocols/:studyId/pdf/annotated", async (req, res) => {
+    try {
+      const { studyId } = req.params;
+      const backendUrl = `${BACKEND_URL}/api/v1/protocols/${encodeURIComponent(studyId)}/pdf/annotated`;
+      const backendRes = await fetch(backendUrl);
+      if (backendRes.ok) {
+        const pdfBuffer = Buffer.from(await backendRes.arrayBuffer());
+        res.setHeader("Content-Type", "application/pdf");
+        res.setHeader("Cache-Control", "no-cache");
+        if (backendRes.headers.get("Content-Disposition")) {
+          res.setHeader("Content-Disposition", backendRes.headers.get("Content-Disposition")!);
+        }
+        return res.send(pdfBuffer);
+      }
+      res.status(backendRes.status).json({ error: "Annotated PDF not available" });
+    } catch (error) {
+      console.error("Error serving annotated PDF:", error);
+      res.status(500).json({ error: "Failed to serve annotated PDF" });
     }
   });
 
