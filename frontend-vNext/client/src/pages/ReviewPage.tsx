@@ -1,5 +1,6 @@
 import { useState, useMemo, useCallback } from "react";
 import { useDocument, useFieldUpdate, STUDY_ID } from "@/lib/queries";
+import { getPdfUrl } from "@/lib/api";
 import { StudyMetadataView } from "@/components/review/StudyMetadataView";
 import { PopulationView } from "@/components/review/PopulationView";
 import { ArmsDesignView } from "@/components/review/ArmsDesignView";
@@ -574,7 +575,7 @@ export default function ReviewPage() {
               variant="ghost" 
               size="sm" 
               className="h-8 w-8 p-0 hover:bg-gray-100"
-              onClick={() => window.open(document.sourceDocumentUrl || '/protocol.pdf', '_blank')}
+              onClick={() => window.open(getPdfUrl(studyId), '_blank')}
             >
               <ExternalLink className="w-4 h-4 text-muted-foreground" />
             </Button>
@@ -594,7 +595,7 @@ export default function ReviewPage() {
            <ScrollArea className="h-full w-full">
              <div className="flex justify-center p-8 min-h-full">
                <Document
-                  file={document.sourceDocumentUrl || '/protocol.pdf'}
+                  file={getPdfUrl(studyId)}
                   onLoadSuccess={onDocumentLoadSuccess}
                   loading={
                     <div className="flex flex-col items-center gap-2 mt-20">
