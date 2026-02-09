@@ -3551,7 +3551,7 @@ export default function QEBValidationWizardPage() {
             <ScrollArea className="flex-1">
               <div className="flex justify-center p-4">
                 <Document
-                  file={`/attached_assets/${studyId}.pdf`}
+                  file={studyId ? getPdfUrl(studyId) : ''}
                   onLoadSuccess={({ numPages }) => setPdfNumPages(numPages)}
                   loading={<Loader2 className="w-8 h-8 animate-spin" />}
                 >

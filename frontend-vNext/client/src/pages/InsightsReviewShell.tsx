@@ -36,7 +36,7 @@ import {
 } from "lucide-react";
 import { Document, Page, pdfjs } from 'react-pdf';
 import { useToast } from "@/hooks/use-toast";
-import { api } from "@/lib/api";
+import { api, getPdfUrl } from "@/lib/api";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   `pdfjs-dist/build/pdf.worker.min.mjs`,
@@ -1242,7 +1242,7 @@ export default function InsightsReviewShell() {
   // Get studyId from URL params and determine PDF URL - NO hardcoded default
   const searchParams = new URLSearchParams(searchString);
   const studyId = searchParams.get('studyId') || searchParams.get('protocolId') || null;
-  const pdfUrl = studyId ? `/attached_assets/${encodeURIComponent(studyId)}.pdf` : '';
+  const pdfUrl = studyId ? getPdfUrl(studyId) : '';
   
   const [activeStage, setActiveStage] = useState("domains");
   const [stage1Data, setStage1Data] = useState<Stage1Data | null>(null);

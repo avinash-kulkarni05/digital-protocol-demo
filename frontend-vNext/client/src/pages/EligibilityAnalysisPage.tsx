@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from "react";
 import { useSearch, useLocation } from "wouter";
-import { api } from "@/lib/api";
+import { api, getPdfUrl } from "@/lib/api";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -9,9 +9,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
+import { Document, Page, pdfjs } from 'react-pdf';
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+import 'react-pdf/dist/esm/Page/TextLayer.css';
 import {
   ChevronDown,
   ChevronUp,
+  ChevronLeft,
   ChevronRight,
   Database,
   AlertCircle,
@@ -20,7 +25,17 @@ import {
   Minus,
   Plus,
   Activity,
+  ZoomIn,
+  ZoomOut,
+  ExternalLink,
+  Maximize2,
+  Minimize2,
 } from "lucide-react";
+
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  `pdfjs-dist/build/pdf.worker.min.mjs`,
+  import.meta.url,
+).toString();
 
 function FormattedCriteriaText({ text }: { text: string }) {
   const lines = text.split(/\n|(?<=\.)\s+(?=[A-Z])|(?<=\))\s+(?=[A-Z])/);
@@ -472,11 +487,29 @@ export default function EligibilityAnalysisPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const [pageNumber, setPageNumber] = useState(1);
+  const [numPages, setNumPages] = useState(0);
+  const [scale, setScale] = useState(1.0);
+  const [pdfExpanded, setPdfExpanded] = useState(false);
+  const [dataExpanded, setDataExpanded] = useState(false);
+
   const studyId = useMemo(() => {
     const params = new URLSearchParams(searchString);
     const id = params.get("studyId");
     return id || null;
   }, [searchString]);
+
+  const pdfUrl = studyId ? getPdfUrl(studyId) : '';
+
+  const togglePdfExpanded = () => {
+    setPdfExpanded(!pdfExpanded);
+    if (!pdfExpanded) setDataExpanded(false);
+  };
+
+  const toggleDataExpanded = () => {
+    setDataExpanded(!dataExpanded);
+    if (!dataExpanded) setPdfExpanded(false);
+  };
 
   useEffect(() => {
     async function loadData() {
@@ -562,36 +595,174 @@ export default function EligibilityAnalysisPage() {
 
   return (
     <div className="h-full flex flex-col bg-gray-50">
-      <ScrollArea className="flex-1">
-        <div className="p-6">
-          {criteriaData && (
-            <CriteriaDecompositionView data={criteriaData} />
-          )}
-          
-          <div className="mt-8 pt-6 border-t border-gray-200">
-            <div className="rounded-2xl bg-white border border-gray-200 p-6 shadow-sm">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    Ready for Criteria Validation?
-                  </h3>
-                  <p className="text-sm text-gray-500 mt-1">
-                    Proceed to validate eligibility criteria groups and generate a patient feasibility funnel
-                  </p>
+      <PanelGroup direction="horizontal" className="flex-1">
+        <Panel defaultSize={50} minSize={30} className={cn(pdfExpanded && "hidden")}>
+          <div className="h-full flex flex-col min-w-0">
+            <div className="flex-1 overflow-auto min-w-0">
+              <ScrollArea className="h-full">
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <div />
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={toggleDataExpanded}
+                      className="h-9 w-9"
+                    >
+                      {dataExpanded ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
+                    </Button>
+                  </div>
+
+                  {criteriaData && (
+                    <CriteriaDecompositionView data={criteriaData} />
+                  )}
+                  
+                  <div className="mt-8 pt-6 border-t border-gray-200">
+                    <div className="rounded-2xl bg-white border border-gray-200 p-6 shadow-sm">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <h3 className="text-lg font-semibold text-gray-900">
+                            Ready for Criteria Validation?
+                          </h3>
+                          <p className="text-sm text-gray-500 mt-1">
+                            Proceed to validate eligibility criteria groups and generate a patient feasibility funnel
+                          </p>
+                        </div>
+                        <Button 
+                          className="bg-gray-900 hover:bg-gray-800"
+                          onClick={() => navigate(`/eligibility-analysis/qeb-validation?studyId=${studyId}`)}
+                          data-testid="btn-proceed-qeb-validation"
+                        >
+                          Proceed to Criteria Validation
+                          <ChevronRight className="w-4 h-4 ml-2" />
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <Button 
-                  className="bg-gray-900 hover:bg-gray-800"
-                  onClick={() => navigate(`/eligibility-analysis/qeb-validation?studyId=${studyId}`)}
-                  data-testid="btn-proceed-qeb-validation"
+              </ScrollArea>
+            </div>
+          </div>
+        </Panel>
+
+        <PanelResizeHandle className={cn("w-2 bg-gray-200 hover:bg-primary/20 transition-colors cursor-col-resize", (pdfExpanded || dataExpanded) && "hidden")} />
+
+        <Panel defaultSize={50} minSize={30} className={cn("bg-white flex flex-col", dataExpanded && "hidden")}>
+          <div className="h-12 bg-white border-b border-gray-200 flex items-center justify-between px-4 sticky top-0 z-20">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  disabled={pageNumber <= 1}
+                  onClick={() => setPageNumber((p) => p - 1)}
+                  className="h-8 w-8"
                 >
-                  Proceed to Criteria Validation
-                  <ChevronRight className="w-4 h-4 ml-2" />
+                  <ChevronLeft className="h-4 w-4" />
+                </Button>
+                <span className="text-sm font-medium tabular-nums w-16 text-center">
+                  {pageNumber} / {numPages || "--"}
+                </span>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  disabled={pageNumber >= numPages}
+                  onClick={() => setPageNumber((p) => p + 1)}
+                  className="h-8 w-8"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </div>
+              <div className="h-4 w-px bg-gray-200 mx-1" />
+              <div className="flex items-center gap-1">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setScale((s) => Math.max(0.5, s - 0.1))}
+                  className="h-8 w-8"
+                >
+                  <ZoomOut className="h-4 w-4" />
+                </Button>
+                <span className="text-xs font-medium w-12 text-center">
+                  {Math.round(scale * 100)}%
+                </span>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setScale((s) => Math.min(2.0, s + 0.1))}
+                  className="h-8 w-8"
+                >
+                  <ZoomIn className="h-4 w-4" />
                 </Button>
               </div>
             </div>
+
+            <div className="flex items-center gap-1">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-8 w-8 p-0"
+                onClick={() => pdfUrl && window.open(pdfUrl, '_blank')}
+              >
+                <ExternalLink className="w-4 h-4 text-muted-foreground" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-8 w-8 p-0"
+                onClick={togglePdfExpanded}
+              >
+                {pdfExpanded ? (
+                  <Minimize2 className="w-4 h-4 text-muted-foreground" />
+                ) : (
+                  <Maximize2 className="w-4 h-4 text-muted-foreground" />
+                )}
+              </Button>
+            </div>
           </div>
-        </div>
-      </ScrollArea>
+
+          <div className="flex-1 w-full h-full bg-gray-100 overflow-hidden">
+            <ScrollArea className="h-full w-full">
+              <div className="flex justify-center p-8 min-h-full">
+                {pdfUrl ? (
+                  <Document
+                    file={pdfUrl}
+                    onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+                    loading={
+                      <div className="flex flex-col items-center gap-2 mt-20">
+                        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+                        <span className="text-sm text-muted-foreground">Loading PDF Document...</span>
+                      </div>
+                    }
+                    error={
+                      <div className="flex flex-col items-center gap-2 mt-20 text-gray-600">
+                        <span className="font-medium">Failed to load PDF</span>
+                        <Button variant="outline" onClick={() => window.location.reload()}>
+                          Retry
+                        </Button>
+                      </div>
+                    }
+                    className="shadow-xl"
+                  >
+                    <Page
+                      pageNumber={pageNumber}
+                      scale={scale}
+                      className="bg-white shadow-sm"
+                      renderTextLayer={false}
+                      renderAnnotationLayer={false}
+                    />
+                  </Document>
+                ) : (
+                  <div className="flex flex-col items-center gap-2 mt-20 text-gray-500">
+                    <AlertCircle className="w-8 h-8" />
+                    <span className="text-sm">No protocol selected</span>
+                  </div>
+                )}
+              </div>
+            </ScrollArea>
+          </div>
+        </Panel>
+      </PanelGroup>
     </div>
   );
 }
