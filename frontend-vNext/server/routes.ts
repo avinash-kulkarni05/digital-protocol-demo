@@ -2,11 +2,68 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertUsdmDocumentSchema } from "@shared/schema";
+import multer from "multer";
+import fs from "fs";
+import path from "path";
+
+const UPLOADS_DIR = path.resolve(process.cwd(), "attached_assets");
+
+const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 100 * 1024 * 1024 } });
 
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
+  if (!fs.existsSync(UPLOADS_DIR)) {
+    fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+  }
+
+  app.post("/api/protocols/upload", upload.single("file"), async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ error: "No file uploaded" });
+      }
+
+      const file = req.file;
+      const baseName = file.originalname.replace(/\.pdf$/i, "").replace(/[^a-zA-Z0-9._-]/g, "_");
+      const studyId = baseName;
+      const savedFilename = `${baseName}.pdf`;
+      const studyTitle = baseName.replace(/_/g, " ");
+
+      const filePath = path.join(UPLOADS_DIR, savedFilename);
+      fs.writeFileSync(filePath, file.buffer);
+
+      const existing = await storage.getDocument(studyId);
+      if (existing) {
+        return res.json({
+          id: existing.id,
+          studyId: existing.studyId,
+          studyTitle: existing.studyTitle,
+          message: "Protocol already exists (file updated)",
+        });
+      }
+
+      const document = await storage.createDocument({
+        studyId,
+        studyTitle,
+        usdmData: {},
+        sourceDocumentUrl: `/attached_assets/${savedFilename}`,
+      });
+
+      console.log(`[UPLOAD] Protocol uploaded: ${savedFilename} -> document ${document.id}, saved to ${filePath}`);
+
+      res.status(201).json({
+        id: document.id,
+        studyId: document.studyId,
+        studyTitle: document.studyTitle,
+        message: "Protocol uploaded successfully",
+      });
+    } catch (error) {
+      console.error("Error uploading protocol:", error);
+      res.status(500).json({ error: "Failed to upload protocol" });
+    }
+  });
+
   app.get("/api/documents", async (req, res) => {
     try {
       const documents = await storage.getAllDocumentsSummary();
@@ -21,60 +78,8 @@ export async function registerRoutes(
     try {
       const { studyId } = req.params;
 
-      // First check if document exists in local table
-      let localDoc = await storage.getDocument(studyId);
+      const localDoc = await storage.getDocument(studyId);
 
-      // Try to get from backend protocols table (primary source of truth)
-      const backendUrl = `http://localhost:8080/api/v1/protocols`;
-      const backendResponse = await fetch(backendUrl);
-
-      if (backendResponse.ok) {
-        const protocols = await backendResponse.json();
-        // Find protocol by studyId (which is filename without .pdf extension)
-        const protocol = protocols.find((p: any) =>
-          p.studyId === studyId ||
-          p.filename === `${studyId}.pdf` ||
-          p.filename?.replace('.pdf', '') === studyId
-        );
-
-        if (protocol) {
-          // Transform backend protocol to frontend document format
-          const docStudyId = protocol.studyId || protocol.filename?.replace('.pdf', '');
-          const docStudyTitle = protocol.studyTitle || protocol.filename?.replace('.pdf', '').replace(/_/g, ' ');
-          const backendUsdmData = protocol.usdmData || {};
-          const sourceDocumentUrl = `http://localhost:8080/api/v1/protocols/${encodeURIComponent(docStudyId)}/pdf/annotated`;
-
-          // If document doesn't exist locally, create it so field updates work
-          if (!localDoc) {
-            console.log(`[ROUTES] Creating local document for studyId: ${docStudyId}`);
-            localDoc = await storage.createDocument({
-              studyId: docStudyId,
-              studyTitle: docStudyTitle,
-              usdmData: backendUsdmData,
-              sourceDocumentUrl: sourceDocumentUrl,
-            });
-          }
-
-          // Use localDoc.usdmData if it has been edited (has local changes),
-          // otherwise use the backend data as the source of truth.
-          // This ensures field updates persist and are returned to the frontend.
-          const usdmData = localDoc.usdmData || backendUsdmData;
-
-          // Return document with local ID and local usdmData (so field updates persist)
-          const document = {
-            id: localDoc.id,
-            studyId: docStudyId,
-            studyTitle: docStudyTitle,
-            usdmData: usdmData,
-            sourceDocumentUrl: sourceDocumentUrl,
-            createdAt: localDoc.createdAt || new Date().toISOString(),
-            updatedAt: localDoc.updatedAt || new Date().toISOString(),
-          };
-          return res.json(document);
-        }
-      }
-
-      // Fallback to local usdm_documents table only
       if (!localDoc) {
         return res.status(404).json({ error: "Document not found" });
       }

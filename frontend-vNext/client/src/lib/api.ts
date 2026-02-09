@@ -11,18 +11,16 @@ export interface FieldUpdateParams {
 export type DocumentSummary = Pick<UsdmDocument, 'id' | 'studyId' | 'studyTitle' | 'createdAt' | 'usdmData'>;
 
 const API_BASE = "";
-export const BACKEND_API_BASE = "http://localhost:8080/api/v1";
+const BACKEND_API_BASE = `${API_BASE}/api/backend`;
 
-// Helper to get PDF URL for a protocol
 export const getPdfUrl = (studyId: string): string => {
-  return `${BACKEND_API_BASE}/protocols/${encodeURIComponent(studyId)}/pdf/annotated`;
+  return `/attached_assets/${encodeURIComponent(studyId)}.pdf`;
 };
 
 export const api = {
   documents: {
     getAll: async (): Promise<DocumentSummary[]> => {
-      // Query backend protocols table instead of frontend usdm_documents table
-      const response = await fetch(`${BACKEND_API_BASE}/protocols`);
+      const response = await fetch(`${API_BASE}/api/documents`);
       if (!response.ok) {
         throw new Error(`Failed to fetch documents: ${response.statusText}`);
       }
