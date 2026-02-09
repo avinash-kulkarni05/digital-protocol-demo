@@ -1,0 +1,356 @@
+system
+You are an expert provenance mapper for clinical trial protocol extraction. Your task is to add precise source references to previously extracted Quality Management data (Clinical Monitoring + RBQM).
+
+user
+# QUALITY MANAGEMENT - PASS 2: PROVENANCE EXTRACTION
+
+## OBJECTIVE
+Add provenance (source references) to ALL values extracted in Pass 1. For EVERY extracted element, locate the supporting evidence in the protocol and add provenance. Incomplete provenance is NOT acceptable.
+
+---
+
+## DUAL-MODE PROVENANCE STRUCTURE
+
+For each data point, add one of TWO provenance types:
+
+### TYPE 1: EXPLICIT PROVENANCE (Preferred - when text exists in document)
+Use when you find the EXACT supporting text in the protocol:
+```json
+{
+  "kind": "explicit",
+  "explicit": {
+    "section_number": "5.2.1",
+    "page_number": 45,
+    "text_snippet": "Risk-based monitoring will be conducted per ICH E6(R2) guidelines..."
+  }
+}
+```
+
+### TYPE 2: DERIVED PROVENANCE (When value was inferred/implied)
+Use when the value was derived from context, standards, or implicit protocol content:
+```json
+{
+  "kind": "derived",
+  "derived": {
+    "reasoning": "This KRI threshold was inferred from the protocol's RBQM approach described in Section 10.1.4...",
+    "supporting_context": ["Section 10.1.4 references risk-based monitoring", "Protocol emphasizes data quality"],
+    "confidence": "medium"
+  }
+}
+```
+
+**Derived Provenance Fields:**
+- **reasoning**: Detailed explanation (min 50 chars) of HOW this value was derived
+- **supporting_context**: Array of related protocol references
+- **confidence**: "high" | "medium" | "low"
+
+**RULES:**
+1. ALWAYS try explicit provenance first
+2. Use derived provenance ONLY when no explicit text exists
+3. NEVER leave a field without provenance
+
+---
+
+## PASS 1 EXTRACTION (Data Requiring Provenance)
+
+{{ pass1_output }}
+
+---
+
+## PROVENANCE PATHS TO POPULATE
+
+### DOMAIN 1: CLINICAL MONITORING
+
+**Root Objects (5 required):**
+- $.monitoring.monitoring_approach.provenance
+- $.monitoring.sdv_strategy.provenance
+- $.monitoring.monitoring_visits.provenance
+- $.monitoring.findings_management.provenance
+- $.monitoring.monitoring_reports.provenance
+
+**SDV Nested Objects:**
+- $.monitoring.sdv_strategy.sdv_reduction_criteria.provenance
+- $.monitoring.sdv_strategy.sdv_escalation_criteria.provenance
+
+**Visit Nested Objects:**
+- $.monitoring.monitoring_visits.site_initiation_visit.provenance
+- $.monitoring.monitoring_visits.routine_monitoring.provenance
+- $.monitoring.monitoring_visits.close_out_visit.provenance
+- $.monitoring.monitoring_visits.triggered_visits[*].provenance (EACH item)
+
+**Report Nested Objects:**
+- $.monitoring.monitoring_reports.visit_reports.provenance
+- $.monitoring.monitoring_reports.periodic_summary_reports.provenance
+- $.monitoring.monitoring_reports.oversight_committee_reports.provenance
+
+**Findings Nested Objects:**
+- $.monitoring.findings_management.capa_process.provenance
+- $.monitoring.findings_management.protocol_deviation_management.provenance
+- $.monitoring.findings_management.finding_categories[*].provenance (EACH item)
+
+**Array Items (ALL items require provenance):**
+- $.monitoring.key_risk_indicators[*].provenance (EACH KRI)
+- $.monitoring.quality_tolerance_limits[*].provenance (EACH QTL)
+
+### DOMAIN 2: RBQM
+
+**RACT Register Arrays:**
+- $.rbqm.ract_register.critical_to_quality_factors[*].provenance (EACH CTQ)
+- $.rbqm.ract_register.emergent_systemic_risks[*].provenance (EACH risk)
+- $.rbqm.ract_register.strategic_risk_indicators[*].provenance (EACH KRI)
+
+**Strategic Summary:**
+- $.rbqm.ract_register.strategic_summary.provenance
+
+**Risk Governance:**
+- $.rbqm.risk_governance.risk_assessment_matrix.provenance
+- $.rbqm.risk_governance.risk_assessment_matrix.identified_risks[*].provenance (EACH risk)
+- $.rbqm.risk_governance.mitigation_strategies[*].provenance (EACH strategy)
+- $.rbqm.risk_governance.safety_signal_detection.dsmb_interface.provenance
+- $.rbqm.risk_governance.safety_signal_detection.stopping_rules[*].provenance (EACH rule)
+- $.rbqm.risk_governance.safety_signal_detection.statistical_methods[*].provenance (EACH method)
+- $.rbqm.risk_governance.issue_management_cascade.escalation_matrix[*].provenance (EACH level)
+
+**Overall Provenance:**
+- $.monitoring.provenance
+- $.rbqm.provenance
+- $.provenance (root level)
+
+---
+
+## SEARCH STRATEGY
+
+### For Monitoring Content
+| Content Type | Typical Sections |
+|--------------|------------------|
+| Monitoring Approach | 5.2, 6.1, Quality Management, Appendix |
+| SDV Strategy | 5.2.2, Source Data Verification section |
+| Visit Schedule | 5.2.1, Monitoring Plan |
+| CAPA/Findings | 6.2, Quality Assurance, Deviation Management |
+| Reports | Monitoring Plan, Documentation Requirements |
+| KRIs/QTLs | 6.3, RBQM section |
+| DSMB/Oversight | 7.5, Safety Monitoring |
+
+### For RBQM Content
+| Content Type | Typical Sections |
+|--------------|------------------|
+| Risk Management | 6.3, Quality Management |
+| Safety Monitoring | 7, 8 (AE/SAE sections) |
+| DSMB/DMC | 7.5 or separate appendix |
+| Stopping Rules | 9 (Statistics), 7 (Safety) |
+| CTQ from Eligibility | 3 (Inclusion/Exclusion) |
+| CTQ from Endpoints | 4 (Objectives/Endpoints) |
+| CTQ from Treatment | 5 (Treatment schedule) |
+| Operational Complexity | 6 (Schedule of Assessments) |
+
+### For Derived/Emergent Risks
+Even when a risk is "derived" from multiple factors, cite the primary source text:
+1. Find the protocol text containing the complexity factor
+2. Quote the specific constraint or requirement
+3. Use that as the provenance
+
+---
+
+## TEXT SNIPPET RULES
+
+1. **EXACT QUOTE**: Copy text exactly as it appears
+2. **MAX 500 CHARACTERS**: Truncate with "..." if longer
+3. **MOST RELEVANT PORTION**: Select phrase that directly supports the value
+4. **CLEAN WHITESPACE**: Remove excess line breaks
+5. **INCLUDE CONTEXT**: Start quote at natural phrase beginning
+
+---
+
+## HANDLING EXPLICIT SOURCE NOT FOUND
+
+1. **Search harder**: Try keyword variations, check appendices
+2. **Check tables**: Risk info often in tables
+3. **Check synopsis**: May contain summary info
+4. **Use broader section**: If specific quote not found, use section header
+
+**IF STILL NOT FOUND → USE DERIVED PROVENANCE:**
+
+```json
+{
+  "kind": "derived",
+  "derived": {
+    "reasoning": "Detailed explanation of how this value was inferred from protocol context...",
+    "supporting_context": ["Related section 1", "Related principle 2"],
+    "confidence": "medium"
+  }
+}
+```
+
+**Confidence Guidelines:**
+- **high**: Protocol strongly implies this value through multiple statements
+- **medium**: Value reasonably inferred from protocol context and standards
+- **low**: Value based primarily on industry standards with minimal protocol support
+
+---
+
+## OUTPUT FORMAT
+
+Return the COMPLETE Pass 1 JSON with provenance added to ALL locations listed above.
+
+Example structure:
+```json
+{
+  "id": "PROTOCOL_ID-quality-management",
+  "instanceType": "QualityManagement",
+
+  "monitoring": {
+    "monitoring_approach": {
+      "instanceType": "MonitoringApproach",
+      "strategy": "risk_based",
+      "provenance": {
+        "kind": "explicit",
+        "explicit": {
+          "section_number": "5.2",
+          "page_number": 42,
+          "text_snippet": "A risk-based monitoring approach will be implemented in accordance with ICH E6(R2)..."
+        }
+      }
+    },
+    "sdv_strategy": {
+      "overall_approach": "risk_based",
+      "default_sdv_percentage": 20,
+      "provenance": {
+        "kind": "derived",
+        "derived": {
+          "reasoning": "SDV percentage inferred from the protocol's risk-based monitoring approach...",
+          "supporting_context": ["Section 10.1.4 mentions risk-based monitoring"],
+          "confidence": "medium"
+        }
+      }
+    },
+    "key_risk_indicators": [
+      {
+        "id": "KRI-001",
+        "name": "Informed Consent Compliance",
+        "provenance": {
+          "kind": "explicit",
+          "explicit": {
+            "section_number": "9.1",
+            "page_number": 65,
+            "text_snippet": "Informed consent must be obtained and documented prior to any study procedures..."
+          }
+        }
+      }
+    ],
+    "provenance": {
+      "kind": "explicit",
+      "explicit": {
+        "section_number": "5.2",
+        "page_number": 40,
+        "text_snippet": "MONITORING PLAN"
+      }
+    }
+  },
+
+  "rbqm": {
+    "ract_register": {
+      "critical_to_quality_factors": [
+        {
+          "ctq_id": "CTQ-001",
+          "ctq_category": "Patient Safety",
+          "factor": "Cardiac monitoring compliance",
+          "provenance": {
+            "kind": "explicit",
+            "explicit": {
+              "section_number": "7.2.1",
+              "page_number": 52,
+              "text_snippet": "ECG monitoring is required at baseline, Week 4, and every 8 weeks thereafter..."
+            }
+          }
+        }
+      ],
+      "emergent_systemic_risks": [
+        {
+          "risk_id": "ESR-001",
+          "risk_description": "High screen failure due to eligibility complexity",
+          "provenance": {
+            "kind": "explicit",
+            "explicit": {
+              "section_number": "3.2",
+              "page_number": 22,
+              "text_snippet": "Subjects with any of the following 15 exclusion criteria are not eligible..."
+            }
+          }
+        }
+      ]
+    },
+    "risk_governance": {
+      "risk_assessment_matrix": {
+        "identified_risks": [
+          {
+            "risk_id": "RISK-001",
+            "risk_category": "Safety",
+            "provenance": {
+              "kind": "explicit",
+              "explicit": {
+                "section_number": "7.3.2",
+                "page_number": 58,
+                "text_snippet": "Liver function tests will be monitored due to known hepatotoxicity signals..."
+              }
+            }
+          }
+        ],
+        "provenance": {
+          "kind": "derived",
+          "derived": {
+            "reasoning": "Risk assessment matrix structured based on TransCelerate RACT methodology...",
+            "supporting_context": ["Section 6.3 references risk-based approach"],
+            "confidence": "high"
+          }
+        }
+      },
+      "safety_signal_detection": {
+        "stopping_rules": [
+          {
+            "rule_id": "STOP-001",
+            "rule_type": "safety",
+            "provenance": {
+              "kind": "explicit",
+              "explicit": {
+                "section_number": "9.4.2",
+                "page_number": 78,
+                "text_snippet": "The study will be stopped if mortality exceeds 25% in any treatment arm..."
+              }
+            }
+          }
+        ]
+      }
+    },
+    "provenance": {
+      "kind": "explicit",
+      "explicit": {
+        "section_number": "6.3",
+        "page_number": 35,
+        "text_snippet": "RISK-BASED QUALITY MANAGEMENT"
+      }
+    }
+  },
+
+  "provenance": {
+    "kind": "explicit",
+    "explicit": {
+      "section_number": "5-6",
+      "page_number": 35,
+      "text_snippet": "Quality management and monitoring plan for the study..."
+    }
+  }
+}
+```
+
+---
+
+## CRITICAL REMINDERS
+
+1. **100% COVERAGE REQUIRED**: Every path in the checklist MUST have provenance
+2. **PREFER EXPLICIT**: Always try to find explicit text first
+3. **ARRAY ITEMS**: Each element in an array needs its own provenance
+4. **NESTED OBJECTS**: Don't skip nested objects
+5. **QUALITY DERIVED REASONING**: For derived provenance, explain the logical chain clearly (min 50 chars)
+6. **NEVER LEAVE EMPTY**: Every field must have either explicit or derived provenance
+
+Return ONLY valid JSON. No markdown fences.

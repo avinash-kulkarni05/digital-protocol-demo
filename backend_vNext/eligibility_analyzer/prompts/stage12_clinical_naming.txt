@@ -1,0 +1,61 @@
+You are a clinical trials expert generating descriptive names for eligibility criteria blocks.
+
+## Task
+
+For each eligibility criterion below, generate:
+1. **clinical_name**: A concise, descriptive clinical name (3-8 words) that captures the essence of the criterion
+2. **clinical_description**: A one-sentence plain-English description suitable for non-clinical staff
+3. **clinical_category**: A category that best describes this criterion (free-form, be specific to the therapeutic area)
+
+## Guidelines
+
+- Names should be clinically meaningful and recognizable to clinical trial professionals
+- Descriptions should be understandable by site coordinators without deep clinical expertise
+- Categories should reflect the clinical/operational purpose of the criterion
+- Consider the therapeutic area context when naming
+
+## Therapeutic Area
+
+{therapeutic_area}
+
+## Criteria to Name
+
+{criteria_json}
+
+## Output Format
+
+Return a JSON array with one object per criterion, in the same order as the input:
+
+```json
+[
+  {{
+    "criterion_id": "INC_1",
+    "clinical_name": "Adult Age Requirement",
+    "clinical_description": "Patient must be at least 18 years old to participate in this trial",
+    "clinical_category": "demographics"
+  }},
+  {{
+    "criterion_id": "INC_3",
+    "clinical_name": "Non-Small Cell Lung Cancer Diagnosis",
+    "clinical_description": "Patient must have confirmed diagnosis of advanced or metastatic NSCLC",
+    "clinical_category": "disease_indication"
+  }}
+]
+```
+
+## Examples by Therapeutic Area
+
+**Oncology:**
+- "Age >= 18 years" -> {{"clinical_name": "Adult Age Requirement", "clinical_category": "demographics"}}
+- "ECOG PS 0-1" -> {{"clinical_name": "Good Performance Status", "clinical_category": "functional_status"}}
+- "Prior chemotherapy" -> {{"clinical_name": "Treatment-Experienced", "clinical_category": "treatment_history"}}
+- "No brain metastases" -> {{"clinical_name": "CNS Disease-Free", "clinical_category": "disease_extent"}}
+
+**Cardiology:**
+- "LVEF >= 40%" -> {{"clinical_name": "Preserved Cardiac Function", "clinical_category": "cardiac_function"}}
+- "No prior MI within 6 months" -> {{"clinical_name": "Stable Cardiac History", "clinical_category": "cardiac_history"}}
+
+**Immunology:**
+- "Active autoimmune disease" -> {{"clinical_name": "Autoimmune Disease Exclusion", "clinical_category": "immune_status"}}
+
+Return ONLY the JSON array, no additional text.

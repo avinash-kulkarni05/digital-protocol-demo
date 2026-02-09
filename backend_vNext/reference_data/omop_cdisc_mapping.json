@@ -1,0 +1,412 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OMOP to CDISC Domain Mapping",
+  "description": "Mapping reference for converting OMOP CDM domains and vocabularies to CDISC SDTM domains and biomedical concepts",
+  "version": "1.0.0",
+  "lastUpdated": "2025-12-18",
+  "domainMapping": {
+    "_description": "Maps OMOP domain_id to CDISC SDTM domain codes",
+    "Condition": {
+      "cdiscDomain": "MH",
+      "description": "Medical History",
+      "confidence": 0.9,
+      "notes": "OMOP conditions map to CDISC Medical History domain"
+    },
+    "Drug": {
+      "cdiscDomain": "CM",
+      "description": "Concomitant Medications",
+      "confidence": 0.95,
+      "notes": "OMOP drugs map to CDISC Concomitant Medications domain"
+    },
+    "Measurement": {
+      "cdiscDomain": "LB",
+      "description": "Laboratory Test Results",
+      "confidence": 0.85,
+      "notes": "OMOP measurements typically map to Laboratory; may also be VS or EG depending on context"
+    },
+    "Procedure": {
+      "cdiscDomain": "PR",
+      "description": "Procedures",
+      "confidence": 0.9,
+      "notes": "OMOP procedures map to CDISC Procedures domain"
+    },
+    "Observation": {
+      "cdiscDomain": "FA",
+      "description": "Findings About",
+      "confidence": 0.7,
+      "notes": "OMOP observations may map to multiple domains; FA is default, but VS for vital signs"
+    },
+    "Device": {
+      "cdiscDomain": "DA",
+      "description": "Device Accountability",
+      "confidence": 0.85,
+      "notes": "OMOP devices map to CDISC Device Accountability"
+    },
+    "Visit": {
+      "cdiscDomain": "SV",
+      "description": "Subject Visits",
+      "confidence": 0.95,
+      "notes": "Visit timing information"
+    },
+    "Specimen": {
+      "cdiscDomain": "BS",
+      "description": "Biospecimen",
+      "confidence": 0.95,
+      "notes": "Specimen collection information"
+    },
+    "Note": {
+      "cdiscDomain": "CO",
+      "description": "Comments",
+      "confidence": 0.5,
+      "notes": "Free-text clinical notes"
+    },
+    "Episode": {
+      "cdiscDomain": "CE",
+      "description": "Clinical Events",
+      "confidence": 0.7,
+      "notes": "Disease episodes or treatment episodes"
+    },
+    "Metadata": {
+      "cdiscDomain": "TS",
+      "description": "Trial Summary",
+      "confidence": 0.6,
+      "notes": "Study metadata"
+    },
+    "Unit": {
+      "cdiscDomain": null,
+      "description": "Units (no direct domain)",
+      "confidence": 0.0,
+      "notes": "Units are attributes, not a separate domain"
+    },
+    "Route": {
+      "cdiscDomain": null,
+      "description": "Administration Route (no direct domain)",
+      "confidence": 0.0,
+      "notes": "Route is an attribute of CM/EX"
+    },
+    "Relationship": {
+      "cdiscDomain": "RELREC",
+      "description": "Related Records",
+      "confidence": 0.8,
+      "notes": "Relationship between records"
+    },
+    "Type Concept": {
+      "cdiscDomain": null,
+      "description": "Type Concept (no direct domain)",
+      "confidence": 0.0,
+      "notes": "Metadata about source type"
+    }
+  },
+  "vocabularyMapping": {
+    "_description": "Maps OMOP vocabulary_id to CDISC code systems and typical domains",
+    "SNOMED": {
+      "codeSystemPrefix": "http://snomed.info/sct",
+      "typicalDomains": ["MH", "AE", "PE"],
+      "confidence": 0.9,
+      "notes": "SNOMED CT - clinical findings, procedures, conditions"
+    },
+    "LOINC": {
+      "codeSystemPrefix": "http://loinc.org",
+      "typicalDomains": ["LB", "VS", "EG"],
+      "confidence": 0.95,
+      "notes": "LOINC - laboratory tests, vital signs measurements"
+    },
+    "RxNorm": {
+      "codeSystemPrefix": "http://www.nlm.nih.gov/research/umls/rxnorm",
+      "typicalDomains": ["CM", "EX"],
+      "confidence": 0.95,
+      "notes": "RxNorm - drug names, ingredients, dose forms"
+    },
+    "RxNorm Extension": {
+      "codeSystemPrefix": "http://www.nlm.nih.gov/research/umls/rxnorm",
+      "typicalDomains": ["CM", "EX"],
+      "confidence": 0.9,
+      "notes": "RxNorm Extension - additional drug concepts"
+    },
+    "ICD10CM": {
+      "codeSystemPrefix": "http://hl7.org/fhir/sid/icd-10-cm",
+      "typicalDomains": ["MH", "AE"],
+      "confidence": 0.85,
+      "notes": "ICD-10-CM - diagnoses and conditions"
+    },
+    "ICD10PCS": {
+      "codeSystemPrefix": "http://hl7.org/fhir/sid/icd-10-pcs",
+      "typicalDomains": ["PR"],
+      "confidence": 0.9,
+      "notes": "ICD-10-PCS - procedures"
+    },
+    "ICD9CM": {
+      "codeSystemPrefix": "http://hl7.org/fhir/sid/icd-9-cm",
+      "typicalDomains": ["MH", "AE", "PR"],
+      "confidence": 0.8,
+      "notes": "Legacy ICD-9-CM codes"
+    },
+    "CPT4": {
+      "codeSystemPrefix": "http://www.ama-assn.org/go/cpt",
+      "typicalDomains": ["PR"],
+      "confidence": 0.9,
+      "notes": "CPT-4 - medical procedures and services"
+    },
+    "HCPCS": {
+      "codeSystemPrefix": "http://hl7.org/fhir/sid/hcpcs",
+      "typicalDomains": ["PR", "DA"],
+      "confidence": 0.85,
+      "notes": "HCPCS - healthcare services, devices, supplies"
+    },
+    "MedDRA": {
+      "codeSystemPrefix": "http://www.meddra.org",
+      "typicalDomains": ["AE", "MH"],
+      "confidence": 0.95,
+      "notes": "MedDRA - adverse events, medical conditions (preferred for AE)"
+    },
+    "ATC": {
+      "codeSystemPrefix": "http://www.whocc.no/atc",
+      "typicalDomains": ["CM", "EX"],
+      "confidence": 0.9,
+      "notes": "ATC - anatomical therapeutic chemical classification"
+    },
+    "NDC": {
+      "codeSystemPrefix": "http://hl7.org/fhir/sid/ndc",
+      "typicalDomains": ["CM", "EX"],
+      "confidence": 0.85,
+      "notes": "National Drug Code - specific drug products"
+    },
+    "CVX": {
+      "codeSystemPrefix": "http://hl7.org/fhir/sid/cvx",
+      "typicalDomains": ["CM", "EX"],
+      "confidence": 0.9,
+      "notes": "CVX - vaccine codes"
+    },
+    "Gender": {
+      "codeSystemPrefix": null,
+      "typicalDomains": ["DM"],
+      "confidence": 1.0,
+      "notes": "Gender vocabulary - demographics"
+    },
+    "Race": {
+      "codeSystemPrefix": null,
+      "typicalDomains": ["DM"],
+      "confidence": 1.0,
+      "notes": "Race vocabulary - demographics"
+    },
+    "Ethnicity": {
+      "codeSystemPrefix": null,
+      "typicalDomains": ["DM"],
+      "confidence": 1.0,
+      "notes": "Ethnicity vocabulary - demographics"
+    },
+    "UCUM": {
+      "codeSystemPrefix": "http://unitsofmeasure.org",
+      "typicalDomains": null,
+      "confidence": 1.0,
+      "notes": "UCUM - units of measure (used across domains)"
+    }
+  },
+  "contextualDomainRules": {
+    "_description": "Rules for determining CDISC domain based on context beyond OMOP domain",
+    "vitalSignsMeasurements": {
+      "keywords": ["blood pressure", "heart rate", "pulse", "temperature", "respiratory rate", "weight", "height", "bmi", "oxygen saturation", "spo2"],
+      "cdiscDomain": "VS",
+      "overridesOmopDomain": true,
+      "confidence": 0.95
+    },
+    "ecgMeasurements": {
+      "keywords": ["ecg", "ekg", "electrocardiogram", "qtc", "pr interval", "qrs", "heart rhythm"],
+      "cdiscDomain": "EG",
+      "overridesOmopDomain": true,
+      "confidence": 0.95
+    },
+    "laboratoryMeasurements": {
+      "keywords": ["lab", "laboratory", "blood test", "serum", "plasma", "urine test"],
+      "cdiscDomain": "LB",
+      "overridesOmopDomain": false,
+      "confidence": 0.9
+    },
+    "performanceStatus": {
+      "keywords": ["ecog", "karnofsky", "lansky", "performance status"],
+      "cdiscDomain": "QS",
+      "overridesOmopDomain": true,
+      "confidence": 0.95
+    },
+    "tumorAssessment": {
+      "keywords": ["recist", "tumor", "lesion", "response", "progression", "ct scan", "mri scan"],
+      "cdiscDomain": "TU",
+      "overridesOmopDomain": true,
+      "confidence": 0.9
+    },
+    "adverseEvents": {
+      "keywords": ["adverse event", "side effect", "toxicity", "ctcae", "serious adverse"],
+      "cdiscDomain": "AE",
+      "overridesOmopDomain": true,
+      "confidence": 0.95
+    },
+    "inclusionExclusion": {
+      "keywords": ["inclusion criteria", "exclusion criteria", "eligibility", "eligible", "ineligible"],
+      "cdiscDomain": "IE",
+      "overridesOmopDomain": true,
+      "confidence": 1.0
+    }
+  },
+  "fhirResourceMapping": {
+    "_description": "Maps FHIR resource types to CDISC domains",
+    "Condition": {
+      "cdiscDomain": "MH",
+      "alternatives": ["AE"],
+      "confidence": 0.85,
+      "notes": "Medical history or adverse events depending on context"
+    },
+    "Medication": {
+      "cdiscDomain": "CM",
+      "alternatives": ["EX"],
+      "confidence": 0.9,
+      "notes": "Concomitant medications or study drug exposure"
+    },
+    "MedicationRequest": {
+      "cdiscDomain": "CM",
+      "alternatives": ["EX"],
+      "confidence": 0.9,
+      "notes": "Prescribed medications"
+    },
+    "MedicationStatement": {
+      "cdiscDomain": "CM",
+      "alternatives": [],
+      "confidence": 0.9,
+      "notes": "Reported medication use"
+    },
+    "Observation": {
+      "cdiscDomain": "LB",
+      "alternatives": ["VS", "EG", "FA"],
+      "confidence": 0.7,
+      "notes": "Laboratory results, vital signs, or other observations"
+    },
+    "Procedure": {
+      "cdiscDomain": "PR",
+      "alternatives": [],
+      "confidence": 0.95,
+      "notes": "Procedures performed"
+    },
+    "DiagnosticReport": {
+      "cdiscDomain": "LB",
+      "alternatives": ["MI", "EG"],
+      "confidence": 0.8,
+      "notes": "Laboratory or imaging reports"
+    },
+    "Specimen": {
+      "cdiscDomain": "BS",
+      "alternatives": [],
+      "confidence": 0.95,
+      "notes": "Biospecimen information"
+    },
+    "Patient": {
+      "cdiscDomain": "DM",
+      "alternatives": [],
+      "confidence": 1.0,
+      "notes": "Demographics"
+    },
+    "Encounter": {
+      "cdiscDomain": "SV",
+      "alternatives": [],
+      "confidence": 0.9,
+      "notes": "Subject visits"
+    },
+    "ImagingStudy": {
+      "cdiscDomain": "TU",
+      "alternatives": ["PR"],
+      "confidence": 0.8,
+      "notes": "Imaging studies, tumor assessments"
+    },
+    "Questionnaire": {
+      "cdiscDomain": "QS",
+      "alternatives": [],
+      "confidence": 0.95,
+      "notes": "PRO questionnaires"
+    },
+    "QuestionnaireResponse": {
+      "cdiscDomain": "QS",
+      "alternatives": [],
+      "confidence": 0.95,
+      "notes": "PRO questionnaire responses"
+    },
+    "Consent": {
+      "cdiscDomain": "DS",
+      "alternatives": [],
+      "confidence": 0.9,
+      "notes": "Informed consent"
+    },
+    "Device": {
+      "cdiscDomain": "DA",
+      "alternatives": [],
+      "confidence": 0.9,
+      "notes": "Medical devices"
+    },
+    "Immunization": {
+      "cdiscDomain": "CM",
+      "alternatives": [],
+      "confidence": 0.9,
+      "notes": "Vaccinations"
+    },
+    "AllergyIntolerance": {
+      "cdiscDomain": "MH",
+      "alternatives": ["AE"],
+      "confidence": 0.85,
+      "notes": "Allergies and intolerances"
+    },
+    "FamilyMemberHistory": {
+      "cdiscDomain": "MH",
+      "alternatives": [],
+      "confidence": 0.8,
+      "notes": "Family medical history"
+    }
+  },
+  "eligibilityCriteriaMapping": {
+    "_description": "Special mappings for eligibility criteria contexts",
+    "ageRelated": {
+      "patterns": ["age", "years old", "year-old", "pediatric", "adult", "elderly", "geriatric"],
+      "cdiscDomain": "DM",
+      "conceptNamePrefix": "Age Criterion",
+      "confidence": 1.0
+    },
+    "diseaseRelated": {
+      "patterns": ["diagnosis", "diagnosed with", "history of", "confirmed", "documented"],
+      "cdiscDomain": "MH",
+      "conceptNamePrefix": "Medical History Criterion",
+      "confidence": 0.9
+    },
+    "medicationRelated": {
+      "patterns": ["taking", "receiving", "treated with", "on therapy", "prior treatment", "concomitant"],
+      "cdiscDomain": "CM",
+      "conceptNamePrefix": "Medication Criterion",
+      "confidence": 0.9
+    },
+    "labRelated": {
+      "patterns": ["level", "count", "value", "result", "test", "within range", ">=", "<=", "<", ">"],
+      "cdiscDomain": "LB",
+      "conceptNamePrefix": "Laboratory Criterion",
+      "confidence": 0.85
+    },
+    "performanceRelated": {
+      "patterns": ["ecog", "karnofsky", "performance status", "functional status", "ps"],
+      "cdiscDomain": "QS",
+      "conceptNamePrefix": "Performance Status Criterion",
+      "confidence": 0.95
+    },
+    "consentRelated": {
+      "patterns": ["consent", "agree", "willing", "capable of", "ability to"],
+      "cdiscDomain": "DS",
+      "conceptNamePrefix": "Consent Criterion",
+      "confidence": 0.9
+    },
+    "reproductiveRelated": {
+      "patterns": ["pregnant", "pregnancy", "contraception", "fertile", "childbearing", "breastfeeding", "nursing"],
+      "cdiscDomain": "DM",
+      "conceptNamePrefix": "Reproductive Status Criterion",
+      "confidence": 0.95
+    },
+    "organFunctionRelated": {
+      "patterns": ["renal function", "hepatic function", "liver function", "cardiac function", "organ function"],
+      "cdiscDomain": "LB",
+      "conceptNamePrefix": "Organ Function Criterion",
+      "confidence": 0.9
+    }
+  }
+}

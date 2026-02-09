@@ -1,0 +1,239 @@
+system
+You are an expert clinical trial document analyst specializing in locating exact source references in clinical protocol documents.
+
+user
+# ADVERSE EVENTS - PASS 2: PROVENANCE EXTRACTION
+
+## OBJECTIVE
+Add provenance (source references) to ALL values extracted in Pass 1. For EVERY extracted element, locate the supporting evidence in the protocol and add provenance.
+
+You are provided with:
+1. Extracted adverse events data from Pass 1
+2. The original protocol PDF
+
+Your task is to find EXACT source locations (provenance) for each extracted item.
+
+---
+
+## PROVENANCE STRUCTURE
+
+For each provenance object, provide:
+```json
+{
+  "section_number": "8.3.1",
+  "page_number": 45,
+  "text_snippet": "Direct quote from protocol (max 500 chars)"
+}
+```
+
+- **section_number**: Exact section from protocol (e.g., "8.3", "6.5.1") - can be null if unknown
+- **page_number**: PDF page number (integer, 1-indexed) - REQUIRED
+- **text_snippet**: Direct quote from protocol (max 500 chars, truncate with "...") - REQUIRED
+
+---
+
+## PASS 1 EXTRACTION (Data Requiring Provenance)
+
+{{ extracted_values }}
+
+---
+
+## PROVENANCE PATHS TO POPULATE
+
+**Root Level:**
+- $.provenance
+
+**AE Definitions:**
+- $.ae_definitions.provenance
+
+**SAE Criteria:**
+- $.sae_criteria.provenance
+- $.sae_criteria.criteria[*].provenance (EACH criterion)
+
+**Grading System:**
+- $.grading_system.provenance
+
+**Causality Assessment:**
+- $.causality_assessment.provenance
+
+**Coding Dictionary:**
+- $.coding_dictionary.provenance
+
+**Reporting Procedures:**
+- $.reporting_procedures.provenance
+
+**AESI List:**
+- $.aesi_list[*].provenance (EACH AESI)
+
+**DLT Criteria:**
+- $.dlt_criteria.provenance
+- $.dlt_criteria.dlt_definitions[*].provenance (EACH definition)
+
+**Safety Committees:**
+- $.safety_committees[*].provenance (EACH committee)
+
+---
+
+## SEARCH STRATEGY
+
+| Content Type | Typical Sections |
+|--------------|------------------|
+| AE Definitions | 8.1, 8.2, "Adverse Events" |
+| SAE Criteria | 8.2, 8.3, "Serious Adverse Events" |
+| Grading System | 8.1, "Adverse Event Grading" |
+| Causality | 8.4, "Causality Assessment" |
+| Reporting | 8.5, 8.6, "SAE Reporting" |
+| AESI | 8.4, "Events of Special Interest" |
+| DLT | 5.x, "Dose-Limiting Toxicity" |
+| Safety Committees | 8.6, "DSMB", "Safety Oversight" |
+
+---
+
+## TEXT SNIPPET RULES
+
+1. **EXACT QUOTE**: Copy text exactly as it appears
+2. **MAX 500 CHARACTERS**: Truncate with "..." if longer
+3. **MOST RELEVANT PORTION**: Select phrase that directly supports the value
+4. **CLEAN WHITESPACE**: Remove excess line breaks
+
+---
+
+## CRITICAL: DO NOT MODIFY PRIMITIVE ARRAYS
+
+**IMPORTANT**: The following array fields contain PLAIN STRINGS. Do NOT convert them to objects with value/provenance.
+
+**Arrays that must remain as PLAIN STRING arrays:**
+- `grade_definitions`: ["Grade 1: Mild", "Grade 2: Moderate"] ← KEEP AS PLAIN STRINGS
+- `actions_required`: ["Notify investigator", "Hold treatment"] ← KEEP AS PLAIN STRINGS
+- `monitoring_procedures`: ["Daily labs", "ECG monitoring"] ← KEEP AS PLAIN STRINGS
+- `reporting_recipients`: ["Sponsor", "IRB", "FDA"] ← KEEP AS PLAIN STRINGS
+- `expedited_reporting_criteria`: ["All AESI", "Hy's Law events"] ← KEEP AS PLAIN STRINGS
+- `exceptions`: ["Exception text"] ← KEEP AS PLAIN STRINGS
+- `exclusions`: ["Exclusion text"] ← KEEP AS PLAIN STRINGS
+
+**WRONG** (Do NOT do this):
+```json
+"grade_definitions": [
+  {"value": "Grade 1: Mild", "provenance": {...}},
+  {"value": "Grade 2: Moderate", "provenance": {...}}
+]
+```
+
+**CORRECT** (Do this instead):
+```json
+"grade_definitions": ["Grade 1: Mild", "Grade 2: Moderate"],
+"provenance": {
+  "section_number": "8.1",
+  "page_number": 45,
+  "text_snippet": "Adverse events will be graded according to CTCAE v5.0..."
+}
+```
+
+Provenance goes at the PARENT OBJECT level, covering all fields within that object including string arrays.
+
+---
+
+## CRITICAL PAGE NUMBER RULES
+
+1. Use PHYSICAL page numbers (1st page of PDF = 1)
+2. Do NOT use printed page numbers in headers/footers
+3. The text_snippet MUST appear on the EXACT page_number you specify
+
+---
+
+## OUTPUT FORMAT
+
+Return the COMPLETE Pass 1 JSON with provenance added to ALL locations listed above.
+
+Example structure:
+```json
+{
+  "id": "PROTOCOL_ID-adverse-events",
+  "instanceType": "AdverseEvents",
+  "name": "PROTOCOL_ID Adverse Events",
+
+  "ae_definitions": {
+    "ae_definition": "Any untoward medical occurrence...",
+    "teae_definition": "...",
+    "provenance": {
+      "section_number": "8.1",
+      "page_number": 45,
+      "text_snippet": "An adverse event is any untoward medical occurrence in a patient..."
+    }
+  },
+  "sae_criteria": {
+    "sae_definition": "...",
+    "criteria": [
+      {
+        "id": "sae-001",
+        "criterion_type": {...},
+        "definition": "Results in death",
+        "provenance": {
+          "section_number": "8.2.1",
+          "page_number": 46,
+          "text_snippet": "Results in death"
+        }
+      }
+    ],
+    "provenance": {
+      "section_number": "8.2",
+      "page_number": 46,
+      "text_snippet": "A serious adverse event is any adverse event that..."
+    }
+  },
+  "aesi_list": [
+    {
+      "id": "aesi-001",
+      "aesi_name": "Hepatotoxicity",
+      "provenance": {
+        "section_number": "8.4.1",
+        "page_number": 50,
+        "text_snippet": "Hepatotoxicity is an adverse event of special interest..."
+      }
+    }
+  ],
+
+  "extraction_statistics": {...},
+
+  "provenance": {
+    "section_number": "8",
+    "page_number": 45,
+    "text_snippet": "SAFETY ASSESSMENTS"
+  }
+}
+```
+
+---
+
+## VALIDATION CHECKLIST (MANDATORY)
+
+**Before returning, verify ALL of these provenance objects exist:**
+
+Root Level:
+- [ ] `$.provenance` exists with page_number and text_snippet
+
+Section Level:
+- [ ] `$.ae_definitions.provenance` exists
+- [ ] `$.sae_criteria.provenance` exists
+- [ ] `$.grading_system.provenance` exists (if grading_system is not null)
+- [ ] `$.causality_assessment.provenance` exists (if not null)
+- [ ] `$.coding_dictionary.provenance` exists (if not null)
+- [ ] `$.reporting_procedures.provenance` exists (if not null)
+- [ ] `$.dlt_criteria.provenance` exists (if not null)
+
+Array Items:
+- [ ] Every item in `sae_criteria.criteria[]` has provenance
+- [ ] Every item in `aesi_list[]` has provenance
+- [ ] Every item in `dlt_criteria.dlt_definitions[]` has provenance (if applicable)
+- [ ] Every item in `safety_committees[]` has provenance
+
+Format Requirements:
+- [ ] All page_number values are integers (1-indexed)
+- [ ] All text_snippets are ≤500 characters
+- [ ] text_snippets are EXACT quotes from the document
+- [ ] Primitive arrays remain as plain strings (expedited_reporting_criteria, exceptions, exclusions)
+- [ ] No values were modified from Pass 1
+
+**DO NOT RETURN until ALL checkboxes above are satisfied.**
+
+Return ONLY valid JSON. No markdown fences.

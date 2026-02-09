@@ -1,0 +1,123 @@
+{
+  "stage": 7,
+  "stageName": "Timing Distribution",
+  "success": true,
+  "expansions": [],
+  "decisions": {},
+  "discrepancies": [],
+  "reviewItems": [],
+  "metrics": {
+    "uniqueTimingsAnalyzed": 0,
+    "saisProcessed": 81,
+    "saisWithTiming": 0,
+    "saisExpanded": 0,
+    "saisCreated": 0,
+    "saisUnchanged": 0,
+    "cacheHits": 0,
+    "llmCalls": 0,
+    "validationFlags": 0,
+    "reviewItemsCount": 0,
+    "expansionRate": 0.0
+  },
+  "_agentDefinition": {
+    "stageNumber": 7,
+    "stageName": "Timing Distribution",
+    "displayName": "Timing Window Expander",
+    "purpose": "Expands timing annotations (BI/EOI, pre-dose/post-dose, time windows) into discrete scheduled instances, enabling precise visit window calculations.",
+    "extractionMethodology": "Pattern recognition for timing markers (BI, EOI, predose, +30min, etc.). Time window parsing and standardization. LLM interpretation of complex timing descriptions. Window calculation based on protocol-defined tolerances.",
+    "keyOutputs": [
+      {
+        "field": "timingInstances",
+        "description": "Expanded discrete timing points"
+      },
+      {
+        "field": "timingModifier",
+        "description": "Type: BI, EOI, PREDOSE, POSTDOSE, WINDOW"
+      },
+      {
+        "field": "offsetMinutes",
+        "description": "Time offset from reference point"
+      },
+      {
+        "field": "windowStart",
+        "description": "Earliest acceptable time"
+      },
+      {
+        "field": "windowEnd",
+        "description": "Latest acceptable time"
+      },
+      {
+        "field": "referenceEvent",
+        "description": "Event this timing is relative to (dosing, visit start)"
+      }
+    ],
+    "downstreamIntegrations": [
+      {
+        "system": "EDC Build",
+        "useCase": "Visit window calculation and out-of-window flags",
+        "automationType": "rule_generation",
+        "fieldsUsed": [
+          "windowStart",
+          "windowEnd",
+          "referenceEvent"
+        ],
+        "automationExample": "Edit check: WARN if assessment time outside \u00b130 min window from dosing"
+      },
+      {
+        "system": "IRT Build",
+        "useCase": "Appointment scheduling with time constraints",
+        "automationType": "configuration",
+        "fieldsUsed": [
+          "timingInstances",
+          "offsetMinutes",
+          "referenceEvent"
+        ],
+        "automationExample": "IRT schedules PK draw at dose +2hr \u00b115min with automated reminder"
+      },
+      {
+        "system": "PK Analysis",
+        "useCase": "Nominal time assignment for concentration data",
+        "automationType": "direct_mapping",
+        "fieldsUsed": [
+          "offsetMinutes",
+          "referenceEvent"
+        ],
+        "automationExample": "PK system receives nominal timepoints for concentration-time profiles"
+      },
+      {
+        "system": "Site Operations",
+        "useCase": "Visit timeline generation",
+        "automationType": "direct_mapping",
+        "fieldsUsed": [
+          "timingInstances",
+          "timingModifier"
+        ],
+        "automationExample": "Site receives visit day timeline: Pre-dose labs \u2192 Dosing \u2192 2hr PK \u2192 4hr PK"
+      }
+    ],
+    "automationInsights": [
+      {
+        "insight": "Window Edit Checks",
+        "description": "Timing windows auto-generate out-of-window deviation checks"
+      },
+      {
+        "insight": "PK Scheduling",
+        "description": "Offset times enable automated PK sampling schedule generation"
+      },
+      {
+        "insight": "Site Logistics",
+        "description": "Timing sequence informs site procedure ordering and duration"
+      }
+    ],
+    "dataQualityIndicators": [
+      "windows are non-negative",
+      "reference event is defined",
+      "no overlapping windows"
+    ],
+    "humanReviewTriggers": [
+      "complex timing pattern",
+      "unclear reference event",
+      "window tolerance missing"
+    ]
+  }
+}

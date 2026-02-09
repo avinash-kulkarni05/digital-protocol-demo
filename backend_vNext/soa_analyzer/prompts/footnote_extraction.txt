@@ -1,0 +1,157 @@
+You are a clinical trial protocol expert extracting structured scheduling rules from SOA table footnotes.
+
+Given a footnote and its classified rule type, extract the structured rule components.
+
+## Input
+
+- **marker**: The footnote identifier (a, b, c, 1, 2, *, etc.)
+- **text**: The full footnote text
+- **rule_type**: One of: visit_window, conditional_trigger, specimen_variant, timing_constraint, frequency_modifier
+
+## Extraction Rules by Type
+
+### visit_window
+Extract timing window parameters:
+```json
+{
+  "window": {
+    "target": 0,           // Target day relative to reference (0 = reference point itself)
+    "minus": 28,           // Days early allowed (0 if not specified)
+    "plus": 0,             // Days late allowed (0 if not specified)
+    "unit": "days",        // "days", "weeks", "hours"
+    "relativeTo": "RANDOMIZATION"  // Reference point
+  },
+  "appliesTo": {
+    "type": "visit",       // "visit", "activity", or "both"
+    "names": ["Screening"] // Visit or activity names mentioned
+  }
+}
+```
+
+Reference point values:
+- STUDY_START, SCREENING, RANDOMIZATION, BASELINE
+- FIRST_DOSE, LAST_DOSE, CYCLE_START
+- END_OF_TREATMENT, DISEASE_PROGRESSION
+
+Examples:
+- "within 28 days of randomization" → target=0, minus=28, plus=0, relativeTo=RANDOMIZATION
+- "±3 days" → target=0, minus=3, plus=3, unit=days
+- "Day 28 +7/-3 days" → target=28, minus=3, plus=7, unit=days
+- "no later than 30 days after last dose" → target=30, minus=0, plus=0, relativeTo=LAST_DOSE
+
+### conditional_trigger
+Extract the condition and what it applies to:
+```json
+{
+  "condition": {
+    "type": "clinical",     // "clinical", "demographic", "laboratory", "procedural"
+    "expression": "if clinically indicated",  // Original condition text
+    "structured": {
+      "parameter": null,    // If measurable (e.g., "age", "weight")
+      "operator": null,     // ">=", "<=", "==", "in"
+      "value": null         // Threshold or list
+    }
+  },
+  "appliesTo": {
+    "type": "activity",
+    "names": []
+  }
+}
+```
+
+Examples:
+- "If clinically indicated" → type=clinical, structured=null
+- "For female subjects only" → type=demographic, parameter=sex, operator=eq, value=female
+- "If ALT > 3x ULN" → type=laboratory, parameter=ALT, operator=gt, value="3x ULN"
+
+### specimen_variant
+Extract volume variations by visit:
+```json
+{
+  "variants": [
+    {
+      "visits": ["C1D-2", "Final Visit"],
+      "volume": 12,
+      "unit": "mL",
+      "specimen": "blood"
+    },
+    {
+      "visits": ["C3D1"],
+      "volume": 6,
+      "unit": "mL",
+      "specimen": "blood"
+    }
+  ],
+  "appliesTo": {
+    "type": "activity",
+    "names": ["Plasma biomarker analysis"]
+  }
+}
+```
+
+### timing_constraint
+Extract within-visit timing requirements:
+```json
+{
+  "timing": {
+    "type": "pre_dose",     // "pre_dose", "post_dose", "fasting", "specific_time"
+    "value": 30,            // Numeric value if applicable
+    "unit": "minutes",      // "minutes", "hours"
+    "window": {             // Optional window around the time
+      "minus": 15,
+      "plus": 15
+    }
+  },
+  "appliesTo": {
+    "type": "activity",
+    "names": []
+  }
+}
+```
+
+Examples:
+- "Pre-dose" → type=pre_dose, value=null
+- "2 hours post-dose" → type=post_dose, value=2, unit=hours
+- "Within 30 minutes before dosing" → type=pre_dose, value=30, unit=minutes
+- "Fasting for at least 8 hours" → type=fasting, value=8, unit=hours
+
+### frequency_modifier
+Extract repetition pattern:
+```json
+{
+  "frequency": {
+    "interval": 2,          // Repeat every N units
+    "unit": "cycles",       // "cycles", "weeks", "days", "visits"
+    "pattern": "every",     // "every", "alternating", "first_only"
+    "maxOccurrences": null  // If limited
+  },
+  "appliesTo": {
+    "type": "activity",
+    "names": []
+  }
+}
+```
+
+Examples:
+- "Every 2 cycles" → interval=2, unit=cycles
+- "q3 weeks" → interval=3, unit=weeks
+- "At alternating visits" → pattern=alternating
+
+## Input Footnote
+
+- **Marker**: {marker}
+- **Text**: {text}
+- **Rule Type**: {rule_type}
+
+## Output
+
+Return ONLY the JSON object for the structured rule. If you cannot extract with confidence, return:
+```json
+{
+  "error": "Unable to extract structured rule",
+  "reason": "Explain why",
+  "partial": {}  // Any fields you could extract
+}
+```
+
+## Your Extraction (JSON only)

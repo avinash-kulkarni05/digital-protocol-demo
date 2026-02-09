@@ -1,0 +1,257 @@
+system
+You are an expert clinical trial document analyst specializing in locating exact source references in clinical protocol documents.
+
+user
+# DATA MANAGEMENT - PASS 2: PROVENANCE EXTRACTION
+
+## OBJECTIVE
+Add provenance (source references) to ALL values extracted in Pass 1. For EVERY extracted element, locate the supporting evidence in the protocol and add provenance.
+
+You are provided with:
+1. Extracted data management data from Pass 1
+2. The original protocol PDF
+
+Your task is to find EXACT source locations (provenance) for each extracted item.
+
+---
+
+## PROVENANCE STRUCTURE
+
+For each provenance object, provide:
+```json
+{
+  "section_number": "9.1",
+  "page_number": 85,
+  "text_snippet": "Direct quote from protocol (max 500 chars)"
+}
+```
+
+- **section_number**: SHORT section number ONLY (e.g., "9", "9.1", "10.2.3"). MAX 20 characters. Do NOT use full section titles. Can be null if unknown.
+- **page_number**: PDF page number (integer, 1-indexed) - REQUIRED
+- **text_snippet**: Direct quote from protocol (STRICT MAX 500 chars). Truncate with "..." if longer. - REQUIRED
+
+---
+
+## PASS 1 EXTRACTION (Data Requiring Provenance)
+
+{{ extracted_values }}
+
+---
+
+## PROVENANCE PATHS TO POPULATE
+
+**Root Level:**
+- $.provenance
+
+**EDC Specifications:**
+- $.edc_specifications.provenance
+- $.edc_specifications.integration_systems[*].provenance (EACH integration)
+- $.edc_specifications.crf_modules[*].provenance (EACH CRF module)
+
+**Data Standards:**
+- $.data_standards.provenance
+
+**Data Quality:**
+- $.data_quality.provenance
+
+**Database Management:**
+- $.database_management.provenance
+- $.database_management.interim_locks[*].provenance (EACH interim lock)
+- $.database_management.final_database_lock.provenance
+
+**Data Transfers:**
+- $.data_transfers.provenance
+- $.data_transfers.dsmb_exports.provenance
+
+**Data Archival:**
+- $.data_archival.provenance
+
+---
+
+## SEARCH STRATEGY
+
+| Content Type | Typical Sections |
+|--------------|------------------|
+| EDC/eCRF Specifications | 9.1, "Data Collection", "Electronic Data Capture" |
+| Data Standards (CDISC) | 12, "Statistical Methods", "Data Submission" |
+| Data Quality/SDV | 9.4, 10, "Quality Control", "Monitoring" |
+| Database Lock | 9.5, "Study Completion", "Database Lock" |
+| Data Transfers | 9.2, 9.3, "Central Lab", "External Data" |
+| Data Archival | 9.6, 16, "Records Retention" |
+| DSMB | 11, "Data Monitoring Committee" |
+
+---
+
+## TEXT SNIPPET RULES
+
+1. **EXACT QUOTE**: Copy text exactly as it appears
+2. **STRICT MAX 500 CHARACTERS**: If text exceeds 500 chars, TRUNCATE with "..." IMMEDIATELY. This is a hard limit.
+3. **MOST RELEVANT PORTION**: Select the SHORTEST phrase that directly supports the value
+4. **CLEAN WHITESPACE**: Remove excess line breaks, collapse multiple spaces
+
+---
+
+## CRITICAL: DO NOT MODIFY PRIMITIVE ARRAYS - THIS IS ABSOLUTELY REQUIRED
+
+**EXTREMELY IMPORTANT**: The following array fields contain PLAIN STRINGS. Do NOT convert them to objects with value/provenance. This is a hard requirement that MUST be followed.
+
+**Arrays that must remain as PLAIN STRING arrays (DO NOT add provenance to individual items):**
+- `system_capabilities`: ["randomization", "ePRO"] ← KEEP AS PLAIN STRINGS, NOT objects
+- `language_requirements`: ["English", "Spanish"] ← KEEP AS PLAIN STRINGS
+- `forms`: ["Demographics", "Medical History"] ← KEEP AS PLAIN STRINGS
+- `visit_schedule`: ["Screening", "Baseline"] ← KEEP AS PLAIN STRINGS
+- `critical_data_points`: ["Informed Consent"] ← KEEP AS PLAIN STRINGS
+- `prerequisites`: ["All queries resolved"] ← KEEP AS PLAIN STRINGS
+- `data_included`: ["Safety data"] ← KEEP AS PLAIN STRINGS
+- `standard_checks`: ["range_checks", "consistency_checks"] ← KEEP AS PLAIN STRINGS
+- `signoff_required`: ["data_management", "biostatistics"] ← KEEP AS PLAIN STRINGS
+- `external_data_sources`: ["central_lab", "imaging"] ← KEEP AS PLAIN STRINGS
+- `archival_format`: ["PDF", "electronic"] ← KEEP AS PLAIN STRINGS
+- `adjudication_types`: ["endpoint", "imaging"] ← KEEP AS PLAIN STRINGS
+
+**WRONG** (Do NOT do this):
+```json
+"system_capabilities": [
+  {"value": "randomization", "provenance": {...}},  // WRONG!
+  {"value": "ePRO", "provenance": {...}}  // WRONG!
+]
+```
+
+**CORRECT** (Do this instead):
+```json
+"system_capabilities": ["randomization", "ePRO"],  // CORRECT - plain strings
+"provenance": { ... }  // Provenance at PARENT object level only
+```
+
+Provenance goes at the PARENT OBJECT level (e.g., edc_specifications.provenance), NOT on individual array items.
+
+---
+
+## CRITICAL PAGE NUMBER RULES
+
+1. Use PHYSICAL page numbers (1st page of PDF = 1)
+2. Do NOT use printed page numbers in headers/footers
+3. The text_snippet MUST appear on the EXACT page_number you specify
+
+---
+
+## OUTPUT FORMAT
+
+Return the COMPLETE Pass 1 JSON with provenance added to ALL locations listed above.
+
+Example structure:
+```json
+{
+  "id": "PROTOCOL_ID-data-management",
+  "instanceType": "DataManagementPlan",
+  "name": "PROTOCOL_ID Data Management Plan",
+
+  "edc_specifications": {
+    "instanceType": "EDCSpecifications",
+    "vendor_name": "Medidata Rave",
+    "system_capabilities": ["randomization", "audit_trail"],
+    "integration_systems": [
+      {
+        "id": "integration-001",
+        "system_type": "IWRS",
+        "vendor_name": "Almac",
+        "provenance": {
+          "section_number": "9.1.2",
+          "page_number": 86,
+          "text_snippet": "Interactive Web Response System provided by Almac..."
+        }
+      }
+    ],
+    "provenance": {
+      "section_number": "9.1",
+      "page_number": 85,
+      "text_snippet": "Electronic data capture will be performed using Medidata Rave..."
+    }
+  },
+
+  "data_standards": {
+    "instanceType": "DataStandards",
+    "sdtm_version": "1.8",
+    "sdtm_ig_version": "3.4",
+    "provenance": {
+      "section_number": "12.1",
+      "page_number": 95,
+      "text_snippet": "Data will be submitted in SDTM format version 3.4..."
+    }
+  },
+
+  "data_quality": {
+    "instanceType": "DataQuality",
+    "sdv_strategy": {
+      "approach": "risk_based",
+      "sdv_percentage": 20
+    },
+    "provenance": {
+      "section_number": "10.2",
+      "page_number": 90,
+      "text_snippet": "Risk-based monitoring with 20% SDV of critical data points..."
+    }
+  },
+
+  "database_management": {
+    "instanceType": "DatabaseManagement",
+    "final_database_lock": {
+      "timeline_days_from_lplv": 30,
+      "provenance": {
+        "section_number": "9.5",
+        "page_number": 88,
+        "text_snippet": "Database lock within 30 days of last patient last visit..."
+      }
+    },
+    "provenance": {
+      "section_number": "9.5",
+      "page_number": 88,
+      "text_snippet": "DATABASE LOCK PROCEDURES"
+    }
+  },
+
+  "data_transfers": {
+    "instanceType": "DataTransfers",
+    "provenance": {
+      "section_number": "9.3",
+      "page_number": 87,
+      "text_snippet": "External data from central lab will be transferred daily..."
+    }
+  },
+
+  "data_archival": {
+    "instanceType": "DataArchival",
+    "retention_period_years": 25,
+    "provenance": {
+      "section_number": "16.1",
+      "page_number": 105,
+      "text_snippet": "Essential documents retained for at least 25 years..."
+    }
+  },
+
+  "provenance": {
+    "section_number": "9",
+    "page_number": 85,
+    "text_snippet": "DATA MANAGEMENT"
+  }
+}
+```
+
+---
+
+## VALIDATION
+
+Before returning:
+- Every major section has a provenance object
+- Every array item (integration_systems, crf_modules, interim_locks) has a provenance object
+- All page_number values are integers
+- All text_snippets are ≤500 characters
+- text_snippets are EXACT quotes from the document
+- Primitive arrays remain as plain strings (not objects with value/provenance)
+
+---
+
+## OUTPUT
+
+Return ONLY valid JSON. No markdown fences, no explanations.
+Return the complete merged JSON object with all Pass 1 data PLUS provenance.

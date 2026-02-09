@@ -1,0 +1,122 @@
+You are a clinical informatics expert. Extract searchable clinical concepts AND intelligent search patterns from this eligibility criterion.
+
+PROTOCOL CONTEXT: {protocol_title}
+
+Atomic Text: {atomic_text}
+Value Constraint: {value_constraint}
+OMOP Table: {omop_table}
+
+Extract searchable clinical terms ONLY from the atomic text above. Do NOT add concepts from general protocol context.
+
+CRITICAL RULES:
+1. Extract ONLY terms explicitly mentioned in the atomic text
+   - ✅ Good: "small cell lung cancer", "pembrolizumab", "irinotecan"
+   - ❌ Bad: Adding EGFR mutations when atomic text only says "NSCLC"
+   - IMPORTANT: Preserve possessives in eponymous medical terms
+     - ✅ "Gilbert's syndrome" (keep apostrophe) NOT "Gilbert syndrome"
+     - ✅ "Crohn's disease" (keep apostrophe) NOT "Crohn disease"
+     - ✅ "Parkinson's disease" (keep apostrophe) NOT "Parkinson disease"
+     - OMOP standard concepts use possessive forms for eponymous diseases
+
+2. Primary terms = Main concepts to search (1-3 terms)
+   - ✅ For "Diagnosis of NSCLC" → primary: ["NSCLC", "non-small cell lung cancer"]
+   - ✅ For "Prior pembrolizumab" → primary: ["pembrolizumab"]
+
+3. Secondary terms = Examples explicitly mentioned in text (2-5 terms)
+   - ✅ For "IMiD (e.g., lenalidomide, thalidomide)" → secondary: ["lenalidomide", "thalidomide"]
+   - ✅ For value constraint with 20 drugs → extract ALL 20 (up to 25 secondary terms)
+   - ❌ Do NOT extract numeric values, thresholds, or operators as search terms:
+     - ❌ For "ECOG PS ≤2" → Do NOT include "0", "1", "2", "≤2" in any terms list
+     - ❌ For "ANC ≥1.0" → Do NOT include "1.0", "≥1.0" in any terms list
+     - ✅ Instead: Extract only the measurement name: ["ECOG performance status", "ANC", "absolute neutrophil count"]
+     - Numeric values are used for FILTERING results, not for FINDING concepts
+
+4. Intelligent patterns = For edge cases ONLY (abbreviations, word order variations, complex terms)
+   - ✅ "ALS" → patterns: ["amyotrophic lateral sclerosis", "Lou Gehrig disease"]
+   - ✅ "non-small cell lung cancer" → patterns: ["lung, non-small cell cancer", "lung cancer, non-small cell"]
+   - ✅ "NSCLC" → patterns: ["%non-small%cell%lung%", "%NSCLC%"]
+   - ❌ Do NOT create overly broad patterns like "%ALS%" (causes false positives)
+   - ❌ Do NOT create patterns for simple exact-match terms like "pembrolizumab"
+
+5. For abbreviations, EXPAND them in abbreviation_expansions (NEW - V50.5):
+   - ✅ "EGFR" → expansions: ["Epidermal Growth Factor Receptor", "EGFR gene"]
+   - ✅ "ALS" → expansions: ["amyotrophic lateral sclerosis", "Lou Gehrig disease"]
+   - ✅ "IMiD" → expansions: ["immunomodulatory drug", "immunomodulatory agent"]
+   - ✅ "ECOG PS" → expansions: ["Eastern Cooperative Oncology Group Performance Status"]
+   - **CRITICAL for lab tests**: ALWAYS expand common lab abbreviations:
+     - ✅ "ALT" → expansions: ["alanine aminotransferase", "alanine transaminase", "SGPT"]
+     - ✅ "AST" → expansions: ["aspartate aminotransferase", "aspartate transaminase", "SGOT"]
+     - ✅ "ALP" → expansions: ["alkaline phosphatase"]
+     - ✅ "GGT" → expansions: ["gamma-glutamyl transferase", "gamma glutamyl transpeptidase"]
+     - ✅ "LDH" → expansions: ["lactate dehydrogenase"]
+     - ✅ "CRP" → expansions: ["C-reactive protein"]
+     - ✅ "ESR" → expansions: ["erythrocyte sedimentation rate"]
+   - Limit to 3 most common expansions used in medical databases
+
+6. For drug classes in value constraints, expand to specific drugs:
+   - ✅ "anti-PD-1 inhibitor" → primary: ["anti-PD-1"], secondary: ["pembrolizumab", "nivolumab", "cemiplimab"]
+   - ✅ "EGFR inhibitor" → primary: ["EGFR inhibitor"], secondary: ["erlotinib", "gefitinib", "afatinib", "osimertinib"]
+
+7. For cancer histology and pathology terms, include standard medical terminology synonyms:
+   - ✅ "mixed small cell/non-small cell" → secondary: ["combined small cell", "combined small cell carcinoma"]
+   - ✅ "poorly differentiated" → secondary: ["undifferentiated"]
+   - ✅ "well differentiated" → secondary: ["grade 1", "low grade"]
+   - ✅ "mixed histology" → secondary: ["combined histology"]
+   - These standard medical synonyms are critical for OMOP/SNOMED/ICD-O matching
+   - Include both clinical language AND formal pathology terminology
+
+8. Do NOT extract organization names, guidelines, or qualifying phrases:
+   - ❌ "International Myeloma Working Group (IMWG)" → Organization name, NOT a medical concept
+   - ❌ "WHO criteria", "FDA guidelines", "RECIST criteria" → Guideline references, NOT medical concepts
+   - ❌ "meeting IMWG criteria", "according to WHO" → Qualifying phrases
+   - ✅ ONLY extract the actual disease/drug/test: "multiple myeloma", "MM"
+
+9. Do NOT hallucinate related concepts:
+   - ❌ "Diagnosis of NSCLC" does NOT imply EGFR, ALK, ROS1, PD-L1 (those are separate criteria)
+   - ❌ Do NOT add diagnostic tests unless explicitly mentioned in atomic text
+
+Output JSON only:
+{{
+  "primary_terms": ["1-3 main search terms"],
+  "secondary_terms": ["2-5 examples from text"],
+  "abbreviation_expansions": ["full expansions of any abbreviations (up to 3 most common)"],
+  "intelligent_patterns": ["edge case patterns for abbreviations/word variations ONLY"],
+  "negation": true/false,
+  "reasoning": "brief explanation"
+}}
+
+Example 1:
+Input: "Patient must have EGFR Exon 19 deletion (Ex19del)"
+Output:
+{{
+  "primary_terms": ["EGFR Exon 19 deletion", "Ex19del"],
+  "secondary_terms": ["EGFR mutation"],
+  "abbreviation_expansions": ["Epidermal Growth Factor Receptor exon 19 deletion", "EGFR gene exon 19 deletion"],
+  "intelligent_patterns": ["%EGFR%exon%19%", "%exon%19%deletion%"],
+  "negation": false,
+  "reasoning": "EGFR is a common abbreviation that should be expanded; Ex19del is a shorthand for Exon 19 deletion"
+}}
+
+Example 2 (Numeric Measurement):
+Input: "ECOG performance status ≤2"
+Output:
+{{
+  "primary_terms": ["ECOG performance status", "ECOG PS"],
+  "secondary_terms": [],
+  "abbreviation_expansions": ["Eastern Cooperative Oncology Group Performance Status"],
+  "intelligent_patterns": ["%ECOG%performance%status%", "%ECOG%PS%"],
+  "negation": false,
+  "reasoning": "Extracted only the measurement concept name (ECOG PS), NOT the numeric values (0, 1, 2) or threshold (≤2). Numeric values are used for filtering results in SQL, not for finding the measurement concept."
+}}
+
+Example 3 (Lab Test Abbreviations - CRITICAL):
+Input: "ALT and AST ≤3x ULN"
+Output:
+{{
+  "primary_terms": ["ALT", "AST"],
+  "secondary_terms": ["liver enzymes", "hepatic function"],
+  "abbreviation_expansions": ["alanine aminotransferase", "alanine transaminase", "aspartate aminotransferase", "aspartate transaminase", "SGPT", "SGOT"],
+  "intelligent_patterns": ["%alanine%aminotransferase%", "%aspartate%aminotransferase%"],
+  "negation": false,
+  "reasoning": "Expanded both ALT and AST abbreviations to their full medical names (alanine aminotransferase, aspartate aminotransferase) and legacy names (SGPT, SGOT). This ensures LOINC concepts are found. Did NOT extract numeric threshold (3x ULN)."
+}}

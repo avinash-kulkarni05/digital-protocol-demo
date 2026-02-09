@@ -1,0 +1,824 @@
+{
+  "stage": 2,
+  "stageName": "Activity Expansion",
+  "success": true,
+  "expansions": [
+    {
+      "id": "EXP-B31C59A1",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-014",
+      "parentActivityName": "Clinical Chemistry/Haematology/Urinalysis",
+      "components": [
+        {
+          "id": "COMP-79E63A72",
+          "name": "S/P-Albumin",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[0].test_name",
+            "pageNumber": 68,
+            "textSnippet": "S/P-Albumin",
+            "rationale": "Explicitly listed as a laboratory test under the Clinical Chemistry panel (PNL-001)."
+          }
+        },
+        {
+          "id": "COMP-A3FBB744",
+          "name": "S/P-ALT",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[1].test_name",
+            "pageNumber": 68,
+            "textSnippet": "S/P-ALT",
+            "rationale": "Explicitly listed as a laboratory test under the Clinical Chemistry panel (PNL-001)."
+          }
+        },
+        {
+          "id": "COMP-2E9274E0",
+          "name": "S/P-AST",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[2].test_name",
+            "pageNumber": 68,
+            "textSnippet": "S/P-AST",
+            "rationale": "Explicitly listed as a laboratory test under the Clinical Chemistry panel (PNL-001)."
+          }
+        },
+        {
+          "id": "COMP-D3C27558",
+          "name": "S/P-Alkaline phosphatase",
+          "isRequired": true,
+          "order": 3,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[3].test_name",
+            "pageNumber": 68,
+            "textSnippet": "S/P-Alkaline phosphatase",
+            "rationale": "Explicitly listed as a laboratory test under the Clinical Chemistry panel (PNL-001)."
+          }
+        },
+        {
+          "id": "COMP-D51E171E",
+          "name": "S/P-Bilirubin, total",
+          "isRequired": true,
+          "order": 4,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[4].test_name",
+            "pageNumber": 68,
+            "textSnippet": "S/P-Bilirubin, total",
+            "rationale": "Explicitly listed as a laboratory test under the Clinical Chemistry panel (PNL-001)."
+          }
+        },
+        {
+          "id": "COMP-62CBD6D0",
+          "name": "S/P-Calcium, total",
+          "isRequired": true,
+          "order": 5,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[5].test_name",
+            "pageNumber": 69,
+            "textSnippet": "S/P-Calcium, total",
+            "rationale": "Explicitly listed as a laboratory test under the Clinical Chemistry panel (PNL-001)."
+          }
+        },
+        {
+          "id": "COMP-F6D3B331",
+          "name": "S/P-Creatinine",
+          "isRequired": true,
+          "order": 6,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[6].test_name",
+            "pageNumber": 69,
+            "textSnippet": "S/P-Creatinine",
+            "rationale": "Explicitly listed as a laboratory test under the Clinical Chemistry panel (PNL-001)."
+          }
+        },
+        {
+          "id": "COMP-25DC59F0",
+          "name": "S/P-Glucose",
+          "isRequired": true,
+          "order": 7,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[7].test_name",
+            "pageNumber": 69,
+            "textSnippet": "S/P-Glucose (fasting, on PK days only)a",
+            "rationale": "Explicitly listed as a laboratory test under the Clinical Chemistry panel (PNL-001)."
+          }
+        },
+        {
+          "id": "COMP-20A06084",
+          "name": "S/P-LDH",
+          "isRequired": true,
+          "order": 8,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[8].test_name",
+            "pageNumber": 69,
+            "textSnippet": "S/P-LDHb",
+            "rationale": "Explicitly listed as a laboratory test under the Clinical Chemistry panel (PNL-001)."
+          }
+        },
+        {
+          "id": "COMP-816FAC66",
+          "name": "S/P-HbA1C",
+          "isRequired": true,
+          "order": 9,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[9].test_name",
+            "pageNumber": 69,
+            "textSnippet": "S/P-HbA1C",
+            "rationale": "Explicitly listed as a laboratory test under the Clinical Chemistry panel (PNL-001)."
+          }
+        },
+        {
+          "id": "COMP-9286F1A1",
+          "name": "S/P-Magnesium",
+          "isRequired": true,
+          "order": 10,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[10].test_name",
+            "pageNumber": 69,
+            "textSnippet": "S/P-Magnesium",
+            "rationale": "Explicitly listed as a laboratory test under the Clinical Chemistry panel (PNL-001)."
+          }
+        },
+        {
+          "id": "COMP-A9E9ECEE",
+          "name": "S/P-Potassium",
+          "isRequired": true,
+          "order": 11,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[11].test_name",
+            "pageNumber": 69,
+            "textSnippet": "S/P-Potassium",
+            "rationale": "Explicitly listed as a laboratory test under the Clinical Chemistry panel (PNL-001)."
+          }
+        },
+        {
+          "id": "COMP-0F784F99",
+          "name": "S/P-Sodium",
+          "isRequired": true,
+          "order": 12,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[12].test_name",
+            "pageNumber": 69,
+            "textSnippet": "S/P-Sodium",
+            "rationale": "Explicitly listed as a laboratory test under the Clinical Chemistry panel (PNL-001)."
+          }
+        },
+        {
+          "id": "COMP-D461AA3C",
+          "name": "S/P-Urea nitrogen/BUN",
+          "isRequired": true,
+          "order": 13,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[13].test_name",
+            "pageNumber": 69,
+            "textSnippet": "S/P-Urea nitrogen/BUN",
+            "rationale": "Explicitly listed as a laboratory test under the Clinical Chemistry panel (PNL-001)."
+          }
+        },
+        {
+          "id": "COMP-2CFA6515",
+          "name": "B-Haemoglobin",
+          "isRequired": true,
+          "order": 14,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "unit": "g/L",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[14].test_name",
+            "pageNumber": 68,
+            "textSnippet": "B-Haemoglobin",
+            "rationale": "Explicitly listed as a laboratory test under the Haematology panel (PNL-002)."
+          }
+        },
+        {
+          "id": "COMP-4458C3A4",
+          "name": "B-Leukocyte",
+          "isRequired": true,
+          "order": 15,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[15].test_name",
+            "pageNumber": 68,
+            "textSnippet": "B-Leukocyte",
+            "rationale": "Explicitly listed as a laboratory test under the Haematology panel (PNL-002)."
+          }
+        },
+        {
+          "id": "COMP-8F9CDF40",
+          "name": "B-Haematocrit",
+          "isRequired": true,
+          "order": 16,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[16].test_name",
+            "pageNumber": 68,
+            "textSnippet": "B-Haematocrit",
+            "rationale": "Explicitly listed as a laboratory test under the Haematology panel (PNL-002)."
+          }
+        },
+        {
+          "id": "COMP-471CA7D4",
+          "name": "B-RBC count",
+          "isRequired": true,
+          "order": 17,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[17].test_name",
+            "pageNumber": 68,
+            "textSnippet": "B-RBC count",
+            "rationale": "Explicitly listed as a laboratory test under the Haematology panel (PNL-002)."
+          }
+        },
+        {
+          "id": "COMP-C2C4415D",
+          "name": "B-Absolute leukocyte differential count",
+          "isRequired": true,
+          "order": 18,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "unit": "10^9/L",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[18].test_name",
+            "pageNumber": 68,
+            "textSnippet": "B-Absolute leukocyte differential count:",
+            "rationale": "Explicitly listed as a laboratory test under the Haematology panel (PNL-002)."
+          }
+        },
+        {
+          "id": "COMP-4CDDD989",
+          "name": "B-Platelet count",
+          "isRequired": true,
+          "order": 19,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "unit": "10^9/L",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[19].test_name",
+            "pageNumber": 69,
+            "textSnippet": "B-Platelet count",
+            "rationale": "Explicitly listed as a laboratory test under the Haematology panel (PNL-002)."
+          }
+        },
+        {
+          "id": "COMP-676E476A",
+          "name": "B-Reticulocytes",
+          "isRequired": true,
+          "order": 20,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[20].test_name",
+            "pageNumber": 69,
+            "textSnippet": "B-Reticulocytes",
+            "rationale": "Explicitly listed as a laboratory test under the Haematology panel (PNL-002)."
+          }
+        },
+        {
+          "id": "COMP-887F6BD8",
+          "name": "U-Glucose",
+          "isRequired": true,
+          "order": 21,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[21].test_name",
+            "pageNumber": 69,
+            "textSnippet": "U-Glucose",
+            "rationale": "Explicitly listed as a laboratory test under the Urinalysis panel (PNL-003)."
+          }
+        },
+        {
+          "id": "COMP-6EBD53B5",
+          "name": "U-Protein",
+          "isRequired": true,
+          "order": 22,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[22].test_name",
+            "pageNumber": 69,
+            "textSnippet": "U-Protein",
+            "rationale": "Explicitly listed as a laboratory test under the Urinalysis panel (PNL-003)."
+          }
+        },
+        {
+          "id": "COMP-D364BC7C",
+          "name": "U-Blood",
+          "isRequired": true,
+          "order": 23,
+          "confidence": 0.92,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[23].test_name",
+            "pageNumber": 69,
+            "textSnippet": "U-Blood",
+            "rationale": "Explicitly listed as a laboratory test under the Urinalysis panel (PNL-003)."
+          }
+        }
+      ],
+      "confidence": 0.92,
+      "rationale": "The extraction JSON explicitly defines three laboratory panels (Clinical Chemistry, Haematology, Urinalysis) and lists all constituent tests with clear panel references and provenance from the protocol.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-3736674F",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-015",
+      "parentActivityName": "ECG",
+      "components": [
+        {
+          "id": "COMP-EEC68FC7",
+          "name": "QTc Interval",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.9,
+          "cdashDomain": "EG",
+          "unit": "msec",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.eligibility_lab_criteria[0].parameter_name",
+            "pageNumber": 45,
+            "textSnippet": "Mean resting corrected QT interval (QTc) >470 msec, obtained from 3 ECGs, using the screening clinic ECG machine-derived QTcF value.",
+            "rationale": "QTc is an explicit parameter used in the eligibility criteria for the study, indicating it is a required measurement from the ECG."
+          }
+        },
+        {
+          "id": "COMP-44EA0FDC",
+          "name": "QTcF Interval",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.9,
+          "cdashDomain": "EG",
+          "unit": "msec",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.lab_based_dose_modifications[2].parameter_name",
+            "pageNumber": 90,
+            "textSnippet": "Patients with QTcF prolongation to >500 msec should have study treatment interrupted and regular ECGs performed until resolution to <481 msec",
+            "rationale": "QTcF is explicitly mentioned as the key parameter for dose modification decisions, indicating it is a required measurement from the ECG."
+          }
+        }
+      ],
+      "confidence": 0.9,
+      "rationale": "Found 2 explicit ECG parameters (QTc, QTcF) defined in the eligibility criteria and dose modification rules within the extraction JSON. The protocol emphasizes cardiac safety monitoring via these specific measurements.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-B64F01FF",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-017",
+      "parentActivityName": "MRI/Contrast CT of Brain",
+      "components": [
+        {
+          "id": "COMP-B0A578F2",
+          "name": "MRI of Brain",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "TU",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "imaging_central_reading.data.imaging_modalities[1]",
+            "pageNumber": 66,
+            "textSnippet": "A pre-surgical MRI or contrast CT scan of the brain is considered standard of care and must be done prior to surgery.",
+            "rationale": "The protocol explicitly lists MRI of the brain as one of the two acceptable imaging procedures for this assessment."
+          }
+        },
+        {
+          "id": "COMP-C09DFAAF",
+          "name": "Contrast CT of Brain",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "cdashDomain": "TU",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "imaging_central_reading.data.imaging_modalities[2]",
+            "pageNumber": 66,
+            "textSnippet": "A pre-surgical MRI or contrast CT scan of the brain is considered standard of care and must be done prior to surgery.",
+            "rationale": "The protocol explicitly lists contrast CT of the brain as one of the two acceptable imaging procedures for this assessment."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol explicitly decomposes this activity into two alternative procedures, 'MRI of Brain' and 'Contrast CT of Brain', which are detailed in the imaging modalities section (page 66) and the corresponding JSON extraction.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-255EFFB7",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-018",
+      "parentActivityName": "CT of Chest and Abdomen",
+      "components": [
+        {
+          "id": "COMP-258A1943",
+          "name": "Chest",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "TU",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "imaging_central_reading.data.imaging_modalities[0].body_regions[0]",
+            "pageNumber": 66,
+            "textSnippet": "The imaging modalities used for radiological assessments will be CT scans of the chest and abdomen (including liver and adrenal glands) with contrast.",
+            "rationale": "Explicitly listed as a primary body region for the CT scan in the imaging modalities specification."
+          }
+        },
+        {
+          "id": "COMP-1848F197",
+          "name": "Abdomen",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "cdashDomain": "TU",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "imaging_central_reading.data.imaging_modalities[0].body_regions[1]",
+            "pageNumber": 66,
+            "textSnippet": "The imaging modalities used for radiological assessments will be CT scans of the chest and abdomen (including liver and adrenal glands) with contrast.",
+            "rationale": "Explicitly listed as a primary body region for the CT scan in the imaging modalities specification."
+          }
+        },
+        {
+          "id": "COMP-6FCB41AD",
+          "name": "Liver",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.95,
+          "cdashDomain": "TU",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "imaging_central_reading.data.imaging_modalities[0].body_regions[2]",
+            "pageNumber": 66,
+            "textSnippet": "The imaging modalities used for radiological assessments will be CT scans of the chest and abdomen (including liver and adrenal glands) with contrast.",
+            "rationale": "Explicitly listed as an included body region within the CT of the abdomen in the imaging modalities specification."
+          }
+        },
+        {
+          "id": "COMP-F6890B26",
+          "name": "Adrenal Glands",
+          "isRequired": true,
+          "order": 3,
+          "confidence": 0.95,
+          "cdashDomain": "TU",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "imaging_central_reading.data.imaging_modalities[0].body_regions[3]",
+            "pageNumber": 66,
+            "textSnippet": "The imaging modalities used for radiological assessments will be CT scans of the chest and abdomen (including liver and adrenal glands) with contrast.",
+            "rationale": "Explicitly listed as an included body region within the CT of the abdomen in the imaging modalities specification."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol explicitly decomposes the 'CT of Chest and Abdomen' into specific body regions (chest, abdomen, liver, adrenal glands) in the imaging modalities specification on page 66, which is also captured in the extraction JSON.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-CAD4F464",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-019",
+      "parentActivityName": "Other Imaging",
+      "components": [
+        {
+          "id": "COMP-ACC03C6D",
+          "name": "Echocardiogram",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "TU",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "imaging_central_reading.data.special_assessments[0].assessment_name",
+            "pageNumber": 71,
+            "textSnippet": "An Echocardiogram or MUGA scan to assess LVEF will be performed at the visits as shown in the Study Plan (Table 1).",
+            "rationale": "Explicitly listed as a special imaging assessment for cardiac safety, which is distinct from the primary tumor assessments for disease recurrence."
+          }
+        },
+        {
+          "id": "COMP-9F8D8825",
+          "name": "MUGA scan",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "cdashDomain": "TU",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "imaging_central_reading.data.special_assessments[0].assessment_name",
+            "pageNumber": 71,
+            "textSnippet": "An Echocardiogram or MUGA scan to assess LVEF will be performed at the visits as shown in the Study Plan (Table 1).",
+            "rationale": "Explicitly listed as a special imaging assessment for cardiac safety, which is distinct from the primary tumor assessments for disease recurrence."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol explicitly defines 'Echocardiogram or MUGA scan' as a special assessment for cardiac safety on page 71. This information was found in the extraction JSON under 'special_assessments' and is supported by the provided PDF text snippet.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-F282D0E6",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-022",
+      "parentActivityName": "PK Blood Sample",
+      "components": [
+        {
+          "id": "COMP-AA1D8FC1",
+          "name": "AZD9291",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "PC",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pkpd_sampling.data.pk_sampling.analytes[0].analyte_name",
+            "pageNumber": 40,
+            "textSnippet": "To characterise the pharmacokinetics (PK) of AZD9291 and its metabolites (AZ5104 and AZ7550)",
+            "rationale": "Explicitly listed as the parent drug analyte for which pharmacokinetic concentration will be measured from the blood sample."
+          }
+        },
+        {
+          "id": "COMP-81A66017",
+          "name": "AZ5104",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "cdashDomain": "PC",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pkpd_sampling.data.pk_sampling.analytes[1].analyte_name",
+            "pageNumber": 40,
+            "textSnippet": "To characterise the pharmacokinetics (PK) of AZD9291 and its metabolites (AZ5104 and AZ7550)",
+            "rationale": "Explicitly listed as a metabolite analyte for which pharmacokinetic concentration will be measured from the blood sample."
+          }
+        },
+        {
+          "id": "COMP-92A1622D",
+          "name": "AZ7550",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.95,
+          "cdashDomain": "PC",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pkpd_sampling.data.pk_sampling.analytes[2].analyte_name",
+            "pageNumber": 40,
+            "textSnippet": "To characterise the pharmacokinetics (PK) of AZD9291 and its metabolites (AZ5104 and AZ7550)",
+            "rationale": "Explicitly listed as a metabolite analyte for which pharmacokinetic concentration will be measured from the blood sample."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol explicitly lists the parent drug (AZD9291) and two metabolites (AZ5104, AZ7550) as the analytes for pharmacokinetic analysis. This is clearly stated in the extraction JSON and confirmed in the protocol text on page 40.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-9F472974",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-023",
+      "parentActivityName": "SF-36",
+      "components": [
+        {
+          "id": "COMP-C23820C6",
+          "name": "Physical Functioning (PF)",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pro_specifications.data.pro_instruments[0].scoring.domains[0].domain_name",
+            "pageNumber": 104,
+            "textSnippet": "The scores for each of the 8 health domain scores and for each of the physical and mental component summary measures from the SF-36 v2 will be summarised in terms of mean changes from baseline...",
+            "rationale": "This is one of the 8 domains explicitly listed for the SF-36 instrument in the protocol extraction data and confirmed as an outcome measure in the analysis plan."
+          }
+        },
+        {
+          "id": "COMP-7EBFBCAC",
+          "name": "Role-Physical (RP)",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pro_specifications.data.pro_instruments[0].scoring.domains[1].domain_name",
+            "pageNumber": 104,
+            "textSnippet": "The scores for each of the 8 health domain scores and for each of the physical and mental component summary measures from the SF-36 v2 will be summarised in terms of mean changes from baseline...",
+            "rationale": "This is one of the 8 domains explicitly listed for the SF-36 instrument in the protocol extraction data and confirmed as an outcome measure in the analysis plan."
+          }
+        },
+        {
+          "id": "COMP-4A72A89C",
+          "name": "Bodily Pain (BP)",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pro_specifications.data.pro_instruments[0].scoring.domains[2].domain_name",
+            "pageNumber": 104,
+            "textSnippet": "The scores for each of the 8 health domain scores and for each of the physical and mental component summary measures from the SF-36 v2 will be summarised in terms of mean changes from baseline...",
+            "rationale": "This is one of the 8 domains explicitly listed for the SF-36 instrument in the protocol extraction data and confirmed as an outcome measure in the analysis plan."
+          }
+        },
+        {
+          "id": "COMP-7E62013B",
+          "name": "General Health (GH)",
+          "isRequired": true,
+          "order": 3,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pro_specifications.data.pro_instruments[0].scoring.domains[3].domain_name",
+            "pageNumber": 104,
+            "textSnippet": "The scores for each of the 8 health domain scores and for each of the physical and mental component summary measures from the SF-36 v2 will be summarised in terms of mean changes from baseline...",
+            "rationale": "This is one of the 8 domains explicitly listed for the SF-36 instrument in the protocol extraction data and confirmed as an outcome measure in the analysis plan."
+          }
+        },
+        {
+          "id": "COMP-97F483B4",
+          "name": "Vitality (VT)",
+          "isRequired": true,
+          "order": 4,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pro_specifications.data.pro_instruments[0].scoring.domains[4].domain_name",
+            "pageNumber": 104,
+            "textSnippet": "The scores for each of the 8 health domain scores and for each of the physical and mental component summary measures from the SF-36 v2 will be summarised in terms of mean changes from baseline...",
+            "rationale": "This is one of the 8 domains explicitly listed for the SF-36 instrument in the protocol extraction data and confirmed as an outcome measure in the analysis plan."
+          }
+        },
+        {
+          "id": "COMP-C8D02A6F",
+          "name": "Social Functioning (SF)",
+          "isRequired": true,
+          "order": 5,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pro_specifications.data.pro_instruments[0].scoring.domains[5].domain_name",
+            "pageNumber": 104,
+            "textSnippet": "The scores for each of the 8 health domain scores and for each of the physical and mental component summary measures from the SF-36 v2 will be summarised in terms of mean changes from baseline...",
+            "rationale": "This is one of the 8 domains explicitly listed for the SF-36 instrument in the protocol extraction data and confirmed as an outcome measure in the analysis plan."
+          }
+        },
+        {
+          "id": "COMP-7DA4B8BC",
+          "name": "Role-Emotional (RE)",
+          "isRequired": true,
+          "order": 6,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pro_specifications.data.pro_instruments[0].scoring.domains[6].domain_name",
+            "pageNumber": 104,
+            "textSnippet": "The scores for each of the 8 health domain scores and for each of the physical and mental component summary measures from the SF-36 v2 will be summarised in terms of mean changes from baseline...",
+            "rationale": "This is one of the 8 domains explicitly listed for the SF-36 instrument in the protocol extraction data and confirmed as an outcome measure in the analysis plan."
+          }
+        },
+        {
+          "id": "COMP-88740681",
+          "name": "Mental Health (MH)",
+          "isRequired": true,
+          "order": 7,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pro_specifications.data.pro_instruments[0].scoring.domains[7].domain_name",
+            "pageNumber": 104,
+            "textSnippet": "The scores for each of the 8 health domain scores and for each of the physical and mental component summary measures from the SF-36 v2 will be summarised in terms of mean changes from baseline...",
+            "rationale": "This is one of the 8 domains explicitly listed for the SF-36 instrument in the protocol extraction data and confirmed as an outcome measure in the analysis plan."
+          }
+        },
+        {
+          "id": "COMP-86F306E4",
+          "name": "Physical Component Summary (PCS)",
+          "isRequired": true,
+          "order": 8,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pro_specifications.data.pro_instruments[0].scoring.domains[8].domain_name",
+            "pageNumber": 104,
+            "textSnippet": "The scores for each of the 8 health domain scores and for each of the physical and mental component summary measures from the SF-36 v2 will be summarised in terms of mean changes from baseline...",
+            "rationale": "This is one of the 2 summary scores explicitly listed for the SF-36 instrument in the protocol extraction data and confirmed as an outcome measure in the analysis plan."
+          }
+        },
+        {
+          "id": "COMP-0FA21F1D",
+          "name": "Mental Component Summary (MCS)",
+          "isRequired": true,
+          "order": 9,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pro_specifications.data.pro_instruments[0].scoring.domains[9].domain_name",
+            "pageNumber": 104,
+            "textSnippet": "The scores for each of the 8 health domain scores and for each of the physical and mental component summary measures from the SF-36 v2 will be summarised in terms of mean changes from baseline...",
+            "rationale": "This is one of the 2 summary scores explicitly listed for the SF-36 instrument in the protocol extraction data and confirmed as an outcome measure in the analysis plan."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol extraction data explicitly lists 8 domains and 2 summary scores for the SF-36 instrument. The protocol text on page 104 confirms that the analysis will be performed on these 8 domain scores and 2 summary measures.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    }
+  ],
+  "metrics": {
+    "activitiesProcessed": 30,
+    "activitiesExpanded": 7,
+    "componentsCreated": 47,
+    "libraryMatches": 0,
+    "llmExpansions": 7,
+    "skipped": 23
+  },
+  "reviewItems": []
+}

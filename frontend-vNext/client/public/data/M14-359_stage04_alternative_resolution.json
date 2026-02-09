@@ -1,0 +1,450 @@
+{
+  "stage": 4,
+  "stageName": "Alternative Resolution",
+  "success": true,
+  "expansions": [
+    {
+      "id": "EXP-ACT-007",
+      "originalActivityId": "ACT-007",
+      "originalActivityName": "Documentation of Non-Childbearing Status or Pregnancy Test",
+      "expandedActivities": [
+        {
+          "id": "ACT-007-A",
+          "name": "Documentation of Non-Childbearing Status",
+          "instanceType": "Activity",
+          "cdiscDomain": null,
+          "_alternativeResolution": {
+            "originalActivityId": "ACT-007",
+            "originalActivityName": "Documentation of Non-Childbearing Status or Pregnancy Test",
+            "alternativeType": "mutually_exclusive",
+            "alternativeIndex": 1,
+            "alternativeCount": 2,
+            "confidence": 0.98,
+            "rationale": "The keyword 'or' explicitly separates two mutually exclusive options: providing documentation or performing a test.",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T17:39:07.171787Z",
+            "source": "cache",
+            "cacheHit": true,
+            "cacheKey": "a3b0c1122638daf5379999399e0c152a"
+          }
+        },
+        {
+          "id": "ACT-007-B",
+          "name": "Pregnancy Test",
+          "instanceType": "Activity",
+          "cdiscDomain": null,
+          "_alternativeResolution": {
+            "originalActivityId": "ACT-007",
+            "originalActivityName": "Documentation of Non-Childbearing Status or Pregnancy Test",
+            "alternativeType": "mutually_exclusive",
+            "alternativeIndex": 2,
+            "alternativeCount": 2,
+            "confidence": 0.98,
+            "rationale": "The keyword 'or' explicitly separates two mutually exclusive options: providing documentation or performing a test.",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T17:39:07.172114Z",
+            "source": "cache",
+            "cacheHit": true,
+            "cacheKey": "a3b0c1122638daf5379999399e0c152a"
+          }
+        }
+      ],
+      "expandedSais": [
+        {
+          "id": "SAI-027-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-007-A",
+          "scheduledInstanceEncounterId": "ENC-001",
+          "defaultConditionId": "COND-ALT-007-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-027",
+            "originalActivityId": "ACT-007",
+            "alternativeIndex": 1,
+            "alternativeName": "Documentation of Non-Childbearing Status",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T17:39:07.172094Z",
+            "confidence": 0.98,
+            "source": "cache",
+            "cacheHit": true
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-028-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-007-A",
+          "scheduledInstanceEncounterId": "ENC-002",
+          "defaultConditionId": "COND-ALT-007-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-028",
+            "originalActivityId": "ACT-007",
+            "alternativeIndex": 1,
+            "alternativeName": "Documentation of Non-Childbearing Status",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T17:39:07.172103Z",
+            "confidence": 0.98,
+            "source": "cache",
+            "cacheHit": true
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-029-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-007-A",
+          "scheduledInstanceEncounterId": "ENC-005",
+          "defaultConditionId": "COND-ALT-007-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-029",
+            "originalActivityId": "ACT-007",
+            "alternativeIndex": 1,
+            "alternativeName": "Documentation of Non-Childbearing Status",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T17:39:07.172108Z",
+            "confidence": 0.98,
+            "source": "cache",
+            "cacheHit": true
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-027-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-007-B",
+          "scheduledInstanceEncounterId": "ENC-001",
+          "defaultConditionId": "COND-ALT-007-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-027",
+            "originalActivityId": "ACT-007",
+            "alternativeIndex": 2,
+            "alternativeName": "Pregnancy Test",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T17:39:07.172156Z",
+            "confidence": 0.98,
+            "source": "cache",
+            "cacheHit": true
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-028-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-007-B",
+          "scheduledInstanceEncounterId": "ENC-002",
+          "defaultConditionId": "COND-ALT-007-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-028",
+            "originalActivityId": "ACT-007",
+            "alternativeIndex": 2,
+            "alternativeName": "Pregnancy Test",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T17:39:07.172162Z",
+            "confidence": 0.98,
+            "source": "cache",
+            "cacheHit": true
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-029-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-007-B",
+          "scheduledInstanceEncounterId": "ENC-005",
+          "defaultConditionId": "COND-ALT-007-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-029",
+            "originalActivityId": "ACT-007",
+            "alternativeIndex": 2,
+            "alternativeName": "Pregnancy Test",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T17:39:07.172166Z",
+            "confidence": 0.98,
+            "source": "cache",
+            "cacheHit": true
+          },
+          "timingModifier": null
+        }
+      ],
+      "conditionsCreated": [
+        {
+          "id": "COND-ALT-007-A",
+          "instanceType": "Condition",
+          "name": "Documentation of Non-Childbearing Status selected",
+          "text": "Subject assigned to Documentation of Non-Childbearing Status option for Documentation of Non-Childbearing Status or Pregnancy Test",
+          "conditionType": {
+            "id": "CODE-COND-TYPE-EXT-ALT-002",
+            "code": "EXT-ALT-002",
+            "decode": "Mutually Exclusive Alternative",
+            "codeSystem": "http://protocol-digitalization.example.org/codesystem/soa-alternative-resolution",
+            "codeSystemVersion": "1.0.0",
+            "instanceType": "Code"
+          },
+          "_alternativeResolution": {
+            "originalActivityId": "ACT-007",
+            "alternativeIndex": 1,
+            "alternativeName": "Documentation of Non-Childbearing Status",
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T17:39:07.172078Z"
+          }
+        },
+        {
+          "id": "COND-ALT-007-B",
+          "instanceType": "Condition",
+          "name": "Pregnancy Test selected",
+          "text": "Subject assigned to Pregnancy Test option for Documentation of Non-Childbearing Status or Pregnancy Test",
+          "conditionType": {
+            "id": "CODE-COND-TYPE-EXT-ALT-002",
+            "code": "EXT-ALT-002",
+            "decode": "Mutually Exclusive Alternative",
+            "codeSystem": "http://protocol-digitalization.example.org/codesystem/soa-alternative-resolution",
+            "codeSystemVersion": "1.0.0",
+            "instanceType": "Code"
+          },
+          "_alternativeResolution": {
+            "originalActivityId": "ACT-007",
+            "alternativeIndex": 2,
+            "alternativeName": "Pregnancy Test",
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T17:39:07.172152Z"
+          }
+        }
+      ],
+      "assignmentsCreated": [
+        {
+          "id": "CA-ALT-7B4B84",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-007-A",
+          "conditionTargetId": "SAI-027-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T17:39:07.172101Z"
+          }
+        },
+        {
+          "id": "CA-ALT-558FB4",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-007-A",
+          "conditionTargetId": "SAI-028-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T17:39:07.172106Z"
+          }
+        },
+        {
+          "id": "CA-ALT-10C46A",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-007-A",
+          "conditionTargetId": "SAI-029-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T17:39:07.172110Z"
+          }
+        },
+        {
+          "id": "CA-ALT-A1F93D",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-007-B",
+          "conditionTargetId": "SAI-027-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T17:39:07.172161Z"
+          }
+        },
+        {
+          "id": "CA-ALT-DEBC13",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-007-B",
+          "conditionTargetId": "SAI-028-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T17:39:07.172165Z"
+          }
+        },
+        {
+          "id": "CA-ALT-A39A6F",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-007-B",
+          "conditionTargetId": "SAI-029-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T17:39:07.172174Z"
+          }
+        }
+      ],
+      "confidence": 0.98,
+      "alternativeType": "mutually_exclusive",
+      "requiresReview": false,
+      "reviewReason": null
+    }
+  ],
+  "decisions": {
+    "ACT-007": {
+      "activityId": "ACT-007",
+      "activityName": "Documentation of Non-Childbearing Status or Pregnancy Test",
+      "isAlternative": true,
+      "alternativeType": "mutually_exclusive",
+      "alternatives": [
+        {
+          "name": "Documentation of Non-Childbearing Status",
+          "order": 1,
+          "confidence": 0.98,
+          "cdiscDomain": null,
+          "isPreferred": false
+        },
+        {
+          "name": "Pregnancy Test",
+          "order": 2,
+          "confidence": 0.98,
+          "cdiscDomain": null,
+          "isPreferred": false
+        }
+      ],
+      "recommendedAction": "expand",
+      "confidence": 0.98,
+      "rationale": "The keyword 'or' explicitly separates two mutually exclusive options: providing documentation or performing a test.",
+      "source": "cache",
+      "requiresHumanReview": false,
+      "reviewReason": null,
+      "cachedAt": "2025-12-09T00:51:22.479049Z",
+      "modelName": "gemini-2.5-pro"
+    },
+    "ACT-008": {
+      "activityId": "ACT-008",
+      "activityName": "Chemistry/Hematology",
+      "isAlternative": false,
+      "alternativeType": null,
+      "alternatives": [],
+      "recommendedAction": "keep",
+      "confidence": 1.0,
+      "rationale": "The '/' in 'Chemistry/Hematology' is a common convention for listing two required lab panels (Chemistry and Hematology), not an alternative choice. This is analogous to 'Test A and Test B'.",
+      "source": "cache",
+      "requiresHumanReview": false,
+      "reviewReason": null,
+      "cachedAt": "2025-12-09T00:51:22.479075Z",
+      "modelName": "gemini-2.5-pro"
+    }
+  },
+  "reviewItems": [],
+  "metrics": {
+    "activitiesAnalyzed": 2,
+    "alternativesDetected": 1,
+    "activitiesExpanded": 1,
+    "saisCreated": 6,
+    "conditionsCreated": 2,
+    "assignmentsCreated": 6,
+    "autoApplied": 1,
+    "needsReview": 0,
+    "timingPatternsFiltered": 0,
+    "unitPatternsFiltered": 0,
+    "cacheHits": 2,
+    "llmCalls": 0,
+    "validationDiscrepancies": 0,
+    "referentialIntegrityErrors": 0
+  },
+  "_agentDefinition": {
+    "stageNumber": 4,
+    "stageName": "Alternative Resolution",
+    "displayName": "Choice Point Resolver",
+    "purpose": "Identifies and structures mutually exclusive alternatives in the SOA (e.g., 'CT or MRI', 'Treatment A or B'), enabling conditional logic in downstream systems.",
+    "extractionMethodology": "Pattern matching for 'or', 'either/or', slash-separated alternatives. LLM disambiguation of true alternatives vs. combined requirements. Confidence scoring based on pattern clarity and protocol context.",
+    "keyOutputs": [
+      {
+        "field": "alternativeGroups",
+        "description": "Groups of mutually exclusive options"
+      },
+      {
+        "field": "optionIds",
+        "description": "IDs of activities that are alternatives to each other"
+      },
+      {
+        "field": "selectionCriteria",
+        "description": "Rules for choosing between alternatives"
+      },
+      {
+        "field": "isExclusive",
+        "description": "Whether options are truly mutually exclusive"
+      },
+      {
+        "field": "defaultOption",
+        "description": "Recommended default if specified in protocol"
+      }
+    ],
+    "downstreamIntegrations": [
+      {
+        "system": "EDC Build",
+        "useCase": "Conditional form logic and branching",
+        "automationType": "rule_generation",
+        "fieldsUsed": [
+          "alternativeGroups",
+          "selectionCriteria",
+          "isExclusive"
+        ],
+        "automationExample": "Radio button selection for 'CT or MRI' - selecting one hides the other form"
+      },
+      {
+        "system": "IRT Build",
+        "useCase": "Randomization arm-specific procedures",
+        "automationType": "configuration",
+        "fieldsUsed": [
+          "alternativeGroups",
+          "optionIds"
+        ],
+        "automationExample": "IRT displays only treatment-specific procedures based on randomization arm"
+      },
+      {
+        "system": "Edit Checks",
+        "useCase": "Mutual exclusion validation",
+        "automationType": "rule_generation",
+        "fieldsUsed": [
+          "alternativeGroups",
+          "isExclusive"
+        ],
+        "automationExample": "Edit check: ERROR if both CT and MRI data entered for same visit"
+      }
+    ],
+    "automationInsights": [
+      {
+        "insight": "Branching Logic",
+        "description": "Alternatives drive EDC conditional display rules"
+      },
+      {
+        "insight": "Randomization Integration",
+        "description": "Treatment alternatives link to IRT arm assignment"
+      },
+      {
+        "insight": "Data Consistency",
+        "description": "Mutual exclusion rules prevent contradictory data entry"
+      }
+    ],
+    "dataQualityIndicators": [
+      "all alternatives have same timing",
+      "selection criteria is clear",
+      "no nested alternatives"
+    ],
+    "humanReviewTriggers": [
+      "unclear if truly exclusive",
+      "> 3 alternatives",
+      "complex selection criteria"
+    ]
+  }
+}

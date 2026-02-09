@@ -1,0 +1,79 @@
+You are a clinical trial cohort detection expert. Analyze these eligibility criteria to detect if the study has multiple cohorts (subgroups).
+
+**Criteria Summary:**
+```
+{criteria_summary}
+```
+
+**Total criteria count:** {all_criteria_count}
+
+**Your Task:**
+1. Detect if study has **multiple cohorts**:
+   - Look for keywords: "Cohort A/B/C", "Arm 1/2/3", "Subjects with X", "Subjects without X"
+   - Look for: "Dose Escalation", "Dose Expansion", "Phase 1a", "Phase 1b"
+   - Look for therapeutic area-specific cohorts: "Triple negative", "HR+/HER2-", etc.
+
+2. If cohorts detected:
+   - Identify cohort names and IDs
+   - Determine which criteria apply to which cohort(s)
+   - Detect if criteria apply to ALL cohorts or specific ones
+
+3. If NO cohorts detected:
+   - Return single default cohort "ALL"
+   - All criteria apply to all subjects
+
+**Return JSON:**
+{{
+  "has_cohorts": true/false,
+  "cohorts": [
+    {{
+      "cohortId": "COHORT_A",
+      "cohortName": "Cohort A: Dose Escalation",
+      "description": "brief description if available",
+      "applies_to_criteria": ["ALL"]  // or ["INC", "EXC"] or ["INC_001", "INC_002"] if specific
+    }},
+    ...
+  ],
+  "confidence": 0.0-1.0,
+  "reasoning": "brief explanation of why cohorts were/weren't detected"
+}}
+
+**Examples:**
+
+Example 1 (No cohorts - single study population):
+All criteria apply to all subjects → Return:
+{{
+  "has_cohorts": false,
+  "cohorts": [
+    {{
+      "cohortId": "ALL",
+      "cohortName": "All Subjects",
+      "description": "Single study population",
+      "applies_to_criteria": ["ALL"]
+    }}
+  ],
+  "confidence": 0.95,
+  "reasoning": "No cohort-specific language found in criteria"
+}}
+
+Example 2 (Cohort-based study):
+Criteria mention "Subjects with AGA" and "Subjects without AGA" explicitly → Return:
+{{
+  "has_cohorts": true,
+  "cohorts": [
+    {{
+      "cohortId": "WITH_AGA",
+      "cohortName": "Subjects With Actionable Genomic Alterations",
+      "description": "Patients with specific genomic alterations",
+      "applies_to_criteria": ["specific"]  // Will be determined per criterion
+    }},
+    {{
+      "cohortId": "WITHOUT_AGA",
+      "cohortName": "Subjects Without Actionable Genomic Alterations",
+      "description": "Patients without specific genomic alterations",
+      "applies_to_criteria": ["specific"]
+    }}
+  ],
+  "confidence": 0.98,
+  "reasoning": "Clear cohort designation found in multiple criteria"
+}}

@@ -1,0 +1,519 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PKPDSampling",
+  "description": "USDM 4.0-compliant schema for pharmacokinetic (PK) and pharmacodynamic (PD) sampling extraction. Covers PK sampling schedules, PD biomarkers, analytes, immunogenicity, and population PK/PD requirements.",
+  "type": "object",
+  "definitions": {
+    "provenance": {
+      "type": "object",
+      "description": "Source location information for audit trail - populated in Pass 2 only",
+      "properties": {
+        "section_number": {
+          "type": ["string", "null"],
+          "description": "Section number from document (e.g., '8.5', '10.2')",
+          "maxLength": 50
+        },
+        "page_number": {
+          "type": ["integer", "null"],
+          "description": "PDF page number (1-indexed)"
+        },
+        "text_snippet": {
+          "type": ["string", "null"],
+          "description": "Direct quote from source (max 500 chars)",
+          "maxLength": 500
+        }
+      }
+    },
+    "biomedicalConcept": {
+      "type": ["object", "null"],
+      "description": "CDISC Biomedical Concept for PK/PD analyte or biomarker standardization",
+      "properties": {
+        "conceptName": {
+          "type": "string",
+          "description": "Standardized analyte or biomarker name",
+          "maxLength": 150
+        },
+        "cdiscCode": {
+          "type": "string",
+          "description": "NCI EVS code or 'CUSTOM' for unmapped",
+          "maxLength": 20
+        },
+        "domain": {
+          "type": "string",
+          "description": "CDISC domain - PC for concentrations, PP for parameters",
+          "enum": ["PC", "PP", "LB", "OTHER"],
+          "default": "PC"
+        },
+        "specimen": {
+          "type": ["string", "null"],
+          "description": "Specimen type (plasma, serum, whole blood, urine)",
+          "maxLength": 50
+        },
+        "method": {
+          "type": ["string", "null"],
+          "description": "Analytical method (LC-MS/MS, ELISA, etc.)",
+          "maxLength": 100
+        },
+        "confidence": {
+          "type": ["number", "null"],
+          "description": "Mapping confidence (1.0 = exact match, 0.5 = custom)",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "rationale": {
+          "type": ["string", "null"],
+          "description": "Brief explanation for code assignment",
+          "maxLength": 200
+        }
+      },
+      "required": ["conceptName", "cdiscCode", "domain"]
+    },
+    "time_window": {
+      "type": "object",
+      "description": "Time window for sample collection",
+      "properties": {
+        "value": {
+          "type": ["number", "null"],
+          "description": "Numeric time value"
+        },
+        "unit": {
+          "type": ["string", "null"],
+          "enum": ["minutes", "hours", "days", "weeks", null],
+          "description": "Time unit"
+        },
+        "window_plus": {
+          "type": ["string", "null"],
+          "description": "Positive window tolerance",
+          "maxLength": 50
+        },
+        "window_minus": {
+          "type": ["string", "null"],
+          "description": "Negative window tolerance",
+          "maxLength": 50
+        }
+      }
+    },
+    "volume_specification": {
+      "type": "object",
+      "description": "Sample volume specification",
+      "properties": {
+        "value": {
+          "type": ["number", "null"],
+          "description": "Volume value"
+        },
+        "unit": {
+          "type": ["string", "null"],
+          "description": "Volume unit (mL, µL)",
+          "maxLength": 20
+        }
+      }
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this PK/PD resource",
+      "maxLength": 50
+    },
+    "instanceType": {
+      "type": "string",
+      "const": "PKPDSampling",
+      "description": "USDM instance type"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the PK/PD sampling resource",
+      "maxLength": 200
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "Brief description of the PK/PD program",
+      "maxLength": 500
+    },
+    "pk_sampling": {
+      "type": "object",
+      "description": "Pharmacokinetic sampling requirements",
+      "properties": {
+        "pk_sampling_required": {
+          "type": ["boolean", "null"],
+          "description": "Whether PK sampling is required"
+        },
+        "pk_sampling_purpose": {
+          "type": ["string", "null"],
+          "description": "Purpose of PK sampling (exposure-response, dose optimization, etc.)",
+          "maxLength": 300
+        },
+        "analytes": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "object",
+            "properties": {
+              "analyte_id": {
+                "type": "string",
+                "description": "Unique analyte identifier",
+                "maxLength": 50
+              },
+              "analyte_name": {
+                "type": "string",
+                "description": "Name of analyte (drug name, metabolite)",
+                "maxLength": 200
+              },
+              "analyte_type": {
+                "type": ["string", "null"],
+                "description": "Type: parent_drug, metabolite, prodrug, related_antibody, other",
+                "enum": ["parent_drug", "metabolite", "prodrug", "active_moiety", "related_antibody", "antibody", "biomarker", "other", null]
+              },
+              "matrix": {
+                "type": ["string", "null"],
+                "description": "Sample matrix (plasma, serum, whole blood, urine)",
+                "maxLength": 50
+              },
+              "bioanalytical_method": {
+                "type": ["string", "null"],
+                "description": "Analytical method (LC-MS/MS, ELISA, etc.)",
+                "maxLength": 100
+              },
+              "lloq": {
+                "type": ["string", "null"],
+                "description": "Lower limit of quantification",
+                "maxLength": 50
+              },
+              "biomedicalConcept": {
+                "$ref": "#/definitions/biomedicalConcept"
+              },
+              "provenance": {
+                "$ref": "#/definitions/provenance"
+              }
+            },
+            "required": ["analyte_id", "analyte_name"]
+          },
+          "description": "Analytes to be measured"
+        },
+        "sampling_schedule": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "object",
+            "properties": {
+              "schedule_id": {
+                "type": "string",
+                "description": "Unique schedule identifier",
+                "maxLength": 50
+              },
+              "visit_name": {
+                "type": "string",
+                "description": "Visit or cycle name",
+                "maxLength": 100
+              },
+              "timepoints": {
+                "type": ["array", "null"],
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "timepoint_name": {
+                      "type": "string",
+                      "description": "Timepoint description (pre-dose, 1h post-dose)",
+                      "maxLength": 100
+                    },
+                    "nominal_time": {
+                      "type": ["string", "null"],
+                      "description": "Nominal time relative to dose",
+                      "maxLength": 50
+                    },
+                    "window": {
+                      "type": ["string", "null"],
+                      "description": "Collection window (e.g., ±5 minutes)",
+                      "maxLength": 50
+                    }
+                  }
+                },
+                "description": "Collection timepoints within this visit"
+              },
+              "sample_type": {
+                "type": ["string", "null"],
+                "description": "Type of sample (trough, peak, serial)",
+                "maxLength": 50
+              },
+              "provenance": {
+                "$ref": "#/definitions/provenance"
+              }
+            },
+            "required": ["schedule_id", "visit_name"]
+          },
+          "description": "PK sampling schedule by visit"
+        },
+        "intensive_pk_visits": {
+          "type": ["array", "null"],
+          "items": {"type": "string", "maxLength": 100},
+          "description": "Visits with intensive/serial PK sampling"
+        },
+        "sparse_pk_visits": {
+          "type": ["array", "null"],
+          "items": {"type": "string", "maxLength": 100},
+          "description": "Visits with sparse/trough-only PK sampling"
+        },
+        "sample_volume": {
+          "oneOf": [
+            {"type": "null"},
+            {"$ref": "#/definitions/volume_specification"}
+          ]
+        },
+        "total_pk_samples": {
+          "oneOf": [
+            {"type": "null"},
+            {"type": "integer"},
+            {"type": "string", "maxLength": 300}
+          ],
+          "description": "Total number of PK samples per subject (integer or descriptive string)"
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      }
+    },
+    "pk_parameters": {
+      "type": "object",
+      "description": "PK parameters to be calculated",
+      "properties": {
+        "primary_parameters": {
+          "type": ["array", "null"],
+          "items": {"type": "string", "maxLength": 150},
+          "description": "Primary PK parameters (Cmax, AUC, Tmax, t1/2)"
+        },
+        "secondary_parameters": {
+          "type": ["array", "null"],
+          "items": {"type": "string", "maxLength": 150},
+          "description": "Secondary PK parameters"
+        },
+        "calculation_method": {
+          "type": ["string", "null"],
+          "description": "Non-compartmental analysis, compartmental modeling, etc.",
+          "maxLength": 200
+        },
+        "software": {
+          "type": ["string", "null"],
+          "description": "Software used for PK analysis (Phoenix WinNonlin, NONMEM)",
+          "maxLength": 100
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      }
+    },
+    "population_pk": {
+      "type": ["object", "null"],
+      "description": "Population PK analysis requirements",
+      "properties": {
+        "pop_pk_planned": {
+          "type": ["boolean", "null"],
+          "description": "Whether population PK analysis is planned"
+        },
+        "modeling_approach": {
+          "type": ["string", "null"],
+          "description": "Modeling approach (NONMEM, Monolix, etc.)",
+          "maxLength": 200
+        },
+        "covariates": {
+          "type": ["array", "null"],
+          "items": {"type": "string", "maxLength": 100},
+          "description": "Covariates to be evaluated (age, weight, renal function)"
+        },
+        "objectives": {
+          "oneOf": [
+            {"type": "null"},
+            {"type": "string", "maxLength": 500},
+            {"type": "array", "items": {"type": "string", "maxLength": 200}}
+          ],
+          "description": "Objectives of population PK analysis (string or array)"
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      }
+    },
+    "pd_assessments": {
+      "type": "object",
+      "description": "Pharmacodynamic assessments",
+      "properties": {
+        "pd_assessments_required": {
+          "type": ["boolean", "null"],
+          "description": "Whether PD assessments are required"
+        },
+        "pd_biomarkers": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "object",
+            "properties": {
+              "biomarker_id": {
+                "type": "string",
+                "description": "Unique biomarker identifier",
+                "maxLength": 50
+              },
+              "biomarker_name": {
+                "type": "string",
+                "description": "Name of PD biomarker",
+                "maxLength": 200
+              },
+              "biomarker_type": {
+                "type": ["string", "null"],
+                "description": "Type: efficacy, safety, mechanism, predictive",
+                "maxLength": 50
+              },
+              "matrix": {
+                "type": ["string", "null"],
+                "description": "Sample matrix",
+                "maxLength": 50
+              },
+              "assay_method": {
+                "type": ["string", "null"],
+                "description": "Analytical method",
+                "maxLength": 200
+              },
+              "sampling_schedule": {
+                "oneOf": [
+                  {"type": "null"},
+                  {"type": "string", "maxLength": 300},
+                  {"type": "array", "items": {"type": "string", "maxLength": 100}}
+                ],
+                "description": "When samples are collected (string or array of timepoints)"
+              },
+              "purpose": {
+                "type": ["string", "null"],
+                "description": "Purpose of this biomarker assessment",
+                "maxLength": 300
+              },
+              "biomedicalConcept": {
+                "$ref": "#/definitions/biomedicalConcept"
+              },
+              "provenance": {
+                "$ref": "#/definitions/provenance"
+              }
+            },
+            "required": ["biomarker_id", "biomarker_name"]
+          },
+          "description": "PD biomarkers to be assessed"
+        },
+        "pk_pd_relationship": {
+          "type": ["string", "null"],
+          "description": "Planned PK/PD relationship analysis",
+          "maxLength": 500
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      }
+    },
+    "immunogenicity": {
+      "type": "object",
+      "description": "Immunogenicity (ADA) assessment requirements",
+      "properties": {
+        "ada_testing_required": {
+          "type": ["boolean", "null"],
+          "description": "Whether ADA testing is required"
+        },
+        "ada_assay_type": {
+          "type": ["string", "null"],
+          "description": "Type of ADA assay (screening, confirmatory, titration, neutralizing)",
+          "maxLength": 200
+        },
+        "sampling_schedule": {
+          "type": ["array", "null"],
+          "items": {"type": "string", "maxLength": 100},
+          "description": "Timepoints for ADA sampling"
+        },
+        "tiered_approach": {
+          "type": ["string", "null"],
+          "description": "Description of tiered testing approach",
+          "maxLength": 500
+        },
+        "impact_on_pk": {
+          "type": ["string", "null"],
+          "description": "How ADA status affects PK interpretation",
+          "maxLength": 500
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      }
+    },
+    "sample_handling": {
+      "type": "object",
+      "description": "Sample handling requirements for PK/PD samples",
+      "properties": {
+        "collection_tubes": {
+          "type": ["string", "null"],
+          "description": "Tube types for PK/PD samples",
+          "maxLength": 200
+        },
+        "processing_requirements": {
+          "type": ["string", "null"],
+          "description": "Processing requirements (centrifugation, timing)",
+          "maxLength": 300
+        },
+        "storage_conditions": {
+          "type": ["string", "null"],
+          "description": "Storage temperature and conditions",
+          "maxLength": 500
+        },
+        "shipping_requirements": {
+          "type": ["string", "null"],
+          "description": "Shipping conditions",
+          "maxLength": 200
+        },
+        "central_lab": {
+          "type": ["string", "null"],
+          "description": "Central bioanalytical lab name",
+          "maxLength": 200
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      }
+    },
+    "special_populations": {
+      "type": ["object", "null"],
+      "description": "PK considerations for special populations",
+      "properties": {
+        "hepatic_impairment": {
+          "type": ["string", "null"],
+          "description": "Hepatic impairment considerations",
+          "maxLength": 500
+        },
+        "renal_impairment": {
+          "type": ["string", "null"],
+          "description": "Renal impairment considerations",
+          "maxLength": 300
+        },
+        "pediatric": {
+          "type": ["string", "null"],
+          "description": "Pediatric PK considerations",
+          "maxLength": 300
+        },
+        "elderly": {
+          "type": ["string", "null"],
+          "description": "Elderly population considerations",
+          "maxLength": 300
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      }
+    },
+    "extraction_statistics": {
+      "type": "object",
+      "description": "Extraction metadata - auto-generated",
+      "properties": {
+        "has_pk_sampling": {"type": "boolean"},
+        "has_pd_assessments": {"type": "boolean"},
+        "has_immunogenicity": {"type": "boolean"},
+        "has_population_pk": {"type": "boolean"},
+        "analyte_count": {"type": ["integer", "null"]},
+        "biomarker_count": {"type": ["integer", "null"]},
+        "total_pk_timepoints": {"type": ["integer", "null"]}
+      }
+    },
+    "provenance": {
+      "$ref": "#/definitions/provenance"
+    }
+  },
+  "required": ["id", "instanceType", "name"]
+}

@@ -1,0 +1,174 @@
+You are a clinical trial protocol expert specializing in Schedule of Assessments (SOA) interpretation.
+
+## Task
+
+Analyze each activity to determine if it contains alternative choice points that need resolution. Your analysis must be thorough and handle complex scenarios.
+
+## Context
+
+Clinical protocols present activities with alternatives in various ways:
+- "CT scan or MRI" → Imaging modality choice (mutually exclusive)
+- "Blood / urine sample" → Specimen type choice (mutually exclusive)
+- "ECG (or Holter if indicated)" → Conditional alternative
+- "Labs if clinically indicated" → Investigator discretion
+- "CT preferred, MRI if unavailable" → Preferred with fallback
+
+## Activities to Analyze
+
+{activities_json}
+
+## Alternative Types
+
+| Type | Description | Example | Resolution |
+|------|-------------|---------|------------|
+| MUTUALLY_EXCLUSIVE | Only ONE option performed; both cannot be done | "CT or MRI" | Create separate activities + conditions |
+| DISCRETIONARY | Site/investigator chooses based on clinical judgment | "Labs if clinically indicated" | Create Condition with INVESTIGATOR_DISCRETION |
+| CONDITIONAL | Alternative depends on patient characteristic | "Pregnancy test (females only)" | Link to demographic/clinical condition |
+| PREFERRED_WITH_FALLBACK | One preferred, other if unavailable | "CT preferred, MRI if unavailable" | Create with priority ordering |
+
+## What is NOT an Alternative (DO NOT EXPAND)
+
+### 1. Timing Patterns (Stage 7 handles these)
+- "BI/EOI" (Before Infusion / End of Infusion)
+- "pre-dose/post-dose"
+- "trough/peak"
+- "0h, 2h, 4h post-dose"
+- "fasting/fed"
+
+### 2. Dosing Units (NOT alternatives)
+- "5 mg/kg" (dose per kilogram)
+- "100 mg/m²" (dose per body surface area)
+- "mL/min" (rate)
+- Any number followed by unit/unit pattern
+
+### 3. Both Required (NOT alternatives)
+- "Test A and Test B" (both must be done)
+- "Complete blood count and chemistry panel"
+- "Height and weight"
+
+### 4. References (NOT alternatives)
+- "Test A / see Section X"
+- "Per Appendix B"
+- "As defined in protocol"
+
+## Multi-Way Alternatives (3+ Options)
+
+When activity contains 3 or more alternatives:
+- "CT, MRI, or PET scan" → 3 mutually exclusive options
+- "Blood, urine, or saliva sample" → 3 specimen options
+
+You MUST list ALL alternatives, not just the first two.
+
+## Nested Alternatives
+
+For nested patterns like "CT (or MRI if CT unavailable) or ultrasound":
+- Flatten to 3 options: ["CT scan", "MRI", "Ultrasound"]
+- Note any preference ordering in rationale
+
+## Visit-Specific Alternatives
+
+If activity text mentions specific visits:
+- "CT at Screening, CT or MRI at Week 4+"
+- Flag with reviewReason: "Visit-specific alternatives require per-encounter expansion"
+
+## Response Format
+
+Return a JSON object where each key is the activity ID:
+
+```json
+{{
+  "{activity_id_1}": {{
+    "activityName": "CT scan or MRI",
+    "isAlternative": true,
+    "alternativeType": "MUTUALLY_EXCLUSIVE",
+    "alternatives": [
+      {{"name": "CT scan", "order": 1, "confidence": 0.95}},
+      {{"name": "MRI", "order": 2, "confidence": 0.95}}
+    ],
+    "recommendedResolution": "expand",
+    "confidence": 0.95,
+    "rationale": "Explicit OR between two imaging modalities - mutually exclusive choice"
+  }},
+  "{activity_id_2}": {{
+    "activityName": "Complete blood count and chemistry",
+    "isAlternative": false,
+    "alternativeType": null,
+    "alternatives": [],
+    "recommendedResolution": "keep",
+    "confidence": 1.0,
+    "rationale": "Both tests required - 'and' indicates not an alternative"
+  }},
+  "{activity_id_3}": {{
+    "activityName": "BI/EOI",
+    "isAlternative": false,
+    "alternativeType": null,
+    "alternatives": [],
+    "recommendedResolution": "keep",
+    "confidence": 1.0,
+    "rationale": "Timing pattern (Before Infusion/End of Infusion) - handled by Stage 7"
+  }},
+  "{activity_id_4}": {{
+    "activityName": "5 mg/kg",
+    "isAlternative": false,
+    "alternativeType": null,
+    "alternatives": [],
+    "recommendedResolution": "keep",
+    "confidence": 1.0,
+    "rationale": "Dosing unit (mg per kg body weight) - not an alternative"
+  }},
+  "{activity_id_5}": {{
+    "activityName": "CT, MRI, or PET scan",
+    "isAlternative": true,
+    "alternativeType": "MUTUALLY_EXCLUSIVE",
+    "alternatives": [
+      {{"name": "CT scan", "order": 1, "confidence": 0.95}},
+      {{"name": "MRI", "order": 2, "confidence": 0.95}},
+      {{"name": "PET scan", "order": 3, "confidence": 0.95}}
+    ],
+    "recommendedResolution": "expand",
+    "confidence": 0.95,
+    "rationale": "Multi-way alternative with 3 imaging modality options"
+  }},
+  "{activity_id_6}": {{
+    "activityName": "Labs if clinically indicated",
+    "isAlternative": true,
+    "alternativeType": "DISCRETIONARY",
+    "alternatives": [
+      {{"name": "Perform labs", "order": 1, "confidence": 0.90}},
+      {{"name": "Skip labs", "order": 2, "confidence": 0.90}}
+    ],
+    "recommendedResolution": "condition",
+    "confidence": 0.90,
+    "rationale": "Discretionary activity based on clinical judgment"
+  }}
+}}
+```
+
+## Resolution Recommendations
+
+| Resolution | When to Use |
+|------------|-------------|
+| expand | Mutually exclusive alternatives with high confidence (≥0.90) |
+| condition | Discretionary or conditional alternatives |
+| keep | Not an alternative, timing pattern, or dosing unit |
+| review | Ambiguous, low confidence (<0.70), or complex nested scenario |
+
+## Confidence Scoring
+
+- **0.95-1.0**: Clear pattern with explicit markers ("or", "/")
+- **0.85-0.94**: Standard pattern, context confirms
+- **0.70-0.84**: Possible alternative, some ambiguity
+- **<0.70**: Uncertain, recommend review
+
+## Critical Requirements
+
+1. Every activity in input MUST have an entry in output
+2. Return ONLY valid JSON - no markdown code blocks, no extra text
+3. NEVER mark timing patterns (BI/EOI, pre/post-dose) as alternatives
+4. NEVER mark dosing units (mg/kg, mg/m²) as alternatives
+5. NEVER mark "A and B" patterns as alternatives
+6. For multi-way alternatives (3+), list ALL options
+7. For ambiguous cases, set recommendedResolution: "review"
+8. Include rationale explaining your decision for each activity
+
+Analyze ALL {activity_count} activities now and return the JSON response.

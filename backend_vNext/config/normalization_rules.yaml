@@ -1,0 +1,153 @@
+version: "1.0"
+last_updated: "2025-11-30"
+
+modules:
+  arms_design:
+    field_mappings:
+      studyEpochs:
+        rename_fields:
+          "type": "epochType"
+    
+    optional_string_fields:
+      intervention:
+        - "formulation"
+        - "strength"
+        - "storageConditions"
+        - "drugClass"
+        - "label"
+        - "description"
+    
+    string_length_limits:
+      intervention:
+        formulation: 100
+        strength: 50
+        storageConditions: 100
+        drugClass: 150
+        name: 150
+        label: 150
+        description: 500
+      
+      provenance:
+        text_snippet: 300
+    
+    disallowed_provenance_paths:
+      - "dosingRegimen"
+  
+  study_design:
+    vocabulary_normalization:
+      studyPhase:
+        vocab_type: "study_phase"
+        normalize_decode: true
+      studyType:
+        vocab_type: "study_type"
+        normalize_decode: true
+      "studyArms[].armType":
+        vocab_type: "arm_types"
+        normalize_decode: true
+      "studyPopulation.sex.allowed[]":
+        vocab_type: "sex"
+        normalize_decode: true
+    
+    string_length_limits:
+      name: 200
+      officialTitle: 500
+      treatmentDescription: 300
+      indication: 200
+      therapeuticArea: 100
+      "keyInclusionSummary[]": 300
+      "keyExclusionSummary[]": 300
+      provenance:
+        text_snippet: 300
+    
+    array_limits:
+      keyInclusionSummary: 8
+      keyExclusionSummary: 8
+      studyIdentifiers: 10
+      studyArms: 20
+      stratificationFactors: 10
+    
+    optional_string_fields:
+      study:
+        - "version"
+        - "indication"
+        - "therapeuticArea"
+        - "sponsorName"
+  
+  endpoints_estimands:
+    vocabulary_normalization:
+      "objectives[].level":
+        vocab_type: "objective_level"
+        normalize_decode: true
+      "usdm_endpoints[].level":
+        vocab_type: "endpoint_level"
+        normalize_decode: true
+      "usdm_endpoints[].outcomeType":
+        vocab_type: "outcome_type"
+        normalize_decode: true
+      "estimands[].treatment.experimentalArm.armType":
+        vocab_type: "estimand_arm_type"
+        normalize_decode: true
+      "estimands[].treatment.comparatorArm.armType":
+        vocab_type: "estimand_arm_type"
+        normalize_decode: true
+      "estimands[].intercurrentEvents[].strategy":
+        vocab_type: "ice_strategy"
+        normalize_decode: true
+      "estimands[].summaryMeasure":
+        vocab_type: "summary_measure"
+        normalize_decode: true
+      "analysisPopulations[].populationType":
+        vocab_type: "population_type"
+        normalize_decode: true
+    
+    string_length_limits:
+      name: 100
+      text: 500
+      label: 100
+      purpose: 200
+      description: 300
+      assessmentMethod: 150
+      assessor: 100
+      strategyRationale: 300
+      provenance:
+        text_snippet: 300
+    
+    optional_string_fields:
+      endpoint:
+        - "assessmentMethod"
+        - "assessor"
+        - "label"
+      objective:
+        - "label"
+      estimand:
+        - "description"
+      population:
+        - "label"
+
+global:
+  provenance:
+    text_snippet_max_length: 300
+    truncation_suffix: "..."
+  
+  null_handling:
+    remove_null_optional_strings: true
+  
+  code_objects:
+    required_fields:
+      - "code"
+      - "decode"
+      - "codeSystem"
+      - "codeSystemVersion"
+    
+    auto_fill:
+      codeSystem: "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
+      codeSystemVersion: "24.03e"
+
+extraction:
+  retry:
+    max_attempts: 3
+    backoff_seconds: 2
+  
+  validation:
+    strict_mode: true
+    allow_fallback_values: true

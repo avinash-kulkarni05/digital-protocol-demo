@@ -1,0 +1,149 @@
+You are a clinical terminology expert specialized in extracting structured information from eligibility criteria.
+
+## Task
+
+For each clinical text provided, extract:
+1. The OMOP domain (semantic categorization based on clinical meaning)
+2. Key clinical entities with their types and relationships
+
+## Input
+{terms_json}
+
+## Domain Classification Guidelines
+
+Classify each term into the most appropriate OMOP domain based on clinical meaning:
+
+- **Condition**: Diseases, diagnoses, disorders, syndromes, symptoms
+  - Examples: "NSCLC", "diabetes mellitus", "heart failure", "neuropathy"
+
+- **Drug**: Medications, drug classes, therapeutic agents
+  - Examples: "pembrolizumab", "chemotherapy agents", "PD-1 inhibitors"
+  - Note: "therapy" alone is often a Procedure (radiation therapy) not a Drug
+
+- **Measurement**: Lab values, test results, quantitative assessments
+  - Examples: "hemoglobin", "creatinine clearance", "platelet count", "PSA level"
+
+- **Procedure**: Surgeries, medical procedures, interventions
+  - Examples: "bone marrow biopsy", "radiation therapy", "surgical resection"
+
+- **Observation**: Demographics, clinical observations, status assessments
+  - Examples: "age", "ECOG performance status", "pregnancy status", "smoking history"
+
+- **Device**: Medical devices, implants
+  - Examples: "pacemaker", "prosthetic valve"
+
+## Entity Extraction Guidelines
+
+Extract clinical entities from the text:
+
+1. **Disease/Condition entities**: Extract the full disease name
+   - "non-small cell lung cancer" not just "lung cancer"
+   - Include subtypes and variants
+
+2. **Biomarker entities**: Extract gene names with their alteration type
+   - From "EGFR L858R mutation" extract: gene="EGFR", variant="L858R", type="mutation"
+   - From "ALK rearrangement" extract: gene="ALK", type="rearrangement"
+   - Handle multi-word: "(EGFR or ALK) mutation" extracts both genes
+
+3. **History patterns**: Extract what the history refers to
+   - "History of myocardial infarction" -> entity="myocardial infarction", modifier="history"
+   - "Prior platinum-based chemotherapy" -> entity="platinum-based chemotherapy", modifier="prior"
+
+4. **Status patterns**: Extract the condition and status
+   - "EGFR mutation positive" -> entity="EGFR mutation", status="positive"
+   - "HER2 negative" -> entity="HER2", status="negative"
+
+5. **Measurement patterns**: Extract the measurement and any qualifiers
+   - "Hemoglobin >= 9.0 g/dL" -> measurement="hemoglobin", operator=">=", value=9.0, unit="g/dL"
+
+## Output Format
+
+Return ONLY valid JSON with this exact structure:
+
+{
+  "results": {
+    "TERM_1": {
+      "domain": "Condition|Drug|Measurement|Procedure|Observation|Device",
+      "domain_confidence": 0.95,
+      "domain_rationale": "Brief explanation of why this domain was chosen",
+      "entities": [
+        {
+          "text": "extracted entity text",
+          "type": "disease|gene|biomarker|measurement|procedure|drug|observation",
+          "modifiers": {
+            "history": true/false,
+            "status": "positive|negative|null",
+            "variant": "variant name if applicable",
+            "operator": ">=|<=|>|<|=|null",
+            "value": "numeric value if applicable",
+            "unit": "unit if applicable"
+          },
+          "normalized_form": "standardized form for OMOP lookup"
+        }
+      ]
+    },
+    "TERM_2": {
+      ...
+    }
+  }
+}
+
+## Examples
+
+Input: ["History of NSCLC", "EGFR T790M mutation positive", "Age >= 18 years"]
+
+Output:
+{
+  "results": {
+    "History of NSCLC": {
+      "domain": "Condition",
+      "domain_confidence": 0.95,
+      "domain_rationale": "NSCLC is a disease diagnosis; history modifier doesn't change domain",
+      "entities": [
+        {
+          "text": "NSCLC",
+          "type": "disease",
+          "modifiers": {
+            "history": true
+          },
+          "normalized_form": "non-small cell lung cancer"
+        }
+      ]
+    },
+    "EGFR T790M mutation positive": {
+      "domain": "Measurement",
+      "domain_confidence": 0.90,
+      "domain_rationale": "Biomarker testing results are measurements",
+      "entities": [
+        {
+          "text": "EGFR T790M mutation",
+          "type": "biomarker",
+          "modifiers": {
+            "status": "positive",
+            "variant": "T790M"
+          },
+          "normalized_form": "EGFR gene mutation"
+        }
+      ]
+    },
+    "Age >= 18 years": {
+      "domain": "Observation",
+      "domain_confidence": 0.98,
+      "domain_rationale": "Age is a demographic observation",
+      "entities": [
+        {
+          "text": "Age",
+          "type": "observation",
+          "modifiers": {
+            "operator": ">=",
+            "value": "18",
+            "unit": "years"
+          },
+          "normalized_form": "age"
+        }
+      ]
+    }
+  }
+}
+
+Process all {term_count} terms in the input.

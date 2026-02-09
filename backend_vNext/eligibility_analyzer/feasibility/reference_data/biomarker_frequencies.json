@@ -1,0 +1,306 @@
+{
+  "_metadata": {
+    "description": "Biomarker frequencies by tumor type for patient funnel estimation",
+    "last_updated": "2024-12",
+    "sources": [
+      "NCCN Clinical Practice Guidelines 2024",
+      "AACR Project GENIE",
+      "cBioPortal Cancer Genomics",
+      "Published literature reviews"
+    ]
+  },
+  "NSCLC": {
+    "description": "Non-Small Cell Lung Cancer",
+    "icd10_codes": ["C34.0", "C34.1", "C34.2", "C34.3", "C34.8", "C34.9"],
+    "biomarkers": {
+      "EGFR_mutation": {
+        "frequency": 0.15,
+        "frequency_range": {"low": 0.10, "high": 0.20},
+        "source": "NCCN NSCLC Guidelines 2024",
+        "notes": "Higher in adenocarcinoma, Asian populations (30-40%)",
+        "subtypes": {
+          "exon19_deletion": {"frequency": 0.45, "of_parent": true},
+          "L858R": {"frequency": 0.40, "of_parent": true},
+          "T790M_acquired": {"frequency": 0.50, "of_parent": true, "notes": "After TKI resistance"},
+          "exon20_insertion": {"frequency": 0.10, "of_parent": true}
+        }
+      },
+      "ALK_rearrangement": {
+        "frequency": 0.05,
+        "frequency_range": {"low": 0.03, "high": 0.07},
+        "source": "NCCN NSCLC Guidelines 2024",
+        "notes": "More common in younger, never-smokers"
+      },
+      "ROS1_rearrangement": {
+        "frequency": 0.02,
+        "frequency_range": {"low": 0.01, "high": 0.03},
+        "source": "NCCN NSCLC Guidelines 2024"
+      },
+      "KRAS_mutation": {
+        "frequency": 0.25,
+        "frequency_range": {"low": 0.20, "high": 0.30},
+        "source": "AACR Project GENIE 2023",
+        "subtypes": {
+          "G12C": {"frequency": 0.13, "of_parent": false, "notes": "~50% of KRAS mutations"},
+          "G12D": {"frequency": 0.04, "of_parent": false},
+          "G12V": {"frequency": 0.04, "of_parent": false}
+        }
+      },
+      "BRAF_V600E": {
+        "frequency": 0.02,
+        "frequency_range": {"low": 0.01, "high": 0.03},
+        "source": "NCCN NSCLC Guidelines 2024"
+      },
+      "MET_exon14_skipping": {
+        "frequency": 0.03,
+        "frequency_range": {"low": 0.02, "high": 0.04},
+        "source": "NCCN NSCLC Guidelines 2024"
+      },
+      "MET_amplification": {
+        "frequency": 0.04,
+        "frequency_range": {"low": 0.02, "high": 0.06},
+        "source": "cBioPortal 2023"
+      },
+      "RET_rearrangement": {
+        "frequency": 0.02,
+        "frequency_range": {"low": 0.01, "high": 0.03},
+        "source": "NCCN NSCLC Guidelines 2024"
+      },
+      "NTRK_fusion": {
+        "frequency": 0.002,
+        "frequency_range": {"low": 0.001, "high": 0.003},
+        "source": "NCCN NSCLC Guidelines 2024",
+        "notes": "Rare but highly targetable"
+      },
+      "HER2_mutation": {
+        "frequency": 0.03,
+        "frequency_range": {"low": 0.02, "high": 0.04},
+        "source": "NCCN NSCLC Guidelines 2024"
+      },
+      "PD_L1_expression": {
+        "notes": "Continuous variable, thresholds vary by drug",
+        "thresholds": {
+          "TPS_ge_50": {"frequency": 0.25, "source": "KEYNOTE trials"},
+          "TPS_ge_1": {"frequency": 0.60, "source": "KEYNOTE trials"},
+          "TPS_negative": {"frequency": 0.40, "source": "KEYNOTE trials"}
+        }
+      },
+      "TMB_high": {
+        "frequency": 0.15,
+        "frequency_range": {"low": 0.10, "high": 0.20},
+        "source": "Foundation Medicine 2023",
+        "notes": "Typically defined as ≥10 mut/Mb"
+      }
+    }
+  },
+  "SCLC": {
+    "description": "Small Cell Lung Cancer",
+    "icd10_codes": ["C34.0", "C34.1", "C34.2", "C34.3", "C34.8", "C34.9"],
+    "biomarkers": {
+      "DLL3_expression": {
+        "frequency": 0.80,
+        "frequency_range": {"low": 0.70, "high": 0.90},
+        "source": "Nature Reviews Cancer 2022"
+      },
+      "NOTCH_mutation": {
+        "frequency": 0.25,
+        "frequency_range": {"low": 0.20, "high": 0.30},
+        "source": "cBioPortal 2023"
+      }
+    }
+  },
+  "breast_cancer": {
+    "description": "Breast Cancer",
+    "icd10_codes": ["C50.0", "C50.1", "C50.2", "C50.3", "C50.4", "C50.5", "C50.6", "C50.8", "C50.9"],
+    "biomarkers": {
+      "ER_positive": {
+        "frequency": 0.75,
+        "frequency_range": {"low": 0.70, "high": 0.80},
+        "source": "SEER Database 2023"
+      },
+      "PR_positive": {
+        "frequency": 0.65,
+        "frequency_range": {"low": 0.60, "high": 0.70},
+        "source": "SEER Database 2023"
+      },
+      "HER2_positive": {
+        "frequency": 0.20,
+        "frequency_range": {"low": 0.15, "high": 0.25},
+        "source": "NCCN Breast Cancer Guidelines 2024"
+      },
+      "triple_negative": {
+        "frequency": 0.15,
+        "frequency_range": {"low": 0.10, "high": 0.20},
+        "source": "NCCN Breast Cancer Guidelines 2024"
+      },
+      "BRCA1_mutation": {
+        "frequency": 0.03,
+        "frequency_range": {"low": 0.02, "high": 0.05},
+        "source": "JCO 2022",
+        "notes": "Higher in TNBC (~15%)"
+      },
+      "BRCA2_mutation": {
+        "frequency": 0.03,
+        "frequency_range": {"low": 0.02, "high": 0.05},
+        "source": "JCO 2022"
+      },
+      "PIK3CA_mutation": {
+        "frequency": 0.40,
+        "frequency_range": {"low": 0.35, "high": 0.45},
+        "source": "NCCN Breast Cancer Guidelines 2024",
+        "notes": "In HR+/HER2- tumors"
+      },
+      "ESR1_mutation": {
+        "frequency": 0.30,
+        "frequency_range": {"low": 0.20, "high": 0.40},
+        "source": "Nature Medicine 2023",
+        "notes": "In metastatic ER+ after prior AI therapy"
+      }
+    }
+  },
+  "colorectal_cancer": {
+    "description": "Colorectal Cancer",
+    "icd10_codes": ["C18.0", "C18.1", "C18.2", "C18.3", "C18.4", "C18.5", "C18.6", "C18.7", "C18.8", "C18.9", "C19", "C20"],
+    "biomarkers": {
+      "KRAS_mutation": {
+        "frequency": 0.45,
+        "frequency_range": {"low": 0.40, "high": 0.50},
+        "source": "NCCN Colon Cancer Guidelines 2024"
+      },
+      "NRAS_mutation": {
+        "frequency": 0.05,
+        "frequency_range": {"low": 0.03, "high": 0.07},
+        "source": "NCCN Colon Cancer Guidelines 2024"
+      },
+      "BRAF_V600E": {
+        "frequency": 0.10,
+        "frequency_range": {"low": 0.08, "high": 0.12},
+        "source": "NCCN Colon Cancer Guidelines 2024"
+      },
+      "MSI_high_dMMR": {
+        "frequency": 0.15,
+        "frequency_range": {"low": 0.12, "high": 0.18},
+        "source": "NCCN Colon Cancer Guidelines 2024",
+        "notes": "Higher in early stage, Lynch syndrome"
+      },
+      "HER2_amplification": {
+        "frequency": 0.03,
+        "frequency_range": {"low": 0.02, "high": 0.05},
+        "source": "NCCN Colon Cancer Guidelines 2024"
+      }
+    }
+  },
+  "melanoma": {
+    "description": "Melanoma",
+    "icd10_codes": ["C43.0", "C43.1", "C43.2", "C43.3", "C43.4", "C43.5", "C43.6", "C43.7", "C43.8", "C43.9"],
+    "biomarkers": {
+      "BRAF_V600E": {
+        "frequency": 0.40,
+        "frequency_range": {"low": 0.35, "high": 0.50},
+        "source": "NCCN Melanoma Guidelines 2024"
+      },
+      "BRAF_V600K": {
+        "frequency": 0.05,
+        "frequency_range": {"low": 0.03, "high": 0.07},
+        "source": "NCCN Melanoma Guidelines 2024"
+      },
+      "NRAS_mutation": {
+        "frequency": 0.20,
+        "frequency_range": {"low": 0.15, "high": 0.25},
+        "source": "NCCN Melanoma Guidelines 2024"
+      },
+      "KIT_mutation": {
+        "frequency": 0.15,
+        "frequency_range": {"low": 0.10, "high": 0.20},
+        "source": "NCCN Melanoma Guidelines 2024",
+        "notes": "Higher in mucosal/acral melanoma"
+      }
+    }
+  },
+  "multiple_myeloma": {
+    "description": "Multiple Myeloma",
+    "icd10_codes": ["C90.0", "C90.00", "C90.01", "C90.02"],
+    "biomarkers": {
+      "del_17p": {
+        "frequency": 0.10,
+        "frequency_range": {"low": 0.07, "high": 0.15},
+        "source": "Blood 2023",
+        "notes": "High-risk cytogenetics"
+      },
+      "t_4_14": {
+        "frequency": 0.15,
+        "frequency_range": {"low": 0.10, "high": 0.20},
+        "source": "Blood 2023"
+      },
+      "t_14_16": {
+        "frequency": 0.05,
+        "frequency_range": {"low": 0.03, "high": 0.07},
+        "source": "Blood 2023"
+      },
+      "gain_1q": {
+        "frequency": 0.35,
+        "frequency_range": {"low": 0.30, "high": 0.45},
+        "source": "Blood 2023"
+      },
+      "BCMA_expression": {
+        "frequency": 0.95,
+        "frequency_range": {"low": 0.90, "high": 0.99},
+        "source": "Blood 2023",
+        "notes": "Near-universal expression"
+      }
+    }
+  },
+  "prostate_cancer": {
+    "description": "Prostate Cancer",
+    "icd10_codes": ["C61"],
+    "biomarkers": {
+      "BRCA1_mutation": {
+        "frequency": 0.01,
+        "frequency_range": {"low": 0.005, "high": 0.02},
+        "source": "NCCN Prostate Cancer Guidelines 2024"
+      },
+      "BRCA2_mutation": {
+        "frequency": 0.05,
+        "frequency_range": {"low": 0.03, "high": 0.07},
+        "source": "NCCN Prostate Cancer Guidelines 2024"
+      },
+      "ATM_mutation": {
+        "frequency": 0.04,
+        "frequency_range": {"low": 0.02, "high": 0.06},
+        "source": "NCCN Prostate Cancer Guidelines 2024"
+      },
+      "MSI_high_dMMR": {
+        "frequency": 0.03,
+        "frequency_range": {"low": 0.02, "high": 0.05},
+        "source": "NCCN Prostate Cancer Guidelines 2024"
+      },
+      "AR_V7_positive": {
+        "frequency": 0.20,
+        "frequency_range": {"low": 0.15, "high": 0.30},
+        "source": "JCO 2023",
+        "notes": "In mCRPC, associated with resistance"
+      }
+    }
+  },
+  "ovarian_cancer": {
+    "description": "Ovarian Cancer",
+    "icd10_codes": ["C56.1", "C56.2", "C56.9"],
+    "biomarkers": {
+      "BRCA1_mutation": {
+        "frequency": 0.12,
+        "frequency_range": {"low": 0.10, "high": 0.15},
+        "source": "NCCN Ovarian Cancer Guidelines 2024"
+      },
+      "BRCA2_mutation": {
+        "frequency": 0.08,
+        "frequency_range": {"low": 0.06, "high": 0.10},
+        "source": "NCCN Ovarian Cancer Guidelines 2024"
+      },
+      "HRD_positive": {
+        "frequency": 0.50,
+        "frequency_range": {"low": 0.40, "high": 0.60},
+        "source": "NCCN Ovarian Cancer Guidelines 2024"
+      }
+    }
+  }
+}

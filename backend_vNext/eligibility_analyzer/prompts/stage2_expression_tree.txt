@@ -1,0 +1,763 @@
+Analyze this eligibility criterion and decompose it into an expression tree that captures the full boolean logic structure.
+
+{note_text}
+
+CRITERION:
+"""
+{criterion_text}
+"""
+
+**⚠️ CRITICAL: NEGATION PRESERVATION RULES ⚠️**
+
+Before decomposing, SCAN THE CRITERION FOR NEGATIONS. Negated conditions MUST use the NOT operator node, NOT text in atomicText.
+
+Look for these negation patterns and USE NOT OPERATOR:
+- "NOT [verb]" (e.g., "NOT smoked", "NOT received") → NOT(atomic with positive verb)
+- "has NOT [done]" → NOT(atomic with done)
+- "having NOT [condition]" → NOT(atomic with condition)
+- "no [condition]" (e.g., "no prior therapy") → NOT(atomic with condition)
+- "without [condition]" → NOT(atomic with condition)
+- "never [verb]" → NOT(atomic with verb)
+- "absence of" → NOT(atomic with presence)
+
+**WRONG**: atomicText = "NOT smoked within past year" (negation buried in text)
+**CORRECT**: NOT operator → operand: atomic "Smoked within past year"
+
+If criterion has "(A AND B) OR (A AND NOT B)" pattern (common in smoker definitions, treatment history):
+- Branch 1: AND(A, B)
+- Branch 2: AND(A, NOT(B)) ← Use NOT operator node here!
+
+Your task:
+1. Build an EXPRESSION TREE that accurately represents the criterion's boolean logic
+2. The tree supports:
+   - AND, OR, NOT, EXCEPT operators (Phase 1)
+   - Temporal operators: WITHIN, BEFORE, AFTER, BETWEEN (Phase 2)
+3. Leaf nodes are "atomic" conditions that map to single SQL queries
+4. **PRESERVE ALL NEGATIONS using NOT operator nodes - this is mandatory**
+
+**NODE TYPES:**
+
+1. **atomic** - Leaf node with a single SQL-queryable condition
+   {{
+     "nodeId": "unique_id",
+     "nodeType": "atomic",
+     "atomicText": "Simple normalized statement",
+     "omopTable": "condition_occurrence|measurement|drug_exposure|procedure_occurrence|observation",
+     "valueConstraint": "value constraint if applicable",
+     "timeConstraint": "time constraint in plain text if applicable",
+     "timeFrameStructured": {{
+       "value": 7,
+       "unit": "days|weeks|months|years",
+       "operator": "within|before|after|during",
+       "relativeEvent": "screening|randomization|first_dose|etc"
+     }},
+     "numericConstraintStructured": {{
+       "value": 100,
+       "operator": ">|<|>=|<=|=",
+       "unit": "unit string",
+       "parameter": "parameter name"
+     }},
+     "numericRangeStructured": {{
+       "min": 9,
+       "max": 13,
+       "unit": "%",
+       "parameter": "HbA1c"
+     }},
+     "strategy": "Brief clinical explanation",
+     "clinicalCategory": "disease_indication|biomarker|prior_therapy|performance_status|organ_function|safety_exclusion|demographics|diagnostic_confirmation",
+     "queryableStatus": "fully_queryable|partially_queryable|screening_only|requires_manual",
+     "clinicalConceptGroup": "optional_group_id_for_related_atomics"
+   }}
+
+2. **operator** - Internal node with boolean operators
+   {{
+     "nodeId": "unique_id",
+     "nodeType": "operator",
+     "operator": "AND|OR|NOT|EXCEPT",
+     "operands": [ ... array of child nodes ... ]
+   }}
+
+3. **temporal** - Temporal relationship node
+   {{
+     "nodeId": "unique_id",
+     "nodeType": "temporal",
+     "temporalConstraint": {{
+       "operator": "WITHIN|BEFORE|AFTER|BETWEEN",
+       "value": 28,
+       "unit": "days",
+       "anchor": "screening|first_dose|randomization|prior_therapy",
+       "anchorEnd": "only for BETWEEN operator"
+     }},
+     "operand": {{ ... the condition node ... }}
+   }}
+
+**OPERATOR SEMANTICS:**
+
+- **AND**: All operands must be true (SQL: INTERSECT)
+- **OR**: Any operand can be true (SQL: UNION)
+- **NOT**: Negates the operand (SQL: EXCEPT from all patients)
+- **EXCEPT**: First operand minus second operand (SQL: EXCEPT)
+- **IMPLICATION**: IF condition THEN requirement (SQL: NOT(condition) UNION (condition INTERSECT requirement))
+
+**CLINICAL CATEGORY ASSIGNMENT (REQUIRED):**
+
+Every atomic node MUST include a clinicalCategory field. Classify each atomic into ONE category:
+
+| Category | When to Use | Examples |
+|----------|-------------|----------|
+| disease_indication | Primary disease/diagnosis requirement | "Confirmed NSCLC", "Stage IV melanoma" |
+| biomarker | Genetic, molecular, or protein status | "EGFR exon 19 deletion", "PD-L1 ≥50%" |
+| prior_therapy | Previous treatment requirements | "Prior platinum chemotherapy", "TKI-naive" |
+| performance_status | Functional capacity measures | "ECOG 0-1", "Adequate mobility" |
+| organ_function | Lab values for organ function | "Creatinine clearance ≥60", "AST ≤3x ULN" |
+| safety_exclusion | Contraindications (exclusion criteria) | "No active autoimmune disease" |
+| demographics | Age, sex, pregnancy, geography | "Age ≥18 years", "Not pregnant" |
+| diagnostic_confirmation | Documentation/site requirements | "Pathology report available" |
+
+**QUERYABLE STATUS ASSIGNMENT (REQUIRED):**
+
+Every atomic node MUST include a queryableStatus field:
+
+| Status | Meaning | Use When |
+|--------|---------|----------|
+| fully_queryable | Standard OMOP query | Diagnosis codes, lab values, drug exposures |
+| partially_queryable | Needs interpretation | Treatment response, "adequate" function |
+| screening_only | Not a patient filter | Site capabilities, document availability |
+| requires_manual | Chart review needed | Complex assessments, clinical judgment |
+
+**CLINICAL CONCEPT GROUPING (OPTIONAL):**
+
+For related atomics that represent variants of the SAME clinical question, assign the SAME clinicalConceptGroup:
+
+Example: EGFR mutation variants
+- "EGFR exon 19 deletion" → clinicalConceptGroup: "egfr_activating_mutation"
+- "EGFR L858R mutation" → clinicalConceptGroup: "egfr_activating_mutation"
+- "ALK gene rearrangement" → clinicalConceptGroup: "alk_positive" (DIFFERENT group - different treatment)
+
+This enables UI to show: "EGFR Activating Mutation [2 atomics]" while preserving individual atomics.
+
+**IMPORTANT**: Keep atomics separate even when grouped. Do NOT consolidate into a single atomic.
+Why: EGFR ex19 and L858R have the same treatment (EGFR TKI) but ALK requires different drugs (ALK inhibitors).
+
+4. **implication** - Conditional/IF-THEN relationship node
+   {{
+     "nodeId": "unique_id",
+     "nodeType": "operator",
+     "operator": "IMPLICATION",
+     "condition": {{ ... the IF part (condition node or subtree) ... }},
+     "requirement": {{ ... the THEN part (requirement node or subtree) ... }}
+   }}
+
+   IMPLICATION expresses: "IF condition is true, THEN requirement must also be true"
+   Equivalent to: NOT(condition) OR (condition AND requirement)
+
+   Common patterns that indicate IMPLICATION:
+   - "Subjects with [X] must have [Y]"
+   - "If [X], then [Y]"
+   - "Patients having [X] must [Y]"
+   - "[X] requires [Y]"
+   - "For patients with [X], [Y] is required"
+
+**TEMPORAL SEMANTICS:**
+
+- **WITHIN X days of anchor**: Condition occurred within time window of event
+- **BEFORE anchor**: Condition occurred before the event
+- **AFTER anchor**: Condition occurred after the event
+- **BETWEEN anchor1 AND anchor2**: Condition occurred between two events
+
+**LOGIC PATTERN RECOGNITION:**
+
+1. **Simple AND**: "A AND B AND C"
+   → operator node with AND, 3 atomic operands
+
+2. **Simple OR**: "A OR B"
+   → operator node with OR, 2 atomic operands
+
+3. **Nested AND-OR**: "A AND (B OR C)"
+   → AND operator with [atomic A, OR operator with [atomic B, atomic C]]
+
+4. **NOT/Exception**: "A EXCEPT if B" or "A UNLESS B"
+   → EXCEPT operator with [atomic A, atomic B]
+
+5. **Temporal constraint**: "A within 28 days of screening"
+   → temporal node wrapping atomic A
+
+6. **Complex nested**: "(A OR B) AND NOT C AND (D WITHIN 7 days)"
+   → AND operator with [OR(A,B), NOT(C), TEMPORAL(D)]
+
+7. **IMPLICATION (Conditional)**: "Subjects with X must have Y" or "If X, then Y"
+   → IMPLICATION operator with condition=X, requirement=Y
+   → Expands to: NOT(X) OR (X AND Y)
+   → Example: "Subjects with EGFR mutation must have progressed after targeted therapy"
+   → IMPLICATION(EGFR_mutation, AND(targeted_therapy, progression))
+
+**Return JSON:**
+{{
+  "decompositionStrategy": "1-2 sentences explaining your decomposition approach",
+  "useExpressionTree": true,
+  "expression": {{
+    "nodeId": "root",
+    "nodeType": "operator",
+    "operator": "AND",
+    "operands": [
+      ... tree structure ...
+    ]
+  }}
+}}
+
+**EXAMPLES:**
+
+Example 1: Simple AND logic
+Input: "Age >= 18 years AND ECOG performance status 0-1 AND measurable disease"
+
+Output:
+{{
+  "decompositionStrategy": "Simple AND logic with 3 independent requirements. All must be met for eligibility.",
+  "useExpressionTree": true,
+  "expression": {{
+    "nodeId": "root",
+    "nodeType": "operator",
+    "operator": "AND",
+    "operands": [
+      {{
+        "nodeId": "1",
+        "nodeType": "atomic",
+        "atomicText": "Age >= 18 years",
+        "omopTable": "observation",
+        "numericConstraintStructured": {{
+          "value": 18,
+          "operator": ">=",
+          "unit": "years",
+          "parameter": "age"
+        }},
+        "strategy": "Adult patient requirement"
+      }},
+      {{
+        "nodeId": "2",
+        "nodeType": "atomic",
+        "atomicText": "ECOG performance status 0-1",
+        "omopTable": "observation",
+        "numericRangeStructured": {{
+          "min": 0,
+          "max": 1,
+          "unit": "",
+          "parameter": "ECOG performance status"
+        }},
+        "strategy": "Functional status requirement"
+      }},
+      {{
+        "nodeId": "3",
+        "nodeType": "atomic",
+        "atomicText": "Measurable disease per RECIST v1.1",
+        "omopTable": "observation",
+        "strategy": "Tumor assessment requirement"
+      }}
+    ]
+  }}
+}}
+
+Example 2: Nested AND-OR logic
+Input: "Age >= 18 AND (ECOG 0 OR ECOG 1) AND no prior chemotherapy"
+
+Output:
+{{
+  "decompositionStrategy": "AND logic with nested OR for ECOG values. Patient must be adult, have good performance status (0 or 1), and be chemo-naive.",
+  "useExpressionTree": true,
+  "expression": {{
+    "nodeId": "root",
+    "nodeType": "operator",
+    "operator": "AND",
+    "operands": [
+      {{
+        "nodeId": "1",
+        "nodeType": "atomic",
+        "atomicText": "Age >= 18 years",
+        "omopTable": "observation",
+        "numericConstraintStructured": {{
+          "value": 18,
+          "operator": ">=",
+          "unit": "years",
+          "parameter": "age"
+        }}
+      }},
+      {{
+        "nodeId": "2",
+        "nodeType": "operator",
+        "operator": "OR",
+        "operands": [
+          {{
+            "nodeId": "2a",
+            "nodeType": "atomic",
+            "atomicText": "ECOG performance status 0",
+            "omopTable": "observation",
+            "numericConstraintStructured": {{
+              "value": 0,
+              "operator": "=",
+              "unit": "",
+              "parameter": "ECOG performance status"
+            }}
+          }},
+          {{
+            "nodeId": "2b",
+            "nodeType": "atomic",
+            "atomicText": "ECOG performance status 1",
+            "omopTable": "observation",
+            "numericConstraintStructured": {{
+              "value": 1,
+              "operator": "=",
+              "unit": "",
+              "parameter": "ECOG performance status"
+            }}
+          }}
+        ]
+      }},
+      {{
+        "nodeId": "3",
+        "nodeType": "operator",
+        "operator": "NOT",
+        "operands": [
+          {{
+            "nodeId": "3a",
+            "nodeType": "atomic",
+            "atomicText": "Prior chemotherapy",
+            "omopTable": "drug_exposure"
+          }}
+        ]
+      }}
+    ]
+  }}
+}}
+
+Example 3: Exception clause (EXCEPT)
+Input: "History of DVT within 6 months (EXCEPT if associated with central line)"
+
+Output:
+{{
+  "decompositionStrategy": "Exclusion with exception. Patient is excluded for DVT unless it was catheter-related.",
+  "useExpressionTree": true,
+  "expression": {{
+    "nodeId": "root",
+    "nodeType": "operator",
+    "operator": "EXCEPT",
+    "operands": [
+      {{
+        "nodeId": "1",
+        "nodeType": "temporal",
+        "temporalConstraint": {{
+          "operator": "WITHIN",
+          "value": 6,
+          "unit": "months",
+          "anchor": "reference_date"
+        }},
+        "operand": {{
+          "nodeId": "1a",
+          "nodeType": "atomic",
+          "atomicText": "Deep vein thrombosis",
+          "omopTable": "condition_occurrence"
+        }}
+      }},
+      {{
+        "nodeId": "2",
+        "nodeType": "atomic",
+        "atomicText": "DVT associated with central venous catheter",
+        "omopTable": "condition_occurrence"
+      }}
+    ]
+  }}
+}}
+
+Example 4: Temporal constraint
+Input: "CT scan within 28 days prior to first dose AND hemoglobin >= 9 g/dL"
+
+Output:
+{{
+  "decompositionStrategy": "AND logic combining temporal imaging requirement with lab value threshold.",
+  "useExpressionTree": true,
+  "expression": {{
+    "nodeId": "root",
+    "nodeType": "operator",
+    "operator": "AND",
+    "operands": [
+      {{
+        "nodeId": "1",
+        "nodeType": "temporal",
+        "temporalConstraint": {{
+          "operator": "WITHIN",
+          "value": 28,
+          "unit": "days",
+          "anchor": "first_dose"
+        }},
+        "operand": {{
+          "nodeId": "1a",
+          "nodeType": "atomic",
+          "atomicText": "CT scan performed",
+          "omopTable": "procedure_occurrence"
+        }}
+      }},
+      {{
+        "nodeId": "2",
+        "nodeType": "atomic",
+        "atomicText": "Hemoglobin measurement",
+        "omopTable": "measurement",
+        "numericConstraintStructured": {{
+          "value": 9.0,
+          "operator": ">=",
+          "unit": "g/dL",
+          "parameter": "hemoglobin"
+        }}
+      }}
+    ]
+  }}
+}}
+
+Example 5: Complex nested logic
+Input: "(EGFR mutation OR ALK rearrangement) AND prior TKI therapy AND NOT prior immunotherapy"
+
+Output:
+{{
+  "decompositionStrategy": "Complex eligibility requiring specific biomarker (EGFR or ALK), prior targeted therapy, and no prior immunotherapy.",
+  "useExpressionTree": true,
+  "expression": {{
+    "nodeId": "root",
+    "nodeType": "operator",
+    "operator": "AND",
+    "operands": [
+      {{
+        "nodeId": "1",
+        "nodeType": "operator",
+        "operator": "OR",
+        "operands": [
+          {{
+            "nodeId": "1a",
+            "nodeType": "atomic",
+            "atomicText": "EGFR mutation present",
+            "omopTable": "observation"
+          }},
+          {{
+            "nodeId": "1b",
+            "nodeType": "atomic",
+            "atomicText": "ALK rearrangement present",
+            "omopTable": "observation"
+          }}
+        ]
+      }},
+      {{
+        "nodeId": "2",
+        "nodeType": "atomic",
+        "atomicText": "Prior TKI therapy",
+        "omopTable": "drug_exposure"
+      }},
+      {{
+        "nodeId": "3",
+        "nodeType": "operator",
+        "operator": "NOT",
+        "operands": [
+          {{
+            "nodeId": "3a",
+            "nodeType": "atomic",
+            "atomicText": "Prior immunotherapy",
+            "omopTable": "drug_exposure"
+          }}
+        ]
+      }}
+    ]
+  }}
+}}
+
+Example 6: Complementary conditions with negation - CRITICAL PATTERN
+Input: "Subjects must be current smokers (defined as having > 100 smoking events lifetime and having smoked within the past year) or former smokers (defined as having > 100 smoking events lifetime and having NOT smoked within the past year)"
+
+Output:
+{{
+  "decompositionStrategy": "OR logic between two smoker definitions that share a common condition (>100 lifetime events) but differ by recency of smoking. Current smokers have smoked recently, former smokers have NOT. The NOT operator must be used to properly capture the negation.",
+  "useExpressionTree": true,
+  "expression": {{
+    "nodeId": "root",
+    "nodeType": "operator",
+    "operator": "OR",
+    "operands": [
+      {{
+        "nodeId": "1",
+        "nodeType": "operator",
+        "operator": "AND",
+        "operands": [
+          {{
+            "nodeId": "1a",
+            "nodeType": "atomic",
+            "atomicText": "More than 100 lifetime smoking events",
+            "omopTable": "observation",
+            "numericConstraintStructured": {{
+              "value": 100,
+              "operator": ">",
+              "unit": "events",
+              "parameter": "lifetime smoking events"
+            }},
+            "strategy": "Significant smoking history threshold"
+          }},
+          {{
+            "nodeId": "1b",
+            "nodeType": "atomic",
+            "atomicText": "Smoked within the past year",
+            "omopTable": "observation",
+            "timeConstraint": "within the past 1 year",
+            "timeFrameStructured": {{
+              "value": 1,
+              "unit": "year",
+              "operator": "within",
+              "relativeEvent": "current_date"
+            }},
+            "strategy": "Recent smoking activity defines current smoker status"
+          }}
+        ]
+      }},
+      {{
+        "nodeId": "2",
+        "nodeType": "operator",
+        "operator": "AND",
+        "operands": [
+          {{
+            "nodeId": "2a",
+            "nodeType": "atomic",
+            "atomicText": "More than 100 lifetime smoking events",
+            "omopTable": "observation",
+            "numericConstraintStructured": {{
+              "value": 100,
+              "operator": ">",
+              "unit": "events",
+              "parameter": "lifetime smoking events"
+            }},
+            "strategy": "Significant smoking history threshold (same as current smoker)"
+          }},
+          {{
+            "nodeId": "2b",
+            "nodeType": "operator",
+            "operator": "NOT",
+            "operands": [
+              {{
+                "nodeId": "2b1",
+                "nodeType": "atomic",
+                "atomicText": "Smoked within the past year",
+                "omopTable": "observation",
+                "timeConstraint": "within the past 1 year",
+                "timeFrameStructured": {{
+                  "value": 1,
+                  "unit": "year",
+                  "operator": "within",
+                  "relativeEvent": "current_date"
+                }},
+                "strategy": "Absence of recent smoking defines former smoker status"
+              }}
+            ]
+          }}
+        ]
+      }}
+    ]
+  }}
+}}
+
+Example 7: IMPLICATION (Conditional requirement) - CRITICAL PATTERN
+Input: "Subject must have confirmed NSCLC. Subjects with EGFR mutation (exon 19 deletion or L858R) and/or ALK rearrangement must have progressed after first line targeted therapy."
+
+Output:
+{{
+  "decompositionStrategy": "AND logic with two requirements: (1) NSCLC diagnosis, and (2) IMPLICATION for mutation-positive patients. The second clause is a conditional: IF patient has targetable mutation, THEN must have received targeted therapy AND progressed. This translates to: either NO mutation, OR (has mutation AND therapy AND progression).",
+  "useExpressionTree": true,
+  "expression": {{
+    "nodeId": "root",
+    "nodeType": "operator",
+    "operator": "AND",
+    "operands": [
+      {{
+        "nodeId": "1",
+        "nodeType": "atomic",
+        "atomicText": "Confirmed NSCLC diagnosis",
+        "omopTable": "condition_occurrence",
+        "strategy": "Primary disease requirement",
+        "clinicalCategory": "disease_indication",
+        "queryableStatus": "fully_queryable"
+      }},
+      {{
+        "nodeId": "2",
+        "nodeType": "operator",
+        "operator": "IMPLICATION",
+        "condition": {{
+          "nodeId": "2a",
+          "nodeType": "operator",
+          "operator": "OR",
+          "operands": [
+            {{
+              "nodeId": "2a1",
+              "nodeType": "atomic",
+              "atomicText": "EGFR exon 19 deletion mutation",
+              "omopTable": "observation",
+              "strategy": "Targetable EGFR mutation variant",
+              "clinicalCategory": "biomarker",
+              "queryableStatus": "fully_queryable",
+              "clinicalConceptGroup": "egfr_activating_mutation"
+            }},
+            {{
+              "nodeId": "2a2",
+              "nodeType": "atomic",
+              "atomicText": "EGFR L858R mutation",
+              "omopTable": "observation",
+              "strategy": "Targetable EGFR mutation variant",
+              "clinicalCategory": "biomarker",
+              "queryableStatus": "fully_queryable",
+              "clinicalConceptGroup": "egfr_activating_mutation"
+            }},
+            {{
+              "nodeId": "2a3",
+              "nodeType": "atomic",
+              "atomicText": "ALK gene rearrangement",
+              "omopTable": "observation",
+              "strategy": "Targetable ALK alteration (different drug class)",
+              "clinicalCategory": "biomarker",
+              "queryableStatus": "fully_queryable",
+              "clinicalConceptGroup": "alk_positive"
+            }}
+          ]
+        }},
+        "requirement": {{
+          "nodeId": "2b",
+          "nodeType": "operator",
+          "operator": "AND",
+          "operands": [
+            {{
+              "nodeId": "2b1",
+              "nodeType": "atomic",
+              "atomicText": "Received first-line targeted therapy",
+              "omopTable": "drug_exposure",
+              "strategy": "Prior line of targeted treatment",
+              "clinicalCategory": "prior_therapy",
+              "queryableStatus": "partially_queryable"
+            }},
+            {{
+              "nodeId": "2b2",
+              "nodeType": "atomic",
+              "atomicText": "Disease progression documented",
+              "omopTable": "observation",
+              "strategy": "Evidence of disease progression",
+              "clinicalCategory": "prior_therapy",
+              "queryableStatus": "partially_queryable"
+            }}
+          ]
+        }}
+      }}
+    ]
+  }}
+}}
+
+**CRITICAL: IMPLICATION Logic Transformation**
+
+When you see IMPLICATION(condition, requirement), the SQL/boolean logic is:
+  NOT(condition) OR (condition AND requirement)
+
+For the example above, the mutation clause expands to:
+  NOT(EGFR_ex19 OR EGFR_L858R OR ALK)
+  OR
+  ((EGFR_ex19 OR EGFR_L858R OR ALK) AND targeted_therapy AND progression)
+
+This means:
+- Patients WITHOUT targetable mutations: eligible (no therapy requirement)
+- Patients WITH targetable mutations: must have received therapy AND progressed
+
+**WRONG interpretation** (do NOT do this):
+  NOT(mutations) OR (therapy AND progression)  ← Loses conditional binding!
+
+This would incorrectly allow:
+- Patient with EGFR mutation who progressed but never received targeted therapy
+
+**CRITICAL: NEGATION HANDLING RULES**
+
+Negations in eligibility criteria MUST be preserved accurately. Failure to capture negation results in semantically incorrect criteria.
+
+**Negation patterns that MUST use NOT operator:**
+1. "NOT [action]" → NOT(atomic with positive action)
+2. "has NOT [condition]" → NOT(atomic with condition)
+3. "no [condition]" → NOT(atomic with condition)
+4. "without [condition]" → NOT(atomic with condition)
+5. "never [action]" → NOT(atomic with action)
+6. "absence of [condition]" → NOT(atomic with condition)
+7. "negative for [test]" → NOT(atomic with positive test result)
+
+**WRONG - Do NOT do this:**
+- Extracting "NOT smoked" as atomic text "NOT smoked" (negation in text loses structure)
+- Extracting "has NOT received therapy" as "Has NOT received therapy" (negation buried in text)
+- Ignoring the negation entirely (catastrophic semantic error)
+
+**CORRECT - Always do this:**
+- "NOT smoked" → NOT operator wrapping atomic "Smoked"
+- "has NOT received therapy" → NOT operator wrapping atomic "Received therapy"
+- "no prior chemotherapy" → NOT operator wrapping atomic "Prior chemotherapy"
+
+**When two OR branches share common conditions but differ by negation:**
+Pattern: "(A AND B) OR (A AND NOT B)"
+
+This is a critical pattern where:
+- Branch 1: A AND B (e.g., current smoker with >100 events AND recent smoking)
+- Branch 2: A AND NOT(B) (e.g., former smoker with >100 events AND NOT recent smoking)
+
+You MUST:
+1. Keep the shared condition (A) as identical atomics in both branches
+2. Use NOT operator to wrap the negated condition in branch 2
+3. Do NOT merge or simplify - preserve the logical structure exactly
+
+**IMPORTANT RULES:**
+1. Every atomic node must have "nodeId", "nodeType": "atomic", "atomicText", "omopTable", "clinicalCategory", "queryableStatus"
+2. Every operator node must have "nodeId", "nodeType": "operator", "operator", "operands"
+3. NOT operator has exactly 1 operand
+4. EXCEPT operator has exactly 2 operands (first minus second)
+5. AND/OR can have 2+ operands
+6. Temporal nodes wrap a single condition with time constraint
+7. Use structured constraints (numericConstraintStructured, timeFrameStructured) when applicable
+8. Generate unique nodeIds (use hierarchical naming like "1", "2", "2a", "2b", etc.)
+9. **NEVER bury negation in atomic text** - always use NOT operator for negated conditions
+10. **Preserve semantic accuracy** - the expression tree must be logically equivalent to the original criterion
+11. **IMPLICATION operator** has exactly 2 parts: "condition" and "requirement" (NOT "operands")
+12. **clinicalCategory** is REQUIRED for every atomic - classify into one of the 8 categories
+13. **queryableStatus** is REQUIRED for every atomic - indicate how queryable from OMOP database
+14. **clinicalConceptGroup** is OPTIONAL - use to group related atomics (same clinical question, different variants)
+
+**CRITICAL: IMPLICATION PATTERN RECOGNITION**
+
+Implication patterns express "IF condition THEN requirement". They are common in eligibility criteria and MUST be correctly identified.
+
+**Patterns that indicate IMPLICATION (use IMPLICATION operator):**
+
+1. "Subjects **with** [condition] **must have** [requirement]"
+2. "If [condition], then [requirement]"
+3. "Patients **having** [condition] **must** [requirement]"
+4. "[Condition] **requires** [requirement]"
+5. "For patients with [condition], [requirement] is required"
+6. "Subjects **who have** [condition] **should have** [requirement]"
+
+**Patterns that are NOT implication (use AND):**
+
+1. "[Condition] AND [requirement]" - both required for everyone
+2. "Must have [condition] and [requirement]" - both required
+3. "Subject has [condition] and received [treatment]" - descriptive AND
+
+**The key distinction:**
+- IMPLICATION: "IF you have X, THEN you must also have Y" (Y only required if X is true)
+- AND: "You must have BOTH X and Y" (both always required)
+
+**IMPLICATION operator structure:**
+{{
+  "nodeType": "operator",
+  "operator": "IMPLICATION",
+  "condition": {{ ... the IF part ... }},
+  "requirement": {{ ... the THEN part ... }}
+}}
+
+**SQL expansion of IMPLICATION(condition, requirement):**
+NOT(condition_sql) UNION (condition_sql INTERSECT requirement_sql)
+
+**Example patterns requiring IMPLICATION:**
+- "Subjects with EGFR mutation must have progressed after targeted therapy"
+  → IMPLICATION(EGFR_mutation, AND(targeted_therapy, progression))
+
+- "If patient has diabetes, HbA1c must be < 8%"
+  → IMPLICATION(diabetes, HbA1c_constraint)
+
+- "Patients with prior radiation must have recovered to Grade 1"
+  → IMPLICATION(prior_radiation, recovered_grade1)

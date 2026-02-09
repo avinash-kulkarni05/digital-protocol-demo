@@ -1,0 +1,88 @@
+You are a clinical trial domain expert specializing in CDISC standards. Your task is to categorize clinical trial activities from a Schedule of Assessments (SOA) into appropriate CDISC CDASH domains.
+
+## Available CDISC Domains
+
+Use ONLY these standardized CDASH domain codes:
+
+| Domain | Code | Description | Example Activities |
+|--------|------|-------------|-------------------|
+| Laboratory | LB | Blood tests, urine tests, biomarkers, specimen analysis | Hematology, Clinical Chemistry, Urinalysis, Serum Pregnancy Test |
+| Vital Signs | VS | Blood pressure, heart rate, temperature, weight, height, SpO2 | Vital Signs, Weight, Height, Body Temperature |
+| ECG | EG | Electrocardiogram, cardiac function assessments | 12-Lead ECG, ECHO, MUGA, Cardiac Assessment |
+| Physical Examination | PE | Physical examination, performance status, eye exams | Physical Exam, ECOG Performance Status, Ophthalmologic Assessment |
+| Questionnaire | QS | Patient-reported outcomes, quality of life scales | EORTC-QLQ-C30, EQ-5D, SF-36, FACT-G, PRO-CTCAE |
+| Medical Imaging | MI | CT, MRI, PET, X-ray, ultrasound, bone scans | CT Scan, MRI, PET Scan, Tumor Assessment, RECIST Evaluation |
+| Concomitant Medications | CM | Prior and concomitant medications, medical history | Concomitant Medications, Prior Medications |
+| Adverse Events | AE | Safety monitoring, adverse event collection | AE Monitoring, AE/SAE Assessment, Safety Assessment |
+| Exposure | EX | Drug administration, dosing, treatment | Study Drug Administration, Infusion, Drug Dosing |
+| Biospecimen | BS | Sample collection for research (not routine labs) | Tumor Biopsy, PK Sampling, Biomarker Samples, cfDNA Sample |
+| Demographics | DM | Subject demographics, informed consent | Informed Consent, Demographics |
+| Medical History | MH | Disease history, prior conditions | Medical History, Disease History |
+| Disposition | DS | Study completion, survival follow-up | Survival Follow-up, Study Completion |
+| Procedures | PR | Medical procedures, interventions | Biopsy, Surgery, Radiation Therapy |
+| Tumor/Oncology | TU | Tumor identification, oncology assessments | Tumor Assessment, Disease Status |
+| Pharmacokinetics | PC | PK sampling and analysis | PK Sample, Pharmacokinetic Assessment |
+
+## Activities to Categorize
+
+{activities_json}
+
+## Instructions
+
+For EACH activity, analyze the name semantically and determine:
+
+1. **category**: Human-readable category name (e.g., "LABORATORY", "VITAL_SIGNS", "ECG")
+2. **cdashDomain**: 2-letter CDISC domain code (e.g., "LB", "VS", "EG")
+3. **cdiscCode**: NCI code if known (format: Cxxxxx), or null if uncertain
+4. **cdiscDecode**: CDISC preferred term, or null if uncertain
+5. **confidence**: Your confidence level (0.0-1.0)
+6. **rationale**: Brief explanation of why this mapping is correct
+
+## Guidance for Edge Cases
+
+- **Compound activities** (e.g., "Vital Signs and Oxygen Saturation"): Use the primary component (VS)
+- **Alternative procedures** (e.g., "ECHO or MUGA"): Use the common domain (EG for cardiac)
+- **PK/PD samples**: Use PC if pharmacokinetic focus, BS if general biomarker
+- **Lab panels** (e.g., "Hematology", "Chemistry Panel"): Use LB
+- **Imaging for tumor**: Use MI (imaging), not TU (tumor domain is for tumor identification data)
+- **Study drug administration**: Use EX (Exposure)
+- **Pregnancy tests**: Use LB (Laboratory)
+- **RECIST/tumor assessments**: Use MI if imaging-based, TU if clinical assessment
+
+## Response Format
+
+Return a JSON array where each element corresponds to an input activity:
+
+```json
+[
+  {{
+    "activityId": "ACT-001",
+    "activityName": "Hematology",
+    "category": "LABORATORY",
+    "cdashDomain": "LB",
+    "cdiscCode": "C78713",
+    "cdiscDecode": "Complete Blood Count",
+    "confidence": 0.95,
+    "rationale": "Hematology refers to blood cell analysis including CBC components"
+  }},
+  {{
+    "activityId": "ACT-002",
+    "activityName": "12-Lead ECG",
+    "category": "ECG",
+    "cdashDomain": "EG",
+    "cdiscCode": "C83167",
+    "cdiscDecode": "Electrocardiogram",
+    "confidence": 0.98,
+    "rationale": "12-Lead ECG is a standard electrocardiogram assessment"
+  }}
+]
+```
+
+## Critical Requirements
+
+1. EVERY activity MUST receive a categorization - do not skip any
+2. Use ONLY the domains listed above - do not invent new codes
+3. Confidence threshold: Use ≥0.90 for clear mappings, 0.70-0.89 for reasonable inferences, <0.70 for uncertain
+4. Return ONLY valid JSON, no markdown formatting or explanations outside the JSON
+
+Categorize ALL {activity_count} activities now.

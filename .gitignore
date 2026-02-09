@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Project specific
+.archive/
+.cache/
+*.db
+uploads/
+tmp/
+*.log
+
+# Protocol files (large PDFs and outputs)
+protocols/
+nsclc_protocols/
+multiple_myeloma/
+
+# Extraction outputs and checkpoints
+backend_vNext/outputs/
+backend_vNext/checkpoints/
+
+# Frontend temporary assets
+frontend-vNext/attached_assets/
+Archive.zip
