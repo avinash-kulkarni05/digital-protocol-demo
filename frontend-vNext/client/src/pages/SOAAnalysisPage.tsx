@@ -2294,10 +2294,15 @@ export default function SOAAnalysisPage() {
 
       try {
         // Check if there's an existing SOA job
-        const latestJob = await api.soa.getLatestJob(studyId);
-        console.log('[SOA] Latest job response:', latestJob);
+        let latestJob: any = null;
+        try {
+          latestJob = await api.soa.getLatestJob(studyId);
+          console.log('[SOA] Latest job response:', latestJob);
+        } catch (fetchErr: any) {
+          console.log('[SOA] No existing SOA job found (this is normal for first run):', fetchErr?.message);
+        }
 
-        if (latestJob.job_id && latestJob.status === 'completed' && latestJob.has_results) {
+        if (latestJob?.job_id && latestJob.status === 'completed' && latestJob.has_results) {
           // Load completed results
           console.log('[SOA] Loading completed job results:', latestJob.job_id);
           setSoaJobId(latestJob.job_id);
@@ -2308,7 +2313,7 @@ export default function SOAAnalysisPage() {
           return;
         }
 
-        if (latestJob.job_id && latestJob.status === 'awaiting_page_confirmation') {
+        if (latestJob?.job_id && latestJob.status === 'awaiting_page_confirmation') {
           // Resume from page confirmation
           setSoaJobId(latestJob.job_id);
           setSoaState('awaiting_page_confirmation');
@@ -2324,7 +2329,7 @@ export default function SOAAnalysisPage() {
           return;
         }
 
-        if (latestJob.job_id && latestJob.status === 'awaiting_merge_confirmation') {
+        if (latestJob?.job_id && latestJob.status === 'awaiting_merge_confirmation') {
           // Resume from merge confirmation (Phase 3.5)
           setSoaJobId(latestJob.job_id);
           setSoaState('awaiting_merge_confirmation');
@@ -2349,7 +2354,7 @@ export default function SOAAnalysisPage() {
         }
 
         // Handle interpreting status - resume and show interpretation progress
-        if (latestJob.job_id && latestJob.status === 'interpreting') {
+        if (latestJob?.job_id && latestJob.status === 'interpreting') {
           console.log('[SOA] Resuming interpreting job:', latestJob.job_id);
           setSoaJobId(latestJob.job_id);
           setSoaState('interpreting');
@@ -2359,7 +2364,7 @@ export default function SOAAnalysisPage() {
         }
 
         // Handle extracting status - resume and show extraction progress
-        if (latestJob.job_id && latestJob.status === 'extracting') {
+        if (latestJob?.job_id && latestJob.status === 'extracting') {
           console.log('[SOA] Resuming extracting job:', latestJob.job_id);
           setSoaJobId(latestJob.job_id);
           setSoaState('extracting');
@@ -2369,7 +2374,7 @@ export default function SOAAnalysisPage() {
         }
 
         // Handle detecting_pages status - resume and show detection progress
-        if (latestJob.job_id && latestJob.status === 'detecting_pages') {
+        if (latestJob?.job_id && latestJob.status === 'detecting_pages') {
           console.log('[SOA] Resuming detecting_pages job:', latestJob.job_id);
           setSoaJobId(latestJob.job_id);
           setSoaState('detecting_pages');
@@ -2379,7 +2384,7 @@ export default function SOAAnalysisPage() {
         }
 
         // Handle analyzing_merges status - resume and show merge analysis progress
-        if (latestJob.job_id && latestJob.status === 'analyzing_merges') {
+        if (latestJob?.job_id && latestJob.status === 'analyzing_merges') {
           console.log('[SOA] Resuming analyzing_merges job:', latestJob.job_id);
           setSoaJobId(latestJob.job_id);
           setSoaState('analyzing_merges');

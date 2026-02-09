@@ -25,7 +25,7 @@ export async function registerRoutes(
     createProxyMiddleware({
       target: BACKEND_URL,
       changeOrigin: true,
-      pathRewrite: { "^/api/backend": "/api/v1" },
+      pathRewrite: { "^/": "/api/v1/" },
       on: {
         error: (err, req, res) => {
           console.error("[PROXY] Backend proxy error:", err.message);
