@@ -51,6 +51,8 @@ class Settings(BaseSettings):
 
     @property
     def effective_database_url(self) -> str:
+        if self.external_database_url:
+            return self.external_database_url
         return self.database_url
 
     # Gemini API
