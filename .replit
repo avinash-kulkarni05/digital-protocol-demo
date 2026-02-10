@@ -56,7 +56,7 @@ externalPort = 8080
 [deployment]
 deploymentTarget = "autoscale"
 run = ["bash", "-c", "cd /home/runner/workspace/backend_vNext && python run.py --host 0.0.0.0 --port 8080 >> /tmp/backend.log 2>&1 & cd /home/runner/workspace/frontend-vNext && NODE_ENV=production node dist/index.cjs"]
-build = ["bash", "-c", "cd frontend-vNext && npm install && npm run build"]
+build = ["sh", "-c", "bash -c cd frontend-vNext && npm install && npm run build && cd /home/runner/workspace && python scripts/migrate_to_production.py"]
 
 [userenv]
 
