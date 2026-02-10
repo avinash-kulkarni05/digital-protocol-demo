@@ -1,3 +1,6 @@
+# Data dumps
+scripts/dev_data_dump.sql
+
 # Python
 __pycache__/
 *.py[cod]
