@@ -42,7 +42,7 @@ Two workflows run concurrently:
 
 ## Database
 
-Uses PostgreSQL. All tables live in the `backend_vnext` schema.
+Uses PostgreSQL. All tables live in the `public` schema.
 
 Frontend tables (Drizzle ORM):
 - `usdm_documents` - Stores extracted USDM JSON documents
