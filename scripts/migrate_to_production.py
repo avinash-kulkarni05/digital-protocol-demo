@@ -1,34 +1,58 @@
 """
-Migration script: Copies all data from external Neon DB to the current DATABASE_URL.
+Migration script: Copies all data from Replit internal dev DB to the production DATABASE_URL.
 Used during production build to seed the production database with data.
+
+Source: Replit internal PostgreSQL (via PG* env vars: PGHOST, PGPORT, PGUSER, PGPASSWORD, PGDATABASE)
+Target: Production DATABASE_URL (set automatically during deployment)
 """
 import os
 import sys
 import psycopg2
 import psycopg2.extras
 
-NEON_DB_URL = os.environ.get("EXTERNAL_DATABASE_URL")
+PGHOST = os.environ.get("PGHOST")
+PGPORT = os.environ.get("PGPORT", "5432")
+PGUSER = os.environ.get("PGUSER")
+PGPASSWORD = os.environ.get("PGPASSWORD")
+PGDATABASE = os.environ.get("PGDATABASE")
+
 TARGET_DB_URL = os.environ.get("DATABASE_URL")
 SCHEMA = "backend_vnext"
 
-if not NEON_DB_URL:
-    print("WARNING: EXTERNAL_DATABASE_URL not set, skipping data migration")
+if not all([PGHOST, PGUSER, PGPASSWORD, PGDATABASE]):
+    print("WARNING: Replit internal DB env vars (PGHOST/PGUSER/PGPASSWORD/PGDATABASE) not set, skipping data migration")
     sys.exit(0)
 if not TARGET_DB_URL:
     print("WARNING: DATABASE_URL not set, skipping data migration")
     sys.exit(0)
-if NEON_DB_URL == TARGET_DB_URL:
+
+SOURCE_DB_URL = f"postgresql://{PGUSER}:{PGPASSWORD}@{PGHOST}:{PGPORT}/{PGDATABASE}"
+
+def same_db(url1, url2):
+    """Check if two URLs point to the same database by comparing host, port, and dbname."""
+    from urllib.parse import urlparse
+    def parse(u):
+        u = u.replace("postgres://", "postgresql://", 1)
+        p = urlparse(u)
+        return (p.hostname or '', str(p.port or 5432), p.path.lstrip('/').split('?')[0])
+    try:
+        p1, p2 = parse(url1), parse(url2)
+        return p1 == p2
+    except Exception:
+        return url1 == url2
+
+if same_db(SOURCE_DB_URL, TARGET_DB_URL):
     print("Source and target are the same database, skipping migration")
     sys.exit(0)
 
-print(f"Source (Neon): {NEON_DB_URL[:60]}...")
+print(f"Source (Replit internal): {PGHOST}:{PGPORT}/{PGDATABASE}")
 print(f"Target (Production): {TARGET_DB_URL[:60]}...")
 print()
 
 psycopg2.extensions.register_adapter(dict, psycopg2.extras.Json)
 psycopg2.extensions.register_adapter(list, psycopg2.extras.Json)
 
-src = psycopg2.connect(NEON_DB_URL)
+src = psycopg2.connect(SOURCE_DB_URL)
 dst = psycopg2.connect(TARGET_DB_URL)
 src.autocommit = False
 dst.autocommit = False
