@@ -14,7 +14,7 @@ const API_BASE = "";
 const BACKEND_API_BASE = `${API_BASE}/api/backend`;
 
 export const getPdfUrl = (studyId: string): string => {
-  return `/api/protocols/${encodeURIComponent(studyId)}/pdf`;
+  return `/api/protocols/${encodeURIComponent(studyId)}/pdf/annotated`;
 };
 
 export const api = {
