@@ -30,6 +30,72 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+def _seed_if_empty():
+    """Seed production database with dev data if tables are empty."""
+    import psycopg2
+    db_url = settings.effective_database_url
+    if not db_url:
+        return
+
+    conn = None
+    try:
+        conn = psycopg2.connect(db_url)
+        conn.autocommit = True
+        cur = conn.cursor()
+
+        try:
+            cur.execute("SELECT count(*) FROM backend_vnext.protocols")
+            count = cur.fetchone()[0]
+            if count > 0:
+                logger.info(f"Database already has {count} protocols - skipping seed")
+                return
+        except Exception:
+            logger.info("Protocols table not ready yet - skipping seed")
+            return
+
+        seed_file = Path(__file__).parent.parent.parent / "scripts" / "seed_data.sql"
+        if not seed_file.exists():
+            logger.warning(f"Seed file not found: {seed_file}")
+            return
+
+        logger.info("Production database is empty - seeding data...")
+        sql_content = seed_file.read_text()
+        success = 0
+        errors = 0
+
+        for line in sql_content.split("\n"):
+            line = line.strip()
+            if not line or line.startswith("--"):
+                continue
+            if line.endswith(";"):
+                line = line[:-1]
+            if not line:
+                continue
+            try:
+                cur.execute(line)
+                success += 1
+            except Exception as e:
+                errors += 1
+                if errors <= 3:
+                    logger.warning(f"Seed statement error: {str(e)[:150]}")
+                try:
+                    cur.close()
+                    conn.close()
+                except Exception:
+                    pass
+                conn = psycopg2.connect(db_url)
+                conn.autocommit = True
+                cur = conn.cursor()
+
+        logger.info(f"Seeding complete: {success} statements, {errors} errors")
+    finally:
+        if conn:
+            try:
+                conn.close()
+            except Exception:
+                pass
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application lifespan events."""
@@ -47,6 +113,12 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         logger.error(f"Failed to initialize database schema: {e}")
         raise
+
+    # Seed production data if tables are empty
+    try:
+        _seed_if_empty()
+    except Exception as e:
+        logger.warning(f"Data seeding skipped due to error: {e}")
 
     logger.info("backend_vNext application started")
     yield
