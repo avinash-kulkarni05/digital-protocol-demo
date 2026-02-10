@@ -68,14 +68,19 @@ Schema management:
 
 ## Deployment
 
-- Build: `cd frontend-vNext && npm run build`
-- Start: `cd frontend-vNext && npm run start`
+- Build: `cd frontend-vNext && npm run build && python scripts/migrate_to_production.py`
+- Start: Both Python backend and Node.js frontend run concurrently
 - Target: autoscale
+- Data migration: `scripts/migrate_to_production.py` copies dev DB data to production during build
+  - Primary: Direct DB-to-DB copy via `DEV_DATABASE_URL` -> `DATABASE_URL`
+  - Fallback: Pickle dump file (`scripts/dev_data_dump.pkl`) if dev DB unreachable
+  - Export: Run `python scripts/export_dev_data.py` to create pickle dump before deploy
 
 ## Required Secrets
 
 - `GEMINI_API_KEY` - Google Gemini API key for LLM extraction
 - `DATABASE_URL` - PostgreSQL connection (auto-provided by Replit)
+- `DEV_DATABASE_URL` - Dev database URL for production data migration
 
 ## User Preferences
 
