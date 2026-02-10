@@ -75,9 +75,8 @@ class UsdmSyncService:
             # Use simple study_id (filename without .pdf) for consistent querying
             usdm_study_id = study_id
 
-            # Insert into backend_vnext.usdm_documents table
             insert_sql = text("""
-                INSERT INTO backend_vnext.usdm_documents
+                INSERT INTO public.usdm_documents
                     (study_id, study_title, usdm_data, source_document_url, created_at, updated_at)
                 VALUES
                     (:study_id, :study_title, :usdm_data, :source_url, NOW(), NOW())

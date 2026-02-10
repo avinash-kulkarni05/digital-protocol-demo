@@ -48,7 +48,7 @@ def _seed_if_empty():
         cur = conn.cursor()
 
         try:
-            cur.execute("SELECT count(*) FROM backend_vnext.protocols")
+            cur.execute("SELECT count(*) FROM public.protocols")
             count = cur.fetchone()[0]
             if count > 0:
                 logger.info(f"Database already has {count} protocols - skipping seed")
