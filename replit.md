@@ -68,19 +68,18 @@ Schema management:
 
 ## Deployment
 
-- Build: `cd frontend-vNext && npm run build && python scripts/migrate_to_production.py`
+- Build: `cd frontend-vNext && npm install && npm run build`
 - Start: Both Python backend and Node.js frontend run concurrently
 - Target: autoscale
-- Data migration: `scripts/migrate_to_production.py` copies dev DB data to production during build
-  - Primary: Direct DB-to-DB copy via `DEV_DATABASE_URL` -> `DATABASE_URL`
-  - Fallback: Pickle dump file (`scripts/dev_data_dump.pkl`) if dev DB unreachable
-  - Export: Run `python scripts/export_dev_data.py` to create pickle dump before deploy
+- Data migration: Use Replit's built-in "Set up with development data" option during deployment
+  - Do NOT run custom migration scripts during build (they conflict with Replit's own data sync)
+  - Python backend's `init_schema()` safely creates missing tables on startup without dropping data
+  - Legacy migration scripts preserved in `scripts/` directory for manual use only
 
 ## Required Secrets
 
 - `GEMINI_API_KEY` - Google Gemini API key for LLM extraction
 - `DATABASE_URL` - PostgreSQL connection (auto-provided by Replit)
-- `DEV_DATABASE_URL` - Dev database URL for production data migration
 
 ## User Preferences
 
