@@ -1,7 +1,12 @@
 import os
 import sys
+import json
 import psycopg2
 import psycopg2.extras
+from psycopg2.extensions import register_adapter, adapt
+
+psycopg2.extensions.register_adapter(dict, psycopg2.extras.Json)
+psycopg2.extensions.register_adapter(list, psycopg2.extras.Json)
 
 EXTERNAL_DB_URL = os.environ.get("EXTERNAL_DATABASE_URL")
 REPLIT_DB_URL = os.environ.get("DATABASE_URL")
