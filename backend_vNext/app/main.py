@@ -53,41 +53,49 @@ def _seed_if_empty():
             logger.info("Protocols table not ready yet - skipping seed")
             return
 
-        seed_file = Path(__file__).parent.parent.parent / "scripts" / "seed_data.sql"
-        if not seed_file.exists():
-            logger.warning(f"Seed file not found: {seed_file}")
+        seed_candidates = [
+            Path(__file__).parent.parent.parent / "scripts" / "seed_data_lean.sql",
+            Path("/home/runner/workspace/scripts/seed_data_lean.sql"),
+            Path(__file__).parent.parent.parent / "scripts" / "seed_data.sql",
+            Path("/home/runner/workspace/scripts/seed_data.sql"),
+        ]
+        seed_file = None
+        for candidate in seed_candidates:
+            if candidate.exists():
+                seed_file = candidate
+                break
+
+        if not seed_file:
+            logger.warning(f"No seed file found. Tried: {[str(c) for c in seed_candidates]}")
             return
 
-        logger.info("Production database is empty - seeding data...")
-        sql_content = seed_file.read_text()
+        logger.info(f"Database is empty - seeding from {seed_file} ({seed_file.stat().st_size / 1024:.0f} KB)...")
+
         success = 0
         errors = 0
 
-        for line in sql_content.split("\n"):
-            line = line.strip()
-            if not line or line.startswith("--"):
-                continue
-            if line.endswith(";"):
-                line = line[:-1]
-            if not line:
-                continue
-            try:
-                cur.execute(line)
-                success += 1
-            except Exception as e:
-                errors += 1
-                if errors <= 3:
-                    logger.warning(f"Seed statement error: {str(e)[:150]}")
+        with open(seed_file, "r") as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("--"):
+                    continue
                 try:
-                    cur.close()
-                    conn.close()
-                except Exception:
-                    pass
-                conn = psycopg2.connect(db_url)
-                conn.autocommit = True
-                cur = conn.cursor()
+                    cur.execute(line)
+                    success += 1
+                except Exception as e:
+                    errors += 1
+                    if errors <= 5:
+                        logger.warning(f"Seed error: {str(e)[:200]}")
+                    try:
+                        cur.close()
+                        conn.close()
+                    except Exception:
+                        pass
+                    conn = psycopg2.connect(db_url)
+                    conn.autocommit = True
+                    cur = conn.cursor()
 
-        logger.info(f"Seeding complete: {success} statements, {errors} errors")
+        logger.info(f"Seeding complete: {success} succeeded, {errors} errors")
     finally:
         if conn:
             try:
