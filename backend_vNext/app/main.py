@@ -35,7 +35,11 @@ def _seed_if_empty():
     import psycopg2
     db_url = settings.effective_database_url
     if not db_url:
+        logger.warning("_seed_if_empty: No database URL available - cannot seed")
         return
+
+    db_host = db_url.split("@")[1].split("/")[0] if "@" in db_url else "unknown"
+    logger.info(f"_seed_if_empty: Connecting to database host={db_host}")
 
     conn = None
     try:
@@ -49,24 +53,25 @@ def _seed_if_empty():
             if count > 0:
                 logger.info(f"Database already has {count} protocols - skipping seed")
                 return
-        except Exception:
-            logger.info("Protocols table not ready yet - skipping seed")
+        except Exception as e:
+            logger.info(f"Protocols table not ready yet - skipping seed: {str(e)[:100]}")
             return
 
         seed_candidates = [
+            Path(__file__).parent.parent / "seed_data.sql",
+            Path("/home/runner/workspace/backend_vNext/seed_data.sql"),
             Path(__file__).parent.parent.parent / "scripts" / "seed_data_lean.sql",
             Path("/home/runner/workspace/scripts/seed_data_lean.sql"),
-            Path(__file__).parent.parent.parent / "scripts" / "seed_data.sql",
-            Path("/home/runner/workspace/scripts/seed_data.sql"),
         ]
         seed_file = None
         for candidate in seed_candidates:
+            logger.info(f"Checking seed path: {candidate} exists={candidate.exists()}")
             if candidate.exists():
                 seed_file = candidate
                 break
 
         if not seed_file:
-            logger.warning(f"No seed file found. Tried: {[str(c) for c in seed_candidates]}")
+            logger.error(f"SEED FILE NOT FOUND. Tried: {[str(c) for c in seed_candidates]}")
             return
 
         logger.info(f"Database is empty - seeding from {seed_file} ({seed_file.stat().st_size / 1024:.0f} KB)...")
