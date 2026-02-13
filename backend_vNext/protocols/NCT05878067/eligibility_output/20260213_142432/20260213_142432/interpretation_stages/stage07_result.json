@@ -1,0 +1,631 @@
+{
+  "criteria": [
+    {
+      "id": "EC-INC_I1",
+      "name": "Inclusion Criterion INC_I1",
+      "text": "Participant must be \u2265 18 years of age",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_I1",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 16,
+        "textSnippet": "6.2.1\nInclusion Criteria\nPatients that meet the following eligibility criteria will be included:\n\u2022 Participant must be \u2265 18 years of age",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_I2",
+      "name": "Inclusion Criterion INC_I2",
+      "text": "Written informed consent and written documentation, in accordance with the relevant country and local privacy requirements, had been obtained prior to any study procedures",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_I2",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 16,
+        "textSnippet": "\u2022 Participant must be \u2265 18 years of age\n\u2022\nWritten informed consent and written documentation, in accordance with the\nrelevant country and local privacy requirements, had been obtained prior to\nany study procedures",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_I3",
+      "name": "Inclusion Criterion INC_I3",
+      "text": "Had used artificial tears for dry eyes within the past year",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_I3",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 16,
+        "textSnippet": "relevant country and local privacy requirements, had been obtained prior to\nany study procedures\n\u2022\nHad used artificial tears for dry eyes within the past year",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_I4",
+      "name": "Inclusion Criterion INC_I4",
+      "text": "Females of childbearing potential, with a negative pregnancy test result at Screening; these patients must have been currently using a reliable form of birth control and have agreed to use a reliable form of birth control for the duration of the study",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_I4",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 16,
+        "textSnippet": "\u2022\nHad used artificial tears for dry eyes within the past year\n\u2022 Females of childbearing potential, with a negative pregnancy test result at\nScreening; these patients must have been currently using a reliable form of\nbirth control and have agreed to use a reliable form of birth control for the\nduration of the study",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_I5",
+      "name": "Inclusion Criterion INC_I5",
+      "text": "OSDI score of \u2265 18 and \u2264 65 (based upon a 0 to 100 scale) at Screening and Baseline Visits",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_I5",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 16,
+        "textSnippet": "birth control and have agreed to use a reliable form of birth control for the\nduration of the study\n\u2022\nOSDI score of \u2265 18 and \u2264 65 (based upon a 0 to 100 scale) at Screening and\nBaseline Visits",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_I6",
+      "name": "Inclusion Criterion INC_I6",
+      "text": "Three consecutive tear break-up time (TBUT) tests \u2264 10 seconds in at least 1 eye at Screening Visit",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_I6",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 16,
+        "textSnippet": "OSDI score of \u2265 18 and \u2264 65 (based upon a 0 to 100 scale) at Screening and\nBaseline Visits\n\u2022 Three consecutive tear break-up time (TBUT) tests \u2264 10 seconds in at least\n1 eye at Screening Visit",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_I7",
+      "name": "Inclusion Criterion INC_I7",
+      "text": "Grade 1 to 4 (modified National Eye Institute [NEI] Grid, score range = 0 to 5) staining in at least 1 area of the cornea (5 areas examined) or conjunctiva (6 areas examined) that was related to dry eye in at least 1 eye at both at Screening and Baseline Visits",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_I7",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 16,
+        "textSnippet": "1 eye at Screening Visit\n\u2022 Grade 1 to 4 (modified National Eye Institute [NEI] Grid, score range = 0 to 5)\nstaining in at least 1 area of the cornea (5 areas examined) or conjunctiva\n(6 areas examined) that was related to dry eye in at least 1 eye at both at\nScreening and Baseline Visits",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_I8",
+      "name": "Inclusion Criterion INC_I8",
+      "text": "Was able/agreed to continue to wear existing current spectacle correction during the study period (if applicable)",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_I8",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 16,
+        "textSnippet": "(6 areas examined) that was related to dry eye in at least 1 eye at both at\nScreening and Baseline Visits\n\u2022 Was able/agreed to continue to wear existing current spectacle correction\nduring the study period (if applicable)",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_I9",
+      "name": "Inclusion Criterion INC_I9",
+      "text": "Currently corrected distance visual acuity of at least 20/32 Snellen equivalent in each eye using the 3-meter LogMar chart, with existing spectacle correction (if necessary) at Screening Visit",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_I9",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 16,
+        "textSnippet": "during the study period (if applicable)\n\u2022 Currently corrected distance visual acuity of at least 20/32 Snellen equivalent\nin each eye using the 3-meter LogMar chart, with existing spectacle correction\n(if necessary) at Screening Visit",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_I10",
+      "name": "Inclusion Criterion INC_I10",
+      "text": "If using any form of topical ophthalmic cyclosporine (i.e., RESTASIS\u00ae), lifitegrast 5% ophthalmic solution (Xiidra\u00ae), participants must be using the drops for \u2265 90 days prior to the Screening Visit and plan to continue without change for the duration of the study",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_I10",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 16,
+        "textSnippet": "(if necessary) at Screening Visit\n\u2022\nIf using any form of topical ophthalmic cyclosporine (i.e., RESTASIS\u00ae),\nlifitegrast 5% ophthalmic solution (Xiidra\u00ae), participants must be using the\ndrops for \u2265 90 days prior to the Screening Visit and plan to continue without\nchange for the duration of the study",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_I11",
+      "name": "Inclusion Criterion INC_I11",
+      "text": "Intraocular pressure (IOP) \u2264 21 mmHg in both eyes at Screening Visit for patients with primary open-angle glaucoma or ocular hypertension (OHT). Patients with primary open-angle glaucoma or OHT were included provided they were on stable monotherapy bilaterally with IOP controlled (\u2264 21 mmHg) in both eyes. Any topical IOP-lowering medications must have had a start date of \u2265 3 months prior to Screening Visit date and dosage that was not expected to change during the study.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_I11",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 16,
+        "textSnippet": "change for the duration of the study\n\u2022\nIntraocular pressure (IOP) \u2264 21 mmHg in both eyes at Screening Visit for\npatients with primary open-angle glaucoma or ocular hypertension (OHT).\nPatients with primary open-angle glaucoma or OHT were included provided",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_I12",
+      "name": "Inclusion Criterion INC_I12",
+      "text": "Was able to follow study instructions and was likely to complete all required visits",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_I12",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 17,
+        "textSnippet": "of \u2265 3 months prior to Screening Visit date and dosage that was not expected\nto change during the study.\n\u2022 Was able to follow study instructions and was likely to complete all required\nvisits",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E1",
+      "name": "Exclusion Criterion EXC_E1",
+      "text": "Have uncontrolled severe systemic disease that, in the assessment of the investigator, would put safety of the participant at risk through participation, or which would prevent or confound protocol-specified assessments (e.g., hypertension and diabetes, Sj\u00f6gren's syndrome, rheumatoid arthritis, systemic lupus erythematosus, immunodeficiency disease, etc.)",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E1",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 17,
+        "textSnippet": "6.2.2\nExclusion Criteria\nPatients that have any of the following criteria will be excluded:\n\u2022 Have uncontrolled severe systemic disease that, in the assessment of the\ninvestigator, would put safety of the participant at risk through participation, or\nwhich would prevent or confound protocol-specified assessments\n(e.g., hypertension and diabetes, Sj\u00f6gren's syndrome, rheumatoid arthritis,\nsystemic lupus erythematosus, immunodeficiency disease, etc.)",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E2",
+      "name": "Exclusion Criterion EXC_E2",
+      "text": "Known allergy or sensitivity to the study products or their components",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E2",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 17,
+        "textSnippet": "systemic lupus erythematosus, immunodeficiency disease, etc.)\n\u2022 Known allergy or sensitivity to the study products or their components",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E3",
+      "name": "Exclusion Criterion EXC_E3",
+      "text": "Females who were pregnant, nursing, or planning a pregnancy",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E3",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 17,
+        "textSnippet": "\u2022 Known allergy or sensitivity to the study products or their components\n\u2022 Females who were pregnant, nursing, or planning a pregnancy",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E4",
+      "name": "Exclusion Criterion EXC_E4",
+      "text": "Females of childbearing potential and who were not using a reliable method of contraception",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E4",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 17,
+        "textSnippet": "\u2022 Females who were pregnant, nursing, or planning a pregnancy\n\u2022 Females of childbearing potential and who were not using a reliable method of\ncontraception",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E5",
+      "name": "Exclusion Criterion EXC_E5",
+      "text": "Current enrollment in an investigational drug or device study or participation in such a study within 30 days of entry into this study at Screening Visit",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E5",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 17,
+        "textSnippet": "contraception\n\u2022\nCurrent enrollment in an investigational drug or device study or participation\nin such a study within 30 days of entry into this study at Screening Visit",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E6",
+      "name": "Exclusion Criterion EXC_E6",
+      "text": "Schirmer Test (with anesthesia) \u2264 2 mm in either eye at Screening Visit",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E6",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 17,
+        "textSnippet": "in such a study within 30 days of entry into this study at Screening Visit\n\u2022 Schirmer Test (with anesthesia) \u2264 2 mm in either eye at Screening Visit",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E7",
+      "name": "Exclusion Criterion EXC_E7",
+      "text": "Patient anticipated contact lens wear during the study, or the patient had worn contact lenses in the last 3 months prior to Screening Visit",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E7",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 17,
+        "textSnippet": "\u2022 Schirmer Test (with anesthesia) \u2264 2 mm in either eye at Screening Visit\n\u2022\nPatient anticipated contact lens wear during the study, or the patient had worn\ncontact lenses in the last 3 months prior to Screening Visit",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E8",
+      "name": "Exclusion Criterion EXC_E8",
+      "text": "Any scheduled or planned elective ocular or systemic surgery or procedure during the study, which in the investigator's opinion, may have impacted the patient's study participation",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E8",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 17,
+        "textSnippet": "contact lenses in the last 3 months prior to Screening Visit\n\u2022 Any scheduled or planned elective ocular or systemic surgery or procedure\nduring the study, which in the investigator's opinion, may have impacted the\npatient's study participation",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E9",
+      "name": "Exclusion Criterion EXC_E9",
+      "text": "At the Screening and Baseline visits, either eye has corneal staining score of 5 in any of the 5 zones or a total score of > 19 based on the modified NEI grading scheme (score range = 0 to 5; graded in 5 zones of the cornea for a total score range of 0 to 25) or conjunctival staining score of 5 in any of the 6 zones based on the modified NEI grading scheme (score range = 0 to 5 per zone)",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E9",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 17,
+        "textSnippet": "patient's study participation\n\u2022\nAt the Screening and Baseline visits, either eye has corneal staining score of 5\nin any of the 5 zones or a total score of > 19 based on the modified NEI\ngrading scheme (score range = 0 to 5; graded in 5 zones of the cornea for a\ntotal score range of 0 to 25) or conjunctival staining score of 5 in any of the",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E10",
+      "name": "Exclusion Criterion EXC_E10",
+      "text": "Use of systemic medications (over-the-counter, herbal, prescription, or nutritional supplements for dry eyes), which may have affected tear film or vision (including but not limited to the following: flax seed oil, fish oil, omega-3 supplements, cyclosporine, antihistamines, cholinergic agents, anticholinergics, antimuscarines, beta-blocking agents, tricyclic antidepressants, phenothiazines, estrogen-progesterone, and other estrogen derivatives), unless that medication had been used at the same dose for at least 3 months prior to screening and the dosage was not expected to change during the course of the study",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E10",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 18,
+        "textSnippet": "6 zones based on the modified NEI grading scheme (score range = 0 to 5 per\nzone)\n\u2022 Use of systemic medications (over-the-counter, herbal, prescription, or\nnutritional supplements for dry eyes), which may have affected tear film or\nvision (including but not limited to the following: flax seed oil, fish oil,\nomega-3 supplements, cyclosporine, antihistamines, cholinergic agents,\nanticholinergics, antimuscarines, beta-blocking agents, tricyclic\nantidepressants, phenothiazines, estrogen-progestero...",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E11",
+      "name": "Exclusion Criterion EXC_E11",
+      "text": "Presence of 1 or more of the following ocular conditions in at least 1 eye:\n\n\u25cb Active ocular infection or non-keratoconjunctivitis sicca (KCS) ocular inflammation\n\n\u039f Active ocular allergy",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E11",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 18,
+        "textSnippet": "the course of the study\n\u2022 Presence of 1 or more of the following ocular conditions in at least 1 eye:\n\u25cb Active ocular infection or non-keratoconjunctivitis sicca (KCS) ocular\ninflammation\n\u039f Active ocular allergy",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E12",
+      "name": "Exclusion Criterion EXC_E12",
+      "text": "History of recurrent herpes keratitis or active disease within 6 months prior to Screening Visit",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E12",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 18,
+        "textSnippet": "inflammation\n\u039f Active ocular allergy\nHistory of recurrent herpes keratitis or active disease within 6 months prior to\nScreening Visit",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E13",
+      "name": "Exclusion Criterion EXC_E13",
+      "text": "Corneal disorder or abnormality that affected corneal sensitivity or normal spreading of the tear film (except superficial punctate keratitis)",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E13",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 18,
+        "textSnippet": "Screening Visit\n\u2022 Corneal disorder or abnormality that affected corneal sensitivity or normal\nspreading of the tear film (except superficial punctate keratitis)",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E14",
+      "name": "Exclusion Criterion EXC_E14",
+      "text": "Severe blepharitis or obvious inflammation of the lid margin, which in the judgment of the investigator, may have interfered with the interpretation of the study results",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E14",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 18,
+        "textSnippet": "spreading of the tear film (except superficial punctate keratitis)\n\u2022 Severe blepharitis or obvious inflammation of the lid margin, which in the\njudgment of the investigator, may have interfered with the interpretation of the\nstudy results",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E15",
+      "name": "Exclusion Criterion EXC_E15",
+      "text": "Keratoconjunctivitis sicca secondary to the destruction of conjunctival goblet cells, such as occurs with vitamin A deficiency or scarring such as that with cicatricial pemphigoid, alkali burns, Stevens-Johnson syndrome, trachoma, or irradiation",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E15",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 18,
+        "textSnippet": "study results\n\u2022 Keratoconjunctivitis sicca secondary to the destruction of conjunctival goblet\ncells, such as occurs with vitamin A deficiency or scarring such as that with\ncicatricial pemphigoid, alkali burns, Stevens-Johnson syndrome, trachoma, or\nirradiation",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E16",
+      "name": "Exclusion Criterion EXC_E16",
+      "text": "Substantial non-KCS keratitis with overlying corneal stain or other significant corneal findings not directly related to dry eye; in addition, patients with dry eye signs/symptoms (e.g., filamentary keratitis) of a severity where topical monotherapy with an artificial tear would have been inappropriate",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E16",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 18,
+        "textSnippet": "irradiation\n\u2022\nSubstantial non-KCS keratitis with overlying corneal stain or other significant\ncorneal findings not directly related to dry eye; in addition, patients with dry\neye signs/symptoms (e.g., filamentary keratitis) of a severity where topical\nmonotherapy with an artificial tear would have been inappropriate",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E17",
+      "name": "Exclusion Criterion EXC_E17",
+      "text": "Occlusion of the lacrimal puncta for either eye, with punctal plugs or cauterization < 3 months prior to Screening Visit",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E17",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 18,
+        "textSnippet": "monotherapy with an artificial tear would have been inappropriate\n\u2022 Occlusion of the lacrimal puncta for either eye, with punctal plugs or\ncauterization < 3 months prior to Screening Visit",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E18",
+      "name": "Exclusion Criterion EXC_E18",
+      "text": "History of prior ocular/ophthalmic surgery or trauma, which could affect corneal sensitivity and/or tear distribution (e.g., cataract surgery, laser-assisted in situ keratomileusis [LASIK], photorefractive keratectomy, or any surgery involving a limbal or corneal incision) within 6 months prior to at Screening Visit",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E18",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 19,
+        "textSnippet": "\u2022 History of prior ocular/ophthalmic surgery or trauma, which could affect\ncorneal sensitivity and/or tear distribution (e.g., cataract surgery, laser-assisted\nin situ keratomileusis [LASIK], photorefractive keratectomy, or any surgery\ninvolving a limbal or corneal incision) within 6 months prior to at Screening\nVisit",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E19",
+      "name": "Exclusion Criterion EXC_E19",
+      "text": "Patients who were currently using topical ocular medication or had used topical ocular medication within 2 weeks of Screening Visit; however, patients who were being treated bilaterally with the following could have been considered:\n\n\u039f Current use of a marketed artificial tear, which was to have been discontinued at the Screening Visit\n\n\u25cb Monotherapy for glaucoma or OHT using a prostaglandin analog, beta-blocker, alpha-2 agonist, or carbonic anhydrase inhibitors; any topical IOP-lowering medications must have had a start date of \u2265 3 months prior to Screening Visit and the dosage was not expected to change during the study\n\n\u039f If using any form of topical ophthalmic cyclosporine (i.e., RESTASIS\u00ae), lifitegrast 5% ophthalmic solution (Xiidra\u00ae), for less than 90 days prior to Screening Visit",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E19",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 19,
+        "textSnippet": "Visit\n\u2022 Patients who were currently using topical ocular medication or had used\ntopical ocular medication within 2 weeks of Screening Visit; however, patients\nwho were being treated bilaterally with the following could have been\nconsidered:\n\u039f Current use of a marketed artificial tear, which was to have been\ndiscontinued at the Screening Visit\n\u2022 Monotherapy for glaucoma or OHT using a prostaglandin analog, beta-\nblocker, alpha-2 agonist, or carbonic anhydrase inhibitors; any topical\nIOP-loweri...",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E20",
+      "name": "Exclusion Criterion EXC_E20",
+      "text": "Patients who were currently being treated with both IOP-lowering medication and any form of topical ophthalmic cyclosporine (i.e., RESTASIS\u00ae) or lifitegrast 5% ophthalmic solution (Xiidra\u00ae) or generic of these medications cannot be enrolled",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E20",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 19,
+        "textSnippet": "Screening Visit\n\u2022 Patients who were currently being treated with both IOP-lowering medication\nand any form of topical ophthalmic cyclosporine (i.e., RESTASIS\u00ae) or\nlifitegrast 5% ophthalmic solution (Xiidra\u00ae) or generic of these medications\ncannot be enrolled",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_E21",
+      "name": "Exclusion Criterion EXC_E21",
+      "text": "Patient had a condition or is in a situation, which in the investigator's opinion, may have put the patient at significant risk, may have confounded the study results, or may have interfered significantly with the patient's participation in the study",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_E21",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 19,
+        "textSnippet": "lifitegrast 5% ophthalmic solution (Xiidra\u00ae) or generic of these medications\ncannot be enrolled\n\u2022\nPatient had a condition or is in a situation, which in the investigator's opinion,\nmay have put the patient at significant risk, may have confounded the study\nresults, or may have interfered significantly with the patient's participation in\nthe study",
+        "confidence": 1.0
+      }
+    }
+  ]
+}

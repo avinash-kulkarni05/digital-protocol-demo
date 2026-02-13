@@ -1,0 +1,94 @@
+{
+  "protocol_id": "NCT05878067",
+  "generated_at": "2026-02-13T14:38:41.773163",
+  "population": {
+    "initial": 1000000,
+    "final_estimate": 0,
+    "confidence_low": 0,
+    "confidence_high": 0,
+    "overall_elimination_rate": 100.0
+  },
+  "funnel_stages": [
+    {
+      "name": "Disease Indication",
+      "order": 1,
+      "entering": 0,
+      "exiting": 0,
+      "elimination_rate": 0.0,
+      "criteria_count": 1
+    },
+    {
+      "name": "Demographics",
+      "order": 2,
+      "entering": 0,
+      "exiting": 0,
+      "elimination_rate": 0.0,
+      "criteria_count": 1
+    },
+    {
+      "name": "Treatment History",
+      "order": 4,
+      "entering": 0,
+      "exiting": 0,
+      "elimination_rate": 0.0,
+      "criteria_count": 4
+    },
+    {
+      "name": "Lab Criteria",
+      "order": 6,
+      "entering": 0,
+      "exiting": 0,
+      "elimination_rate": 0.0,
+      "criteria_count": 6
+    },
+    {
+      "name": "Safety Exclusions",
+      "order": 7,
+      "entering": 0,
+      "exiting": 0,
+      "elimination_rate": 0.0,
+      "criteria_count": 3
+    }
+  ],
+  "killer_criteria": [
+    "KC003",
+    "KC031",
+    "KC001",
+    "KC022",
+    "KC013",
+    "KC023",
+    "KC019",
+    "KC029"
+  ],
+  "optimization_opportunities": [],
+  "manual_assessment_required": [
+    "KC002",
+    "KC003",
+    "KC004",
+    "KC005",
+    "KC006",
+    "KC007",
+    "KC008",
+    "KC009",
+    "KC011",
+    "KC012",
+    "KC013",
+    "KC014",
+    "KC015",
+    "KC016",
+    "KC017",
+    "KC018",
+    "KC019",
+    "KC020",
+    "KC021",
+    "KC022",
+    "KC023",
+    "KC024",
+    "KC025",
+    "KC026",
+    "KC028",
+    "KC030",
+    "KC031",
+    "KC033"
+  ]
+}

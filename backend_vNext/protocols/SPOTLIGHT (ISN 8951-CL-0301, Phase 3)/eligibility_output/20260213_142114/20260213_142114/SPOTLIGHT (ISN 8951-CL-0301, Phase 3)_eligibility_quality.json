@@ -1,0 +1,148 @@
+{
+  "scores": {
+    "accuracy": 1.0,
+    "completeness": 1.0,
+    "compliance": 1.0,
+    "provenance": 1.0,
+    "terminology": 1.0,
+    "overall": 1.0
+  },
+  "thresholds_met": true,
+  "failed_dimensions": [],
+  "counts": {
+    "total_fields": 224,
+    "valid_fields": 224,
+    "total_provenance": 74,
+    "valid_provenance": 74,
+    "total_terminology": 1,
+    "valid_terminology": 1
+  },
+  "issues": {
+    "accuracy": [
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_1].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "Inclusion/Exclusion Criteria:\nInclusion Criteria: \nWaivers to the inclusion criteria will NOT be all",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_5].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "the final administration of oxaliplatin and 6 months after the final administration of all \nother st",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_6].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "period, and for 6 months after the final study treatment administration.\n6. Female subject must not ",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_7].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "for 9 months after the final administration of oxaliplatin and 6 months after the final \nadministrat",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_9].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "9. Male subject with a pregnant or breastfeeding partner(s) must agree to remain abstinent \nor use a",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_11].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "Disease Specific Criteria:\n10. Subject has histologically confirmed diagnosis of Gastric or GEJ aden",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_12].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "11. Subject has radiologically confirmed locally advanced unresectable or metastatic disease within ",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_15].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "tumor).\nPhysical or Laboratory Findings\n15. Subject has ECOG performance status 0 to 1.\n16. Subject ",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_16].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "Physical or Laboratory Findings\n15. Subject has ECOG performance status 0 to 1.\n16. Subject has pred",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_17].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "16. Subject has predicted life expectancy \uf0b3 12 weeks in the opinion of the investigator.\n17. Subject",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[EXC_1].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "Exclusion Criteria:\nWaivers to the exclusion criteria will NOT be allowed. \nSubject who meets any of",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[EXC_2].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "treatment with herbal medications that have known antitumor activity > 28 days prior to \nrandomizati",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[EXC_3].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "GEJ adenocarcinoma \u2264 14 days prior to randomization and has not recovered from any related \ntoxicity",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[EXC_10].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "9. Subject has a complete gastric outlet syndrome or a partial gastric outlet syndrome with \npersist",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[EXC_11].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "10. Per investigator judgement, subject has significant gastric bleeding and/or untreated gastric \nu",
+        "suggestion": "Replace with actual extracted value"
+      }
+    ],
+    "completeness": [],
+    "compliance": [],
+    "provenance": [],
+    "terminology": []
+  }
+}

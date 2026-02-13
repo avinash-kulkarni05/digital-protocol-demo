@@ -1,0 +1,156 @@
+{
+  "protocol_id": "NCT05878067",
+  "generated_at": "2026-02-13T14:38:41.772890",
+  "key_criteria": [
+    {
+      "key_id": "KC003",
+      "category": "primary_anchor",
+      "text": "Had used artificial tears for dry eyes within the past year",
+      "type": "Inclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 80.0,
+      "is_killer": true,
+      "funnel_priority": 1
+    },
+    {
+      "key_id": "KC001",
+      "category": "primary_anchor",
+      "text": "Participant must be \u2265 18 years of age",
+      "type": "Inclusion",
+      "queryable_status": "fully_queryable",
+      "elimination_rate": 20.0,
+      "is_killer": true,
+      "funnel_priority": 2
+    },
+    {
+      "key_id": "KC031",
+      "category": "treatment_history",
+      "text": "Patients who were currently using topical ocular medication or had used topical ocular medication within 2 weeks of Screening Visit; however, patients who were being treated bilaterally with the following could have been considered:\n\n\u039f Current use of a marketed artificial tear, which was to have been discontinued at the Screening Visit\n\n\u25cb Monotherapy for glaucoma or OHT using a prostaglandin analog, beta-blocker, alpha-2 agonist, or carbonic anhydrase inhibitors; any topical IOP-lowering medications must have had a start date of \u2265 3 months prior to Screening Visit and the dosage was not expected to change during the study\n\n\u039f If using any form of topical ophthalmic cyclosporine (i.e., RESTASIS\u00ae), lifitegrast 5% ophthalmic solution (Xiidra\u00ae), for less than 90 days prior to Screening Visit",
+      "type": "Exclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 30.0,
+      "is_killer": true,
+      "funnel_priority": 21
+    },
+    {
+      "key_id": "KC022",
+      "category": "treatment_history",
+      "text": "Use of systemic medications (over-the-counter, herbal, prescription, or nutritional supplements for dry eyes), which may have affected tear film or vision (including but not limited to the following: flax seed oil, fish oil, omega-3 supplements, cyclosporine, antihistamines, cholinergic agents, anticholinergics, antimuscarines, beta-blocking agents, tricyclic antidepressants, phenothiazines, estrogen-progesterone, and other estrogen derivatives), unless that medication had been used at the same dose for at least 3 months prior to screening and the dosage was not expected to change during the course of the study",
+      "type": "Exclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 20.0,
+      "is_killer": true,
+      "funnel_priority": 22
+    },
+    {
+      "key_id": "KC029",
+      "category": "treatment_history",
+      "text": "Occlusion of the lacrimal puncta for either eye, with punctal plugs or cauterization < 3 months prior to Screening Visit",
+      "type": "Exclusion",
+      "queryable_status": "fully_queryable",
+      "elimination_rate": 12.0,
+      "is_killer": true,
+      "funnel_priority": 23
+    },
+    {
+      "key_id": "KC032",
+      "category": "treatment_history",
+      "text": "Patients who were currently being treated with both IOP-lowering medication and any form of topical ophthalmic cyclosporine (i.e., RESTASIS\u00ae) or lifitegrast 5% ophthalmic solution (Xiidra\u00ae) or generic of these medications cannot be enrolled",
+      "type": "Exclusion",
+      "queryable_status": "fully_queryable",
+      "elimination_rate": 7.0,
+      "is_killer": false,
+      "funnel_priority": 25
+    },
+    {
+      "key_id": "KC005",
+      "category": "functional",
+      "text": "OSDI score of \u2265 18 and \u2264 65 (based upon a 0 to 100 scale) at Screening and Baseline Visits",
+      "type": "Inclusion",
+      "queryable_status": "non_queryable",
+      "elimination_rate": 35.0,
+      "is_killer": false,
+      "funnel_priority": 31
+    },
+    {
+      "key_id": "KC006",
+      "category": "functional",
+      "text": "Three consecutive tear break-up time (TBUT) tests \u2264 10 seconds in at least 1 eye at Screening Visit",
+      "type": "Inclusion",
+      "queryable_status": "non_queryable",
+      "elimination_rate": 20.0,
+      "is_killer": false,
+      "funnel_priority": 32
+    },
+    {
+      "key_id": "KC007",
+      "category": "functional",
+      "text": "Grade 1 to 4 (modified National Eye Institute [NEI] Grid, score range = 0 to 5) staining in at least 1 area of the cornea (5 areas examined) or conjunctiva (6 areas examined) that was related to dry eye in at least 1 eye at both at Screening and Baseline Visits",
+      "type": "Inclusion",
+      "queryable_status": "non_queryable",
+      "elimination_rate": 20.0,
+      "is_killer": false,
+      "funnel_priority": 33
+    },
+    {
+      "key_id": "KC021",
+      "category": "functional",
+      "text": "At the Screening and Baseline visits, either eye has corneal staining score of 5 in any of the 5 zones or a total score of > 19 based on the modified NEI grading scheme (score range = 0 to 5; graded in 5 zones of the cornea for a total score range of 0 to 25) or conjunctival staining score of 5 in any of the 6 zones based on the modified NEI grading scheme (score range = 0 to 5 per zone)",
+      "type": "Exclusion",
+      "queryable_status": "non_queryable",
+      "elimination_rate": 15.0,
+      "is_killer": false,
+      "funnel_priority": 34
+    },
+    {
+      "key_id": "KC009",
+      "category": "functional",
+      "text": "Currently corrected distance visual acuity of at least 20/32 Snellen equivalent in each eye using the 3-meter LogMar chart, with existing spectacle correction (if necessary) at Screening Visit",
+      "type": "Inclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 10.0,
+      "is_killer": false,
+      "funnel_priority": 35
+    },
+    {
+      "key_id": "KC011",
+      "category": "functional",
+      "text": "Intraocular pressure (IOP) \u2264 21 mmHg in both eyes at Screening Visit for patients with primary open-angle glaucoma or ocular hypertension (OHT). Patients with primary open-angle glaucoma or OHT were included provided they were on stable monotherapy bilaterally with IOP controlled (\u2264 21 mmHg) in both eyes. Any topical IOP-lowering medications must have had a start date of \u2265 3 months prior to Screening Visit date and dosage that was not expected to change during the study.",
+      "type": "Inclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 10.0,
+      "is_killer": false,
+      "funnel_priority": 36
+    },
+    {
+      "key_id": "KC013",
+      "category": "safety_exclusion",
+      "text": "Have uncontrolled severe systemic disease that, in the assessment of the investigator, would put safety of the participant at risk through participation, or which would prevent or confound protocol-specified assessments (e.g., hypertension and diabetes, Sj\u00f6gren's syndrome, rheumatoid arthritis, systemic lupus erythematosus, immunodeficiency disease, etc.)",
+      "type": "Exclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 20.0,
+      "is_killer": true,
+      "funnel_priority": 51
+    },
+    {
+      "key_id": "KC023",
+      "category": "safety_exclusion",
+      "text": "Presence of 1 or more of the following ocular conditions in at least 1 eye:\n\n\u25cb Active ocular infection or non-keratoconjunctivitis sicca (KCS) ocular inflammation\n\n\u039f Active ocular allergy",
+      "type": "Exclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 15.0,
+      "is_killer": true,
+      "funnel_priority": 52
+    },
+    {
+      "key_id": "KC019",
+      "category": "administrative",
+      "text": "Patient anticipated contact lens wear during the study, or the patient had worn contact lenses in the last 3 months prior to Screening Visit",
+      "type": "Exclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 15.0,
+      "is_killer": true,
+      "funnel_priority": 61
+    }
+  ]
+}
