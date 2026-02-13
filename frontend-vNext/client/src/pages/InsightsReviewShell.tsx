@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useLocation, useSearch } from "wouter";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -1239,11 +1239,33 @@ export default function InsightsReviewShell() {
   const [, navigate] = useLocation();
   const searchString = useSearch();
   
-  // Get studyId from URL params and determine PDF URL - NO hardcoded default
   const searchParams = new URLSearchParams(searchString);
   const studyId = searchParams.get('studyId') || searchParams.get('protocolId') || null;
   const pdfUrl = studyId ? `/api/protocols/${encodeURIComponent(studyId)}/pdf/annotated` : '';
   
+  const [pdfData, setPdfData] = useState<{ data: Uint8Array } | null>(null);
+  const [pdfLoadError, setPdfLoadError] = useState<string | null>(null);
+  const pdfFetchedRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (!pdfUrl || pdfFetchedRef.current === pdfUrl) return;
+    pdfFetchedRef.current = pdfUrl;
+    setPdfData(null);
+    setPdfLoadError(null);
+    fetch(pdfUrl)
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.arrayBuffer();
+      })
+      .then(buffer => {
+        setPdfData({ data: new Uint8Array(buffer) });
+      })
+      .catch(err => {
+        console.error('[InsightsReviewShell] PDF fetch error:', err);
+        setPdfLoadError(err.message);
+      });
+  }, [pdfUrl]);
+
   const [activeStage, setActiveStage] = useState("domains");
   const [stage1Data, setStage1Data] = useState<Stage1Data | null>(null);
   const [stage2Data, setStage2Data] = useState<Stage2Data | null>(null);
@@ -1661,18 +1683,29 @@ export default function InsightsReviewShell() {
 
             <ScrollArea className="flex-1">
               <div className="flex justify-center p-4">
-                <Document
-                  file={pdfUrl}
-                  onLoadSuccess={onDocumentLoadSuccess}
-                  loading={<LoadingState />}
-                >
-                  <Page
-                    pageNumber={pageNumber}
-                    scale={scale}
-                    renderTextLayer={false}
-                    renderAnnotationLayer={false}
-                  />
-                </Document>
+                {pdfLoadError ? (
+                  <div className="text-center py-8">
+                    <p className="text-sm text-muted-foreground mb-2">Failed to load PDF</p>
+                    <Button variant="outline" size="sm" onClick={() => { pdfFetchedRef.current = null; setPdfLoadError(null); }}>
+                      Retry
+                    </Button>
+                  </div>
+                ) : pdfData ? (
+                  <Document
+                    file={pdfData}
+                    onLoadSuccess={onDocumentLoadSuccess}
+                    loading={<LoadingState />}
+                  >
+                    <Page
+                      pageNumber={pageNumber}
+                      scale={scale}
+                      renderTextLayer={false}
+                      renderAnnotationLayer={false}
+                    />
+                  </Document>
+                ) : (
+                  <LoadingState />
+                )}
               </div>
             </ScrollArea>
           </div>

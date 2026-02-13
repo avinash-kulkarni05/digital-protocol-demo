@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useDocument, useFieldUpdate, STUDY_ID } from "@/lib/queries";
 import { StudyMetadataView } from "@/components/review/StudyMetadataView";
 import { PopulationView } from "@/components/review/PopulationView";
@@ -95,6 +95,30 @@ export default function ReviewPage() {
   const [numPages, setNumPages] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [scale, setScale] = useState<number>(1.0);
+
+  const pdfProxyUrl = studyId ? `/api/protocols/${encodeURIComponent(studyId)}/pdf/annotated` : '';
+  const [pdfData, setPdfData] = useState<{ data: Uint8Array } | null>(null);
+  const [pdfLoadError, setPdfLoadError] = useState<string | null>(null);
+  const pdfFetchedRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (!pdfProxyUrl || pdfFetchedRef.current === pdfProxyUrl) return;
+    pdfFetchedRef.current = pdfProxyUrl;
+    setPdfData(null);
+    setPdfLoadError(null);
+    fetch(pdfProxyUrl)
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.arrayBuffer();
+      })
+      .then(buffer => {
+        setPdfData({ data: new Uint8Array(buffer) });
+      })
+      .catch(err => {
+        console.error('[ReviewPage] PDF fetch error:', err);
+        setPdfLoadError(err.message);
+      });
+  }, [pdfProxyUrl]);
 
   if (isLoading) {
     return (
@@ -548,7 +572,7 @@ export default function ReviewPage() {
               variant="ghost" 
               size="sm" 
               className="h-8 w-8 p-0 hover:bg-gray-100"
-              onClick={() => window.open(document.sourceDocumentUrl || '/protocol.pdf', '_blank')}
+              onClick={() => window.open(pdfProxyUrl || '/protocol.pdf', '_blank')}
             >
               <ExternalLink className="w-4 h-4 text-muted-foreground" />
             </Button>
@@ -567,31 +591,43 @@ export default function ReviewPage() {
         <div className="flex-1 w-full h-full bg-gray-100 overflow-hidden relative">
            <ScrollArea className="h-full w-full">
              <div className="flex justify-center p-8 min-h-full">
-               <Document
-                  file={document.sourceDocumentUrl || '/protocol.pdf'}
-                  onLoadSuccess={onDocumentLoadSuccess}
-                  loading={
-                    <div className="flex flex-col items-center gap-2 mt-20">
-                      <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
-                      <span className="text-sm text-muted-foreground">Loading PDF Document...</span>
-                    </div>
-                  }
-                  error={
-                    <div className="flex flex-col items-center gap-2 mt-20 text-gray-600">
-                      <span className="font-medium">Failed to load PDF</span>
-                      <Button variant="outline" onClick={() => window.location.reload()}>Retry</Button>
-                    </div>
-                  }
-                  className="shadow-xl"
-                >
-                  <Page
-                    pageNumber={pageNumber}
-                    scale={scale}
-                    className="bg-white shadow-sm"
-                    renderTextLayer={false}
-                    renderAnnotationLayer={false}
-                  />
-                </Document>
+               {pdfLoadError ? (
+                  <div className="flex flex-col items-center gap-2 mt-20 text-gray-600">
+                    <span className="font-medium">Failed to load PDF</span>
+                    <Button variant="outline" onClick={() => { pdfFetchedRef.current = null; setPdfLoadError(null); }}>Retry</Button>
+                  </div>
+                ) : pdfData ? (
+                  <Document
+                    file={pdfData}
+                    onLoadSuccess={onDocumentLoadSuccess}
+                    loading={
+                      <div className="flex flex-col items-center gap-2 mt-20">
+                        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+                        <span className="text-sm text-muted-foreground">Loading PDF Document...</span>
+                      </div>
+                    }
+                    error={
+                      <div className="flex flex-col items-center gap-2 mt-20 text-gray-600">
+                        <span className="font-medium">Failed to load PDF</span>
+                        <Button variant="outline" onClick={() => { pdfFetchedRef.current = null; setPdfLoadError(null); }}>Retry</Button>
+                      </div>
+                    }
+                    className="shadow-xl"
+                  >
+                    <Page
+                      pageNumber={pageNumber}
+                      scale={scale}
+                      className="bg-white shadow-sm"
+                      renderTextLayer={false}
+                      renderAnnotationLayer={false}
+                    />
+                  </Document>
+                ) : (
+                  <div className="flex flex-col items-center gap-2 mt-20">
+                    <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+                    <span className="text-sm text-muted-foreground">Loading PDF Document...</span>
+                  </div>
+                )}
              </div>
            </ScrollArea>
             </div>

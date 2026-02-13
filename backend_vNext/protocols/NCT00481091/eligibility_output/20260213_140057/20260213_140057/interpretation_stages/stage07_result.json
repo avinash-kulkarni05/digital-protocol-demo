@@ -1,0 +1,954 @@
+{
+  "criteria": [
+    {
+      "id": "EC-INC_5.2.1.1",
+      "name": "Inclusion Criterion INC_5.2.1.1",
+      "text": "The subject must be \u2265 18 years of age.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.1.1",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 28,
+        "textSnippet": "5.2.1 Phase 1 Inclusion Criteria\nA subject will be eligible for study participation if he/she meets the following criteria:\n1. The subject must be \u2265 18 years of age.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5.2.1.2",
+      "name": "Inclusion Criterion INC_5.2.1.2",
+      "text": "The subject must have relapsed or refractory CLL and require treatment in the opinion of the investigator.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.1.2",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 28,
+        "textSnippet": "1. The subject must be \u2265 18 years of age.\n2. The subject must have relapsed or refractory CLL and require treatment in the \nopinion of the investigator.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5.2.1.3",
+      "name": "Inclusion Criterion INC_5.2.1.3",
+      "text": "The subject has an Eastern Cooperative Oncology Group performance score of \u2264 1.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.1.3",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 28,
+        "textSnippet": "opinion of the investigator.\n3. The subject has an Eastern Cooperative Oncology Group performance score of \uf0a3 1.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5.2.1.4",
+      "name": "Inclusion Criterion INC_5.2.1.4",
+      "text": "Subjects receiving Selective Serotonin Reuptake Inhibitor (SSRI) anti-depressants (e.g., Prozac) must be receiving a stable dose for at least 21 days prior to the first dose of study drug.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.1.4",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 28,
+        "textSnippet": "3. The subject has an Eastern Cooperative Oncology Group performance score of \uf0a3 1.\n4. Subjects receiving Selective Serotonin Reuptake Inhibitor (SSRI) anti-depressants \n(e.g., Prozac) must be receiving a stable dose for at least 21 days prior to the \nfirst dose of study drug.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5.2.1.5",
+      "name": "Inclusion Criterion INC_5.2.1.5",
+      "text": "The subject must have adequate bone marrow independent of growth factor support (with the exception of subjects with ANC < 1000/\u03bcL and bone marrow heavily infiltrated with underlying disease [80% or more]), renal and hepatic function, per local laboratory reference range at Screening as follows:\n\n\u25cf Bone marrow: Absolute Neutrophil count (ANC) \u2265 1000/\u03bcL; Platelets \u2265 75,000/mm3 (entry platelet count must be independent of transfusion within 14 days of Screening), Hemoglobin \u2265 9.0 g/dL;\n\u25cf Renal function: Serum creatinine \u2264 2.0 mg/dL or calculated creatinine clearance \u2265 50 mL/min;\n\u25cf Hepatic function and enzymes: AST and ALT \u2264 3.0 \u00d7 the upper normal limit (ULN) of institution's normal range; Bilirubin \u2264 1.5 \u00d7 ULN. Subjects with Gilbert's Syndrome may have a Bilirubin > 1.5 \u00d7 ULN;\n\u25cf Coagulation: aPTT, PT, not to exceed 1.2 \u00d7 ULN.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.1.5",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 28,
+        "textSnippet": "first dose of study drug.\n5. The subject must have adequate bone marrow independent of growth factor support \n(with the exception of subjects with ANC < 1000/\uf06dL and bone marrow heavily\ninfiltrated with underlying disease [80% or more]), renal and hepatic function, per \nlocal laboratory reference range at Screening as follows:\n\u25cf Bone marrow: Absolute Neutrophil count (ANC) \u2265 1000/\uf06dL; \nPlatelets \u2265 75,000/mm3\n(entry platelet count must be independent of \ntransfusion within 14 days of Screening),...",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5.2.1.6",
+      "name": "Inclusion Criterion INC_5.2.1.6",
+      "text": "Female subjects must be surgically sterile, postmenopausal (for at least 1 year), or have negative results for a pregnancy test performed as follows:\n\n\u25cf At Screening on a serum sample obtained within 14 days prior to initial study drug administration, and\n\u25cf Prior to dosing on a urine sample obtained on Cycle 1 Day 1 or Lead-in Day 1 (lead-in period) if it has been > 7 days since obtaining the serum pregnancy test results.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.1.6",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 28,
+        "textSnippet": "\u25cf Coagulation: aPTT, PT, not to exceed 1.2 \uf0b4 ULN.\n6. Female subjects must be surgically sterile, postmenopausal (for at least 1 year), or \nhave negative results for a pregnancy test performed as follows:\n\u25cf At Screening on a serum sample obtained within 14 days prior to initial study\ndrug administration, and",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5.2.1.7",
+      "name": "Inclusion Criterion INC_5.2.1.7",
+      "text": "All female subjects not surgically sterile or postmenopausal (for at least 1 year) and non-vasectomized male subjects must practice at least one of the following methods of birth control:\n\n\u25cf total abstinence from sexual intercourse (minimum one complete menstrual cycle);\n\u25cf a vasectomized partner;\n\u25cf hormonal contraceptives (oral, parenteral or transdermal) for at least 3 months prior to study drug administration;\n\u25cf double-barrier method (including condoms, contraceptive sponge, diaphragm or vaginal ring with spermicidal jellies or cream).",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.1.7",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 29,
+        "textSnippet": "test results.\n7. All female subjects not surgically sterile or postmenopausal (for at least 1 year) and \nnon-vasectomized male subjects must practice at least one of the following \nmethods of birth control:\n\u25cf total abstinence from sexual intercourse (minimum one complete menstrual \ncycle);\n\u25cf a vasectomized partner;\n\u25cf hormonal contraceptives (oral, parenteral or transdermal) for at least 3 months \nprior to study drug administration;\n\u25cf double-barrier method (including condoms, contraceptive spo...",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5.2.1.8",
+      "name": "Inclusion Criterion INC_5.2.1.8",
+      "text": "The subject must voluntarily sign and date an informed consent, approved by an Independent Ethics Committee (IEC)/Institutional Review Board (IRB), prior to the initiation of any screening or study-specific procedures.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.1.8",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 29,
+        "textSnippet": "or vaginal ring with spermicidal jellies or cream).\n8. The subject must voluntarily sign and date an informed consent, approved by an \nIndependent Ethics Committee (IEC)/Institutional Review Board (IRB), prior to \nthe initiation of any screening or study-specific procedures.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.2.1",
+      "name": "Exclusion Criterion EXC_5.2.2.1",
+      "text": "The subject has a history or is clinically suspicious for cancer-related Central Nervous System (CNS) disease.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.2.1",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 29,
+        "textSnippet": "5.2.2 Phase 1 Exclusion Criteria\nA subject will not be eligible for study participation if he/she meets any of the following \ncriteria:\n1. The subject has a history or is clinically suspicious for cancer-related Central \nNervous System (CNS) disease.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.2.2",
+      "name": "Exclusion Criterion EXC_5.2.2.2",
+      "text": "The subject has undergone an allogeneic or autologous stem cell transplant.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.2.2",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 29,
+        "textSnippet": "Nervous System (CNS) disease.\n2. The subject has undergone an allogeneic or autologous stem cell transplant.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.2.3",
+      "name": "Exclusion Criterion EXC_5.2.2.3",
+      "text": "The subject has a recent history (within 1 year prior to first dose of study drug) of an underlying, predisposing condition of bleeding or currently exhibits signs of bleeding.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.2.3",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 29,
+        "textSnippet": "2. The subject has undergone an allogeneic or autologous stem cell transplant.\n3. The subject has a recent history (within 1 year prior to first dose of study drug) of \nan underlying, predisposing condition of bleeding or currently exhibits signs of \nbleeding.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.2.4",
+      "name": "Exclusion Criterion EXC_5.2.2.4",
+      "text": "The subject has active peptic ulcer disease or other potentially hemorrhagic esophagitis/gastritis.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.2.4",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 29,
+        "textSnippet": "an underlying, predisposing condition of bleeding or currently exhibits signs of \nbleeding.\n4. The subject has active peptic ulcer disease or other potentially hemorrhagic \nesophagitis/gastritis.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.2.5",
+      "name": "Exclusion Criterion EXC_5.2.2.5",
+      "text": "The subject has active immune thrombocytopenic purpura or a history of being refractory to platelet transfusions (within 1 year prior to the first dose of study drug).",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.2.5",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 30,
+        "textSnippet": "5. The subject has active immune thrombocytopenic purpura or a history of being \nrefractory to platelet transfusions (within 1 year prior to the first dose of study \ndrug).",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.2.6",
+      "name": "Exclusion Criterion EXC_5.2.2.6",
+      "text": "The subject has received aspirin within 7 days prior to the first dose of study drug.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.2.6",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 30,
+        "textSnippet": "refractory to platelet transfusions (within 1 year prior to the first dose of study \ndrug).\n6. The subject has received aspirin within 7 days prior to the first dose of study drug.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.2.7",
+      "name": "Exclusion Criterion EXC_5.2.2.7",
+      "text": "The subject is currently receiving or requires anticoagulation therapy or any drugs or herbal supplements that affect platelet function, with the exception of low-dose anticoagulation medications that are used to maintain the patency of a central intravenous catheter.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.2.7",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 30,
+        "textSnippet": "6. The subject has received aspirin within 7 days prior to the first dose of study drug.\n7. The subject is currently receiving or requires anticoagulation therapy or any drugs \nor herbal supplements that affect platelet function, with the exception of low-dose \nanticoagulation medications that are used to maintain the patency of a central \nintravenous catheter.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.2.8",
+      "name": "Exclusion Criterion EXC_5.2.2.8",
+      "text": "Subject has received steroid therapy for anti-neoplastic intent within 7 days prior to the first dose of study drug with the exception of inhaled steroids for asthma, topical steroids, or replacement/stress corticosteroids.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.2.8",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 30,
+        "textSnippet": "intravenous catheter.\n8. Subject has received steroid therapy for anti-neoplastic intent within 7 days prior to \nthe first dose of study drug with the exception of inhaled steroids for asthma, \ntopical steroids, or replacement/stress corticosteroids.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.2.9",
+      "name": "Exclusion Criterion EXC_5.2.2.9",
+      "text": "The subject has received any anti-cancer therapy including chemotherapy, immunotherapy, radiotherapy, hormonal (with the exception of hormones for thyroid conditions or estrogen replacement therapy [ERT]), or any investigational therapy within 14 days prior to the first dose of study drug, or has not recovered to less than grade 2 clinically significant adverse effect(s)/toxicity(ies) of the previous therapy.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.2.9",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 30,
+        "textSnippet": "topical steroids, or replacement/stress corticosteroids.\n9. The subject has received any anti-cancer therapy including chemotherapy, \nimmunotherapy, radiotherapy, hormonal (with the exception of hormones for \nthyroid conditions or estrogen replacement therapy [ERT]), or any investigational \ntherapy within 14 days prior to the first dose of study drug, or has not recovered to \nless than grade 2 clinically significant adverse effect(s)/toxicity(ies) of the previous \ntherapy.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.2.10",
+      "name": "Exclusion Criterion EXC_5.2.2.10",
+      "text": "The subject has received a biologic within 30 days prior to the first dose of study drug.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.2.10",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 30,
+        "textSnippet": "therapy.\n10. The subject has received a biologic within 30 days prior to the first dose of study\ndrug.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.2.11",
+      "name": "Exclusion Criterion EXC_5.2.2.11",
+      "text": "The subject has consumed grapefruit or grapefruit products within 3 days prior to the first dose of study drug.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.2.11",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 30,
+        "textSnippet": "drug.\n11. The subject has consumed grapefruit or grapefruit products within 3 days prior to \nthe first dose of study drug.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.2.12",
+      "name": "Exclusion Criterion EXC_5.2.2.12",
+      "text": "The subject has a significant history of cardiovascular disease (e.g., myocardial infarction [MI], thrombotic, or thromboembolic event in the last 6 months), renal, neurologic, psychiatric, endocrinologic, metabolic, immunologic, or hepatic disease that in the opinion of the investigator would adversely affect his/her participating in this study.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.2.12",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 30,
+        "textSnippet": "the first dose of study drug.\n12. The subject has a significant history of cardiovascular disease (e.g., myocardial \ninfarction [MI], thrombotic, or thromboembolic event in the last 6 months), renal, \nneurologic, psychiatric, endocrinologic, metabolic, immunologic, or hepatic \ndisease that in the opinion of the investigator would adversely affect his/her \nparticipating in this study.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.2.13",
+      "name": "Exclusion Criterion EXC_5.2.2.13",
+      "text": "A female subject is pregnant or breast-feeding.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.2.13",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 30,
+        "textSnippet": "disease that in the opinion of the investigator would adversely affect his/her \nparticipating in this study.\n13. A female subject is pregnant or breast-feeding.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5.2.3.1",
+      "name": "Inclusion Criterion INC_5.2.3.1",
+      "text": "The subject must be \u2265 18 years of age.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.3.1",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 31,
+        "textSnippet": "5.2.3 Phase 2a Inclusion Criteria\nA subject will be eligible for study participation if he/she meets the following criteria:\n1. The subject must be \u2265 18 years of age.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5.2.3.2",
+      "name": "Inclusion Criterion INC_5.2.3.2",
+      "text": "The subject must have CLL and require treatment in the opinion of the investigator.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.3.2",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 31,
+        "textSnippet": "1. The subject must be \u2265 18 years of age.\n2. The subject must have CLL and require treatment in the opinion of the investigator.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5.2.3.3",
+      "name": "Inclusion Criterion INC_5.2.3.3",
+      "text": "The subject has relapsed disease and has received no more than 5 prior myelosuppressive/chemotherapy regimens.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.3.3",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 31,
+        "textSnippet": "2. The subject must have CLL and require treatment in the opinion of the investigator.\n3. The subject has relapsed disease and has received no more than 5 prior \nmyelosuppressive/chemotherapy regimens.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5.2.3.4",
+      "name": "Inclusion Criterion INC_5.2.3.4",
+      "text": "Subject has an Eastern Cooperative Oncology Group performance score of \u2264 1.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.3.4",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 31,
+        "textSnippet": "myelosuppressive/chemotherapy regimens.\n4. Subject has an Eastern Cooperative Oncology Group performance score of \uf0a3 1.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5.2.3.5",
+      "name": "Inclusion Criterion INC_5.2.3.5",
+      "text": "Subjects receiving Selective Serotonin Reuptake Inhibitor (SSRI) anti-depressants (e.g., Prozac) must be receiving a stable dose for at least 21 days prior to the first dose of study drug.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.3.5",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 31,
+        "textSnippet": "4. Subject has an Eastern Cooperative Oncology Group performance score of \uf0a3 1.\n5. Subjects receiving Selective Serotonin Reuptake Inhibitor (SSRI) anti-depressants \n(e.g., Prozac) must be receiving a stable dose for at least 21 days prior to the \nfirst dose of study drug.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5.2.3.6",
+      "name": "Inclusion Criterion INC_5.2.3.6",
+      "text": "The subject must have adequate bone marrow independent of growth factor support (with the exception of subjects with ANC < 1000/\u03bcL and bone marrow heavily infiltrated with underlying disease [80% or more]), renal and hepatic function, per local laboratory reference range at Screening as follows:\n\n\u25cf Bone marrow: Absolute Neutrophil count (ANC) \u2265 1000/\u03bcL; Platelets \u2265 75,000/mm3 (entry platelet count must be independent of transfusion within 14 days of Screening); Hemoglobin \u2265 9.0 g/dL;\n\u25cf Renal function: Serum creatinine \u2264 2.0 mg/dL or calculated creatinine clearance \u2265 50 mL/min;\n\u25cf Hepatic function and enzymes: AST and ALT \u2264 3.0 \u00d7 the upper normal limit (ULN) of institution's normal range; Bilirubin \u2264 1.5 \u00d7 ULN. Subjects with Gilbert's Syndrome may have a Bilirubin > 1.5 \u00d7 ULN;\n\u25cf Coagulation: aPTT, PT must not exceed 1.2 \u00d7 ULN.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.3.6",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 32,
+        "textSnippet": "6. The subject must have adequate bone marrow independent of growth factor support \n(with the exception of subjects with ANC < 1000/\uf06dL and bone marrow heavily\ninfiltrated with underlying disease [80% or more]), renal and hepatic function, per \nlocal laboratory reference range at Screening as follows:\n\u25cf Bone marrow: Absolute Neutrophil count (ANC) \u2265 1000/\uf06dL; \nPlatelets \u2265 75,000/mm3\n(entry platelet count must be independent of \ntransfusion within 14 days of Screening); Hemoglobin \u2265 9.0 g/dL;",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5.2.3.7",
+      "name": "Inclusion Criterion INC_5.2.3.7",
+      "text": "Female subjects must be surgically sterile, postmenopausal (for at least 1 year), or have negative results for a pregnancy test performed as follows:\n\n\u25cf At Screening on a serum sample obtained within 14 days prior to initial study drug administration, and\n\u25cf Prior to dosing on a urine sample obtained on Lead-in Day 1 if it has been > 7 days since obtaining the serum pregnancy test results.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.3.7",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 32,
+        "textSnippet": "\u25cf Coagulation: aPTT, PT must not exceed 1.2 \uf0b4 ULN.\n7. Female subjects must be surgically sterile, postmenopausal (for at least 1 year), or \nhave negative results for a pregnancy test performed as follows:\n\u25cf At Screening on a serum sample obtained within 14 days prior to initial study\ndrug administration, and\n\u25cf Prior to dosing on a urine sample obtained on Lead-in Day 1 if it has been \n> 7 days since obtaining the serum pregnancy test results.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5.2.3.8",
+      "name": "Inclusion Criterion INC_5.2.3.8",
+      "text": "All female subjects not surgically sterile or postmenopausal (for at least 1 year) and non-vasectomized male subjects must practice at least one of the following methods of birth control:\n\n\u25cf total abstinence from sexual intercourse (minimum one complete menstrual cycle);\n\u25cf a vasectomized partner;\n\u25cf hormonal contraceptives (oral, parenteral or transdermal) for at least 3 months prior to study drug administration;\n\u25cf double-barrier method (including condoms, contraceptive sponge, diaphragm or vaginal ring with spermicidal jellies or cream).",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.3.8",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 32,
+        "textSnippet": "> 7 days since obtaining the serum pregnancy test results.\n8. All female subjects not surgically sterile or postmenopausal (for at least 1 year) and \nnon-vasectomized male subjects must practice at least one of the following \nmethods of birth control:\n\u25cf total abstinence from sexual intercourse (minimum one complete menstrual \ncycle);\n\u25cf a vasectomized partner;\n\u25cf hormonal contraceptives (oral, parenteral or transdermal) for at least 3 months \nprior to study drug administration;",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5.2.3.9",
+      "name": "Inclusion Criterion INC_5.2.3.9",
+      "text": "The subject must voluntarily sign and date an informed consent, approved by an Independent Ethics Committee (IEC)/Institutional Review Board (IRB), prior to the initiation of any screening or study-specific procedures.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.3.9",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 33,
+        "textSnippet": "9. The subject must voluntarily sign and date an informed consent, approved by an \nIndependent Ethics Committee (IEC)/Institutional Review Board (IRB), prior to \nthe initiation of any screening or study-specific procedures.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.4.1",
+      "name": "Exclusion Criterion EXC_5.2.4.1",
+      "text": "The subject has a history or is clinically suspicious for cancer-related Central Nervous System (CNS) disease.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.4.1",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 33,
+        "textSnippet": "5.2.4 Phase 2a Exclusion Criteria\nA subject will not be eligible for study participation if he/she meets any of the following \ncriteria:\n1. The subject has a history or is clinically suspicious for cancer-related Central \nNervous System (CNS) disease.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.4.2",
+      "name": "Exclusion Criterion EXC_5.2.4.2",
+      "text": "The subject has a recent history (within 1 year prior to first dose of study drug) of an underlying, predisposing condition of bleeding or currently exhibits signs of bleeding.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.4.2",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 33,
+        "textSnippet": "Nervous System (CNS) disease.\n2. The subject has a recent history (within 1 year prior to first dose of study drug) of \nan underlying, predisposing condition of bleeding or currently exhibits signs of \nbleeding.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.4.3",
+      "name": "Exclusion Criterion EXC_5.2.4.3",
+      "text": "The subject has undergone an allogeneic or autologous stem cell transplant.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.4.3",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 33,
+        "textSnippet": "an underlying, predisposing condition of bleeding or currently exhibits signs of \nbleeding.\n3. The subject has undergone an allogeneic or autologous stem cell transplant.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.4.4",
+      "name": "Exclusion Criterion EXC_5.2.4.4",
+      "text": "The subject has active peptic ulcer disease or other potentially hemorrhagic esophagitis/gastritis.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.4.4",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 33,
+        "textSnippet": "3. The subject has undergone an allogeneic or autologous stem cell transplant.\n4. The subject has active peptic ulcer disease or other potentially hemorrhagic \nesophagitis/gastritis.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.4.5",
+      "name": "Exclusion Criterion EXC_5.2.4.5",
+      "text": "The subject has active immune thrombocytopenic purpura or a history of being refractory to platelet transfusions (within 1 year prior to the first dose of study drug).",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.4.5",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 33,
+        "textSnippet": "esophagitis/gastritis.\n5. The subject has active immune thrombocytopenic purpura or a history of being \nrefractory to platelet transfusions (within 1 year prior to the first dose of study\ndrug).",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.4.6",
+      "name": "Exclusion Criterion EXC_5.2.4.6",
+      "text": "The subject is currently receiving or requires anticoagulation therapy or any drugs or herbal supplements that affect platelet function, with the exception of low-dose anticoagulation medications that are used to maintain the patency of a central intravenous catheter.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.4.6",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 33,
+        "textSnippet": "drug).\n6. The subject is currently receiving or requires anticoagulation therapy or any drugs \nor herbal supplements that affect platelet function, with the exception of low-dose \nanticoagulation medications that are used to maintain the patency of a central \nintravenous catheter.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.4.7",
+      "name": "Exclusion Criterion EXC_5.2.4.7",
+      "text": "The subject has received steroid therapy for anti-neoplastic intent within 7 days prior to the first dose of study drug with the exception of inhaled steroids for asthma, topical steroids or replacement/stress corticosteroids.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.4.7",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 33,
+        "textSnippet": "intravenous catheter.\n7. The subject has received steroid therapy for anti-neoplastic intent within 7 days \nprior to the first dose of study drug with the exception of inhaled steroids for \nasthma, topical steroids or replacement/stress corticosteroids.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.4.8",
+      "name": "Exclusion Criterion EXC_5.2.4.8",
+      "text": "The subject has received aspirin within 7 days prior to the first dose of study drug.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.4.8",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 33,
+        "textSnippet": "asthma, topical steroids or replacement/stress corticosteroids.\n8. The subject has received aspirin within 7 days prior to the first dose of study drug.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.4.9",
+      "name": "Exclusion Criterion EXC_5.2.4.9",
+      "text": "The subject has received any anti-cancer therapy including chemotherapy, immunotherapy, radiotherapy, hormonal (with the exception of hormones for thyroid conditions or estrogen replacement therapy [ERT]), or any investigational therapy within 14 days prior to the first dose of study drug, or has not recovered to less than grade 2 clinically significant adverse effect(s)/toxicity(ies) of the previous therapy.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.4.9",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 34,
+        "textSnippet": "9. The subject has received any anti-cancer therapy including chemotherapy, \nimmunotherapy, radiotherapy, hormonal (with the exception of hormones for \nthyroid conditions or estrogen replacement therapy [ERT]), or any investigational \ntherapy within 14 days prior to the first dose of study drug, or has not recovered to \nless than grade 2 clinically significant adverse effect(s)/toxicity(ies) of the previous \ntherapy.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.4.10",
+      "name": "Exclusion Criterion EXC_5.2.4.10",
+      "text": "The subject has received a biologic within 30 days prior to the first dose of study drug.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.4.10",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 34,
+        "textSnippet": "therapy.\n10. The subject has received a biologic within 30 days prior to the first dose of study\ndrug.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.4.11",
+      "name": "Exclusion Criterion EXC_5.2.4.11",
+      "text": "The subject has consumed grapefruit or grapefruit products within 3 days prior to the first dose of study drug.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.4.11",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 34,
+        "textSnippet": "drug.\n11. The subject has consumed grapefruit or grapefruit products within 3 days prior to \nthe first dose of study drug.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.4.12",
+      "name": "Exclusion Criterion EXC_5.2.4.12",
+      "text": "The subject has a significant history of cardiovascular disease (e.g., myocardial infarction [MI], thrombotic, or thromboembolic event in the last 6 months), renal, neurologic, psychiatric, endocrinologic, metabolic, immunologic, or hepatic disease that in the opinion of the investigator would adversely affect his/her participating in this study.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.4.12",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 34,
+        "textSnippet": "the first dose of study drug.\n12. The subject has a significant history of cardiovascular disease (e.g., myocardial \ninfarction [MI], thrombotic, or thromboembolic event in the last 6 months), renal, \nneurologic, psychiatric, endocrinologic, metabolic, immunologic, or hepatic \ndisease that in the opinion of the investigator would adversely affect his/her \nparticipating in this study.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.4.13",
+      "name": "Exclusion Criterion EXC_5.2.4.13",
+      "text": "A female subject is pregnant or breast-feeding.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.4.13",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 34,
+        "textSnippet": "participating in this study.\n13. A female subject is pregnant or breast-feeding.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.4.14",
+      "name": "Exclusion Criterion EXC_5.2.4.14",
+      "text": "The subject has tested positive for HIV (due to potential drug-drug interactions between anti-retroviral medications and ABT-263, as well as anticipated ABT-263 mechanism based lymphopenia that may potentially increase the risk of opportunistic infections and potential drug-drug interactions with certain anti-infective agents).",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.4.14",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 34,
+        "textSnippet": "14. The subject has tested positive for HIV (due to potential drug-drug interactions \nbetween anti-retroviral medications and ABT-263, as well as anticipated ABT-263 \nmechanism based lymphopenia that may potentially increase the risk of \nopportunistic infections and potential drug-drug interactions with certain \nanti-infective agents).",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.4.15",
+      "name": "Exclusion Criterion EXC_5.2.4.15",
+      "text": "The subject has a history of other active malignancies within the past 3 years prior to study entry, with the exception of:\n\n\u25cf adequately treated in situ carcinoma of the cervix uteri;\n\u25cf basal or squamous cell carcinoma of the skin;\n\u25cf previous malignancy confined and surgically resected with curative intent.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.4.15",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 34,
+        "textSnippet": "anti-infective agents).\n15. The subject has a history of other active malignancies within the past 3 years prior \nto study entry, with the exception of:\n\u25cf adequately treated in situ carcinoma of the cervix uteri;\n\u25cf basal or squamous cell carcinoma of the skin;\n\u25cf previous malignancy confined and surgically resected with curative intent.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.4.16",
+      "name": "Exclusion Criterion EXC_5.2.4.16",
+      "text": "The subject exhibits evidence of other clinically significant uncontrolled condition(s) including, but not limited to:\n\n\u25cf uncontrolled systemic infection (viral, bacterial, or fungal);\n\u25cf diagnosis of fever and neutropenia within one week prior to study drug administration.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.4.16",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 35,
+        "textSnippet": "16. The subject exhibits evidence of other clinically significant uncontrolled \ncondition(s) including, but not limited to:\n\u25cf uncontrolled systemic infection (viral, bacterial, or fungal);\n\u25cf diagnosis of fever and neutropenia within one week prior to study drug \nadministration.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5.2.4.17",
+      "name": "Exclusion Criterion EXC_5.2.4.17",
+      "text": "The subject has received known CYP3A inhibitors (e.g., ketoconazole) within 7 days prior to first dose of study drug.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5.2.4.17",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 35,
+        "textSnippet": "administration.\n17. The subject has received known CYP3A inhibitors (e.g., ketoconazole) within\n7 days prior to first dose of study drug.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5.2.5.1",
+      "name": "Inclusion Criterion INC_5.2.5.1",
+      "text": "Subjects who enter the Extension Study must continue to meet all Inclusion and Exclusion criteria (excluding laboratory parameters) from Phase 1 or in Phase 2a as listed above. Subjects entering the Extension Study must also have stable lab values per applicable laboratory reference ranges.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.5.1",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 35,
+        "textSnippet": "5.2.5 Extension Study Inclusion Criteria\nSubjects who enter the Extension Study must continue to meet all Inclusion and Exclusion \ncriteria (excluding laboratory parameters) from Phase 1 or in Phase 2a as listed above. \nSubjects entering the Extension Study must also have stable lab values per applicable \nlaboratory reference ranges.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5.2.5.2",
+      "name": "Inclusion Criterion INC_5.2.5.2",
+      "text": "Subjects must meet the following hematology and coagulation lab criteria:\n\n\u25cb Platelet counts must be \u2265 25,000/mm3 (untransfused). Platelet counts \u2264 50,000/mm3 must be stable and monitored at an increased frequency at the discretion of the investigator.\n\u25cb Absolute Neutrophil count (ANC) \u2265 500/\u03bcL. ANC \u2265 500/\u03bcL and < 1,000/\u03bcL should be monitored at an increased frequency at the discretion of the investigator.\n\u25cb Hemoglobin of \u2265 8.0 g/dL.\n\u25cb aPTT, PT is not to exceed 1.2 \u00d7 ULN.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.5.2",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 35,
+        "textSnippet": "laboratory reference ranges.\n\u25cf Subjects must meet the following hematology and coagulation lab criteria:\n\u25cb Platelet counts must be \u2265 25,000/mm3\n(untransfused). Platelet counts \n\uf0a3 50,000/mm3 must be stable and monitored at an increased frequency at \nthe discretion of the investigator.\n\u25cb Absolute Neutrophil count (ANC) \u2265 500/\uf06dL. ANC \u2265 500/\u00b5L and \n< 1,000/\u00b5L should be monitored at an increased frequency at the discretion \nof the investigator.\n\u25cb Hemoglobin of \u2265 8.0 g/dL.\n\u25cb aPTT, PT is not to exce...",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5.2.5.3",
+      "name": "Inclusion Criterion INC_5.2.5.3",
+      "text": "Subjects must meet the following chemistry criteria:\n\n\u25cb Subjects' chemistry values must not exceed Grade 2. Grade 2 chemistry labs should be monitored at an increased frequency at the discretion of the investigator.\n\u25cb Serum creatinine \u2264 3.0 \u00d7 the upper normal limit (ULN) of institution's normal range.\n\u25cb AST and ALT \u2264 5.0 \u00d7 the upper normal limit (ULN) of institution's normal range.\n\u25cb Bilirubin \u2264 3.0 \u00d7 ULN. Subjects with Gilbert's Syndrome may be allowed to have a Bilirubin > 3.0 \u00d7 ULN based on a joint decision between the investigator and AbbVie medical monitor.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5.2.5.3",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 35,
+        "textSnippet": "\u25cb aPTT, PT is not to exceed 1.2 \uf0b4 ULN.\n\u25cf Subjects must meet the following chemistry criteria:\n\u25cb Subjects' chemistry values must not exceed Grade 2. Grade 2 chemistry\nlabs should be monitored at an increased frequency at the discretion of the \ninvestigator.\n\u25cb Serum creatinine \uf0a3 3.0 \uf0b4 the upper normal limit (ULN) of institution's \nnormal range.",
+        "confidence": 1.0
+      }
+    }
+  ]
+}
