@@ -1,0 +1,707 @@
+{
+  "criteria": [
+    {
+      "id": "EC-INC_1",
+      "name": "Inclusion Criterion INC_1",
+      "text": "Institutional Review Board (IRB)/Independent Ethics Committee (IEC) approved written informed consent and privacy language as per national regulations (e.g., HIPAA Authorization for US sites) must be obtained from the subject or legally authorized representative (if applicable) prior to any study-related procedures.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_1",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 24,
+        "textSnippet": "Inclusion/Exclusion Criteria:\nInclusion Criteria: \nWaivers to the inclusion criteria will NOT be allowed.\nGeneral Criteria:\n1. Institutional Review Board (IRB)/Independent Ethics Committee (IEC) approved written \ninformed consent and privacy language as per national regulations (e.g., Health Insurance \nPortability and Accountability Act [HIPAA] Authorization for US sites) must be obtained from \nthe subject or legally authorized representative (if applicable) prior to any study-related \nproced...",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_2",
+      "name": "Inclusion Criterion INC_2",
+      "text": "Subject is considered an adult (e.g., \u2265 18 years of age in the US) according to local regulation at the time of signing the informed consent.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_2",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 24,
+        "textSnippet": "the subject or legally authorized representative (if applicable) prior to any study-related \nprocedures.\n2. Subject is considered an adult (e.g., \u2265 18 years of age in the US) according to local regulation\nat the time of signing the informed consent.\n3. Subject agrees not to participate in another interventional study while on study treatment.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_3",
+      "name": "Inclusion Criterion INC_3",
+      "text": "Subject agrees not to participate in another interventional study while on study treatment.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_3",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 24,
+        "textSnippet": "at the time of signing the informed consent.\n3. Subject agrees not to participate in another interventional study while on study treatment.\n4. A female subject is eligible to participate if she is not pregnant (negative serum pregnancy test \nat Screening; female subjects with elevated serum beta human chorionic gonadotropin (\u03b2hCG) \nand a demonstrated non-pregnant status through additional testing are eligible) and at least 1 of \nthe following conditions applies:",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_4",
+      "name": "Inclusion Criterion INC_4",
+      "text": "A female subject is eligible to participate if she is not pregnant (negative serum pregnancy test at Screening; female subjects with elevated serum beta human chorionic gonadotropin (\u03b2hCG) and a demonstrated non-pregnant status through additional testing are eligible) and at least 1 of the following conditions applies:",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_4",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 24,
+        "textSnippet": "3. Subject agrees not to participate in another interventional study while on study treatment.\n4. A female subject is eligible to participate if she is not pregnant (negative serum pregnancy test \nat Screening; female subjects with elevated serum beta human chorionic gonadotropin (\u03b2hCG) \nand a demonstrated non-pregnant status through additional testing are eligible) and at least 1 of \nthe following conditions applies:\na. Not a woman of childbearing potential (WOCBP) as defined in Appendix 12.3",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_5",
+      "name": "Inclusion Criterion INC_5",
+      "text": "Female subject must agree not to breastfeed starting at Screening and throughout the study period, and for 6 months after the final study treatment administration.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_5",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 24,
+        "textSnippet": "the final administration of oxaliplatin and 6 months after the final administration of all \nother study drugs.\n5. Female subject must agree not to breastfeed starting at Screening and throughout the study \nperiod, and for 6 months after the final study treatment administration.\n6. Female subject must not donate ova starting at Screening and throughout the study period, and \nfor 9 months after the final administration of oxaliplatin and 6 months after the final \nadministration of all other stu...",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_6",
+      "name": "Inclusion Criterion INC_6",
+      "text": "Female subject must not donate ova starting at Screening and throughout the study period, and for 9 months after the final administration of oxaliplatin and 6 months after the final administration of all other study drugs.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_6",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 24,
+        "textSnippet": "period, and for 6 months after the final study treatment administration.\n6. Female subject must not donate ova starting at Screening and throughout the study period, and \nfor 9 months after the final administration of oxaliplatin and 6 months after the final \nadministration of all other study drugs.\n7. A sexually active male subject with female partner(s) who are of childbearing potential must \nagree to use contraception as detailed in Appendix 12.3 Contraception Requirements during \nthe trea...",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_7",
+      "name": "Inclusion Criterion INC_7",
+      "text": "A sexually active male subject with female partner(s) who are of childbearing potential must agree to use contraception as detailed in Appendix 12.3 Contraception Requirements during the treatment period and for at least 6 months after the final study drug administration.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_7",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 24,
+        "textSnippet": "for 9 months after the final administration of oxaliplatin and 6 months after the final \nadministration of all other study drugs.\n7. A sexually active male subject with female partner(s) who are of childbearing potential must \nagree to use contraception as detailed in Appendix 12.3 Contraception Requirements during \nthe treatment period and for at least 6 months after the final study drug administration. \n8. Male subject must not donate sperm starting at Screening and throughout the study per...",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_8",
+      "name": "Inclusion Criterion INC_8",
+      "text": "Male subject must not donate sperm starting at Screening and throughout the study period and for 6 months after the final study drug administration.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_8",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 24,
+        "textSnippet": "agree to use contraception as detailed in Appendix 12.3 Contraception Requirements during \nthe treatment period and for at least 6 months after the final study drug administration. \n8. Male subject must not donate sperm starting at Screening and throughout the study period and \nfor 6 months after the final study drug administration.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_9",
+      "name": "Inclusion Criterion INC_9",
+      "text": "Male subject with a pregnant or breastfeeding partner(s) must agree to remain abstinent or use a condom for the duration of the pregnancy or for the time partner is breastfeeding throughout the study period and for 6 months after the final study drug administration.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_9",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 25,
+        "textSnippet": "9. Male subject with a pregnant or breastfeeding partner(s) must agree to remain abstinent \nor use a condom for the duration of the pregnancy or for the time partner is \nbreastfeeding throughout the study period and for 6 months after the final study drug \nadministration. \nDisease Specific Criteria:\n10. Subject has histologically confirmed diagnosis of Gastric or GEJ adenocarcinoma. \n11. Subject has radiologically confirmed locally advanced unresectable or metastatic disease within \n28 days p...",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_10",
+      "name": "Inclusion Criterion INC_10",
+      "text": "Subject has histologically confirmed diagnosis of Gastric or GEJ adenocarcinoma.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_10",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 25,
+        "textSnippet": "breastfeeding throughout the study period and for 6 months after the final study drug \nadministration. \nDisease Specific Criteria:\n10. Subject has histologically confirmed diagnosis of Gastric or GEJ adenocarcinoma. \n11. Subject has radiologically confirmed locally advanced unresectable or metastatic disease within \n28 days prior to randomization.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_11",
+      "name": "Inclusion Criterion INC_11",
+      "text": "Subject has radiologically confirmed locally advanced unresectable or metastatic disease within 28 days prior to randomization.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_11",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 25,
+        "textSnippet": "Disease Specific Criteria:\n10. Subject has histologically confirmed diagnosis of Gastric or GEJ adenocarcinoma. \n11. Subject has radiologically confirmed locally advanced unresectable or metastatic disease within \n28 days prior to randomization. \n12. Subject has radiologically evaluable disease (measurable and/or non-measurable disease \naccording to RECIST 1.1), per local assessment, \u2264 28 days prior to randomization. For subjects \nwith only 1 evaluable lesion and prior radiotherapy \u2264 3 months...",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_12",
+      "name": "Inclusion Criterion INC_12",
+      "text": "Subject has radiologically evaluable disease (measurable and/or non-measurable disease according to RECIST 1.1), per local assessment, \u2264 28 days prior to randomization. For subjects with only 1 evaluable lesion and prior radiotherapy \u2264 3 months before randomization, the lesion must either be outside the field of prior radiotherapy or have documented progression following radiation therapy.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_12",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 25,
+        "textSnippet": "11. Subject has radiologically confirmed locally advanced unresectable or metastatic disease within \n28 days prior to randomization. \n12. Subject has radiologically evaluable disease (measurable and/or non-measurable disease \naccording to RECIST 1.1), per local assessment, \u2264 28 days prior to randomization. For subjects \nwith only 1 evaluable lesion and prior radiotherapy \u2264 3 months before randomization, the lesion \nmust either be outside the field of prior radiotherapy or have documented prog...",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_13",
+      "name": "Inclusion Criterion INC_13",
+      "text": "Subject\u2019s tumor expresses CLDN18.2 in \u2265 75% of tumor cells demonstrating moderate to strong membranous staining as determined by central IHC testing.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_13",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 25,
+        "textSnippet": "must either be outside the field of prior radiotherapy or have documented progression following \nradiation therapy.\n13. Subject\u2019s tumor expresses CLDN18.2 in \u2265 75% of tumor cells demonstrating moderate to strong \nmembranous staining as determined by central IHC testing.\n14. Subject has a HER2-negative tumor as determined by local or central testing on a gastric or \nGEJ tumor specimen. (Unique to China: Subject has a known HER2-negative gastric or GEJ \ntumor).",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_14",
+      "name": "Inclusion Criterion INC_14",
+      "text": "Subject has a known HER2-negative tumor as determined by local or central testing on a gastric or GEJ tumor specimen. (Unique to China: Subject has a known HER2-negative gastric or GEJ tumor.)",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_14",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 25,
+        "textSnippet": "membranous staining as determined by central IHC testing.\n14. Subject has a HER2-negative tumor as determined by local or central testing on a gastric or \nGEJ tumor specimen. (Unique to China: Subject has a known HER2-negative gastric or GEJ \ntumor).\nPhysical or Laboratory Findings\n15. Subject has ECOG performance status 0 to 1.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_15",
+      "name": "Inclusion Criterion INC_15",
+      "text": "Subject has ECOG performance status 0 to 1.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_15",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 25,
+        "textSnippet": "tumor).\nPhysical or Laboratory Findings\n15. Subject has ECOG performance status 0 to 1.\n16. Subject has predicted life expectancy \uf0b3 12 weeks in the opinion of the investigator.\n17. Subject must meet all of the following criteria based on the centrally or locally analyzed \nlaboratory tests collected within 14 days prior to randomization. In the case of multiple sample \ncollections within this period, the most recent sample collection with available results should \nbe used to determine eligibil...",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_16",
+      "name": "Inclusion Criterion INC_16",
+      "text": "Subject has predicted life expectancy \u2265 12 weeks in the opinion of the investigator.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_16",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 25,
+        "textSnippet": "Physical or Laboratory Findings\n15. Subject has ECOG performance status 0 to 1.\n16. Subject has predicted life expectancy \uf0b3 12 weeks in the opinion of the investigator.\n17. Subject must meet all of the following criteria based on the centrally or locally analyzed \nlaboratory tests collected within 14 days prior to randomization. In the case of multiple sample \ncollections within this period, the most recent sample collection with available results should \nbe used to determine eligibility. \na....",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-INC_17",
+      "name": "Inclusion Criterion INC_17",
+      "text": "Subject must meet all of the following criteria based on the centrally or locally analyzed laboratory tests collected within 14 days prior to randomization. In the case of multiple sample collections within this period, the most recent sample collection with available results should be used to determine eligibility.",
+      "category": {
+        "code": "C25532",
+        "decode": "Inclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "INC_17",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 25,
+        "textSnippet": "16. Subject has predicted life expectancy \uf0b3 12 weeks in the opinion of the investigator.\n17. Subject must meet all of the following criteria based on the centrally or locally analyzed \nlaboratory tests collected within 14 days prior to randomization. In the case of multiple sample \ncollections within this period, the most recent sample collection with available results should \nbe used to determine eligibility. \na. Hemoglobin (Hgb) \u2265 9 g/dL. Subjects requiring transfusions are eligible if they...",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_1",
+      "name": "Exclusion Criterion EXC_1",
+      "text": "Subject has received prior systemic chemotherapy for locally advanced unresectable or metastatic gastric or GEJ adenocarcinoma. However, subject may have received either neo-adjuvant or adjuvant chemotherapy, immunotherapy or other systemic anticancer therapies as long as it was completed at least 6 months prior to randomization. Subject may have received treatment with herbal medications that have known antitumor activity > 28 days prior to randomization.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_1",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 26,
+        "textSnippet": "Exclusion Criteria:\nWaivers to the exclusion criteria will NOT be allowed. \nSubject who meets any of the following exclusion criteria prior to enrollment is not eligible for \nenrollment: \nProhibited Treatment or Therapies\n1. Subject has received prior systemic chemotherapy for locally advanced unresectable or \nmetastatic gastric or GEJ adenocarcinoma. However, subject may have received either neo adjuvant or adjuvant chemotherapy, immunotherapy or other systemic anticancer therapies as \nlong ...",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_2",
+      "name": "Exclusion Criterion EXC_2",
+      "text": "Subject has received radiotherapy for locally advanced unresectable or metastatic gastric or GEJ adenocarcinoma \u2264 14 days prior to randomization and has not recovered from any related toxicity.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_2",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 26,
+        "textSnippet": "treatment with herbal medications that have known antitumor activity > 28 days prior to \nrandomization.\n2. Subject has received radiotherapy for locally advanced unresectable or metastatic gastric or \nGEJ adenocarcinoma \u2264 14 days prior to randomization and has not recovered from any related \ntoxicity. \n3. Subject has received systemic immunosuppressive therapy, including systemic corticosteroids \nwithin 14 days prior to randomization. Subjects using a physiologic replacement dose of \nhydrocor...",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_3",
+      "name": "Exclusion Criterion EXC_3",
+      "text": "Subject has received systemic immunosuppressive therapy, including systemic corticosteroids within 14 days prior to randomization. Subjects using a physiologic replacement dose of hydrocortisone or its equivalent (defined as up to 30 mg per day of hydrocortisone or up to 10 mg per day of prednisone), receiving a single dose of systemic corticosteroids or receiving systemic corticosteroids as premedication for radiologic imaging contrast use are allowed.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_3",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 26,
+        "textSnippet": "GEJ adenocarcinoma \u2264 14 days prior to randomization and has not recovered from any related \ntoxicity. \n3. Subject has received systemic immunosuppressive therapy, including systemic corticosteroids \nwithin 14 days prior to randomization. Subjects using a physiologic replacement dose of \nhydrocortisone or its equivalent (defined as up to 30 mg per day of hydrocortisone or up to 10 \nmg per day of prednisone), receiving a single dose of systemic corticosteroids or receiving \nsystemic corticoster...",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_4",
+      "name": "Exclusion Criterion EXC_4",
+      "text": "Subject has received other investigational agents or devices within 28 days prior to randomization.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_4",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 26,
+        "textSnippet": "systemic corticosteroids as premedication for radiologic imaging contrast use are allowed.\n4. Subject has received other investigational agents or devices within 28 days prior to \nrandomization.\nMedical History or Concurrent Disease\n5. Subject has prior severe allergic reaction or intolerance to known ingredients of zolbetuximab \nor other monoclonal antibodies, including humanized or chimeric antibodies.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_5",
+      "name": "Exclusion Criterion EXC_5",
+      "text": "Subject has prior severe allergic reaction or intolerance to known ingredients of zolbetuximab or other monoclonal antibodies, including humanized or chimeric antibodies.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_5",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 26,
+        "textSnippet": "randomization.\nMedical History or Concurrent Disease\n5. Subject has prior severe allergic reaction or intolerance to known ingredients of zolbetuximab \nor other monoclonal antibodies, including humanized or chimeric antibodies.\n6. Subject has known immediate or delayed hypersensitivity, intolerance or contraindication to \nany component of study treatment.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_6",
+      "name": "Exclusion Criterion EXC_6",
+      "text": "Subject has known immediate or delayed hypersensitivity, intolerance or contraindication to any component of study treatment.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_6",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 26,
+        "textSnippet": "or other monoclonal antibodies, including humanized or chimeric antibodies.\n6. Subject has known immediate or delayed hypersensitivity, intolerance or contraindication to \nany component of study treatment.\n7. Subject has prior severe allergic reaction or intolerance to any component of mFOLFOX6.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_7",
+      "name": "Exclusion Criterion EXC_7",
+      "text": "Subject has prior severe allergic reaction or intolerance to any component of mFOLFOX6.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_7",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 26,
+        "textSnippet": "any component of study treatment.\n7. Subject has prior severe allergic reaction or intolerance to any component of mFOLFOX6.\n8. Subject has known dihydropyrimidine dehydrogenase deficiency (DPD). (NOTE: Screening \nfor DPD deficiency should be conducted per local requirements.)",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_8",
+      "name": "Exclusion Criterion EXC_8",
+      "text": "Subject has known dihydropyrimidine dehydrogenase (DPD) deficiency. (NOTE: Screening for DPD deficiency should be conducted per local requirements.)",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_8",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 26,
+        "textSnippet": "7. Subject has prior severe allergic reaction or intolerance to any component of mFOLFOX6.\n8. Subject has known dihydropyrimidine dehydrogenase deficiency (DPD). (NOTE: Screening \nfor DPD deficiency should be conducted per local requirements.)\n9. Subject has a complete gastric outlet syndrome or a partial gastric outlet syndrome with \npersistent/recurrent vomiting.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_9",
+      "name": "Exclusion Criterion EXC_9",
+      "text": "Subject has a complete gastric outlet syndrome or a partial gastric outlet syndrome with persistent/recurrent vomiting.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_9",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 26,
+        "textSnippet": "for DPD deficiency should be conducted per local requirements.)\n9. Subject has a complete gastric outlet syndrome or a partial gastric outlet syndrome with \npersistent/recurrent vomiting.\n10. Per investigator judgement, subject has significant gastric bleeding and/or untreated gastric \nulcers that exclude the subject from participation.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_10",
+      "name": "Exclusion Criterion EXC_10",
+      "text": "Per investigator judgment, subject has significant gastric bleeding and/or untreated gastric ulcers that would exclude the subject from participation per investigator judgment.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_10",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 26,
+        "textSnippet": "9. Subject has a complete gastric outlet syndrome or a partial gastric outlet syndrome with \npersistent/recurrent vomiting.\n10. Per investigator judgement, subject has significant gastric bleeding and/or untreated gastric \nulcers that exclude the subject from participation.\n11. Subject has a known history of a positive test for human immunodeficiency virus (HIV) \ninfection or known active hepatitis B (positive HBs Ag) or C infection. NOTE: Screening for \nthese infections should be conducted p...",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_11",
+      "name": "Exclusion Criterion EXC_11",
+      "text": "Subject has a known history of a positive test for human immunodeficiency virus (HIV) infection or known active hepatitis B (positive HBs Ag) or C infection. NOTE: Screening for these infections should be conducted per local requirements.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_11",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 26,
+        "textSnippet": "10. Per investigator judgement, subject has significant gastric bleeding and/or untreated gastric \nulcers that exclude the subject from participation.\n11. Subject has a known history of a positive test for human immunodeficiency virus (HIV) \ninfection or known active hepatitis B (positive HBs Ag) or C infection. NOTE: Screening for \nthese infections should be conducted per local requirements. \na. For subjects who are negative for HBs Ag, but HBc Ab positive, an HB DNA test will \nbe performed ...",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_12",
+      "name": "Exclusion Criterion EXC_12",
+      "text": "Subject has an active autoimmune disease that has required systemic treatment within the past 3 months prior to randomization.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_12",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 26,
+        "textSnippet": "c. Subjects treated with HCV with undetectable viral load results are eligible.\n12. Subject has an active autoimmune disease that has required systemic treatment within the past \n3 months prior to randomization.\n13. Subject has active infection requiring systemic therapy that has not completely resolved within \n7 days prior to randomization.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_13",
+      "name": "Exclusion Criterion EXC_13",
+      "text": "Subject has active infection requiring systemic therapy that has not completely resolved within 7 days prior to randomization.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_13",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 26,
+        "textSnippet": "12. Subject has an active autoimmune disease that has required systemic treatment within the past \n3 months prior to randomization.\n13. Subject has active infection requiring systemic therapy that has not completely resolved within \n7 days prior to randomization.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_14",
+      "name": "Exclusion Criterion EXC_14",
+      "text": "Subject has significant cardiovascular disease, including any of the following:",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_14",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 65,
+        "textSnippet": "13. Subject has active infection requiring systemic therapy that has not completely \nresolved within 7 days prior to randomization.\n14. Subject has significant cardiovascular disease, including any of the following:",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_15",
+      "name": "Exclusion Criterion EXC_15",
+      "text": "Subject has history of central nervous system metastases and/or carcinomatous meningitis from gastric/GEJ cancer.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_15",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 66,
+        "textSnippet": "e. Cardiac arrhythmias requiring anti-arrhythmic medications (Subject with rate \ncontrolled atrial fibrillation for > 1 month prior to randomization are eligible).\n15. Subject has history of central nervous system metastases and/or carcinomatous \nmeningitis from gastric/GEJ cancer. \n16. Subject has known peripheral sensory neuropathy > grade 1 unless the absence of \ndeep tendon reflexes is the sole neurological abnormality.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_16",
+      "name": "Exclusion Criterion EXC_16",
+      "text": "Subject has known peripheral sensory neuropathy > grade 1 unless the absence of deep tendon reflexes is the sole neurological abnormality.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_16",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 66,
+        "textSnippet": "meningitis from gastric/GEJ cancer. \n16. Subject has known peripheral sensory neuropathy > grade 1 unless the absence of \ndeep tendon reflexes is the sole neurological abnormality. \n17. Subject has had a major surgical procedure \uf0a3 28 days prior to randomization. \na. Subject is without complete recovery from a major surgical procedure \uf0a3 14 days \nprior to randomization.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_17",
+      "name": "Exclusion Criterion EXC_17",
+      "text": "Subject has had a major surgical procedure \u2264 28 days prior to randomization.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_17",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 66,
+        "textSnippet": "deep tendon reflexes is the sole neurological abnormality. \n17. Subject has had a major surgical procedure \uf0a3 28 days prior to randomization. \na. Subject is without complete recovery from a major surgical procedure \uf0a3 14 days \nprior to randomization.\n18. Subject has psychiatric illness or social situations that would preclude study \ncompliance, per investigator judgment.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_18",
+      "name": "Exclusion Criterion EXC_18",
+      "text": "Subject has psychiatric illness or social situations that would preclude study compliance, per investigator judgment.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_18",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 66,
+        "textSnippet": "a. Subject is without complete recovery from a major surgical procedure \uf0a3 14 days \nprior to randomization.\n18. Subject has psychiatric illness or social situations that would preclude study \ncompliance, per investigator judgment.\n19. Subject has another malignancy for which treatment is required per investigator\u2019s \nclinical judgment.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_19",
+      "name": "Exclusion Criterion EXC_19",
+      "text": "Subject has another malignancy for which treatment is required per investigator\u2019s clinical judgment.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_19",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 66,
+        "textSnippet": "18. Subject has psychiatric illness or social situations that would preclude study \ncompliance, per investigator judgment.\n19. Subject has another malignancy for which treatment is required per investigator\u2019s \nclinical judgment. \n20. Subject has any concurrent disease, infection or comorbid condition that interferes \nwith the ability of the subject to participate in the study, which places the subject at \nundue risk or complicates the interpretation of data in the opinion of the investigator.",
+        "confidence": 1.0
+      }
+    },
+    {
+      "id": "EC-EXC_20",
+      "name": "Exclusion Criterion EXC_20",
+      "text": "Subject has any concurrent disease, infection or comorbid condition that interferes with the ability of the subject to participate in the study, which places the subject at undue risk or complicates the interpretation of data in the opinion of the investigator.",
+      "category": {
+        "code": "C25370",
+        "decode": "Exclusion Criteria",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      },
+      "identifier": "EXC_20",
+      "instanceType": "EligibilityCriterion",
+      "provenance": {
+        "pageNumber": 66,
+        "textSnippet": "19. Subject has another malignancy for which treatment is required per investigator\u2019s \nclinical judgment. \n20. Subject has any concurrent disease, infection or comorbid condition that interferes \nwith the ability of the subject to participate in the study, which places the subject at \nundue risk or complicates the interpretation of data in the opinion of the investigator.",
+        "confidence": 1.0
+      }
+    }
+  ]
+}

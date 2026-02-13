@@ -1,0 +1,4974 @@
+{
+  "extractions": [
+    {
+      "criterionId": "INC_1",
+      "terms": [
+        {
+          "atomicId": "1a",
+          "primaryTerm": "IRB/IEC approved written informed consent and privacy language obtained from subject or legally authorized representative",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "IRB -> Institutional Review Board; IEC -> Independent Ethics Committee",
+            "abbreviationExpansion": "IRB -> Institutional Review Board; IEC -> Independent Ethics Committee",
+            "variants": [
+              "Informed consent obtained",
+              "Written informed consent",
+              "Consent procedure",
+              "Informed consent"
+            ],
+            "omopDomainHint": "Procedure",
+            "vocabularyHints": [
+              "SNOMED",
+              "CPT4"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "procedure_occurrence"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_2",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Age >= 18 years at the time of signing informed consent",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "age years at the time of signing informed consent",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Age",
+              "Patient age",
+              "Age of subject",
+              "Chronological age"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "LOINC",
+              "SNOMED"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_3",
+      "terms": [
+        {
+          "atomicId": "1a",
+          "primaryTerm": "Participation in another interventional study",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "participation in another interventional study",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Participation in another interventional study",
+              "Concurrent study participation",
+              "Enrolled in another clinical trial",
+              "Participation in a clinical trial"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_4",
+      "terms": [
+        {
+          "atomicId": "1a1",
+          "primaryTerm": "Positive serum pregnancy test",
+          "omopTable": "measurement",
+          "llmExpansion": {
+            "primary": "positive serum pregnancy test",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Positive serum pregnancy test",
+              "Serum hCG test positive",
+              "Human chorionic gonadotropin measurement positive",
+              "Pregnancy test positive"
+            ],
+            "omopDomainHint": "Measurement",
+            "vocabularyHints": [
+              "LOINC",
+              "SNOMED"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "measurement"
+        },
+        {
+          "atomicId": "1b1",
+          "primaryTerm": "Positive serum pregnancy test",
+          "omopTable": "measurement",
+          "llmExpansion": {
+            "primary": "positive serum pregnancy test",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Positive serum pregnancy test",
+              "Serum hCG test positive",
+              "Human chorionic gonadotropin measurement positive",
+              "Pregnancy test positive"
+            ],
+            "omopDomainHint": "Measurement",
+            "vocabularyHints": [
+              "LOINC",
+              "SNOMED"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "measurement"
+        },
+        {
+          "atomicId": "1b2",
+          "primaryTerm": "Demonstrated non-pregnant status through additional testing",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "demonstrated non-pregnant status through additional testing",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Negative pregnancy test",
+              "Non-pregnant status",
+              "Pregnancy test negative",
+              "Human chorionic gonadotropin measurement negative"
+            ],
+            "omopDomainHint": "Measurement",
+            "vocabularyHints": [
+              "LOINC",
+              "SNOMED"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "measurement"
+        },
+        {
+          "atomicId": "2",
+          "primaryTerm": "At least one of the other specified conditions applies",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "one of the other specified conditions applies",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Presence of specified condition",
+              "Co-occurring condition",
+              "Comorbidity present"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED"
+            ],
+            "confidence": 0.5,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_5",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Female",
+          "omopTable": "person",
+          "llmExpansion": {
+            "primary": "female",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Female",
+              "Female sex",
+              "Sex assigned at birth female",
+              "Gender female"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        },
+        {
+          "atomicId": "2",
+          "primaryTerm": "Agrees not to breastfeed starting at Screening and throughout the study period, and for 6 months after the final study treatment administration",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "agrees not to breastfeed starting at screening and throughout the study period, and for after the final study treatment administration",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Agrees not to breastfeed",
+              "Agreement to avoid breastfeeding",
+              "Breastfeeding contraindicated",
+              "Lactation abstinence"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 0.8,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_6",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Female subject",
+          "omopTable": "person",
+          "llmExpansion": {
+            "primary": "female subject",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Female",
+              "Female sex",
+              "Sex assigned at birth female",
+              "Gender female"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        },
+        {
+          "atomicId": "2a1a",
+          "primaryTerm": "Donate ova",
+          "omopTable": "procedure_occurrence",
+          "llmExpansion": {
+            "primary": "donate ova",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Donate ova",
+              "Oocyte donation",
+              "Egg donation",
+              "Ovum donation"
+            ],
+            "omopDomainHint": "Procedure",
+            "vocabularyHints": [
+              "SNOMED",
+              "CPT4"
+            ],
+            "confidence": 0.95,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "procedure_occurrence"
+        },
+        {
+          "atomicId": "2a2a",
+          "primaryTerm": "Donate ova",
+          "omopTable": "procedure_occurrence",
+          "llmExpansion": {
+            "primary": "donate ova",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Donate ova",
+              "Oocyte donation",
+              "Egg donation",
+              "Ovum donation"
+            ],
+            "omopDomainHint": "Procedure",
+            "vocabularyHints": [
+              "SNOMED",
+              "CPT4"
+            ],
+            "confidence": 0.95,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "procedure_occurrence"
+        },
+        {
+          "atomicId": "2a3a",
+          "primaryTerm": "Donate ova",
+          "omopTable": "procedure_occurrence",
+          "llmExpansion": {
+            "primary": "donate ova",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Donate ova",
+              "Oocyte donation",
+              "Egg donation",
+              "Ovum donation"
+            ],
+            "omopDomainHint": "Procedure",
+            "vocabularyHints": [
+              "SNOMED",
+              "CPT4"
+            ],
+            "confidence": 0.95,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "procedure_occurrence"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_7",
+      "terms": [
+        {
+          "atomicId": "1a",
+          "primaryTerm": "Male subject",
+          "omopTable": "person",
+          "llmExpansion": {
+            "primary": "male subject",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Male",
+              "Male sex",
+              "Sex assigned at birth male",
+              "Gender male"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        },
+        {
+          "atomicId": "1b",
+          "primaryTerm": "Sexually active",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "sexually active",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Sexually active",
+              "History of sexual activity",
+              "Current sexual activity",
+              "Sexually active person"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED",
+              "LOINC"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        },
+        {
+          "atomicId": "1c",
+          "primaryTerm": "Has female partner(s) of childbearing potential",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "has female partner(s) of childbearing potential",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Partner of childbearing potential",
+              "Female partner of childbearing potential",
+              "WOCBP partner",
+              "Sexually active with female of childbearing potential"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 0.8,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        },
+        {
+          "atomicId": "2",
+          "primaryTerm": "Agrees to use a condom during the treatment period and for at least 6 months after the final study drug administration",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "agrees to use a condom during the treatment period and for after the final study drug administration",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Agrees to use condom",
+              "Condom use",
+              "Barrier contraception",
+              "Contraception agreement"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_8",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Sex is Male",
+          "omopTable": "person",
+          "llmExpansion": {
+            "primary": "sex is male",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Male",
+              "Male sex",
+              "Sex assigned at birth male",
+              "Gender male"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        },
+        {
+          "atomicId": "2a1",
+          "primaryTerm": "Sperm donation",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "sperm donation",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Sperm donation",
+              "Semen donation",
+              "Donation of sperm",
+              "Sperm banking"
+            ],
+            "omopDomainHint": "Procedure",
+            "vocabularyHints": [
+              "SNOMED",
+              "CPT4"
+            ],
+            "confidence": 0.95,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "procedure_occurrence"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_9",
+      "terms": [
+        {
+          "atomicId": "1a",
+          "primaryTerm": "Subject is male",
+          "omopTable": "person",
+          "llmExpansion": {
+            "primary": "subject is male",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Male",
+              "Male sex",
+              "Sex assigned at birth male",
+              "Gender male"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        },
+        {
+          "atomicId": "1b1",
+          "primaryTerm": "Partner is pregnant",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "partner is pregnant",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Pregnant partner",
+              "Partner pregnancy status",
+              "Finding of partner's pregnancy"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED"
+            ],
+            "confidence": 0.8,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        },
+        {
+          "atomicId": "1b2",
+          "primaryTerm": "Partner is breastfeeding",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "partner is breastfeeding",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Breastfeeding partner",
+              "Partner lactation status",
+              "Finding of partner breastfeeding"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED"
+            ],
+            "confidence": 0.8,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        },
+        {
+          "atomicId": "2a",
+          "primaryTerm": "Agrees to remain abstinent for the required duration",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "agrees to remain abstinent for the required duration",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Agrees to be abstinent",
+              "Sexual abstinence",
+              "Abstinence",
+              "Contraception agreement"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        },
+        {
+          "atomicId": "2b",
+          "primaryTerm": "Agrees to use a condom for the required duration",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "agrees to use a condom for the required duration",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Agrees to use condom",
+              "Condom use",
+              "Barrier contraception",
+              "Contraception agreement"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_10",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Histologically confirmed diagnosis",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "histologically confirmed diagnosis",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Histologically confirmed diagnosis",
+              "Histologic confirmation",
+              "Pathology confirmed diagnosis",
+              "Biopsy proven diagnosis"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 0.95,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        },
+        {
+          "atomicId": "2a",
+          "primaryTerm": "Gastric adenocarcinoma",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "gastric adenocarcinoma",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Gastric adenocarcinoma",
+              "Adenocarcinoma of stomach",
+              "Stomach adenocarcinoma",
+              "Malignant neoplasm of stomach"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "2b",
+          "primaryTerm": "Gastroesophageal junction (GEJ) adenocarcinoma",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "GEJ -> Gastroesophageal junction",
+            "abbreviationExpansion": "GEJ -> Gastroesophageal junction",
+            "variants": [
+              "Gastroesophageal junction adenocarcinoma",
+              "Adenocarcinoma of gastroesophageal junction",
+              "GEJ adenocarcinoma",
+              "Adenocarcinoma of cardia"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_11",
+      "terms": [
+        {
+          "atomicId": "1a1",
+          "primaryTerm": "Disease is radiologically confirmed",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "disease is radiologically confirmed",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Disease is radiologically confirmed",
+              "Radiologically confirmed disease",
+              "Imaging confirmed diagnosis",
+              "Radiologic evidence of disease"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        },
+        {
+          "atomicId": "1a2a",
+          "primaryTerm": "Locally advanced unresectable disease",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "locally advanced unresectable disease",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Locally advanced unresectable disease",
+              "Unresectable locally advanced malignant neoplasm",
+              "Locally advanced unresectable cancer",
+              "Stage III unresectable cancer"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "NCIt",
+              "MedDRA"
+            ],
+            "confidence": 0.95,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "1a2b",
+          "primaryTerm": "Metastatic disease",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "metastatic disease",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Metastatic disease",
+              "Metastatic cancer",
+              "Secondary malignant neoplasm",
+              "Stage IV cancer"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_12",
+      "terms": [
+        {
+          "atomicId": "1a",
+          "primaryTerm": "Radiologically evaluable disease (measurable and/or non-measurable disease according to RECIST 1.1), per local assessment",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "RECIST -> Response Evaluation Criteria in Solid Tumors",
+            "abbreviationExpansion": "RECIST -> Response Evaluation Criteria in Solid Tumors",
+            "variants": [
+              "Evaluable disease",
+              "Measurable disease",
+              "Non-measurable disease",
+              "RECIST evaluable disease"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        },
+        {
+          "atomicId": "2a",
+          "primaryTerm": "Subject has only 1 evaluable lesion",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "subject has only 1 evaluable lesion",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Single evaluable lesion",
+              "One evaluable lesion",
+              "Solitary measurable lesion",
+              "Unifocal disease"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 0.85,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        },
+        {
+          "atomicId": "2b1",
+          "primaryTerm": "History of radiotherapy",
+          "omopTable": "procedure_occurrence",
+          "llmExpansion": {
+            "primary": "history of radiotherapy",
+            "abbreviationExpansion": null,
+            "variants": [
+              "History of radiotherapy",
+              "Prior radiation therapy",
+              "Past treatment with radiation",
+              "History of irradiation"
+            ],
+            "omopDomainHint": "Procedure",
+            "vocabularyHints": [
+              "SNOMED",
+              "CPT4",
+              "HCPCS",
+              "ICD10PCS"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "procedure_occurrence"
+        },
+        {
+          "atomicId": "2c",
+          "primaryTerm": "The evaluable lesion is outside the field of prior radiotherapy",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "the evaluable lesion is outside the field of prior radiotherapy",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Lesion outside radiation field",
+              "Tumor not in prior radiotherapy field",
+              "Non-irradiated lesion",
+              "Lesion in non-irradiated site"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 0.8,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        },
+        {
+          "atomicId": "2d",
+          "primaryTerm": "The evaluable lesion has documented progression following radiation therapy",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "the evaluable lesion has documented progression following radiation therapy",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Disease progression after radiotherapy",
+              "Progression in irradiated field",
+              "Post-radiation tumor progression",
+              "Radiotherapy failure"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "MedDRA",
+              "NCIt"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_13",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Tumor expresses CLDN18.2",
+          "omopTable": "measurement",
+          "llmExpansion": {
+            "primary": "CLDN18.2 -> Claudin 18.2",
+            "abbreviationExpansion": "CLDN18.2 -> Claudin 18.2",
+            "variants": [
+              "CLDN18.2 positive",
+              "Claudin 18.2 expression positive",
+              "CLDN18.2 expression",
+              "Tumor expresses CLDN18.2"
+            ],
+            "omopDomainHint": "Measurement",
+            "vocabularyHints": [
+              "LOINC",
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 0.95,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "measurement"
+        },
+        {
+          "atomicId": "2",
+          "primaryTerm": "CLDN18.2 expression in >= 75% of tumor cells",
+          "omopTable": "measurement",
+          "llmExpansion": {
+            "primary": "CLDN18.2 -> Claudin 18.2",
+            "abbreviationExpansion": "CLDN18.2 -> Claudin 18.2",
+            "variants": [
+              "CLDN18.2 expression",
+              "Claudin 18.2 percent positive cells",
+              "CLDN18.2 IHC score",
+              "High CLDN18.2 expression"
+            ],
+            "omopDomainHint": "Measurement",
+            "vocabularyHints": [
+              "LOINC",
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "measurement"
+        },
+        {
+          "atomicId": "3",
+          "primaryTerm": "CLDN18.2 demonstrates moderate to strong membranous staining",
+          "omopTable": "measurement",
+          "llmExpansion": {
+            "primary": "CLDN18.2 -> Claudin 18.2",
+            "abbreviationExpansion": "CLDN18.2 -> Claudin 18.2",
+            "variants": [
+              "CLDN18.2 staining intensity",
+              "Claudin 18.2 moderate to strong staining",
+              "CLDN18.2 IHC intensity",
+              "CLDN18.2 2+/3+ staining"
+            ],
+            "omopDomainHint": "Measurement",
+            "vocabularyHints": [
+              "LOINC",
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "measurement"
+        },
+        {
+          "atomicId": "4",
+          "primaryTerm": "CLDN18.2 status determined by central IHC testing",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "CLDN18.2 -> Claudin 18.2; IHC -> Immunohistochemistry",
+            "abbreviationExpansion": "CLDN18.2 -> Claudin 18.2; IHC -> Immunohistochemistry",
+            "variants": [
+              "CLDN18.2 immunohistochemistry test",
+              "Claudin 18.2 test",
+              "Central laboratory testing for CLDN18.2",
+              "IHC for CLDN18.2"
+            ],
+            "omopDomainHint": "Measurement",
+            "vocabularyHints": [
+              "LOINC",
+              "SNOMED",
+              "CPT4"
+            ],
+            "confidence": 0.95,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "measurement"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_14",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "HER2-negative tumor status",
+          "omopTable": "measurement",
+          "llmExpansion": {
+            "primary": "HER2 -> Human epidermal growth factor receptor 2",
+            "abbreviationExpansion": "HER2 -> Human epidermal growth factor receptor 2",
+            "variants": [
+              "HER2-negative",
+              "Human epidermal growth factor receptor 2 negative",
+              "ERBB2 negative",
+              "HER2 status negative"
+            ],
+            "omopDomainHint": "Measurement",
+            "vocabularyHints": [
+              "LOINC",
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "measurement"
+        },
+        {
+          "atomicId": "2a",
+          "primaryTerm": "Gastric tumor",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "gastric tumor",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Gastric tumor",
+              "Neoplasm of stomach",
+              "Stomach tumor",
+              "Gastric cancer"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "2b",
+          "primaryTerm": "Gastroesophageal junction (GEJ) tumor",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "GEJ -> Gastroesophageal junction",
+            "abbreviationExpansion": "GEJ -> Gastroesophageal junction",
+            "variants": [
+              "Gastroesophageal junction tumor",
+              "Neoplasm of gastroesophageal junction",
+              "GEJ tumor",
+              "GEJ cancer"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "3",
+          "primaryTerm": "HER2 status determined on a tumor specimen by local or central testing",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "HER2 -> Human epidermal growth factor receptor 2",
+            "abbreviationExpansion": "HER2 -> Human epidermal growth factor receptor 2",
+            "variants": [
+              "HER2 gene amplification test",
+              "HER2 protein expression test",
+              "HER2 status test",
+              "ERBB2 gene test"
+            ],
+            "omopDomainHint": "Measurement",
+            "vocabularyHints": [
+              "LOINC",
+              "SNOMED",
+              "CPT4"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "measurement"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_15",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "ECOG performance status 0-1",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "ECOG -> Eastern Cooperative Oncology Group",
+            "abbreviationExpansion": "ECOG -> Eastern Cooperative Oncology Group",
+            "variants": [
+              "ECOG performance status",
+              "Eastern Cooperative Oncology Group performance status",
+              "Performance status",
+              "ECOG score"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED",
+              "LOINC",
+              "NCIt"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_16",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Predicted life expectancy \u2265 12 weeks in the opinion of the investigator",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "predicted life expectancy weeks in the opinion of the investigator",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Life expectancy",
+              "Prognosis",
+              "Estimated survival",
+              "Predicted life expectancy"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_17",
+      "terms": [
+        {
+          "atomicId": "root_a",
+          "primaryTerm": "Required laboratory tests for eligibility assessment collected",
+          "omopTable": "measurement",
+          "llmExpansion": {
+            "primary": "required laboratory tests for eligibility assessment collected",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Laboratory tests performed",
+              "Baseline labs collected",
+              "Eligibility laboratory assessment",
+              "Screening laboratory procedure"
+            ],
+            "omopDomainHint": "Procedure",
+            "vocabularyHints": [
+              "SNOMED",
+              "CPT4",
+              "LOINC"
+            ],
+            "confidence": 0.8,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "procedure_occurrence"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_1",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Received prior systemic chemotherapy for locally advanced unresectable or metastatic gastric or GEJ adenocarcinoma",
+          "omopTable": "drug_exposure",
+          "llmExpansion": {
+            "primary": "GEJ -> Gastroesophageal junction",
+            "abbreviationExpansion": "GEJ -> Gastroesophageal junction",
+            "variants": [
+              "Prior systemic chemotherapy",
+              "History of chemotherapy",
+              "Previous chemotherapy treatment",
+              "Systemic antineoplastic therapy"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "HemOnc",
+              "ATC",
+              "SNOMED"
+            ],
+            "confidence": 0.95,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "2a1",
+          "primaryTerm": "Received neo-adjuvant or adjuvant chemotherapy",
+          "omopTable": "drug_exposure",
+          "llmExpansion": {
+            "primary": "received neo-adjuvant or adjuvant chemotherapy",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Neoadjuvant chemotherapy",
+              "Adjuvant chemotherapy",
+              "Perioperative chemotherapy",
+              "History of adjuvant therapy"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "HemOnc",
+              "ATC",
+              "SNOMED"
+            ],
+            "confidence": 0.95,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "2a2",
+          "primaryTerm": "Received immunotherapy",
+          "omopTable": "drug_exposure",
+          "llmExpansion": {
+            "primary": "received immunotherapy",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Immunotherapy",
+              "History of immunotherapy",
+              "Prior biologic therapy",
+              "Immune checkpoint inhibitor therapy"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "HemOnc",
+              "ATC",
+              "SNOMED"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "2a3",
+          "primaryTerm": "Received other systemic anticancer therapies",
+          "omopTable": "drug_exposure",
+          "llmExpansion": {
+            "primary": "received other systemic anticancer therapies",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Systemic anticancer therapy",
+              "Prior cancer therapy",
+              "History of antineoplastic agents",
+              "Systemic cancer treatment"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "HemOnc",
+              "ATC",
+              "SNOMED"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "2b1a",
+          "primaryTerm": "Completion of neo-adjuvant/adjuvant chemotherapy, immunotherapy, or other systemic anticancer therapy",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "completion of neo-adjuvant/adjuvant chemotherapy, immunotherapy, or other systemic anticancer therapy",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Completion of cancer therapy",
+              "End of treatment",
+              "Last dose of anticancer therapy",
+              "Discontinuation of antineoplastic therapy"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 0.85,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        },
+        {
+          "atomicId": "3a",
+          "primaryTerm": "Received treatment with herbal medications that have known antitumor activity",
+          "omopTable": "drug_exposure",
+          "llmExpansion": {
+            "primary": "received treatment with herbal medications that have known antitumor activity",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Herbal medication with antitumor activity",
+              "Herbal supplement use",
+              "Alternative cancer therapy",
+              "Phytotherapy"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension",
+              "SNOMED"
+            ],
+            "confidence": 0.8,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "3b1a",
+          "primaryTerm": "Completion of treatment with herbal medications with known antitumor activity",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "completion of treatment with herbal medications with known antitumor activity",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Completion of herbal therapy",
+              "End of herbal treatment",
+              "Discontinuation of herbal supplement",
+              "Cessation of phytotherapy"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 0.8,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_2",
+      "terms": [
+        {
+          "atomicId": "1a",
+          "primaryTerm": "Received radiotherapy",
+          "omopTable": "procedure_occurrence",
+          "llmExpansion": {
+            "primary": "received radiotherapy",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Received radiotherapy",
+              "Radiotherapy",
+              "Radiation therapy",
+              "Irradiation",
+              "X-ray therapy"
+            ],
+            "omopDomainHint": "Procedure",
+            "vocabularyHints": [
+              "CPT4",
+              "HCPCS",
+              "ICD10PCS",
+              "SNOMED"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "procedure_occurrence"
+        },
+        {
+          "atomicId": "2a1",
+          "primaryTerm": "Diagnosis of gastric adenocarcinoma",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "diagnosis of gastric adenocarcinoma",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Diagnosis of gastric adenocarcinoma",
+              "Gastric adenocarcinoma",
+              "Adenocarcinoma of stomach",
+              "Malignant neoplasm of stomach, adenocarcinoma"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "2a2",
+          "primaryTerm": "Diagnosis of gastroesophageal junction (GEJ) adenocarcinoma",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "gastroesophageal junction",
+            "abbreviationExpansion": "gastroesophageal junction",
+            "variants": [
+              "Diagnosis of gastroesophageal junction (GEJ) adenocarcinoma",
+              "Gastroesophageal junction adenocarcinoma",
+              "Adenocarcinoma of gastroesophageal junction",
+              "Malignant neoplasm of esophagogastric junction"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "2b1",
+          "primaryTerm": "Disease is locally advanced unresectable",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "disease is locally advanced unresectable",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Disease is locally advanced unresectable",
+              "Locally advanced unresectable malignant neoplasm",
+              "Unresectable locally advanced cancer",
+              "Inoperable locally advanced tumor"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        },
+        {
+          "atomicId": "2b2",
+          "primaryTerm": "Disease is metastatic",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "disease is metastatic",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Disease is metastatic",
+              "Metastatic disease",
+              "Metastatic malignant neoplasm",
+              "Secondary malignant neoplasm",
+              "Metastasis"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "3a",
+          "primaryTerm": "Recovered from radiotherapy-related toxicity",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "recovered from radiotherapy-related toxicity",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Radiotherapy-related toxicity",
+              "Adverse effect of radiation therapy",
+              "Radiation-induced toxicity",
+              "Toxicity due to radiotherapy"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "MedDRA",
+              "ICD10CM"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_3",
+      "terms": [
+        {
+          "atomicId": "1a1",
+          "primaryTerm": "Received systemic immunosuppressive therapy",
+          "omopTable": "drug_exposure",
+          "llmExpansion": {
+            "primary": "received systemic immunosuppressive therapy",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Systemic immunosuppressive therapy",
+              "Immunosuppressive agent",
+              "Systemic immunosuppressant drug",
+              "Immunosuppressive therapy"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension",
+              "HemOnc",
+              "ATC"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "1a2",
+          "primaryTerm": "Received systemic corticosteroids",
+          "omopTable": "drug_exposure",
+          "llmExpansion": {
+            "primary": "received systemic corticosteroids",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Systemic corticosteroids",
+              "Corticosteroid",
+              "Systemic glucocorticoid",
+              "Adrenal cortical steroid"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension",
+              "HemOnc",
+              "ATC"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "2a1",
+          "primaryTerm": "Received hydrocortisone at a physiologic replacement dose up to 30 mg/day",
+          "omopTable": "drug_exposure",
+          "llmExpansion": {
+            "primary": "received hydrocortisone at a physiologic replacement dose up to /day",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Hydrocortisone",
+              "Cortisol",
+              "Hydrocortone",
+              "Solu-Cortef"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "2a2",
+          "primaryTerm": "Received prednisone at a physiologic replacement dose up to 10 mg/day",
+          "omopTable": "drug_exposure",
+          "llmExpansion": {
+            "primary": "received prednisone at a physiologic replacement dose up to /day",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Prednisone",
+              "Deltasone",
+              "Rayos",
+              "Sterapred"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "2b",
+          "primaryTerm": "Received a single dose of systemic corticosteroids",
+          "omopTable": "drug_exposure",
+          "llmExpansion": {
+            "primary": "received a single dose of systemic corticosteroids",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Systemic corticosteroids",
+              "Corticosteroid",
+              "Systemic glucocorticoid",
+              "Single dose corticosteroid"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension",
+              "HemOnc",
+              "ATC"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "2c",
+          "primaryTerm": "Received systemic corticosteroids as premedication for radiologic imaging contrast use",
+          "omopTable": "drug_exposure",
+          "llmExpansion": {
+            "primary": "received systemic corticosteroids as premedication for radiologic imaging contrast use",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Systemic corticosteroids",
+              "Corticosteroid premedication",
+              "Premedication with corticosteroid",
+              "Prophylactic corticosteroid"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension",
+              "HemOnc",
+              "ATC"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_4",
+      "terms": [
+        {
+          "atomicId": "1a1",
+          "primaryTerm": "Received other investigational agents",
+          "omopTable": "drug_exposure",
+          "llmExpansion": {
+            "primary": "received other investigational agents",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Investigational agent",
+              "Investigational drug",
+              "Experimental drug",
+              "Study drug"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension",
+              "NCIt"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "1a2",
+          "primaryTerm": "Received other investigational devices",
+          "omopTable": "device_exposure",
+          "llmExpansion": {
+            "primary": "received other investigational devices",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Investigational device",
+              "Experimental device",
+              "Study device",
+              "Investigational medical device"
+            ],
+            "omopDomainHint": "Device",
+            "vocabularyHints": [
+              "SNOMED",
+              "HCPCS"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "device_exposure"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_5",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Prior severe allergic reaction or intolerance to known ingredients of zolbetuximab",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "prior severe allergic reaction or intolerance to known ingredients of zolbetuximab",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Zolbetuximab",
+              "IMAB362",
+              "Claudiximab",
+              "Allergy to zolbetuximab"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension",
+              "HemOnc"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "2",
+          "primaryTerm": "Prior severe allergic reaction or intolerance to other monoclonal antibodies",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "prior severe allergic reaction or intolerance to other monoclonal antibodies",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Monoclonal antibody",
+              "mAb",
+              "Allergy to monoclonal antibody",
+              "Intolerance to monoclonal antibody"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension",
+              "HemOnc",
+              "ATC"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "3",
+          "primaryTerm": "Prior severe allergic reaction or intolerance to humanized antibodies",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "prior severe allergic reaction or intolerance to humanized antibodies",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Humanized monoclonal antibody",
+              "Humanized antibody",
+              "Allergy to humanized antibody",
+              "Intolerance to humanized antibody"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension",
+              "HemOnc",
+              "ATC"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "4",
+          "primaryTerm": "Prior severe allergic reaction or intolerance to chimeric antibodies",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "prior severe allergic reaction or intolerance to chimeric antibodies",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Chimeric monoclonal antibody",
+              "Chimeric antibody",
+              "Allergy to chimeric antibody",
+              "Intolerance to chimeric antibody"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension",
+              "HemOnc",
+              "ATC"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_6",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Known immediate hypersensitivity to any component of study treatment",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "known immediate hypersensitivity to any component of study treatment",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Immediate hypersensitivity",
+              "Type I hypersensitivity reaction",
+              "Allergy",
+              "Anaphylaxis"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "MedDRA",
+              "ICD10CM"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "2",
+          "primaryTerm": "Known delayed hypersensitivity to any component of study treatment",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "known delayed hypersensitivity to any component of study treatment",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Delayed hypersensitivity",
+              "Type IV hypersensitivity reaction",
+              "Cell-mediated hypersensitivity",
+              "Delayed-type hypersensitivity"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "MedDRA",
+              "ICD10CM"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "3",
+          "primaryTerm": "Known intolerance to any component of study treatment",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "known intolerance to any component of study treatment",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Drug intolerance",
+              "Adverse drug reaction",
+              "Drug sensitivity",
+              "Intolerance to drug"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "MedDRA"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "4",
+          "primaryTerm": "Known contraindication to any component of study treatment",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "known contraindication to any component of study treatment",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Contraindication to drug",
+              "Drug contraindication",
+              "Contraindication to procedure",
+              "Contraindication"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED",
+              "NCIt"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_7",
+      "terms": [
+        {
+          "atomicId": "1a",
+          "primaryTerm": "Prior severe allergic reaction to Leucovorin",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "prior severe allergic reaction to leucovorin",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Leucovorin",
+              "Folinic acid",
+              "Wellcovorin",
+              "Allergy to leucovorin"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "1b",
+          "primaryTerm": "Prior severe allergic reaction to Fluorouracil",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "prior severe allergic reaction to fluorouracil",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Fluorouracil",
+              "5-FU",
+              "Adrucil",
+              "Allergy to fluorouracil"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension",
+              "HemOnc"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "1c",
+          "primaryTerm": "Prior severe allergic reaction to Oxaliplatin",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "prior severe allergic reaction to oxaliplatin",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Oxaliplatin",
+              "Eloxatin",
+              "Allergy to oxaliplatin",
+              "Intolerance to oxaliplatin"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension",
+              "HemOnc"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "2a",
+          "primaryTerm": "Prior intolerance to Leucovorin",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "prior intolerance to leucovorin",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Leucovorin",
+              "Folinic acid",
+              "Wellcovorin",
+              "Intolerance to leucovorin"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "2b",
+          "primaryTerm": "Prior intolerance to Fluorouracil",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "prior intolerance to fluorouracil",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Fluorouracil",
+              "5-FU",
+              "Adrucil",
+              "Intolerance to fluorouracil"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension",
+              "HemOnc"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "2c",
+          "primaryTerm": "Prior intolerance to Oxaliplatin",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "prior intolerance to oxaliplatin",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Oxaliplatin",
+              "Eloxatin",
+              "Intolerance to oxaliplatin",
+              "Adverse reaction to oxaliplatin"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension",
+              "HemOnc"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_8",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Known dihydropyrimidine dehydrogenase (DPD) deficiency",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "dihydropyrimidine dehydrogenase",
+            "abbreviationExpansion": "dihydropyrimidine dehydrogenase",
+            "variants": [
+              "Dihydropyrimidine dehydrogenase deficiency",
+              "DPD deficiency",
+              "DPYD gene mutation",
+              "Hereditary thymine-uraciluria"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_9",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Complete gastric outlet syndrome",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "complete gastric outlet syndrome",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Complete gastric outlet obstruction",
+              "Gastric outlet obstruction",
+              "Pyloric obstruction",
+              "GOO"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "2a",
+          "primaryTerm": "Partial gastric outlet syndrome",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "partial gastric outlet syndrome",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Partial gastric outlet obstruction",
+              "Gastric outlet obstruction",
+              "Pyloric stenosis",
+              "GOO"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "2b",
+          "primaryTerm": "Persistent or recurrent vomiting",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "persistent or recurrent vomiting",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Persistent or recurrent vomiting",
+              "Persistent vomiting",
+              "Recurrent vomiting",
+              "Chronic vomiting",
+              "Emesis"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_10",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Significant gastric bleeding",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "significant gastric bleeding",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Significant gastric bleeding",
+              "Gastric hemorrhage",
+              "Stomach bleeding",
+              "Upper gastrointestinal bleeding",
+              "Hematemesis"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "2",
+          "primaryTerm": "Untreated gastric ulcers",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "untreated gastric ulcers",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Gastric ulcer",
+              "Stomach ulcer",
+              "Peptic ulcer disease",
+              "Ulcer of stomach"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_11",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "History of positive test for Human Immunodeficiency Virus (HIV) infection",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "Human Immunodeficiency Virus",
+            "abbreviationExpansion": "Human Immunodeficiency Virus",
+            "variants": [
+              "Human Immunodeficiency Virus infection",
+              "HIV infection",
+              "Acquired immunodeficiency syndrome",
+              "HIV positive"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "2",
+          "primaryTerm": "Active Hepatitis B infection (positive HBsAg)",
+          "omopTable": "measurement",
+          "llmExpansion": {
+            "primary": "Hepatitis B surface antigen",
+            "abbreviationExpansion": "Hepatitis B surface antigen",
+            "variants": [
+              "Active Hepatitis B",
+              "Chronic hepatitis B",
+              "Hepatitis B virus infection",
+              "HBsAg positive"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "3",
+          "primaryTerm": "Active Hepatitis C infection",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "active hepatitis c infection",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Active Hepatitis C",
+              "Chronic hepatitis C",
+              "Hepatitis C virus infection",
+              "HCV infection"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_12",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Active autoimmune disease",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "active autoimmune disease",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Active autoimmune disease",
+              "Autoimmune disorder",
+              "Systemic autoimmune disease",
+              "Connective tissue disease"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "2a",
+          "primaryTerm": "Required systemic treatment for autoimmune disease",
+          "omopTable": "drug_exposure",
+          "llmExpansion": {
+            "primary": "required systemic treatment for autoimmune disease",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Systemic treatment for autoimmune disease",
+              "Immunosuppressive therapy",
+              "Disease-modifying antirheumatic drug",
+              "DMARD"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension",
+              "HemOnc",
+              "ATC"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_13",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Active infection",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "active infection",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Active infection",
+              "Infectious disease",
+              "Sepsis",
+              "Systemic infection"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "2",
+          "primaryTerm": "Requires systemic therapy for infection",
+          "omopTable": "drug_exposure",
+          "llmExpansion": {
+            "primary": "requires systemic therapy for infection",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Systemic antibiotic therapy",
+              "Systemic antimicrobial therapy",
+              "Intravenous antibiotics",
+              "Systemic antifungal therapy"
+            ],
+            "omopDomainHint": "Drug",
+            "vocabularyHints": [
+              "RxNorm",
+              "RxNorm Extension",
+              "ATC"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "drug_exposure"
+        },
+        {
+          "atomicId": "3a1",
+          "primaryTerm": "Infection has completely resolved",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "infection has completely resolved",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Infection resolved",
+              "History of infection",
+              "Past infection",
+              "Resolved infectious disease"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_14",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Significant cardiovascular disease",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "significant cardiovascular disease",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Significant cardiovascular disease",
+              "Cardiovascular disease",
+              "Heart disease",
+              "Clinically significant cardiac disease"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_15",
+      "terms": [
+        {
+          "atomicId": "1a",
+          "primaryTerm": "History of gastric cancer",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "history of gastric cancer",
+            "abbreviationExpansion": null,
+            "variants": [
+              "History of gastric cancer",
+              "Gastric cancer",
+              "Malignant neoplasm of stomach",
+              "Stomach cancer"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "1b",
+          "primaryTerm": "History of gastroesophageal junction (GEJ) cancer",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "gastroesophageal junction",
+            "abbreviationExpansion": "gastroesophageal junction",
+            "variants": [
+              "History of gastroesophageal junction (GEJ) cancer",
+              "Gastroesophageal junction cancer",
+              "GEJ cancer",
+              "Malignant neoplasm of esophagogastric junction"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "2a",
+          "primaryTerm": "History of central nervous system metastases",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "history of central nervous system metastases",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Central nervous system metastases",
+              "Brain metastases",
+              "CNS metastases",
+              "Secondary malignant neoplasm of brain"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "2b",
+          "primaryTerm": "History of carcinomatous meningitis",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "history of carcinomatous meningitis",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Carcinomatous meningitis",
+              "Leptomeningeal carcinomatosis",
+              "Meningeal carcinomatosis",
+              "Neoplastic meningitis"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_16",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Peripheral sensory neuropathy grade > 1",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "peripheral sensory neuropathy grade",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Peripheral sensory neuropathy",
+              "Sensory neuropathy",
+              "Peripheral neuropathy",
+              "Polyneuropathy"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "2a1",
+          "primaryTerm": "Deep tendon reflexes present",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "deep tendon reflexes present",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Deep tendon reflexes present",
+              "Deep tendon reflex finding",
+              "Tendon reflex",
+              "DTR"
+            ],
+            "omopDomainHint": "Measurement",
+            "vocabularyHints": [
+              "LOINC",
+              "SNOMED"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "measurement"
+        },
+        {
+          "atomicId": "2b1",
+          "primaryTerm": "Other neurological abnormality present",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "other neurological abnormality present",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Neurological abnormality",
+              "Neurologic finding",
+              "Abnormal neurological sign",
+              "Disorder of nervous system"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "MedDRA"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_17",
+      "terms": [
+        {
+          "atomicId": "1a",
+          "primaryTerm": "Had a major surgical procedure",
+          "omopTable": "procedure_occurrence",
+          "llmExpansion": {
+            "primary": "had a major surgical procedure",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Had a major surgical procedure",
+              "Major surgical procedure",
+              "Major surgery",
+              "Surgical procedure",
+              "Operative procedure"
+            ],
+            "omopDomainHint": "Procedure",
+            "vocabularyHints": [
+              "SNOMED",
+              "CPT4",
+              "HCPCS",
+              "ICD10PCS"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "procedure_occurrence"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_18",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Psychiatric illness that would preclude study compliance per investigator judgment",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "psychiatric illness that would preclude study compliance per investigator judgment",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Psychiatric illness",
+              "Mental disorder",
+              "Psychiatric disorder",
+              "Mental illness"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "2",
+          "primaryTerm": "Social situations that would preclude study compliance per investigator judgment",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "social situations that would preclude study compliance per investigator judgment",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Social situations",
+              "Social determinant of health",
+              "Social context affecting health",
+              "Problem related to social environment"
+            ],
+            "omopDomainHint": "Observation",
+            "vocabularyHints": [
+              "SNOMED",
+              "LOINC",
+              "NCIt"
+            ],
+            "confidence": 0.8,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "observation"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_19",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Another malignancy for which treatment is required",
+          "omopTable": "condition_occurrence",
+          "llmExpansion": {
+            "primary": "another malignancy for which treatment is required",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Another malignancy",
+              "Second primary malignancy",
+              "Concurrent malignancy",
+              "History of other malignancy",
+              "Malignant neoplasm"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 1.0,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_20",
+      "terms": [
+        {
+          "atomicId": "1",
+          "primaryTerm": "Concurrent disease, infection or comorbid condition that interferes with the ability of the subject to participate in the study",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "concurrent disease, infection or comorbid condition that interferes with the ability of the subject to participate in the study",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Concurrent disease",
+              "Comorbid condition",
+              "Comorbidity",
+              "Intercurrent infection",
+              "Concurrent illness"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "2",
+          "primaryTerm": "Concurrent disease, infection or comorbid condition that places the subject at undue risk",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "concurrent disease, infection or comorbid condition that places the subject at undue risk",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Concurrent disease",
+              "Comorbid condition",
+              "Comorbidity",
+              "Intercurrent infection",
+              "Concurrent illness"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        },
+        {
+          "atomicId": "3",
+          "primaryTerm": "Concurrent disease, infection or comorbid condition that complicates the interpretation of data",
+          "omopTable": "observation",
+          "llmExpansion": {
+            "primary": "concurrent disease, infection or comorbid condition that complicates the interpretation of data",
+            "abbreviationExpansion": null,
+            "variants": [
+              "Concurrent disease",
+              "Comorbid condition",
+              "Comorbidity",
+              "Intercurrent infection",
+              "Concurrent illness"
+            ],
+            "omopDomainHint": "Condition",
+            "vocabularyHints": [
+              "SNOMED",
+              "ICD10CM",
+              "ICD9CM",
+              "MedDRA"
+            ],
+            "confidence": 0.9,
+            "source": "llm"
+          },
+          "omopTableFromLLM": "condition_occurrence"
+        }
+      ]
+    }
+  ],
+  "llmExpansions": {
+    "IRB/IEC approved written informed consent and privacy language obtained from subject or legally authorized representative": {
+      "original": "IRB/IEC approved written informed consent and privacy language obtained from subject or legally authorized representative",
+      "primary": "IRB -> Institutional Review Board; IEC -> Independent Ethics Committee",
+      "variants": [
+        "Informed consent obtained",
+        "Written informed consent",
+        "Consent procedure",
+        "Informed consent"
+      ],
+      "abbreviation_expansion": "IRB -> Institutional Review Board; IEC -> Independent Ethics Committee",
+      "core_concept": "irb/iec approved written informed consent and privacy language obtained from subject or legally authorized representative",
+      "omop_domain_hint": "Procedure",
+      "vocabulary_hints": [
+        "SNOMED",
+        "CPT4"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Age >= 18 years at the time of signing informed consent": {
+      "original": "Age >= 18 years at the time of signing informed consent",
+      "primary": "age years at the time of signing informed consent",
+      "variants": [
+        "Age",
+        "Patient age",
+        "Age of subject",
+        "Chronological age"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "age years at the time of signing informed consent",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "LOINC",
+        "SNOMED"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Participation in another interventional study": {
+      "original": "Participation in another interventional study",
+      "primary": "participation in another interventional study",
+      "variants": [
+        "Participation in another interventional study",
+        "Concurrent study participation",
+        "Enrolled in another clinical trial",
+        "Participation in a clinical trial"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "participation in another interventional study",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Positive serum pregnancy test": {
+      "original": "Positive serum pregnancy test",
+      "primary": "positive serum pregnancy test",
+      "variants": [
+        "Positive serum pregnancy test",
+        "Serum hCG test positive",
+        "Human chorionic gonadotropin measurement positive",
+        "Pregnancy test positive"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "positive serum pregnancy test",
+      "omop_domain_hint": "Measurement",
+      "vocabulary_hints": [
+        "LOINC",
+        "SNOMED"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Demonstrated non-pregnant status through additional testing": {
+      "original": "Demonstrated non-pregnant status through additional testing",
+      "primary": "demonstrated non-pregnant status through additional testing",
+      "variants": [
+        "Negative pregnancy test",
+        "Non-pregnant status",
+        "Pregnancy test negative",
+        "Human chorionic gonadotropin measurement negative"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "demonstrated non-pregnant status through additional testing",
+      "omop_domain_hint": "Measurement",
+      "vocabulary_hints": [
+        "LOINC",
+        "SNOMED"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "At least one of the other specified conditions applies": {
+      "original": "At least one of the other specified conditions applies",
+      "primary": "one of the other specified conditions applies",
+      "variants": [
+        "Presence of specified condition",
+        "Co-occurring condition",
+        "Comorbidity present"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "one of the other specified conditions applies",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED"
+      ],
+      "confidence": 0.5,
+      "source": "llm"
+    },
+    "Female": {
+      "original": "Female",
+      "primary": "female",
+      "variants": [
+        "Female",
+        "Female sex",
+        "Sex assigned at birth female",
+        "Gender female"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "female",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Agrees not to breastfeed starting at Screening and throughout the study period, and for 6 months after the final study treatment administration": {
+      "original": "Agrees not to breastfeed starting at Screening and throughout the study period, and for 6 months after the final study treatment administration",
+      "primary": "agrees not to breastfeed starting at screening and throughout the study period, and for after the final study treatment administration",
+      "variants": [
+        "Agrees not to breastfeed",
+        "Agreement to avoid breastfeeding",
+        "Breastfeeding contraindicated",
+        "Lactation abstinence"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "agrees not to breastfeed starting at screening and throughout the study period, and for after the final study treatment administration",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 0.8,
+      "source": "llm"
+    },
+    "Female subject": {
+      "original": "Female subject",
+      "primary": "female subject",
+      "variants": [
+        "Female",
+        "Female sex",
+        "Sex assigned at birth female",
+        "Gender female"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "female subject",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Donate ova": {
+      "original": "Donate ova",
+      "primary": "donate ova",
+      "variants": [
+        "Donate ova",
+        "Oocyte donation",
+        "Egg donation",
+        "Ovum donation"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "donate ova",
+      "omop_domain_hint": "Procedure",
+      "vocabulary_hints": [
+        "SNOMED",
+        "CPT4"
+      ],
+      "confidence": 0.95,
+      "source": "llm"
+    },
+    "Male subject": {
+      "original": "Male subject",
+      "primary": "male subject",
+      "variants": [
+        "Male",
+        "Male sex",
+        "Sex assigned at birth male",
+        "Gender male"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "male subject",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Sexually active": {
+      "original": "Sexually active",
+      "primary": "sexually active",
+      "variants": [
+        "Sexually active",
+        "History of sexual activity",
+        "Current sexual activity",
+        "Sexually active person"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "sexually active",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED",
+        "LOINC"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Has female partner(s) of childbearing potential": {
+      "original": "Has female partner(s) of childbearing potential",
+      "primary": "has female partner(s) of childbearing potential",
+      "variants": [
+        "Partner of childbearing potential",
+        "Female partner of childbearing potential",
+        "WOCBP partner",
+        "Sexually active with female of childbearing potential"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "has female partner(s) of childbearing potential",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 0.8,
+      "source": "llm"
+    },
+    "Agrees to use a condom during the treatment period and for at least 6 months after the final study drug administration": {
+      "original": "Agrees to use a condom during the treatment period and for at least 6 months after the final study drug administration",
+      "primary": "agrees to use a condom during the treatment period and for after the final study drug administration",
+      "variants": [
+        "Agrees to use condom",
+        "Condom use",
+        "Barrier contraception",
+        "Contraception agreement"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "agrees to use a condom during the treatment period and for after the final study drug administration",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Sex is Male": {
+      "original": "Sex is Male",
+      "primary": "sex is male",
+      "variants": [
+        "Male",
+        "Male sex",
+        "Sex assigned at birth male",
+        "Gender male"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "sex is male",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Sperm donation": {
+      "original": "Sperm donation",
+      "primary": "sperm donation",
+      "variants": [
+        "Sperm donation",
+        "Semen donation",
+        "Donation of sperm",
+        "Sperm banking"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "sperm donation",
+      "omop_domain_hint": "Procedure",
+      "vocabulary_hints": [
+        "SNOMED",
+        "CPT4"
+      ],
+      "confidence": 0.95,
+      "source": "llm"
+    },
+    "Subject is male": {
+      "original": "Subject is male",
+      "primary": "subject is male",
+      "variants": [
+        "Male",
+        "Male sex",
+        "Sex assigned at birth male",
+        "Gender male"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "subject is male",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Partner is pregnant": {
+      "original": "Partner is pregnant",
+      "primary": "partner is pregnant",
+      "variants": [
+        "Pregnant partner",
+        "Partner pregnancy status",
+        "Finding of partner's pregnancy"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "partner is pregnant",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED"
+      ],
+      "confidence": 0.8,
+      "source": "llm"
+    },
+    "Partner is breastfeeding": {
+      "original": "Partner is breastfeeding",
+      "primary": "partner is breastfeeding",
+      "variants": [
+        "Breastfeeding partner",
+        "Partner lactation status",
+        "Finding of partner breastfeeding"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "partner is breastfeeding",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED"
+      ],
+      "confidence": 0.8,
+      "source": "llm"
+    },
+    "Agrees to remain abstinent for the required duration": {
+      "original": "Agrees to remain abstinent for the required duration",
+      "primary": "agrees to remain abstinent for the required duration",
+      "variants": [
+        "Agrees to be abstinent",
+        "Sexual abstinence",
+        "Abstinence",
+        "Contraception agreement"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "agrees to remain abstinent for the required duration",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Agrees to use a condom for the required duration": {
+      "original": "Agrees to use a condom for the required duration",
+      "primary": "agrees to use a condom for the required duration",
+      "variants": [
+        "Agrees to use condom",
+        "Condom use",
+        "Barrier contraception",
+        "Contraception agreement"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "agrees to use a condom for the required duration",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Histologically confirmed diagnosis": {
+      "original": "Histologically confirmed diagnosis",
+      "primary": "histologically confirmed diagnosis",
+      "variants": [
+        "Histologically confirmed diagnosis",
+        "Histologic confirmation",
+        "Pathology confirmed diagnosis",
+        "Biopsy proven diagnosis"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "histologically confirmed diagnosis",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 0.95,
+      "source": "llm"
+    },
+    "Gastric adenocarcinoma": {
+      "original": "Gastric adenocarcinoma",
+      "primary": "gastric adenocarcinoma",
+      "variants": [
+        "Gastric adenocarcinoma",
+        "Adenocarcinoma of stomach",
+        "Stomach adenocarcinoma",
+        "Malignant neoplasm of stomach"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "gastric adenocarcinoma",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Gastroesophageal junction (GEJ) adenocarcinoma": {
+      "original": "Gastroesophageal junction (GEJ) adenocarcinoma",
+      "primary": "GEJ -> Gastroesophageal junction",
+      "variants": [
+        "Gastroesophageal junction adenocarcinoma",
+        "Adenocarcinoma of gastroesophageal junction",
+        "GEJ adenocarcinoma",
+        "Adenocarcinoma of cardia"
+      ],
+      "abbreviation_expansion": "GEJ -> Gastroesophageal junction",
+      "core_concept": "gastroesophageal junction (gej) adenocarcinoma",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Disease is radiologically confirmed": {
+      "original": "Disease is radiologically confirmed",
+      "primary": "disease is radiologically confirmed",
+      "variants": [
+        "Disease is radiologically confirmed",
+        "Radiologically confirmed disease",
+        "Imaging confirmed diagnosis",
+        "Radiologic evidence of disease"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "disease is radiologically confirmed",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Locally advanced unresectable disease": {
+      "original": "Locally advanced unresectable disease",
+      "primary": "locally advanced unresectable disease",
+      "variants": [
+        "Locally advanced unresectable disease",
+        "Unresectable locally advanced malignant neoplasm",
+        "Locally advanced unresectable cancer",
+        "Stage III unresectable cancer"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "locally advanced unresectable disease",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "NCIt",
+        "MedDRA"
+      ],
+      "confidence": 0.95,
+      "source": "llm"
+    },
+    "Metastatic disease": {
+      "original": "Metastatic disease",
+      "primary": "metastatic disease",
+      "variants": [
+        "Metastatic disease",
+        "Metastatic cancer",
+        "Secondary malignant neoplasm",
+        "Stage IV cancer"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "metastatic disease",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Radiologically evaluable disease (measurable and/or non-measurable disease according to RECIST 1.1), per local assessment": {
+      "original": "Radiologically evaluable disease (measurable and/or non-measurable disease according to RECIST 1.1), per local assessment",
+      "primary": "RECIST -> Response Evaluation Criteria in Solid Tumors",
+      "variants": [
+        "Evaluable disease",
+        "Measurable disease",
+        "Non-measurable disease",
+        "RECIST evaluable disease"
+      ],
+      "abbreviation_expansion": "RECIST -> Response Evaluation Criteria in Solid Tumors",
+      "core_concept": "radiologically evaluable disease (measurable and/or non-measurable disease according to recist 1.1), per local assessment",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Subject has only 1 evaluable lesion": {
+      "original": "Subject has only 1 evaluable lesion",
+      "primary": "subject has only 1 evaluable lesion",
+      "variants": [
+        "Single evaluable lesion",
+        "One evaluable lesion",
+        "Solitary measurable lesion",
+        "Unifocal disease"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "subject has only 1 evaluable lesion",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 0.85,
+      "source": "llm"
+    },
+    "History of radiotherapy": {
+      "original": "History of radiotherapy",
+      "primary": "history of radiotherapy",
+      "variants": [
+        "History of radiotherapy",
+        "Prior radiation therapy",
+        "Past treatment with radiation",
+        "History of irradiation"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "history of radiotherapy",
+      "omop_domain_hint": "Procedure",
+      "vocabulary_hints": [
+        "SNOMED",
+        "CPT4",
+        "HCPCS",
+        "ICD10PCS"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "The evaluable lesion is outside the field of prior radiotherapy": {
+      "original": "The evaluable lesion is outside the field of prior radiotherapy",
+      "primary": "the evaluable lesion is outside the field of prior radiotherapy",
+      "variants": [
+        "Lesion outside radiation field",
+        "Tumor not in prior radiotherapy field",
+        "Non-irradiated lesion",
+        "Lesion in non-irradiated site"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "the evaluable lesion is outside the field of prior radiotherapy",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 0.8,
+      "source": "llm"
+    },
+    "The evaluable lesion has documented progression following radiation therapy": {
+      "original": "The evaluable lesion has documented progression following radiation therapy",
+      "primary": "the evaluable lesion has documented progression following radiation therapy",
+      "variants": [
+        "Disease progression after radiotherapy",
+        "Progression in irradiated field",
+        "Post-radiation tumor progression",
+        "Radiotherapy failure"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "the evaluable lesion has documented progression following radiation therapy",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "MedDRA",
+        "NCIt"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Tumor expresses CLDN18.2": {
+      "original": "Tumor expresses CLDN18.2",
+      "primary": "CLDN18.2 -> Claudin 18.2",
+      "variants": [
+        "CLDN18.2 positive",
+        "Claudin 18.2 expression positive",
+        "CLDN18.2 expression",
+        "Tumor expresses CLDN18.2"
+      ],
+      "abbreviation_expansion": "CLDN18.2 -> Claudin 18.2",
+      "core_concept": "tumor expresses cldn18.2",
+      "omop_domain_hint": "Measurement",
+      "vocabulary_hints": [
+        "LOINC",
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 0.95,
+      "source": "llm"
+    },
+    "CLDN18.2 expression in >= 75% of tumor cells": {
+      "original": "CLDN18.2 expression in >= 75% of tumor cells",
+      "primary": "CLDN18.2 -> Claudin 18.2",
+      "variants": [
+        "CLDN18.2 expression",
+        "Claudin 18.2 percent positive cells",
+        "CLDN18.2 IHC score",
+        "High CLDN18.2 expression"
+      ],
+      "abbreviation_expansion": "CLDN18.2 -> Claudin 18.2",
+      "core_concept": "cldn18.2 expression in % of tumor cells",
+      "omop_domain_hint": "Measurement",
+      "vocabulary_hints": [
+        "LOINC",
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "CLDN18.2 demonstrates moderate to strong membranous staining": {
+      "original": "CLDN18.2 demonstrates moderate to strong membranous staining",
+      "primary": "CLDN18.2 -> Claudin 18.2",
+      "variants": [
+        "CLDN18.2 staining intensity",
+        "Claudin 18.2 moderate to strong staining",
+        "CLDN18.2 IHC intensity",
+        "CLDN18.2 2+/3+ staining"
+      ],
+      "abbreviation_expansion": "CLDN18.2 -> Claudin 18.2",
+      "core_concept": "cldn18.2 demonstrates moderate to strong membranous staining",
+      "omop_domain_hint": "Measurement",
+      "vocabulary_hints": [
+        "LOINC",
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "CLDN18.2 status determined by central IHC testing": {
+      "original": "CLDN18.2 status determined by central IHC testing",
+      "primary": "CLDN18.2 -> Claudin 18.2; IHC -> Immunohistochemistry",
+      "variants": [
+        "CLDN18.2 immunohistochemistry test",
+        "Claudin 18.2 test",
+        "Central laboratory testing for CLDN18.2",
+        "IHC for CLDN18.2"
+      ],
+      "abbreviation_expansion": "CLDN18.2 -> Claudin 18.2; IHC -> Immunohistochemistry",
+      "core_concept": "cldn18.2 status determined by central ihc testing",
+      "omop_domain_hint": "Measurement",
+      "vocabulary_hints": [
+        "LOINC",
+        "SNOMED",
+        "CPT4"
+      ],
+      "confidence": 0.95,
+      "source": "llm"
+    },
+    "HER2-negative tumor status": {
+      "original": "HER2-negative tumor status",
+      "primary": "HER2 -> Human epidermal growth factor receptor 2",
+      "variants": [
+        "HER2-negative",
+        "Human epidermal growth factor receptor 2 negative",
+        "ERBB2 negative",
+        "HER2 status negative"
+      ],
+      "abbreviation_expansion": "HER2 -> Human epidermal growth factor receptor 2",
+      "core_concept": "her2-negative tumor status",
+      "omop_domain_hint": "Measurement",
+      "vocabulary_hints": [
+        "LOINC",
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Gastric tumor": {
+      "original": "Gastric tumor",
+      "primary": "gastric tumor",
+      "variants": [
+        "Gastric tumor",
+        "Neoplasm of stomach",
+        "Stomach tumor",
+        "Gastric cancer"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "gastric tumor",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Gastroesophageal junction (GEJ) tumor": {
+      "original": "Gastroesophageal junction (GEJ) tumor",
+      "primary": "GEJ -> Gastroesophageal junction",
+      "variants": [
+        "Gastroesophageal junction tumor",
+        "Neoplasm of gastroesophageal junction",
+        "GEJ tumor",
+        "GEJ cancer"
+      ],
+      "abbreviation_expansion": "GEJ -> Gastroesophageal junction",
+      "core_concept": "gastroesophageal junction (gej) tumor",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "HER2 status determined on a tumor specimen by local or central testing": {
+      "original": "HER2 status determined on a tumor specimen by local or central testing",
+      "primary": "HER2 -> Human epidermal growth factor receptor 2",
+      "variants": [
+        "HER2 gene amplification test",
+        "HER2 protein expression test",
+        "HER2 status test",
+        "ERBB2 gene test"
+      ],
+      "abbreviation_expansion": "HER2 -> Human epidermal growth factor receptor 2",
+      "core_concept": "her2 status determined on a tumor specimen by local or central testing",
+      "omop_domain_hint": "Measurement",
+      "vocabulary_hints": [
+        "LOINC",
+        "SNOMED",
+        "CPT4"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "ECOG performance status 0-1": {
+      "original": "ECOG performance status 0-1",
+      "primary": "ECOG -> Eastern Cooperative Oncology Group",
+      "variants": [
+        "ECOG performance status",
+        "Eastern Cooperative Oncology Group performance status",
+        "Performance status",
+        "ECOG score"
+      ],
+      "abbreviation_expansion": "ECOG -> Eastern Cooperative Oncology Group",
+      "core_concept": "ecog performance status",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED",
+        "LOINC",
+        "NCIt"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Predicted life expectancy \u2265 12 weeks in the opinion of the investigator": {
+      "original": "Predicted life expectancy \u2265 12 weeks in the opinion of the investigator",
+      "primary": "predicted life expectancy weeks in the opinion of the investigator",
+      "variants": [
+        "Life expectancy",
+        "Prognosis",
+        "Estimated survival",
+        "Predicted life expectancy"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "predicted life expectancy weeks in the opinion of the investigator",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Required laboratory tests for eligibility assessment collected": {
+      "original": "Required laboratory tests for eligibility assessment collected",
+      "primary": "required laboratory tests for eligibility assessment collected",
+      "variants": [
+        "Laboratory tests performed",
+        "Baseline labs collected",
+        "Eligibility laboratory assessment",
+        "Screening laboratory procedure"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "required laboratory tests for eligibility assessment collected",
+      "omop_domain_hint": "Procedure",
+      "vocabulary_hints": [
+        "SNOMED",
+        "CPT4",
+        "LOINC"
+      ],
+      "confidence": 0.8,
+      "source": "llm"
+    },
+    "Received prior systemic chemotherapy for locally advanced unresectable or metastatic gastric or GEJ adenocarcinoma": {
+      "original": "Received prior systemic chemotherapy for locally advanced unresectable or metastatic gastric or GEJ adenocarcinoma",
+      "primary": "GEJ -> Gastroesophageal junction",
+      "variants": [
+        "Prior systemic chemotherapy",
+        "History of chemotherapy",
+        "Previous chemotherapy treatment",
+        "Systemic antineoplastic therapy"
+      ],
+      "abbreviation_expansion": "GEJ -> Gastroesophageal junction",
+      "core_concept": "received prior systemic chemotherapy for locally advanced unresectable or metastatic gastric or gej adenocarcinoma",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "HemOnc",
+        "ATC",
+        "SNOMED"
+      ],
+      "confidence": 0.95,
+      "source": "llm"
+    },
+    "Received neo-adjuvant or adjuvant chemotherapy": {
+      "original": "Received neo-adjuvant or adjuvant chemotherapy",
+      "primary": "received neo-adjuvant or adjuvant chemotherapy",
+      "variants": [
+        "Neoadjuvant chemotherapy",
+        "Adjuvant chemotherapy",
+        "Perioperative chemotherapy",
+        "History of adjuvant therapy"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "received neo-adjuvant or adjuvant chemotherapy",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "HemOnc",
+        "ATC",
+        "SNOMED"
+      ],
+      "confidence": 0.95,
+      "source": "llm"
+    },
+    "Received immunotherapy": {
+      "original": "Received immunotherapy",
+      "primary": "received immunotherapy",
+      "variants": [
+        "Immunotherapy",
+        "History of immunotherapy",
+        "Prior biologic therapy",
+        "Immune checkpoint inhibitor therapy"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "received immunotherapy",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "HemOnc",
+        "ATC",
+        "SNOMED"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Received other systemic anticancer therapies": {
+      "original": "Received other systemic anticancer therapies",
+      "primary": "received other systemic anticancer therapies",
+      "variants": [
+        "Systemic anticancer therapy",
+        "Prior cancer therapy",
+        "History of antineoplastic agents",
+        "Systemic cancer treatment"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "received other systemic anticancer therapies",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "HemOnc",
+        "ATC",
+        "SNOMED"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Completion of neo-adjuvant/adjuvant chemotherapy, immunotherapy, or other systemic anticancer therapy": {
+      "original": "Completion of neo-adjuvant/adjuvant chemotherapy, immunotherapy, or other systemic anticancer therapy",
+      "primary": "completion of neo-adjuvant/adjuvant chemotherapy, immunotherapy, or other systemic anticancer therapy",
+      "variants": [
+        "Completion of cancer therapy",
+        "End of treatment",
+        "Last dose of anticancer therapy",
+        "Discontinuation of antineoplastic therapy"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "completion of neo-adjuvant/adjuvant chemotherapy, immunotherapy, or other systemic anticancer therapy",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 0.85,
+      "source": "llm"
+    },
+    "Received treatment with herbal medications that have known antitumor activity": {
+      "original": "Received treatment with herbal medications that have known antitumor activity",
+      "primary": "received treatment with herbal medications that have known antitumor activity",
+      "variants": [
+        "Herbal medication with antitumor activity",
+        "Herbal supplement use",
+        "Alternative cancer therapy",
+        "Phytotherapy"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "received treatment with herbal medications that have known antitumor activity",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension",
+        "SNOMED"
+      ],
+      "confidence": 0.8,
+      "source": "llm"
+    },
+    "Completion of treatment with herbal medications with known antitumor activity": {
+      "original": "Completion of treatment with herbal medications with known antitumor activity",
+      "primary": "completion of treatment with herbal medications with known antitumor activity",
+      "variants": [
+        "Completion of herbal therapy",
+        "End of herbal treatment",
+        "Discontinuation of herbal supplement",
+        "Cessation of phytotherapy"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "completion of treatment with herbal medications with known antitumor activity",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 0.8,
+      "source": "llm"
+    },
+    "Received radiotherapy": {
+      "original": "Received radiotherapy",
+      "primary": "received radiotherapy",
+      "variants": [
+        "Received radiotherapy",
+        "Radiotherapy",
+        "Radiation therapy",
+        "Irradiation",
+        "X-ray therapy"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "received radiotherapy",
+      "omop_domain_hint": "Procedure",
+      "vocabulary_hints": [
+        "CPT4",
+        "HCPCS",
+        "ICD10PCS",
+        "SNOMED"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Diagnosis of gastric adenocarcinoma": {
+      "original": "Diagnosis of gastric adenocarcinoma",
+      "primary": "diagnosis of gastric adenocarcinoma",
+      "variants": [
+        "Diagnosis of gastric adenocarcinoma",
+        "Gastric adenocarcinoma",
+        "Adenocarcinoma of stomach",
+        "Malignant neoplasm of stomach, adenocarcinoma"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "diagnosis of gastric adenocarcinoma",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Diagnosis of gastroesophageal junction (GEJ) adenocarcinoma": {
+      "original": "Diagnosis of gastroesophageal junction (GEJ) adenocarcinoma",
+      "primary": "gastroesophageal junction",
+      "variants": [
+        "Diagnosis of gastroesophageal junction (GEJ) adenocarcinoma",
+        "Gastroesophageal junction adenocarcinoma",
+        "Adenocarcinoma of gastroesophageal junction",
+        "Malignant neoplasm of esophagogastric junction"
+      ],
+      "abbreviation_expansion": "gastroesophageal junction",
+      "core_concept": "diagnosis of gastroesophageal junction (gej) adenocarcinoma",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Disease is locally advanced unresectable": {
+      "original": "Disease is locally advanced unresectable",
+      "primary": "disease is locally advanced unresectable",
+      "variants": [
+        "Disease is locally advanced unresectable",
+        "Locally advanced unresectable malignant neoplasm",
+        "Unresectable locally advanced cancer",
+        "Inoperable locally advanced tumor"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "disease is locally advanced unresectable",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Disease is metastatic": {
+      "original": "Disease is metastatic",
+      "primary": "disease is metastatic",
+      "variants": [
+        "Disease is metastatic",
+        "Metastatic disease",
+        "Metastatic malignant neoplasm",
+        "Secondary malignant neoplasm",
+        "Metastasis"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "disease is metastatic",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Recovered from radiotherapy-related toxicity": {
+      "original": "Recovered from radiotherapy-related toxicity",
+      "primary": "recovered from radiotherapy-related toxicity",
+      "variants": [
+        "Radiotherapy-related toxicity",
+        "Adverse effect of radiation therapy",
+        "Radiation-induced toxicity",
+        "Toxicity due to radiotherapy"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "recovered from radiotherapy-related toxicity",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "MedDRA",
+        "ICD10CM"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Received systemic immunosuppressive therapy": {
+      "original": "Received systemic immunosuppressive therapy",
+      "primary": "received systemic immunosuppressive therapy",
+      "variants": [
+        "Systemic immunosuppressive therapy",
+        "Immunosuppressive agent",
+        "Systemic immunosuppressant drug",
+        "Immunosuppressive therapy"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "received systemic immunosuppressive therapy",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension",
+        "HemOnc",
+        "ATC"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Received systemic corticosteroids": {
+      "original": "Received systemic corticosteroids",
+      "primary": "received systemic corticosteroids",
+      "variants": [
+        "Systemic corticosteroids",
+        "Corticosteroid",
+        "Systemic glucocorticoid",
+        "Adrenal cortical steroid"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "received systemic corticosteroids",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension",
+        "HemOnc",
+        "ATC"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Received hydrocortisone at a physiologic replacement dose up to 30 mg/day": {
+      "original": "Received hydrocortisone at a physiologic replacement dose up to 30 mg/day",
+      "primary": "received hydrocortisone at a physiologic replacement dose up to /day",
+      "variants": [
+        "Hydrocortisone",
+        "Cortisol",
+        "Hydrocortone",
+        "Solu-Cortef"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "received hydrocortisone at a physiologic replacement dose up to /day",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Received prednisone at a physiologic replacement dose up to 10 mg/day": {
+      "original": "Received prednisone at a physiologic replacement dose up to 10 mg/day",
+      "primary": "received prednisone at a physiologic replacement dose up to /day",
+      "variants": [
+        "Prednisone",
+        "Deltasone",
+        "Rayos",
+        "Sterapred"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "received prednisone at a physiologic replacement dose up to /day",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Received a single dose of systemic corticosteroids": {
+      "original": "Received a single dose of systemic corticosteroids",
+      "primary": "received a single dose of systemic corticosteroids",
+      "variants": [
+        "Systemic corticosteroids",
+        "Corticosteroid",
+        "Systemic glucocorticoid",
+        "Single dose corticosteroid"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "received a single dose of systemic corticosteroids",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension",
+        "HemOnc",
+        "ATC"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Received systemic corticosteroids as premedication for radiologic imaging contrast use": {
+      "original": "Received systemic corticosteroids as premedication for radiologic imaging contrast use",
+      "primary": "received systemic corticosteroids as premedication for radiologic imaging contrast use",
+      "variants": [
+        "Systemic corticosteroids",
+        "Corticosteroid premedication",
+        "Premedication with corticosteroid",
+        "Prophylactic corticosteroid"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "received systemic corticosteroids as premedication for radiologic imaging contrast use",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension",
+        "HemOnc",
+        "ATC"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Received other investigational agents": {
+      "original": "Received other investigational agents",
+      "primary": "received other investigational agents",
+      "variants": [
+        "Investigational agent",
+        "Investigational drug",
+        "Experimental drug",
+        "Study drug"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "received other investigational agents",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension",
+        "NCIt"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Received other investigational devices": {
+      "original": "Received other investigational devices",
+      "primary": "received other investigational devices",
+      "variants": [
+        "Investigational device",
+        "Experimental device",
+        "Study device",
+        "Investigational medical device"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "received other investigational devices",
+      "omop_domain_hint": "Device",
+      "vocabulary_hints": [
+        "SNOMED",
+        "HCPCS"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Prior severe allergic reaction or intolerance to known ingredients of zolbetuximab": {
+      "original": "Prior severe allergic reaction or intolerance to known ingredients of zolbetuximab",
+      "primary": "prior severe allergic reaction or intolerance to known ingredients of zolbetuximab",
+      "variants": [
+        "Zolbetuximab",
+        "IMAB362",
+        "Claudiximab",
+        "Allergy to zolbetuximab"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "prior severe allergic reaction or intolerance to known ingredients of zolbetuximab",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension",
+        "HemOnc"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Prior severe allergic reaction or intolerance to other monoclonal antibodies": {
+      "original": "Prior severe allergic reaction or intolerance to other monoclonal antibodies",
+      "primary": "prior severe allergic reaction or intolerance to other monoclonal antibodies",
+      "variants": [
+        "Monoclonal antibody",
+        "mAb",
+        "Allergy to monoclonal antibody",
+        "Intolerance to monoclonal antibody"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "prior severe allergic reaction or intolerance to other monoclonal antibodies",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension",
+        "HemOnc",
+        "ATC"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Prior severe allergic reaction or intolerance to humanized antibodies": {
+      "original": "Prior severe allergic reaction or intolerance to humanized antibodies",
+      "primary": "prior severe allergic reaction or intolerance to humanized antibodies",
+      "variants": [
+        "Humanized monoclonal antibody",
+        "Humanized antibody",
+        "Allergy to humanized antibody",
+        "Intolerance to humanized antibody"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "prior severe allergic reaction or intolerance to humanized antibodies",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension",
+        "HemOnc",
+        "ATC"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Prior severe allergic reaction or intolerance to chimeric antibodies": {
+      "original": "Prior severe allergic reaction or intolerance to chimeric antibodies",
+      "primary": "prior severe allergic reaction or intolerance to chimeric antibodies",
+      "variants": [
+        "Chimeric monoclonal antibody",
+        "Chimeric antibody",
+        "Allergy to chimeric antibody",
+        "Intolerance to chimeric antibody"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "prior severe allergic reaction or intolerance to chimeric antibodies",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension",
+        "HemOnc",
+        "ATC"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Known immediate hypersensitivity to any component of study treatment": {
+      "original": "Known immediate hypersensitivity to any component of study treatment",
+      "primary": "known immediate hypersensitivity to any component of study treatment",
+      "variants": [
+        "Immediate hypersensitivity",
+        "Type I hypersensitivity reaction",
+        "Allergy",
+        "Anaphylaxis"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "known immediate hypersensitivity to any component of study treatment",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "MedDRA",
+        "ICD10CM"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Known delayed hypersensitivity to any component of study treatment": {
+      "original": "Known delayed hypersensitivity to any component of study treatment",
+      "primary": "known delayed hypersensitivity to any component of study treatment",
+      "variants": [
+        "Delayed hypersensitivity",
+        "Type IV hypersensitivity reaction",
+        "Cell-mediated hypersensitivity",
+        "Delayed-type hypersensitivity"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "known delayed hypersensitivity to any component of study treatment",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "MedDRA",
+        "ICD10CM"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Known intolerance to any component of study treatment": {
+      "original": "Known intolerance to any component of study treatment",
+      "primary": "known intolerance to any component of study treatment",
+      "variants": [
+        "Drug intolerance",
+        "Adverse drug reaction",
+        "Drug sensitivity",
+        "Intolerance to drug"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "known intolerance to any component of study treatment",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "MedDRA"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Known contraindication to any component of study treatment": {
+      "original": "Known contraindication to any component of study treatment",
+      "primary": "known contraindication to any component of study treatment",
+      "variants": [
+        "Contraindication to drug",
+        "Drug contraindication",
+        "Contraindication to procedure",
+        "Contraindication"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "known contraindication to any component of study treatment",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED",
+        "NCIt"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Prior severe allergic reaction to Leucovorin": {
+      "original": "Prior severe allergic reaction to Leucovorin",
+      "primary": "prior severe allergic reaction to leucovorin",
+      "variants": [
+        "Leucovorin",
+        "Folinic acid",
+        "Wellcovorin",
+        "Allergy to leucovorin"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "prior severe allergic reaction to leucovorin",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Prior severe allergic reaction to Fluorouracil": {
+      "original": "Prior severe allergic reaction to Fluorouracil",
+      "primary": "prior severe allergic reaction to fluorouracil",
+      "variants": [
+        "Fluorouracil",
+        "5-FU",
+        "Adrucil",
+        "Allergy to fluorouracil"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "prior severe allergic reaction to fluorouracil",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension",
+        "HemOnc"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Prior severe allergic reaction to Oxaliplatin": {
+      "original": "Prior severe allergic reaction to Oxaliplatin",
+      "primary": "prior severe allergic reaction to oxaliplatin",
+      "variants": [
+        "Oxaliplatin",
+        "Eloxatin",
+        "Allergy to oxaliplatin",
+        "Intolerance to oxaliplatin"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "prior severe allergic reaction to oxaliplatin",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension",
+        "HemOnc"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Prior intolerance to Leucovorin": {
+      "original": "Prior intolerance to Leucovorin",
+      "primary": "prior intolerance to leucovorin",
+      "variants": [
+        "Leucovorin",
+        "Folinic acid",
+        "Wellcovorin",
+        "Intolerance to leucovorin"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "prior intolerance to leucovorin",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Prior intolerance to Fluorouracil": {
+      "original": "Prior intolerance to Fluorouracil",
+      "primary": "prior intolerance to fluorouracil",
+      "variants": [
+        "Fluorouracil",
+        "5-FU",
+        "Adrucil",
+        "Intolerance to fluorouracil"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "prior intolerance to fluorouracil",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension",
+        "HemOnc"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Prior intolerance to Oxaliplatin": {
+      "original": "Prior intolerance to Oxaliplatin",
+      "primary": "prior intolerance to oxaliplatin",
+      "variants": [
+        "Oxaliplatin",
+        "Eloxatin",
+        "Intolerance to oxaliplatin",
+        "Adverse reaction to oxaliplatin"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "prior intolerance to oxaliplatin",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension",
+        "HemOnc"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Known dihydropyrimidine dehydrogenase (DPD) deficiency": {
+      "original": "Known dihydropyrimidine dehydrogenase (DPD) deficiency",
+      "primary": "dihydropyrimidine dehydrogenase",
+      "variants": [
+        "Dihydropyrimidine dehydrogenase deficiency",
+        "DPD deficiency",
+        "DPYD gene mutation",
+        "Hereditary thymine-uraciluria"
+      ],
+      "abbreviation_expansion": "dihydropyrimidine dehydrogenase",
+      "core_concept": "known dihydropyrimidine dehydrogenase (dpd) deficiency",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Complete gastric outlet syndrome": {
+      "original": "Complete gastric outlet syndrome",
+      "primary": "complete gastric outlet syndrome",
+      "variants": [
+        "Complete gastric outlet obstruction",
+        "Gastric outlet obstruction",
+        "Pyloric obstruction",
+        "GOO"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "complete gastric outlet syndrome",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Partial gastric outlet syndrome": {
+      "original": "Partial gastric outlet syndrome",
+      "primary": "partial gastric outlet syndrome",
+      "variants": [
+        "Partial gastric outlet obstruction",
+        "Gastric outlet obstruction",
+        "Pyloric stenosis",
+        "GOO"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "partial gastric outlet syndrome",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Persistent or recurrent vomiting": {
+      "original": "Persistent or recurrent vomiting",
+      "primary": "persistent or recurrent vomiting",
+      "variants": [
+        "Persistent or recurrent vomiting",
+        "Persistent vomiting",
+        "Recurrent vomiting",
+        "Chronic vomiting",
+        "Emesis"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "persistent or recurrent vomiting",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Significant gastric bleeding": {
+      "original": "Significant gastric bleeding",
+      "primary": "significant gastric bleeding",
+      "variants": [
+        "Significant gastric bleeding",
+        "Gastric hemorrhage",
+        "Stomach bleeding",
+        "Upper gastrointestinal bleeding",
+        "Hematemesis"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "significant gastric bleeding",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Untreated gastric ulcers": {
+      "original": "Untreated gastric ulcers",
+      "primary": "untreated gastric ulcers",
+      "variants": [
+        "Gastric ulcer",
+        "Stomach ulcer",
+        "Peptic ulcer disease",
+        "Ulcer of stomach"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "untreated gastric ulcers",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "History of positive test for Human Immunodeficiency Virus (HIV) infection": {
+      "original": "History of positive test for Human Immunodeficiency Virus (HIV) infection",
+      "primary": "Human Immunodeficiency Virus",
+      "variants": [
+        "Human Immunodeficiency Virus infection",
+        "HIV infection",
+        "Acquired immunodeficiency syndrome",
+        "HIV positive"
+      ],
+      "abbreviation_expansion": "Human Immunodeficiency Virus",
+      "core_concept": "history of positive test for human immunodeficiency virus (hiv) infection",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Active Hepatitis B infection (positive HBsAg)": {
+      "original": "Active Hepatitis B infection (positive HBsAg)",
+      "primary": "Hepatitis B surface antigen",
+      "variants": [
+        "Active Hepatitis B",
+        "Chronic hepatitis B",
+        "Hepatitis B virus infection",
+        "HBsAg positive"
+      ],
+      "abbreviation_expansion": "Hepatitis B surface antigen",
+      "core_concept": "active hepatitis b infection (positive hbsag)",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Active Hepatitis C infection": {
+      "original": "Active Hepatitis C infection",
+      "primary": "active hepatitis c infection",
+      "variants": [
+        "Active Hepatitis C",
+        "Chronic hepatitis C",
+        "Hepatitis C virus infection",
+        "HCV infection"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "active hepatitis c infection",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Active autoimmune disease": {
+      "original": "Active autoimmune disease",
+      "primary": "active autoimmune disease",
+      "variants": [
+        "Active autoimmune disease",
+        "Autoimmune disorder",
+        "Systemic autoimmune disease",
+        "Connective tissue disease"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "active autoimmune disease",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Required systemic treatment for autoimmune disease": {
+      "original": "Required systemic treatment for autoimmune disease",
+      "primary": "required systemic treatment for autoimmune disease",
+      "variants": [
+        "Systemic treatment for autoimmune disease",
+        "Immunosuppressive therapy",
+        "Disease-modifying antirheumatic drug",
+        "DMARD"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "required systemic treatment for autoimmune disease",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension",
+        "HemOnc",
+        "ATC"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Active infection": {
+      "original": "Active infection",
+      "primary": "active infection",
+      "variants": [
+        "Active infection",
+        "Infectious disease",
+        "Sepsis",
+        "Systemic infection"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "active infection",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Requires systemic therapy for infection": {
+      "original": "Requires systemic therapy for infection",
+      "primary": "requires systemic therapy for infection",
+      "variants": [
+        "Systemic antibiotic therapy",
+        "Systemic antimicrobial therapy",
+        "Intravenous antibiotics",
+        "Systemic antifungal therapy"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "requires systemic therapy for infection",
+      "omop_domain_hint": "Drug",
+      "vocabulary_hints": [
+        "RxNorm",
+        "RxNorm Extension",
+        "ATC"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Infection has completely resolved": {
+      "original": "Infection has completely resolved",
+      "primary": "infection has completely resolved",
+      "variants": [
+        "Infection resolved",
+        "History of infection",
+        "Past infection",
+        "Resolved infectious disease"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "infection has completely resolved",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Significant cardiovascular disease": {
+      "original": "Significant cardiovascular disease",
+      "primary": "significant cardiovascular disease",
+      "variants": [
+        "Significant cardiovascular disease",
+        "Cardiovascular disease",
+        "Heart disease",
+        "Clinically significant cardiac disease"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "significant cardiovascular disease",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "History of gastric cancer": {
+      "original": "History of gastric cancer",
+      "primary": "history of gastric cancer",
+      "variants": [
+        "History of gastric cancer",
+        "Gastric cancer",
+        "Malignant neoplasm of stomach",
+        "Stomach cancer"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "history of gastric cancer",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "History of gastroesophageal junction (GEJ) cancer": {
+      "original": "History of gastroesophageal junction (GEJ) cancer",
+      "primary": "gastroesophageal junction",
+      "variants": [
+        "History of gastroesophageal junction (GEJ) cancer",
+        "Gastroesophageal junction cancer",
+        "GEJ cancer",
+        "Malignant neoplasm of esophagogastric junction"
+      ],
+      "abbreviation_expansion": "gastroesophageal junction",
+      "core_concept": "history of gastroesophageal junction (gej) cancer",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "History of central nervous system metastases": {
+      "original": "History of central nervous system metastases",
+      "primary": "history of central nervous system metastases",
+      "variants": [
+        "Central nervous system metastases",
+        "Brain metastases",
+        "CNS metastases",
+        "Secondary malignant neoplasm of brain"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "history of central nervous system metastases",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "History of carcinomatous meningitis": {
+      "original": "History of carcinomatous meningitis",
+      "primary": "history of carcinomatous meningitis",
+      "variants": [
+        "Carcinomatous meningitis",
+        "Leptomeningeal carcinomatosis",
+        "Meningeal carcinomatosis",
+        "Neoplastic meningitis"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "history of carcinomatous meningitis",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Peripheral sensory neuropathy grade > 1": {
+      "original": "Peripheral sensory neuropathy grade > 1",
+      "primary": "peripheral sensory neuropathy grade",
+      "variants": [
+        "Peripheral sensory neuropathy",
+        "Sensory neuropathy",
+        "Peripheral neuropathy",
+        "Polyneuropathy"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "peripheral sensory neuropathy grade",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Deep tendon reflexes present": {
+      "original": "Deep tendon reflexes present",
+      "primary": "deep tendon reflexes present",
+      "variants": [
+        "Deep tendon reflexes present",
+        "Deep tendon reflex finding",
+        "Tendon reflex",
+        "DTR"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "deep tendon reflexes present",
+      "omop_domain_hint": "Measurement",
+      "vocabulary_hints": [
+        "LOINC",
+        "SNOMED"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Other neurological abnormality present": {
+      "original": "Other neurological abnormality present",
+      "primary": "other neurological abnormality present",
+      "variants": [
+        "Neurological abnormality",
+        "Neurologic finding",
+        "Abnormal neurological sign",
+        "Disorder of nervous system"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "other neurological abnormality present",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "MedDRA"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Had a major surgical procedure": {
+      "original": "Had a major surgical procedure",
+      "primary": "had a major surgical procedure",
+      "variants": [
+        "Had a major surgical procedure",
+        "Major surgical procedure",
+        "Major surgery",
+        "Surgical procedure",
+        "Operative procedure"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "had a major surgical procedure",
+      "omop_domain_hint": "Procedure",
+      "vocabulary_hints": [
+        "SNOMED",
+        "CPT4",
+        "HCPCS",
+        "ICD10PCS"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Psychiatric illness that would preclude study compliance per investigator judgment": {
+      "original": "Psychiatric illness that would preclude study compliance per investigator judgment",
+      "primary": "psychiatric illness that would preclude study compliance per investigator judgment",
+      "variants": [
+        "Psychiatric illness",
+        "Mental disorder",
+        "Psychiatric disorder",
+        "Mental illness"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "psychiatric illness that would preclude study compliance per investigator judgment",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Social situations that would preclude study compliance per investigator judgment": {
+      "original": "Social situations that would preclude study compliance per investigator judgment",
+      "primary": "social situations that would preclude study compliance per investigator judgment",
+      "variants": [
+        "Social situations",
+        "Social determinant of health",
+        "Social context affecting health",
+        "Problem related to social environment"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "social situations that would preclude study compliance per investigator judgment",
+      "omop_domain_hint": "Observation",
+      "vocabulary_hints": [
+        "SNOMED",
+        "LOINC",
+        "NCIt"
+      ],
+      "confidence": 0.8,
+      "source": "llm"
+    },
+    "Another malignancy for which treatment is required": {
+      "original": "Another malignancy for which treatment is required",
+      "primary": "another malignancy for which treatment is required",
+      "variants": [
+        "Another malignancy",
+        "Second primary malignancy",
+        "Concurrent malignancy",
+        "History of other malignancy",
+        "Malignant neoplasm"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "another malignancy for which treatment is required",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 1.0,
+      "source": "llm"
+    },
+    "Concurrent disease, infection or comorbid condition that interferes with the ability of the subject to participate in the study": {
+      "original": "Concurrent disease, infection or comorbid condition that interferes with the ability of the subject to participate in the study",
+      "primary": "concurrent disease, infection or comorbid condition that interferes with the ability of the subject to participate in the study",
+      "variants": [
+        "Concurrent disease",
+        "Comorbid condition",
+        "Comorbidity",
+        "Intercurrent infection",
+        "Concurrent illness"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "concurrent disease, infection or comorbid condition that interferes with the ability of the subject to participate in the study",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Concurrent disease, infection or comorbid condition that places the subject at undue risk": {
+      "original": "Concurrent disease, infection or comorbid condition that places the subject at undue risk",
+      "primary": "concurrent disease, infection or comorbid condition that places the subject at undue risk",
+      "variants": [
+        "Concurrent disease",
+        "Comorbid condition",
+        "Comorbidity",
+        "Intercurrent infection",
+        "Concurrent illness"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "concurrent disease, infection or comorbid condition that places the subject at undue risk",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    },
+    "Concurrent disease, infection or comorbid condition that complicates the interpretation of data": {
+      "original": "Concurrent disease, infection or comorbid condition that complicates the interpretation of data",
+      "primary": "concurrent disease, infection or comorbid condition that complicates the interpretation of data",
+      "variants": [
+        "Concurrent disease",
+        "Comorbid condition",
+        "Comorbidity",
+        "Intercurrent infection",
+        "Concurrent illness"
+      ],
+      "abbreviation_expansion": null,
+      "core_concept": "concurrent disease, infection or comorbid condition that complicates the interpretation of data",
+      "omop_domain_hint": "Condition",
+      "vocabulary_hints": [
+        "SNOMED",
+        "ICD10CM",
+        "ICD9CM",
+        "MedDRA"
+      ],
+      "confidence": 0.9,
+      "source": "llm"
+    }
+  },
+  "statistics": {
+    "totalTerms": 110,
+    "llmExpandedCount": 107
+  }
+}

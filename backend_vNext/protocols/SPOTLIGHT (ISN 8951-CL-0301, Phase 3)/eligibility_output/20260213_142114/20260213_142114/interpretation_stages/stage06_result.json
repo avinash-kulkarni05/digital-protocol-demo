@@ -1,0 +1,2743 @@
+{
+  "templates": [
+    {
+      "criterionId": "INC_1",
+      "type": "Inclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "1",
+        "nodeType": "temporal",
+        "temporalConstraint": {
+          "operator": "BEFORE",
+          "anchor": "any study-related procedures"
+        },
+        "operand": {
+          "nodeId": "1a",
+          "nodeType": "atomic",
+          "atomicText": "IRB/IEC approved written informed consent and privacy language obtained from subject or legally authorized representative",
+          "omopTable": "observation",
+          "strategy": "This is a procedural requirement to ensure ethical and legal standards are met before a patient participates in a study. It is verified by site staff and documentation review, not through standard EHR data queries.",
+          "clinicalCategory": "diagnostic_confirmation",
+          "queryableStatus": "screening_only"
+        }
+      },
+      "sqlTemplate": "-- Temporal: BEFORE  days of any study-related procedures\nSELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)\n  AND o.observation_date < @any study-related procedures",
+      "components": [
+        {
+          "atomicId": "1a",
+          "atomicText": "IRB/IEC approved written informed consent and privacy language obtained from subject or legally authorized representative",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_2",
+      "type": "Inclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "1",
+        "nodeType": "atomic",
+        "atomicText": "Age >= 18 years at the time of signing informed consent",
+        "omopTable": "observation",
+        "timeConstraint": "at the time of signing the informed consent",
+        "numericConstraintStructured": {
+          "value": 18,
+          "operator": ">=",
+          "unit": "years",
+          "parameter": "age"
+        },
+        "strategy": "Establishes that the subject meets the legal definition of an adult. Age is calculated relative to the date of informed consent. The value of 18 is a common standard but may vary based on local regulations.",
+        "clinicalCategory": "demographics",
+        "queryableStatus": "fully_queryable"
+      },
+      "sqlTemplate": "SELECT DISTINCT p.person_id\nFROM person p\nWHERE EXTRACT(YEAR FROM AGE(@reference_date, p.birth_datetime)) >= 18",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Age >= 18 years at the time of signing informed consent",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT p.person_id\nFROM person p\nWHERE EXTRACT(YEAR FROM AGE(@reference_date, p.birth_datetime)) >= 18"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_3",
+      "type": "Inclusion",
+      "logicOperator": "NOT",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "NOT",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "temporal",
+            "temporalConstraint": {
+              "operator": "BETWEEN",
+              "anchor": "first_dose",
+              "anchorEnd": "last_dose"
+            },
+            "operand": {
+              "nodeId": "1a",
+              "nodeType": "atomic",
+              "atomicText": "Participation in another interventional study",
+              "omopTable": "observation",
+              "timeConstraint": "while on study treatment",
+              "timeFrameStructured": {
+                "value": 0,
+                "unit": "",
+                "operator": "between",
+                "relativeEvent": "first_dose"
+              },
+              "strategy": "Ensures that the study's results are not confounded by other investigational treatments and protects patient safety from potential drug-drug interactions between investigational products.",
+              "clinicalCategory": "safety_exclusion",
+              "queryableStatus": "requires_manual"
+            }
+          }
+        ]
+      },
+      "sqlTemplate": "-- No valid SQL from operands",
+      "components": [
+        {
+          "atomicId": "1a",
+          "atomicText": "Participation in another interventional study",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_4",
+      "type": "Inclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "AND",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "operator",
+            "operator": "OR",
+            "operands": [
+              {
+                "nodeId": "1a",
+                "nodeType": "operator",
+                "operator": "NOT",
+                "operands": [
+                  {
+                    "nodeId": "1a1",
+                    "nodeType": "atomic",
+                    "atomicText": "Positive serum pregnancy test",
+                    "omopTable": "measurement",
+                    "timeConstraint": "at Screening",
+                    "timeFrameStructured": {
+                      "value": 0,
+                      "unit": "",
+                      "operator": "during",
+                      "relativeEvent": "screening"
+                    },
+                    "strategy": "Represents an initial negative pregnancy test result, which is logically equivalent to the absence of a positive test.",
+                    "clinicalCategory": "demographics",
+                    "queryableStatus": "fully_queryable",
+                    "clinicalConceptGroup": "pregnancy_status"
+                  }
+                ]
+              },
+              {
+                "nodeId": "1b",
+                "nodeType": "operator",
+                "operator": "AND",
+                "operands": [
+                  {
+                    "nodeId": "1b1",
+                    "nodeType": "atomic",
+                    "atomicText": "Positive serum pregnancy test",
+                    "omopTable": "measurement",
+                    "timeConstraint": "at Screening",
+                    "timeFrameStructured": {
+                      "value": 0,
+                      "unit": "",
+                      "operator": "during",
+                      "relativeEvent": "screening"
+                    },
+                    "strategy": "Represents an initial positive pregnancy test result (elevated serum \u03b2hCG) at the screening visit.",
+                    "clinicalCategory": "demographics",
+                    "queryableStatus": "fully_queryable",
+                    "clinicalConceptGroup": "pregnancy_status"
+                  },
+                  {
+                    "nodeId": "1b2",
+                    "nodeType": "atomic",
+                    "atomicText": "Demonstrated non-pregnant status through additional testing",
+                    "omopTable": "observation",
+                    "strategy": "Represents the confirmation of non-pregnant status via subsequent tests (e.g., ultrasound) after an initial positive/elevated \u03b2hCG test.",
+                    "clinicalCategory": "demographics",
+                    "queryableStatus": "requires_manual",
+                    "clinicalConceptGroup": "pregnancy_status"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "nodeId": "2",
+            "nodeType": "atomic",
+            "atomicText": "At least one of the other specified conditions applies",
+            "omopTable": "observation",
+            "strategy": "This is a placeholder representing the second major clause of the eligibility criterion, for which the specific conditions were not provided.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "requires_manual"
+          }
+        ]
+      },
+      "sqlTemplate": "((SELECT person_id FROM person\nEXCEPT\n(SELECT DISTINCT m.person_id\nFROM measurement m\nWHERE m.measurement_concept_id IN (/* UNMAPPED - requires manual concept selection */)))\nUNION\n((SELECT DISTINCT m.person_id\nFROM measurement m\nWHERE m.measurement_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nINTERSECT\n(SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */))))\nINTERSECT\n(SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */))",
+      "components": [
+        {
+          "atomicId": "1a1",
+          "atomicText": "Positive serum pregnancy test",
+          "omopTable": "measurement",
+          "sql": "SELECT DISTINCT m.person_id\nFROM measurement m\nWHERE m.measurement_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "1b1",
+          "atomicText": "Positive serum pregnancy test",
+          "omopTable": "measurement",
+          "sql": "SELECT DISTINCT m.person_id\nFROM measurement m\nWHERE m.measurement_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "1b2",
+          "atomicText": "Demonstrated non-pregnant status through additional testing",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2",
+          "atomicText": "At least one of the other specified conditions applies",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_5",
+      "type": "Inclusion",
+      "logicOperator": "IMPLICATION",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "IMPLICATION",
+        "condition": {
+          "nodeId": "1",
+          "nodeType": "atomic",
+          "atomicText": "Female",
+          "omopTable": "person",
+          "strategy": "Identifies the population to which the breastfeeding restriction applies.",
+          "clinicalCategory": "demographics",
+          "queryableStatus": "fully_queryable"
+        },
+        "requirement": {
+          "nodeId": "2",
+          "nodeType": "atomic",
+          "atomicText": "Agrees not to breastfeed starting at Screening and throughout the study period, and for 6 months after the final study treatment administration",
+          "omopTable": "observation",
+          "timeConstraint": "The agreement covers the period from Screening until 6 months after the final dose.",
+          "strategy": "This ensures infant safety by preventing exposure to the investigational product through breast milk. Compliance is confirmed by reviewing the signed informed consent form.",
+          "clinicalCategory": "demographics",
+          "queryableStatus": "requires_manual"
+        }
+      },
+      "sqlTemplate": "-- No operands in operator node",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Female",
+          "omopTable": "person",
+          "sql": "-- Unknown table: person\n-- Atomic text: Female\n-- Requires manual SQL generation"
+        },
+        {
+          "atomicId": "2",
+          "atomicText": "Agrees not to breastfeed starting at Screening and throughout the study period, and for 6 months after the final study treatment administration",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT p.person_id\nFROM person p\nWHERE p.gender_concept_id = 8507  -- MALE"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_6",
+      "type": "Inclusion",
+      "logicOperator": "IMPLICATION",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "IMPLICATION",
+        "condition": {
+          "nodeId": "1",
+          "nodeType": "atomic",
+          "atomicText": "Female subject",
+          "omopTable": "person",
+          "valueConstraint": "gender_concept_id = 8532",
+          "strategy": "The requirement to not donate ova applies only to female subjects.",
+          "clinicalCategory": "demographics",
+          "queryableStatus": "fully_queryable"
+        },
+        "requirement": {
+          "nodeId": "2",
+          "nodeType": "operator",
+          "operator": "NOT",
+          "operands": [
+            {
+              "nodeId": "2a",
+              "nodeType": "operator",
+              "operator": "OR",
+              "operands": [
+                {
+                  "nodeId": "2a1",
+                  "nodeType": "temporal",
+                  "temporalConstraint": {
+                    "operator": "BETWEEN",
+                    "anchor": "Screening",
+                    "anchorEnd": "End of study period"
+                  },
+                  "operand": {
+                    "nodeId": "2a1a",
+                    "nodeType": "atomic",
+                    "atomicText": "Donate ova",
+                    "omopTable": "procedure_occurrence",
+                    "strategy": "Prohibition on ova donation during the main study period.",
+                    "clinicalCategory": "safety_exclusion",
+                    "queryableStatus": "requires_manual",
+                    "clinicalConceptGroup": "ova_donation"
+                  }
+                },
+                {
+                  "nodeId": "2a2",
+                  "nodeType": "temporal",
+                  "temporalConstraint": {
+                    "operator": "AFTER",
+                    "anchor": "final administration of oxaliplatin",
+                    "value": 9,
+                    "unit": "months"
+                  },
+                  "operand": {
+                    "nodeId": "2a2a",
+                    "nodeType": "atomic",
+                    "atomicText": "Donate ova",
+                    "omopTable": "procedure_occurrence",
+                    "strategy": "Prohibition on ova donation for a specific period after receiving oxaliplatin.",
+                    "clinicalCategory": "safety_exclusion",
+                    "queryableStatus": "requires_manual",
+                    "clinicalConceptGroup": "ova_donation"
+                  }
+                },
+                {
+                  "nodeId": "2a3",
+                  "nodeType": "temporal",
+                  "temporalConstraint": {
+                    "operator": "AFTER",
+                    "anchor": "final administration of all other study drugs",
+                    "value": 6,
+                    "unit": "months"
+                  },
+                  "operand": {
+                    "nodeId": "2a3a",
+                    "nodeType": "atomic",
+                    "atomicText": "Donate ova",
+                    "omopTable": "procedure_occurrence",
+                    "strategy": "Prohibition on ova donation for a specific period after receiving any other study drug.",
+                    "clinicalCategory": "safety_exclusion",
+                    "queryableStatus": "requires_manual",
+                    "clinicalConceptGroup": "ova_donation"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "sqlTemplate": "-- No operands in operator node",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Female subject",
+          "omopTable": "person",
+          "sql": "-- Unknown table: person\n-- Atomic text: Female subject\n-- Requires manual SQL generation"
+        },
+        {
+          "atomicId": "2a1a",
+          "atomicText": "Donate ova",
+          "omopTable": "procedure_occurrence",
+          "sql": "SELECT DISTINCT po.person_id\nFROM procedure_occurrence po\nWHERE po.procedure_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2a2a",
+          "atomicText": "Donate ova",
+          "omopTable": "procedure_occurrence",
+          "sql": "SELECT DISTINCT po.person_id\nFROM procedure_occurrence po\nWHERE po.procedure_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2a3a",
+          "atomicText": "Donate ova",
+          "omopTable": "procedure_occurrence",
+          "sql": "SELECT DISTINCT po.person_id\nFROM procedure_occurrence po\nWHERE po.procedure_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_7",
+      "type": "Inclusion",
+      "logicOperator": "IMPLICATION",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "IMPLICATION",
+        "condition": {
+          "nodeId": "1",
+          "nodeType": "operator",
+          "operator": "AND",
+          "operands": [
+            {
+              "nodeId": "1a",
+              "nodeType": "atomic",
+              "atomicText": "Male subject",
+              "omopTable": "person",
+              "strategy": "Identifies the subject's sex as male.",
+              "clinicalCategory": "demographics",
+              "queryableStatus": "fully_queryable"
+            },
+            {
+              "nodeId": "1b",
+              "nodeType": "atomic",
+              "atomicText": "Sexually active",
+              "omopTable": "observation",
+              "strategy": "Identifies if the subject is sexually active, a prerequisite for contraception requirements. This is typically self-reported.",
+              "clinicalCategory": "demographics",
+              "queryableStatus": "requires_manual"
+            },
+            {
+              "nodeId": "1c",
+              "nodeType": "atomic",
+              "atomicText": "Has female partner(s) of childbearing potential",
+              "omopTable": "observation",
+              "strategy": "Identifies if the subject's partner(s) are WOCBP, as this determines the risk of pregnancy. This is self-reported information about a non-participant.",
+              "clinicalCategory": "demographics",
+              "queryableStatus": "requires_manual"
+            }
+          ]
+        },
+        "requirement": {
+          "nodeId": "2",
+          "nodeType": "atomic",
+          "atomicText": "Agrees to use a condom during the treatment period and for at least 6 months after the final study drug administration",
+          "omopTable": "observation",
+          "timeConstraint": "during the treatment period and for at least 6 months after the final study drug administration",
+          "strategy": "Confirms and documents the subject's agreement to adhere to protocol-specified contraception methods and duration to prevent potential fetal exposure to the study drug. This is captured during the informed consent process.",
+          "clinicalCategory": "safety_exclusion",
+          "queryableStatus": "screening_only"
+        }
+      },
+      "sqlTemplate": "-- No operands in operator node",
+      "components": [
+        {
+          "atomicId": "1a",
+          "atomicText": "Male subject",
+          "omopTable": "person",
+          "sql": "-- Unknown table: person\n-- Atomic text: Male subject\n-- Requires manual SQL generation"
+        },
+        {
+          "atomicId": "1b",
+          "atomicText": "Sexually active",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "1c",
+          "atomicText": "Has female partner(s) of childbearing potential",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT p.person_id\nFROM person p\nWHERE p.gender_concept_id = 8532  -- FEMALE"
+        },
+        {
+          "atomicId": "2",
+          "atomicText": "Agrees to use a condom during the treatment period and for at least 6 months after the final study drug administration",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT p.person_id\nFROM person p\nWHERE p.gender_concept_id = 8507  -- MALE"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_8",
+      "type": "Inclusion",
+      "logicOperator": "IMPLICATION",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "IMPLICATION",
+        "condition": {
+          "nodeId": "1",
+          "nodeType": "atomic",
+          "atomicText": "Sex is Male",
+          "omopTable": "person",
+          "strategy": "This criterion applies only to male subjects.",
+          "clinicalCategory": "demographics",
+          "queryableStatus": "fully_queryable"
+        },
+        "requirement": {
+          "nodeId": "2",
+          "nodeType": "operator",
+          "operator": "NOT",
+          "operands": [
+            {
+              "nodeId": "2a",
+              "nodeType": "temporal",
+              "temporalConstraint": {
+                "operator": "BETWEEN",
+                "anchor": "Screening",
+                "anchorEnd": "6 months after final study drug administration"
+              },
+              "operand": {
+                "nodeId": "2a1",
+                "nodeType": "atomic",
+                "atomicText": "Sperm donation",
+                "omopTable": "observation",
+                "strategy": "Ensures no risk of conception with sperm potentially affected by the study drug during the study and for a washout period.",
+                "clinicalCategory": "safety_exclusion",
+                "queryableStatus": "requires_manual"
+              }
+            }
+          ]
+        }
+      },
+      "sqlTemplate": "-- No operands in operator node",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Sex is Male",
+          "omopTable": "person",
+          "sql": "-- Unknown table: person\n-- Atomic text: Sex is Male\n-- Requires manual SQL generation"
+        },
+        {
+          "atomicId": "2a1",
+          "atomicText": "Sperm donation",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_9",
+      "type": "Inclusion",
+      "logicOperator": "IMPLICATION",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "IMPLICATION",
+        "condition": {
+          "nodeId": "1",
+          "nodeType": "operator",
+          "operator": "AND",
+          "operands": [
+            {
+              "nodeId": "1a",
+              "nodeType": "atomic",
+              "atomicText": "Subject is male",
+              "omopTable": "person",
+              "strategy": "Checks the subject's gender.",
+              "clinicalCategory": "demographics",
+              "queryableStatus": "fully_queryable"
+            },
+            {
+              "nodeId": "1b",
+              "nodeType": "operator",
+              "operator": "OR",
+              "operands": [
+                {
+                  "nodeId": "1b1",
+                  "nodeType": "atomic",
+                  "atomicText": "Partner is pregnant",
+                  "omopTable": "observation",
+                  "strategy": "Patient-reported information about partner's pregnancy status, collected at screening.",
+                  "clinicalCategory": "demographics",
+                  "queryableStatus": "requires_manual",
+                  "clinicalConceptGroup": "partner_status"
+                },
+                {
+                  "nodeId": "1b2",
+                  "nodeType": "atomic",
+                  "atomicText": "Partner is breastfeeding",
+                  "omopTable": "observation",
+                  "strategy": "Patient-reported information about partner's breastfeeding status, collected at screening.",
+                  "clinicalCategory": "demographics",
+                  "queryableStatus": "requires_manual",
+                  "clinicalConceptGroup": "partner_status"
+                }
+              ]
+            }
+          ]
+        },
+        "requirement": {
+          "nodeId": "2",
+          "nodeType": "operator",
+          "operator": "OR",
+          "operands": [
+            {
+              "nodeId": "2a",
+              "nodeType": "atomic",
+              "atomicText": "Agrees to remain abstinent for the required duration",
+              "omopTable": "observation",
+              "timeConstraint": "Throughout the study period and for 6 months after the final study drug administration",
+              "strategy": "Confirmation of agreement documented in the informed consent form.",
+              "clinicalCategory": "safety_exclusion",
+              "queryableStatus": "screening_only",
+              "clinicalConceptGroup": "contraception_agreement"
+            },
+            {
+              "nodeId": "2b",
+              "nodeType": "atomic",
+              "atomicText": "Agrees to use a condom for the required duration",
+              "omopTable": "observation",
+              "timeConstraint": "Throughout the study period and for 6 months after the final study drug administration",
+              "strategy": "Confirmation of agreement documented in the informed consent form.",
+              "clinicalCategory": "safety_exclusion",
+              "queryableStatus": "screening_only",
+              "clinicalConceptGroup": "contraception_agreement"
+            }
+          ]
+        }
+      },
+      "sqlTemplate": "-- No operands in operator node",
+      "components": [
+        {
+          "atomicId": "1a",
+          "atomicText": "Subject is male",
+          "omopTable": "person",
+          "sql": "-- Unknown table: person\n-- Atomic text: Subject is male\n-- Requires manual SQL generation"
+        },
+        {
+          "atomicId": "1b1",
+          "atomicText": "Partner is pregnant",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "1b2",
+          "atomicText": "Partner is breastfeeding",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2a",
+          "atomicText": "Agrees to remain abstinent for the required duration",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2b",
+          "atomicText": "Agrees to use a condom for the required duration",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_10",
+      "type": "Inclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "AND",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "atomic",
+            "atomicText": "Histologically confirmed diagnosis",
+            "omopTable": "observation",
+            "strategy": "Ensures the diagnosis is confirmed by pathology, which is the gold standard.",
+            "clinicalCategory": "diagnostic_confirmation",
+            "queryableStatus": "requires_manual"
+          },
+          {
+            "nodeId": "2",
+            "nodeType": "operator",
+            "operator": "OR",
+            "operands": [
+              {
+                "nodeId": "2a",
+                "nodeType": "atomic",
+                "atomicText": "Gastric adenocarcinoma",
+                "omopTable": "condition_occurrence",
+                "strategy": "Identifies patients with the primary disease indication of stomach cancer.",
+                "clinicalCategory": "disease_indication",
+                "queryableStatus": "fully_queryable",
+                "clinicalConceptGroup": "gastric_or_gej_adenocarcinoma"
+              },
+              {
+                "nodeId": "2b",
+                "nodeType": "atomic",
+                "atomicText": "Gastroesophageal junction (GEJ) adenocarcinoma",
+                "omopTable": "condition_occurrence",
+                "strategy": "Identifies patients with the primary disease indication of cancer at the gastroesophageal junction.",
+                "clinicalCategory": "disease_indication",
+                "queryableStatus": "fully_queryable",
+                "clinicalConceptGroup": "gastric_or_gej_adenocarcinoma"
+              }
+            ]
+          }
+        ]
+      },
+      "sqlTemplate": "(SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nINTERSECT\n((SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)))",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Histologically confirmed diagnosis",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2a",
+          "atomicText": "Gastric adenocarcinoma",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2b",
+          "atomicText": "Gastroesophageal junction (GEJ) adenocarcinoma",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_11",
+      "type": "Inclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "1",
+        "nodeType": "temporal",
+        "temporalConstraint": {
+          "operator": "WITHIN",
+          "anchor": "randomization",
+          "value": 28,
+          "unit": "days"
+        },
+        "operand": {
+          "nodeId": "1a",
+          "nodeType": "operator",
+          "operator": "AND",
+          "operands": [
+            {
+              "nodeId": "1a1",
+              "nodeType": "atomic",
+              "atomicText": "Disease is radiologically confirmed",
+              "omopTable": "observation",
+              "timeConstraint": "within 28 days prior to randomization",
+              "timeFrameStructured": {
+                "value": 28,
+                "unit": "days",
+                "operator": "within",
+                "relativeEvent": "randomization"
+              },
+              "strategy": "Ensures the disease status is based on objective imaging evidence documented in a report.",
+              "clinicalCategory": "diagnostic_confirmation",
+              "queryableStatus": "requires_manual"
+            },
+            {
+              "nodeId": "1a2",
+              "nodeType": "operator",
+              "operator": "OR",
+              "operands": [
+                {
+                  "nodeId": "1a2a",
+                  "nodeType": "atomic",
+                  "atomicText": "Locally advanced unresectable disease",
+                  "omopTable": "condition_occurrence",
+                  "strategy": "Identifies patients with advanced disease that cannot be surgically removed, making them candidates for systemic therapy.",
+                  "clinicalCategory": "disease_indication",
+                  "queryableStatus": "fully_queryable",
+                  "clinicalConceptGroup": "advanced_unresectable_or_metastatic_disease"
+                },
+                {
+                  "nodeId": "1a2b",
+                  "nodeType": "atomic",
+                  "atomicText": "Metastatic disease",
+                  "omopTable": "condition_occurrence",
+                  "strategy": "Identifies patients whose cancer has spread to distant parts of the body, a key indication for systemic therapy.",
+                  "clinicalCategory": "disease_indication",
+                  "queryableStatus": "fully_queryable",
+                  "clinicalConceptGroup": "advanced_unresectable_or_metastatic_disease"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "sqlTemplate": "-- Temporal constraint: WITHIN 28 days of randomization\n-- Note: For complex nested operands, temporal filter applied at outer level\nWITH temporal_base AS (\n(SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)\n  AND o.observation_date >= @reference_date - INTERVAL '28 days')\nINTERSECT\n((SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)))\n)\nSELECT DISTINCT person_id\nFROM temporal_base\nWHERE EXISTS (\n    -- Verify temporal constraint is met\n    -- This requires joining back to source table with date filtering\n    SELECT 1 WHERE @randomization BETWEEN @randomization - INTERVAL '28 days' AND @randomization + INTERVAL '28 days'\n)",
+      "components": [
+        {
+          "atomicId": "1a1",
+          "atomicText": "Disease is radiologically confirmed",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)\n  AND o.observation_date >= @reference_date - INTERVAL '28 days'"
+        },
+        {
+          "atomicId": "1a2a",
+          "atomicText": "Locally advanced unresectable disease",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "1a2b",
+          "atomicText": "Metastatic disease",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_12",
+      "type": "Inclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "AND",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "temporal",
+            "temporalConstraint": {
+              "operator": "WITHIN",
+              "anchor": "randomization",
+              "value": 28,
+              "unit": "days"
+            },
+            "operand": {
+              "nodeId": "1a",
+              "nodeType": "atomic",
+              "atomicText": "Radiologically evaluable disease (measurable and/or non-measurable disease according to RECIST 1.1), per local assessment",
+              "omopTable": "observation",
+              "timeConstraint": "\u2264 28 days prior to randomization",
+              "timeFrameStructured": {
+                "value": 28,
+                "unit": "days",
+                "operator": "within",
+                "relativeEvent": "randomization"
+              },
+              "strategy": "Confirm presence of evaluable disease via imaging assessment close to the randomization date.",
+              "clinicalCategory": "diagnostic_confirmation",
+              "queryableStatus": "requires_manual"
+            }
+          },
+          {
+            "nodeId": "2",
+            "nodeType": "operator",
+            "operator": "IMPLICATION",
+            "condition": {
+              "nodeId": "2_condition",
+              "nodeType": "operator",
+              "operator": "AND",
+              "operands": [
+                {
+                  "nodeId": "2a",
+                  "nodeType": "atomic",
+                  "atomicText": "Subject has only 1 evaluable lesion",
+                  "omopTable": "observation",
+                  "strategy": "Identify subjects with a single site of evaluable disease, who may have had localized therapy.",
+                  "clinicalCategory": "disease_indication",
+                  "queryableStatus": "requires_manual"
+                },
+                {
+                  "nodeId": "2b",
+                  "nodeType": "temporal",
+                  "temporalConstraint": {
+                    "operator": "WITHIN",
+                    "anchor": "randomization",
+                    "value": 3,
+                    "unit": "months"
+                  },
+                  "operand": {
+                    "nodeId": "2b1",
+                    "nodeType": "atomic",
+                    "atomicText": "History of radiotherapy",
+                    "omopTable": "procedure_occurrence",
+                    "timeConstraint": "\u2264 3 months before randomization",
+                    "timeFrameStructured": {
+                      "value": 3,
+                      "unit": "months",
+                      "operator": "within",
+                      "relativeEvent": "randomization"
+                    },
+                    "strategy": "Identify subjects who received radiotherapy recently, which could affect the interpretation of the single lesion.",
+                    "clinicalCategory": "prior_therapy",
+                    "queryableStatus": "fully_queryable"
+                  }
+                }
+              ]
+            },
+            "requirement": {
+              "nodeId": "2_requirement",
+              "nodeType": "operator",
+              "operator": "OR",
+              "operands": [
+                {
+                  "nodeId": "2c",
+                  "nodeType": "atomic",
+                  "atomicText": "The evaluable lesion is outside the field of prior radiotherapy",
+                  "omopTable": "observation",
+                  "strategy": "Ensure the single lesion was not the target of the recent radiotherapy, making it evaluable for trial purposes.",
+                  "clinicalCategory": "diagnostic_confirmation",
+                  "queryableStatus": "requires_manual"
+                },
+                {
+                  "nodeId": "2d",
+                  "nodeType": "atomic",
+                  "atomicText": "The evaluable lesion has documented progression following radiation therapy",
+                  "omopTable": "observation",
+                  "strategy": "Confirm that if the lesion was irradiated, it has since clearly progressed, making it a valid site of active disease.",
+                  "clinicalCategory": "prior_therapy",
+                  "queryableStatus": "requires_manual"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "sqlTemplate": "-- No valid SQL from operands",
+      "components": [
+        {
+          "atomicId": "1a",
+          "atomicText": "Radiologically evaluable disease (measurable and/or non-measurable disease according to RECIST 1.1), per local assessment",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT p.person_id\nFROM person p\nWHERE p.gender_concept_id = 8507  -- MALE"
+        },
+        {
+          "atomicId": "2a",
+          "atomicText": "Subject has only 1 evaluable lesion",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2b1",
+          "atomicText": "History of radiotherapy",
+          "omopTable": "procedure_occurrence",
+          "sql": "SELECT DISTINCT po.person_id\nFROM procedure_occurrence po\nWHERE po.procedure_concept_id IN (/* UNMAPPED - requires manual concept selection */)\n  AND po.procedure_date >= @reference_date - INTERVAL '3 months'"
+        },
+        {
+          "atomicId": "2c",
+          "atomicText": "The evaluable lesion is outside the field of prior radiotherapy",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2d",
+          "atomicText": "The evaluable lesion has documented progression following radiation therapy",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT p.person_id\nFROM person p\nWHERE p.gender_concept_id = 8507  -- MALE"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_13",
+      "type": "Inclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "AND",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "atomic",
+            "atomicText": "Tumor expresses CLDN18.2",
+            "omopTable": "measurement",
+            "valueConstraint": "Positive",
+            "strategy": "Identifies the required target biomarker (Claudin 18.2) for the therapeutic agent.",
+            "clinicalCategory": "biomarker",
+            "queryableStatus": "requires_manual",
+            "clinicalConceptGroup": "cldn18_2_status"
+          },
+          {
+            "nodeId": "2",
+            "nodeType": "atomic",
+            "atomicText": "CLDN18.2 expression in >= 75% of tumor cells",
+            "omopTable": "measurement",
+            "numericConstraintStructured": {
+              "value": 75,
+              "operator": ">=",
+              "unit": "%",
+              "parameter": "CLDN18.2 positive tumor cells"
+            },
+            "strategy": "Sets the quantitative threshold for the percentage of tumor cells that must express the biomarker.",
+            "clinicalCategory": "biomarker",
+            "queryableStatus": "requires_manual",
+            "clinicalConceptGroup": "cldn18_2_status"
+          },
+          {
+            "nodeId": "3",
+            "nodeType": "atomic",
+            "atomicText": "CLDN18.2 demonstrates moderate to strong membranous staining",
+            "omopTable": "measurement",
+            "valueConstraint": "staining intensity in ['moderate', 'strong'] and location is 'membranous'",
+            "strategy": "Defines the required qualitative intensity and cellular location of the biomarker staining for eligibility.",
+            "clinicalCategory": "biomarker",
+            "queryableStatus": "requires_manual",
+            "clinicalConceptGroup": "cldn18_2_status"
+          },
+          {
+            "nodeId": "4",
+            "nodeType": "atomic",
+            "atomicText": "CLDN18.2 status determined by central IHC testing",
+            "omopTable": "observation",
+            "strategy": "Ensures the reliability and standardization of the biomarker assessment by mandating it be performed by a central laboratory using an Immunohistochemistry (IHC) assay.",
+            "clinicalCategory": "diagnostic_confirmation",
+            "queryableStatus": "requires_manual",
+            "clinicalConceptGroup": "cldn18_2_status"
+          }
+        ]
+      },
+      "sqlTemplate": "(SELECT DISTINCT m.person_id\nFROM measurement m\nWHERE m.measurement_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nINTERSECT\n(SELECT DISTINCT m.person_id\nFROM measurement m\nWHERE m.measurement_concept_id IN (/* UNMAPPED - requires manual concept selection */)\n  AND m.value_as_number >= 75)\nINTERSECT\n(SELECT DISTINCT m.person_id\nFROM measurement m\nWHERE m.measurement_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nINTERSECT\n(SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */))",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Tumor expresses CLDN18.2",
+          "omopTable": "measurement",
+          "sql": "SELECT DISTINCT m.person_id\nFROM measurement m\nWHERE m.measurement_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2",
+          "atomicText": "CLDN18.2 expression in >= 75% of tumor cells",
+          "omopTable": "measurement",
+          "sql": "SELECT DISTINCT m.person_id\nFROM measurement m\nWHERE m.measurement_concept_id IN (/* UNMAPPED - requires manual concept selection */)\n  AND m.value_as_number >= 75"
+        },
+        {
+          "atomicId": "3",
+          "atomicText": "CLDN18.2 demonstrates moderate to strong membranous staining",
+          "omopTable": "measurement",
+          "sql": "SELECT DISTINCT m.person_id\nFROM measurement m\nWHERE m.measurement_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "4",
+          "atomicText": "CLDN18.2 status determined by central IHC testing",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_14",
+      "type": "Inclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "AND",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "atomic",
+            "atomicText": "HER2-negative tumor status",
+            "omopTable": "measurement",
+            "valueConstraint": "Result is 'Negative' or equivalent concept for HER2 test",
+            "strategy": "Identifies patients whose tumor has been tested and found to be negative for HER2 overexpression or gene amplification.",
+            "clinicalCategory": "biomarker",
+            "queryableStatus": "fully_queryable",
+            "clinicalConceptGroup": "her2_status"
+          },
+          {
+            "nodeId": "2",
+            "nodeType": "operator",
+            "operator": "OR",
+            "operands": [
+              {
+                "nodeId": "2a",
+                "nodeType": "atomic",
+                "atomicText": "Gastric tumor",
+                "omopTable": "condition_occurrence",
+                "strategy": "Confirms the primary disease is gastric cancer.",
+                "clinicalCategory": "disease_indication",
+                "queryableStatus": "fully_queryable",
+                "clinicalConceptGroup": "primary_tumor_location"
+              },
+              {
+                "nodeId": "2b",
+                "nodeType": "atomic",
+                "atomicText": "Gastroesophageal junction (GEJ) tumor",
+                "omopTable": "condition_occurrence",
+                "strategy": "Confirms the primary disease is gastroesophageal junction cancer.",
+                "clinicalCategory": "disease_indication",
+                "queryableStatus": "fully_queryable",
+                "clinicalConceptGroup": "primary_tumor_location"
+              }
+            ]
+          },
+          {
+            "nodeId": "3",
+            "nodeType": "atomic",
+            "atomicText": "HER2 status determined on a tumor specimen by local or central testing",
+            "omopTable": "observation",
+            "strategy": "Ensures the HER2 status is documented from a formal laboratory assessment on an appropriate tissue sample.",
+            "clinicalCategory": "diagnostic_confirmation",
+            "queryableStatus": "partially_queryable"
+          }
+        ]
+      },
+      "sqlTemplate": "(SELECT DISTINCT m.person_id\nFROM measurement m\nWHERE m.measurement_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nINTERSECT\n((SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)))\nINTERSECT\n(SELECT DISTINCT p.person_id\nFROM person p\nWHERE p.gender_concept_id = 8507  -- MALE)",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "HER2-negative tumor status",
+          "omopTable": "measurement",
+          "sql": "SELECT DISTINCT m.person_id\nFROM measurement m\nWHERE m.measurement_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2a",
+          "atomicText": "Gastric tumor",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2b",
+          "atomicText": "Gastroesophageal junction (GEJ) tumor",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "3",
+          "atomicText": "HER2 status determined on a tumor specimen by local or central testing",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT p.person_id\nFROM person p\nWHERE p.gender_concept_id = 8507  -- MALE"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_15",
+      "type": "Inclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "1",
+        "nodeType": "atomic",
+        "atomicText": "ECOG performance status 0-1",
+        "omopTable": "observation",
+        "numericRangeStructured": {
+          "min": 0,
+          "max": 1,
+          "unit": "",
+          "parameter": "ECOG performance status"
+        },
+        "strategy": "This assesses the subject's functional capacity and ability to perform daily activities. A score of 0-1 indicates the subject is fully active or restricted in strenuous activity but ambulatory.",
+        "clinicalCategory": "performance_status",
+        "queryableStatus": "fully_queryable"
+      },
+      "sqlTemplate": "SELECT DISTINCT p.person_id\nFROM person p\nWHERE p.gender_concept_id = 8507  -- MALE",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "ECOG performance status 0-1",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT p.person_id\nFROM person p\nWHERE p.gender_concept_id = 8507  -- MALE"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_16",
+      "type": "Inclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "1",
+        "nodeType": "atomic",
+        "atomicText": "Predicted life expectancy \u2265 12 weeks in the opinion of the investigator",
+        "omopTable": "observation",
+        "numericConstraintStructured": {
+          "value": 12,
+          "operator": ">=",
+          "unit": "weeks",
+          "parameter": "predicted life expectancy"
+        },
+        "strategy": "This is a subjective assessment by the investigator to ensure the subject is likely to survive long enough to be evaluated for the trial's endpoints. It is not directly queryable from structured data.",
+        "clinicalCategory": "performance_status",
+        "queryableStatus": "requires_manual"
+      },
+      "sqlTemplate": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Predicted life expectancy \u2265 12 weeks in the opinion of the investigator",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "INC_17",
+      "type": "Inclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "temporal",
+        "temporalConstraint": {
+          "operator": "WITHIN",
+          "anchor": "randomization",
+          "value": 14,
+          "unit": "days"
+        },
+        "operand": {
+          "nodeId": "root_a",
+          "nodeType": "atomic",
+          "atomicText": "Required laboratory tests for eligibility assessment collected",
+          "omopTable": "measurement",
+          "strategy": "This is a meta-criterion that sets the time window for all subsequent lab-based criteria. It also specifies a procedural rule: if multiple samples were collected in this period, the most recent one with available results must be used for eligibility determination.",
+          "clinicalCategory": "diagnostic_confirmation",
+          "queryableStatus": "partially_queryable"
+        }
+      },
+      "sqlTemplate": "-- Temporal: WITHIN 14 days of randomization\nSELECT DISTINCT m.person_id\nFROM measurement m\nWHERE m.measurement_concept_id IN (/* UNMAPPED - requires manual concept selection */)\n  AND m.measurement_date BETWEEN @randomization - INTERVAL '14 days' AND @randomization + INTERVAL '14 days'",
+      "components": [
+        {
+          "atomicId": "root_a",
+          "atomicText": "Required laboratory tests for eligibility assessment collected",
+          "omopTable": "measurement",
+          "sql": "SELECT DISTINCT m.person_id\nFROM measurement m\nWHERE m.measurement_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_1",
+      "type": "Exclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "AND",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "atomic",
+            "atomicText": "Received prior systemic chemotherapy for locally advanced unresectable or metastatic gastric or GEJ adenocarcinoma",
+            "omopTable": "drug_exposure",
+            "strategy": "Identifies patients who have received at least one line of systemic chemotherapy for the advanced/metastatic disease setting, establishing them as eligible for a subsequent line of therapy.",
+            "clinicalCategory": "prior_therapy",
+            "queryableStatus": "partially_queryable"
+          },
+          {
+            "nodeId": "2",
+            "nodeType": "operator",
+            "operator": "IMPLICATION",
+            "condition": {
+              "nodeId": "2a",
+              "nodeType": "operator",
+              "operator": "OR",
+              "operands": [
+                {
+                  "nodeId": "2a1",
+                  "nodeType": "atomic",
+                  "atomicText": "Received neo-adjuvant or adjuvant chemotherapy",
+                  "omopTable": "drug_exposure",
+                  "strategy": "Identifies prior therapy in the curative-intent (neo-adjuvant/adjuvant) setting.",
+                  "clinicalCategory": "prior_therapy",
+                  "queryableStatus": "partially_queryable",
+                  "clinicalConceptGroup": "prior_systemic_therapy"
+                },
+                {
+                  "nodeId": "2a2",
+                  "nodeType": "atomic",
+                  "atomicText": "Received immunotherapy",
+                  "omopTable": "drug_exposure",
+                  "strategy": "Identifies prior immunotherapy.",
+                  "clinicalCategory": "prior_therapy",
+                  "queryableStatus": "fully_queryable",
+                  "clinicalConceptGroup": "prior_systemic_therapy"
+                },
+                {
+                  "nodeId": "2a3",
+                  "nodeType": "atomic",
+                  "atomicText": "Received other systemic anticancer therapies",
+                  "omopTable": "drug_exposure",
+                  "strategy": "Identifies any other prior systemic treatments not otherwise specified.",
+                  "clinicalCategory": "prior_therapy",
+                  "queryableStatus": "partially_queryable",
+                  "clinicalConceptGroup": "prior_systemic_therapy"
+                }
+              ]
+            },
+            "requirement": {
+              "nodeId": "2b",
+              "nodeType": "operator",
+              "operator": "NOT",
+              "operands": [
+                {
+                  "nodeId": "2b1",
+                  "nodeType": "temporal",
+                  "temporalConstraint": {
+                    "operator": "WITHIN",
+                    "anchor": "randomization",
+                    "value": 6,
+                    "unit": "months"
+                  },
+                  "operand": {
+                    "nodeId": "2b1a",
+                    "nodeType": "atomic",
+                    "atomicText": "Completion of neo-adjuvant/adjuvant chemotherapy, immunotherapy, or other systemic anticancer therapy",
+                    "omopTable": "observation",
+                    "strategy": "Ensures a sufficient washout period from prior systemic therapies received in a non-metastatic setting to avoid confounding effects.",
+                    "clinicalCategory": "prior_therapy",
+                    "queryableStatus": "partially_queryable"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "nodeId": "3",
+            "nodeType": "operator",
+            "operator": "IMPLICATION",
+            "condition": {
+              "nodeId": "3a",
+              "nodeType": "atomic",
+              "atomicText": "Received treatment with herbal medications that have known antitumor activity",
+              "omopTable": "drug_exposure",
+              "strategy": "Identifies use of herbal medications with potential anticancer properties.",
+              "clinicalCategory": "prior_therapy",
+              "queryableStatus": "requires_manual"
+            },
+            "requirement": {
+              "nodeId": "3b",
+              "nodeType": "operator",
+              "operator": "NOT",
+              "operands": [
+                {
+                  "nodeId": "3b1",
+                  "nodeType": "temporal",
+                  "temporalConstraint": {
+                    "operator": "WITHIN",
+                    "anchor": "randomization",
+                    "value": 28,
+                    "unit": "days"
+                  },
+                  "operand": {
+                    "nodeId": "3b1a",
+                    "nodeType": "atomic",
+                    "atomicText": "Completion of treatment with herbal medications with known antitumor activity",
+                    "omopTable": "observation",
+                    "strategy": "Ensures a sufficient washout period from herbal medications to avoid potential drug interactions or confounding biological effects.",
+                    "clinicalCategory": "prior_therapy",
+                    "queryableStatus": "requires_manual"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "sqlTemplate": "-- EXCLUSION: Exclude patients matching this criterion\nSELECT person_id FROM person\nWHERE person_id NOT IN (\nSELECT DISTINCT de.person_id\nFROM drug_exposure de\nWHERE de.drug_concept_id IN (/* UNMAPPED - requires manual concept selection */)\n)",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Received prior systemic chemotherapy for locally advanced unresectable or metastatic gastric or GEJ adenocarcinoma",
+          "omopTable": "drug_exposure",
+          "sql": "SELECT DISTINCT de.person_id\nFROM drug_exposure de\nWHERE de.drug_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2a1",
+          "atomicText": "Received neo-adjuvant or adjuvant chemotherapy",
+          "omopTable": "drug_exposure",
+          "sql": "SELECT DISTINCT de.person_id\nFROM drug_exposure de\nWHERE de.drug_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2a2",
+          "atomicText": "Received immunotherapy",
+          "omopTable": "drug_exposure",
+          "sql": "SELECT DISTINCT de.person_id\nFROM drug_exposure de\nWHERE de.drug_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2a3",
+          "atomicText": "Received other systemic anticancer therapies",
+          "omopTable": "drug_exposure",
+          "sql": "SELECT DISTINCT de.person_id\nFROM drug_exposure de\nWHERE de.drug_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2b1a",
+          "atomicText": "Completion of neo-adjuvant/adjuvant chemotherapy, immunotherapy, or other systemic anticancer therapy",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "3a",
+          "atomicText": "Received treatment with herbal medications that have known antitumor activity",
+          "omopTable": "drug_exposure",
+          "sql": "SELECT DISTINCT de.person_id\nFROM drug_exposure de\nWHERE de.drug_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "3b1a",
+          "atomicText": "Completion of treatment with herbal medications with known antitumor activity",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT p.person_id\nFROM person p\nWHERE p.gender_concept_id = 8507  -- MALE"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_2",
+      "type": "Exclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "AND",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "temporal",
+            "temporalConstraint": {
+              "operator": "WITHIN",
+              "anchor": "randomization",
+              "value": 14,
+              "unit": "days"
+            },
+            "operand": {
+              "nodeId": "1a",
+              "nodeType": "atomic",
+              "atomicText": "Received radiotherapy",
+              "omopTable": "procedure_occurrence",
+              "strategy": "Identifies patients who have undergone radiotherapy. The timeframe is constrained by the parent temporal node.",
+              "clinicalCategory": "prior_therapy",
+              "queryableStatus": "fully_queryable"
+            }
+          },
+          {
+            "nodeId": "2a",
+            "nodeType": "operator",
+            "operator": "OR",
+            "operands": [
+              {
+                "nodeId": "2a1",
+                "nodeType": "atomic",
+                "atomicText": "Diagnosis of gastric adenocarcinoma",
+                "omopTable": "condition_occurrence",
+                "strategy": "Identifies the primary tumor location as gastric cancer.",
+                "clinicalCategory": "disease_indication",
+                "queryableStatus": "fully_queryable",
+                "clinicalConceptGroup": "gastric_gej_adenocarcinoma"
+              },
+              {
+                "nodeId": "2a2",
+                "nodeType": "atomic",
+                "atomicText": "Diagnosis of gastroesophageal junction (GEJ) adenocarcinoma",
+                "omopTable": "condition_occurrence",
+                "strategy": "Identifies the primary tumor location as GEJ cancer.",
+                "clinicalCategory": "disease_indication",
+                "queryableStatus": "fully_queryable",
+                "clinicalConceptGroup": "gastric_gej_adenocarcinoma"
+              }
+            ]
+          },
+          {
+            "nodeId": "2b",
+            "nodeType": "operator",
+            "operator": "OR",
+            "operands": [
+              {
+                "nodeId": "2b1",
+                "nodeType": "atomic",
+                "atomicText": "Disease is locally advanced unresectable",
+                "omopTable": "observation",
+                "strategy": "Identifies patients with disease that is advanced but not yet spread to distant sites and cannot be surgically removed.",
+                "clinicalCategory": "disease_indication",
+                "queryableStatus": "partially_queryable",
+                "clinicalConceptGroup": "disease_stage_unresectable_metastatic"
+              },
+              {
+                "nodeId": "2b2",
+                "nodeType": "atomic",
+                "atomicText": "Disease is metastatic",
+                "omopTable": "condition_occurrence",
+                "strategy": "Identifies patients whose cancer has spread to distant parts of the body.",
+                "clinicalCategory": "disease_indication",
+                "queryableStatus": "fully_queryable",
+                "clinicalConceptGroup": "disease_stage_unresectable_metastatic"
+              }
+            ]
+          },
+          {
+            "nodeId": "3",
+            "nodeType": "operator",
+            "operator": "NOT",
+            "operands": [
+              {
+                "nodeId": "3a",
+                "nodeType": "atomic",
+                "atomicText": "Recovered from radiotherapy-related toxicity",
+                "omopTable": "observation",
+                "strategy": "Identifies the resolution of adverse events related to radiotherapy. The parent NOT operator ensures the patient has not recovered.",
+                "clinicalCategory": "safety_exclusion",
+                "queryableStatus": "requires_manual"
+              }
+            ]
+          }
+        ]
+      },
+      "sqlTemplate": "-- EXCLUSION: Exclude patients matching this criterion\nSELECT person_id FROM person\nWHERE person_id NOT IN (\n((SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)))\nINTERSECT\n((SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)))\nINTERSECT\n(SELECT person_id FROM person\nEXCEPT\n(SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)))\n)",
+      "components": [
+        {
+          "atomicId": "1a",
+          "atomicText": "Received radiotherapy",
+          "omopTable": "procedure_occurrence",
+          "sql": "SELECT DISTINCT po.person_id\nFROM procedure_occurrence po\nWHERE po.procedure_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2a1",
+          "atomicText": "Diagnosis of gastric adenocarcinoma",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2a2",
+          "atomicText": "Diagnosis of gastroesophageal junction (GEJ) adenocarcinoma",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2b1",
+          "atomicText": "Disease is locally advanced unresectable",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2b2",
+          "atomicText": "Disease is metastatic",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "3a",
+          "atomicText": "Recovered from radiotherapy-related toxicity",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_3",
+      "type": "Exclusion",
+      "logicOperator": "EXCEPT",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "EXCEPT",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "temporal",
+            "temporalConstraint": {
+              "operator": "WITHIN",
+              "anchor": "randomization",
+              "value": 14,
+              "unit": "days"
+            },
+            "operand": {
+              "nodeId": "1a",
+              "nodeType": "operator",
+              "operator": "OR",
+              "operands": [
+                {
+                  "nodeId": "1a1",
+                  "nodeType": "atomic",
+                  "atomicText": "Received systemic immunosuppressive therapy",
+                  "omopTable": "drug_exposure",
+                  "strategy": "Identifies subjects who have received any systemic immunosuppressive agents.",
+                  "clinicalCategory": "prior_therapy",
+                  "queryableStatus": "fully_queryable",
+                  "clinicalConceptGroup": "systemic_immunosuppression"
+                },
+                {
+                  "nodeId": "1a2",
+                  "nodeType": "atomic",
+                  "atomicText": "Received systemic corticosteroids",
+                  "omopTable": "drug_exposure",
+                  "strategy": "Identifies subjects who have received systemic corticosteroids, which are explicitly included in the exclusion.",
+                  "clinicalCategory": "prior_therapy",
+                  "queryableStatus": "fully_queryable",
+                  "clinicalConceptGroup": "systemic_immunosuppression"
+                }
+              ]
+            }
+          },
+          {
+            "nodeId": "2",
+            "nodeType": "operator",
+            "operator": "OR",
+            "operands": [
+              {
+                "nodeId": "2a1",
+                "nodeType": "atomic",
+                "atomicText": "Received hydrocortisone at a physiologic replacement dose up to 30 mg/day",
+                "omopTable": "drug_exposure",
+                "numericConstraintStructured": {
+                  "value": 30,
+                  "operator": "<=",
+                  "unit": "mg/day",
+                  "parameter": "hydrocortisone daily dose"
+                },
+                "strategy": "Checks for allowed use of hydrocortisone at a low, physiologic dose.",
+                "clinicalCategory": "prior_therapy",
+                "queryableStatus": "partially_queryable",
+                "clinicalConceptGroup": "physiologic_steroid_dose"
+              },
+              {
+                "nodeId": "2a2",
+                "nodeType": "atomic",
+                "atomicText": "Received prednisone at a physiologic replacement dose up to 10 mg/day",
+                "omopTable": "drug_exposure",
+                "numericConstraintStructured": {
+                  "value": 10,
+                  "operator": "<=",
+                  "unit": "mg/day",
+                  "parameter": "prednisone daily dose"
+                },
+                "strategy": "Checks for allowed use of prednisone (or equivalent) at a low, physiologic dose.",
+                "clinicalCategory": "prior_therapy",
+                "queryableStatus": "partially_queryable",
+                "clinicalConceptGroup": "physiologic_steroid_dose"
+              },
+              {
+                "nodeId": "2b",
+                "nodeType": "atomic",
+                "atomicText": "Received a single dose of systemic corticosteroids",
+                "omopTable": "drug_exposure",
+                "strategy": "Checks for allowed use of a one-time systemic corticosteroid dose.",
+                "clinicalCategory": "prior_therapy",
+                "queryableStatus": "partially_queryable"
+              },
+              {
+                "nodeId": "2c",
+                "nodeType": "atomic",
+                "atomicText": "Received systemic corticosteroids as premedication for radiologic imaging contrast use",
+                "omopTable": "drug_exposure",
+                "strategy": "Checks for allowed use of corticosteroids specifically for contrast premedication, which requires linking drug administration to a procedure.",
+                "clinicalCategory": "prior_therapy",
+                "queryableStatus": "requires_manual"
+              }
+            ]
+          }
+        ]
+      },
+      "sqlTemplate": "-- EXCEPT operator requires exactly 2 operands",
+      "components": [
+        {
+          "atomicId": "1a1",
+          "atomicText": "Received systemic immunosuppressive therapy",
+          "omopTable": "drug_exposure",
+          "sql": "SELECT DISTINCT de.person_id\nFROM drug_exposure de\nWHERE de.drug_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "1a2",
+          "atomicText": "Received systemic corticosteroids",
+          "omopTable": "drug_exposure",
+          "sql": "SELECT DISTINCT de.person_id\nFROM drug_exposure de\nWHERE de.drug_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2a1",
+          "atomicText": "Received hydrocortisone at a physiologic replacement dose up to 30 mg/day",
+          "omopTable": "drug_exposure",
+          "sql": "SELECT DISTINCT de.person_id\nFROM drug_exposure de\nWHERE de.drug_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2a2",
+          "atomicText": "Received prednisone at a physiologic replacement dose up to 10 mg/day",
+          "omopTable": "drug_exposure",
+          "sql": "SELECT DISTINCT de.person_id\nFROM drug_exposure de\nWHERE de.drug_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2b",
+          "atomicText": "Received a single dose of systemic corticosteroids",
+          "omopTable": "drug_exposure",
+          "sql": "SELECT DISTINCT de.person_id\nFROM drug_exposure de\nWHERE de.drug_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2c",
+          "atomicText": "Received systemic corticosteroids as premedication for radiologic imaging contrast use",
+          "omopTable": "drug_exposure",
+          "sql": "SELECT DISTINCT de.person_id\nFROM drug_exposure de\nWHERE de.drug_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_4",
+      "type": "Exclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "1",
+        "nodeType": "temporal",
+        "temporalConstraint": {
+          "operator": "WITHIN",
+          "anchor": "randomization",
+          "value": 28,
+          "unit": "days"
+        },
+        "operand": {
+          "nodeId": "1a",
+          "nodeType": "operator",
+          "operator": "OR",
+          "operands": [
+            {
+              "nodeId": "1a1",
+              "nodeType": "atomic",
+              "atomicText": "Received other investigational agents",
+              "omopTable": "drug_exposure",
+              "strategy": "Checks for exposure to investigational drugs to prevent confounding effects from other trials.",
+              "clinicalCategory": "prior_therapy",
+              "queryableStatus": "partially_queryable",
+              "clinicalConceptGroup": "investigational_product_exposure"
+            },
+            {
+              "nodeId": "1a2",
+              "nodeType": "atomic",
+              "atomicText": "Received other investigational devices",
+              "omopTable": "device_exposure",
+              "strategy": "Checks for exposure to investigational devices to prevent confounding effects from other trials.",
+              "clinicalCategory": "prior_therapy",
+              "queryableStatus": "partially_queryable",
+              "clinicalConceptGroup": "investigational_product_exposure"
+            }
+          ]
+        }
+      },
+      "sqlTemplate": "-- Temporal constraint: WITHIN 28 days of randomization\n-- Note: For complex nested operands, temporal filter applied at outer level\nWITH temporal_base AS (\n(SELECT DISTINCT de.person_id\nFROM drug_exposure de\nWHERE de.drug_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT de.person_id\nFROM device_exposure de\nWHERE de.device_concept_id IN (/* UNMAPPED - requires manual concept selection */))\n)\nSELECT DISTINCT person_id\nFROM temporal_base\nWHERE EXISTS (\n    -- Verify temporal constraint is met\n    -- This requires joining back to source table with date filtering\n    SELECT 1 WHERE @randomization BETWEEN @randomization - INTERVAL '28 days' AND @randomization + INTERVAL '28 days'\n)",
+      "components": [
+        {
+          "atomicId": "1a1",
+          "atomicText": "Received other investigational agents",
+          "omopTable": "drug_exposure",
+          "sql": "SELECT DISTINCT de.person_id\nFROM drug_exposure de\nWHERE de.drug_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "1a2",
+          "atomicText": "Received other investigational devices",
+          "omopTable": "device_exposure",
+          "sql": "SELECT DISTINCT de.person_id\nFROM device_exposure de\nWHERE de.device_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_5",
+      "type": "Exclusion",
+      "logicOperator": "OR",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "OR",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "atomic",
+            "atomicText": "Prior severe allergic reaction or intolerance to known ingredients of zolbetuximab",
+            "omopTable": "observation",
+            "strategy": "Checks for specific contraindications to the study drug or its components based on documented prior hypersensitivity.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "requires_manual",
+            "clinicalConceptGroup": "zolbetuximab_hypersensitivity"
+          },
+          {
+            "nodeId": "2",
+            "nodeType": "atomic",
+            "atomicText": "Prior severe allergic reaction or intolerance to other monoclonal antibodies",
+            "omopTable": "observation",
+            "strategy": "Checks for hypersensitivity to the general class of monoclonal antibodies, which may predict a reaction to zolbetuximab.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "partially_queryable",
+            "clinicalConceptGroup": "mab_hypersensitivity"
+          },
+          {
+            "nodeId": "3",
+            "nodeType": "atomic",
+            "atomicText": "Prior severe allergic reaction or intolerance to humanized antibodies",
+            "omopTable": "observation",
+            "strategy": "Checks for hypersensitivity to humanized antibodies, a specific subclass of monoclonal antibodies mentioned for clarity.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "partially_queryable",
+            "clinicalConceptGroup": "mab_hypersensitivity"
+          },
+          {
+            "nodeId": "4",
+            "nodeType": "atomic",
+            "atomicText": "Prior severe allergic reaction or intolerance to chimeric antibodies",
+            "omopTable": "observation",
+            "strategy": "Checks for hypersensitivity to chimeric antibodies, another specific subclass of monoclonal antibodies mentioned for clarity.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "partially_queryable",
+            "clinicalConceptGroup": "mab_hypersensitivity"
+          }
+        ]
+      },
+      "sqlTemplate": "-- EXCLUSION: Exclude patients matching this criterion\nSELECT person_id FROM person\nWHERE person_id NOT IN (\n(SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT p.person_id\nFROM person p\nWHERE p.gender_concept_id = 8507  -- MALE)\nUNION\n(SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */))\n)",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Prior severe allergic reaction or intolerance to known ingredients of zolbetuximab",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2",
+          "atomicText": "Prior severe allergic reaction or intolerance to other monoclonal antibodies",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "3",
+          "atomicText": "Prior severe allergic reaction or intolerance to humanized antibodies",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT p.person_id\nFROM person p\nWHERE p.gender_concept_id = 8507  -- MALE"
+        },
+        {
+          "atomicId": "4",
+          "atomicText": "Prior severe allergic reaction or intolerance to chimeric antibodies",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_6",
+      "type": "Exclusion",
+      "logicOperator": "OR",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "OR",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "atomic",
+            "atomicText": "Known immediate hypersensitivity to any component of study treatment",
+            "omopTable": "condition_occurrence",
+            "strategy": "Identifies subjects with a known history of immediate allergic reactions to the study drug or its components to prevent severe adverse events.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "requires_manual",
+            "clinicalConceptGroup": "drug_allergy_intolerance_contraindication"
+          },
+          {
+            "nodeId": "2",
+            "nodeType": "atomic",
+            "atomicText": "Known delayed hypersensitivity to any component of study treatment",
+            "omopTable": "condition_occurrence",
+            "strategy": "Identifies subjects with a known history of delayed allergic reactions to the study drug or its components to prevent adverse events.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "requires_manual",
+            "clinicalConceptGroup": "drug_allergy_intolerance_contraindication"
+          },
+          {
+            "nodeId": "3",
+            "nodeType": "atomic",
+            "atomicText": "Known intolerance to any component of study treatment",
+            "omopTable": "condition_occurrence",
+            "strategy": "Identifies subjects who cannot tolerate the study drug due to non-allergic adverse effects, ensuring patient safety and treatment compliance.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "requires_manual",
+            "clinicalConceptGroup": "drug_allergy_intolerance_contraindication"
+          },
+          {
+            "nodeId": "4",
+            "nodeType": "atomic",
+            "atomicText": "Known contraindication to any component of study treatment",
+            "omopTable": "condition_occurrence",
+            "strategy": "Identifies subjects with pre-existing conditions or factors that make administration of the study drug unsafe.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "requires_manual",
+            "clinicalConceptGroup": "drug_allergy_intolerance_contraindication"
+          }
+        ]
+      },
+      "sqlTemplate": "-- EXCLUSION: Exclude patients matching this criterion\nSELECT person_id FROM person\nWHERE person_id NOT IN (\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\n)",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Known immediate hypersensitivity to any component of study treatment",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2",
+          "atomicText": "Known delayed hypersensitivity to any component of study treatment",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "3",
+          "atomicText": "Known intolerance to any component of study treatment",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "4",
+          "atomicText": "Known contraindication to any component of study treatment",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_7",
+      "type": "Exclusion",
+      "logicOperator": "OR",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "OR",
+        "operands": [
+          {
+            "nodeId": "1a",
+            "nodeType": "atomic",
+            "atomicText": "Prior severe allergic reaction to Leucovorin",
+            "omopTable": "condition_occurrence",
+            "timeConstraint": "prior",
+            "strategy": "Identifies a history of severe allergy to Leucovorin (folinic acid), a component of the mFOLFOX6 regimen.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "partially_queryable",
+            "clinicalConceptGroup": "mfolfox6_leucovorin_contraindication"
+          },
+          {
+            "nodeId": "1b",
+            "nodeType": "atomic",
+            "atomicText": "Prior severe allergic reaction to Fluorouracil",
+            "omopTable": "condition_occurrence",
+            "timeConstraint": "prior",
+            "strategy": "Identifies a history of severe allergy to Fluorouracil (5-FU), a component of the mFOLFOX6 regimen.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "partially_queryable",
+            "clinicalConceptGroup": "mfolfox6_fluorouracil_contraindication"
+          },
+          {
+            "nodeId": "1c",
+            "nodeType": "atomic",
+            "atomicText": "Prior severe allergic reaction to Oxaliplatin",
+            "omopTable": "condition_occurrence",
+            "timeConstraint": "prior",
+            "strategy": "Identifies a history of severe allergy to Oxaliplatin, a component of the mFOLFOX6 regimen.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "partially_queryable",
+            "clinicalConceptGroup": "mfolfox6_oxaliplatin_contraindication"
+          },
+          {
+            "nodeId": "2a",
+            "nodeType": "atomic",
+            "atomicText": "Prior intolerance to Leucovorin",
+            "omopTable": "condition_occurrence",
+            "timeConstraint": "prior",
+            "strategy": "Identifies a history of intolerance to Leucovorin (folinic acid), a component of the mFOLFOX6 regimen.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "partially_queryable",
+            "clinicalConceptGroup": "mfolfox6_leucovorin_contraindication"
+          },
+          {
+            "nodeId": "2b",
+            "nodeType": "atomic",
+            "atomicText": "Prior intolerance to Fluorouracil",
+            "omopTable": "condition_occurrence",
+            "timeConstraint": "prior",
+            "strategy": "Identifies a history of intolerance to Fluorouracil (5-FU), a component of the mFOLFOX6 regimen.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "partially_queryable",
+            "clinicalConceptGroup": "mfolfox6_fluorouracil_contraindication"
+          },
+          {
+            "nodeId": "2c",
+            "nodeType": "atomic",
+            "atomicText": "Prior intolerance to Oxaliplatin",
+            "omopTable": "condition_occurrence",
+            "timeConstraint": "prior",
+            "strategy": "Identifies a history of intolerance to Oxaliplatin, a component of the mFOLFOX6 regimen.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "partially_queryable",
+            "clinicalConceptGroup": "mfolfox6_oxaliplatin_contraindication"
+          }
+        ]
+      },
+      "sqlTemplate": "-- EXCLUSION: Exclude patients matching this criterion\nSELECT person_id FROM person\nWHERE person_id NOT IN (\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\n)",
+      "components": [
+        {
+          "atomicId": "1a",
+          "atomicText": "Prior severe allergic reaction to Leucovorin",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "1b",
+          "atomicText": "Prior severe allergic reaction to Fluorouracil",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "1c",
+          "atomicText": "Prior severe allergic reaction to Oxaliplatin",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2a",
+          "atomicText": "Prior intolerance to Leucovorin",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2b",
+          "atomicText": "Prior intolerance to Fluorouracil",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2c",
+          "atomicText": "Prior intolerance to Oxaliplatin",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_8",
+      "type": "Exclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "1",
+        "nodeType": "atomic",
+        "atomicText": "Known dihydropyrimidine dehydrogenase (DPD) deficiency",
+        "omopTable": "condition_occurrence",
+        "strategy": "This is a safety exclusion criterion. DPD deficiency is a genetic condition that can cause severe toxicity with certain chemotherapies (fluoropyrimidines). The note indicates that determination of this status is based on local screening procedures, which could involve genetic testing or enzyme activity assays.",
+        "clinicalCategory": "safety_exclusion",
+        "queryableStatus": "partially_queryable"
+      },
+      "sqlTemplate": "-- EXCLUSION: Exclude patients matching this criterion\nSELECT person_id FROM person\nWHERE person_id NOT IN (\nSELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)\n)",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Known dihydropyrimidine dehydrogenase (DPD) deficiency",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_9",
+      "type": "Exclusion",
+      "logicOperator": "OR",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "OR",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "atomic",
+            "atomicText": "Complete gastric outlet syndrome",
+            "omopTable": "condition_occurrence",
+            "strategy": "Identify patients with a diagnosis of complete gastric outlet syndrome.",
+            "clinicalCategory": "disease_indication",
+            "queryableStatus": "fully_queryable",
+            "clinicalConceptGroup": "gastric_outlet_syndrome"
+          },
+          {
+            "nodeId": "2",
+            "nodeType": "operator",
+            "operator": "AND",
+            "operands": [
+              {
+                "nodeId": "2a",
+                "nodeType": "atomic",
+                "atomicText": "Partial gastric outlet syndrome",
+                "omopTable": "condition_occurrence",
+                "strategy": "Identify patients with a diagnosis of partial gastric outlet syndrome.",
+                "clinicalCategory": "disease_indication",
+                "queryableStatus": "fully_queryable",
+                "clinicalConceptGroup": "gastric_outlet_syndrome"
+              },
+              {
+                "nodeId": "2b",
+                "nodeType": "atomic",
+                "atomicText": "Persistent or recurrent vomiting",
+                "omopTable": "condition_occurrence",
+                "strategy": "Identify patients with documented persistent or recurrent vomiting, which often requires chart review to confirm the pattern.",
+                "clinicalCategory": "disease_indication",
+                "queryableStatus": "partially_queryable"
+              }
+            ]
+          }
+        ]
+      },
+      "sqlTemplate": "-- EXCLUSION: Exclude patients matching this criterion\nSELECT person_id FROM person\nWHERE person_id NOT IN (\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n((SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nINTERSECT\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)))\n)",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Complete gastric outlet syndrome",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2a",
+          "atomicText": "Partial gastric outlet syndrome",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2b",
+          "atomicText": "Persistent or recurrent vomiting",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_10",
+      "type": "Exclusion",
+      "logicOperator": "OR",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "OR",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "atomic",
+            "atomicText": "Significant gastric bleeding",
+            "omopTable": "condition_occurrence",
+            "strategy": "This is a subjective assessment by the investigator to determine if any gastric bleeding is clinically significant enough to pose a safety risk for study participation.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "requires_manual"
+          },
+          {
+            "nodeId": "2",
+            "nodeType": "atomic",
+            "atomicText": "Untreated gastric ulcers",
+            "omopTable": "condition_occurrence",
+            "strategy": "This is a subjective assessment by the investigator to confirm the presence of gastric ulcers and the absence of adequate, current treatment for them.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "requires_manual"
+          }
+        ]
+      },
+      "sqlTemplate": "-- EXCLUSION: Exclude patients matching this criterion\nSELECT person_id FROM person\nWHERE person_id NOT IN (\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\n)",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Significant gastric bleeding",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2",
+          "atomicText": "Untreated gastric ulcers",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_11",
+      "type": "Exclusion",
+      "logicOperator": "OR",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "OR",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "atomic",
+            "atomicText": "History of positive test for Human Immunodeficiency Virus (HIV) infection",
+            "omopTable": "condition_occurrence",
+            "strategy": "Identify patients with a documented diagnosis of HIV infection or a record of a positive HIV test.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "fully_queryable",
+            "clinicalConceptGroup": "viral_infection_exclusion"
+          },
+          {
+            "nodeId": "2",
+            "nodeType": "atomic",
+            "atomicText": "Active Hepatitis B infection (positive HBsAg)",
+            "omopTable": "measurement",
+            "valueConstraint": "positive Hepatitis B surface antigen (HBsAg) result",
+            "strategy": "Identify patients with a positive lab result for Hepatitis B surface antigen (HBsAg), indicating active infection.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "fully_queryable",
+            "clinicalConceptGroup": "viral_infection_exclusion"
+          },
+          {
+            "nodeId": "3",
+            "nodeType": "atomic",
+            "atomicText": "Active Hepatitis C infection",
+            "omopTable": "condition_occurrence",
+            "strategy": "Identify patients with a documented diagnosis of Hepatitis C infection or a record of a positive test (e.g., HCV RNA).",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "fully_queryable",
+            "clinicalConceptGroup": "viral_infection_exclusion"
+          }
+        ]
+      },
+      "sqlTemplate": "-- EXCLUSION: Exclude patients matching this criterion\nSELECT person_id FROM person\nWHERE person_id NOT IN (\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT m.person_id\nFROM measurement m\nWHERE m.measurement_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\n)",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "History of positive test for Human Immunodeficiency Virus (HIV) infection",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2",
+          "atomicText": "Active Hepatitis B infection (positive HBsAg)",
+          "omopTable": "measurement",
+          "sql": "SELECT DISTINCT m.person_id\nFROM measurement m\nWHERE m.measurement_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "3",
+          "atomicText": "Active Hepatitis C infection",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_12",
+      "type": "Exclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "AND",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "atomic",
+            "atomicText": "Active autoimmune disease",
+            "omopTable": "condition_occurrence",
+            "strategy": "Identifies subjects with an ongoing autoimmune condition. The 'active' status is a clinical judgment and typically requires manual review.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "requires_manual"
+          },
+          {
+            "nodeId": "2",
+            "nodeType": "temporal",
+            "temporalConstraint": {
+              "operator": "WITHIN",
+              "anchor": "randomization",
+              "value": 3,
+              "unit": "months"
+            },
+            "operand": {
+              "nodeId": "2a",
+              "nodeType": "atomic",
+              "atomicText": "Required systemic treatment for autoimmune disease",
+              "omopTable": "drug_exposure",
+              "timeConstraint": "within the past 3 months prior to randomization",
+              "timeFrameStructured": {
+                "value": 3,
+                "unit": "months",
+                "operator": "within",
+                "relativeEvent": "randomization"
+              },
+              "strategy": "Identifies use of systemic therapies (e.g., corticosteroids, biologics) which indicates the autoimmune disease was severe enough to require treatment recently.",
+              "clinicalCategory": "safety_exclusion",
+              "queryableStatus": "fully_queryable"
+            }
+          }
+        ]
+      },
+      "sqlTemplate": "-- EXCLUSION: Exclude patients matching this criterion\nSELECT person_id FROM person\nWHERE person_id NOT IN (\nSELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)\n)",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Active autoimmune disease",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2a",
+          "atomicText": "Required systemic treatment for autoimmune disease",
+          "omopTable": "drug_exposure",
+          "sql": "SELECT DISTINCT de.person_id\nFROM drug_exposure de\nWHERE de.drug_concept_id IN (/* UNMAPPED - requires manual concept selection */)\n  AND de.drug_exposure_start_date >= @reference_date - INTERVAL '3 months'"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_13",
+      "type": "Exclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "AND",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "atomic",
+            "atomicText": "Active infection",
+            "omopTable": "condition_occurrence",
+            "strategy": "Identifies a current diagnosis of an infectious disease.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "fully_queryable"
+          },
+          {
+            "nodeId": "2",
+            "nodeType": "atomic",
+            "atomicText": "Requires systemic therapy for infection",
+            "omopTable": "drug_exposure",
+            "strategy": "Identifies the use of systemic anti-infective medications (e.g., IV antibiotics, oral antivirals), which implies the infection is significant.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "fully_queryable"
+          },
+          {
+            "nodeId": "3",
+            "nodeType": "temporal",
+            "temporalConstraint": {
+              "operator": "WITHIN",
+              "anchor": "randomization",
+              "value": 7,
+              "unit": "days"
+            },
+            "operand": {
+              "nodeId": "3a",
+              "nodeType": "operator",
+              "operator": "NOT",
+              "operands": [
+                {
+                  "nodeId": "3a1",
+                  "nodeType": "atomic",
+                  "atomicText": "Infection has completely resolved",
+                  "omopTable": "observation",
+                  "strategy": "Checks for the absence of a documented resolution of the infection within the 7-day window prior to randomization. This is typically a clinical assessment found in notes.",
+                  "clinicalCategory": "safety_exclusion",
+                  "queryableStatus": "requires_manual"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "sqlTemplate": "-- EXCLUSION: Exclude patients matching this criterion\nSELECT person_id FROM person\nWHERE person_id NOT IN (\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nINTERSECT\n(SELECT DISTINCT de.person_id\nFROM drug_exposure de\nWHERE de.drug_concept_id IN (/* UNMAPPED - requires manual concept selection */))\n)",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Active infection",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2",
+          "atomicText": "Requires systemic therapy for infection",
+          "omopTable": "drug_exposure",
+          "sql": "SELECT DISTINCT de.person_id\nFROM drug_exposure de\nWHERE de.drug_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "3a1",
+          "atomicText": "Infection has completely resolved",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_14",
+      "type": "Exclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "1",
+        "nodeType": "atomic",
+        "atomicText": "Significant cardiovascular disease",
+        "omopTable": "condition_occurrence",
+        "strategy": "This is a general exclusion category for patients with significant cardiovascular risk. The specific conditions that qualify under this category would be listed subsequently and would form an OR group.",
+        "clinicalCategory": "safety_exclusion",
+        "queryableStatus": "partially_queryable",
+        "clinicalConceptGroup": "significant_cardiovascular_disease"
+      },
+      "sqlTemplate": "-- EXCLUSION: Exclude patients matching this criterion\nSELECT person_id FROM person\nWHERE person_id NOT IN (\nSELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)\n)",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Significant cardiovascular disease",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_15",
+      "type": "Exclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "AND",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "operator",
+            "operator": "OR",
+            "operands": [
+              {
+                "nodeId": "1a",
+                "nodeType": "atomic",
+                "atomicText": "History of gastric cancer",
+                "omopTable": "condition_occurrence",
+                "strategy": "Identifies the primary malignancy as gastric cancer. This is required as the origin for the CNS condition.",
+                "clinicalCategory": "disease_indication",
+                "queryableStatus": "fully_queryable",
+                "clinicalConceptGroup": "gastric_gej_cancer"
+              },
+              {
+                "nodeId": "1b",
+                "nodeType": "atomic",
+                "atomicText": "History of gastroesophageal junction (GEJ) cancer",
+                "omopTable": "condition_occurrence",
+                "strategy": "Identifies the primary malignancy as GEJ cancer. This is required as the origin for the CNS condition.",
+                "clinicalCategory": "disease_indication",
+                "queryableStatus": "fully_queryable",
+                "clinicalConceptGroup": "gastric_gej_cancer"
+              }
+            ]
+          },
+          {
+            "nodeId": "2",
+            "nodeType": "operator",
+            "operator": "OR",
+            "operands": [
+              {
+                "nodeId": "2a",
+                "nodeType": "atomic",
+                "atomicText": "History of central nervous system metastases",
+                "omopTable": "condition_occurrence",
+                "strategy": "Identifies one of the required types of CNS involvement.",
+                "clinicalCategory": "disease_indication",
+                "queryableStatus": "fully_queryable",
+                "clinicalConceptGroup": "cns_involvement"
+              },
+              {
+                "nodeId": "2b",
+                "nodeType": "atomic",
+                "atomicText": "History of carcinomatous meningitis",
+                "omopTable": "condition_occurrence",
+                "strategy": "Identifies the second possible type of required CNS involvement.",
+                "clinicalCategory": "disease_indication",
+                "queryableStatus": "fully_queryable",
+                "clinicalConceptGroup": "cns_involvement"
+              }
+            ]
+          }
+        ]
+      },
+      "sqlTemplate": "-- EXCLUSION: Exclude patients matching this criterion\nSELECT person_id FROM person\nWHERE person_id NOT IN (\n((SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)))\nINTERSECT\n((SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)))\n)",
+      "components": [
+        {
+          "atomicId": "1a",
+          "atomicText": "History of gastric cancer",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "1b",
+          "atomicText": "History of gastroesophageal junction (GEJ) cancer",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2a",
+          "atomicText": "History of central nervous system metastases",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2b",
+          "atomicText": "History of carcinomatous meningitis",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_16",
+      "type": "Exclusion",
+      "logicOperator": "EXCEPT",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "EXCEPT",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "atomic",
+            "atomicText": "Peripheral sensory neuropathy grade > 1",
+            "omopTable": "observation",
+            "numericConstraintStructured": {
+              "value": 1,
+              "operator": ">",
+              "unit": "",
+              "parameter": "Peripheral sensory neuropathy grade (e.g., CTCAE)"
+            },
+            "strategy": "Identifies patients with clinically significant peripheral sensory neuropathy.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "requires_manual",
+            "clinicalConceptGroup": "peripheral_neuropathy"
+          },
+          {
+            "nodeId": "2",
+            "nodeType": "operator",
+            "operator": "AND",
+            "operands": [
+              {
+                "nodeId": "2a",
+                "nodeType": "operator",
+                "operator": "NOT",
+                "operands": [
+                  {
+                    "nodeId": "2a1",
+                    "nodeType": "atomic",
+                    "atomicText": "Deep tendon reflexes present",
+                    "omopTable": "observation",
+                    "strategy": "This node identifies the presence of DTRs. The parent NOT operator negates it to find subjects with an 'absence of' DTRs.",
+                    "clinicalCategory": "safety_exclusion",
+                    "queryableStatus": "requires_manual"
+                  }
+                ]
+              },
+              {
+                "nodeId": "2b",
+                "nodeType": "operator",
+                "operator": "NOT",
+                "operands": [
+                  {
+                    "nodeId": "2b1",
+                    "nodeType": "atomic",
+                    "atomicText": "Other neurological abnormality present",
+                    "omopTable": "condition_occurrence",
+                    "strategy": "This node identifies any other neurological abnormalities. The parent NOT operator negates it, ensuring that the absence of DTRs is the 'sole' finding.",
+                    "clinicalCategory": "safety_exclusion",
+                    "queryableStatus": "requires_manual"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "sqlTemplate": "-- EXCLUSION: Exclude patients matching this criterion\nSELECT person_id FROM person\nWHERE person_id NOT IN (\n(SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nEXCEPT\n((SELECT person_id FROM person\nEXCEPT\n(SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)))\nINTERSECT\n(SELECT person_id FROM person\nEXCEPT\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))))\n)",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Peripheral sensory neuropathy grade > 1",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2a1",
+          "atomicText": "Deep tendon reflexes present",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2b1",
+          "atomicText": "Other neurological abnormality present",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_17",
+      "type": "Exclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "1",
+        "nodeType": "temporal",
+        "temporalConstraint": {
+          "operator": "WITHIN",
+          "anchor": "randomization",
+          "value": 28,
+          "unit": "days"
+        },
+        "operand": {
+          "nodeId": "1a",
+          "nodeType": "atomic",
+          "atomicText": "Had a major surgical procedure",
+          "omopTable": "procedure_occurrence",
+          "strategy": "This criterion excludes patients who have recently undergone major surgery, as this could confound the assessment of adverse events or affect the patient's ability to tolerate the study treatment. Defining 'major' surgery may require a specific list of procedure codes.",
+          "clinicalCategory": "safety_exclusion",
+          "queryableStatus": "partially_queryable"
+        }
+      },
+      "sqlTemplate": "-- Temporal: WITHIN 28 days of randomization\nSELECT DISTINCT po.person_id\nFROM procedure_occurrence po\nWHERE po.procedure_concept_id IN (/* UNMAPPED - requires manual concept selection */)\n  AND po.procedure_date BETWEEN @randomization - INTERVAL '28 days' AND @randomization + INTERVAL '28 days'",
+      "components": [
+        {
+          "atomicId": "1a",
+          "atomicText": "Had a major surgical procedure",
+          "omopTable": "procedure_occurrence",
+          "sql": "SELECT DISTINCT po.person_id\nFROM procedure_occurrence po\nWHERE po.procedure_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_18",
+      "type": "Exclusion",
+      "logicOperator": "OR",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "OR",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "atomic",
+            "atomicText": "Psychiatric illness that would preclude study compliance per investigator judgment",
+            "omopTable": "condition_occurrence",
+            "strategy": "This is a subjective assessment by the investigator to exclude patients whose psychiatric conditions would make it difficult or unsafe for them to adhere to the study protocol.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "requires_manual"
+          },
+          {
+            "nodeId": "2",
+            "nodeType": "atomic",
+            "atomicText": "Social situations that would preclude study compliance per investigator judgment",
+            "omopTable": "observation",
+            "strategy": "This is a subjective assessment by the investigator to exclude patients whose social circumstances (e.g., unstable housing, lack of support) would prevent them from reliably participating in the study.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "requires_manual"
+          }
+        ]
+      },
+      "sqlTemplate": "-- EXCLUSION: Exclude patients matching this criterion\nSELECT person_id FROM person\nWHERE person_id NOT IN (\n(SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT p.person_id\nFROM person p\nWHERE p.gender_concept_id = 8507  -- MALE)\n)",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Psychiatric illness that would preclude study compliance per investigator judgment",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2",
+          "atomicText": "Social situations that would preclude study compliance per investigator judgment",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT p.person_id\nFROM person p\nWHERE p.gender_concept_id = 8507  -- MALE"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_19",
+      "type": "Exclusion",
+      "logicOperator": "AND",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "1",
+        "nodeType": "atomic",
+        "atomicText": "Another malignancy for which treatment is required",
+        "omopTable": "condition_occurrence",
+        "strategy": "This criterion excludes subjects with a concurrent cancer requiring active treatment, as this could confound the assessment of the study treatment's efficacy or safety. The determination of whether treatment is required is based on the investigator's clinical judgment.",
+        "clinicalCategory": "safety_exclusion",
+        "queryableStatus": "requires_manual"
+      },
+      "sqlTemplate": "-- EXCLUSION: Exclude patients matching this criterion\nSELECT person_id FROM person\nWHERE person_id NOT IN (\nSELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)\n)",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Another malignancy for which treatment is required",
+          "omopTable": "condition_occurrence",
+          "sql": "SELECT DISTINCT co.person_id\nFROM condition_occurrence co\nWHERE co.condition_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    },
+    {
+      "criterionId": "EXC_20",
+      "type": "Exclusion",
+      "logicOperator": "OR",
+      "useExpressionTree": true,
+      "expression": {
+        "nodeId": "root",
+        "nodeType": "operator",
+        "operator": "OR",
+        "operands": [
+          {
+            "nodeId": "1",
+            "nodeType": "atomic",
+            "atomicText": "Concurrent disease, infection or comorbid condition that interferes with the ability of the subject to participate in the study",
+            "omopTable": "observation",
+            "strategy": "This is a general safety exclusion based on investigator judgment. It covers any condition that makes study participation physically or logistically difficult or impossible for the subject.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "requires_manual"
+          },
+          {
+            "nodeId": "2",
+            "nodeType": "atomic",
+            "atomicText": "Concurrent disease, infection or comorbid condition that places the subject at undue risk",
+            "omopTable": "observation",
+            "strategy": "This is a general safety exclusion based on investigator judgment. It covers any condition that would make participation in the study unacceptably dangerous for the subject.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "requires_manual"
+          },
+          {
+            "nodeId": "3",
+            "nodeType": "atomic",
+            "atomicText": "Concurrent disease, infection or comorbid condition that complicates the interpretation of data",
+            "omopTable": "observation",
+            "strategy": "This is a general exclusion to protect study integrity, based on investigator judgment. It covers any condition that could act as a confounding factor, making it difficult to attribute outcomes to the study intervention.",
+            "clinicalCategory": "safety_exclusion",
+            "queryableStatus": "requires_manual"
+          }
+        ]
+      },
+      "sqlTemplate": "-- EXCLUSION: Exclude patients matching this criterion\nSELECT person_id FROM person\nWHERE person_id NOT IN (\n(SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */))\nUNION\n(SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */))\n)",
+      "components": [
+        {
+          "atomicId": "1",
+          "atomicText": "Concurrent disease, infection or comorbid condition that interferes with the ability of the subject to participate in the study",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "2",
+          "atomicText": "Concurrent disease, infection or comorbid condition that places the subject at undue risk",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        },
+        {
+          "atomicId": "3",
+          "atomicText": "Concurrent disease, infection or comorbid condition that complicates the interpretation of data",
+          "omopTable": "observation",
+          "sql": "SELECT DISTINCT o.person_id\nFROM observation o\nWHERE o.observation_concept_id IN (/* UNMAPPED - requires manual concept selection */)"
+        }
+      ]
+    }
+  ],
+  "statistics": {
+    "totalCriteria": 37,
+    "conceptsCovered": 0
+  }
+}
