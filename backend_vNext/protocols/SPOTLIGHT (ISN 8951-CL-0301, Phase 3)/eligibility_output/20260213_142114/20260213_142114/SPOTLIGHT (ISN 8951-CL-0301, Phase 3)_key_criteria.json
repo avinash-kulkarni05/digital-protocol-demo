@@ -1,0 +1,156 @@
+{
+  "protocol_id": "SPOTLIGHT (ISN 8951-CL-0301, Phase 3)",
+  "generated_at": "2026-02-13T14:35:57.189916",
+  "key_criteria": [
+    {
+      "key_id": "KC010",
+      "category": "primary_anchor",
+      "text": "Subject has histologically confirmed diagnosis of Gastric or GEJ adenocarcinoma.",
+      "type": "Inclusion",
+      "queryable_status": "fully_queryable",
+      "elimination_rate": 99.9,
+      "is_killer": true,
+      "funnel_priority": 1
+    },
+    {
+      "key_id": "KC011",
+      "category": "primary_anchor",
+      "text": "Subject has radiologically confirmed locally advanced unresectable or metastatic disease within 28 days prior to randomization.",
+      "type": "Inclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 60.0,
+      "is_killer": true,
+      "funnel_priority": 2
+    },
+    {
+      "key_id": "KC002",
+      "category": "primary_anchor",
+      "text": "Subject is considered an adult (e.g., \u2265 18 years of age in the US) according to local regulation at the time of signing the informed consent.",
+      "type": "Inclusion",
+      "queryable_status": "fully_queryable",
+      "elimination_rate": 20.0,
+      "is_killer": true,
+      "funnel_priority": 3
+    },
+    {
+      "key_id": "KC013",
+      "category": "biomarker",
+      "text": "Subject\u2019s tumor expresses CLDN18.2 in \u2265 75% of tumor cells demonstrating moderate to strong membranous staining as determined by central IHC testing.",
+      "type": "Inclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 60.0,
+      "is_killer": true,
+      "funnel_priority": 11
+    },
+    {
+      "key_id": "KC014",
+      "category": "biomarker",
+      "text": "Subject has a known HER2-negative tumor as determined by local or central testing on a gastric or GEJ tumor specimen. (Unique to China: Subject has a known HER2-negative gastric or GEJ tumor.)",
+      "type": "Inclusion",
+      "queryable_status": "fully_queryable",
+      "elimination_rate": 20.0,
+      "is_killer": false,
+      "funnel_priority": 12
+    },
+    {
+      "key_id": "KC025",
+      "category": "biomarker",
+      "text": "Subject has known dihydropyrimidine dehydrogenase (DPD) deficiency. (NOTE: Screening for DPD deficiency should be conducted per local requirements.)",
+      "type": "Exclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 2.0,
+      "is_killer": false,
+      "funnel_priority": 13
+    },
+    {
+      "key_id": "KC018",
+      "category": "treatment_history",
+      "text": "Subject has received prior systemic chemotherapy for locally advanced unresectable or metastatic gastric or GEJ adenocarcinoma. However, subject may have received either neo-adjuvant or adjuvant chemotherapy, immunotherapy or other systemic anticancer therapies as long as it was completed at least 6 months prior to randomization. Subject may have received treatment with herbal medications that have known antitumor activity > 28 days prior to randomization.",
+      "type": "Exclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 40.0,
+      "is_killer": true,
+      "funnel_priority": 21
+    },
+    {
+      "key_id": "KC020",
+      "category": "treatment_history",
+      "text": "Subject has received systemic immunosuppressive therapy, including systemic corticosteroids within 14 days prior to randomization. Subjects using a physiologic replacement dose of hydrocortisone or its equivalent (defined as up to 30 mg per day of hydrocortisone or up to 10 mg per day of prednisone), receiving a single dose of systemic corticosteroids or receiving systemic corticosteroids as premedication for radiologic imaging contrast use are allowed.",
+      "type": "Exclusion",
+      "queryable_status": "fully_queryable",
+      "elimination_rate": 15.0,
+      "is_killer": false,
+      "funnel_priority": 22
+    },
+    {
+      "key_id": "KC015",
+      "category": "functional",
+      "text": "Subject has ECOG performance status 0 to 1.",
+      "type": "Inclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 25.0,
+      "is_killer": true,
+      "funnel_priority": 31
+    },
+    {
+      "key_id": "KC017",
+      "category": "functional",
+      "text": "Subject must meet all of the following criteria based on the centrally or locally analyzed laboratory tests collected within 14 days prior to randomization. In the case of multiple sample collections within this period, the most recent sample collection with available results should be used to determine eligibility.",
+      "type": "Inclusion",
+      "queryable_status": "fully_queryable",
+      "elimination_rate": 25.0,
+      "is_killer": true,
+      "funnel_priority": 32
+    },
+    {
+      "key_id": "KC033",
+      "category": "functional",
+      "text": "Subject has known peripheral sensory neuropathy > grade 1 unless the absence of deep tendon reflexes is the sole neurological abnormality.",
+      "type": "Exclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 20.0,
+      "is_killer": false,
+      "funnel_priority": 33
+    },
+    {
+      "key_id": "KC012",
+      "category": "functional",
+      "text": "Subject has radiologically evaluable disease (measurable and/or non-measurable disease according to RECIST 1.1), per local assessment, \u2264 28 days prior to randomization. For subjects with only 1 evaluable lesion and prior radiotherapy \u2264 3 months before randomization, the lesion must either be outside the field of prior radiotherapy or have documented progression following radiation therapy.",
+      "type": "Inclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 10.0,
+      "is_killer": false,
+      "funnel_priority": 34
+    },
+    {
+      "key_id": "KC004",
+      "category": "safety_exclusion",
+      "text": "A female subject is eligible to participate if she is not pregnant (negative serum pregnancy test at Screening; female subjects with elevated serum beta human chorionic gonadotropin (\u03b2hCG) and a demonstrated non-pregnant status through additional testing are eligible) and at least 1 of the following conditions applies:",
+      "type": "Inclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 51.0,
+      "is_killer": true,
+      "funnel_priority": 51
+    },
+    {
+      "key_id": "KC031",
+      "category": "safety_exclusion",
+      "text": "Subject has significant cardiovascular disease, including any of the following:",
+      "type": "Exclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 20.0,
+      "is_killer": false,
+      "funnel_priority": 52
+    },
+    {
+      "key_id": "KC030",
+      "category": "safety_exclusion",
+      "text": "Subject has active infection requiring systemic therapy that has not completely resolved within 7 days prior to randomization.",
+      "type": "Exclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 15.0,
+      "is_killer": false,
+      "funnel_priority": 53
+    }
+  ]
+}

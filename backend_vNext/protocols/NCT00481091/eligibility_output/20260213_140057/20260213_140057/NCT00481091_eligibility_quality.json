@@ -1,0 +1,150 @@
+{
+  "scores": {
+    "accuracy": 0.92,
+    "completeness": 1.0,
+    "compliance": 1.0,
+    "provenance": 1.0,
+    "terminology": 1.0,
+    "overall": 0.9800000000000001
+  },
+  "thresholds_met": false,
+  "failed_dimensions": [
+    "accuracy"
+  ],
+  "counts": {
+    "total_fields": 302,
+    "valid_fields": 298,
+    "total_provenance": 100,
+    "valid_provenance": 100,
+    "total_terminology": 1,
+    "valid_terminology": 1
+  },
+  "issues": {
+    "accuracy": [
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_5.2.1.5].originalText",
+        "message": "Placeholder value detected",
+        "value": "The subject must have adequate bone marrow independent of growth factor support (with the exception ",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_5.2.1.5].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "first dose of study drug.\n5. The subject must have adequate bone marrow independent of growth factor",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_5.2.1.5].text",
+        "message": "Placeholder detected in criterion text",
+        "value": "The subject must have adequate bone marrow independent of growth factor support (with the exception ",
+        "suggestion": "Replace placeholder with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_5.2.1.7].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "test results.\n7. All female subjects not surgically sterile or postmenopausal (for at least 1 year) ",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_5.2.3.6].originalText",
+        "message": "Placeholder value detected",
+        "value": "The subject must have adequate bone marrow independent of growth factor support (with the exception ",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_5.2.3.6].text",
+        "message": "Placeholder detected in criterion text",
+        "value": "The subject must have adequate bone marrow independent of growth factor support (with the exception ",
+        "suggestion": "Replace placeholder with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_5.2.5.2].originalText",
+        "message": "Placeholder value detected",
+        "value": "Subjects must meet the following hematology and coagulation lab criteria:\n\n\u25cb Platelet counts must be",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_5.2.5.2].subCriteria[0].text",
+        "message": "Placeholder value detected",
+        "value": "Platelet counts must be \u2265 25,000/mm3 (untransfused). Platelet counts \u2264 50,000/mm3 must be stable and",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_5.2.5.2].subCriteria[1].text",
+        "message": "Placeholder value detected",
+        "value": "Absolute Neutrophil count (ANC) \u2265 500/\u03bcL. ANC \u2265 500/\u03bcL and < 1,000/\u03bcL should be monitored at an incr",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_5.2.5.2].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "laboratory reference ranges.\n\u25cf Subjects must meet the following hematology and coagulation lab crite",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_5.2.5.2].text",
+        "message": "Placeholder detected in criterion text",
+        "value": "Subjects must meet the following hematology and coagulation lab criteria:\n\n\u25cb Platelet counts must be",
+        "suggestion": "Replace placeholder with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_5.2.5.3].originalText",
+        "message": "Placeholder value detected",
+        "value": "Subjects must meet the following chemistry criteria:\n\n\u25cb Subjects' chemistry values must not exceed G",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_5.2.5.3].subCriteria[0].text",
+        "message": "Placeholder value detected",
+        "value": "Subjects' chemistry values must not exceed Grade 2. Grade 2 chemistry labs should be monitored at an",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_5.2.5.3].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "\u25cb aPTT, PT is not to exceed 1.2 \uf0b4 ULN.\n\u25cf Subjects must meet the following chemistry criteria:\n\u25cb Subj",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[INC_5.2.5.3].text",
+        "message": "Placeholder detected in criterion text",
+        "value": "Subjects must meet the following chemistry criteria:\n\n\u25cb Subjects' chemistry values must not exceed G",
+        "suggestion": "Replace placeholder with actual extracted value"
+      }
+    ],
+    "completeness": [],
+    "compliance": [],
+    "provenance": [],
+    "terminology": []
+  }
+}
