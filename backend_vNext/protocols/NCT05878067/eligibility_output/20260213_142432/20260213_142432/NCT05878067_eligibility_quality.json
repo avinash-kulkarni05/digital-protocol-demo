@@ -1,0 +1,44 @@
+{
+  "scores": {
+    "accuracy": 1.0,
+    "completeness": 1.0,
+    "compliance": 1.0,
+    "provenance": 1.0,
+    "terminology": 1.0,
+    "overall": 1.0
+  },
+  "thresholds_met": true,
+  "failed_dimensions": [],
+  "counts": {
+    "total_fields": 200,
+    "valid_fields": 200,
+    "total_provenance": 66,
+    "valid_provenance": 66,
+    "total_terminology": 1,
+    "valid_terminology": 1
+  },
+  "issues": {
+    "accuracy": [
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[EXC_E10].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "6 zones based on the modified NEI grading scheme (score range = 0 to 5 per\nzone)\n\u2022 Use of systemic m",
+        "suggestion": "Replace with actual extracted value"
+      },
+      {
+        "dimension": "accuracy",
+        "severity": "error",
+        "fieldPath": "criteria[EXC_E19].provenance.textSnippet",
+        "message": "Placeholder value detected",
+        "value": "Visit\n\u2022 Patients who were currently using topical ocular medication or had used\ntopical ocular medic",
+        "suggestion": "Replace with actual extracted value"
+      }
+    ],
+    "completeness": [],
+    "compliance": [],
+    "provenance": [],
+    "terminology": []
+  }
+}
