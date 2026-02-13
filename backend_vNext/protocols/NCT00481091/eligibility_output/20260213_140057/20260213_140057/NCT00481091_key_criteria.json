@@ -1,0 +1,156 @@
+{
+  "protocol_id": "NCT00481091",
+  "generated_at": "2026-02-13T14:19:12.830438",
+  "key_criteria": [
+    {
+      "key_id": "KC002",
+      "category": "primary_anchor",
+      "text": "The subject must have relapsed or refractory CLL and require treatment in the opinion of the investigator.",
+      "type": "Inclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 99.9,
+      "is_killer": true,
+      "funnel_priority": 1
+    },
+    {
+      "key_id": "KC023",
+      "category": "primary_anchor",
+      "text": "The subject must have CLL and require treatment in the opinion of the investigator.",
+      "type": "Inclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 99.0,
+      "is_killer": true,
+      "funnel_priority": 2
+    },
+    {
+      "key_id": "KC001",
+      "category": "primary_anchor",
+      "text": "The subject must be \u2265 18 years of age.",
+      "type": "Inclusion",
+      "queryable_status": "fully_queryable",
+      "elimination_rate": 20.0,
+      "is_killer": false,
+      "funnel_priority": 3
+    },
+    {
+      "key_id": "KC022",
+      "category": "primary_anchor",
+      "text": "The subject must be \u2265 18 years of age.",
+      "type": "Inclusion",
+      "queryable_status": "fully_queryable",
+      "elimination_rate": 1.0,
+      "is_killer": false,
+      "funnel_priority": 4
+    },
+    {
+      "key_id": "KC024",
+      "category": "treatment_history",
+      "text": "The subject has relapsed disease and has received no more than 5 prior myelosuppressive/chemotherapy regimens.",
+      "type": "Inclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 50.0,
+      "is_killer": true,
+      "funnel_priority": 21
+    },
+    {
+      "key_id": "KC018",
+      "category": "treatment_history",
+      "text": "The subject has received a biologic within 30 days prior to the first dose of study drug.",
+      "type": "Exclusion",
+      "queryable_status": "fully_queryable",
+      "elimination_rate": 20.0,
+      "is_killer": false,
+      "funnel_priority": 22
+    },
+    {
+      "key_id": "KC038",
+      "category": "treatment_history",
+      "text": "The subject has received aspirin within 7 days prior to the first dose of study drug.",
+      "type": "Exclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 20.0,
+      "is_killer": false,
+      "funnel_priority": 23
+    },
+    {
+      "key_id": "KC005",
+      "category": "functional",
+      "text": "The subject must have adequate bone marrow independent of growth factor support (with the exception of subjects with ANC < 1000/\u03bcL and bone marrow heavily infiltrated with underlying disease [80% or more]), renal and hepatic function, per local laboratory reference range at Screening as follows:\n\n\u25cf Bone marrow: Absolute Neutrophil count (ANC) \u2265 1000/\u03bcL; Platelets \u2265 75,000/mm3 (entry platelet count must be independent of transfusion within 14 days of Screening), Hemoglobin \u2265 9.0 g/dL;\n\u25cf Renal function: Serum creatinine \u2264 2.0 mg/dL or calculated creatinine clearance \u2265 50 mL/min;\n\u25cf Hepatic function and enzymes: AST and ALT \u2264 3.0 \u00d7 the upper normal limit (ULN) of institution's normal range; Bilirubin \u2264 1.5 \u00d7 ULN. Subjects with Gilbert's Syndrome may have a Bilirubin > 1.5 \u00d7 ULN;\n\u25cf Coagulation: aPTT, PT, not to exceed 1.2 \u00d7 ULN.",
+      "type": "Inclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 30.0,
+      "is_killer": true,
+      "funnel_priority": 31
+    },
+    {
+      "key_id": "KC027",
+      "category": "functional",
+      "text": "The subject must have adequate bone marrow independent of growth factor support (with the exception of subjects with ANC < 1000/\u03bcL and bone marrow heavily infiltrated with underlying disease [80% or more]), renal and hepatic function, per local laboratory reference range at Screening as follows:\n\n\u25cf Bone marrow: Absolute Neutrophil count (ANC) \u2265 1000/\u03bcL; Platelets \u2265 75,000/mm3 (entry platelet count must be independent of transfusion within 14 days of Screening); Hemoglobin \u2265 9.0 g/dL;\n\u25cf Renal function: Serum creatinine \u2264 2.0 mg/dL or calculated creatinine clearance \u2265 50 mL/min;\n\u25cf Hepatic function and enzymes: AST and ALT \u2264 3.0 \u00d7 the upper normal limit (ULN) of institution's normal range; Bilirubin \u2264 1.5 \u00d7 ULN. Subjects with Gilbert's Syndrome may have a Bilirubin > 1.5 \u00d7 ULN;\n\u25cf Coagulation: aPTT, PT must not exceed 1.2 \u00d7 ULN.",
+      "type": "Inclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 30.0,
+      "is_killer": true,
+      "funnel_priority": 32
+    },
+    {
+      "key_id": "KC003",
+      "category": "functional",
+      "text": "The subject has an Eastern Cooperative Oncology Group performance score of \u2264 1.",
+      "type": "Inclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 25.0,
+      "is_killer": true,
+      "funnel_priority": 33
+    },
+    {
+      "key_id": "KC025",
+      "category": "functional",
+      "text": "Subject has an Eastern Cooperative Oncology Group performance score of \u2264 1.",
+      "type": "Inclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 25.0,
+      "is_killer": true,
+      "funnel_priority": 34
+    },
+    {
+      "key_id": "KC049",
+      "category": "functional",
+      "text": "Subjects must meet the following hematology and coagulation lab criteria:\n\n\u25cb Platelet counts must be \u2265 25,000/mm3 (untransfused). Platelet counts \u2264 50,000/mm3 must be stable and monitored at an increased frequency at the discretion of the investigator.\n\u25cb Absolute Neutrophil count (ANC) \u2265 500/\u03bcL. ANC \u2265 500/\u03bcL and < 1,000/\u03bcL should be monitored at an increased frequency at the discretion of the investigator.\n\u25cb Hemoglobin of \u2265 8.0 g/dL.\n\u25cb aPTT, PT is not to exceed 1.2 \u00d7 ULN.",
+      "type": "Inclusion",
+      "queryable_status": "fully_queryable",
+      "elimination_rate": 25.0,
+      "is_killer": true,
+      "funnel_priority": 35
+    },
+    {
+      "key_id": "KC050",
+      "category": "functional",
+      "text": "Subjects must meet the following chemistry criteria:\n\n\u25cb Subjects' chemistry values must not exceed Grade 2. Grade 2 chemistry labs should be monitored at an increased frequency at the discretion of the investigator.\n\u25cb Serum creatinine \u2264 3.0 \u00d7 the upper normal limit (ULN) of institution's normal range.\n\u25cb AST and ALT \u2264 5.0 \u00d7 the upper normal limit (ULN) of institution's normal range.\n\u25cb Bilirubin \u2264 3.0 \u00d7 ULN. Subjects with Gilbert's Syndrome may be allowed to have a Bilirubin > 3.0 \u00d7 ULN based on a joint decision between the investigator and AbbVie medical monitor.",
+      "type": "Inclusion",
+      "queryable_status": "fully_queryable",
+      "elimination_rate": 20.0,
+      "is_killer": false,
+      "funnel_priority": 36
+    },
+    {
+      "key_id": "KC020",
+      "category": "safety_exclusion",
+      "text": "The subject has a significant history of cardiovascular disease (e.g., myocardial infarction [MI], thrombotic, or thromboembolic event in the last 6 months), renal, neurologic, psychiatric, endocrinologic, metabolic, immunologic, or hepatic disease that in the opinion of the investigator would adversely affect his/her participating in this study.",
+      "type": "Exclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 25.0,
+      "is_killer": false,
+      "funnel_priority": 51
+    },
+    {
+      "key_id": "KC042",
+      "category": "safety_exclusion",
+      "text": "The subject has a significant history of cardiovascular disease (e.g., myocardial infarction [MI], thrombotic, or thromboembolic event in the last 6 months), renal, neurologic, psychiatric, endocrinologic, metabolic, immunologic, or hepatic disease that in the opinion of the investigator would adversely affect his/her participating in this study.",
+      "type": "Exclusion",
+      "queryable_status": "partially_queryable",
+      "elimination_rate": 25.0,
+      "is_killer": false,
+      "funnel_priority": 52
+    }
+  ]
+}
