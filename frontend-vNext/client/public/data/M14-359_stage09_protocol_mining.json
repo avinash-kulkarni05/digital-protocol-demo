@@ -1,0 +1,2262 @@
+{
+  "stage": 9,
+  "stageName": "Protocol Mining",
+  "success": true,
+  "enrichments": [
+    {
+      "id": "MINE-88888DA042A6",
+      "activityId": "SAI-030",
+      "activityName": "Chemistry/Hematology",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071272Z",
+      "overallConfidence": 0.8,
+      "sourcesUsed": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    },
+    {
+      "id": "MINE-194677B69168",
+      "activityId": "SAI-031",
+      "activityName": "Chemistry/Hematology",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071293Z",
+      "overallConfidence": 0.8,
+      "sourcesUsed": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    },
+    {
+      "id": "MINE-95505841C9D2",
+      "activityId": "SAI-032",
+      "activityName": "Chemistry/Hematology",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071302Z",
+      "overallConfidence": 0.8,
+      "sourcesUsed": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    },
+    {
+      "id": "MINE-4B2A55D9B287",
+      "activityId": "SAI-033",
+      "activityName": "Chemistry/Hematology",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071311Z",
+      "overallConfidence": 0.8,
+      "sourcesUsed": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    },
+    {
+      "id": "MINE-DB008BD87D77",
+      "activityId": "SAI-034",
+      "activityName": "Chemistry/Hematology",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071355Z",
+      "overallConfidence": 0.8,
+      "sourcesUsed": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    },
+    {
+      "id": "MINE-B6287889AF9B",
+      "activityId": "SAI-035",
+      "activityName": "Chemistry/Hematology",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071379Z",
+      "overallConfidence": 0.8,
+      "sourcesUsed": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    },
+    {
+      "id": "MINE-CE6C6C03B0BB",
+      "activityId": "SAI-036",
+      "activityName": "Chemistry/Hematology",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071388Z",
+      "overallConfidence": 0.8,
+      "sourcesUsed": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    },
+    {
+      "id": "MINE-D8194E640051",
+      "activityId": "SAI-037",
+      "activityName": "Urinalysis",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071397Z",
+      "overallConfidence": 0.875,
+      "sourcesUsed": [
+        "laboratory_specifications",
+        "biospecimen_handling"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    },
+    {
+      "id": "MINE-44167413BA1C",
+      "activityId": "SAI-038",
+      "activityName": "Urinalysis",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071404Z",
+      "overallConfidence": 0.875,
+      "sourcesUsed": [
+        "laboratory_specifications",
+        "biospecimen_handling"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    },
+    {
+      "id": "MINE-C033A154A184",
+      "activityId": "SAI-071",
+      "activityName": "Optional PG Blood Sampling",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071600Z",
+      "overallConfidence": 0.7999999999999999,
+      "sourcesUsed": [
+        "biospecimen_handling",
+        "informed_consent",
+        "laboratory_specifications"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    },
+    {
+      "id": "MINE-ED78997E5354",
+      "activityId": "SAI-072",
+      "activityName": "PD Blood Sampling Plasma Markers",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071607Z",
+      "overallConfidence": 0.7666666666666666,
+      "sourcesUsed": [
+        "pkpd_sampling",
+        "biospecimen_handling",
+        "laboratory_specifications"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    },
+    {
+      "id": "MINE-1470DF756FBB",
+      "activityId": "SAI-073",
+      "activityName": "PD Blood Sampling Plasma Markers",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071615Z",
+      "overallConfidence": 0.7666666666666666,
+      "sourcesUsed": [
+        "pkpd_sampling",
+        "biospecimen_handling",
+        "laboratory_specifications"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    },
+    {
+      "id": "MINE-18EC1743C05C",
+      "activityId": "SAI-074",
+      "activityName": "PD Blood Sampling Plasma Markers",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071623Z",
+      "overallConfidence": 0.7666666666666666,
+      "sourcesUsed": [
+        "pkpd_sampling",
+        "biospecimen_handling",
+        "laboratory_specifications"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    },
+    {
+      "id": "MINE-90479F0AF286",
+      "activityId": "SAI-075",
+      "activityName": "Serum Markers",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071629Z",
+      "overallConfidence": 0.7333333333333334,
+      "sourcesUsed": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "endpoints_estimands_sap"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    },
+    {
+      "id": "MINE-BD9ACAB5EDE7",
+      "activityId": "SAI-076",
+      "activityName": "Serum Markers",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071637Z",
+      "overallConfidence": 0.7166666666666668,
+      "sourcesUsed": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "endpoints_estimands_sap"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    },
+    {
+      "id": "MINE-65FF44D90C07",
+      "activityId": "SAI-077",
+      "activityName": "Serum Markers",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071644Z",
+      "overallConfidence": 0.7166666666666668,
+      "sourcesUsed": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "endpoints_estimands_sap"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    },
+    {
+      "id": "MINE-9D096795D8AC",
+      "activityId": "SAI-078",
+      "activityName": "Tissue Sample Collection",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071651Z",
+      "overallConfidence": 0.7666666666666667,
+      "sourcesUsed": [
+        "biospecimen_handling",
+        "informed_consent",
+        "laboratory_specifications"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    },
+    {
+      "id": "MINE-0486BF9DA2B1",
+      "activityId": "SAI-079",
+      "activityName": "Tissue Sample Collection",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071659Z",
+      "overallConfidence": 0.7999999999999999,
+      "sourcesUsed": [
+        "biospecimen_handling",
+        "laboratory_specifications",
+        "informed_consent"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    },
+    {
+      "id": "MINE-0CE309AC4330",
+      "activityId": "SAI-080",
+      "activityName": "Veliparib PK Sampling",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071666Z",
+      "overallConfidence": 0.7999999999999999,
+      "sourcesUsed": [
+        "pkpd_sampling",
+        "biospecimen_handling",
+        "laboratory_specifications"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    },
+    {
+      "id": "MINE-70145AB7ECAC",
+      "activityId": "SAI-081",
+      "activityName": "Veliparib PK Sampling",
+      "stage": "Stage9ProtocolMining",
+      "timestamp": "2025-12-10T17:39:18.071673Z",
+      "overallConfidence": 0.8799999999999999,
+      "sourcesUsed": [
+        "pkpd_sampling",
+        "laboratory_specifications",
+        "biospecimen_handling"
+      ],
+      "requiresHumanReview": false,
+      "biospecimenEnrichment": {
+        "biobankConsentRequired": null,
+        "consentType": null,
+        "shortTermStorage": null,
+        "longTermStorageConditions": null,
+        "futureResearchUses": [],
+        "geneticTestingIncluded": null,
+        "geneticConsentRequired": null,
+        "retentionPeriod": null,
+        "destructionPolicy": null,
+        "shippingRequirements": null,
+        "provenance": []
+      }
+    }
+  ],
+  "decisions": {
+    "SAI-001": {
+      "activityId": "SAI-001",
+      "activityName": "Informed Consent",
+      "domain": null,
+      "matchedModules": [
+        "informed_consent"
+      ],
+      "matchRationale": {
+        "informed_consent": "Direct match by name. The 'informed_consent' module is designed to contain all procedural details, documentation requirements, and versioning for the informed consent process."
+      },
+      "confidence": 1.0,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "77a8c4756b6df5fae9f020557cc97e0f",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054341Z"
+    },
+    "SAI-002": {
+      "activityId": "SAI-002",
+      "activityName": "Medical and Cancer History",
+      "domain": null,
+      "matchedModules": [
+        "study_design",
+        "adverse_events"
+      ],
+      "matchRationale": {
+        "study_design": "Medical and cancer history are fundamental for determining patient eligibility. The 'study_design' module would contain the inclusion/exclusion criteria that are assessed against this history.",
+        "adverse_events": "Medical history provides the baseline for assessing new adverse events. This module would provide context for differentiating pre-existing conditions from treatment-emergent AEs."
+      },
+      "confidence": 0.675,
+      "source": "cache",
+      "requiresHumanReview": true,
+      "cacheKey": "19b24c1a228b0dcffe50110c39c49d4c",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054440Z"
+    },
+    "SAI-003": {
+      "activityId": "SAI-003",
+      "activityName": "Physical Exam",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "Physical exams are a primary method for detecting observable adverse events (e.g., rash, edema, masses). The 'adverse_events' module would define how to grade and report such findings.",
+        "safety_decision_points": "Significant findings from a physical exam can trigger protocol-defined safety actions. This module would outline the criteria for such decisions."
+      },
+      "confidence": 0.75,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "8dc0a11fd06353f5db4c9bb9d7c724ac",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054451Z"
+    },
+    "SAI-004": {
+      "activityId": "SAI-004",
+      "activityName": "Physical Exam",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "Physical exams are a primary method for detecting observable adverse events (e.g., rash, edema, masses). The 'adverse_events' module would define how to grade and report such findings.",
+        "safety_decision_points": "Significant findings from a physical exam can trigger protocol-defined safety actions. This module would outline the criteria for such decisions."
+      },
+      "confidence": 0.75,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "34ca8bd351d68dc91c8ed08e6858ff8c",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054456Z"
+    },
+    "SAI-005": {
+      "activityId": "SAI-005",
+      "activityName": "Physical Exam",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "Physical exams are a primary method for detecting observable adverse events (e.g., rash, edema, masses). The 'adverse_events' module would define how to grade and report such findings.",
+        "safety_decision_points": "Significant findings from a physical exam can trigger protocol-defined safety actions. This module would outline the criteria for such decisions."
+      },
+      "confidence": 0.75,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "ce0077a12257a80122be56fe849e0107",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054459Z"
+    },
+    "SAI-006": {
+      "activityId": "SAI-006",
+      "activityName": "Physical Exam",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "Physical exams are a primary method for detecting observable adverse events (e.g., rash, edema, masses). The 'adverse_events' module would define how to grade and report such findings.",
+        "safety_decision_points": "Significant findings from a physical exam can trigger protocol-defined safety actions. This module would outline the criteria for such decisions."
+      },
+      "confidence": 0.75,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "1e0c7c83be3ce9e5ebbb0b8419da89c7",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054463Z"
+    },
+    "SAI-007": {
+      "activityId": "SAI-007",
+      "activityName": "Physical Exam",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "Physical exams are a primary method for detecting observable adverse events (e.g., rash, edema, masses). The 'adverse_events' module would define how to grade and report such findings.",
+        "safety_decision_points": "Significant findings from a physical exam can trigger protocol-defined safety actions. This module would outline the criteria for such decisions."
+      },
+      "confidence": 0.75,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "b98bb650332474e53471d6768ecad1d0",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054467Z"
+    },
+    "SAI-008": {
+      "activityId": "SAI-008",
+      "activityName": "Physical Exam",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "Physical exams are a primary method for detecting observable adverse events (e.g., rash, edema, masses). The 'adverse_events' module would define how to grade and report such findings.",
+        "safety_decision_points": "Significant findings from a physical exam can trigger protocol-defined safety actions. This module would outline the criteria for such decisions."
+      },
+      "confidence": 0.75,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "c15317a301ae5db5c6e311b2f0b23839",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054470Z"
+    },
+    "SAI-009": {
+      "activityId": "SAI-009",
+      "activityName": "Physical Exam",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "Physical exams are a primary method for detecting observable adverse events (e.g., rash, edema, masses). The 'adverse_events' module would define how to grade and report such findings.",
+        "safety_decision_points": "Significant findings from a physical exam can trigger protocol-defined safety actions. This module would outline the criteria for such decisions."
+      },
+      "confidence": 0.75,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "b695fc6964bdcd1c74a4b657d26fcd53",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054474Z"
+    },
+    "SAI-010": {
+      "activityId": "SAI-010",
+      "activityName": "Vital Signs",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "Abnormal vital signs (e.g., hypertension, tachycardia, fever) are frequently reported and graded as adverse events. The 'adverse_events' module would contain the definitions and grading scales (e.g., CTCAE) for these events.",
+        "safety_decision_points": "Clinically significant changes in vital signs often serve as criteria for safety-related actions, such as dose holds or additional monitoring. This module would define those thresholds and required actions."
+      },
+      "confidence": 0.8,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "b65033fb9e22fb398fa903b9b559e725",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054477Z"
+    },
+    "SAI-011": {
+      "activityId": "SAI-011",
+      "activityName": "Vital Signs",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "Abnormal vital signs (e.g., hypertension, tachycardia, fever) are frequently reported and graded as adverse events. The 'adverse_events' module would contain the definitions and grading scales (e.g., CTCAE) for these events.",
+        "safety_decision_points": "Clinically significant changes in vital signs often serve as criteria for safety-related actions, such as dose holds or additional monitoring. This module would define those thresholds and required actions."
+      },
+      "confidence": 0.8,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "5ccc4de662b700924f2754d5f6b227ff",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054481Z"
+    },
+    "SAI-012": {
+      "activityId": "SAI-012",
+      "activityName": "Vital Signs",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "Abnormal vital signs (e.g., hypertension, tachycardia, fever) are frequently reported and graded as adverse events. The 'adverse_events' module would contain the definitions and grading scales (e.g., CTCAE) for these events.",
+        "safety_decision_points": "Clinically significant changes in vital signs often serve as criteria for safety-related actions, such as dose holds or additional monitoring. This module would define those thresholds and required actions."
+      },
+      "confidence": 0.8,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "72c61252b271e7a6755de2653e12df10",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054484Z"
+    },
+    "SAI-013": {
+      "activityId": "SAI-013",
+      "activityName": "Vital Signs",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "Abnormal vital signs (e.g., hypertension, tachycardia, fever) are frequently reported and graded as adverse events. The 'adverse_events' module would contain the definitions and grading scales (e.g., CTCAE) for these events.",
+        "safety_decision_points": "Clinically significant changes in vital signs often serve as criteria for safety-related actions, such as dose holds or additional monitoring. This module would define those thresholds and required actions."
+      },
+      "confidence": 0.8,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "fae04f489cf20c57085cfa992f5d0d32",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054488Z"
+    },
+    "SAI-014": {
+      "activityId": "SAI-014",
+      "activityName": "Vital Signs",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "Abnormal vital signs (e.g., hypertension, tachycardia, fever) are frequently reported and graded as adverse events. The 'adverse_events' module would contain the definitions and grading scales (e.g., CTCAE) for these events.",
+        "safety_decision_points": "Clinically significant changes in vital signs often serve as criteria for safety-related actions, such as dose holds or additional monitoring. This module would define those thresholds and required actions."
+      },
+      "confidence": 0.8,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "13f09ccd5036906196206f3e508ade02",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054491Z"
+    },
+    "SAI-015": {
+      "activityId": "SAI-015",
+      "activityName": "Vital Signs",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "Abnormal vital signs (e.g., hypertension, tachycardia, fever) are frequently reported and graded as adverse events. The 'adverse_events' module would contain the definitions and grading scales (e.g., CTCAE) for these events.",
+        "safety_decision_points": "Clinically significant changes in vital signs often serve as criteria for safety-related actions, such as dose holds or additional monitoring. This module would define those thresholds and required actions."
+      },
+      "confidence": 0.8,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "2484384ecfcb84f76b82f143135ac2e3",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054495Z"
+    },
+    "SAI-016": {
+      "activityId": "SAI-016",
+      "activityName": "Vital Signs",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "Abnormal vital signs (e.g., hypertension, tachycardia, fever) are frequently reported and graded as adverse events. The 'adverse_events' module would contain the definitions and grading scales (e.g., CTCAE) for these events.",
+        "safety_decision_points": "Clinically significant changes in vital signs often serve as criteria for safety-related actions, such as dose holds or additional monitoring. This module would define those thresholds and required actions."
+      },
+      "confidence": 0.8,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "8358fd83b89bf0a5705104ec0b79f827",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054498Z"
+    },
+    "SAI-017": {
+      "activityId": "SAI-017",
+      "activityName": "Vital Signs",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "Abnormal vital signs (e.g., hypertension, tachycardia, fever) are frequently reported and graded as adverse events. The 'adverse_events' module would contain the definitions and grading scales (e.g., CTCAE) for these events.",
+        "safety_decision_points": "Clinically significant changes in vital signs often serve as criteria for safety-related actions, such as dose holds or additional monitoring. This module would define those thresholds and required actions."
+      },
+      "confidence": 0.8,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "3802e11750be7e4dff761f273144425d",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054502Z"
+    },
+    "SAI-018": {
+      "activityId": "SAI-018",
+      "activityName": "12-Lead ECG",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "ECG assessments are critical for cardiac safety monitoring. The 'adverse_events' module would define specific ECG abnormalities (e.g., QTc prolongation) as AEs of special interest and provide grading criteria.",
+        "safety_decision_points": "Specific ECG findings are frequently used as hard-coded triggers for safety actions, such as study drug discontinuation. This module would contain the specific parameters and thresholds for these decisions."
+      },
+      "confidence": 0.875,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "2d850b522a2c718c29fd8a0661ea1c14",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054505Z"
+    },
+    "SAI-019": {
+      "activityId": "SAI-019",
+      "activityName": "12-Lead ECG",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "ECG assessments are critical for cardiac safety monitoring. The 'adverse_events' module would define specific ECG abnormalities (e.g., QTc prolongation) as AEs of special interest and provide grading criteria.",
+        "safety_decision_points": "Specific ECG findings are frequently used as hard-coded triggers for safety actions, such as study drug discontinuation. This module would contain the specific parameters and thresholds for these decisions."
+      },
+      "confidence": 0.875,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "fc45035625d39d4912977fb9ae06a733",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054512Z"
+    },
+    "SAI-020": {
+      "activityId": "SAI-020",
+      "activityName": "Performance Status (ECOG)",
+      "domain": null,
+      "matchedModules": [
+        "study_design",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "study_design": "ECOG performance status is a very common eligibility criterion in clinical trials, especially oncology. The 'study_design' module would specify the required ECOG score range for patient inclusion.",
+        "endpoints_estimands_sap": "Change in performance status over time can be a key secondary or exploratory endpoint. This module would define how ECOG is used in the study's efficacy or quality-of-life analysis."
+      },
+      "confidence": 0.7749999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "f8fcfd1d791800f7954a4ebef06c2b34",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054516Z"
+    },
+    "SAI-021": {
+      "activityId": "SAI-021",
+      "activityName": "Performance Status (ECOG)",
+      "domain": null,
+      "matchedModules": [
+        "study_design",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "study_design": "ECOG performance status is a very common eligibility criterion in clinical trials, especially oncology. The 'study_design' module would specify the required ECOG score range for patient inclusion.",
+        "endpoints_estimands_sap": "Change in performance status over time can be a key secondary or exploratory endpoint. This module would define how ECOG is used in the study's efficacy or quality-of-life analysis."
+      },
+      "confidence": 0.7749999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "be9296da3268949a7a6cdd5dc5f01175",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054520Z"
+    },
+    "SAI-022": {
+      "activityId": "SAI-022",
+      "activityName": "Performance Status (ECOG)",
+      "domain": null,
+      "matchedModules": [
+        "study_design",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "study_design": "ECOG performance status is a very common eligibility criterion in clinical trials, especially oncology. The 'study_design' module would specify the required ECOG score range for patient inclusion.",
+        "endpoints_estimands_sap": "Change in performance status over time can be a key secondary or exploratory endpoint. This module would define how ECOG is used in the study's efficacy or quality-of-life analysis."
+      },
+      "confidence": 0.7749999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "6ff56e672786b8370828c944ff575f33",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054523Z"
+    },
+    "SAI-023": {
+      "activityId": "SAI-023",
+      "activityName": "Performance Status (ECOG)",
+      "domain": null,
+      "matchedModules": [
+        "study_design",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "study_design": "ECOG performance status is a very common eligibility criterion in clinical trials, especially oncology. The 'study_design' module would specify the required ECOG score range for patient inclusion.",
+        "endpoints_estimands_sap": "Change in performance status over time can be a key secondary or exploratory endpoint. This module would define how ECOG is used in the study's efficacy or quality-of-life analysis."
+      },
+      "confidence": 0.7749999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "731d9f8b6bf56cbe8954ae1ae96c3b08",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054531Z"
+    },
+    "SAI-024": {
+      "activityId": "SAI-024",
+      "activityName": "Performance Status (ECOG)",
+      "domain": null,
+      "matchedModules": [
+        "study_design",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "study_design": "ECOG performance status is a very common eligibility criterion in clinical trials, especially oncology. The 'study_design' module would specify the required ECOG score range for patient inclusion.",
+        "endpoints_estimands_sap": "Change in performance status over time can be a key secondary or exploratory endpoint. This module would define how ECOG is used in the study's efficacy or quality-of-life analysis."
+      },
+      "confidence": 0.7749999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "83e79818c43173fddafcc8ea5d75249d",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054534Z"
+    },
+    "SAI-025": {
+      "activityId": "SAI-025",
+      "activityName": "Performance Status (ECOG)",
+      "domain": null,
+      "matchedModules": [
+        "study_design",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "study_design": "ECOG performance status is a very common eligibility criterion in clinical trials, especially oncology. The 'study_design' module would specify the required ECOG score range for patient inclusion.",
+        "endpoints_estimands_sap": "Change in performance status over time can be a key secondary or exploratory endpoint. This module would define how ECOG is used in the study's efficacy or quality-of-life analysis."
+      },
+      "confidence": 0.7749999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "788f3c7c884a5df557b0c833ea580e78",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:06:49.054538Z"
+    },
+    "SAI-026": {
+      "activityId": "SAI-026",
+      "activityName": "Performance Status (ECOG)",
+      "domain": null,
+      "matchedModules": [],
+      "matchRationale": {},
+      "confidence": 0.0,
+      "source": "cache",
+      "requiresHumanReview": true,
+      "cacheKey": "d88f085911bae0a1bf27041035f65aee",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264581Z"
+    },
+    "SAI-027": {
+      "activityId": "SAI-027",
+      "activityName": "Documentation of Non-Childbearing Status or Pregnancy Test",
+      "domain": null,
+      "matchedModules": [
+        "laboratory_specifications",
+        "study_design"
+      ],
+      "matchRationale": {
+        "laboratory_specifications": "The 'Pregnancy Test' component is a laboratory test. The laboratory_specifications module would contain details on the type of test (e.g., serum hCG, urine hCG), required specimen, and sensitivity.",
+        "study_design": "Childbearing status and pregnancy test results are critical for determining patient eligibility, which is a core component of the study_design module."
+      },
+      "confidence": 0.7749999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "6202dbfb70147bcb19dd1f991b88e0a5",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264790Z"
+    },
+    "SAI-028": {
+      "activityId": "SAI-028",
+      "activityName": "Documentation of Non-Childbearing Status or Pregnancy Test",
+      "domain": null,
+      "matchedModules": [
+        "laboratory_specifications",
+        "study_design"
+      ],
+      "matchRationale": {
+        "laboratory_specifications": "The 'Pregnancy Test' component is a laboratory test. The laboratory_specifications module would contain details on the type of test (e.g., serum hCG, urine hCG), required specimen, and sensitivity.",
+        "study_design": "Childbearing status and pregnancy test results are critical for determining patient eligibility, which is a core component of the study_design module."
+      },
+      "confidence": 0.7749999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "f340106aeb396a1b4afe76c4c52945ff",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264808Z"
+    },
+    "SAI-029": {
+      "activityId": "SAI-029",
+      "activityName": "Documentation of Non-Childbearing Status or Pregnancy Test",
+      "domain": null,
+      "matchedModules": [
+        "laboratory_specifications",
+        "study_design"
+      ],
+      "matchRationale": {
+        "laboratory_specifications": "The 'Pregnancy Test' component is a laboratory test. The laboratory_specifications module would contain details on the type of test (e.g., serum hCG, urine hCG), required specimen, and sensitivity.",
+        "study_design": "Childbearing status and pregnancy test results are critical for determining patient eligibility, which is a core component of the study_design module."
+      },
+      "confidence": 0.7749999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "06fe211f86bbd92cac06b2bb72a50468",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264830Z"
+    },
+    "SAI-030": {
+      "activityId": "SAI-030",
+      "activityName": "Chemistry/Hematology",
+      "domain": null,
+      "matchedModules": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "laboratory_specifications": "This is the primary module for defining the specific analytes in the Chemistry and Hematology panels, including sample requirements, units, and reference ranges.",
+        "biospecimen_handling": "This module would provide details on the collection, processing, and handling requirements for the blood samples needed for Chemistry/Hematology tests.",
+        "adverse_events": "Abnormal laboratory values from these panels are often graded as adverse events according to criteria like CTCAE, which would be detailed in the adverse_events module.",
+        "safety_decision_points": "Specific thresholds for chemistry or hematology values (e.g., severe neutropenia, elevated liver enzymes) often trigger dose modifications or study stopping rules defined in this module."
+      },
+      "confidence": 0.8,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "3bfdc244226a25e7686ca71bdacf52a6",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264844Z"
+    },
+    "SAI-031": {
+      "activityId": "SAI-031",
+      "activityName": "Chemistry/Hematology",
+      "domain": null,
+      "matchedModules": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "laboratory_specifications": "This is the primary module for defining the specific analytes in the Chemistry and Hematology panels, including sample requirements, units, and reference ranges.",
+        "biospecimen_handling": "This module would provide details on the collection, processing, and handling requirements for the blood samples needed for Chemistry/Hematology tests.",
+        "adverse_events": "Abnormal laboratory values from these panels are often graded as adverse events according to criteria like CTCAE, which would be detailed in the adverse_events module.",
+        "safety_decision_points": "Specific thresholds for chemistry or hematology values (e.g., severe neutropenia, elevated liver enzymes) often trigger dose modifications or study stopping rules defined in this module."
+      },
+      "confidence": 0.8,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "e91994464410415c6288582e40710de7",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264864Z"
+    },
+    "SAI-032": {
+      "activityId": "SAI-032",
+      "activityName": "Chemistry/Hematology",
+      "domain": null,
+      "matchedModules": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "laboratory_specifications": "This is the primary module for defining the specific analytes in the Chemistry and Hematology panels, including sample requirements, units, and reference ranges.",
+        "biospecimen_handling": "This module would provide details on the collection, processing, and handling requirements for the blood samples needed for Chemistry/Hematology tests.",
+        "adverse_events": "Abnormal laboratory values from these panels are often graded as adverse events according to criteria like CTCAE, which would be detailed in the adverse_events module.",
+        "safety_decision_points": "Specific thresholds for chemistry or hematology values (e.g., severe neutropenia, elevated liver enzymes) often trigger dose modifications or study stopping rules defined in this module."
+      },
+      "confidence": 0.8,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "a2028c91b13b96a90a8d4c4ce3a563de",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264888Z"
+    },
+    "SAI-033": {
+      "activityId": "SAI-033",
+      "activityName": "Chemistry/Hematology",
+      "domain": null,
+      "matchedModules": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "laboratory_specifications": "This is the primary module for defining the specific analytes in the Chemistry and Hematology panels, including sample requirements, units, and reference ranges.",
+        "biospecimen_handling": "This module would provide details on the collection, processing, and handling requirements for the blood samples needed for Chemistry/Hematology tests.",
+        "adverse_events": "Abnormal laboratory values from these panels are often graded as adverse events according to criteria like CTCAE, which would be detailed in the adverse_events module.",
+        "safety_decision_points": "Specific thresholds for chemistry or hematology values (e.g., severe neutropenia, elevated liver enzymes) often trigger dose modifications or study stopping rules defined in this module."
+      },
+      "confidence": 0.8,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "6e8dcef1e91c7eff04b8b834b6f0ff62",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264900Z"
+    },
+    "SAI-034": {
+      "activityId": "SAI-034",
+      "activityName": "Chemistry/Hematology",
+      "domain": null,
+      "matchedModules": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "laboratory_specifications": "This is the primary module for defining the specific analytes in the Chemistry and Hematology panels, including sample requirements, units, and reference ranges.",
+        "biospecimen_handling": "This module would provide details on the collection, processing, and handling requirements for the blood samples needed for Chemistry/Hematology tests.",
+        "adverse_events": "Abnormal laboratory values from these panels are often graded as adverse events according to criteria like CTCAE, which would be detailed in the adverse_events module.",
+        "safety_decision_points": "Specific thresholds for chemistry or hematology values (e.g., severe neutropenia, elevated liver enzymes) often trigger dose modifications or study stopping rules defined in this module."
+      },
+      "confidence": 0.8,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "2d5216ed58b31e38128f4fb38882a9f3",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264912Z"
+    },
+    "SAI-035": {
+      "activityId": "SAI-035",
+      "activityName": "Chemistry/Hematology",
+      "domain": null,
+      "matchedModules": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "laboratory_specifications": "This is the primary module for defining the specific analytes in the Chemistry and Hematology panels, including sample requirements, units, and reference ranges.",
+        "biospecimen_handling": "This module would provide details on the collection, processing, and handling requirements for the blood samples needed for Chemistry/Hematology tests.",
+        "adverse_events": "Abnormal laboratory values from these panels are often graded as adverse events according to criteria like CTCAE, which would be detailed in the adverse_events module.",
+        "safety_decision_points": "Specific thresholds for chemistry or hematology values (e.g., severe neutropenia, elevated liver enzymes) often trigger dose modifications or study stopping rules defined in this module."
+      },
+      "confidence": 0.8,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "9005a0183b6d575cbbb9f10f21ab7cde",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264919Z"
+    },
+    "SAI-036": {
+      "activityId": "SAI-036",
+      "activityName": "Chemistry/Hematology",
+      "domain": null,
+      "matchedModules": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "adverse_events",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "laboratory_specifications": "This is the primary module for defining the specific analytes in the Chemistry and Hematology panels, including sample requirements, units, and reference ranges.",
+        "biospecimen_handling": "This module would provide details on the collection, processing, and handling requirements for the blood samples needed for Chemistry/Hematology tests.",
+        "adverse_events": "Abnormal laboratory values from these panels are often graded as adverse events according to criteria like CTCAE, which would be detailed in the adverse_events module.",
+        "safety_decision_points": "Specific thresholds for chemistry or hematology values (e.g., severe neutropenia, elevated liver enzymes) often trigger dose modifications or study stopping rules defined in this module."
+      },
+      "confidence": 0.8,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "1cecb27dc3d24620ffc3d98a097948f7",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264924Z"
+    },
+    "SAI-037": {
+      "activityId": "SAI-037",
+      "activityName": "Urinalysis",
+      "domain": null,
+      "matchedModules": [
+        "laboratory_specifications",
+        "biospecimen_handling"
+      ],
+      "matchRationale": {
+        "laboratory_specifications": "This module is the primary source for defining the parameters of the urinalysis test, including specimen requirements and methodology.",
+        "biospecimen_handling": "This module would provide details on the collection and handling requirements for the urine sample."
+      },
+      "confidence": 0.875,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "0035588b72c657b388b721f4148e63c9",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264933Z"
+    },
+    "SAI-038": {
+      "activityId": "SAI-038",
+      "activityName": "Urinalysis",
+      "domain": null,
+      "matchedModules": [
+        "laboratory_specifications",
+        "biospecimen_handling"
+      ],
+      "matchRationale": {
+        "laboratory_specifications": "This module is the primary source for defining the parameters of the urinalysis test, including specimen requirements and methodology.",
+        "biospecimen_handling": "This module would provide details on the collection and handling requirements for the urine sample."
+      },
+      "confidence": 0.875,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "4add6d847ee663ee74a1736eb0bda4d1",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264938Z"
+    },
+    "SAI-039": {
+      "activityId": "SAI-039",
+      "activityName": "aPTT, INR",
+      "domain": null,
+      "matchedModules": [
+        "laboratory_specifications",
+        "adverse_events"
+      ],
+      "matchRationale": {
+        "laboratory_specifications": "This module would define the specifications for the aPTT and INR coagulation tests, including sample type (e.g., sodium citrate tube) and methodology.",
+        "adverse_events": "Abnormal coagulation parameters can be associated with bleeding or thrombotic events, which are critical adverse events."
+      },
+      "confidence": 0.825,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "1754bfbd07219b225f04a688fa6441d2",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264946Z"
+    },
+    "SAI-040": {
+      "activityId": "SAI-040",
+      "activityName": "Tumor Assessments",
+      "domain": null,
+      "matchedModules": [
+        "imaging_central_reading",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "imaging_central_reading": "This is the primary module for tumor assessments, containing details on imaging modalities (e.g., CT, MRI), response criteria (e.g., RECIST 1.1), and procedures for blinded independent central review (BICR).",
+        "endpoints_estimands_sap": "Tumor assessments are used to derive key efficacy endpoints like Objective Response Rate (ORR) and Progression-Free Survival (PFS), which are defined in this module."
+      },
+      "confidence": 0.8999999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "f4494509f772b308e5140a742df575c8",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264951Z"
+    },
+    "SAI-041": {
+      "activityId": "SAI-041",
+      "activityName": "Tumor Assessments",
+      "domain": null,
+      "matchedModules": [
+        "imaging_central_reading",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "imaging_central_reading": "This is the primary module for tumor assessments, containing details on imaging modalities (e.g., CT, MRI), response criteria (e.g., RECIST 1.1), and procedures for blinded independent central review (BICR).",
+        "endpoints_estimands_sap": "Tumor assessments are used to derive key efficacy endpoints like Objective Response Rate (ORR) and Progression-Free Survival (PFS), which are defined in this module."
+      },
+      "confidence": 0.8999999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "254d008982f29ccf8ee2c4d838bb673f",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264958Z"
+    },
+    "SAI-042": {
+      "activityId": "SAI-042",
+      "activityName": "Tumor Assessments",
+      "domain": null,
+      "matchedModules": [
+        "imaging_central_reading",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "imaging_central_reading": "This is the primary module for tumor assessments, containing details on imaging modalities (e.g., CT, MRI), response criteria (e.g., RECIST 1.1), and procedures for blinded independent central review (BICR).",
+        "endpoints_estimands_sap": "Tumor assessments are used to derive key efficacy endpoints like Objective Response Rate (ORR) and Progression-Free Survival (PFS), which are defined in this module."
+      },
+      "confidence": 0.8999999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "1605162939b195bddfa1f7308e5a1f54",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264963Z"
+    },
+    "SAI-043": {
+      "activityId": "SAI-043",
+      "activityName": "Tumor Assessments",
+      "domain": null,
+      "matchedModules": [
+        "imaging_central_reading",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "imaging_central_reading": "This is the primary module for tumor assessments, containing details on imaging modalities (e.g., CT, MRI), response criteria (e.g., RECIST 1.1), and procedures for blinded independent central review (BICR).",
+        "endpoints_estimands_sap": "Tumor assessments are used to derive key efficacy endpoints like Objective Response Rate (ORR) and Progression-Free Survival (PFS), which are defined in this module."
+      },
+      "confidence": 0.8999999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "9db0f549beea6072c8887c7ac47567ee",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264967Z"
+    },
+    "SAI-044": {
+      "activityId": "SAI-044",
+      "activityName": "Tumor Assessments",
+      "domain": null,
+      "matchedModules": [
+        "imaging_central_reading",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "imaging_central_reading": "This is the primary module for tumor assessments, containing details on imaging modalities (e.g., CT, MRI), response criteria (e.g., RECIST 1.1), and procedures for blinded independent central review (BICR).",
+        "endpoints_estimands_sap": "Tumor assessments are used to derive key efficacy endpoints like Objective Response Rate (ORR) and Progression-Free Survival (PFS), which are defined in this module."
+      },
+      "confidence": 0.8999999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "cbdd344e5c27e9f14f1af2db3660f465",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264971Z"
+    },
+    "SAI-045": {
+      "activityId": "SAI-045",
+      "activityName": "MRI of the Brain",
+      "domain": null,
+      "matchedModules": [
+        "imaging_central_reading",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "imaging_central_reading": "This module would contain the specific technical requirements for the MRI of the Brain, such as sequences, slice thickness, contrast agent requirements, and the criteria for assessing CNS lesions.",
+        "endpoints_estimands_sap": "Brain MRIs are often performed to assess CNS-specific endpoints, such as time to CNS progression or intracranial response rate, which would be defined in this module."
+      },
+      "confidence": 0.875,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "2f0e522ef8a173b058617e3f65e2317a",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264976Z"
+    },
+    "SAI-046": {
+      "activityId": "SAI-046",
+      "activityName": "QoL Questionnaires",
+      "domain": null,
+      "matchedModules": [
+        "pro_specifications",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "pro_specifications": "This is an exact match. The pro_specifications module is designed to contain all details about Patient-Reported Outcome instruments, including the specific QoL questionnaires used, administration schedule, and scoring algorithms.",
+        "endpoints_estimands_sap": "Quality of Life (QoL) is frequently a secondary or exploratory endpoint in clinical trials. This module would define how QoL data will be analyzed and interpreted."
+      },
+      "confidence": 0.925,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "3c28b9dbaee11b53fb924a087022e6d1",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264980Z"
+    },
+    "SAI-047": {
+      "activityId": "SAI-047",
+      "activityName": "QoL Questionnaires",
+      "domain": null,
+      "matchedModules": [
+        "pro_specifications",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "pro_specifications": "This is an exact match. The pro_specifications module is designed to contain all details about Patient-Reported Outcome instruments, including the specific QoL questionnaires used, administration schedule, and scoring algorithms.",
+        "endpoints_estimands_sap": "Quality of Life (QoL) is frequently a secondary or exploratory endpoint in clinical trials. This module would define how QoL data will be analyzed and interpreted."
+      },
+      "confidence": 0.925,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "1dccd1fc22da32c37a57eba9e779ab90",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264988Z"
+    },
+    "SAI-048": {
+      "activityId": "SAI-048",
+      "activityName": "QoL Questionnaires",
+      "domain": null,
+      "matchedModules": [
+        "pro_specifications",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "pro_specifications": "This is an exact match. The pro_specifications module is designed to contain all details about Patient-Reported Outcome instruments, including the specific QoL questionnaires used, administration schedule, and scoring algorithms.",
+        "endpoints_estimands_sap": "Quality of Life (QoL) is frequently a secondary or exploratory endpoint in clinical trials. This module would define how QoL data will be analyzed and interpreted."
+      },
+      "confidence": 0.925,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "bda06c9444b998e50e8cc5e4c20b4ce9",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.264993Z"
+    },
+    "SAI-049": {
+      "activityId": "SAI-049",
+      "activityName": "QoL Questionnaires",
+      "domain": null,
+      "matchedModules": [
+        "pro_specifications",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "pro_specifications": "This is an exact match. The pro_specifications module is designed to contain all details about Patient-Reported Outcome instruments, including the specific QoL questionnaires used, administration schedule, and scoring algorithms.",
+        "endpoints_estimands_sap": "Quality of Life (QoL) is frequently a secondary or exploratory endpoint in clinical trials. This module would define how QoL data will be analyzed and interpreted."
+      },
+      "confidence": 0.925,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "7d5e02bd702f459b71cb1a6f03a502df",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.265000Z"
+    },
+    "SAI-050": {
+      "activityId": "SAI-050",
+      "activityName": "QoL Questionnaires",
+      "domain": null,
+      "matchedModules": [
+        "pro_specifications",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "pro_specifications": "This is an exact match. The pro_specifications module is designed to contain all details about Patient-Reported Outcome instruments, including the specific QoL questionnaires used, administration schedule, and scoring algorithms.",
+        "endpoints_estimands_sap": "Quality of Life (QoL) is frequently a secondary or exploratory endpoint in clinical trials. This module would define how QoL data will be analyzed and interpreted."
+      },
+      "confidence": 0.925,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "2973d35741328f8acf8bdf2108994e71",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:07:48.265004Z"
+    },
+    "SAI-051": {
+      "activityId": "SAI-051",
+      "activityName": "Adverse Event and Concomitant Medication Assessment",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "concomitant_medications",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "The activity name directly corresponds to the purpose of the 'adverse_events' module, which is expected to contain definitions, grading criteria (e.g., CTCAE), and reporting requirements for AEs.",
+        "concomitant_medications": "The activity name directly corresponds to the purpose of the 'concomitant_medications' module, which is expected to define procedures for collecting conmed data and list any prohibited or restricted medications.",
+        "safety_decision_points": "Information gathered during this assessment, particularly regarding adverse events, is often used to inform safety-related decisions, which would be detailed in this module."
+      },
+      "confidence": 0.7999999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "65ec9e6398bed6a0ebbaf01efcd443eb",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435440Z"
+    },
+    "SAI-052": {
+      "activityId": "SAI-052",
+      "activityName": "Adverse Event and Concomitant Medication Assessment",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "concomitant_medications",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "The activity name directly corresponds to the purpose of the 'adverse_events' module, which is expected to contain definitions, grading criteria (e.g., CTCAE), and reporting requirements for AEs.",
+        "concomitant_medications": "The activity name directly corresponds to the purpose of the 'concomitant_medications' module, which is expected to define procedures for collecting conmed data and list any prohibited or restricted medications.",
+        "safety_decision_points": "Information gathered during this assessment, particularly regarding adverse events, is often used to inform safety-related decisions, which would be detailed in this module."
+      },
+      "confidence": 0.7999999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "cd7682222761b716628efb53e4573e16",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435540Z"
+    },
+    "SAI-053": {
+      "activityId": "SAI-053",
+      "activityName": "Adverse Event and Concomitant Medication Assessment",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "concomitant_medications",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "The activity name directly corresponds to the purpose of the 'adverse_events' module, which is expected to contain definitions, grading criteria (e.g., CTCAE), and reporting requirements for AEs.",
+        "concomitant_medications": "The activity name directly corresponds to the purpose of the 'concomitant_medications' module, which is expected to define procedures for collecting conmed data and list any prohibited or restricted medications.",
+        "safety_decision_points": "Information gathered during this assessment, particularly regarding adverse events, is often used to inform safety-related decisions, which would be detailed in this module."
+      },
+      "confidence": 0.7999999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "beca4180253a3788e13e4f2eaf83a92d",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435545Z"
+    },
+    "SAI-054": {
+      "activityId": "SAI-054",
+      "activityName": "Adverse Event and Concomitant Medication Assessment",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "concomitant_medications",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "The activity name directly corresponds to the purpose of the 'adverse_events' module, which is expected to contain definitions, grading criteria (e.g., CTCAE), and reporting requirements for AEs.",
+        "concomitant_medications": "The activity name directly corresponds to the purpose of the 'concomitant_medications' module, which is expected to define procedures for collecting conmed data and list any prohibited or restricted medications.",
+        "safety_decision_points": "Information gathered during this assessment, particularly regarding adverse events, is often used to inform safety-related decisions, which would be detailed in this module."
+      },
+      "confidence": 0.7999999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "f52ee0b6cd74e4f9b714057be1681980",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435549Z"
+    },
+    "SAI-055": {
+      "activityId": "SAI-055",
+      "activityName": "Adverse Event and Concomitant Medication Assessment",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "concomitant_medications",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "The activity name directly corresponds to the purpose of the 'adverse_events' module, which is expected to contain definitions, grading criteria (e.g., CTCAE), and reporting requirements for AEs.",
+        "concomitant_medications": "The activity name directly corresponds to the purpose of the 'concomitant_medications' module, which is expected to define procedures for collecting conmed data and list any prohibited or restricted medications.",
+        "safety_decision_points": "Information gathered during this assessment, particularly regarding adverse events, is often used to inform safety-related decisions, which would be detailed in this module."
+      },
+      "confidence": 0.7999999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "0db3f5e2c0ba2d4f703e8ae84c6b77ac",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435552Z"
+    },
+    "SAI-056": {
+      "activityId": "SAI-056",
+      "activityName": "Adverse Event and Concomitant Medication Assessment",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "concomitant_medications",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "The activity name directly corresponds to the purpose of the 'adverse_events' module, which is expected to contain definitions, grading criteria (e.g., CTCAE), and reporting requirements for AEs.",
+        "concomitant_medications": "The activity name directly corresponds to the purpose of the 'concomitant_medications' module, which is expected to define procedures for collecting conmed data and list any prohibited or restricted medications.",
+        "safety_decision_points": "Information gathered during this assessment, particularly regarding adverse events, is often used to inform safety-related decisions, which would be detailed in this module."
+      },
+      "confidence": 0.7999999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "44fa8634861190bb2eb05b9c06155e6d",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435560Z"
+    },
+    "SAI-057": {
+      "activityId": "SAI-057",
+      "activityName": "Adverse Event and Concomitant Medication Assessment",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "concomitant_medications",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "The activity name directly corresponds to the purpose of the 'adverse_events' module, which is expected to contain definitions, grading criteria (e.g., CTCAE), and reporting requirements for AEs.",
+        "concomitant_medications": "The activity name directly corresponds to the purpose of the 'concomitant_medications' module, which is expected to define procedures for collecting conmed data and list any prohibited or restricted medications.",
+        "safety_decision_points": "Information gathered during this assessment, particularly regarding adverse events, is often used to inform safety-related decisions, which would be detailed in this module."
+      },
+      "confidence": 0.7999999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "aceb28bf184a24111354c015de49806a",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435564Z"
+    },
+    "SAI-058": {
+      "activityId": "SAI-058",
+      "activityName": "Adverse Event and Concomitant Medication Assessment",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "concomitant_medications",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "The activity name directly corresponds to the purpose of the 'adverse_events' module, which is expected to contain definitions, grading criteria (e.g., CTCAE), and reporting requirements for AEs.",
+        "concomitant_medications": "The activity name directly corresponds to the purpose of the 'concomitant_medications' module, which is expected to define procedures for collecting conmed data and list any prohibited or restricted medications.",
+        "safety_decision_points": "Information gathered during this assessment, particularly regarding adverse events, is often used to inform safety-related decisions, which would be detailed in this module."
+      },
+      "confidence": 0.7999999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "06280d152b5962356491660c8818a43a",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435568Z"
+    },
+    "SAI-059": {
+      "activityId": "SAI-059",
+      "activityName": "Adverse Event and Concomitant Medication Assessment",
+      "domain": null,
+      "matchedModules": [
+        "adverse_events",
+        "concomitant_medications",
+        "safety_decision_points"
+      ],
+      "matchRationale": {
+        "adverse_events": "The activity name directly corresponds to the purpose of the 'adverse_events' module, which is expected to contain definitions, grading criteria (e.g., CTCAE), and reporting requirements for AEs.",
+        "concomitant_medications": "The activity name directly corresponds to the purpose of the 'concomitant_medications' module, which is expected to define procedures for collecting conmed data and list any prohibited or restricted medications.",
+        "safety_decision_points": "Information gathered during this assessment, particularly regarding adverse events, is often used to inform safety-related decisions, which would be detailed in this module."
+      },
+      "confidence": 0.7999999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "10ed9d4442b81bcda400e80e521293ef",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435571Z"
+    },
+    "SAI-060": {
+      "activityId": "SAI-060",
+      "activityName": "Randomization",
+      "domain": null,
+      "matchedModules": [
+        "study_design",
+        "site_operations_logistics"
+      ],
+      "matchRationale": {
+        "study_design": "Randomization is a fundamental component of the study design. This module is expected to contain details about the randomization scheme, stratification factors, and allocation ratios.",
+        "site_operations_logistics": "The practical execution of randomization, often via an IWRS/IVRS system, is a key site operational task. This module would contain details on the system used."
+      },
+      "confidence": 0.8,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "f930e765c3905c37de7d683e4b89d192",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435579Z"
+    },
+    "SAI-061": {
+      "activityId": "SAI-061",
+      "activityName": "Dispense veliparib",
+      "domain": null,
+      "matchedModules": [
+        "site_operations_logistics"
+      ],
+      "matchRationale": {
+        "site_operations_logistics": "Dispensing of investigational product is a core site-level logistical activity. This module is expected to contain information on drug supply, accountability, and dispensing procedures."
+      },
+      "confidence": 0.85,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "e231d10af60ad21cd4f003dd86939dad",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435588Z"
+    },
+    "SAI-062": {
+      "activityId": "SAI-062",
+      "activityName": "Dispense veliparib",
+      "domain": null,
+      "matchedModules": [
+        "site_operations_logistics"
+      ],
+      "matchRationale": {
+        "site_operations_logistics": "Dispensing of investigational product is a core site-level logistical activity. This module is expected to contain information on drug supply, accountability, and dispensing procedures."
+      },
+      "confidence": 0.85,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "18728321b8ee0b5ae0d14844eefda3c0",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435591Z"
+    },
+    "SAI-063": {
+      "activityId": "SAI-063",
+      "activityName": "Dispense veliparib",
+      "domain": null,
+      "matchedModules": [
+        "site_operations_logistics"
+      ],
+      "matchRationale": {
+        "site_operations_logistics": "Dispensing of investigational product is a core site-level logistical activity. This module is expected to contain information on drug supply, accountability, and dispensing procedures."
+      },
+      "confidence": 0.85,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "44dcf81cfeb139156ca405fe05861a8f",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435594Z"
+    },
+    "SAI-064": {
+      "activityId": "SAI-064",
+      "activityName": "Administer premedication",
+      "domain": null,
+      "matchedModules": [
+        "concomitant_medications"
+      ],
+      "matchRationale": {
+        "concomitant_medications": "Premedications are a class of required concomitant medications. This module is expected to specify the required premeds, their timing, and dosage."
+      },
+      "confidence": 0.8,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "110a6ca1cc83869d755f6985775a204b",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435596Z"
+    },
+    "SAI-065": {
+      "activityId": "SAI-065",
+      "activityName": "Administer premedication",
+      "domain": null,
+      "matchedModules": [
+        "concomitant_medications"
+      ],
+      "matchRationale": {
+        "concomitant_medications": "Premedications are a class of required concomitant medications. This module is expected to specify the required premeds, their timing, and dosage."
+      },
+      "confidence": 0.8,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "78f44dfa605f129dc9caf8d940e02be9",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435599Z"
+    },
+    "SAI-066": {
+      "activityId": "SAI-066",
+      "activityName": "Administer premedication",
+      "domain": null,
+      "matchedModules": [
+        "concomitant_medications"
+      ],
+      "matchRationale": {
+        "concomitant_medications": "Premedications are a class of required concomitant medications. This module is expected to specify the required premeds, their timing, and dosage."
+      },
+      "confidence": 0.8,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "ce81d0d4c28a1931bf6a43a94fcb334b",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435602Z"
+    },
+    "SAI-067": {
+      "activityId": "SAI-067",
+      "activityName": "Administer platinum doublet chemotherapy",
+      "domain": null,
+      "matchedModules": [
+        "study_design",
+        "concomitant_medications"
+      ],
+      "matchRationale": {
+        "study_design": "The specific chemotherapy regimen is a key part of the treatment arm definition within the overall study design.",
+        "concomitant_medications": "The chemotherapy administered alongside the investigational product is considered a required concomitant therapy. This module would provide details on its administration."
+      },
+      "confidence": 0.775,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "73caa67d028020773fdefdca23d89f03",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435610Z"
+    },
+    "SAI-068": {
+      "activityId": "SAI-068",
+      "activityName": "Administer platinum doublet chemotherapy",
+      "domain": null,
+      "matchedModules": [
+        "study_design",
+        "concomitant_medications"
+      ],
+      "matchRationale": {
+        "study_design": "The specific chemotherapy regimen is a key part of the treatment arm definition within the overall study design.",
+        "concomitant_medications": "The chemotherapy administered alongside the investigational product is considered a required concomitant therapy. This module would provide details on its administration."
+      },
+      "confidence": 0.775,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "53ccf6c92a472b8461b7103450eb5637",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435615Z"
+    },
+    "SAI-069": {
+      "activityId": "SAI-069",
+      "activityName": "Administer maintenance pemetrexed",
+      "domain": null,
+      "matchedModules": [
+        "study_design",
+        "concomitant_medications"
+      ],
+      "matchRationale": {
+        "study_design": "The maintenance phase of treatment and the specific drug used (pemetrexed) are defined within the study design.",
+        "concomitant_medications": "Maintenance therapy is a required concomitant medication. This module would provide details on its administration and criteria."
+      },
+      "confidence": 0.775,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "ff0d68e8e33622487295e5819d704b1d",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435619Z"
+    },
+    "SAI-070": {
+      "activityId": "SAI-070",
+      "activityName": "Survival",
+      "domain": null,
+      "matchedModules": [
+        "endpoints_estimands_sap",
+        "withdrawal_procedures"
+      ],
+      "matchRationale": {
+        "endpoints_estimands_sap": "Survival (e.g., Overall Survival, Progression-Free Survival) is a key efficacy endpoint. This module is expected to contain the precise definition of the endpoint and the plan for its statistical analysis.",
+        "withdrawal_procedures": "This module would describe the procedures for survival follow-up, which often continues after a subject has discontinued study treatment."
+      },
+      "confidence": 0.7749999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "f7068e51d5d6f5283296c53f6c4dd83d",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435622Z"
+    },
+    "SAI-071": {
+      "activityId": "SAI-071",
+      "activityName": "Optional PG Blood Sampling",
+      "domain": null,
+      "matchedModules": [
+        "biospecimen_handling",
+        "informed_consent",
+        "laboratory_specifications"
+      ],
+      "matchRationale": {
+        "biospecimen_handling": "This module is the primary source for procedures related to the collection, processing, storage, and shipment of any biological sample, including pharmacogenomic (PG) blood samples.",
+        "informed_consent": "The 'Optional' nature of this activity implies a separate consent process. The informed consent module would detail the specific language and requirements for this optional sample collection.",
+        "laboratory_specifications": "This module would specify the laboratory requirements for the PG sample, such as tube type, sample volume, and initial processing steps."
+      },
+      "confidence": 0.7999999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "7228d768c9abf6e6bc7b152a3ed5b994",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435626Z"
+    },
+    "SAI-072": {
+      "activityId": "SAI-072",
+      "activityName": "PD Blood Sampling Plasma Markers",
+      "domain": null,
+      "matchedModules": [
+        "pkpd_sampling",
+        "biospecimen_handling",
+        "laboratory_specifications"
+      ],
+      "matchRationale": {
+        "pkpd_sampling": "The activity name is a direct match for this module's purpose. It is expected to contain the schedule, analytes, and methods for pharmacodynamic (PD) sample collection.",
+        "biospecimen_handling": "This module would provide the operational details for handling the physical blood sample, including processing to plasma, storage, and shipping.",
+        "laboratory_specifications": "This module would define the specific bioanalytical assays to be used for measuring the plasma markers."
+      },
+      "confidence": 0.7666666666666666,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "2f129e37c39745bf4279754b28e8bd81",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435630Z"
+    },
+    "SAI-073": {
+      "activityId": "SAI-073",
+      "activityName": "PD Blood Sampling Plasma Markers",
+      "domain": null,
+      "matchedModules": [
+        "pkpd_sampling",
+        "biospecimen_handling",
+        "laboratory_specifications"
+      ],
+      "matchRationale": {
+        "pkpd_sampling": "The activity name is a direct match for this module's purpose. It is expected to contain the schedule, analytes, and methods for pharmacodynamic (PD) sample collection.",
+        "biospecimen_handling": "This module would provide the operational details for handling the physical blood sample, including processing to plasma, storage, and shipping.",
+        "laboratory_specifications": "This module would define the specific bioanalytical assays to be used for measuring the plasma markers."
+      },
+      "confidence": 0.7666666666666666,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "72c2d7ffcc36621caaff84b5dda32297",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435633Z"
+    },
+    "SAI-074": {
+      "activityId": "SAI-074",
+      "activityName": "PD Blood Sampling Plasma Markers",
+      "domain": null,
+      "matchedModules": [
+        "pkpd_sampling",
+        "biospecimen_handling",
+        "laboratory_specifications"
+      ],
+      "matchRationale": {
+        "pkpd_sampling": "The activity name is a direct match for this module's purpose. It is expected to contain the schedule, analytes, and methods for pharmacodynamic (PD) sample collection.",
+        "biospecimen_handling": "This module would provide the operational details for handling the physical blood sample, including processing to plasma, storage, and shipping.",
+        "laboratory_specifications": "This module would define the specific bioanalytical assays to be used for measuring the plasma markers."
+      },
+      "confidence": 0.7666666666666666,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "2439c694e5b34593de0270cf50739d53",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435637Z"
+    },
+    "SAI-075": {
+      "activityId": "SAI-075",
+      "activityName": "Serum Markers",
+      "domain": null,
+      "matchedModules": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "laboratory_specifications": "This is the primary module for any laboratory test. It is expected to define the specific serum markers to be tested, sample requirements (e.g., tube type, volume), and processing instructions.",
+        "biospecimen_handling": "This module would contain the logistical details for handling the serum sample from collection to shipment to the central lab.",
+        "endpoints_estimands_sap": "If the serum markers are exploratory or secondary endpoints (e.g., tumor markers), this module would define their role in the study's analysis plan."
+      },
+      "confidence": 0.7333333333333334,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "dba0608c34d63e5ff921b3def4862bc7",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:08:48.435640Z"
+    },
+    "SAI-076": {
+      "activityId": "SAI-076",
+      "activityName": "Serum Markers",
+      "domain": null,
+      "matchedModules": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "laboratory_specifications": "The activity 'Serum Markers' directly relates to laboratory testing. The laboratory_specifications module is the primary source for defining which markers are tested, the analytical methods, and sample requirements, despite no specific data being available in the summary.",
+        "biospecimen_handling": "This module would contain procedures for the collection, processing, and storage of the serum samples required for the 'Serum Markers' analysis. The match is based on the module's intended purpose for specimen logistics.",
+        "endpoints_estimands_sap": "Serum markers are often used as biomarkers for efficacy or pharmacodynamic endpoints. This module could define their role in the statistical analysis plan, though this is speculative without specific data."
+      },
+      "confidence": 0.7166666666666668,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "d5053fa28d2e35d7b5f6e58a4c343faf",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:09:26.933380Z"
+    },
+    "SAI-077": {
+      "activityId": "SAI-077",
+      "activityName": "Serum Markers",
+      "domain": null,
+      "matchedModules": [
+        "laboratory_specifications",
+        "biospecimen_handling",
+        "endpoints_estimands_sap"
+      ],
+      "matchRationale": {
+        "laboratory_specifications": "The activity 'Serum Markers' directly relates to laboratory testing. The laboratory_specifications module is the primary source for defining which markers are tested, the analytical methods, and sample requirements, despite no specific data being available in the summary.",
+        "biospecimen_handling": "This module would contain procedures for the collection, processing, and storage of the serum samples required for the 'Serum Markers' analysis. The match is based on the module's intended purpose for specimen logistics.",
+        "endpoints_estimands_sap": "Serum markers are often used as biomarkers for efficacy or pharmacodynamic endpoints. This module could define their role in the statistical analysis plan, though this is speculative without specific data."
+      },
+      "confidence": 0.7166666666666668,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "e300930373bfca8f3f0c33775bea8742",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:09:26.933490Z"
+    },
+    "SAI-078": {
+      "activityId": "SAI-078",
+      "activityName": "Tissue Sample Collection",
+      "domain": null,
+      "matchedModules": [
+        "biospecimen_handling",
+        "informed_consent",
+        "laboratory_specifications"
+      ],
+      "matchRationale": {
+        "biospecimen_handling": "This is the primary module for 'Tissue Sample Collection'. It is expected to contain all details on collection procedures, handling, storage, and shipping, based on its designated function.",
+        "informed_consent": "Tissue collection, especially for research, requires specific consent. The informed_consent module is the designated source for details on what participants are consented for regarding their tissue samples.",
+        "laboratory_specifications": "This module could specify the downstream laboratory processing and analysis to be performed on the collected tissue, such as pathology review or molecular assays."
+      },
+      "confidence": 0.7666666666666667,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "dea84390a9fe6f8d9a7e36a20ff8df61",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:09:26.933504Z"
+    },
+    "SAI-079": {
+      "activityId": "SAI-079",
+      "activityName": "Tissue Sample Collection",
+      "domain": null,
+      "matchedModules": [
+        "biospecimen_handling",
+        "laboratory_specifications",
+        "informed_consent"
+      ],
+      "matchRationale": {
+        "biospecimen_handling": "The activity name 'Tissue Sample Collection' directly corresponds to the purpose of the biospecimen_handling module. This module is expected to contain details on collection procedures, processing, storage, and shipping requirements for tissue samples.",
+        "laboratory_specifications": "Tissue samples are collected for subsequent analysis. The laboratory_specifications module is expected to define the specific tests (e.g., biomarker, pathology) to be performed on the tissue, along with sample preparation and analytical methods.",
+        "informed_consent": "Collection of tissue, particularly for exploratory or future research, often requires specific consent from the participant. The informed_consent module is expected to contain details about these specific consent requirements."
+      },
+      "confidence": 0.7999999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "bb26adbf0adf88a97a8055dda2085947",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T22:39:07.420974Z"
+    },
+    "SAI-080": {
+      "activityId": "SAI-080",
+      "activityName": "Veliparib PK Sampling",
+      "domain": null,
+      "matchedModules": [
+        "pkpd_sampling",
+        "biospecimen_handling",
+        "laboratory_specifications"
+      ],
+      "matchRationale": {
+        "pkpd_sampling": "The activity name is an exact match for the purpose of the pkpd_sampling module. This module is the definitive source for PK sampling schedules, volumes, analytes, and timepoints, even with no specific data provided.",
+        "biospecimen_handling": "This module is highly relevant as it would detail the critical logistical steps for handling the PK samples, including collection, processing (e.g., centrifugation), storage, and shipment to the bioanalytical lab.",
+        "laboratory_specifications": "This module could contain information on the specific bioanalytical methods used to measure the concentration of Veliparib in the collected samples."
+      },
+      "confidence": 0.7999999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "8b029e5a8b6b96a093164a70e8229785",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T16:09:26.933519Z"
+    },
+    "SAI-081": {
+      "activityId": "SAI-081",
+      "activityName": "Veliparib PK Sampling",
+      "domain": null,
+      "matchedModules": [
+        "pkpd_sampling",
+        "laboratory_specifications",
+        "biospecimen_handling"
+      ],
+      "matchRationale": {
+        "pkpd_sampling": "The activity 'Veliparib PK Sampling' is an exact terminology match for the pkpd_sampling module. This module is expected to contain the specific sampling timepoints, sample volume, analyte (Veliparib), and other parameters related to pharmacokinetic assessment.",
+        "laboratory_specifications": "Pharmacokinetic (PK) samples require specialized bioanalytical testing. The laboratory_specifications module is expected to detail the specific assay methods, validation criteria, and lab requirements for measuring Veliparib concentrations.",
+        "biospecimen_handling": "Proper handling of PK samples is critical for data integrity. The biospecimen_handling module is expected to provide instructions on sample collection tubes, processing (e.g., centrifugation), storage conditions, and shipping logistics to the analytical lab."
+      },
+      "confidence": 0.8799999999999999,
+      "source": "cache",
+      "requiresHumanReview": false,
+      "cacheKey": "0b8c177e81bed3c152f155bffb2f4770",
+      "modelUsed": "gemini-2.5-pro",
+      "timestamp": "2025-12-09T22:39:07.421205Z"
+    }
+  },
+  "reviewItems": [],
+  "metrics": {
+    "totalActivitiesProcessed": 81,
+    "activitiesEnriched": 20,
+    "activitiesNoMatch": 1,
+    "modulesUsed": {
+      "laboratory_specifications": 20,
+      "biospecimen_handling": 20,
+      "adverse_events": 7,
+      "safety_decision_points": 7,
+      "informed_consent": 3,
+      "pkpd_sampling": 5,
+      "endpoints_estimands_sap": 3
+    },
+    "cacheHits": 81,
+    "llmCalls": 0,
+    "pdfValidations": 0,
+    "avgConfidence": 0.793,
+    "processingTimeSeconds": 0.05,
+    "errorCount": 0,
+    "reviewItemCount": 0
+  },
+  "errors": [],
+  "_agentDefinition": {
+    "stageNumber": 9,
+    "stageName": "Protocol Mining",
+    "displayName": "Cross-Reference Enricher",
+    "purpose": "Cross-references SOA activities with other extracted protocol sections (lab specs, biospecimen handling, safety monitoring) to enrich activity details beyond the SOA table.",
+    "extractionMethodology": "Module matching using extraction outputs from other agents (laboratory, biospecimen, safety, etc.). PDF validation for low-confidence matches using Gemini File API. Confidence scoring based on semantic similarity and field coverage.",
+    "keyOutputs": [
+      {
+        "field": "enrichments",
+        "description": "Additional details from protocol mining"
+      },
+      {
+        "field": "sourcesUsed",
+        "description": "Which extraction modules provided data"
+      },
+      {
+        "field": "labManualEnrichment",
+        "description": "Lab-specific details from lab specs module"
+      },
+      {
+        "field": "biospecimenEnrichment",
+        "description": "Specimen details from biospecimen module"
+      },
+      {
+        "field": "safetyEnrichment",
+        "description": "Safety monitoring details"
+      },
+      {
+        "field": "overallConfidence",
+        "description": "Combined confidence from all sources"
+      }
+    ],
+    "downstreamIntegrations": [
+      {
+        "system": "EDC Build",
+        "useCase": "Pre-populated form field values",
+        "automationType": "direct_mapping",
+        "fieldsUsed": [
+          "labManualEnrichment",
+          "biospecimenEnrichment"
+        ],
+        "automationExample": "Lab form pre-fills expected ranges, units, and collection requirements from mining"
+      },
+      {
+        "system": "Central Lab",
+        "useCase": "Test panel configuration",
+        "automationType": "configuration",
+        "fieldsUsed": [
+          "labManualEnrichment",
+          "sourcesUsed"
+        ],
+        "automationExample": "Central lab system receives exact test codes and expected values from protocol"
+      },
+      {
+        "system": "Safety Database",
+        "useCase": "AE expectedness determination",
+        "automationType": "rule_generation",
+        "fieldsUsed": [
+          "safetyEnrichment"
+        ],
+        "automationExample": "Safety system pre-configured with expected AEs and monitoring thresholds"
+      },
+      {
+        "system": "Site Training",
+        "useCase": "Comprehensive procedure documentation",
+        "automationType": "direct_mapping",
+        "fieldsUsed": [
+          "enrichments",
+          "sourcesUsed"
+        ],
+        "automationExample": "Site manual combines SOA with enriched details for complete procedure guides"
+      }
+    ],
+    "automationInsights": [
+      {
+        "insight": "Data Completeness",
+        "description": "Mining fills gaps that SOA table alone cannot provide"
+      },
+      {
+        "insight": "Cross-Validation",
+        "description": "Multiple sources increase confidence in extracted values"
+      },
+      {
+        "insight": "Protocol Consistency",
+        "description": "Mining detects discrepancies between SOA and detailed sections"
+      }
+    ],
+    "dataQualityIndicators": [
+      "at least one source used",
+      "confidence >= 0.70",
+      "no conflicting enrichments"
+    ],
+    "humanReviewTriggers": [
+      "confidence < 0.70",
+      "conflicting data between sources",
+      "sparse enrichment data"
+    ]
+  }
+}

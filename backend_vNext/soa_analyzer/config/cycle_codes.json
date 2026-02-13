@@ -1,0 +1,192 @@
+{
+  "_metadata": {
+    "description": "CDISC code mapping for cycle numbers and cycle-related concepts in Stage 8 Cycle Expansion",
+    "purpose": "Convert cycle numbers to USDM 4.0 compliant 6-field Code objects",
+    "source": "NCI EVS Thesaurus (https://ncithesaurus.nci.nih.gov/)",
+    "version": "1.0.0",
+    "created": "2025-12-06",
+    "usage": "Maps cycle numbers and recurrence types to USDM 4.0 Code objects"
+  },
+  "cycle_base_code": {
+    "code": "C94535",
+    "decode": "Cycle",
+    "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+    "codeSystemVersion": "24.12",
+    "description": "Base CDISC code for treatment cycle concept"
+  },
+  "cycle_number_codes": {
+    "1": {
+      "code": "C94535",
+      "decode": "Cycle 1",
+      "codeSystem": "NCI_EVS"
+    },
+    "2": {
+      "code": "C94535",
+      "decode": "Cycle 2",
+      "codeSystem": "NCI_EVS"
+    },
+    "3": {
+      "code": "C94535",
+      "decode": "Cycle 3",
+      "codeSystem": "NCI_EVS"
+    },
+    "4": {
+      "code": "C94535",
+      "decode": "Cycle 4",
+      "codeSystem": "NCI_EVS"
+    },
+    "5": {
+      "code": "C94535",
+      "decode": "Cycle 5",
+      "codeSystem": "NCI_EVS"
+    },
+    "6": {
+      "code": "C94535",
+      "decode": "Cycle 6",
+      "codeSystem": "NCI_EVS"
+    },
+    "7": {
+      "code": "C94535",
+      "decode": "Cycle 7",
+      "codeSystem": "NCI_EVS"
+    },
+    "8": {
+      "code": "C94535",
+      "decode": "Cycle 8",
+      "codeSystem": "NCI_EVS"
+    },
+    "9": {
+      "code": "C94535",
+      "decode": "Cycle 9",
+      "codeSystem": "NCI_EVS"
+    },
+    "10": {
+      "code": "C94535",
+      "decode": "Cycle 10",
+      "codeSystem": "NCI_EVS"
+    },
+    "11": {
+      "code": "C94535",
+      "decode": "Cycle 11",
+      "codeSystem": "NCI_EVS"
+    },
+    "12": {
+      "code": "C94535",
+      "decode": "Cycle 12",
+      "codeSystem": "NCI_EVS"
+    }
+  },
+  "steady_state_code": {
+    "code": "C94535",
+    "decode": "Steady State Cycle",
+    "codeSystem": "NCI_EVS",
+    "description": "Used for cycles beyond the steady-state threshold (e.g., Cycle 4+)"
+  },
+  "recurrence_type_codes": {
+    "PER_CYCLE": {
+      "code": "C94535",
+      "decode": "Per Treatment Cycle",
+      "codeSystem": "NCI_EVS",
+      "description": "Activity repeats each treatment cycle"
+    },
+    "FIXED_INTERVAL": {
+      "code": "C49677",
+      "decode": "Fixed Schedule",
+      "codeSystem": "NCI_EVS",
+      "description": "Activity repeats at fixed time intervals"
+    },
+    "AT_EVENT": {
+      "code": "C25499",
+      "decode": "Event-Driven",
+      "codeSystem": "NCI_EVS",
+      "description": "Activity triggered by clinical events"
+    },
+    "CONDITIONAL": {
+      "code": "C49690",
+      "decode": "Conditional",
+      "codeSystem": "NCI_EVS",
+      "description": "Activity occurs if condition is met"
+    }
+  },
+  "interval_unit_codes": {
+    "days": {
+      "code": "C25301",
+      "decode": "Day",
+      "codeSystem": "NCI_EVS"
+    },
+    "weeks": {
+      "code": "C29844",
+      "decode": "Week",
+      "codeSystem": "NCI_EVS"
+    },
+    "months": {
+      "code": "C29846",
+      "decode": "Month",
+      "codeSystem": "NCI_EVS"
+    },
+    "cycles": {
+      "code": "C94535",
+      "decode": "Cycle",
+      "codeSystem": "NCI_EVS"
+    }
+  },
+  "encounter_type_codes": {
+    "Treatment": {
+      "code": "C25100",
+      "decode": "Treatment Visit",
+      "codeSystem": "NCI_EVS"
+    },
+    "Dosing": {
+      "code": "C71148",
+      "decode": "Dosing Visit",
+      "codeSystem": "NCI_EVS"
+    },
+    "Assessment": {
+      "code": "C25217",
+      "decode": "Assessment Visit",
+      "codeSystem": "NCI_EVS"
+    },
+    "PK Sampling": {
+      "code": "C62164",
+      "decode": "PK Sampling Visit",
+      "codeSystem": "NCI_EVS"
+    },
+    "Safety": {
+      "code": "C99161",
+      "decode": "Safety Visit",
+      "codeSystem": "NCI_EVS"
+    }
+  },
+  "week_number_codes": {
+    "1": {
+      "code": "C29844",
+      "decode": "Week 1",
+      "codeSystem": "NCI_EVS"
+    },
+    "2": {
+      "code": "C29844",
+      "decode": "Week 2",
+      "codeSystem": "NCI_EVS"
+    },
+    "4": {
+      "code": "C29844",
+      "decode": "Week 4",
+      "codeSystem": "NCI_EVS"
+    },
+    "8": {
+      "code": "C29844",
+      "decode": "Week 8",
+      "codeSystem": "NCI_EVS"
+    },
+    "12": {
+      "code": "C29844",
+      "decode": "Week 12",
+      "codeSystem": "NCI_EVS"
+    }
+  },
+  "usdm_code_system": {
+    "full_uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+    "short_name": "NCI_EVS",
+    "version": "24.12"
+  }
+}

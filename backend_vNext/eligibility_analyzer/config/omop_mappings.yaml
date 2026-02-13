@@ -1,0 +1,70 @@
+# OMOP CDM Mapping Configuration
+# This file externalizes hardcoded mappings for maintainability
+
+# Domain to OMOP table mapping
+domain_to_table:
+  Measurement: measurement
+  Condition: condition_occurrence
+  Drug: drug_exposure
+  Procedure: procedure_occurrence
+  Observation: observation
+  Device: device_exposure
+  Specimen: specimen
+  Episode: episode
+  Visit: visit_occurrence
+
+# Table to concept_id column mapping
+table_to_concept_column:
+  condition_occurrence: condition_concept_id
+  drug_exposure: drug_concept_id
+  measurement: measurement_concept_id
+  observation: observation_concept_id
+  procedure_occurrence: procedure_concept_id
+  device_exposure: device_concept_id
+  visit_occurrence: visit_concept_id
+  specimen: specimen_concept_id
+
+# Tables that support value_as_number column
+tables_with_value_as_number:
+  - measurement
+  - observation
+
+# Tables that support value_as_concept_id column
+tables_with_value_as_concept:
+  - measurement
+  - observation
+
+# Category to funnel stage mapping
+category_to_stage:
+  disease_indication:
+    stage_id: S1
+    display_name: Disease Indication
+    order: 1
+  demographics:
+    stage_id: S2
+    display_name: Demographics
+    order: 2
+  biomarker:
+    stage_id: S3
+    display_name: Biomarker Requirements
+    order: 3
+  treatment_history:
+    stage_id: S4
+    display_name: Treatment History
+    order: 4
+  functional_status:
+    stage_id: S5
+    display_name: Performance Status
+    order: 5
+  lab_criteria:
+    stage_id: S6
+    display_name: Lab Criteria
+    order: 6
+  safety_exclusion:
+    stage_id: S7
+    display_name: Safety Exclusions
+    order: 7
+  other:
+    stage_id: S8
+    display_name: Other Criteria
+    order: 8

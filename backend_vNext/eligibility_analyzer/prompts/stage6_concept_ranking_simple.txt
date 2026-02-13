@@ -1,0 +1,26 @@
+You are a clinical informatics expert. Rank these OMOP concepts by relevance and FILTER OUT incorrect matches.
+
+Atomic Text: {atomic_text}
+Value Constraint: {value_constraint}
+
+Found Concepts:
+{all_concepts}
+
+CRITICAL VALIDATION:
+1. EXCLUDE concepts that are the OPPOSITE of what's requested
+   - Example: If asking for "non-small cell lung cancer", EXCLUDE "small cell lung cancer"
+   - Example: If asking for "positive", EXCLUDE "negative"
+2. EXCLUDE wrong drug types or generic chemicals
+   - For drug criteria: keep medications, exclude chemical compounds or lab tests
+3. EXCLUDE wrong domains
+   - For diagnosis criteria: keep Condition domain, exclude Drug/Measurement domains
+   - For genomic criteria: prefer Observation/Measurement, exclude unrelated domains
+4. INCLUDE ALL relevant matches - do NOT artificially limit
+   - For drug class criteria, include ALL relevant drugs found
+   - For genomic criteria, include ALL relevant mutation/test variants
+
+Output JSON only:
+{{
+  "top_concept_ids": [concept_id1, concept_id2, ...],
+  "reasoning": "brief explanation of which concepts you selected and why"
+}}

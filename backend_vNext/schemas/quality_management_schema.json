@@ -1,0 +1,583 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://usdm.cdisc.org/v4.0/quality_management_schema.json",
+  "title": "USDM 4.0 Quality Management Extraction Schema (Combined)",
+  "description": "Combined schema for clinical monitoring and RBQM. Unified quality management domain per ICH E6(R2).",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this extraction",
+      "pattern": "^[A-Za-z0-9_-]+-quality-management$"
+    },
+    "instanceType": {
+      "type": "string",
+      "const": "QualityManagement",
+      "description": "USDM 4.0 instance type"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for this extraction",
+      "maxLength": 200
+    },
+    "schemaVersion": {
+      "type": "string",
+      "description": "Schema version for migration compatibility"
+    },
+    "ich_m11_section": {
+      "type": "string",
+      "description": "ICH M11 section reference"
+    },
+
+    "monitoring": {
+      "type": "object",
+      "description": "Clinical Monitoring Plan (from monitoring domain)",
+      "properties": {
+        "monitoring_approach": {
+          "type": "object",
+          "description": "Overall monitoring strategy and approach",
+          "properties": {
+            "instanceType": { "type": "string", "const": "MonitoringApproach" },
+            "strategy": {
+              "type": "string",
+              "enum": ["traditional", "risk_based", "centralized", "hybrid"]
+            },
+            "rationale": { "type": "string", "maxLength": 500 },
+            "regulatory_framework": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["ICH_E6_R2", "FDA_RBM_Guidance", "EMA_GCP", "MHRA_GCP", "TransCelerate_RBM"]
+              }
+            },
+            "adaptive_monitoring": { "type": "boolean" },
+            "centralized_monitoring_enabled": { "type": "boolean" },
+            "centralized_monitoring_tools": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "provenance": { "$ref": "#/definitions/provenance" }
+          }
+        },
+        "sdv_strategy": {
+          "type": "object",
+          "description": "Source Data Verification specifications",
+          "properties": {
+            "instanceType": { "type": "string", "const": "SDVStrategy" },
+            "overall_approach": {
+              "type": "string",
+              "enum": ["100_percent", "risk_based", "targeted", "hybrid", "reduced"]
+            },
+            "default_sdv_percentage": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "critical_data_100_percent": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["informed_consent", "eligibility_criteria", "primary_endpoint", "key_secondary_endpoints", "SAEs", "drug_accountability", "randomization", "dose_modifications", "protocol_deviations", "withdrawal_reason"]
+              }
+            },
+            "sdv_reduction_criteria": {
+              "type": "object",
+              "properties": {
+                "enabled": { "type": "boolean" },
+                "minimum_subjects_enrolled": { "type": "integer" },
+                "error_rate_threshold_percent": { "type": "number" },
+                "reduced_sdv_percentage": { "type": "integer" },
+                "provenance": { "$ref": "#/definitions/provenance" }
+              }
+            },
+            "sdv_escalation_criteria": {
+              "type": "object",
+              "properties": {
+                "error_rate_threshold_percent": { "type": "number" },
+                "escalated_sdv_percentage": { "type": "integer" },
+                "provenance": { "$ref": "#/definitions/provenance" }
+              }
+            },
+            "remote_sdv_enabled": { "type": "boolean" },
+            "provenance": { "$ref": "#/definitions/provenance" }
+          }
+        },
+        "monitoring_visits": {
+          "type": "object",
+          "description": "Monitoring visit specifications",
+          "properties": {
+            "instanceType": { "type": "string", "const": "MonitoringVisits" },
+            "site_initiation_visit": {
+              "type": "object",
+              "properties": {
+                "required": { "type": "boolean" },
+                "timing": { "type": "string", "maxLength": 150 },
+                "format": { "type": "string", "enum": ["on_site", "remote", "hybrid"] },
+                "key_activities": {
+                  "type": "array",
+                  "items": { "type": "string", "enum": ["regulatory_binder_review", "protocol_training", "EDC_training", "facility_tour", "IP_storage_verification", "delegation_log_review", "informed_consent_training", "source_document_setup", "safety_reporting_training"] }
+                },
+                "provenance": { "$ref": "#/definitions/provenance" }
+              }
+            },
+            "routine_monitoring": {
+              "type": "object",
+              "properties": {
+                "on_site_visit_frequency": {
+                  "type": "string",
+                  "enum": ["weekly", "biweekly", "monthly", "every_6_weeks", "every_8_weeks", "quarterly", "per_N_subjects", "risk_based_adaptive"]
+                },
+                "on_site_visit_frequency_subjects": { "type": "integer" },
+                "remote_monitoring_frequency": {
+                  "type": "string",
+                  "enum": ["continuous", "daily", "weekly", "biweekly", "monthly", "as_needed", "risk_based_adaptive"]
+                },
+                "on_site_activities": { "type": "array", "items": { "type": "string" } },
+                "remote_activities": { "type": "array", "items": { "type": "string" } },
+                "provenance": { "$ref": "#/definitions/provenance" }
+              }
+            },
+            "triggered_visits": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "string", "pattern": "^trigger-[0-9]{3}$" },
+                  "trigger_type": {
+                    "type": "string",
+                    "enum": ["SAE_occurrence", "SUSAR", "major_protocol_deviation", "KRI_threshold_breach", "QTL_threshold_breach", "safety_concern", "enrollment_issue", "data_quality_issue", "regulatory_inspection", "sponsor_request"]
+                  },
+                  "response_timeline_hours": { "type": "integer" },
+                  "actions": { "type": "array", "items": { "type": "string" } },
+                  "provenance": { "$ref": "#/definitions/provenance" }
+                }
+              }
+            },
+            "close_out_visit": {
+              "type": "object",
+              "properties": {
+                "timing": { "type": "string", "enum": ["after_LPLV", "after_database_lock", "after_final_analysis", "per_site_completion"] },
+                "timing_days_after_event": { "type": "integer" },
+                "format": { "type": "string", "enum": ["on_site", "remote", "hybrid"] },
+                "activities": { "type": "array", "items": { "type": "string" } },
+                "site_release_criteria": { "type": "array", "items": { "type": "string" } },
+                "provenance": { "$ref": "#/definitions/provenance" }
+              }
+            },
+            "provenance": { "$ref": "#/definitions/provenance" }
+          }
+        },
+        "key_risk_indicators": {
+          "type": "array",
+          "description": "Key Risk Indicators for monitoring",
+          "items": { "$ref": "#/definitions/key_risk_indicator" }
+        },
+        "quality_tolerance_limits": {
+          "type": "array",
+          "description": "Quality Tolerance Limits per ICH E6(R2)",
+          "items": { "$ref": "#/definitions/quality_tolerance_limit" }
+        },
+        "findings_management": {
+          "type": "object",
+          "description": "Management of monitoring findings",
+          "properties": {
+            "instanceType": { "type": "string", "const": "FindingsManagement" },
+            "finding_categories": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "string" },
+                  "category": { "type": "string", "enum": ["critical", "major", "minor", "observation"] },
+                  "definition": { "type": "string", "maxLength": 300 },
+                  "response_timeline_days": { "type": "integer" },
+                  "requires_capa": { "type": "boolean" },
+                  "provenance": { "$ref": "#/definitions/provenance" }
+                }
+              }
+            },
+            "capa_process": {
+              "type": "object",
+              "properties": {
+                "capa_triggers": { "type": "array", "items": { "type": "string" } },
+                "response_timeline_days": { "type": "integer" },
+                "verification_required": { "type": "boolean" },
+                "tracking_system": { "type": "string" },
+                "provenance": { "$ref": "#/definitions/provenance" }
+              }
+            },
+            "protocol_deviation_management": {
+              "type": "object",
+              "properties": {
+                "deviation_categories": { "type": "array", "items": { "type": "string" } },
+                "internal_reporting_timeline_days": { "type": "integer" },
+                "irb_reporting_required": { "type": "boolean" },
+                "irb_reporting_timeline_days": { "type": "integer" },
+                "root_cause_analysis_required": { "type": "boolean" },
+                "provenance": { "$ref": "#/definitions/provenance" }
+              }
+            },
+            "provenance": { "$ref": "#/definitions/provenance" }
+          }
+        },
+        "monitoring_reports": {
+          "type": "object",
+          "description": "Monitoring report requirements",
+          "properties": {
+            "visit_reports": {
+              "type": "object",
+              "properties": {
+                "report_timeline_days": { "type": "integer" },
+                "report_format": { "type": "string" },
+                "required_sections": { "type": "array", "items": { "type": "string" } },
+                "recipients": { "type": "array", "items": { "type": "string" } },
+                "provenance": { "$ref": "#/definitions/provenance" }
+              }
+            },
+            "periodic_summary_reports": {
+              "type": "object",
+              "properties": {
+                "frequency": { "type": "string" },
+                "includes_kri_dashboard": { "type": "boolean" },
+                "includes_qtl_status": { "type": "boolean" },
+                "includes_trend_analysis": { "type": "boolean" },
+                "provenance": { "$ref": "#/definitions/provenance" }
+              }
+            },
+            "oversight_committee_reports": {
+              "type": "object",
+              "properties": {
+                "committee_type": { "type": "array", "items": { "type": "string" } },
+                "report_frequency": { "type": "string" },
+                "unblinded_access": { "type": "boolean" },
+                "provenance": { "$ref": "#/definitions/provenance" }
+              }
+            },
+            "provenance": { "$ref": "#/definitions/provenance" }
+          }
+        },
+        "provenance": { "$ref": "#/definitions/provenance" }
+      }
+    },
+
+    "rbqm": {
+      "type": "object",
+      "description": "Risk-Based Quality Management (from rbqm domain)",
+      "properties": {
+        "ract_register": {
+          "type": "object",
+          "description": "RACT Register - Risk Assessment and Categorization Tool",
+          "properties": {
+            "critical_to_quality_factors": {
+              "type": "array",
+              "description": "CTQ factors - 5-7 high-impact factors with RPN scoring",
+              "items": { "$ref": "#/definitions/ctq_factor" }
+            },
+            "emergent_systemic_risks": {
+              "type": "array",
+              "description": "Non-obvious, high-impact cross-domain risks",
+              "items": { "$ref": "#/definitions/emergent_risk" }
+            },
+            "strategic_risk_indicators": {
+              "type": "array",
+              "description": "Strategic KRIs - leading indicators",
+              "items": { "$ref": "#/definitions/strategic_kri" }
+            },
+            "strategic_summary": { "$ref": "#/definitions/strategic_summary" },
+            "provenance": { "$ref": "#/definitions/provenance" }
+          }
+        },
+        "risk_governance": {
+          "type": "object",
+          "description": "Risk governance - assessment, mitigation, CAPA",
+          "properties": {
+            "risk_assessment_matrix": { "$ref": "#/definitions/risk_assessment_matrix" },
+            "mitigation_strategies": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/mitigation_strategy" }
+            },
+            "safety_signal_detection": {
+              "type": "object",
+              "properties": {
+                "statistical_methods": { "type": "array", "items": { "type": "object" } },
+                "stopping_rules": { "type": "array", "items": { "type": "object" } },
+                "dsmb_interface": {
+                  "type": "object",
+                  "properties": {
+                    "dsmb_required": { "type": "boolean" },
+                    "meeting_frequency": { "type": "string" },
+                    "review_scope": { "type": "array", "items": { "type": "string" } },
+                    "unblinding_criteria": { "type": "string" }
+                  }
+                },
+                "provenance": { "$ref": "#/definitions/provenance" }
+              }
+            },
+            "issue_management_cascade": {
+              "type": "object",
+              "properties": {
+                "escalation_matrix": { "type": "array", "items": { "type": "object" } },
+                "capa_requirements": { "type": "object" },
+                "communication_plan": { "type": ["object", "string"] },
+                "provenance": { "$ref": "#/definitions/provenance" }
+              }
+            },
+            "provenance": { "$ref": "#/definitions/provenance" }
+          }
+        },
+        "technology_config": {
+          "type": "object",
+          "description": "RBQM platform and technology configuration",
+          "properties": {
+            "platform_requirements": { "type": "array", "items": { "type": "object" } },
+            "data_source_integrations": {
+              "type": "array",
+              "items": { "type": "string", "enum": ["EDC", "CTMS", "Safety DB", "Central Lab", "Central Imaging", "IWRS", "ePRO", "Wearables", "RTSM"] }
+            },
+            "dashboard_requirements": { "type": "array", "items": { "type": "object" } },
+            "provenance": { "$ref": "#/definitions/provenance" }
+          }
+        },
+        "provenance": { "$ref": "#/definitions/provenance" }
+      }
+    },
+
+    "extraction_statistics": {
+      "type": "object",
+      "properties": {
+        "has_monitoring_approach": { "type": "boolean" },
+        "has_sdv_strategy": { "type": "boolean" },
+        "has_monitoring_visits": { "type": "boolean" },
+        "kri_count": { "type": "integer" },
+        "qtl_count": { "type": "integer" },
+        "ctq_count": { "type": "integer" },
+        "emergent_risk_count": { "type": "integer" },
+        "mitigation_strategy_count": { "type": "integer" },
+        "identified_risks_count": { "type": "integer" },
+        "has_ract_register": { "type": "boolean" },
+        "has_risk_governance": { "type": "boolean" }
+      }
+    },
+
+    "provenance": { "$ref": "#/definitions/provenance" },
+    "_metadata": {
+      "type": "object",
+      "description": "Internal metadata from extraction process",
+      "additionalProperties": true
+    }
+  },
+
+  "required": ["id", "instanceType", "name"],
+  "additionalProperties": false,
+
+  "definitions": {
+    "provenance": {
+      "type": "object",
+      "description": "Source tracking for extracted data",
+      "additionalProperties": true
+    },
+    "key_risk_indicator": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "pattern": "^KRI-[0-9]{3}$" },
+        "instanceType": { "type": "string", "const": "KeyRiskIndicator" },
+        "name": { "type": "string", "maxLength": 150 },
+        "category": {
+          "type": "string",
+          "enum": ["patient_safety", "data_integrity", "protocol_compliance", "enrollment", "regulatory_compliance"]
+        },
+        "metric": { "type": "string", "maxLength": 300 },
+        "data_source": { "type": "string" },
+        "review_frequency": { "type": "string" },
+        "threshold_green": { "type": "string", "maxLength": 50 },
+        "threshold_amber": { "type": "string", "maxLength": 50 },
+        "threshold_red": { "type": "string", "maxLength": 50 },
+        "action_amber": { "type": "string", "maxLength": 300 },
+        "action_red": { "type": "string", "maxLength": 300 },
+        "applies_to": { "type": "string", "enum": ["site_level", "study_level", "country_level", "subject_level"] },
+        "provenance": { "$ref": "#/definitions/provenance" }
+      },
+      "required": ["id", "instanceType", "name", "category", "metric"]
+    },
+    "quality_tolerance_limit": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "pattern": "^QTL-[0-9]{3}$" },
+        "instanceType": { "type": "string", "const": "QualityToleranceLimit" },
+        "parameter": { "type": "string", "maxLength": 150 },
+        "category": {
+          "type": "string",
+          "enum": ["patient_safety", "data_integrity", "protocol_compliance", "informed_consent", "eligibility", "endpoint_collection"]
+        },
+        "acceptable_limit": { "type": "string", "maxLength": 100 },
+        "acceptable_limit_numeric": { "type": "number" },
+        "alert_threshold": { "type": "string", "maxLength": 100 },
+        "alert_threshold_numeric": { "type": "number" },
+        "action_threshold": { "type": "string", "maxLength": 100 },
+        "action_threshold_numeric": { "type": "number" },
+        "predefined_actions": { "type": "array", "items": { "type": "string" } },
+        "escalation_path": { "type": "array", "items": { "type": "string" } },
+        "provenance": { "$ref": "#/definitions/provenance" }
+      },
+      "required": ["id", "instanceType", "parameter", "category"]
+    },
+    "ctq_factor": {
+      "type": "object",
+      "description": "Critical-to-Quality Factor with RPN scoring",
+      "properties": {
+        "ctq_id": { "type": "string", "pattern": "^CTQ-[0-9]+$" },
+        "ctq_category": {
+          "type": "string",
+          "enum": ["Patient Safety", "Endpoint Integrity", "Data Quality", "GCP Compliance", "Operational Feasibility", "Regulatory Compliance"]
+        },
+        "factor": { "type": "string", "maxLength": 150 },
+        "insight_type": { "type": "string", "enum": ["explicit", "inferred", "emergent", "cross_domain"] },
+        "clinical_reasoning": { "type": "string", "maxLength": 500 },
+        "failure_mode": { "type": "string", "maxLength": 300 },
+        "severity_score": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "probability_score": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "detectability_score": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "risk_priority_number": { "type": "integer", "minimum": 1, "maximum": 125 },
+        "affected_stakeholders": { "type": "array", "items": { "type": "string" } },
+        "preventive_controls": { "type": "array", "items": { "type": "string" } },
+        "detective_controls": { "type": "array", "items": { "type": "string" } },
+        "mitigation_hierarchy_level": { "type": "string", "enum": ["Elimination", "Substitution", "Engineering", "Administrative", "Detection"] },
+        "linked_risk_ids": { "type": "array", "items": { "type": "string" } },
+        "provenance": { "$ref": "#/definitions/provenance" }
+      },
+      "required": ["ctq_id", "ctq_category", "factor"]
+    },
+    "emergent_risk": {
+      "type": "object",
+      "description": "Emergent systemic risk - non-obvious, cross-domain",
+      "properties": {
+        "risk_id": { "type": "string", "pattern": "^ESR-[0-9]+$" },
+        "risk_type": { "type": "string", "enum": ["cross_domain", "temporal", "interaction_effect", "second_order", "incentive_misalignment", "operational", "safety", "regulatory", "data_integrity"] },
+        "risk_description": { "type": "string", "maxLength": 500 },
+        "discovery_reasoning": { "type": "string", "maxLength": 300 },
+        "affected_domains": { "type": "array", "items": { "type": "string" } },
+        "trigger_conditions": { "type": "string", "maxLength": 300 },
+        "probability": { "type": "string" },
+        "impact_severity": { "type": "string" },
+        "affected_objectives": { "type": "array", "items": { "type": "string" } },
+        "quantitative_estimate": { "type": "string", "maxLength": 200 },
+        "preventive_redesign": { "type": "string", "maxLength": 300 },
+        "monitoring_approach": { "type": "string", "maxLength": 300 },
+        "contingency_plan": { "type": "string", "maxLength": 300 },
+        "linked_ctq_ids": { "type": "array", "items": { "type": "string" } },
+        "provenance": { "$ref": "#/definitions/provenance" }
+      },
+      "required": ["risk_id", "risk_type", "risk_description"]
+    },
+    "strategic_kri": {
+      "type": "object",
+      "description": "Strategic KRI - leading indicators",
+      "properties": {
+        "kri_id": { "type": "string", "pattern": "^SKRI-[0-9]+$" },
+        "kri_type": { "type": "string", "enum": ["leading_indicator", "interaction_effect", "statistical_integrity"] },
+        "category": { "type": "string" },
+        "metric": { "type": "string", "maxLength": 150 },
+        "rationale": { "type": "string", "maxLength": 500 },
+        "predictive_value": { "type": "string", "maxLength": 300 },
+        "calculation_formula": { "type": "string", "maxLength": 300 },
+        "data_sources": { "type": "array", "items": { "type": "string" } },
+        "frequency": { "type": "string" },
+        "thresholds": {
+          "type": "object",
+          "properties": {
+            "green": { "type": "object" },
+            "amber": { "type": "object" },
+            "red": { "type": "object" }
+          }
+        },
+        "linked_ctq_ids": { "type": "array", "items": { "type": "string" } },
+        "provenance": { "$ref": "#/definitions/provenance" }
+      },
+      "required": ["kri_id", "kri_type", "category", "metric"]
+    },
+    "strategic_summary": {
+      "type": "object",
+      "description": "High-level strategic risk assessment summary",
+      "properties": {
+        "protocol_complexity_score": { "type": "integer", "minimum": 1, "maximum": 100 },
+        "complexity_justification": { "type": "string", "maxLength": 300 },
+        "primary_complexity_drivers": { "type": "array", "items": { "type": "string" } },
+        "critical_path_risks": { "type": "array", "items": { "type": "string" } },
+        "operational_feasibility_rating": { "type": "string", "enum": ["High", "Medium", "Low"] },
+        "patient_burden_rating": { "type": "string", "enum": ["High", "Medium", "Low"] },
+        "site_burden_rating": { "type": "string", "enum": ["High", "Medium", "Low"] },
+        "therapeutic_area_risk_profile": { "type": "object" },
+        "top_recommendations": { "type": "array", "items": { "type": "object" } },
+        "provenance": { "$ref": "#/definitions/provenance" }
+      },
+      "required": []
+    },
+    "risk_assessment_matrix": {
+      "type": "object",
+      "description": "5x5 Risk Assessment Matrix",
+      "properties": {
+        "scoring_methodology": {
+          "type": "object",
+          "properties": {
+            "probability_scale": { "type": "object" },
+            "impact_scale": { "type": "object" },
+            "risk_levels": { "type": "object" }
+          }
+        },
+        "identified_risks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "risk_id": { "type": "string", "pattern": "^RISK-[0-9]+$" },
+              "risk_category": { "type": "string" },
+              "risk_description": { "type": "string", "maxLength": 300 },
+              "risk_owner": { "type": "string" },
+              "inherent_risk": {
+                "type": "object",
+                "properties": {
+                  "probability": { "type": "integer", "minimum": 1, "maximum": 5 },
+                  "impact": { "type": "integer", "minimum": 1, "maximum": 5 },
+                  "score": { "type": "integer", "minimum": 1, "maximum": 25 },
+                  "level": { "type": "string", "enum": ["Low", "Medium", "High", "Critical"] }
+                }
+              },
+              "residual_risk": {
+                "type": "object",
+                "properties": {
+                  "probability": { "type": "integer" },
+                  "impact": { "type": "integer" },
+                  "score": { "type": "integer" },
+                  "level": { "type": "string" }
+                }
+              },
+              "risk_reduction_percentage": { "type": "integer" },
+              "linked_ctq_id": { "type": ["string", "null"] },
+              "linked_mitigation_ids": { "type": "array", "items": { "type": "string" } },
+              "provenance": { "$ref": "#/definitions/provenance" }
+            },
+            "required": ["risk_id", "risk_category", "risk_description"]
+          }
+        },
+        "provenance": { "$ref": "#/definitions/provenance" }
+      }
+    },
+    "mitigation_strategy": {
+      "type": "object",
+      "description": "Risk mitigation strategy",
+      "properties": {
+        "mitigation_id": { "type": "string", "pattern": "^MIT-[0-9]+$" },
+        "linked_risk_ids": { "type": "array", "items": { "type": "string" } },
+        "control_type": { "type": "string", "enum": ["Preventive", "Detective", "Corrective"] },
+        "control_category": { "type": "string" },
+        "strategy_description": { "type": "string", "maxLength": 300 },
+        "implementation_phase": { "type": "string", "enum": ["Protocol Design", "Study Startup", "Site Activation", "Conduct", "Closeout"] },
+        "responsible_party": { "type": "string" },
+        "effectiveness_rating": { "type": "string", "enum": ["High", "Medium", "Low"] },
+        "verification_method": { "type": "string", "maxLength": 200 },
+        "verification_frequency": { "type": "string" },
+        "resource_requirements": { "type": "string", "maxLength": 200 },
+        "provenance": { "$ref": "#/definitions/provenance" }
+      },
+      "required": ["mitigation_id", "control_type", "strategy_description"]
+    }
+  }
+}

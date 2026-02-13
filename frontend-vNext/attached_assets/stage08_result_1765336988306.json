@@ -1,0 +1,732 @@
+{
+  "stage": 8,
+  "stageName": "Cycle Expansion",
+  "success": true,
+  "expansions": [],
+  "decisions": {
+    "ENC-010": {
+      "encounterName": "Cycles 9 and Beyond Day 1",
+      "recurrenceKey": "NONE",
+      "shouldExpand": false,
+      "expandedCycles": [],
+      "patternType": "steady_state",
+      "cycleLengthDays": 21,
+      "confidence": 0.0,
+      "rationale": "Open-ended pattern starting at Cycle 4. Protocol specifies treatment until discontinuation - no fixed maximum. Human input required to determine expansion.",
+      "source": "open_ended_review",
+      "requiresHumanReview": true,
+      "reviewReason": "Open-ended cycle pattern (Cycle 4+) cannot be auto-expanded. Protocol does not specify a maximum cycle count.",
+      "cachedAt": "2025-12-10T03:08:23.093989Z",
+      "modelName": null,
+      "provenance": {
+        "pageNumber": 179,
+        "tableId": "SOA-3",
+        "colIdx": 1
+      },
+      "isOpenEnded": true,
+      "protocolContext": {}
+    },
+    "ENC-011": {
+      "encounterName": "Cycles 9 and Beyond Day 2",
+      "recurrenceKey": "NONE",
+      "shouldExpand": false,
+      "expandedCycles": [],
+      "patternType": "steady_state",
+      "cycleLengthDays": 21,
+      "confidence": 0.0,
+      "rationale": "Open-ended pattern starting at Cycle 4. Protocol specifies treatment until discontinuation - no fixed maximum. Human input required to determine expansion.",
+      "source": "open_ended_review",
+      "requiresHumanReview": true,
+      "reviewReason": "Open-ended cycle pattern (Cycle 4+) cannot be auto-expanded. Protocol does not specify a maximum cycle count.",
+      "cachedAt": "2025-12-10T03:08:23.094131Z",
+      "modelName": null,
+      "provenance": {
+        "pageNumber": 179,
+        "tableId": "SOA-3",
+        "colIdx": 2
+      },
+      "isOpenEnded": true,
+      "protocolContext": {}
+    },
+    "ENC-012": {
+      "encounterName": "Cycles 9 and Beyond Day 8",
+      "recurrenceKey": "NONE",
+      "shouldExpand": false,
+      "expandedCycles": [],
+      "patternType": "steady_state",
+      "cycleLengthDays": 21,
+      "confidence": 0.0,
+      "rationale": "Open-ended pattern starting at Cycle 4. Protocol specifies treatment until discontinuation - no fixed maximum. Human input required to determine expansion.",
+      "source": "open_ended_review",
+      "requiresHumanReview": true,
+      "reviewReason": "Open-ended cycle pattern (Cycle 4+) cannot be auto-expanded. Protocol does not specify a maximum cycle count.",
+      "cachedAt": "2025-12-10T03:08:23.094172Z",
+      "modelName": null,
+      "provenance": {
+        "pageNumber": 179,
+        "tableId": "SOA-3",
+        "colIdx": 3
+      },
+      "isOpenEnded": true,
+      "protocolContext": {}
+    },
+    "ENC-013": {
+      "encounterName": "Cycles 9 and Beyond Day 9",
+      "recurrenceKey": "NONE",
+      "shouldExpand": false,
+      "expandedCycles": [],
+      "patternType": "steady_state",
+      "cycleLengthDays": 21,
+      "confidence": 0.0,
+      "rationale": "Open-ended pattern starting at Cycle 4. Protocol specifies treatment until discontinuation - no fixed maximum. Human input required to determine expansion.",
+      "source": "open_ended_review",
+      "requiresHumanReview": true,
+      "reviewReason": "Open-ended cycle pattern (Cycle 4+) cannot be auto-expanded. Protocol does not specify a maximum cycle count.",
+      "cachedAt": "2025-12-10T03:08:23.094217Z",
+      "modelName": null,
+      "provenance": {
+        "pageNumber": 179,
+        "tableId": "SOA-3",
+        "colIdx": 4
+      },
+      "isOpenEnded": true,
+      "protocolContext": {}
+    },
+    "ENC-014": {
+      "encounterName": "Cycles 9 and Beyond Day 15",
+      "recurrenceKey": "NONE",
+      "shouldExpand": false,
+      "expandedCycles": [],
+      "patternType": "steady_state",
+      "cycleLengthDays": 21,
+      "confidence": 0.0,
+      "rationale": "Open-ended pattern starting at Cycle 4. Protocol specifies treatment until discontinuation - no fixed maximum. Human input required to determine expansion.",
+      "source": "open_ended_review",
+      "requiresHumanReview": true,
+      "reviewReason": "Open-ended cycle pattern (Cycle 4+) cannot be auto-expanded. Protocol does not specify a maximum cycle count.",
+      "cachedAt": "2025-12-10T03:08:23.094255Z",
+      "modelName": null,
+      "provenance": {
+        "pageNumber": 179,
+        "tableId": "SOA-3",
+        "colIdx": 5
+      },
+      "isOpenEnded": true,
+      "protocolContext": {}
+    },
+    "ENC-015": {
+      "encounterName": "Cycles 9 and Beyond Day 16",
+      "recurrenceKey": "NONE",
+      "shouldExpand": false,
+      "expandedCycles": [],
+      "patternType": "steady_state",
+      "cycleLengthDays": 21,
+      "confidence": 0.0,
+      "rationale": "Open-ended pattern starting at Cycle 4. Protocol specifies treatment until discontinuation - no fixed maximum. Human input required to determine expansion.",
+      "source": "open_ended_review",
+      "requiresHumanReview": true,
+      "reviewReason": "Open-ended cycle pattern (Cycle 4+) cannot be auto-expanded. Protocol does not specify a maximum cycle count.",
+      "cachedAt": "2025-12-10T03:08:23.094289Z",
+      "modelName": null,
+      "provenance": {
+        "pageNumber": 179,
+        "tableId": "SOA-3",
+        "colIdx": 6
+      },
+      "isOpenEnded": true,
+      "protocolContext": {}
+    },
+    "ENC-016": {
+      "encounterName": "Cycles 9 and Beyond Day 22",
+      "recurrenceKey": "NONE",
+      "shouldExpand": false,
+      "expandedCycles": [],
+      "patternType": "steady_state",
+      "cycleLengthDays": 21,
+      "confidence": 0.0,
+      "rationale": "Open-ended pattern starting at Cycle 4. Protocol specifies treatment until discontinuation - no fixed maximum. Human input required to determine expansion.",
+      "source": "open_ended_review",
+      "requiresHumanReview": true,
+      "reviewReason": "Open-ended cycle pattern (Cycle 4+) cannot be auto-expanded. Protocol does not specify a maximum cycle count.",
+      "cachedAt": "2025-12-10T03:08:23.094319Z",
+      "modelName": null,
+      "provenance": {
+        "pageNumber": 179,
+        "tableId": "SOA-3",
+        "colIdx": 7
+      },
+      "isOpenEnded": true,
+      "protocolContext": {}
+    },
+    "ENC-017": {
+      "encounterName": "Cycles 9 and Beyond Day 23",
+      "recurrenceKey": "NONE",
+      "shouldExpand": false,
+      "expandedCycles": [],
+      "patternType": "steady_state",
+      "cycleLengthDays": 21,
+      "confidence": 0.0,
+      "rationale": "Open-ended pattern starting at Cycle 4. Protocol specifies treatment until discontinuation - no fixed maximum. Human input required to determine expansion.",
+      "source": "open_ended_review",
+      "requiresHumanReview": true,
+      "reviewReason": "Open-ended cycle pattern (Cycle 4+) cannot be auto-expanded. Protocol does not specify a maximum cycle count.",
+      "cachedAt": "2025-12-10T03:08:23.094347Z",
+      "modelName": null,
+      "provenance": {
+        "pageNumber": 179,
+        "tableId": "SOA-3",
+        "colIdx": 8
+      },
+      "isOpenEnded": true,
+      "protocolContext": {}
+    }
+  },
+  "discrepancies": [],
+  "reviewItems": [
+    {
+      "id": "REV-66A21C14",
+      "encounterId": "ENC-010",
+      "encounterName": "Cycles 9 and Beyond Day 1",
+      "recurrenceKey": "NONE",
+      "reason": "Open-ended cycle pattern (Cycle 4+) cannot be auto-expanded. Protocol does not specify a maximum cycle count.",
+      "context": {
+        "recurrence": {
+          "pattern": "CYCLE:9+",
+          "type": "cycle_based",
+          "startingCycle": 9,
+          "provenance": {
+            "pageNumber": 179,
+            "tableId": "SOA-3",
+            "colIdx": 1
+          }
+        },
+        "originalEncounter": {
+          "id": "ENC-010",
+          "name": "Cycles 9 and Beyond Day 1",
+          "originalName": "1",
+          "visitType": "treatment",
+          "timing": {
+            "value": 1,
+            "unit": "days",
+            "relativeTo": "cycle_start",
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 1
+            }
+          },
+          "window": {
+            "earlyBound": 1,
+            "lateBound": 1,
+            "type": "symmetric",
+            "description": "\u00b11 day",
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 1
+            }
+          },
+          "recurrence": {
+            "pattern": "CYCLE:9+",
+            "type": "cycle_based",
+            "startingCycle": 9,
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 1
+            }
+          },
+          "footnoteMarkers": [],
+          "provenance": {
+            "pageNumber": 179,
+            "tableId": "SOA-3",
+            "colIdx": 1
+          }
+        }
+      },
+      "suggestedAction": "Manually specify max_cycles or convert to explicit cycle list",
+      "priority": "high",
+      "stage": "Stage8CycleExpansion",
+      "createdAt": "2025-12-10T03:08:23.094073Z"
+    },
+    {
+      "id": "REV-524CCA5E",
+      "encounterId": "ENC-011",
+      "encounterName": "Cycles 9 and Beyond Day 2",
+      "recurrenceKey": "NONE",
+      "reason": "Open-ended cycle pattern (Cycle 4+) cannot be auto-expanded. Protocol does not specify a maximum cycle count.",
+      "context": {
+        "recurrence": {
+          "pattern": "CYCLE:9+",
+          "type": "cycle_based",
+          "startingCycle": 9,
+          "provenance": {
+            "pageNumber": 179,
+            "tableId": "SOA-3",
+            "colIdx": 2
+          }
+        },
+        "originalEncounter": {
+          "id": "ENC-011",
+          "name": "Cycles 9 and Beyond Day 2",
+          "originalName": "2",
+          "visitType": "treatment",
+          "timing": {
+            "value": 2,
+            "unit": "days",
+            "relativeTo": "cycle_start",
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 2
+            }
+          },
+          "window": {
+            "earlyBound": 1,
+            "lateBound": 1,
+            "type": "symmetric",
+            "description": "\u00b11 day",
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 2
+            }
+          },
+          "recurrence": {
+            "pattern": "CYCLE:9+",
+            "type": "cycle_based",
+            "startingCycle": 9,
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 2
+            }
+          },
+          "footnoteMarkers": [],
+          "provenance": {
+            "pageNumber": 179,
+            "tableId": "SOA-3",
+            "colIdx": 2
+          }
+        }
+      },
+      "suggestedAction": "Manually specify max_cycles or convert to explicit cycle list",
+      "priority": "high",
+      "stage": "Stage8CycleExpansion",
+      "createdAt": "2025-12-10T03:08:23.094142Z"
+    },
+    {
+      "id": "REV-649F5970",
+      "encounterId": "ENC-012",
+      "encounterName": "Cycles 9 and Beyond Day 8",
+      "recurrenceKey": "NONE",
+      "reason": "Open-ended cycle pattern (Cycle 4+) cannot be auto-expanded. Protocol does not specify a maximum cycle count.",
+      "context": {
+        "recurrence": {
+          "pattern": "CYCLE:9+",
+          "type": "cycle_based",
+          "startingCycle": 9,
+          "provenance": {
+            "pageNumber": 179,
+            "tableId": "SOA-3",
+            "colIdx": 3
+          }
+        },
+        "originalEncounter": {
+          "id": "ENC-012",
+          "name": "Cycles 9 and Beyond Day 8",
+          "originalName": "8",
+          "visitType": "treatment",
+          "timing": {
+            "value": 8,
+            "unit": "days",
+            "relativeTo": "cycle_start",
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 3
+            }
+          },
+          "window": {
+            "earlyBound": 1,
+            "lateBound": 1,
+            "type": "symmetric",
+            "description": "\u00b11 day",
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 3
+            }
+          },
+          "recurrence": {
+            "pattern": "CYCLE:9+",
+            "type": "cycle_based",
+            "startingCycle": 9,
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 3
+            }
+          },
+          "footnoteMarkers": [],
+          "provenance": {
+            "pageNumber": 179,
+            "tableId": "SOA-3",
+            "colIdx": 3
+          }
+        }
+      },
+      "suggestedAction": "Manually specify max_cycles or convert to explicit cycle list",
+      "priority": "high",
+      "stage": "Stage8CycleExpansion",
+      "createdAt": "2025-12-10T03:08:23.094180Z"
+    },
+    {
+      "id": "REV-6ABF807C",
+      "encounterId": "ENC-013",
+      "encounterName": "Cycles 9 and Beyond Day 9",
+      "recurrenceKey": "NONE",
+      "reason": "Open-ended cycle pattern (Cycle 4+) cannot be auto-expanded. Protocol does not specify a maximum cycle count.",
+      "context": {
+        "recurrence": {
+          "pattern": "CYCLE:9+",
+          "type": "cycle_based",
+          "startingCycle": 9,
+          "provenance": {
+            "pageNumber": 179,
+            "tableId": "SOA-3",
+            "colIdx": 4
+          }
+        },
+        "originalEncounter": {
+          "id": "ENC-013",
+          "name": "Cycles 9 and Beyond Day 9",
+          "originalName": "9",
+          "visitType": "treatment",
+          "timing": {
+            "value": 9,
+            "unit": "days",
+            "relativeTo": "cycle_start",
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 4
+            }
+          },
+          "window": {
+            "earlyBound": 1,
+            "lateBound": 1,
+            "type": "symmetric",
+            "description": "\u00b11 day",
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 4
+            }
+          },
+          "recurrence": {
+            "pattern": "CYCLE:9+",
+            "type": "cycle_based",
+            "startingCycle": 9,
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 4
+            }
+          },
+          "footnoteMarkers": [],
+          "provenance": {
+            "pageNumber": 179,
+            "tableId": "SOA-3",
+            "colIdx": 4
+          }
+        }
+      },
+      "suggestedAction": "Manually specify max_cycles or convert to explicit cycle list",
+      "priority": "high",
+      "stage": "Stage8CycleExpansion",
+      "createdAt": "2025-12-10T03:08:23.094226Z"
+    },
+    {
+      "id": "REV-697F9F9A",
+      "encounterId": "ENC-014",
+      "encounterName": "Cycles 9 and Beyond Day 15",
+      "recurrenceKey": "NONE",
+      "reason": "Open-ended cycle pattern (Cycle 4+) cannot be auto-expanded. Protocol does not specify a maximum cycle count.",
+      "context": {
+        "recurrence": {
+          "pattern": "CYCLE:9+",
+          "type": "cycle_based",
+          "startingCycle": 9,
+          "provenance": {
+            "pageNumber": 179,
+            "tableId": "SOA-3",
+            "colIdx": 5
+          }
+        },
+        "originalEncounter": {
+          "id": "ENC-014",
+          "name": "Cycles 9 and Beyond Day 15",
+          "originalName": "15",
+          "visitType": "treatment",
+          "timing": {
+            "value": 15,
+            "unit": "days",
+            "relativeTo": "cycle_start",
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 5
+            }
+          },
+          "window": {
+            "earlyBound": 1,
+            "lateBound": 1,
+            "type": "symmetric",
+            "description": "\u00b11 day",
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 5
+            }
+          },
+          "recurrence": {
+            "pattern": "CYCLE:9+",
+            "type": "cycle_based",
+            "startingCycle": 9,
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 5
+            }
+          },
+          "footnoteMarkers": [],
+          "provenance": {
+            "pageNumber": 179,
+            "tableId": "SOA-3",
+            "colIdx": 5
+          }
+        }
+      },
+      "suggestedAction": "Manually specify max_cycles or convert to explicit cycle list",
+      "priority": "high",
+      "stage": "Stage8CycleExpansion",
+      "createdAt": "2025-12-10T03:08:23.094262Z"
+    },
+    {
+      "id": "REV-DC712B00",
+      "encounterId": "ENC-015",
+      "encounterName": "Cycles 9 and Beyond Day 16",
+      "recurrenceKey": "NONE",
+      "reason": "Open-ended cycle pattern (Cycle 4+) cannot be auto-expanded. Protocol does not specify a maximum cycle count.",
+      "context": {
+        "recurrence": {
+          "pattern": "CYCLE:9+",
+          "type": "cycle_based",
+          "startingCycle": 9,
+          "provenance": {
+            "pageNumber": 179,
+            "tableId": "SOA-3",
+            "colIdx": 6
+          }
+        },
+        "originalEncounter": {
+          "id": "ENC-015",
+          "name": "Cycles 9 and Beyond Day 16",
+          "originalName": "16",
+          "visitType": "treatment",
+          "timing": {
+            "value": 16,
+            "unit": "days",
+            "relativeTo": "cycle_start",
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 6
+            }
+          },
+          "window": {
+            "earlyBound": 1,
+            "lateBound": 1,
+            "type": "symmetric",
+            "description": "\u00b11 day",
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 6
+            }
+          },
+          "recurrence": {
+            "pattern": "CYCLE:9+",
+            "type": "cycle_based",
+            "startingCycle": 9,
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 6
+            }
+          },
+          "footnoteMarkers": [],
+          "provenance": {
+            "pageNumber": 179,
+            "tableId": "SOA-3",
+            "colIdx": 6
+          }
+        }
+      },
+      "suggestedAction": "Manually specify max_cycles or convert to explicit cycle list",
+      "priority": "high",
+      "stage": "Stage8CycleExpansion",
+      "createdAt": "2025-12-10T03:08:23.094296Z"
+    },
+    {
+      "id": "REV-DA996567",
+      "encounterId": "ENC-016",
+      "encounterName": "Cycles 9 and Beyond Day 22",
+      "recurrenceKey": "NONE",
+      "reason": "Open-ended cycle pattern (Cycle 4+) cannot be auto-expanded. Protocol does not specify a maximum cycle count.",
+      "context": {
+        "recurrence": {
+          "pattern": "CYCLE:9+",
+          "type": "cycle_based",
+          "startingCycle": 9,
+          "provenance": {
+            "pageNumber": 179,
+            "tableId": "SOA-3",
+            "colIdx": 7
+          }
+        },
+        "originalEncounter": {
+          "id": "ENC-016",
+          "name": "Cycles 9 and Beyond Day 22",
+          "originalName": "22",
+          "visitType": "treatment",
+          "timing": {
+            "value": 22,
+            "unit": "days",
+            "relativeTo": "cycle_start",
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 7
+            }
+          },
+          "window": {
+            "earlyBound": 1,
+            "lateBound": 1,
+            "type": "symmetric",
+            "description": "\u00b11 day",
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 7
+            }
+          },
+          "recurrence": {
+            "pattern": "CYCLE:9+",
+            "type": "cycle_based",
+            "startingCycle": 9,
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 7
+            }
+          },
+          "footnoteMarkers": [],
+          "provenance": {
+            "pageNumber": 179,
+            "tableId": "SOA-3",
+            "colIdx": 7
+          }
+        }
+      },
+      "suggestedAction": "Manually specify max_cycles or convert to explicit cycle list",
+      "priority": "high",
+      "stage": "Stage8CycleExpansion",
+      "createdAt": "2025-12-10T03:08:23.094326Z"
+    },
+    {
+      "id": "REV-E25137FD",
+      "encounterId": "ENC-017",
+      "encounterName": "Cycles 9 and Beyond Day 23",
+      "recurrenceKey": "NONE",
+      "reason": "Open-ended cycle pattern (Cycle 4+) cannot be auto-expanded. Protocol does not specify a maximum cycle count.",
+      "context": {
+        "recurrence": {
+          "pattern": "CYCLE:9+",
+          "type": "cycle_based",
+          "startingCycle": 9,
+          "provenance": {
+            "pageNumber": 179,
+            "tableId": "SOA-3",
+            "colIdx": 8
+          }
+        },
+        "originalEncounter": {
+          "id": "ENC-017",
+          "name": "Cycles 9 and Beyond Day 23",
+          "originalName": "23",
+          "visitType": "treatment",
+          "timing": {
+            "value": 23,
+            "unit": "days",
+            "relativeTo": "cycle_start",
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 8
+            }
+          },
+          "window": {
+            "earlyBound": 1,
+            "lateBound": 1,
+            "type": "symmetric",
+            "description": "\u00b11 day",
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 8
+            }
+          },
+          "recurrence": {
+            "pattern": "CYCLE:9+",
+            "type": "cycle_based",
+            "startingCycle": 9,
+            "provenance": {
+              "pageNumber": 179,
+              "tableId": "SOA-3",
+              "colIdx": 8
+            }
+          },
+          "footnoteMarkers": [],
+          "provenance": {
+            "pageNumber": 179,
+            "tableId": "SOA-3",
+            "colIdx": 8
+          }
+        }
+      },
+      "suggestedAction": "Manually specify max_cycles or convert to explicit cycle list",
+      "priority": "high",
+      "stage": "Stage8CycleExpansion",
+      "createdAt": "2025-12-10T03:08:23.094354Z"
+    }
+  ],
+  "metrics": {
+    "encountersProcessed": 21,
+    "encountersWithRecurrence": 0,
+    "encountersExpanded": 0,
+    "encountersCreated": 0,
+    "encountersSkipped": 21,
+    "saisProcessed": 0,
+    "saisDuplicated": 0,
+    "saisCreated": 0,
+    "uniquePatternsAnalyzed": 0,
+    "cacheHits": 0,
+    "llmCalls": 0,
+    "validationFlags": 0,
+    "eventDrivenFlagged": 8,
+    "reviewItemsCount": 8,
+    "expansionRate": 0.0
+  }
+}

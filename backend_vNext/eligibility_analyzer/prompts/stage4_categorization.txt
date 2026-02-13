@@ -1,0 +1,113 @@
+
+{OMOP_SCHEMA_KNOWLEDGE}
+
+---
+
+## Task: Generate Production-Ready OMOP CDM SQL Query
+
+**Criterion ID**: {child_id}
+**Criterion Type**: {criterion_type} {"(OR-LOGIC PARENT)" if is_or_logic else "(ATOMIC)"}
+
+**Criterion Text**:
+{child_text or "(Not provided)"}
+
+**Value Constraint**:
+{value_constraint or "(Not provided)"}
+
+**Current OMOP Table**: `{omop_table}`
+
+**Current SQL (baseline)**:
+```sql
+{current_sql}
+```
+
+**OMOP Concepts**:
+{concepts_str}
+
+---
+
+## Instructions: Intelligent SQL Generation
+
+You are an expert OMOP CDM SQL engineer. Analyze the criterion and generate production-ready SQL that handles ALL complexities intelligently:
+
+### 1. **OR-Logic & Multiple Tables (UNION)**
+- If criterion text contains "OR", "either", "familial OR sporadic", "has received OR is considering":
+  * Use UNION or UNION ALL to combine queries from multiple tables
+  * Example: "Familial OR sporadic ALS" → UNION queries for condition_occurrence (diagnosis) + observation (family history)
+  * Example: "Has received OR is considering stem cell therapy" → UNION queries for procedure_occurrence (past) + observation (planning)
+
+### 2. **Negation & Exclusion (NOT EXISTS)**
+- If criterion is exclusion type OR contains "no", "absence of", "did NOT receive", "without", "never":
+  * Use NOT EXISTS pattern:
+  ```sql
+  SELECT DISTINCT p.person_id
+  FROM person p
+  WHERE NOT EXISTS (
+    SELECT 1 FROM [table] t
+    WHERE t.person_id = p.person_id
+    AND t.[concept_id_field] IN <concept_ids>
+    -- Add temporal/value constraints here
+  );
+  ```
+
+### 3. **Temporal Constraints (DATEADD/DATEDIFF)**
+- "within X days/months/years" → `DATEDIFF(day, t.start_date, GETDATE()) <= X`
+- "≤ 24 months prior to screening" → `t.start_date >= DATEADD(month, -24, @screening_date)`
+- "at least 30 days" → `DATEDIFF(day, t.end_date, @screening_date) >= 30`
+
+### 4. **Numeric Constraints (value_as_number)**
+- If criterion has numeric thresholds (≥, ≤, >, <, =):
+  * Use `value_as_number` for measurement table
+  * Example: "hemoglobin ≥ 9.0 g/dL" → `t.value_as_number >= 9.0 AND t.unit_concept_id = [g/dL concept]`
+
+### 5. **Counting & Aggregation**
+- "at least 2 cycles", "≥ 3 prior lines of therapy":
+  * Use HAVING clause with COUNT/GROUP BY
+  ```sql
+  SELECT person_id
+  FROM drug_exposure
+  WHERE drug_concept_id IN <concept_ids>
+  GROUP BY person_id
+  HAVING COUNT(DISTINCT drug_exposure_id) >= 2;
+  ```
+
+### 6. **Complex Dosing Patterns**
+- "14 consecutive days of IV edaravone followed by 14 days off":
+  * Use window functions (ROW_NUMBER, LAG) to detect patterns
+  * Comment with "-- Complex pattern - requires custom logic"
+
+### 7. **Multiple Options (OR within single table)**
+- "possible, probable, or definite" (El Escorial criteria):
+  * Use value_as_concept_id IN (...) or value_source_value LIKE patterns
+  * Example: `t.value_as_concept_id IN <el_escorial_concept_ids>`
+
+### 8. **Table Selection Logic**
+- Diagnosis/condition → condition_occurrence
+- Medication/therapy → drug_exposure
+- Lab tests/biomarkers → measurement
+- Procedures/surgeries → procedure_occurrence
+- Clinical observations/assessments → observation
+- Medical devices → device_exposure
+
+### 9. **Placeholder Handling**
+- Preserve `<concept_ids>` if Stage 6 was skipped
+- Use descriptive comments: `-- <concept_ids>: ALS diagnosis (ICD-10 G12.21, SNOMED 230258005)`
+
+### 10. **Query Optimization**
+- Use DISTINCT only when necessary
+- Add proper indexes hints if needed: `-- INDEX HINT: person_id, concept_id, date fields`
+- Comment complex logic clearly
+
+---
+
+## Output Format (JSON):
+
+```json
+{{
+  "sql": "-- SQL Template for: {child_id}\\n-- Description: [what this query does]\\n-- Complexity: [simple/moderate/complex/union]\\n\\nSELECT DISTINCT ...\\n;",
+  "improvements": ["Specific improvements made (4-6 bullet points with technical details)"],
+  "reasoning": "Technical explanation of SQL design decisions and OMOP CDM alignment"
+}}
+```
+
+**CRITICAL**: Return ONLY valid JSON. No markdown fences. No additional text. The SQL must be executable (with placeholder replacement).

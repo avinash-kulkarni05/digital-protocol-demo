@@ -1,0 +1,239 @@
+{
+  "_metadata": {
+    "description": "Historical screen failure rates by criterion type for patient funnel estimation",
+    "last_updated": "2024-12",
+    "sources": [
+      "Published trial reports",
+      "Industry benchmarks",
+      "Site feasibility surveys",
+      "Clinical trial databases"
+    ],
+    "notes": "Rates represent typical elimination at each criterion after prior criteria applied"
+  },
+  "oncology_phase3": {
+    "description": "Phase 3 oncology trials",
+    "average_screen_fail_rate": 0.35,
+    "by_criterion_category": {
+      "primary_anchor": {
+        "description": "Disease indication + stage",
+        "elimination_from_general_population": 0.99,
+        "notes": "First filter, eliminates >99% of general population"
+      },
+      "demographics": {
+        "age_restriction": {
+          "typical_elimination": 0.05,
+          "notes": "When age range is 18-75 or similar"
+        },
+        "gender_restriction": {
+          "typical_elimination": 0.00,
+          "notes": "Rarely a limiting factor except gender-specific cancers"
+        }
+      },
+      "biomarker": {
+        "description": "Genetic/molecular markers",
+        "typical_elimination": 0.70,
+        "notes": "Varies widely by biomarker frequency, e.g., EGFR+ (~15% have it, so 85% eliminated)"
+      },
+      "treatment_history": {
+        "prior_lines": {
+          "first_line": {
+            "typical_elimination": 0.30,
+            "notes": "Many patients have already received treatment"
+          },
+          "second_line_plus": {
+            "typical_elimination": 0.40,
+            "notes": "Requires specific prior therapy exposure"
+          }
+        },
+        "washout_periods": {
+          "typical_elimination": 0.10,
+          "notes": "Recent treatment within washout window"
+        }
+      },
+      "functional": {
+        "ecog_status": {
+          "ecog_0_1": {
+            "typical_elimination": 0.20,
+            "notes": "~20% of cancer patients are ECOG 2+"
+          },
+          "ecog_0_2": {
+            "typical_elimination": 0.08,
+            "notes": "More permissive, ~8% are ECOG 3+"
+          }
+        },
+        "lab_criteria": {
+          "typical_elimination": 0.25,
+          "breakdown": {
+            "anc_ge_1500": 0.08,
+            "platelets_ge_100k": 0.10,
+            "creatinine_clearance_ge_60": 0.12,
+            "bilirubin_le_1_5_uln": 0.08,
+            "ast_alt_le_3_uln": 0.10
+          },
+          "notes": "Compound effect when multiple labs required"
+        }
+      },
+      "safety_exclusion": {
+        "cns_metastases": {
+          "active_excluded": {
+            "typical_elimination": 0.15,
+            "notes": "~15% of advanced cancer patients have CNS involvement"
+          },
+          "treated_stable_allowed": {
+            "typical_elimination": 0.05,
+            "notes": "Only excludes active/symptomatic"
+          }
+        },
+        "cardiac": {
+          "qtc_prolongation": {
+            "typical_elimination": 0.05,
+            "notes": "QTcF > 470ms in women, > 450ms in men"
+          },
+          "lvef_below_50": {
+            "typical_elimination": 0.08,
+            "notes": "Requires echo/MUGA, often excludes CHF history"
+          },
+          "recent_mi_stroke": {
+            "typical_elimination": 0.03,
+            "notes": "Within 6-12 months"
+          }
+        },
+        "infections": {
+          "active_infection": {
+            "typical_elimination": 0.05,
+            "notes": "Requiring systemic treatment"
+          },
+          "hiv_positive": {
+            "typical_elimination": 0.01,
+            "notes": "Increasingly allowed if controlled"
+          },
+          "hepatitis_b_c": {
+            "typical_elimination": 0.02,
+            "notes": "Often requires testing, may allow treated/cleared"
+          }
+        },
+        "autoimmune": {
+          "active_autoimmune": {
+            "typical_elimination": 0.05,
+            "notes": "Requiring immunosuppression"
+          }
+        },
+        "prior_immunotherapy": {
+          "irAE_requiring_discontinuation": {
+            "typical_elimination": 0.08,
+            "notes": "Grade 3+ immune-related AE from prior IO"
+          }
+        }
+      },
+      "administrative": {
+        "consent_capacity": {
+          "typical_elimination": 0.02,
+          "queryable": false,
+          "notes": "Rare, non-queryable"
+        },
+        "compliance_concerns": {
+          "typical_elimination": 0.05,
+          "queryable": false,
+          "notes": "Investigator judgment"
+        },
+        "geographic_access": {
+          "typical_elimination": 0.10,
+          "queryable": false,
+          "notes": "Distance to trial site"
+        }
+      }
+    }
+  },
+  "oncology_phase2": {
+    "description": "Phase 2 oncology trials",
+    "average_screen_fail_rate": 0.40,
+    "notes": "Generally more restrictive than Phase 3",
+    "adjustments": {
+      "biomarker_selection": "+10%",
+      "ecog_restriction": "+5%",
+      "notes": "Phase 2 often requires specific biomarker, tighter ECOG"
+    }
+  },
+  "oncology_phase1": {
+    "description": "Phase 1 oncology trials",
+    "average_screen_fail_rate": 0.45,
+    "notes": "Most restrictive, requires good PS and organ function",
+    "adjustments": {
+      "ecog_0_1_strict": "+10%",
+      "organ_function_strict": "+10%",
+      "prior_treatments_exhausted": "+15%"
+    }
+  },
+  "non_oncology": {
+    "cardiology": {
+      "average_screen_fail_rate": 0.30,
+      "common_exclusions": {
+        "recent_mi": 0.15,
+        "uncontrolled_hypertension": 0.10,
+        "renal_impairment": 0.08
+      }
+    },
+    "immunology": {
+      "average_screen_fail_rate": 0.35,
+      "common_exclusions": {
+        "active_infection": 0.10,
+        "malignancy_history": 0.08,
+        "live_vaccine_recent": 0.05
+      }
+    },
+    "neurology": {
+      "average_screen_fail_rate": 0.38,
+      "common_exclusions": {
+        "psychiatric_comorbidity": 0.12,
+        "cognitive_impairment": 0.10,
+        "concomitant_cns_drugs": 0.08
+      }
+    }
+  },
+  "cumulative_effects": {
+    "description": "How multiple criteria compound",
+    "model": "multiplicative",
+    "example": {
+      "scenario": "NSCLC Phase 3 with EGFR requirement, ECOG 0-1, standard labs",
+      "steps": [
+        {"criterion": "NSCLC diagnosis", "remaining": 1.0, "notes": "Starting with disease population"},
+        {"criterion": "Stage IV", "remaining": 0.49, "notes": "~49% of NSCLC is Stage IV"},
+        {"criterion": "EGFR mutation positive", "remaining": 0.074, "notes": "~15% of NSCLC"},
+        {"criterion": "ECOG 0-1", "remaining": 0.059, "notes": "~80% of Stage IV have ECOG 0-1"},
+        {"criterion": "Adequate labs", "remaining": 0.044, "notes": "~75% meet lab criteria"},
+        {"criterion": "No CNS mets", "remaining": 0.037, "notes": "~85% without active CNS"},
+        {"criterion": "Other exclusions", "remaining": 0.033, "notes": "~90% pass remaining"}
+      ],
+      "final_pool_per_1000_nsclc": 33
+    }
+  },
+  "optimization_benchmarks": {
+    "description": "Impact of relaxing common criteria",
+    "opportunities": {
+      "ecog_0_1_to_0_2": {
+        "typical_increase": 0.15,
+        "notes": "Allows ECOG 2 patients, adds ~15% to pool"
+      },
+      "creatinine_clearance_60_to_30": {
+        "typical_increase": 0.10,
+        "notes": "Allows moderate renal impairment"
+      },
+      "treated_cns_allowed": {
+        "typical_increase": 0.10,
+        "notes": "Allow stable/treated brain metastases"
+      },
+      "remove_age_cap": {
+        "typical_increase": 0.05,
+        "notes": "Remove upper age limit (e.g., 75)"
+      },
+      "allow_controlled_hiv": {
+        "typical_increase": 0.01,
+        "notes": "Minor impact but equity consideration"
+      },
+      "reduce_washout_period": {
+        "typical_increase": 0.05,
+        "notes": "Shorter washout from prior therapy"
+      }
+    }
+  }
+}

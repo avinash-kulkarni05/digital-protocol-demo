@@ -1,0 +1,96 @@
+{
+  "_metadata": {
+    "version": "1.0.0",
+    "description": "Human review assembly configuration for Stage 10",
+    "created": "2025-12-06",
+    "note": "Maps stage numbers to review item types and default priorities"
+  },
+  "stage_info": {
+    "1": {
+      "name": "Domain Categorization",
+      "description": "Review CDISC domain assignments for activities",
+      "item_types": ["domain_mapping"],
+      "priority_default": "medium"
+    },
+    "2": {
+      "name": "Activity Expansion",
+      "description": "Review decomposition of activities into components",
+      "item_types": ["activity_expansion", "component_addition"],
+      "priority_default": "high"
+    },
+    "3": {
+      "name": "Hierarchy Building",
+      "description": "Review activity grouping and parent-child relationships",
+      "item_types": ["hierarchy_grouping", "parent_assignment"],
+      "priority_default": "medium"
+    },
+    "4": {
+      "name": "Alternative Resolution",
+      "description": "Choose between alternative options (X or Y)",
+      "item_types": ["alternative_choice", "mutually_exclusive"],
+      "priority_default": "critical"
+    },
+    "5": {
+      "name": "Specimen Enrichment",
+      "description": "Review specimen types, tube colors, collection details",
+      "item_types": ["specimen_type", "tube_type", "collection_detail"],
+      "priority_default": "high"
+    },
+    "6": {
+      "name": "Conditional Expansion",
+      "description": "Review condition applications and population filters",
+      "item_types": ["condition_application", "population_filter"],
+      "priority_default": "high"
+    },
+    "7": {
+      "name": "Timing Distribution",
+      "description": "Review timing expansions (BI/EOI, pre/post-dose)",
+      "item_types": ["timing_expansion", "bi_eoi_split"],
+      "priority_default": "high"
+    },
+    "8": {
+      "name": "Cycle Expansion",
+      "description": "Review cycle counts and repeating patterns",
+      "item_types": ["cycle_count", "cycle_pattern"],
+      "priority_default": "critical"
+    },
+    "9": {
+      "name": "Protocol Mining",
+      "description": "Review cross-references from non-SOA sections",
+      "item_types": ["protocol_enrichment", "endpoint_link"],
+      "priority_default": "medium"
+    },
+    "12": {
+      "name": "USDM Compliance",
+      "description": "Review code validation flags and corrections",
+      "item_types": ["code_validation"],
+      "priority_default": "low"
+    }
+  },
+  "confidence_thresholds": {
+    "auto_approve": 0.95,
+    "high": 0.90,
+    "medium": 0.70,
+    "low": 0.50,
+    "requires_review": 0.70
+  },
+  "priority_weights": {
+    "critical": 100,
+    "high": 75,
+    "medium": 50,
+    "low": 25
+  },
+  "priority_colors": {
+    "critical": "#DC2626",
+    "high": "#F97316",
+    "medium": "#EAB308",
+    "low": "#9CA3AF"
+  },
+  "action_colors": {
+    "pending": "#6B7280",
+    "approved": "#22C55E",
+    "rejected": "#EF4444",
+    "modified": "#3B82F6",
+    "deferred": "#A855F7"
+  }
+}

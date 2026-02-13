@@ -1,0 +1,669 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://usdm.cdisc.org/v4.0/data_management_schema.json",
+  "title": "USDM 4.0 Data Management Plan Extraction Schema (Pass 1 - Values Only)",
+  "description": "Schema for extracting data management specifications from clinical trial protocols. Values only - provenance added in Pass 2.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this extraction",
+      "pattern": "^[A-Za-z0-9_-]+-data-management$"
+    },
+    "instanceType": {
+      "type": "string",
+      "const": "DataManagementPlan",
+      "description": "USDM 4.0 instance type"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for this extraction",
+      "maxLength": 150
+    },
+
+    "edc_specifications": {
+      "type": "object",
+      "description": "Electronic Data Capture system specifications",
+      "properties": {
+        "instanceType": {
+          "type": "string",
+          "const": "EDCSpecifications"
+        },
+        "vendor_name": {
+          "oneOf": [
+            {"type": "string", "maxLength": 100},
+            {"type": "null"}
+          ],
+          "description": "EDC vendor/system name (e.g., Medidata Rave, Veeva, Oracle)"
+        },
+        "system_capabilities": {
+          "type": "array",
+          "description": "Required system capabilities",
+          "items": {
+            "type": "string",
+            "enum": ["randomization", "ePRO", "imaging_upload", "eConsent", "central_lab_integration", "IWRS_integration", "safety_database_integration", "coding_integration", "audit_trail", "electronic_signature"]
+          }
+        },
+        "integration_systems": {
+          "type": "array",
+          "description": "External systems requiring integration",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^integration-[0-9]{3}$"
+              },
+              "system_type": {
+                "type": "string",
+                "enum": ["IWRS", "central_lab", "imaging_vendor", "ePRO", "safety_database", "coding_system", "CTMS", "biomarker_lab", "external_adjudication", "pharmacy", "ECG_vendor"]
+              },
+              "vendor_name": {
+                "oneOf": [
+                  {"type": "string", "maxLength": 100},
+                  {"type": "null"}
+                ]
+              },
+              "transfer_frequency": {
+                "anyOf": [
+                  {"type": "string", "maxLength": 100},
+                  {"type": "null"}
+                ],
+                "description": "Frequency of data transfer - prefer enum values: real_time, daily, weekly, per_visit, batch, per_event, on_demand, continuous"
+              },
+              "transfer_method": {
+                "anyOf": [
+                  {"type": "string", "maxLength": 100},
+                  {"type": "null"}
+                ],
+                "description": "Method of data transfer - prefer enum values: API, SFTP, manual_upload, direct_integration, system_integration, electronic_transfer, shipping, web_portal"
+              },
+              "provenance": {
+                "$ref": "#/definitions/provenance"
+              }
+            },
+            "required": ["id", "system_type"],
+            "additionalProperties": true
+          }
+        },
+        "language_requirements": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 50
+              }
+            },
+            {"type": "null"}
+          ],
+          "description": "Languages required for eCRF"
+        },
+        "crf_modules": {
+          "type": "array",
+          "description": "eCRF modules/forms",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^crf-[0-9]{3}$"
+              },
+              "module_name": {
+                "type": "string",
+                "maxLength": 100
+              },
+              "forms": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 100
+                }
+              },
+              "visit_schedule": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 150
+                }
+              },
+              "is_repeating": {
+                "anyOf": [{"type": "boolean"}, {"type": "null"}]
+              },
+              "provenance": {
+                "$ref": "#/definitions/provenance"
+              }
+            },
+            "required": ["id", "module_name"],
+            "additionalProperties": true
+          }
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      },
+      "additionalProperties": true
+    },
+
+    "data_standards": {
+      "type": "object",
+      "description": "CDISC and regulatory data standards",
+      "properties": {
+        "instanceType": {
+          "type": "string",
+          "const": "DataStandards"
+        },
+        "sdtm_version": {
+          "oneOf": [
+            {"type": "string", "maxLength": 20},
+            {"type": "null"}
+          ],
+          "description": "SDTM Implementation Guide version"
+        },
+        "sdtm_ig_version": {
+          "oneOf": [
+            {"type": "string", "maxLength": 20},
+            {"type": "null"}
+          ],
+          "description": "SDTM-IG version (e.g., 3.3, 3.4)"
+        },
+        "adam_version": {
+          "oneOf": [
+            {"type": "string", "maxLength": 20},
+            {"type": "null"}
+          ],
+          "description": "ADaM Implementation Guide version"
+        },
+        "controlled_terminology": {
+          "type": "object",
+          "properties": {
+            "cdisc_ct_version": {
+              "anyOf": [{"type": "string", "maxLength": 50}, {"type": "null"}]
+            },
+            "meddra_version": {
+              "anyOf": [{"type": "string", "maxLength": 50}, {"type": "null"}]
+            },
+            "whodrug_version": {
+              "anyOf": [{"type": "string", "maxLength": 100}, {"type": "null"}]
+            },
+            "snomed_version": {
+              "anyOf": [{"type": "string", "maxLength": 50}, {"type": "null"}]
+            }
+          }
+        },
+        "define_xml_required": {
+          "anyOf": [{"type": "boolean"}, {"type": "null"}],
+          "description": "Whether Define-XML is required"
+        },
+        "define_xml_version": {
+          "anyOf": [{"type": "string", "maxLength": 20}, {"type": "null"}]
+        },
+        "adrg_required": {
+          "anyOf": [{"type": "boolean"}, {"type": "null"}],
+          "description": "Analysis Data Reviewer's Guide required"
+        },
+        "sdrg_required": {
+          "anyOf": [{"type": "boolean"}, {"type": "null"}],
+          "description": "Study Data Reviewer's Guide required"
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      },
+      "additionalProperties": true
+    },
+
+    "data_quality": {
+      "type": "object",
+      "description": "Data quality and validation specifications",
+      "properties": {
+        "instanceType": {
+          "type": "string",
+          "const": "DataQuality"
+        },
+        "edit_checks": {
+          "type": "object",
+          "properties": {
+            "standard_checks": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 100
+              },
+              "description": "Standard edit checks - examples: range_checks, consistency_checks, required_fields, date_logic, cross_form_validation, visit_sequence, completeness_checks, accuracy_checks, programmed_data_rules"
+            },
+            "protocol_specific_checks": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 200
+              }
+            },
+            "auto_query_enabled": {
+              "anyOf": [{"type": "boolean"}, {"type": "null"}]
+            }
+          }
+        },
+        "sdv_strategy": {
+          "anyOf": [{"type": "object"}, {"type": "null"}],
+          "properties": {
+            "approach": {
+              "anyOf": [
+                {"type": "string", "enum": ["100_percent", "risk_based", "targeted", "hybrid"]},
+                {"type": "string", "maxLength": 50},
+                {"type": "null"}
+              ]
+            },
+            "sdv_percentage": {
+              "anyOf": [
+                {"type": "integer", "minimum": 0, "maximum": 100},
+                {"type": "null"}
+              ]
+            },
+            "critical_data_points": {
+              "type": "array",
+              "description": "Data requiring 100% SDV",
+              "items": {
+                "type": "string",
+                "maxLength": 100
+              }
+            },
+            "sdv_timing": {
+              "anyOf": [
+                {"type": "string", "enum": ["during_visit", "batch", "remote", "hybrid"]},
+                {"type": "string", "maxLength": 50},
+                {"type": "null"}
+              ]
+            }
+          }
+        },
+        "query_management": {
+          "type": "object",
+          "properties": {
+            "resolution_target_days": {
+              "anyOf": [{"type": "integer"}, {"type": "null"}],
+              "description": "Target days for query resolution"
+            },
+            "escalation_threshold_days": {
+              "anyOf": [{"type": "integer"}, {"type": "null"}],
+              "description": "Days before escalation"
+            },
+            "auto_query_triggers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 150
+              }
+            }
+          }
+        },
+        "data_review": {
+          "type": "object",
+          "properties": {
+            "medical_review_frequency": {
+              "anyOf": [
+                {"type": "string", "enum": ["weekly", "biweekly", "monthly", "quarterly", "per_patient"]},
+                {"type": "string", "maxLength": 50},
+                {"type": "null"}
+              ]
+            },
+            "statistical_review_frequency": {
+              "anyOf": [
+                {"type": "string", "enum": ["weekly", "biweekly", "monthly", "quarterly", "at_milestones"]},
+                {"type": "string", "maxLength": 50},
+                {"type": "null"}
+              ]
+            },
+            "data_review_committee": {
+              "anyOf": [{"type": "boolean"}, {"type": "null"}]
+            }
+          }
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      },
+      "additionalProperties": true
+    },
+
+    "database_management": {
+      "type": "object",
+      "description": "Database design and lock specifications",
+      "properties": {
+        "instanceType": {
+          "type": "string",
+          "const": "DatabaseManagement"
+        },
+        "database_design": {
+          "type": "object",
+          "properties": {
+            "external_data_sources": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 100
+              },
+              "description": "External data sources - examples: central_lab, imaging, ePRO, PK_data, biomarker, ECG, genomics, DMC, adjudication_committee"
+            },
+            "calculated_fields": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 50
+              }
+            },
+            "derived_variables": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 50
+              }
+            }
+          }
+        },
+        "interim_locks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^lock-[0-9]{3}$"
+              },
+              "lock_name": {
+                "type": "string",
+                "maxLength": 100
+              },
+              "trigger": {
+                "type": "string",
+                "maxLength": 200
+              },
+              "scope": {
+                "type": "string",
+                "enum": ["full", "partial", "per_subject", "per_cohort"]
+              },
+              "provenance": {
+                "$ref": "#/definitions/provenance"
+              }
+            },
+            "required": ["id", "lock_name"],
+            "additionalProperties": true
+          }
+        },
+        "final_database_lock": {
+          "type": "object",
+          "properties": {
+            "trigger_event": {
+              "type": "string",
+              "description": "Event triggering final lock",
+              "maxLength": 150
+            },
+            "timeline_days_from_lplv": {
+              "anyOf": [{"type": "integer"}, {"type": "null"}],
+              "description": "Days from LPLV to database lock"
+            },
+            "prerequisites": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 150
+              }
+            },
+            "signoff_required": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["data_management", "biostatistics", "medical_monitor", "clinical_operations", "pharmacovigilance", "sponsor"]
+              }
+            },
+            "provenance": {
+              "$ref": "#/definitions/provenance"
+            }
+          },
+          "additionalProperties": true
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      },
+      "additionalProperties": true
+    },
+
+    "data_transfers": {
+      "type": "object",
+      "description": "External data transfer specifications",
+      "properties": {
+        "instanceType": {
+          "type": "string",
+          "const": "DataTransfers"
+        },
+        "central_lab": {
+          "type": "object",
+          "properties": {
+            "vendor_name": {
+              "oneOf": [
+                {"type": "string", "maxLength": 100},
+                {"type": "null"}
+              ]
+            },
+            "transfer_frequency": {
+              "anyOf": [
+                {"type": "string", "enum": ["real_time", "daily", "weekly", "per_visit", "per_event", "batch"]},
+                {"type": "string", "maxLength": 50},
+                {"type": "null"}
+              ]
+            },
+            "transfer_method": {
+              "anyOf": [
+                {"type": "string", "enum": ["API", "SFTP", "direct_integration", "electronic_transfer", "system_integration"]},
+                {"type": "string", "maxLength": 50},
+                {"type": "null"}
+              ]
+            },
+            "data_reconciliation": {
+              "anyOf": [{"type": "boolean"}, {"type": "null"}]
+            }
+          }
+        },
+        "imaging": {
+          "type": "object",
+          "properties": {
+            "vendor_name": {
+              "oneOf": [
+                {"type": "string", "maxLength": 100},
+                {"type": "null"}
+              ]
+            },
+            "data_collected": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 100
+              }
+            },
+            "transfer_method": {
+              "anyOf": [
+                {"type": "string", "enum": ["API", "SFTP", "DICOM", "manual_upload", "electronic_transfer", "web_portal"]},
+                {"type": "string", "maxLength": 50},
+                {"type": "null"}
+              ]
+            }
+          }
+        },
+        "epro": {
+          "type": "object",
+          "properties": {
+            "vendor_name": {
+              "oneOf": [
+                {"type": "string", "maxLength": 100},
+                {"type": "null"}
+              ]
+            },
+            "transfer_frequency": {
+              "anyOf": [
+                {"type": "string", "enum": ["real_time", "daily", "weekly"]},
+                {"type": "string", "maxLength": 50},
+                {"type": "null"}
+              ]
+            },
+            "instruments_collected": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 100
+              }
+            }
+          }
+        },
+        "external_adjudication": {
+          "type": "object",
+          "properties": {
+            "adjudication_types": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 100
+              },
+              "description": "Types requiring adjudication - examples: endpoint, imaging, ECG, death, hospitalization, ILD, IRR, safety"
+            },
+            "export_frequency": {
+              "anyOf": [
+                {"type": "string", "enum": ["weekly", "biweekly", "monthly", "per_event"]},
+                {"type": "string", "maxLength": 50},
+                {"type": "null"}
+              ]
+            },
+            "blinding_maintained": {
+              "anyOf": [{"type": "boolean"}, {"type": "null"}]
+            }
+          }
+        },
+        "dsmb_exports": {
+          "type": "object",
+          "properties": {
+            "export_frequency": {
+              "type": "string",
+              "enum": ["per_meeting", "quarterly", "at_milestones"]
+            },
+            "unblinded_access": {
+              "anyOf": [{"type": "boolean"}, {"type": "null"}]
+            },
+            "data_included": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 100
+              }
+            },
+            "provenance": {
+              "$ref": "#/definitions/provenance"
+            }
+          },
+          "additionalProperties": true
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      },
+      "additionalProperties": true
+    },
+
+    "data_archival": {
+      "type": "object",
+      "description": "Data retention and archival specifications",
+      "properties": {
+        "instanceType": {
+          "type": "string",
+          "const": "DataArchival"
+        },
+        "retention_period_years": {
+          "type": "integer",
+          "description": "Data retention period in years",
+          "minimum": 1
+        },
+        "retention_basis": {
+          "type": "string",
+          "description": "Regulatory basis for retention",
+          "maxLength": 500
+        },
+        "archival_format": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["PDF", "electronic", "SAS_transport", "XML", "CSV"]
+          }
+        },
+        "archival_location": {
+          "type": "string",
+          "enum": ["sponsor", "vendor", "third_party_archive", "cloud"]
+        },
+        "destruction_policy": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      },
+      "additionalProperties": true
+    },
+
+    "extraction_statistics": {
+      "type": "object",
+      "description": "Statistics about extraction completeness",
+      "properties": {
+        "has_edc_specifications": {"type": "boolean"},
+        "has_data_standards": {"type": "boolean"},
+        "has_sdv_strategy": {"type": "boolean"},
+        "has_database_lock_plan": {"type": "boolean"},
+        "integration_count": {"type": "integer"},
+        "crf_module_count": {"type": "integer"}
+      }
+    }
+  },
+
+  "provenance": {
+    "$ref": "#/definitions/provenance",
+    "description": "Source provenance for the root data management section"
+  },
+  "extensionAttributes": {
+    "type": "array",
+    "description": "Extension attributes for metadata",
+    "items": {
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "value": {}
+      }
+    }
+  },
+
+  "required": ["id", "instanceType", "name"],
+  "additionalProperties": true,
+
+  "definitions": {
+    "provenance": {
+      "type": "object",
+      "description": "Source tracking for extracted data (added in Pass 2)",
+      "properties": {
+        "section_number": {
+          "anyOf": [
+            {"type": "string", "maxLength": 100},
+            {"type": "null"}
+          ],
+          "description": "Section number or title from protocol (e.g., '9.1', 'Data Collection')"
+        },
+        "page_number": {
+          "type": "integer",
+          "description": "Page number (integer)"
+        },
+        "text_snippet": {
+          "type": "string",
+          "description": "Direct quote from protocol",
+          "maxLength": 500
+        }
+      },
+      "required": ["page_number", "text_snippet"]
+    }
+  }
+}

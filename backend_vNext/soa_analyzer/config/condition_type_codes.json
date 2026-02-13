@@ -1,0 +1,81 @@
+{
+  "_metadata": {
+    "description": "CDISC code mapping for condition types in Stage 6 Conditional Expansion",
+    "purpose": "Convert condition type enums to USDM 4.0 compliant 6-field Code objects",
+    "source": "NCI EVS Thesaurus + CDISC Protocol Terminology",
+    "version": "1.0.0",
+    "created": "2025-12-06"
+  },
+  "condition_type_codes": {
+    "DEMOGRAPHIC_SEX": {
+      "code": "C17357",
+      "decode": "Sex",
+      "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+      "codeSystemVersion": "24.12",
+      "description": "Condition based on subject sex (male/female)"
+    },
+    "DEMOGRAPHIC_AGE": {
+      "code": "C25150",
+      "decode": "Age",
+      "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+      "codeSystemVersion": "24.12",
+      "description": "Condition based on subject age range"
+    },
+    "DEMOGRAPHIC_FERTILITY": {
+      "code": "C100128",
+      "decode": "Childbearing Potential",
+      "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+      "codeSystemVersion": "24.12",
+      "description": "Condition based on fertility status (WOCBP, postmenopausal)"
+    },
+    "CLINICAL_INDICATION": {
+      "code": "C41331",
+      "decode": "Clinical Indication",
+      "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+      "codeSystemVersion": "24.12",
+      "description": "Activity performed if clinically indicated"
+    },
+    "CLINICAL_RESULT": {
+      "code": "C70856",
+      "decode": "Clinical Laboratory Result",
+      "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+      "codeSystemVersion": "24.12",
+      "description": "Condition based on laboratory or test results"
+    },
+    "CLINICAL_EVENT": {
+      "code": "C25499",
+      "decode": "Clinical Event",
+      "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+      "codeSystemVersion": "24.12",
+      "description": "Condition triggered by clinical events (AE, dose modification)"
+    },
+    "TEMPORAL_PRIOR": {
+      "code": "C53277",
+      "decode": "Prior",
+      "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+      "codeSystemVersion": "24.12",
+      "description": "Condition based on prior assessments within timeframe"
+    },
+    "TEMPORAL_SEQUENCE": {
+      "code": "C25676",
+      "decode": "Sequence",
+      "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+      "codeSystemVersion": "24.12",
+      "description": "Condition based on sequence requirements"
+    },
+    "VISIT_OPTIONAL": {
+      "code": "C49690",
+      "decode": "Optional",
+      "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+      "codeSystemVersion": "24.12",
+      "description": "Activity is optional, at investigator discretion"
+    },
+    "VISIT_TRIGGERED": {
+      "code": "C82547",
+      "decode": "Triggered",
+      "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+      "codeSystemVersion": "24.12",
+      "description": "Activity triggered by specific events"
+    }
+  }
+}

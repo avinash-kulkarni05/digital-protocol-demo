@@ -1,0 +1,169 @@
+{
+  "protocol_id": "NCT04656652_Protocol_SAP",
+  "extraction_timestamp": "2025-12-07T08:42:31.313944",
+  "total_duration_seconds": 4561.737153053284,
+  "model": "gemini-2.5-pro",
+  "cache_enabled": true,
+  "agents": {
+    "study_metadata": {
+      "accuracy": 0.9929078014184397,
+      "completeness": 1.0,
+      "compliance": 0.8,
+      "provenance": 1.0,
+      "terminology": 1.0,
+      "overall": 0.95822695035461,
+      "from_cache": true,
+      "duration_seconds": 0.03067803382873535
+    },
+    "arms_design": {
+      "accuracy": 1.0,
+      "completeness": 1.0,
+      "compliance": 1.0,
+      "provenance": 1.0,
+      "terminology": 1.0,
+      "overall": 1.0,
+      "from_cache": true,
+      "duration_seconds": 0.030664920806884766
+    },
+    "endpoints_estimands_sap": {
+      "accuracy": 1.0,
+      "completeness": 1.0,
+      "compliance": 1.0,
+      "provenance": 1.0,
+      "terminology": 1.0,
+      "overall": 1.0,
+      "from_cache": true,
+      "duration_seconds": 0.03505086898803711
+    },
+    "adverse_events": {
+      "accuracy": 1.0,
+      "completeness": 1.0,
+      "compliance": 1.0,
+      "provenance": 1.0,
+      "terminology": 1.0,
+      "overall": 1.0,
+      "from_cache": false,
+      "duration_seconds": 139.9667980670929
+    },
+    "safety_decision_points": {
+      "accuracy": 0.9925650557620818,
+      "completeness": 1.0,
+      "compliance": 1.0,
+      "provenance": 0.9781021897810219,
+      "terminology": 1.0,
+      "overall": 0.9937617018967249,
+      "from_cache": false,
+      "duration_seconds": 1811.5309898853302
+    },
+    "concomitant_medications": {
+      "accuracy": 1.0,
+      "completeness": 1.0,
+      "compliance": 0.9,
+      "provenance": 1.0,
+      "terminology": 1.0,
+      "overall": 0.9800000000000001,
+      "from_cache": false,
+      "duration_seconds": 193.14755821228027
+    },
+    "biospecimen_handling": {
+      "accuracy": 1.0,
+      "completeness": 1.0,
+      "compliance": 0.0,
+      "provenance": 1.0,
+      "terminology": 1.0,
+      "overall": 0.8,
+      "from_cache": false,
+      "duration_seconds": 1470.4950869083405
+    },
+    "laboratory_specifications": {
+      "accuracy": 0.9929328621908127,
+      "completeness": 1.0,
+      "compliance": 0.9,
+      "provenance": 1.0,
+      "terminology": 1.0,
+      "overall": 0.9782332155477033,
+      "from_cache": false,
+      "duration_seconds": 272.3991861343384
+    },
+    "informed_consent": {
+      "accuracy": 0.9956709956709957,
+      "completeness": 1.0,
+      "compliance": 0.0,
+      "provenance": 0.9785714285714285,
+      "terminology": 1.0,
+      "overall": 0.7946320346320347,
+      "from_cache": false,
+      "duration_seconds": 1595.20836520195
+    },
+    "pro_specifications": {
+      "accuracy": 1.0,
+      "completeness": 1.0,
+      "compliance": 1.0,
+      "provenance": 0.44623655913978494,
+      "terminology": 1.0,
+      "overall": 0.889247311827957,
+      "from_cache": false,
+      "duration_seconds": 1137.4017190933228
+    },
+    "data_management": {
+      "accuracy": 0.994535519125683,
+      "completeness": 1.0,
+      "compliance": 0.9,
+      "provenance": 1.0,
+      "terminology": 1.0,
+      "overall": 0.9786338797814208,
+      "from_cache": false,
+      "duration_seconds": 143.9414529800415
+    },
+    "site_operations_logistics": {
+      "accuracy": 0.9935483870967742,
+      "completeness": 1.0,
+      "compliance": 1.0,
+      "provenance": 1.0,
+      "terminology": 1.0,
+      "overall": 0.9983870967741936,
+      "from_cache": false,
+      "duration_seconds": 584.1438047885895
+    },
+    "quality_management": {
+      "accuracy": 0.9950186799501868,
+      "completeness": 1.0,
+      "compliance": 1.0,
+      "provenance": 1.0,
+      "terminology": 1.0,
+      "overall": 0.9987546699875468,
+      "from_cache": false,
+      "duration_seconds": 1036.1014728546143
+    },
+    "withdrawal_procedures": {
+      "accuracy": 0.9935064935064936,
+      "completeness": 1.0,
+      "compliance": 1.0,
+      "provenance": 1.0,
+      "terminology": 1.0,
+      "overall": 0.9983766233766235,
+      "from_cache": false,
+      "duration_seconds": 124.20199012756348
+    },
+    "imaging_central_reading": {
+      "accuracy": 1.0,
+      "completeness": 1.0,
+      "compliance": 1.0,
+      "provenance": 1.0,
+      "terminology": 1.0,
+      "overall": 1.0,
+      "from_cache": false,
+      "duration_seconds": 117.70424389839172
+    },
+    "pkpd_sampling": {
+      "accuracy": 1.0,
+      "completeness": 1.0,
+      "compliance": 0.7,
+      "provenance": 0.8295454545454546,
+      "terminology": 1.0,
+      "overall": 0.9059090909090909,
+      "from_cache": false,
+      "duration_seconds": 561.0501708984375
+    }
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "stage": 6,
+  "stageName": "Conditional Expansion",
+  "success": true,
+  "conditions": [
+    {
+      "id": "COND-CB13558C",
+      "instanceType": "Condition",
+      "name": "Not Repeated if Recently Performed",
+      "text": "Assessment is not repeated if performed within a specified prior timeframe and the patient's condition is stable.",
+      "conditionType": {
+        "id": "CODE-COND-CB13558C-TYPE",
+        "instanceType": "Code",
+        "code": "C53277",
+        "decode": "Prior",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "provenance": {
+        "page_number": null,
+        "text_snippet": "If screening assessments completed within 14 days they do not need to be repeated on Day 1 if patient's condition has not changed",
+        "source": "footnote",
+        "footnote_id": "FN-a",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T00:25:20.532943Z",
+        "cache_hit": false,
+        "confidence_source": "llm",
+        "validation_flags": [
+          "LLM returned TEMPORAL_PRIOR, pattern expected DEMOGRAPHIC_SEX"
+        ],
+        "rationale": "The footnote states that assessments do not need to be repeated if they were completed within the last 14 days. This is a clear condition based on the timing of a prior assessment."
+      },
+      "sourceFootnoteMarker": "a"
+    },
+    {
+      "id": "COND-8B24EA75",
+      "instanceType": "Condition",
+      "name": "Early Termination Visit",
+      "text": "Visit is performed only for subjects who prematurely discontinue treatment.",
+      "conditionType": {
+        "id": "CODE-COND-8B24EA75-TYPE",
+        "instanceType": "Code",
+        "code": "C82547",
+        "decode": "Triggered",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "provenance": {
+        "page_number": null,
+        "text_snippet": "Treatment discontinuation visit to be performed only for the patients who prematurely discontinued treatment. For the patient who completed 3 years treatment (156 weeks), the last visit (Week 156) in ",
+        "source": "footnote",
+        "footnote_id": "FN-b",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T00:25:20.533372Z",
+        "cache_hit": false,
+        "confidence_source": "llm",
+        "validation_flags": [
+          "LLM returned VISIT_TRIGGERED, pattern expected DEMOGRAPHIC_SEX"
+        ],
+        "rationale": "The footnote explicitly limits the 'Treatment discontinuation visit' to a specific subset of patients using the word 'only': those who prematurely discontinued treatment. This is a condition triggering a specific visit."
+      },
+      "sourceFootnoteMarker": "b"
+    },
+    {
+      "id": "COND-B7FAC173",
+      "instanceType": "Condition",
+      "name": "Post-Treatment, Pre-Recurrence",
+      "text": "Applies to patients who have discontinued or completed treatment but have not yet experienced disease recurrence.",
+      "conditionType": {
+        "id": "CODE-COND-B7FAC173-TYPE",
+        "instanceType": "Code",
+        "code": "C25499",
+        "decode": "Clinical Event",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "provenance": {
+        "page_number": null,
+        "text_snippet": "Follow-up until disease recurrence visits to performed for the patients who discontinue/completed treatment before disease recurrence",
+        "source": "footnote",
+        "footnote_id": "FN-d",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T00:25:20.533421Z",
+        "cache_hit": false,
+        "confidence_source": "llm",
+        "validation_flags": [
+          "LLM returned CLINICAL_EVENT, pattern expected DEMOGRAPHIC_SEX"
+        ],
+        "rationale": "The footnote clearly defines the sub-population to whom the follow-up visits apply: 'patients who discontinue/completed treatment before disease recurrence'. This is a condition based on clinical events."
+      },
+      "sourceFootnoteMarker": "d"
+    },
+    {
+      "id": "COND-124B54D2",
+      "instanceType": "Condition",
+      "name": "Optional",
+      "text": "Assessment is optional and may be performed at the discretion of the investigator or patient.",
+      "conditionType": {
+        "id": "CODE-COND-124B54D2-TYPE",
+        "instanceType": "Code",
+        "code": "C49690",
+        "decode": "Optional",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "provenance": {
+        "page_number": null,
+        "text_snippet": "Optional: tumour sample at disease recurrence",
+        "source": "footnote",
+        "footnote_id": "FN-g",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T00:25:20.533488Z",
+        "cache_hit": false,
+        "confidence_source": "llm",
+        "validation_flags": null,
+        "rationale": "The footnote explicitly states that the tumour sample collection is 'Optional', making it a conditional assessment."
+      },
+      "sourceFootnoteMarker": "g"
+    },
+    {
+      "id": "COND-C376F9F0",
+      "instanceType": "Condition",
+      "name": "Intolerance to Contrast Medium",
+      "text": "An alternative imaging procedure is used if the patient is intolerant to the standard contrast medium.",
+      "conditionType": {
+        "id": "CODE-COND-C376F9F0-TYPE",
+        "instanceType": "Code",
+        "code": "C41331",
+        "decode": "Clinical Indication",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "provenance": {
+        "page_number": null,
+        "text_snippet": "In the rare case where a patient is intolerant of the contrast medium, the preferred imaging would be CT chest without contrast and MRI abdomen with contrast however non contrast abdominal CT will als",
+        "source": "footnote",
+        "footnote_id": "FN-k",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T00:25:20.533621Z",
+        "cache_hit": false,
+        "confidence_source": "llm",
+        "validation_flags": [
+          "LLM returned CLINICAL_INDICATION, pattern expected DEMOGRAPHIC_SEX"
+        ],
+        "rationale": "The footnote describes an alternative procedure to be used under the specific clinical condition of a patient being intolerant to contrast medium. This modifies how the activity is performed for a subset of subjects."
+      },
+      "sourceFootnoteMarker": "k"
+    }
+  ],
+  "assignments": [],
+  "markerToCondition": {
+    "a": "COND-CB13558C",
+    "b": "COND-8B24EA75",
+    "d": "COND-B7FAC173",
+    "g": "COND-124B54D2",
+    "i": "COND-B7FAC173",
+    "j": "COND-CB13558C",
+    "k": "COND-C376F9F0",
+    "m": "COND-C376F9F0",
+    "n": "COND-CB13558C",
+    "o": "COND-B7FAC173",
+    "p": "COND-B7FAC173",
+    "s": "COND-B7FAC173"
+  },
+  "metrics": {
+    "footnotesAnalyzed": 21,
+    "conditionsCreated": 5,
+    "assignmentsCreated": 0,
+    "saisLinked": 0,
+    "highConfidence": 5,
+    "needsReview": 0,
+    "cacheHits": 0,
+    "llmCalls": 1,
+    "conditionCoverage": 0.23809523809523808
+  },
+  "reviewItems": []
+}

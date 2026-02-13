@@ -1,0 +1,266 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://usdm.cdisc.org/v4.0/adverse_events_extraction_schema.json",
+  "title": "USDM 4.0 Adverse Events Extraction Schema",
+  "description": "Schema for adverse events management extraction including AE/SAE definitions, grading, causality, and AESI.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this extraction",
+      "pattern": "^[A-Za-z0-9_-]+-adverse-events$"
+    },
+    "instanceType": {
+      "type": "string",
+      "const": "AdverseEvents",
+      "description": "USDM 4.0 instance type"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for this extraction",
+      "maxLength": 200
+    },
+
+    "ae_definitions": {
+      "type": "object",
+      "description": "Core AE/TEAE definitions",
+      "properties": {
+        "ae_definition": { "type": ["string", "null"], "maxLength": 500 },
+        "teae_definition": { "type": ["string", "null"], "maxLength": 500 },
+        "collection_start": { "type": ["string", "null"], "maxLength": 200 },
+        "collection_end": { "type": ["string", "null"], "maxLength": 100 },
+        "collection_end_days": { "type": ["integer", "null"], "minimum": 0 },
+        "pre_existing_condition_handling": { "type": ["string", "null"], "maxLength": 500 },
+        "provenance": { "$ref": "#/definitions/provenance" }
+      }
+    },
+
+    "sae_criteria": {
+      "type": "object",
+      "description": "Serious adverse event criteria per ICH E2A",
+      "properties": {
+        "sae_definition": { "type": ["string", "null"], "maxLength": 500 },
+        "criteria": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "criterion_type": { "$ref": "#/definitions/code_object" },
+              "definition": { "type": ["string", "null"], "maxLength": 500 },
+              "exclusions": { "type": "array", "items": { "type": "string", "maxLength": 500 } },
+              "provenance": { "$ref": "#/definitions/provenance" }
+            }
+          }
+        },
+        "provenance": { "$ref": "#/definitions/provenance" }
+      }
+    },
+
+    "grading_system": {
+      "type": ["object", "null"],
+      "description": "AE severity grading system",
+      "properties": {
+        "system_name": { "type": ["string", "null"], "maxLength": 100 },
+        "system_version": { "type": ["string", "null"], "maxLength": 20 },
+        "grade_definitions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "grade": { "type": "integer", "minimum": 1, "maximum": 5 },
+              "label": { "type": ["string", "null"], "maxLength": 50 },
+              "definition": { "type": ["string", "null"], "maxLength": 300 }
+            }
+          }
+        },
+        "provenance": { "$ref": "#/definitions/provenance" }
+      }
+    },
+
+    "causality_assessment": {
+      "type": ["object", "null"],
+      "description": "Causality assessment methodology",
+      "properties": {
+        "assessment_method": { "type": ["string", "null"], "maxLength": 300 },
+        "assessor": { "type": ["string", "null"], "maxLength": 100 },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": { "$ref": "#/definitions/code_object" },
+              "definition": { "type": ["string", "null"], "maxLength": 600 }
+            }
+          }
+        },
+        "provenance": { "$ref": "#/definitions/provenance" }
+      }
+    },
+
+    "coding_dictionary": {
+      "type": ["object", "null"],
+      "properties": {
+        "dictionary_name": { "type": ["string", "null"], "maxLength": 50 },
+        "dictionary_version": { "type": ["string", "null"], "maxLength": 20 },
+        "coding_level": { "type": ["string", "null"], "maxLength": 50 },
+        "provenance": { "$ref": "#/definitions/provenance" }
+      }
+    },
+
+    "reporting_procedures": {
+      "type": ["object", "null"],
+      "properties": {
+        "routine_ae_reporting": {
+          "type": ["object", "null"],
+          "properties": {
+            "timeline_hours": { "type": ["integer", "null"] },
+            "timeline_description": { "type": ["string", "null"], "maxLength": 200 },
+            "method": { "type": ["string", "null"], "maxLength": 100 }
+          }
+        },
+        "sae_reporting": {
+          "type": ["object", "null"],
+          "properties": {
+            "initial_report_hours": { "type": ["integer", "null"] },
+            "followup_report_days": { "type": ["integer", "null"] },
+            "recipients": { "type": "array", "items": { "type": "string" } },
+            "method": { "type": ["string", "null"], "maxLength": 100 }
+          }
+        },
+        "susar_reporting": {
+          "type": ["object", "null"],
+          "properties": {
+            "fatal_timeline_days": { "type": ["integer", "null"] },
+            "non_fatal_timeline_days": { "type": ["integer", "null"] }
+          }
+        },
+        "pregnancy_reporting": {
+          "type": ["object", "null"],
+          "properties": {
+            "timeline_hours": { "type": ["integer", "null"] },
+            "outcome_tracking": { "type": ["boolean", "null"] },
+            "partner_pregnancy": { "type": ["boolean", "null"] }
+          }
+        },
+        "expedited_reporting_criteria": {
+          "type": ["array", "null"],
+          "description": "Criteria that trigger expedited reporting beyond standard SAE/SUSAR timelines",
+          "items": { "type": "string", "maxLength": 200 }
+        },
+        "unblinding_procedures": { "type": ["string", "null"], "maxLength": 300 },
+        "provenance": { "$ref": "#/definitions/provenance" }
+      }
+    },
+
+    "aesi_list": {
+      "type": "array",
+      "description": "Adverse Events of Special Interest",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "aesi_name": { "type": "string", "maxLength": 150 },
+          "meddra_pt": { "type": ["string", "null"], "maxLength": 100 },
+          "rationale": { "type": ["string", "null"], "maxLength": 600 },
+          "special_monitoring": { "type": ["string", "null"], "maxLength": 600 },
+          "expedited_reporting": { "type": ["boolean", "null"] },
+          "provenance": { "$ref": "#/definitions/provenance" }
+        }
+      }
+    },
+
+    "dlt_criteria": {
+      "type": ["object", "null"],
+      "description": "Dose-Limiting Toxicity criteria (oncology protocols)",
+      "properties": {
+        "has_dlt_criteria": { "type": ["boolean", "null"] },
+        "dlt_observation_period": {
+          "type": ["object", "null"],
+          "properties": {
+            "duration_days": { "type": ["integer", "null"] },
+            "start_reference": { "type": ["string", "null"], "maxLength": 50 }
+          }
+        },
+        "dlt_definitions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "category": { "$ref": "#/definitions/code_object" },
+              "description": { "type": ["string", "null"], "maxLength": 300 },
+              "grade_threshold": { "type": ["integer", "null"] },
+              "duration_requirement": { "type": ["string", "null"], "maxLength": 100 },
+              "exceptions": { "type": "array", "items": { "type": "string", "maxLength": 500 } },
+              "provenance": { "$ref": "#/definitions/provenance" }
+            }
+          }
+        },
+        "mtd_determination": {
+          "type": ["object", "null"],
+          "properties": {
+            "method": { "type": ["string", "null"] },
+            "dlt_rate_threshold": { "type": ["number", "null"] },
+            "minimum_patients": { "type": ["integer", "null"] }
+          }
+        },
+        "provenance": { "$ref": "#/definitions/provenance" }
+      }
+    },
+
+    "safety_committees": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "committee_type": { "$ref": "#/definitions/code_object" },
+          "committee_name": { "type": ["string", "null"], "maxLength": 150 },
+          "review_frequency": { "type": ["string", "null"], "maxLength": 100 },
+          "responsibilities": { "type": "array", "items": { "type": "string", "maxLength": 500 } },
+          "charter_reference": { "type": ["string", "null"], "maxLength": 100 },
+          "provenance": { "$ref": "#/definitions/provenance" }
+        }
+      }
+    },
+
+    "extraction_statistics": {
+      "type": "object",
+      "properties": {
+        "aesi_count": { "type": ["integer", "null"] },
+        "dlt_criteria_count": { "type": ["integer", "null"] },
+        "sae_criteria_count": { "type": ["integer", "null"] },
+        "has_grading_system": { "type": ["boolean", "null"] },
+        "has_causality_assessment": { "type": ["boolean", "null"] },
+        "has_dlt_criteria": { "type": ["boolean", "null"] }
+      }
+    },
+
+    "provenance": { "$ref": "#/definitions/provenance" }
+  },
+
+  "required": ["id", "instanceType", "name"],
+
+  "definitions": {
+    "code_object": {
+      "type": ["object", "null"],
+      "description": "CDISC controlled terminology code object",
+      "properties": {
+        "code": { "type": ["string", "null"] },
+        "decode": { "type": ["string", "null"] },
+        "codeSystem": { "type": ["string", "null"], "default": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl" },
+        "codeSystemVersion": { "type": ["string", "null"], "default": "24.03e" }
+      }
+    },
+    "provenance": {
+      "type": ["object", "null"],
+      "description": "Source tracking for extracted data",
+      "properties": {
+        "section_number": { "type": ["string", "null"], "maxLength": 50 },
+        "page_number": { "type": ["integer", "null"] },
+        "text_snippet": { "type": ["string", "null"], "maxLength": 500 }
+      }
+    }
+  }
+}

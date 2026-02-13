@@ -1,0 +1,602 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PROSpecifications",
+  "description": "USDM 4.0-compliant schema for Patient-Reported Outcome (PRO) and Clinical Outcome Assessment (COA) specifications. Covers PRO instruments, ePRO/eCOA configuration, ClinRO, ObsRO, PerfO, daily diaries, and analysis specifications.",
+  "type": "object",
+  "definitions": {
+    "provenance": {
+      "type": "object",
+      "description": "Source location information for audit trail - populated in Pass 2 only",
+      "properties": {
+        "section_number": {
+          "type": ["string", "null"],
+          "description": "Section number from document",
+          "maxLength": 50
+        },
+        "page_number": {
+          "type": ["integer", "null"],
+          "description": "PDF page number (1-indexed)"
+        },
+        "text_snippet": {
+          "type": ["string", "null"],
+          "description": "Direct quote from source (max 500 chars)",
+          "maxLength": 500
+        }
+      }
+    },
+    "biomedicalConcept": {
+      "type": ["object", "null"],
+      "description": "CDISC Biomedical Concept for PRO/COA instrument standardization",
+      "properties": {
+        "conceptName": {
+          "type": "string",
+          "description": "Standardized instrument name",
+          "maxLength": 150
+        },
+        "cdiscCode": {
+          "type": "string",
+          "description": "NCI EVS code (e.g., C103412 for EQ-5D-5L) or 'CUSTOM' for unmapped",
+          "maxLength": 20
+        },
+        "domain": {
+          "type": "string",
+          "description": "CDISC domain - QS for Questionnaires",
+          "enum": ["QS", "FA", "OTHER"],
+          "default": "QS"
+        },
+        "method": {
+          "type": ["string", "null"],
+          "description": "Administration method (electronic, paper, interviewer)",
+          "maxLength": 100
+        },
+        "confidence": {
+          "type": ["number", "null"],
+          "description": "Mapping confidence (1.0 = exact match, 0.5 = custom)",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "rationale": {
+          "type": ["string", "null"],
+          "description": "Brief explanation for code assignment",
+          "maxLength": 200
+        }
+      },
+      "required": ["conceptName", "cdiscCode", "domain"]
+    },
+    "assessment_timepoint": {
+      "type": "object",
+      "properties": {
+        "timepoint_id": {
+          "type": "string",
+          "maxLength": 50
+        },
+        "timepoint_name": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "visit_reference": {
+          "type": ["string", "null"],
+          "maxLength": 100
+        },
+        "window_before_days": {
+          "type": ["integer", "null"]
+        },
+        "window_after_days": {
+          "type": ["integer", "null"]
+        },
+        "is_required": {
+          "type": ["boolean", "null"]
+        }
+      },
+      "required": ["timepoint_id", "timepoint_name"]
+    },
+    "scoring_domain": {
+      "type": "object",
+      "properties": {
+        "domain_name": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "domain_description": {
+          "type": ["string", "null"],
+          "maxLength": 300
+        },
+        "items_included": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "score_range": {
+          "type": ["string", "null"],
+          "maxLength": 50
+        },
+        "higher_is_better": {
+          "type": ["boolean", "null"]
+        }
+      },
+      "required": ["domain_name"]
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this PRO resource",
+      "maxLength": 50
+    },
+    "instanceType": {
+      "type": "string",
+      "const": "PROSpecifications",
+      "description": "USDM instance type"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the PRO specifications resource",
+      "maxLength": 200
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "Brief description of PRO/COA program",
+      "maxLength": 500
+    },
+    "pro_instruments": {
+      "type": ["array", "null"],
+      "description": "Patient-reported outcome instruments",
+      "items": {
+        "type": "object",
+        "properties": {
+          "instrument_id": {
+            "type": "string",
+            "maxLength": 50
+          },
+          "instrument_name": {
+            "type": "string",
+            "description": "Full name of PRO instrument (e.g., EORTC QLQ-C30, SF-36, EQ-5D-5L)",
+            "maxLength": 200
+          },
+          "instrument_abbreviation": {
+            "type": ["string", "null"],
+            "maxLength": 50
+          },
+          "instrument_type": {
+            "type": ["string", "null"],
+            "enum": ["generic_hrqol", "disease_specific", "symptom", "function", "utility", "satisfaction", null]
+          },
+          "instrument_version": {
+            "type": ["string", "null"],
+            "maxLength": 50
+          },
+          "copyright_holder": {
+            "type": ["string", "null"],
+            "maxLength": 200
+          },
+          "license_required": {
+            "type": ["boolean", "null"]
+          },
+          "administration": {
+            "type": ["object", "null"],
+            "properties": {
+              "mode": {
+                "type": ["string", "null"],
+                "enum": ["paper", "electronic", "interviewer", "BYOD", "mixed", null]
+              },
+              "device_type": {
+                "type": ["string", "null"],
+                "enum": ["provisioned_tablet", "site_tablet", "patient_smartphone", "web_portal", "paper", null]
+              },
+              "completion_location": {
+                "type": ["string", "null"],
+                "enum": ["clinic", "home", "either", null]
+              },
+              "language_versions": {
+                "type": ["array", "null"],
+                "items": {
+                  "type": "string",
+                  "maxLength": 50
+                }
+              },
+              "estimated_completion_time": {
+                "type": ["string", "null"],
+                "maxLength": 50
+              },
+              "provenance": {
+                "$ref": "#/definitions/provenance"
+              }
+            }
+          },
+          "schedule": {
+            "type": ["object", "null"],
+            "properties": {
+              "assessment_timepoints": {
+                "type": ["array", "null"],
+                "items": {
+                  "$ref": "#/definitions/assessment_timepoint"
+                }
+              },
+              "recall_period": {
+                "type": ["string", "null"],
+                "description": "Recall period (e.g., 'past 7 days', 'past 4 weeks', 'today')",
+                "maxLength": 100
+              },
+              "completion_window_hours": {
+                "type": ["integer", "null"]
+              },
+              "provenance": {
+                "$ref": "#/definitions/provenance"
+              }
+            }
+          },
+          "scoring": {
+            "type": ["object", "null"],
+            "properties": {
+              "domains": {
+                "type": ["array", "null"],
+                "items": {
+                  "$ref": "#/definitions/scoring_domain"
+                }
+              },
+              "total_score_available": {
+                "type": ["boolean", "null"]
+              },
+              "scoring_algorithm": {
+                "type": ["string", "null"],
+                "maxLength": 300
+              },
+              "mcid": {
+                "type": ["string", "null"],
+                "description": "Minimally Clinically Important Difference",
+                "maxLength": 100
+              },
+              "responder_definition": {
+                "type": ["string", "null"],
+                "maxLength": 300
+              },
+              "provenance": {
+                "$ref": "#/definitions/provenance"
+              }
+            }
+          },
+          "missing_data": {
+            "type": ["object", "null"],
+            "properties": {
+              "compliance_threshold": {
+                "type": ["number", "null"],
+                "description": "Required compliance rate (e.g., 0.80 for 80%)"
+              },
+              "item_level_missing_handling": {
+                "type": ["string", "null"],
+                "maxLength": 300
+              },
+              "form_level_missing_handling": {
+                "type": ["string", "null"],
+                "maxLength": 300
+              },
+              "imputation_method": {
+                "type": ["string", "null"],
+                "maxLength": 200
+              },
+              "provenance": {
+                "$ref": "#/definitions/provenance"
+              }
+            }
+          },
+          "training_requirements": {
+            "type": ["object", "null"],
+            "properties": {
+              "site_training_required": {
+                "type": ["boolean", "null"]
+              },
+              "patient_training_required": {
+                "type": ["boolean", "null"]
+              },
+              "training_materials": {
+                "type": ["array", "null"],
+                "items": {
+                  "type": "string",
+                  "maxLength": 100
+                }
+              },
+              "provenance": {
+                "$ref": "#/definitions/provenance"
+              }
+            }
+          },
+          "biomedicalConcept": {
+            "$ref": "#/definitions/biomedicalConcept"
+          },
+          "provenance": {
+            "$ref": "#/definitions/provenance"
+          }
+        },
+        "required": ["instrument_id", "instrument_name"]
+      }
+    },
+    "epro_system": {
+      "type": ["object", "null"],
+      "description": "ePRO/eCOA system configuration",
+      "properties": {
+        "vendor_name": {
+          "type": ["string", "null"],
+          "maxLength": 100
+        },
+        "platform_name": {
+          "type": ["string", "null"],
+          "maxLength": 100
+        },
+        "integration_with_edc": {
+          "type": ["boolean", "null"]
+        },
+        "data_transfer_frequency": {
+          "type": ["string", "null"],
+          "maxLength": 100
+        },
+        "alert_triggers": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "reminder_schedule": {
+          "type": ["string", "null"],
+          "maxLength": 200
+        },
+        "offline_capability": {
+          "type": ["boolean", "null"]
+        },
+        "device_requirements": {
+          "type": ["object", "null"],
+          "description": "Device specifications for ePRO system",
+          "properties": {
+            "device_type": {
+              "type": ["string", "null"],
+              "enum": ["provisioned_device", "byod", "site_device", null],
+              "description": "Type of device used for ePRO collection"
+            },
+            "minimum_os_version": {
+              "type": ["string", "null"],
+              "maxLength": 50,
+              "description": "Minimum OS version required (e.g., 'iOS 14.0', 'Android 10')"
+            },
+            "app_name": {
+              "type": ["string", "null"],
+              "maxLength": 100,
+              "description": "Name of ePRO application (e.g., 'TrialMax', 'Medidata Patient Cloud')"
+            },
+            "provenance": {
+              "$ref": "#/definitions/provenance"
+            }
+          }
+        },
+        "compliance_alert_threshold": {
+          "type": ["number", "null"],
+          "description": "Compliance rate threshold that triggers alerts (e.g., 0.80 for 80%)"
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      }
+    },
+    "clinro_instruments": {
+      "type": ["array", "null"],
+      "description": "Clinician-reported outcome instruments",
+      "items": {
+        "type": "object",
+        "properties": {
+          "instrument_id": {
+            "type": "string",
+            "maxLength": 50
+          },
+          "instrument_name": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "assessor": {
+            "type": ["string", "null"],
+            "enum": ["investigator", "nurse", "outcomes_assessor", "any_qualified", null]
+          },
+          "training_certification_required": {
+            "type": ["boolean", "null"]
+          },
+          "inter_rater_reliability_requirements": {
+            "type": ["string", "null"],
+            "maxLength": 300
+          },
+          "schedule": {
+            "oneOf": [
+              {"type": "null"},
+              {"type": "string", "maxLength": 300},
+              {"type": "array", "items": {"type": "string", "maxLength": 100}}
+            ]
+          },
+          "biomedicalConcept": {
+            "$ref": "#/definitions/biomedicalConcept"
+          },
+          "provenance": {
+            "$ref": "#/definitions/provenance"
+          }
+        },
+        "required": ["instrument_id", "instrument_name"]
+      }
+    },
+    "obsro_instruments": {
+      "type": ["array", "null"],
+      "description": "Observer-reported outcome instruments",
+      "items": {
+        "type": "object",
+        "properties": {
+          "instrument_id": {
+            "type": "string",
+            "maxLength": 50
+          },
+          "instrument_name": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "observer_type": {
+            "type": ["string", "null"],
+            "enum": ["caregiver", "parent", "healthcare_provider", "family_member", null]
+          },
+          "schedule": {
+            "oneOf": [
+              {"type": "null"},
+              {"type": "string", "maxLength": 300},
+              {"type": "array", "items": {"type": "string", "maxLength": 100}}
+            ]
+          },
+          "biomedicalConcept": {
+            "$ref": "#/definitions/biomedicalConcept"
+          },
+          "provenance": {
+            "$ref": "#/definitions/provenance"
+          }
+        },
+        "required": ["instrument_id", "instrument_name"]
+      }
+    },
+    "perfo_instruments": {
+      "type": ["array", "null"],
+      "description": "Performance outcome instruments",
+      "items": {
+        "type": "object",
+        "properties": {
+          "instrument_id": {
+            "type": "string",
+            "maxLength": 50
+          },
+          "instrument_name": {
+            "type": "string",
+            "description": "Name of performance test (e.g., 6MWT, Timed Up and Go)",
+            "maxLength": 200
+          },
+          "equipment_required": {
+            "type": ["array", "null"],
+            "items": {
+              "type": "string",
+              "maxLength": 100
+            }
+          },
+          "standardization_requirements": {
+            "type": ["string", "null"],
+            "maxLength": 500
+          },
+          "schedule": {
+            "oneOf": [
+              {"type": "null"},
+              {"type": "string", "maxLength": 300},
+              {"type": "array", "items": {"type": "string", "maxLength": 100}}
+            ]
+          },
+          "biomedicalConcept": {
+            "$ref": "#/definitions/biomedicalConcept"
+          },
+          "provenance": {
+            "$ref": "#/definitions/provenance"
+          }
+        },
+        "required": ["instrument_id", "instrument_name"]
+      }
+    },
+    "daily_diary": {
+      "type": ["object", "null"],
+      "description": "Daily diary/symptom tracker specifications",
+      "properties": {
+        "required": {
+          "type": ["boolean", "null"]
+        },
+        "diary_name": {
+          "type": ["string", "null"],
+          "maxLength": 200
+        },
+        "items_collected": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "collection_frequency": {
+          "type": ["string", "null"],
+          "enum": ["daily", "twice_daily", "weekly", "as_needed", null]
+        },
+        "collection_window": {
+          "type": ["string", "null"],
+          "maxLength": 100
+        },
+        "reminder_schedule": {
+          "type": ["string", "null"],
+          "maxLength": 200
+        },
+        "compliance_monitoring": {
+          "type": ["string", "null"],
+          "maxLength": 300
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      }
+    },
+    "analysis_specifications": {
+      "type": ["object", "null"],
+      "description": "PRO analysis specifications for SAP",
+      "properties": {
+        "primary_pro_endpoint": {
+          "type": ["string", "null"],
+          "maxLength": 300
+        },
+        "secondary_pro_endpoints": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "string",
+            "maxLength": 300
+          }
+        },
+        "analysis_population": {
+          "type": ["string", "null"],
+          "maxLength": 200
+        },
+        "statistical_methods": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "sensitivity_analyses": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "responder_analysis_planned": {
+          "type": ["boolean", "null"]
+        },
+        "time_to_event_analysis_planned": {
+          "type": ["boolean", "null"]
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      }
+    },
+    "extraction_statistics": {
+      "type": "object",
+      "description": "Extraction metadata - auto-generated",
+      "properties": {
+        "pro_instrument_count": {"type": ["integer", "null"]},
+        "clinro_count": {"type": ["integer", "null"]},
+        "obsro_count": {"type": ["integer", "null"]},
+        "perfo_count": {"type": ["integer", "null"]},
+        "has_epro": {"type": "boolean"},
+        "has_daily_diary": {"type": "boolean"},
+        "total_assessment_timepoints": {"type": ["integer", "null"]}
+      }
+    },
+    "provenance": {
+      "$ref": "#/definitions/provenance"
+    }
+  },
+  "required": ["id", "instanceType", "name"]
+}

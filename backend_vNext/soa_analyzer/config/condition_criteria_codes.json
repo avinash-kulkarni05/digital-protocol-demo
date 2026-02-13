@@ -1,0 +1,123 @@
+{
+  "_metadata": {
+    "description": "CDISC code mapping for condition criterion values in Stage 6 Conditional Expansion",
+    "purpose": "Convert criterion values to USDM 4.0 compliant Code objects",
+    "source": "NCI EVS Thesaurus + CDISC Protocol Terminology",
+    "version": "1.0.0",
+    "created": "2025-12-06"
+  },
+  "criteria_codes": {
+    "sex": {
+      "F": {
+        "code": "C16576",
+        "decode": "Female",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "M": {
+        "code": "C20197",
+        "decode": "Male",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "female": {
+        "code": "C16576",
+        "decode": "Female",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "male": {
+        "code": "C20197",
+        "decode": "Male",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      }
+    },
+    "fertilityStatus": {
+      "fertile": {
+        "code": "C100128",
+        "decode": "Childbearing Potential",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "postmenopausal": {
+        "code": "C51808",
+        "decode": "Postmenopausal",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "surgically_sterile": {
+        "code": "C99482",
+        "decode": "Surgically Sterile",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      }
+    },
+    "ageCategory": {
+      "elderly": {
+        "code": "C25173",
+        "decode": "Elderly",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "pediatric": {
+        "code": "C27949",
+        "decode": "Pediatric",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "adult": {
+        "code": "C17600",
+        "decode": "Adult",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "adolescent": {
+        "code": "C27954",
+        "decode": "Adolescent",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      }
+    },
+    "clinicalStatus": {
+      "indicated": {
+        "code": "C41331",
+        "decode": "Clinical Indication",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "optional": {
+        "code": "C49690",
+        "decode": "Optional",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "required": {
+        "code": "C55078",
+        "decode": "Required",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      }
+    },
+    "resultStatus": {
+      "abnormal": {
+        "code": "C25401",
+        "decode": "Abnormal",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "positive": {
+        "code": "C25227",
+        "decode": "Positive",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "negative": {
+        "code": "C25226",
+        "decode": "Negative",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      }
+    }
+  }
+}

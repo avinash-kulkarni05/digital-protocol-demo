@@ -1,0 +1,1616 @@
+{
+  "stage": 4,
+  "stageName": "Alternative Resolution",
+  "success": true,
+  "expansions": [
+    {
+      "id": "EXP-ACT-009",
+      "originalActivityId": "ACT-009",
+      "originalActivityName": "Arterial blood gas analysis or percutaneous oxygen saturation",
+      "expandedActivities": [
+        {
+          "id": "ACT-009-A",
+          "name": "Arterial blood gas analysis",
+          "instanceType": "Activity",
+          "cdiscDomain": null,
+          "_alternativeResolution": {
+            "originalActivityId": "ACT-009",
+            "originalActivityName": "Arterial blood gas analysis or percutaneous oxygen saturation",
+            "alternativeType": "mutually_exclusive",
+            "alternativeIndex": 1,
+            "alternativeCount": 2,
+            "confidence": 0.98,
+            "rationale": "Explicit 'or' separates two distinct measurement procedures, indicating a mutually exclusive choice.",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.207772Z",
+            "source": "llm",
+            "cacheHit": false,
+            "cacheKey": "ba44feba796d874a19dced63f245c3a4"
+          }
+        },
+        {
+          "id": "ACT-009-B",
+          "name": "percutaneous oxygen saturation",
+          "instanceType": "Activity",
+          "cdiscDomain": null,
+          "_alternativeResolution": {
+            "originalActivityId": "ACT-009",
+            "originalActivityName": "Arterial blood gas analysis or percutaneous oxygen saturation",
+            "alternativeType": "mutually_exclusive",
+            "alternativeIndex": 2,
+            "alternativeCount": 2,
+            "confidence": 0.98,
+            "rationale": "Explicit 'or' separates two distinct measurement procedures, indicating a mutually exclusive choice.",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208516Z",
+            "source": "llm",
+            "cacheHit": false,
+            "cacheKey": "ba44feba796d874a19dced63f245c3a4"
+          }
+        }
+      ],
+      "expandedSais": [
+        {
+          "id": "SAI-039-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-009-A",
+          "scheduledInstanceEncounterId": "ENC-001",
+          "defaultConditionId": "COND-ALT-009-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-039",
+            "originalActivityId": "ACT-009",
+            "alternativeIndex": 1,
+            "alternativeName": "Arterial blood gas analysis",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208487Z",
+            "confidence": 0.98,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-039-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-009-B",
+          "scheduledInstanceEncounterId": "ENC-001",
+          "defaultConditionId": "COND-ALT-009-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-039",
+            "originalActivityId": "ACT-009",
+            "alternativeIndex": 2,
+            "alternativeName": "percutaneous oxygen saturation",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208542Z",
+            "confidence": 0.98,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        }
+      ],
+      "conditionsCreated": [
+        {
+          "id": "COND-ALT-009-A",
+          "instanceType": "Condition",
+          "name": "Arterial blood gas analysis selected",
+          "text": "Subject assigned to Arterial blood gas analysis option for Arterial blood gas analysis or percutaneous oxygen saturation",
+          "conditionType": {
+            "id": "CODE-COND-TYPE-EXT-ALT-002",
+            "code": "EXT-ALT-002",
+            "decode": "Mutually Exclusive Alternative",
+            "codeSystem": "http://protocol-digitalization.example.org/codesystem/soa-alternative-resolution",
+            "codeSystemVersion": "1.0.0",
+            "instanceType": "Code"
+          },
+          "_alternativeResolution": {
+            "originalActivityId": "ACT-009",
+            "alternativeIndex": 1,
+            "alternativeName": "Arterial blood gas analysis",
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208451Z"
+          }
+        },
+        {
+          "id": "COND-ALT-009-B",
+          "instanceType": "Condition",
+          "name": "percutaneous oxygen saturation selected",
+          "text": "Subject assigned to percutaneous oxygen saturation option for Arterial blood gas analysis or percutaneous oxygen saturation",
+          "conditionType": {
+            "id": "CODE-COND-TYPE-EXT-ALT-002",
+            "code": "EXT-ALT-002",
+            "decode": "Mutually Exclusive Alternative",
+            "codeSystem": "http://protocol-digitalization.example.org/codesystem/soa-alternative-resolution",
+            "codeSystemVersion": "1.0.0",
+            "instanceType": "Code"
+          },
+          "_alternativeResolution": {
+            "originalActivityId": "ACT-009",
+            "alternativeIndex": 2,
+            "alternativeName": "percutaneous oxygen saturation",
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208537Z"
+          }
+        }
+      ],
+      "assignmentsCreated": [
+        {
+          "id": "CA-ALT-0E8AD9",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-009-A",
+          "conditionTargetId": "SAI-039-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208506Z"
+          }
+        },
+        {
+          "id": "CA-ALT-C53C57",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-009-B",
+          "conditionTargetId": "SAI-039-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208549Z"
+          }
+        }
+      ],
+      "confidence": 0.98,
+      "alternativeType": "mutually_exclusive",
+      "requiresReview": false,
+      "reviewReason": null
+    },
+    {
+      "id": "EXP-ACT-010",
+      "originalActivityId": "ACT-010",
+      "originalActivityName": "Chest CT or X-ray",
+      "expandedActivities": [
+        {
+          "id": "ACT-010-A",
+          "name": "Chest CT",
+          "instanceType": "Activity",
+          "cdiscDomain": null,
+          "_alternativeResolution": {
+            "originalActivityId": "ACT-010",
+            "originalActivityName": "Chest CT or X-ray",
+            "alternativeType": "mutually_exclusive",
+            "alternativeIndex": 1,
+            "alternativeCount": 2,
+            "confidence": 0.98,
+            "rationale": "Explicit 'or' separates two imaging modalities, indicating a mutually exclusive choice.",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208666Z",
+            "source": "llm",
+            "cacheHit": false,
+            "cacheKey": "e1a023e1a129c78abd29c6e2c69ffed5"
+          }
+        },
+        {
+          "id": "ACT-010-B",
+          "name": "X-ray",
+          "instanceType": "Activity",
+          "cdiscDomain": null,
+          "_alternativeResolution": {
+            "originalActivityId": "ACT-010",
+            "originalActivityName": "Chest CT or X-ray",
+            "alternativeType": "mutually_exclusive",
+            "alternativeIndex": 2,
+            "alternativeCount": 2,
+            "confidence": 0.98,
+            "rationale": "Explicit 'or' separates two imaging modalities, indicating a mutually exclusive choice.",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208713Z",
+            "source": "llm",
+            "cacheHit": false,
+            "cacheKey": "e1a023e1a129c78abd29c6e2c69ffed5"
+          }
+        }
+      ],
+      "expandedSais": [
+        {
+          "id": "SAI-040-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-010-A",
+          "scheduledInstanceEncounterId": "ENC-001",
+          "defaultConditionId": "COND-ALT-010-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-040",
+            "originalActivityId": "ACT-010",
+            "alternativeIndex": 1,
+            "alternativeName": "Chest CT",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208699Z",
+            "confidence": 0.98,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-040-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-010-B",
+          "scheduledInstanceEncounterId": "ENC-001",
+          "defaultConditionId": "COND-ALT-010-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-040",
+            "originalActivityId": "ACT-010",
+            "alternativeIndex": 2,
+            "alternativeName": "X-ray",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208734Z",
+            "confidence": 0.98,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        }
+      ],
+      "conditionsCreated": [
+        {
+          "id": "COND-ALT-010-A",
+          "instanceType": "Condition",
+          "name": "Chest CT selected",
+          "text": "Subject assigned to Chest CT option for Chest CT or X-ray",
+          "conditionType": {
+            "id": "CODE-COND-TYPE-EXT-ALT-002",
+            "code": "EXT-ALT-002",
+            "decode": "Mutually Exclusive Alternative",
+            "codeSystem": "http://protocol-digitalization.example.org/codesystem/soa-alternative-resolution",
+            "codeSystemVersion": "1.0.0",
+            "instanceType": "Code"
+          },
+          "_alternativeResolution": {
+            "originalActivityId": "ACT-010",
+            "alternativeIndex": 1,
+            "alternativeName": "Chest CT",
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208687Z"
+          }
+        },
+        {
+          "id": "COND-ALT-010-B",
+          "instanceType": "Condition",
+          "name": "X-ray selected",
+          "text": "Subject assigned to X-ray option for Chest CT or X-ray",
+          "conditionType": {
+            "id": "CODE-COND-TYPE-EXT-ALT-002",
+            "code": "EXT-ALT-002",
+            "decode": "Mutually Exclusive Alternative",
+            "codeSystem": "http://protocol-digitalization.example.org/codesystem/soa-alternative-resolution",
+            "codeSystemVersion": "1.0.0",
+            "instanceType": "Code"
+          },
+          "_alternativeResolution": {
+            "originalActivityId": "ACT-010",
+            "alternativeIndex": 2,
+            "alternativeName": "X-ray",
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208730Z"
+          }
+        }
+      ],
+      "assignmentsCreated": [
+        {
+          "id": "CA-ALT-F883D3",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-010-A",
+          "conditionTargetId": "SAI-040-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208707Z"
+          }
+        },
+        {
+          "id": "CA-ALT-BFBBED",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-010-B",
+          "conditionTargetId": "SAI-040-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208740Z"
+          }
+        }
+      ],
+      "confidence": 0.98,
+      "alternativeType": "mutually_exclusive",
+      "requiresReview": false,
+      "reviewReason": null
+    },
+    {
+      "id": "EXP-ACT-042",
+      "originalActivityId": "ACT-042",
+      "originalActivityName": "Dosing with Venetoclax/Placebo",
+      "expandedActivities": [
+        {
+          "id": "ACT-042-A",
+          "name": "Dosing with Venetoclax",
+          "instanceType": "Activity",
+          "cdiscDomain": null,
+          "_alternativeResolution": {
+            "originalActivityId": "ACT-042",
+            "originalActivityName": "Dosing with Venetoclax/Placebo",
+            "alternativeType": "mutually_exclusive",
+            "alternativeIndex": 1,
+            "alternativeCount": 2,
+            "confidence": 0.95,
+            "rationale": "The '/' separates the active drug from the placebo, representing a mutually exclusive choice determined by patient randomization.",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208818Z",
+            "source": "llm",
+            "cacheHit": false,
+            "cacheKey": "7283258a7386888e43745e42a7611149"
+          }
+        },
+        {
+          "id": "ACT-042-B",
+          "name": "Dosing with Placebo",
+          "instanceType": "Activity",
+          "cdiscDomain": null,
+          "_alternativeResolution": {
+            "originalActivityId": "ACT-042",
+            "originalActivityName": "Dosing with Venetoclax/Placebo",
+            "alternativeType": "mutually_exclusive",
+            "alternativeIndex": 2,
+            "alternativeCount": 2,
+            "confidence": 0.95,
+            "rationale": "The '/' separates the active drug from the placebo, representing a mutually exclusive choice determined by patient randomization.",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.209040Z",
+            "source": "llm",
+            "cacheHit": false,
+            "cacheKey": "7283258a7386888e43745e42a7611149"
+          }
+        }
+      ],
+      "expandedSais": [
+        {
+          "id": "SAI-137-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-A",
+          "scheduledInstanceEncounterId": "ENC-002",
+          "defaultConditionId": "COND-ALT-042-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-137",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 1,
+            "alternativeName": "Dosing with Venetoclax",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208852Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-138-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-A",
+          "scheduledInstanceEncounterId": "ENC-003",
+          "defaultConditionId": "COND-ALT-042-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-138",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 1,
+            "alternativeName": "Dosing with Venetoclax",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208864Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-139-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-A",
+          "scheduledInstanceEncounterId": "ENC-004",
+          "defaultConditionId": "COND-ALT-042-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-139",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 1,
+            "alternativeName": "Dosing with Venetoclax",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208874Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-140-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-A",
+          "scheduledInstanceEncounterId": "ENC-005",
+          "defaultConditionId": "COND-ALT-042-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-140",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 1,
+            "alternativeName": "Dosing with Venetoclax",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208892Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-141-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-A",
+          "scheduledInstanceEncounterId": "ENC-006",
+          "defaultConditionId": "COND-ALT-042-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-141",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 1,
+            "alternativeName": "Dosing with Venetoclax",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208902Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-142-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-A",
+          "scheduledInstanceEncounterId": "ENC-007",
+          "defaultConditionId": "COND-ALT-042-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-142",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 1,
+            "alternativeName": "Dosing with Venetoclax",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208911Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-143-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-A",
+          "scheduledInstanceEncounterId": "ENC-008",
+          "defaultConditionId": "COND-ALT-042-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-143",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 1,
+            "alternativeName": "Dosing with Venetoclax",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208920Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-144-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-A",
+          "scheduledInstanceEncounterId": "ENC-009",
+          "defaultConditionId": "COND-ALT-042-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-144",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 1,
+            "alternativeName": "Dosing with Venetoclax",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208929Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-145-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-A",
+          "scheduledInstanceEncounterId": "ENC-010",
+          "defaultConditionId": "COND-ALT-042-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-145",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 1,
+            "alternativeName": "Dosing with Venetoclax",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208939Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-146-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-A",
+          "scheduledInstanceEncounterId": "ENC-011",
+          "defaultConditionId": "COND-ALT-042-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-146",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 1,
+            "alternativeName": "Dosing with Venetoclax",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208948Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-147-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-A",
+          "scheduledInstanceEncounterId": "ENC-012",
+          "defaultConditionId": "COND-ALT-042-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-147",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 1,
+            "alternativeName": "Dosing with Venetoclax",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208956Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-148-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-A",
+          "scheduledInstanceEncounterId": "ENC-013",
+          "defaultConditionId": "COND-ALT-042-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-148",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 1,
+            "alternativeName": "Dosing with Venetoclax",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208975Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-149-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-A",
+          "scheduledInstanceEncounterId": "ENC-014",
+          "defaultConditionId": "COND-ALT-042-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-149",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 1,
+            "alternativeName": "Dosing with Venetoclax",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208984Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-150-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-A",
+          "scheduledInstanceEncounterId": "ENC-015",
+          "defaultConditionId": "COND-ALT-042-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-150",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 1,
+            "alternativeName": "Dosing with Venetoclax",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.208993Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-151-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-A",
+          "scheduledInstanceEncounterId": "ENC-016",
+          "defaultConditionId": "COND-ALT-042-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-151",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 1,
+            "alternativeName": "Dosing with Venetoclax",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.209010Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-152-A",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-A",
+          "scheduledInstanceEncounterId": "ENC-017",
+          "defaultConditionId": "COND-ALT-042-A",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-152",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 1,
+            "alternativeName": "Dosing with Venetoclax",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.209023Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-137-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-B",
+          "scheduledInstanceEncounterId": "ENC-002",
+          "defaultConditionId": "COND-ALT-042-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-137",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 2,
+            "alternativeName": "Dosing with Placebo",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.209061Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-138-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-B",
+          "scheduledInstanceEncounterId": "ENC-003",
+          "defaultConditionId": "COND-ALT-042-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-138",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 2,
+            "alternativeName": "Dosing with Placebo",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.209083Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-139-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-B",
+          "scheduledInstanceEncounterId": "ENC-004",
+          "defaultConditionId": "COND-ALT-042-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-139",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 2,
+            "alternativeName": "Dosing with Placebo",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.209092Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-140-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-B",
+          "scheduledInstanceEncounterId": "ENC-005",
+          "defaultConditionId": "COND-ALT-042-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-140",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 2,
+            "alternativeName": "Dosing with Placebo",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.209101Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-141-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-B",
+          "scheduledInstanceEncounterId": "ENC-006",
+          "defaultConditionId": "COND-ALT-042-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-141",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 2,
+            "alternativeName": "Dosing with Placebo",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.209110Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-142-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-B",
+          "scheduledInstanceEncounterId": "ENC-007",
+          "defaultConditionId": "COND-ALT-042-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-142",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 2,
+            "alternativeName": "Dosing with Placebo",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.209118Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-143-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-B",
+          "scheduledInstanceEncounterId": "ENC-008",
+          "defaultConditionId": "COND-ALT-042-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-143",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 2,
+            "alternativeName": "Dosing with Placebo",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.209126Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-144-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-B",
+          "scheduledInstanceEncounterId": "ENC-009",
+          "defaultConditionId": "COND-ALT-042-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-144",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 2,
+            "alternativeName": "Dosing with Placebo",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.209135Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-145-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-B",
+          "scheduledInstanceEncounterId": "ENC-010",
+          "defaultConditionId": "COND-ALT-042-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-145",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 2,
+            "alternativeName": "Dosing with Placebo",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.209143Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-146-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-B",
+          "scheduledInstanceEncounterId": "ENC-011",
+          "defaultConditionId": "COND-ALT-042-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-146",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 2,
+            "alternativeName": "Dosing with Placebo",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.209152Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-147-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-B",
+          "scheduledInstanceEncounterId": "ENC-012",
+          "defaultConditionId": "COND-ALT-042-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-147",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 2,
+            "alternativeName": "Dosing with Placebo",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.209160Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-148-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-B",
+          "scheduledInstanceEncounterId": "ENC-013",
+          "defaultConditionId": "COND-ALT-042-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-148",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 2,
+            "alternativeName": "Dosing with Placebo",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.209168Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-149-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-B",
+          "scheduledInstanceEncounterId": "ENC-014",
+          "defaultConditionId": "COND-ALT-042-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-149",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 2,
+            "alternativeName": "Dosing with Placebo",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.209182Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-150-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-B",
+          "scheduledInstanceEncounterId": "ENC-015",
+          "defaultConditionId": "COND-ALT-042-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-150",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 2,
+            "alternativeName": "Dosing with Placebo",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.209191Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-151-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-B",
+          "scheduledInstanceEncounterId": "ENC-016",
+          "defaultConditionId": "COND-ALT-042-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-151",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 2,
+            "alternativeName": "Dosing with Placebo",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.209199Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        },
+        {
+          "id": "SAI-152-B",
+          "instanceType": "ScheduledActivityInstance",
+          "activityId": "ACT-042-B",
+          "scheduledInstanceEncounterId": "ENC-017",
+          "defaultConditionId": "COND-ALT-042-B",
+          "isRequired": true,
+          "footnoteMarkers": [],
+          "_alternativeResolution": {
+            "originalSaiId": "SAI-152",
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 2,
+            "alternativeName": "Dosing with Placebo",
+            "stage": "Stage4AlternativeResolution",
+            "model": "gemini-2.5-pro",
+            "timestamp": "2025-12-10T03:06:47.209207Z",
+            "confidence": 0.95,
+            "source": "llm",
+            "cacheHit": false
+          },
+          "timingModifier": null
+        }
+      ],
+      "conditionsCreated": [
+        {
+          "id": "COND-ALT-042-A",
+          "instanceType": "Condition",
+          "name": "Dosing with Venetoclax selected",
+          "text": "Subject assigned to Dosing with Venetoclax option for Dosing with Venetoclax/Placebo",
+          "conditionType": {
+            "id": "CODE-COND-TYPE-EXT-ALT-002",
+            "code": "EXT-ALT-002",
+            "decode": "Mutually Exclusive Alternative",
+            "codeSystem": "http://protocol-digitalization.example.org/codesystem/soa-alternative-resolution",
+            "codeSystemVersion": "1.0.0",
+            "instanceType": "Code"
+          },
+          "_alternativeResolution": {
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 1,
+            "alternativeName": "Dosing with Venetoclax",
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208836Z"
+          }
+        },
+        {
+          "id": "COND-ALT-042-B",
+          "instanceType": "Condition",
+          "name": "Dosing with Placebo selected",
+          "text": "Subject assigned to Dosing with Placebo option for Dosing with Venetoclax/Placebo",
+          "conditionType": {
+            "id": "CODE-COND-TYPE-EXT-ALT-002",
+            "code": "EXT-ALT-002",
+            "decode": "Mutually Exclusive Alternative",
+            "codeSystem": "http://protocol-digitalization.example.org/codesystem/soa-alternative-resolution",
+            "codeSystemVersion": "1.0.0",
+            "instanceType": "Code"
+          },
+          "_alternativeResolution": {
+            "originalActivityId": "ACT-042",
+            "alternativeIndex": 2,
+            "alternativeName": "Dosing with Placebo",
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.209057Z"
+          }
+        }
+      ],
+      "assignmentsCreated": [
+        {
+          "id": "CA-ALT-3B3CE1",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-A",
+          "conditionTargetId": "SAI-137-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208859Z"
+          }
+        },
+        {
+          "id": "CA-ALT-056F17",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-A",
+          "conditionTargetId": "SAI-138-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208869Z"
+          }
+        },
+        {
+          "id": "CA-ALT-5A32E7",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-A",
+          "conditionTargetId": "SAI-139-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208879Z"
+          }
+        },
+        {
+          "id": "CA-ALT-435F25",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-A",
+          "conditionTargetId": "SAI-140-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208898Z"
+          }
+        },
+        {
+          "id": "CA-ALT-E38AC5",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-A",
+          "conditionTargetId": "SAI-141-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208907Z"
+          }
+        },
+        {
+          "id": "CA-ALT-5FA772",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-A",
+          "conditionTargetId": "SAI-142-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208916Z"
+          }
+        },
+        {
+          "id": "CA-ALT-FC433C",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-A",
+          "conditionTargetId": "SAI-143-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208925Z"
+          }
+        },
+        {
+          "id": "CA-ALT-E0AB45",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-A",
+          "conditionTargetId": "SAI-144-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208935Z"
+          }
+        },
+        {
+          "id": "CA-ALT-22081D",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-A",
+          "conditionTargetId": "SAI-145-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208944Z"
+          }
+        },
+        {
+          "id": "CA-ALT-3875E1",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-A",
+          "conditionTargetId": "SAI-146-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208953Z"
+          }
+        },
+        {
+          "id": "CA-ALT-45EC70",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-A",
+          "conditionTargetId": "SAI-147-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208962Z"
+          }
+        },
+        {
+          "id": "CA-ALT-2EE21B",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-A",
+          "conditionTargetId": "SAI-148-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208980Z"
+          }
+        },
+        {
+          "id": "CA-ALT-A4BCE9",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-A",
+          "conditionTargetId": "SAI-149-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208989Z"
+          }
+        },
+        {
+          "id": "CA-ALT-144454",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-A",
+          "conditionTargetId": "SAI-150-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.208998Z"
+          }
+        },
+        {
+          "id": "CA-ALT-5E2AD1",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-A",
+          "conditionTargetId": "SAI-151-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.209015Z"
+          }
+        },
+        {
+          "id": "CA-ALT-CB4CD8",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-A",
+          "conditionTargetId": "SAI-152-A",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.209029Z"
+          }
+        },
+        {
+          "id": "CA-ALT-0B87D6",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-B",
+          "conditionTargetId": "SAI-137-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.209079Z"
+          }
+        },
+        {
+          "id": "CA-ALT-EB1922",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-B",
+          "conditionTargetId": "SAI-138-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.209089Z"
+          }
+        },
+        {
+          "id": "CA-ALT-D1E5B0",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-B",
+          "conditionTargetId": "SAI-139-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.209097Z"
+          }
+        },
+        {
+          "id": "CA-ALT-C5D09F",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-B",
+          "conditionTargetId": "SAI-140-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.209106Z"
+          }
+        },
+        {
+          "id": "CA-ALT-F4694D",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-B",
+          "conditionTargetId": "SAI-141-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.209115Z"
+          }
+        },
+        {
+          "id": "CA-ALT-7AD507",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-B",
+          "conditionTargetId": "SAI-142-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.209123Z"
+          }
+        },
+        {
+          "id": "CA-ALT-432CA4",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-B",
+          "conditionTargetId": "SAI-143-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.209131Z"
+          }
+        },
+        {
+          "id": "CA-ALT-2D3697",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-B",
+          "conditionTargetId": "SAI-144-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.209139Z"
+          }
+        },
+        {
+          "id": "CA-ALT-518469",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-B",
+          "conditionTargetId": "SAI-145-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.209148Z"
+          }
+        },
+        {
+          "id": "CA-ALT-3C357D",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-B",
+          "conditionTargetId": "SAI-146-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.209157Z"
+          }
+        },
+        {
+          "id": "CA-ALT-28625A",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-B",
+          "conditionTargetId": "SAI-147-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.209165Z"
+          }
+        },
+        {
+          "id": "CA-ALT-F5A294",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-B",
+          "conditionTargetId": "SAI-148-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.209173Z"
+          }
+        },
+        {
+          "id": "CA-ALT-91A43A",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-B",
+          "conditionTargetId": "SAI-149-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.209188Z"
+          }
+        },
+        {
+          "id": "CA-ALT-E8FE64",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-B",
+          "conditionTargetId": "SAI-150-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.209196Z"
+          }
+        },
+        {
+          "id": "CA-ALT-34E5E5",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-B",
+          "conditionTargetId": "SAI-151-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.209204Z"
+          }
+        },
+        {
+          "id": "CA-ALT-590184",
+          "instanceType": "ConditionAssignment",
+          "conditionId": "COND-ALT-042-B",
+          "conditionTargetId": "SAI-152-B",
+          "_alternativeResolution": {
+            "stage": "Stage4AlternativeResolution",
+            "timestamp": "2025-12-10T03:06:47.209212Z"
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "alternativeType": "mutually_exclusive",
+      "requiresReview": false,
+      "reviewReason": null
+    }
+  ],
+  "decisions": {
+    "ACT-002": {
+      "activityId": "ACT-005",
+      "activityName": "Inclusion/Exclusion Criteria",
+      "isAlternative": false,
+      "alternativeType": null,
+      "alternatives": [],
+      "recommendedAction": "keep",
+      "confidence": 1.0,
+      "rationale": "This is a procedural check against a set of criteria, not a choice between different assessments to be performed.",
+      "source": "cache",
+      "requiresHumanReview": false,
+      "reviewReason": null,
+      "cachedAt": "2025-12-09T02:56:44.556064Z",
+      "modelName": "gemini-2.5-pro"
+    },
+    "ACT-003": {
+      "activityId": "ACT-003",
+      "activityName": "Medical/Oncology History",
+      "isAlternative": false,
+      "alternativeType": null,
+      "alternatives": [],
+      "recommendedAction": "keep",
+      "confidence": 1.0,
+      "rationale": "Standard assessment name. The '/' connects 'Medical' and 'Oncology' as part of a single history concept, not as alternatives.",
+      "source": "llm",
+      "requiresHumanReview": false,
+      "reviewReason": null,
+      "cachedAt": "2025-12-10T03:06:47.199321Z",
+      "modelName": "gemini-2.5-pro"
+    },
+    "ACT-009": {
+      "activityId": "ACT-009",
+      "activityName": "Arterial blood gas analysis or percutaneous oxygen saturation",
+      "isAlternative": true,
+      "alternativeType": "mutually_exclusive",
+      "alternatives": [
+        {
+          "name": "Arterial blood gas analysis",
+          "order": 1,
+          "confidence": 0.98,
+          "cdiscDomain": null,
+          "isPreferred": false
+        },
+        {
+          "name": "percutaneous oxygen saturation",
+          "order": 2,
+          "confidence": 0.98,
+          "cdiscDomain": null,
+          "isPreferred": false
+        }
+      ],
+      "recommendedAction": "expand",
+      "confidence": 0.98,
+      "rationale": "Explicit 'or' separates two distinct measurement procedures, indicating a mutually exclusive choice.",
+      "source": "llm",
+      "requiresHumanReview": false,
+      "reviewReason": null,
+      "cachedAt": "2025-12-10T03:06:47.200036Z",
+      "modelName": "gemini-2.5-pro"
+    },
+    "ACT-010": {
+      "activityId": "ACT-010",
+      "activityName": "Chest CT or X-ray",
+      "isAlternative": true,
+      "alternativeType": "mutually_exclusive",
+      "alternatives": [
+        {
+          "name": "Chest CT",
+          "order": 1,
+          "confidence": 0.98,
+          "cdiscDomain": null,
+          "isPreferred": false
+        },
+        {
+          "name": "X-ray",
+          "order": 2,
+          "confidence": 0.98,
+          "cdiscDomain": null,
+          "isPreferred": false
+        }
+      ],
+      "recommendedAction": "expand",
+      "confidence": 0.98,
+      "rationale": "Explicit 'or' separates two imaging modalities, indicating a mutually exclusive choice.",
+      "source": "llm",
+      "requiresHumanReview": false,
+      "reviewReason": null,
+      "cachedAt": "2025-12-10T03:06:47.200056Z",
+      "modelName": "gemini-2.5-pro"
+    },
+    "ACT-041": {
+      "activityId": "ACT-041",
+      "activityName": "Study Treatment Dispensation/Collection",
+      "isAlternative": false,
+      "alternativeType": null,
+      "alternatives": [],
+      "recommendedAction": "keep",
+      "confidence": 1.0,
+      "rationale": "The '/' connects two parts of a single process (dispensing and collection), not mutually exclusive choices. This describes a single logistical event.",
+      "source": "llm",
+      "requiresHumanReview": false,
+      "reviewReason": null,
+      "cachedAt": "2025-12-10T03:06:47.200076Z",
+      "modelName": "gemini-2.5-pro"
+    },
+    "ACT-042": {
+      "activityId": "ACT-042",
+      "activityName": "Dosing with Venetoclax/Placebo",
+      "isAlternative": true,
+      "alternativeType": "mutually_exclusive",
+      "alternatives": [
+        {
+          "name": "Dosing with Venetoclax",
+          "order": 1,
+          "confidence": 0.95,
+          "cdiscDomain": null,
+          "isPreferred": false
+        },
+        {
+          "name": "Dosing with Placebo",
+          "order": 2,
+          "confidence": 0.95,
+          "cdiscDomain": null,
+          "isPreferred": false
+        }
+      ],
+      "recommendedAction": "expand",
+      "confidence": 0.95,
+      "rationale": "The '/' separates the active drug from the placebo, representing a mutually exclusive choice determined by patient randomization.",
+      "source": "llm",
+      "requiresHumanReview": false,
+      "reviewReason": null,
+      "cachedAt": "2025-12-10T03:06:47.200090Z",
+      "modelName": "gemini-2.5-pro"
+    }
+  },
+  "reviewItems": [],
+  "metrics": {
+    "activitiesAnalyzed": 6,
+    "alternativesDetected": 3,
+    "activitiesExpanded": 3,
+    "saisCreated": 36,
+    "conditionsCreated": 6,
+    "assignmentsCreated": 36,
+    "autoApplied": 3,
+    "needsReview": 0,
+    "timingPatternsFiltered": 0,
+    "unitPatternsFiltered": 0,
+    "cacheHits": 1,
+    "llmCalls": 1,
+    "validationDiscrepancies": 0,
+    "referentialIntegrityErrors": 0
+  }
+}

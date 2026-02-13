@@ -1,0 +1,237 @@
+{
+  "_metadata": {
+    "description": "Disease prevalence data for patient funnel estimation",
+    "last_updated": "2024-12",
+    "population_base": "United States",
+    "sources": [
+      "SEER Cancer Statistics Review",
+      "American Cancer Society Cancer Facts & Figures 2024",
+      "CDC WONDER Database",
+      "NIH/NCI Epidemiology Data"
+    ]
+  },
+  "oncology": {
+    "NSCLC": {
+      "annual_incidence": 200000,
+      "prevalence_per_100k": 57,
+      "notes": "~85% of all lung cancers",
+      "stage_distribution": {
+        "I": 0.17,
+        "II": 0.07,
+        "III": 0.27,
+        "IV": 0.49
+      },
+      "histology_distribution": {
+        "adenocarcinoma": 0.40,
+        "squamous": 0.25,
+        "large_cell": 0.10,
+        "other": 0.25
+      }
+    },
+    "SCLC": {
+      "annual_incidence": 30000,
+      "prevalence_per_100k": 9,
+      "notes": "~15% of all lung cancers",
+      "stage_distribution": {
+        "limited": 0.33,
+        "extensive": 0.67
+      }
+    },
+    "breast_cancer": {
+      "annual_incidence": 310000,
+      "prevalence_per_100k": 130,
+      "notes": "Female breast cancer only",
+      "stage_distribution": {
+        "0_I": 0.48,
+        "II": 0.33,
+        "III": 0.11,
+        "IV": 0.06
+      }
+    },
+    "colorectal_cancer": {
+      "annual_incidence": 153000,
+      "prevalence_per_100k": 38,
+      "stage_distribution": {
+        "I": 0.22,
+        "II": 0.22,
+        "III": 0.27,
+        "IV": 0.22
+      }
+    },
+    "melanoma": {
+      "annual_incidence": 100000,
+      "prevalence_per_100k": 33,
+      "stage_distribution": {
+        "I": 0.45,
+        "II": 0.25,
+        "III": 0.20,
+        "IV": 0.06
+      }
+    },
+    "multiple_myeloma": {
+      "annual_incidence": 35000,
+      "prevalence_per_100k": 10,
+      "notes": "Median age at diagnosis 69 years"
+    },
+    "prostate_cancer": {
+      "annual_incidence": 290000,
+      "prevalence_per_100k": 100,
+      "stage_distribution": {
+        "localized": 0.75,
+        "regional": 0.13,
+        "distant_mCRPC": 0.08
+      }
+    },
+    "ovarian_cancer": {
+      "annual_incidence": 20000,
+      "prevalence_per_100k": 11,
+      "stage_distribution": {
+        "I": 0.16,
+        "II": 0.09,
+        "III": 0.51,
+        "IV": 0.24
+      }
+    },
+    "pancreatic_cancer": {
+      "annual_incidence": 65000,
+      "prevalence_per_100k": 15,
+      "stage_distribution": {
+        "resectable": 0.10,
+        "locally_advanced": 0.30,
+        "metastatic": 0.60
+      }
+    },
+    "hepatocellular_carcinoma": {
+      "annual_incidence": 41000,
+      "prevalence_per_100k": 10,
+      "notes": "Often in setting of cirrhosis"
+    },
+    "renal_cell_carcinoma": {
+      "annual_incidence": 82000,
+      "prevalence_per_100k": 22,
+      "histology_distribution": {
+        "clear_cell": 0.70,
+        "papillary": 0.15,
+        "chromophobe": 0.05,
+        "other": 0.10
+      }
+    },
+    "bladder_cancer": {
+      "annual_incidence": 83000,
+      "prevalence_per_100k": 21,
+      "stage_distribution": {
+        "non_muscle_invasive": 0.70,
+        "muscle_invasive": 0.20,
+        "metastatic": 0.05
+      }
+    },
+    "head_and_neck_cancer": {
+      "annual_incidence": 66000,
+      "prevalence_per_100k": 18,
+      "hpv_positive_oropharyngeal": 0.70
+    },
+    "gastric_cancer": {
+      "annual_incidence": 27000,
+      "prevalence_per_100k": 7,
+      "her2_positive": 0.20
+    },
+    "esophageal_cancer": {
+      "annual_incidence": 22000,
+      "prevalence_per_100k": 5,
+      "histology_distribution": {
+        "adenocarcinoma": 0.60,
+        "squamous": 0.35,
+        "other": 0.05
+      }
+    },
+    "AML": {
+      "annual_incidence": 21000,
+      "prevalence_per_100k": 5,
+      "notes": "Acute Myeloid Leukemia"
+    },
+    "CLL": {
+      "annual_incidence": 21000,
+      "prevalence_per_100k": 6,
+      "notes": "Chronic Lymphocytic Leukemia"
+    },
+    "NHL": {
+      "annual_incidence": 80000,
+      "prevalence_per_100k": 24,
+      "subtypes": {
+        "DLBCL": 0.30,
+        "follicular": 0.20,
+        "marginal_zone": 0.10,
+        "mantle_cell": 0.06,
+        "other": 0.34
+      }
+    }
+  },
+  "demographics": {
+    "us_population": {
+      "total": 335000000,
+      "age_distribution": {
+        "0_17": 0.22,
+        "18_44": 0.36,
+        "45_64": 0.25,
+        "65_plus": 0.17
+      },
+      "gender_distribution": {
+        "male": 0.49,
+        "female": 0.51
+      }
+    },
+    "typical_ehr_database": {
+      "notes": "Representative academic medical center",
+      "patient_count_range": {
+        "small": 100000,
+        "medium": 500000,
+        "large": 2000000
+      }
+    }
+  },
+  "comorbidities": {
+    "diabetes": {
+      "prevalence_per_100k": 11300,
+      "notes": "Type 2 diabetes in adults"
+    },
+    "hypertension": {
+      "prevalence_per_100k": 47000,
+      "notes": "Adults with high blood pressure"
+    },
+    "cardiovascular_disease": {
+      "prevalence_per_100k": 7000,
+      "notes": "History of MI, stroke, or heart failure"
+    },
+    "chronic_kidney_disease": {
+      "prevalence_per_100k": 15000,
+      "stage_distribution": {
+        "stage_1_2": 0.50,
+        "stage_3": 0.35,
+        "stage_4_5": 0.15
+      }
+    },
+    "hepatic_impairment": {
+      "prevalence_per_100k": 4500,
+      "child_pugh_distribution": {
+        "A": 0.60,
+        "B": 0.30,
+        "C": 0.10
+      }
+    },
+    "autoimmune_disease": {
+      "prevalence_per_100k": 8000,
+      "notes": "Various autoimmune conditions requiring immunosuppression"
+    },
+    "HIV_positive": {
+      "prevalence_per_100k": 350
+    },
+    "hepatitis_B": {
+      "prevalence_per_100k": 300,
+      "notes": "Chronic HBV infection"
+    },
+    "hepatitis_C": {
+      "prevalence_per_100k": 400,
+      "notes": "Many now cured with DAAs"
+    }
+  }
+}

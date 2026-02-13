@@ -1,0 +1,361 @@
+You are analyzing Schedule of Assessments (SOA) tables from clinical trial protocol {protocol_id}.
+
+## HTML Tables
+
+{html_content}
+
+{table_scope}
+
+## Task
+
+Extract the STRUCTURE from these HTML tables (visits, activities, footnotes).
+
+**IMPORTANT**: Do NOT generate scheduledActivityInstances in this phase - that will be done in a separate pass for better accuracy.
+
+You must identify:
+
+### 1. Visits (Encounters)
+For each column header that represents a visit/timepoint:
+- `name`: Canonical visit name (e.g., "Cycle 1 Day 1", not "C1D1 BI")
+- `originalName`: **EXACT and COMPLETE text from table header** - include ALL timing information shown (e.g., "-28 to -1 day before dosing", NOT just "Day -28")
+- `visitType`: One of: screening, baseline, treatment, follow_up, end_of_treatment, end_of_study
+- `timing`: Day/week number relative to reference point. **For ranges, use the START value but capture the full range in window**
+- `window`: Timing window or range. **CRITICAL: If header shows a range like "-28 to -1", capture BOTH bounds:**
+  - `earlyBound`: earliest day (e.g., 28 for Day -28)
+  - `lateBound`: latest day (e.g., 1 for Day -1)
+  - `description`: VERBATIM text from header (e.g., "-28 to -1 day before dosing")
+- `recurrence`: For repeating visits (e.g., "Every 3 Months" → "P3M")
+
+**CRITICAL - Capture COMPLETE Timing Information**:
+- If column header shows "Screening period" with "-28 to -1 day before dosing", capture the FULL range
+- Do NOT truncate to just "-28" - include "-1" as well
+- The `originalName` should include all timing text exactly as shown
+- The `window.description` should contain the verbatim timing text
+
+**CRITICAL RULE - NEVER MERGE COLUMNS**:
+- Every column in the table = one SEPARATE encounter
+- Each column gets its own unique encounter ID (ENC-001, ENC-002, etc.)
+
+**TIMEPOINT DETECTION (use your clinical judgment)**:
+Some columns represent DIFFERENT moments within the SAME calendar visit. For example:
+- "C1D1 BI" and "C1D1 EOI" → same visit day, different moments (Before Infusion vs End of Infusion)
+- "Day 1 pre-dose" and "Day 1 post-dose" → same visit day, different moments
+
+To determine if a column is a timepoint sub-column, ask yourself:
+**"Do two or more columns refer to the SAME calendar day/visit but DIFFERENT moments within that visit?"**
+If yes → they are timepoint sub-columns. Extract each as a separate encounter WITH a `timingModifier`.
+
+For each visit/timepoint column, also extract:
+- `timingModifier`: The timing qualifier (e.g., "BI", "EOI", "pre-dose", "post-dose"). Set to null for standalone visits.
+- `parentVisit`: Base visit name without the timing qualifier for grouping (e.g., "C1D1 BI" → parentVisit: "Cycle 1 Day 1"). Set to null for standalone visits.
+
+### 2. Activities
+For each row that represents an assessment/procedure:
+- `name`: Activity name (e.g., "Vital Signs", "Physical Examination")
+- `category`: VITAL_SIGNS, LABORATORY, IMAGING, ECG, QUESTIONNAIRE, PHYSICAL_EXAM, SPECIMEN_COLLECTION, EFFICACY, SAFETY, OTHER
+- `cdashDomain`: CDISC domain code (VS, LB, EG, QS, PE, etc.)
+
+### 3. Footnotes
+
+**CRITICAL REQUIREMENT**: Extract EVERY single footnote from the table footer text. Do not skip ANY footnotes.
+Even if a footnote seems procedural, informational, or redundant - extract it. COMPLETENESS IS MANDATORY.
+
+Footnotes typically appear after the table as lines starting with letters (a., b., c...) or numbers (1., 2., 3...).
+Extract ALL markers found in the text, from 'a' through the last letter present (e.g., if you see markers up to 'r', extract a-r).
+
+Parse each footnote into structured rules:
+- `marker`: Letter/number (a, b, 1, 2) - MUST match exactly what appears in the text
+- `text`: Full footnote text - copy the COMPLETE text, do not truncate
+- `ruleType`: One of:
+  - visit_window: Timing window (±3 days, within 28 days)
+  - conditional: Condition for activity (if female, if clinically indicated)
+  - frequency: How often activity occurs
+  - specimen: Sample handling instructions
+  - timing_modifier: When during visit (pre-dose, post-dose)
+  - reference: Points to protocol section
+- `structuredRule`: Parsed values
+
+**FOOTNOTE CATEGORY CLASSIFICATION** (required for every footnote):
+- `category`: High-level classification. CAN be an ARRAY for multi-label footnotes. Choose from:
+  - CONDITIONAL: Creates branch logic in EDC (e.g., "only for females", "if clinically indicated", "upon discontinuation")
+  - SCHEDULING: Affects visit timing, windows, frequency (e.g., "within 28 days", "every 9 weeks", "pre-dose")
+  - OPERATIONAL: Site procedures with no EDC logic impact (e.g., specimen handling, documentation, contact instructions)
+
+- `subcategory`: Specific type within category. Choose from:
+  For CONDITIONAL: population_subset, clinical_indication, prior_event, triggered
+  For SCHEDULING: visit_window, recurrence, timing_constraint, relative_timing
+  For OPERATIONAL: specimen_handling, consent_procedure, documentation, site_instruction
+
+- `classificationReasoning`: Brief (1-2 sentence) explanation of WHY this category was assigned.
+  Example: "Footnote specifies 'only for subjects with CNS metastases' which creates a population subset conditional branch in EDC."
+
+- `edcImpact`: Object with boolean flags:
+  - affectsScheduling: true if footnote affects visit calendar/timing
+  - affectsBranching: true if footnote creates conditional show/hide logic
+  - isInformational: true if footnote is purely informational (no EDC automation impact)
+
+**Category Decision Guide**:
+1. Does the footnote say "if", "only for", "when", "upon", or specify a condition for an activity? → CONDITIONAL
+2. Does the footnote specify timing windows, frequencies, intervals, or scheduling constraints? → SCHEDULING
+3. Does the footnote describe procedures, handling, documentation, or site instructions without conditions? → OPERATIONAL
+4. If a footnote has BOTH a condition AND timing (e.g., "if female, perform within 7 days"), assign BOTH categories as an array: ["CONDITIONAL", "SCHEDULING"]
+
+### 4. Provenance (CRITICAL - Track Actual Page Numbers)
+
+The HTML content contains `<!-- Page X -->` markers indicating which PDF page each section comes from.
+For multi-page tables, different visits/activities may appear on DIFFERENT pages.
+
+**You MUST determine the correct page number for each entity based on these markers:**
+- Look for the nearest preceding `<!-- Page X -->` comment before each table element
+- Visits in column headers: use the page where that column header appears
+- Activities in row headers: use the page where that row appears
+- **FOOTNOTES: Scan through the HTML to find where footnote text appears. Footnotes are typically at the END of multi-page tables, often on the LAST page. Find the `<!-- Page X -->` marker that PRECEDES the footnote text.**
+
+For each entity, include source location:
+- `pageNumber`: The ACTUAL page number from the nearest `<!-- Page X -->` marker (NOT just {page_start})
+- `tableId`: Which table (from input)
+- `rowIdx`: Table row (0-indexed, header=0)
+- `colIdx`: Table column (0-indexed)
+
+**FOOTNOTE PAGE NUMBER DETERMINATION (CRITICAL):**
+1. Search the HTML for the footnote marker text (e.g., "a.", "b.", "1.", "2." followed by the footnote content)
+2. Find which `<!-- Page X -->` marker appears BEFORE that footnote text
+3. Use THAT page number, NOT the table's starting page
+
+**Example**: If HTML shows:
+```
+<!-- Page 41 -->
+<table>...visits 1-5 in header...</table>
+<!-- Page 42 -->
+<table>...visits 6-10 in header, activities 1-15...</table>
+<!-- Page 43 -->
+<table>...activities 16-25...</table>
+<!-- Page 44 -->
+<table>...footnotes: a. First footnote text, b. Second footnote...</table>
+```
+Then:
+- Visits 1-5 should have pageNumber: 41
+- Visits 6-10 and activities 1-15 should have pageNumber: 42
+- Activities 16-25 should have pageNumber: 43
+- **ALL FOOTNOTES should have pageNumber: 44** (where they actually appear, NOT page 41)
+
+## Screening Visit Window Rules
+
+Screening visits typically specify a RANGE of days BEFORE randomization/first dose:
+- **CRITICAL**: Capture the FULL range from the header (e.g., "-28 to -1 day before dosing")
+- If header shows "-28 to -1", set: earlyBound: 28, lateBound: 1, type: "range"
+- If header shows "within 28 days", set: earlyBound: 28, lateBound: 0, type: "early_only"
+- `description`: Copy the EXACT timing text from the header VERBATIM
+- Relative to: randomization or first_dose (whichever is stated)
+
+## Recurrence Detection
+
+Detect repeating visits from patterns like:
+- "Every 3 Months" → pattern: "P3M", type: "fixed_interval"
+- "Q3W" (every 3 weeks) → pattern: "P3W", type: "fixed_interval"
+- "Cycle 4 and Subsequent" → pattern: "CYCLE:4+", type: "cycle_based"
+- "Long-Term Follow-up (Every 3 Months)" → pattern: "P3M", type: "fixed_interval"
+
+## Output Format
+
+Return valid JSON (no markdown code blocks):
+
+{{
+  "protocolType": "cycle_based|fixed_duration|event_driven|hybrid",
+  "primaryReferencePoint": "randomization|first_dose|baseline|screening|study_start",
+
+  "visits": [
+    {{
+      "id": "ENC-001",
+      "name": "Screening",
+      "originalName": "Screening period (-28 to -1 day before dosing)",
+      "visitType": "screening",
+      "timingModifier": null,
+      "parentVisit": null,
+      "timing": {{
+        "value": -28,
+        "unit": "days",
+        "relativeTo": "first_dose"
+      }},
+      "window": {{
+        "earlyBound": 28,
+        "lateBound": 1,
+        "type": "range",
+        "description": "-28 to -1 day before dosing"
+      }},
+      "recurrence": null,
+      "footnoteMarkers": ["a"],
+      "provenance": {{
+        "pageNumber": 41,
+        "tableId": "SOA-1",
+        "colIdx": 1
+      }}
+    }},
+    {{
+      "id": "ENC-002",
+      "name": "Cycle 1 Day 1",
+      "originalName": "C1D1 BI",
+      "visitType": "treatment",
+      "timingModifier": "BI",
+      "parentVisit": "Cycle 1 Day 1",
+      "timing": {{
+        "value": 1,
+        "unit": "days",
+        "relativeTo": "cycle_start"
+      }},
+      "window": null,
+      "recurrence": null,
+      "footnoteMarkers": [],
+      "provenance": {{
+        "pageNumber": 41,
+        "tableId": "SOA-1",
+        "colIdx": 2
+      }}
+    }},
+    {{
+      "id": "ENC-003",
+      "name": "Cycle 1 Day 1",
+      "originalName": "C1D1 EOI",
+      "visitType": "treatment",
+      "timingModifier": "EOI",
+      "parentVisit": "Cycle 1 Day 1",
+      "timing": {{
+        "value": 1,
+        "unit": "days",
+        "relativeTo": "cycle_start"
+      }},
+      "window": null,
+      "recurrence": null,
+      "footnoteMarkers": [],
+      "provenance": {{
+        "pageNumber": 41,
+        "tableId": "SOA-1",
+        "colIdx": 3
+      }}
+    }},
+    {{
+      "id": "ENC-015",
+      "name": "Long-Term Survival Follow-up",
+      "originalName": "Long-Term Survival Follow-up (Every 3 Months)",
+      "visitType": "follow_up",
+      "timingModifier": null,
+      "parentVisit": null,
+      "timing": {{
+        "value": null,
+        "unit": "months",
+        "relativeTo": "end_of_treatment"
+      }},
+      "window": null,
+      "recurrence": {{
+        "pattern": "P3M",
+        "type": "fixed_interval",
+        "interval": 3,
+        "intervalUnit": "months"
+      }},
+      "footnoteMarkers": ["j", "k"],
+      "provenance": {{
+        "pageNumber": 42,
+        "tableId": "SOA-2",
+        "colIdx": 8
+      }}
+    }}
+  ],
+
+  "activities": [
+    {{
+      "id": "ACT-001",
+      "name": "Vital Signs",
+      "category": "VITAL_SIGNS",
+      "cdashDomain": "VS",
+      "provenance": {{
+        "pageNumber": 41,
+        "tableId": "SOA-1",
+        "rowIdx": 2
+      }}
+    }},
+    {{
+      "id": "ACT-002",
+      "name": "Physical Examination",
+      "category": "PHYSICAL_EXAM",
+      "cdashDomain": "PE",
+      "provenance": {{
+        "pageNumber": 41,
+        "tableId": "SOA-1",
+        "rowIdx": 3
+      }}
+    }}
+  ],
+
+  "footnotes": [
+    {{
+      "marker": "a",
+      "text": "The Screening Visit must be performed within 28 days prior to randomization.",
+      "ruleType": "visit_window",
+      "category": "SCHEDULING",
+      "subcategory": "visit_window",
+      "classificationReasoning": "Specifies a timing window (28 days) for the screening visit, affecting visit scheduling.",
+      "edcImpact": {{
+        "affectsScheduling": true,
+        "affectsBranching": false,
+        "isInformational": false
+      }},
+      "structuredRule": {{
+        "earlyBound": 28,
+        "lateBound": 0,
+        "relativeTo": "randomization"
+      }},
+      "appliesTo": ["ENC-001"]
+    }},
+    {{
+      "marker": "b",
+      "text": "Vital signs should be collected pre-dose.",
+      "ruleType": "timing_modifier",
+      "category": "SCHEDULING",
+      "subcategory": "timing_constraint",
+      "classificationReasoning": "Specifies timing constraint (pre-dose) for activity, affecting when within the visit it occurs.",
+      "edcImpact": {{
+        "affectsScheduling": true,
+        "affectsBranching": false,
+        "isInformational": false
+      }},
+      "structuredRule": {{
+        "timing": "pre-dose"
+      }},
+      "appliesTo": []
+    }},
+    {{
+      "marker": "c",
+      "text": "Only for females of childbearing potential. Test should be performed within 7 days of dosing.",
+      "ruleType": "conditional",
+      "category": ["CONDITIONAL", "SCHEDULING"],
+      "subcategory": "population_subset",
+      "classificationReasoning": "Multi-label: Creates conditional branch (females only) AND specifies timing window (7 days). Both EDC logic and scheduling are affected.",
+      "edcImpact": {{
+        "affectsScheduling": true,
+        "affectsBranching": true,
+        "isInformational": false
+      }},
+      "structuredRule": {{
+        "condition": "if_female_childbearing_potential",
+        "withinDays": 7
+      }},
+      "appliesTo": []
+    }}
+  ],
+
+  "visitGroups": {{
+    "Cycle 1 Day 1": ["ENC-002", "ENC-003"]
+  }},
+
+  "qualityMetrics": {{
+    "totalVisits": 15,
+    "visitsWithWindows": 10,
+    "visitsWithRecurrence": 1,
+    "timepointEncounters": 6,
+    "visitGroupCount": 3,
+    "totalActivities": 25,
+    "footnotesLinked": 15
+  }}
+}}
+
+Respond with ONLY the JSON, no markdown code blocks or explanations.

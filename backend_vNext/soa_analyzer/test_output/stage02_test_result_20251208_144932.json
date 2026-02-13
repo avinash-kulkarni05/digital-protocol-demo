@@ -1,0 +1,1418 @@
+{
+  "stage": 2,
+  "stageName": "Activity Expansion",
+  "success": true,
+  "expansions": [
+    {
+      "id": "EXP-7D8BBCE0",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-004",
+      "parentActivityName": "Vital Signs",
+      "components": [
+        {
+          "id": "COMP-EC422553",
+          "name": "Sitting Blood Pressure",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "VS",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 45,
+            "textSnippet": "Vital sign determinations include sitting blood pressure, heart rate and body temperature.",
+            "rationale": "This component is explicitly listed as part of the vital sign determinations in the 'Vital Signs' subsection of the protocol."
+          }
+        },
+        {
+          "id": "COMP-B93D1054",
+          "name": "Heart Rate",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "loincCode": "8867-4",
+          "cdashDomain": "VS",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 45,
+            "textSnippet": "Vital sign determinations include sitting blood pressure, heart rate and body temperature.",
+            "rationale": "This component is explicitly listed as part of the vital sign determinations in the 'Vital Signs' subsection of the protocol."
+          }
+        },
+        {
+          "id": "COMP-95170340",
+          "name": "Body Temperature",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.95,
+          "loincCode": "8310-5",
+          "cdashDomain": "VS",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 45,
+            "textSnippet": "Vital sign determinations include sitting blood pressure, heart rate and body temperature.",
+            "rationale": "This component is explicitly listed as part of the vital sign determinations in the 'Vital Signs' subsection of the protocol."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol explicitly lists three components for Vital Signs in a dedicated subsection on page 45: sitting blood pressure, heart rate, and body temperature.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-C105F314",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-009",
+      "parentActivityName": "Urinalysis",
+      "components": [
+        {
+          "id": "COMP-25D69FAC",
+          "name": "Specific gravity",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Table 5. Clinical Laboratory Tests\nUrinalysis\nSpecific gravity",
+            "rationale": "Explicitly listed as a parameter under the 'Urinalysis' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-C133CF96",
+          "name": "Ketones",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Table 5. Clinical Laboratory Tests\nUrinalysis\nKetones",
+            "rationale": "Explicitly listed as a parameter under the 'Urinalysis' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-34FACE6A",
+          "name": "pH",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Table 5. Clinical Laboratory Tests\nUrinalysis\npH",
+            "rationale": "Explicitly listed as a parameter under the 'Urinalysis' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-DF96C181",
+          "name": "Protein",
+          "isRequired": true,
+          "order": 3,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Table 5. Clinical Laboratory Tests\nUrinalysis\nProtein",
+            "rationale": "Explicitly listed as a parameter under the 'Urinalysis' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-1C6B0225",
+          "name": "Blood",
+          "isRequired": true,
+          "order": 4,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Table 5. Clinical Laboratory Tests\nUrinalysis\nBlood",
+            "rationale": "Explicitly listed as a parameter under the 'Urinalysis' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-ACCFBF4F",
+          "name": "Glucose",
+          "isRequired": true,
+          "order": 5,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Table 5. Clinical Laboratory Tests\nUrinalysis\nGlucose",
+            "rationale": "Explicitly listed as a parameter under the 'Urinalysis' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-9B382F67",
+          "name": "Urobilinogen",
+          "isRequired": true,
+          "order": 6,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Table 5. Clinical Laboratory Tests\nUrinalysis\nUrobilinogen",
+            "rationale": "Explicitly listed as a parameter under the 'Urinalysis' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-B7358D6B",
+          "name": "Bilirubin",
+          "isRequired": true,
+          "order": 7,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Table 5. Clinical Laboratory Tests\nUrinalysis\nBilirubin",
+            "rationale": "Explicitly listed as a parameter under the 'Urinalysis' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "Found 8 components explicitly defined under the 'Urinalysis' column in Table 5 'Clinical Laboratory Tests' on page 48 of the protocol.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-EEF89827",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-002",
+      "parentActivityName": "Medical and Cancer History",
+      "components": [
+        {
+          "id": "COMP-CE235446",
+          "name": "Clinically significant medical condition",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "MH",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 44,
+            "textSnippet": "The medical history includes complete medical history, including documentation of any clinically significant medical condition; history of tobacco and alcohol use; presence and severity of any symptoms/conditions",
+            "rationale": "This component is explicitly listed as part of the medical history to be collected."
+          }
+        },
+        {
+          "id": "COMP-337095F0",
+          "name": "History of tobacco and alcohol use",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "cdashDomain": "MH",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 44,
+            "textSnippet": "The medical history includes complete medical history, including documentation of any clinically significant medical condition; history of tobacco and alcohol use; presence and severity of any symptoms/conditions",
+            "rationale": "This component is explicitly listed as part of the medical history to be collected."
+          }
+        },
+        {
+          "id": "COMP-9C8D5C77",
+          "name": "Symptoms/conditions associated with NSCLC",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.95,
+          "cdashDomain": "MH",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 44,
+            "textSnippet": "presence and severity of any symptoms/conditions associated with NSCLC; and detailed NSCLC oncology history",
+            "rationale": "This component is explicitly listed as part of the medical history to be collected."
+          }
+        },
+        {
+          "id": "COMP-5D3C83CC",
+          "name": "NSCLC Histology",
+          "isRequired": true,
+          "order": 3,
+          "confidence": 0.95,
+          "cdashDomain": "MH",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 44,
+            "textSnippet": "and detailed NSCLC oncology history (histology, TNM staging, date of diagnosis, tumor burden, metastatic sites, and prior treatment).",
+            "rationale": "Histology is explicitly listed as a component of the detailed NSCLC oncology history."
+          }
+        },
+        {
+          "id": "COMP-F52193EF",
+          "name": "NSCLC TNM staging",
+          "isRequired": true,
+          "order": 4,
+          "confidence": 0.95,
+          "cdashDomain": "MH",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 44,
+            "textSnippet": "and detailed NSCLC oncology history (histology, TNM staging, date of diagnosis, tumor burden, metastatic sites, and prior treatment).",
+            "rationale": "TNM staging is explicitly listed as a component of the detailed NSCLC oncology history."
+          }
+        },
+        {
+          "id": "COMP-9F31FDA0",
+          "name": "NSCLC date of diagnosis",
+          "isRequired": true,
+          "order": 5,
+          "confidence": 0.95,
+          "cdashDomain": "MH",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 44,
+            "textSnippet": "and detailed NSCLC oncology history (histology, TNM staging, date of diagnosis, tumor burden, metastatic sites, and prior treatment).",
+            "rationale": "Date of diagnosis is explicitly listed as a component of the detailed NSCLC oncology history."
+          }
+        },
+        {
+          "id": "COMP-365B9D95",
+          "name": "NSCLC tumor burden",
+          "isRequired": true,
+          "order": 6,
+          "confidence": 0.95,
+          "cdashDomain": "MH",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 44,
+            "textSnippet": "and detailed NSCLC oncology history (histology, TNM staging, date of diagnosis, tumor burden, metastatic sites, and prior treatment).",
+            "rationale": "Tumor burden is explicitly listed as a component of the detailed NSCLC oncology history."
+          }
+        },
+        {
+          "id": "COMP-7BF3275F",
+          "name": "NSCLC metastatic sites",
+          "isRequired": true,
+          "order": 7,
+          "confidence": 0.95,
+          "cdashDomain": "MH",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 44,
+            "textSnippet": "and detailed NSCLC oncology history (histology, TNM staging, date of diagnosis, tumor burden, metastatic sites, and prior treatment).",
+            "rationale": "Metastatic sites are explicitly listed as a component of the detailed NSCLC oncology history."
+          }
+        },
+        {
+          "id": "COMP-DA270F36",
+          "name": "NSCLC prior treatment",
+          "isRequired": true,
+          "order": 8,
+          "confidence": 0.95,
+          "cdashDomain": "MH",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 44,
+            "textSnippet": "and detailed NSCLC oncology history (histology, TNM staging, date of diagnosis, tumor burden, metastatic sites, and prior treatment).",
+            "rationale": "Prior treatment is explicitly listed as a component of the detailed NSCLC oncology history."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol explicitly decomposes the 'Medical History' assessment into multiple specific components in the 'Medical History' section on page 44.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-8695AC7F",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-003",
+      "parentActivityName": "Physical Exam",
+      "components": [
+        {
+          "id": "COMP-EEAF0BBB",
+          "name": "Body Weight",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "PE",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 45,
+            "textSnippet": "A physical examination, including body weight, will be performed per Table 2.",
+            "rationale": "Body weight is explicitly stated as being included in the physical examination."
+          }
+        },
+        {
+          "id": "COMP-A465EEB5",
+          "name": "Height",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "cdashDomain": "PE",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 45,
+            "textSnippet": "Height will be measured at the Screening Visit only.",
+            "rationale": "Height is explicitly mentioned as a measurement to be taken as part of the physical assessment at screening."
+          }
+        },
+        {
+          "id": "COMP-12C478C2",
+          "name": "Neurological evaluation",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.95,
+          "cdashDomain": "PE",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 45,
+            "textSnippet": "Physical exam will include neurological (sensory, motor, cranial nerves), head and neck, lymphatic, cardiac, pulmonary, hepatobiliary, gastrointestinal, genitourinary, and skin evaluation",
+            "rationale": "Neurological evaluation is explicitly listed as a component of the physical exam."
+          }
+        },
+        {
+          "id": "COMP-066B0904",
+          "name": "Head and neck evaluation",
+          "isRequired": true,
+          "order": 3,
+          "confidence": 0.95,
+          "cdashDomain": "PE",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 45,
+            "textSnippet": "Physical exam will include neurological (sensory, motor, cranial nerves), head and neck, lymphatic, cardiac, pulmonary, hepatobiliary, gastrointestinal, genitourinary, and skin evaluation",
+            "rationale": "Head and neck evaluation is explicitly listed as a component of the physical exam."
+          }
+        },
+        {
+          "id": "COMP-0EE5FD96",
+          "name": "Lymphatic evaluation",
+          "isRequired": true,
+          "order": 4,
+          "confidence": 0.95,
+          "cdashDomain": "PE",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 45,
+            "textSnippet": "Physical exam will include neurological (sensory, motor, cranial nerves), head and neck, lymphatic, cardiac, pulmonary, hepatobiliary, gastrointestinal, genitourinary, and skin evaluation",
+            "rationale": "Lymphatic evaluation is explicitly listed as a component of the physical exam."
+          }
+        },
+        {
+          "id": "COMP-BA659922",
+          "name": "Cardiac evaluation",
+          "isRequired": true,
+          "order": 5,
+          "confidence": 0.95,
+          "cdashDomain": "PE",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 45,
+            "textSnippet": "Physical exam will include neurological (sensory, motor, cranial nerves), head and neck, lymphatic, cardiac, pulmonary, hepatobiliary, gastrointestinal, genitourinary, and skin evaluation",
+            "rationale": "Cardiac evaluation is explicitly listed as a component of the physical exam."
+          }
+        },
+        {
+          "id": "COMP-E3312EF7",
+          "name": "Pulmonary evaluation",
+          "isRequired": true,
+          "order": 6,
+          "confidence": 0.95,
+          "cdashDomain": "PE",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 45,
+            "textSnippet": "Physical exam will include neurological (sensory, motor, cranial nerves), head and neck, lymphatic, cardiac, pulmonary, hepatobiliary, gastrointestinal, genitourinary, and skin evaluation",
+            "rationale": "Pulmonary evaluation is explicitly listed as a component of the physical exam."
+          }
+        },
+        {
+          "id": "COMP-19B5B422",
+          "name": "Hepatobiliary evaluation",
+          "isRequired": true,
+          "order": 7,
+          "confidence": 0.95,
+          "cdashDomain": "PE",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 45,
+            "textSnippet": "Physical exam will include neurological (sensory, motor, cranial nerves), head and neck, lymphatic, cardiac, pulmonary, hepatobiliary, gastrointestinal, genitourinary, and skin evaluation",
+            "rationale": "Hepatobiliary evaluation is explicitly listed as a component of the physical exam."
+          }
+        },
+        {
+          "id": "COMP-BF770679",
+          "name": "Gastrointestinal evaluation",
+          "isRequired": true,
+          "order": 8,
+          "confidence": 0.95,
+          "cdashDomain": "PE",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 45,
+            "textSnippet": "Physical exam will include neurological (sensory, motor, cranial nerves), head and neck, lymphatic, cardiac, pulmonary, hepatobiliary, gastrointestinal, genitourinary, and skin evaluation",
+            "rationale": "Gastrointestinal evaluation is explicitly listed as a component of the physical exam."
+          }
+        },
+        {
+          "id": "COMP-C8AB2D4D",
+          "name": "Genitourinary evaluation",
+          "isRequired": true,
+          "order": 9,
+          "confidence": 0.95,
+          "cdashDomain": "PE",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 45,
+            "textSnippet": "Physical exam will include neurological (sensory, motor, cranial nerves), head and neck, lymphatic, cardiac, pulmonary, hepatobiliary, gastrointestinal, genitourinary, and skin evaluation",
+            "rationale": "Genitourinary evaluation is explicitly listed as a component of the physical exam."
+          }
+        },
+        {
+          "id": "COMP-FA72048A",
+          "name": "Skin evaluation",
+          "isRequired": true,
+          "order": 10,
+          "confidence": 0.95,
+          "cdashDomain": "PE",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 45,
+            "textSnippet": "Physical exam will include neurological (sensory, motor, cranial nerves), head and neck, lymphatic, cardiac, pulmonary, hepatobiliary, gastrointestinal, genitourinary, and skin evaluation",
+            "rationale": "Skin evaluation is explicitly listed as a component of the physical exam."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol explicitly lists the components of the physical exam on page 45, including body weight, height, and evaluations of multiple body systems (neurological, head and neck, lymphatic, cardiac, pulmonary, hepatobiliary, gastrointestinal, genitourinary, and skin).",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-03136DB1",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-008",
+      "parentActivityName": "Chemistry/Hematology",
+      "components": [
+        {
+          "id": "COMP-1CB1EE74",
+          "name": "Hematocrit",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Hematocrit",
+            "rationale": "Explicitly listed as a parameter under the 'Hematology' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-CF899A93",
+          "name": "Hemoglobin",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Hemoglobin",
+            "rationale": "Explicitly listed as a parameter under the 'Hematology' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-6EF1941B",
+          "name": "Red blood cell (RBC) count",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Red blood cell (RBC) count",
+            "rationale": "Explicitly listed as a parameter under the 'Hematology' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-AFA8281D",
+          "name": "White blood cell (WBC) count",
+          "isRequired": true,
+          "order": 3,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "White blood cell (WBC) count",
+            "rationale": "Explicitly listed as a parameter under the 'Hematology' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-55CC20BF",
+          "name": "Neutrophils",
+          "isRequired": true,
+          "order": 4,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Neutrophils",
+            "rationale": "Explicitly listed as a parameter under the 'Hematology' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-8463ADE3",
+          "name": "Lymphocytes",
+          "isRequired": true,
+          "order": 5,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Lymphocytes",
+            "rationale": "Explicitly listed as a parameter under the 'Hematology' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-55C19233",
+          "name": "Monocytes",
+          "isRequired": true,
+          "order": 6,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Monocytes",
+            "rationale": "Explicitly listed as a parameter under the 'Hematology' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-DF772949",
+          "name": "Platelet count",
+          "isRequired": true,
+          "order": 7,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Platelet count (estimate not acceptable)",
+            "rationale": "Explicitly listed as a parameter under the 'Hematology' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-A43E30DE",
+          "name": "Mean corpuscular volume",
+          "isRequired": true,
+          "order": 8,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Mean corpuscular volume",
+            "rationale": "Explicitly listed as a parameter under the 'Hematology' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-2BC1A74B",
+          "name": "Mean corpuscular hemoglobin concentration",
+          "isRequired": true,
+          "order": 9,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Mean corpuscular hemoglobin concentration",
+            "rationale": "Explicitly listed as a parameter under the 'Hematology' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-F7FE17A1",
+          "name": "RBC distribution width",
+          "isRequired": true,
+          "order": 10,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "RBC distribution width",
+            "rationale": "Explicitly listed as a parameter under the 'Hematology' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-17C12789",
+          "name": "Blood urea nitrogen (BUN)",
+          "isRequired": true,
+          "order": 11,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Blood urea nitrogen (BUN)",
+            "rationale": "Explicitly listed as a parameter under the 'Clinical Chemistry' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-D8A3B71D",
+          "name": "Serum creatinine",
+          "isRequired": true,
+          "order": 12,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Serum creatinine**",
+            "rationale": "Explicitly listed as a parameter under the 'Clinical Chemistry' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-EC839381",
+          "name": "Total bilirubin",
+          "isRequired": true,
+          "order": 13,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Total bilirubin",
+            "rationale": "Explicitly listed as a parameter under the 'Clinical Chemistry' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-CC50D48F",
+          "name": "Serum glutamic-pyruvic transaminase (SGPT/ALT)",
+          "isRequired": true,
+          "order": 14,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Serum glutamic-pyruvic transaminase (SGPT/ALT)",
+            "rationale": "Explicitly listed as a parameter under the 'Clinical Chemistry' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-8A0ACFFE",
+          "name": "Serum glutamic-oxaloacetic transaminase (SGOT/AST)",
+          "isRequired": true,
+          "order": 15,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Serum glutamic-oxaloacetic transaminase (SGOT/AST)",
+            "rationale": "Explicitly listed as a parameter under the 'Clinical Chemistry' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-F870A746",
+          "name": "Alkaline phosphatase",
+          "isRequired": true,
+          "order": 16,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Alkaline phosphatase",
+            "rationale": "Explicitly listed as a parameter under the 'Clinical Chemistry' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-C86A2347",
+          "name": "Sodium",
+          "isRequired": true,
+          "order": 17,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Sodium",
+            "rationale": "Explicitly listed as a parameter under the 'Clinical Chemistry' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-4DBD4F84",
+          "name": "Potassium",
+          "isRequired": true,
+          "order": 18,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Potassium",
+            "rationale": "Explicitly listed as a parameter under the 'Clinical Chemistry' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-8118651F",
+          "name": "Calcium",
+          "isRequired": true,
+          "order": 19,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Calcium",
+            "rationale": "Explicitly listed as a parameter under the 'Clinical Chemistry' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-E2B93089",
+          "name": "Inorganic phosphorus",
+          "isRequired": true,
+          "order": 20,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Inorganic phosphorus",
+            "rationale": "Explicitly listed as a parameter under the 'Clinical Chemistry' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-D29AD34D",
+          "name": "Uric acid",
+          "isRequired": true,
+          "order": 21,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Uric acid",
+            "rationale": "Explicitly listed as a parameter under the 'Clinical Chemistry' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-A90CBF4B",
+          "name": "Total protein",
+          "isRequired": true,
+          "order": 22,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Total protein",
+            "rationale": "Explicitly listed as a parameter under the 'Clinical Chemistry' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-9C3EBB62",
+          "name": "Glucose",
+          "isRequired": true,
+          "order": 23,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Glucose",
+            "rationale": "Explicitly listed as a parameter under the 'Clinical Chemistry' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-E795A245",
+          "name": "Albumin",
+          "isRequired": true,
+          "order": 24,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Albumin",
+            "rationale": "Explicitly listed as a parameter under the 'Clinical Chemistry' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-DC6452A9",
+          "name": "Lactate dehydrogenase (LDH)",
+          "isRequired": true,
+          "order": 25,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Lactate dehydrogenase (LDH)",
+            "rationale": "Explicitly listed as a parameter under the 'Clinical Chemistry' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-BE65E775",
+          "name": "Magnesium",
+          "isRequired": true,
+          "order": 26,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Magnesium",
+            "rationale": "Explicitly listed as a parameter under the 'Clinical Chemistry' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-C1DABB6E",
+          "name": "Chloride",
+          "isRequired": true,
+          "order": 27,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Chloride",
+            "rationale": "Explicitly listed as a parameter under the 'Clinical Chemistry' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-5D1936BC",
+          "name": "Bicarbonate",
+          "isRequired": true,
+          "order": 28,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Bicarbonate",
+            "rationale": "Explicitly listed as a parameter under the 'Clinical Chemistry' column in Table 5 'Clinical Laboratory Tests'."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "Found an explicit list of hematology and clinical chemistry parameters in Table 5 'Clinical Laboratory Tests' on page 48 of the protocol.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-3F55615B",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-010",
+      "parentActivityName": "aPTT, INR",
+      "components": [
+        {
+          "id": "COMP-290F1816",
+          "name": "Activated Partial Thromboplastin Time (aPTT)",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Activated Partial \nThromboplastin Time (aPTT)*",
+            "rationale": "Explicitly listed as a distinct test under the 'Coagulation' section in Table 5 'Clinical Laboratory Tests'."
+          }
+        },
+        {
+          "id": "COMP-1C6B9744",
+          "name": "International Normalized Ratio (INR)",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "International Normalized Ratio\n(INR)*",
+            "rationale": "Explicitly listed as a distinct test under the 'Coagulation' section in Table 5 'Clinical Laboratory Tests'."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol explicitly decomposes 'aPTT, INR' into 'Activated Partial Thromboplastin Time (aPTT)' and 'International Normalized Ratio (INR)' as separate line items in Table 5 'Clinical Laboratory Tests' on page 48.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-A4A0CBC9",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-011",
+      "parentActivityName": "Tumor Assessments",
+      "components": [
+        {
+          "id": "COMP-CBB9EFD0",
+          "name": "CT Scan",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "TU",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "A CT scan of the full chest and abdomen (with image of liver and adrenal glands) will be used in the evaluation of tumor responses, as per Table 2",
+            "rationale": "CT scan is explicitly stated as the primary imaging modality to be used for the evaluation of tumor responses."
+          }
+        },
+        {
+          "id": "COMP-695CB026",
+          "name": "MRI",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "cdashDomain": "TU",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Magnetic resonance imaging (MRI) can be conducted in cases where local laws/requirements mandate, but should have Sponsor approval prior to performing the MRI.",
+            "rationale": "MRI is explicitly mentioned as an alternative imaging modality for tumor assessments under specific conditions."
+          }
+        },
+        {
+          "id": "COMP-D8B31AE6",
+          "name": "Chest Scan",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.95,
+          "cdashDomain": "TU",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "A CT scan of the full chest and abdomen (with image of liver and adrenal glands) will be used in the evaluation of tumor responses",
+            "rationale": "The chest is explicitly defined as a body region to be evaluated by CT scan for tumor response."
+          }
+        },
+        {
+          "id": "COMP-CA8F474F",
+          "name": "Abdomen Scan",
+          "isRequired": true,
+          "order": 3,
+          "confidence": 0.95,
+          "cdashDomain": "TU",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "A CT scan of the full chest and abdomen (with image of liver and adrenal glands) will be used in the evaluation of tumor responses",
+            "rationale": "The abdomen is explicitly defined as a body region to be evaluated by CT scan for tumor response."
+          }
+        },
+        {
+          "id": "COMP-20C06DC1",
+          "name": "Brain Scan",
+          "isRequired": true,
+          "order": 4,
+          "confidence": 0.95,
+          "cdashDomain": "TU",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 49,
+            "textSnippet": "A baseline MRI (or CT if MRI is contraindicated) of the brain is to be performed on any subject with signs or symptoms suggesting CNS involvement by tumor.",
+            "rationale": "A scan of the brain (via MRI or CT) is explicitly required as part of tumor assessments for subjects with suspected CNS involvement."
+          }
+        },
+        {
+          "id": "COMP-7FDF4114",
+          "name": "RECIST 1.1 Assessment",
+          "isRequired": true,
+          "order": 5,
+          "confidence": 0.95,
+          "cdashDomain": "TU",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 6,
+            "textSnippet": "Radiographic information will be collected to determine response according to the Response Evaluation Criteria In Solid Tumors (RECIST) version 1.1.",
+            "rationale": "RECIST version 1.1 is explicitly stated as the criteria for determining tumor response from radiographic information."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol explicitly defines the imaging modalities (CT, MRI), body regions (chest, abdomen, brain), and assessment criteria (RECIST 1.1) for Tumor Assessments in the 'Tumor Assessments (Radiologic)' section (page 48) and Appendix H (page 114).",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-94D35B94",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-013",
+      "parentActivityName": "QoL Questionnaires",
+      "components": [
+        {
+          "id": "COMP-FB189AA7",
+          "name": "NCCN-Functional Assessment of Cancer Therapy (FACT) Lung Symptom Index-17 (NFLSI-17)",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 50,
+            "textSnippet": "To assess the subject's health-related quality of life and symptoms, two questionnaires will be administered: the NCCN-Functional Assessment of Cancer Therapy (FACT) Lung Symptom Index-17 (NFLSI-17)",
+            "rationale": "This questionnaire is explicitly named as one of the two instruments used for the Quality of Life assessment in the protocol."
+          }
+        },
+        {
+          "id": "COMP-9A018823",
+          "name": "European Quality of Life-5 Dimensions (EQ-5D-5L)",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 50,
+            "textSnippet": "To assess the subject's health-related quality of life and symptoms, two questionnaires will be administered: ...and the European Quality of Life-5 Dimensions (EQ-5D-5L).",
+            "rationale": "This questionnaire is explicitly named as one of the two instruments used for the Quality of Life assessment in the protocol."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol explicitly defines two questionnaires on page 50: NCCN-Functional Assessment of Cancer Therapy (FACT) Lung Symptom Index-17 (NFLSI-17) and European Quality of Life-5 Dimensions (EQ-5D-5L). This is also confirmed on page 9.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-304D610A",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-023",
+      "parentActivityName": "Serum Markers",
+      "components": [
+        {
+          "id": "COMP-2B3A0C37",
+          "name": "Blood urea nitrogen (BUN)",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Clinical Chemistry\nBlood urea nitrogen (BUN)",
+            "rationale": "Explicitly listed as a 'Clinical Chemistry' test in Table 5. The 'Serum Markers' activity in Table 3 specifies a serum specimen, making this panel the set of components."
+          }
+        },
+        {
+          "id": "COMP-450656DA",
+          "name": "Serum creatinine",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Clinical Chemistry\n...\nSerum creatinine**",
+            "rationale": "Explicitly listed as a 'Clinical Chemistry' test in Table 5. The 'Serum Markers' activity in Table 3 specifies a serum specimen, making this panel the set of components."
+          }
+        },
+        {
+          "id": "COMP-924C35A2",
+          "name": "Total bilirubin",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Clinical Chemistry\n...\nTotal bilirubin",
+            "rationale": "Explicitly listed as a 'Clinical Chemistry' test in Table 5. The 'Serum Markers' activity in Table 3 specifies a serum specimen, making this panel the set of components."
+          }
+        },
+        {
+          "id": "COMP-E07D8DBC",
+          "name": "Serum glutamic-pyruvic transaminase (SGPT/ALT)",
+          "isRequired": true,
+          "order": 3,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Serum glutamic-pyruvic \ntransaminase (SGPT/ALT)",
+            "rationale": "Explicitly listed as a 'Clinical Chemistry' test in Table 5. The 'Serum Markers' activity in Table 3 specifies a serum specimen, making this panel the set of components."
+          }
+        },
+        {
+          "id": "COMP-693532BE",
+          "name": "Serum glutamic-oxaloacetic transaminase (SGOT/AST)",
+          "isRequired": true,
+          "order": 4,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Serum glutamic-oxaloacetic \ntransaminase (SGOT/AST)",
+            "rationale": "Explicitly listed as a 'Clinical Chemistry' test in Table 5. The 'Serum Markers' activity in Table 3 specifies a serum specimen, making this panel the set of components."
+          }
+        },
+        {
+          "id": "COMP-C0E0FC40",
+          "name": "Alkaline phosphatase",
+          "isRequired": true,
+          "order": 5,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Clinical Chemistry\n...\nAlkaline phosphatase",
+            "rationale": "Explicitly listed as a 'Clinical Chemistry' test in Table 5. The 'Serum Markers' activity in Table 3 specifies a serum specimen, making this panel the set of components."
+          }
+        },
+        {
+          "id": "COMP-81F72562",
+          "name": "Sodium",
+          "isRequired": true,
+          "order": 6,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Clinical Chemistry\n...\nSodium",
+            "rationale": "Explicitly listed as a 'Clinical Chemistry' test in Table 5. The 'Serum Markers' activity in Table 3 specifies a serum specimen, making this panel the set of components."
+          }
+        },
+        {
+          "id": "COMP-F462004A",
+          "name": "Potassium",
+          "isRequired": true,
+          "order": 7,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Clinical Chemistry\n...\nPotassium",
+            "rationale": "Explicitly listed as a 'Clinical Chemistry' test in Table 5. The 'Serum Markers' activity in Table 3 specifies a serum specimen, making this panel the set of components."
+          }
+        },
+        {
+          "id": "COMP-A7CD7772",
+          "name": "Calcium",
+          "isRequired": true,
+          "order": 8,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Clinical Chemistry\n...\nCalcium",
+            "rationale": "Explicitly listed as a 'Clinical Chemistry' test in Table 5. The 'Serum Markers' activity in Table 3 specifies a serum specimen, making this panel the set of components."
+          }
+        },
+        {
+          "id": "COMP-3EA939F6",
+          "name": "Inorganic phosphorus",
+          "isRequired": true,
+          "order": 9,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Clinical Chemistry\n...\nInorganic phosphorus",
+            "rationale": "Explicitly listed as a 'Clinical Chemistry' test in Table 5. The 'Serum Markers' activity in Table 3 specifies a serum specimen, making this panel the set of components."
+          }
+        },
+        {
+          "id": "COMP-1619E0BA",
+          "name": "Uric acid",
+          "isRequired": true,
+          "order": 10,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Clinical Chemistry\n...\nUric acid",
+            "rationale": "Explicitly listed as a 'Clinical Chemistry' test in Table 5. The 'Serum Markers' activity in Table 3 specifies a serum specimen, making this panel the set of components."
+          }
+        },
+        {
+          "id": "COMP-764D0045",
+          "name": "Total protein",
+          "isRequired": true,
+          "order": 11,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Clinical Chemistry\n...\nTotal protein",
+            "rationale": "Explicitly listed as a 'Clinical Chemistry' test in Table 5. The 'Serum Markers' activity in Table 3 specifies a serum specimen, making this panel the set of components."
+          }
+        },
+        {
+          "id": "COMP-D039CF47",
+          "name": "Glucose",
+          "isRequired": true,
+          "order": 12,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Clinical Chemistry\n...\nGlucose",
+            "rationale": "Explicitly listed as a 'Clinical Chemistry' test in Table 5. The 'Serum Markers' activity in Table 3 specifies a serum specimen, making this panel the set of components."
+          }
+        },
+        {
+          "id": "COMP-44EFBE84",
+          "name": "Albumin",
+          "isRequired": true,
+          "order": 13,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Clinical Chemistry\n...\nAlbumin",
+            "rationale": "Explicitly listed as a 'Clinical Chemistry' test in Table 5. The 'Serum Markers' activity in Table 3 specifies a serum specimen, making this panel the set of components."
+          }
+        },
+        {
+          "id": "COMP-42E0CF08",
+          "name": "Lactate dehydrogenase (LDH)",
+          "isRequired": true,
+          "order": 14,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Clinical Chemistry\n...\nLactate dehydrogenase (LDH)",
+            "rationale": "Explicitly listed as a 'Clinical Chemistry' test in Table 5. The 'Serum Markers' activity in Table 3 specifies a serum specimen, making this panel the set of components."
+          }
+        },
+        {
+          "id": "COMP-B03B5629",
+          "name": "Magnesium",
+          "isRequired": true,
+          "order": 15,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Clinical Chemistry\n...\nMagnesium",
+            "rationale": "Explicitly listed as a 'Clinical Chemistry' test in Table 5. The 'Serum Markers' activity in Table 3 specifies a serum specimen, making this panel the set of components."
+          }
+        },
+        {
+          "id": "COMP-18E15A92",
+          "name": "Chloride",
+          "isRequired": true,
+          "order": 16,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Clinical Chemistry\n...\nChloride",
+            "rationale": "Explicitly listed as a 'Clinical Chemistry' test in Table 5. The 'Serum Markers' activity in Table 3 specifies a serum specimen, making this panel the set of components."
+          }
+        },
+        {
+          "id": "COMP-74D98902",
+          "name": "Bicarbonate",
+          "isRequired": true,
+          "order": 17,
+          "confidence": 0.95,
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 48,
+            "textSnippet": "Clinical Chemistry\n...\nBicarbonate",
+            "rationale": "Explicitly listed as a 'Clinical Chemistry' test in Table 5. The 'Serum Markers' activity in Table 3 specifies a serum specimen, making this panel the set of components."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol lists a 'Clinical Chemistry' panel in Table 5 (page 48) which details specific tests performed on serum. The 'Serum Markers' activity in Table 3 (page 43) specifies the specimen is 'Blood \u2192 Serum', directly linking it to these tests.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-2CD8B5E7",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-025",
+      "parentActivityName": "Veliparib PK Sampling",
+      "components": [
+        {
+          "id": "COMP-D221E607",
+          "name": "Veliparib Concentration",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "PC",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 53,
+            "textSnippet": "Approximately 3 mL of blood will be collected by venipuncture for veliparib concentrations at 0 hours (just before morning dose of veliparib) and other timepoints as specified per Table 4.",
+            "rationale": "The protocol explicitly states that blood samples are collected for the purpose of measuring veliparib concentrations."
+          }
+        },
+        {
+          "id": "COMP-D45DDD32",
+          "name": "Veliparib Metabolite(s) Concentration",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "cdashDomain": "PC",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 53,
+            "textSnippet": "Plasma concentrations of veliparib metabolite(s) may be determined using validated or non-validated methods.",
+            "rationale": "The protocol explicitly states that plasma concentrations of veliparib metabolite(s) may be determined from the collected pharmacokinetic samples."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol explicitly defines the analytes to be measured from the pharmacokinetic samples on page 53, including veliparib concentration and veliparib metabolite(s) concentration.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    }
+  ],
+  "metrics": {
+    "activitiesProcessed": 25,
+    "activitiesExpanded": 10,
+    "componentsCreated": 90,
+    "libraryMatches": 0,
+    "llmExpansions": 10,
+    "skipped": 15
+  },
+  "reviewItems": []
+}

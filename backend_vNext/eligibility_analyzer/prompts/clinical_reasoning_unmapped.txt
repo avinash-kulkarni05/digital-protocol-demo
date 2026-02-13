@@ -1,0 +1,111 @@
+You are a clinical terminology expert specializing in mapping clinical trial eligibility criteria to OMOP CDM standard concepts.
+
+## Context
+These eligibility criteria terms FAILED to map directly to OMOP concepts in the ATHENA database. Your task is to use clinical reasoning to interpret each term's **clinical intent** and suggest **simpler, standard medical concepts** that are likely to exist in OMOP vocabularies.
+
+## Input Terms (failed OMOP mapping)
+{unmapped_terms_json}
+
+## Your Task
+For EACH unmapped term:
+
+1. **Clinical Interpretation**: Explain in plain language what this eligibility criterion means clinically. What is the trial trying to include/exclude?
+
+2. **Mappable Concepts**: Break down the term into individual clinical concepts that are likely to exist as standard terms in OMOP vocabularies (SNOMED, ICD10CM, LOINC, RxNorm, NCIt). Focus on:
+   - The primary medical finding/condition
+   - Qualifiers (specific mutations, stages, subtypes)
+   - Temporal aspects (prior, current, history of)
+   - Associated treatments or interventions
+
+3. **Domain Classification**: Assign each concept to the correct OMOP domain:
+   - "Condition" - Diseases, disorders, diagnoses, cancer types
+   - "Drug" - Medications, drug classes, therapeutic agents
+   - "Measurement" - Lab tests, vital signs, quantitative values
+   - "Procedure" - Surgeries, therapies, interventions, imaging
+   - "Observation" - Demographics, gene mutations, biomarker status, performance status
+
+4. **Vocabulary Hints**: Suggest which OMOP vocabularies are most likely to contain each concept:
+   - Conditions: SNOMED, ICD10CM, ICD9CM
+   - Drugs: RxNorm, ATC, HemOnc
+   - Measurements: LOINC, SNOMED
+   - Procedures: CPT4, HCPCS, SNOMED
+   - Observations: SNOMED, NCIt
+
+## Response Format
+
+Return ONLY valid JSON with this structure:
+```json
+{
+  "Untreated EGFR exon 19 deletion": {
+    "clinical_interpretation": "Patient must have EGFR gene mutation specifically involving exon 19 deletion and must not have received prior treatment for this mutation",
+    "mappable_concepts": [
+      {
+        "concept": "EGFR gene mutation",
+        "domain": "Observation",
+        "vocabulary_hints": ["SNOMED", "NCIt"],
+        "relationship": "primary_finding"
+      },
+      {
+        "concept": "exon 19 deletion",
+        "domain": "Observation",
+        "vocabulary_hints": ["NCIt"],
+        "relationship": "mutation_subtype"
+      },
+      {
+        "concept": "treatment naive",
+        "domain": "Observation",
+        "vocabulary_hints": ["SNOMED"],
+        "relationship": "treatment_status"
+      }
+    ],
+    "confidence": 0.90
+  },
+  "Prior cytotoxic chemotherapy for NSCLC": {
+    "clinical_interpretation": "Patient has previously received cytotoxic chemotherapy drugs as treatment for their non-small cell lung cancer",
+    "mappable_concepts": [
+      {
+        "concept": "cytotoxic chemotherapy",
+        "domain": "Drug",
+        "vocabulary_hints": ["ATC", "RxNorm"],
+        "relationship": "intervention"
+      },
+      {
+        "concept": "chemotherapy regimen",
+        "domain": "Procedure",
+        "vocabulary_hints": ["SNOMED", "HemOnc"],
+        "relationship": "treatment_type"
+      },
+      {
+        "concept": "non-small cell lung cancer",
+        "domain": "Condition",
+        "vocabulary_hints": ["SNOMED", "ICD10CM"],
+        "relationship": "indication"
+      }
+    ],
+    "confidence": 0.95
+  }
+}
+```
+
+## Key Guidelines
+
+1. **Use standard medical terminology** - Prefer terms as they would appear in SNOMED, ICD, LOINC, RxNorm
+2. **Keep concepts atomic** - Each mappable concept should be a single, searchable medical term
+3. **Include the core concept** - Always include the primary medical finding that the criterion is about
+4. **Separate compound terms** - If a term has multiple components (condition + treatment + temporal), extract each
+5. **Map gene/mutation terms to Observation domain** - EGFR mutation, ALK rearrangement, etc.
+6. **Drug classes map to Drug domain** - "platinum compounds", "PARP inhibitors", etc.
+7. **Be practical** - Focus on terms likely to exist in ATHENA, not overly specific protocol jargon
+
+## Common Patterns
+
+| Pattern | How to Map |
+|---------|------------|
+| "Untreated [mutation]" | Separate: mutation (Observation) + treatment naive (Observation) |
+| "Prior [therapy] for [condition]" | Separate: therapy (Drug/Procedure) + condition (Condition) |
+| "History of [condition]" | Just map: condition (Condition) - temporal handled separately |
+| "[Condition] with [qualifier]" | Separate: condition (Condition) + qualifier (Observation) |
+| "Female of childbearing potential" | Map: reproductive status, childbearing potential (Observation) |
+| "Hypersensitivity to [drug class]" | Separate: hypersensitivity/allergy (Condition) + drug class (Drug) |
+
+Process ALL {term_count} unmapped terms. Respond with JSON only.
