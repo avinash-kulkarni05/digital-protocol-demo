@@ -1,0 +1,169 @@
+====================================================================
+  DEPLOYMENT CHECKLIST — Clinical Trial Protocol Digitalization Platform
+  Last Updated: February 13, 2026
+====================================================================
+
+Use this checklist before every publish to avoid common deployment failures.
+
+
+--------------------------------------------------------------------
+1. DEPLOYMENT TARGET: Must be "VM" (not "Autoscale")
+--------------------------------------------------------------------
+PROBLEM:  This app runs two processes (Python backend on port 8080 +
+          Node.js frontend on port 5000). Autoscale has a strict
+          startup timeout and will fail because both processes take
+          too long to initialize.
+
+FIX:      Set deployment target to "vm" in the deployment config.
+          VM keeps the app running continuously and gives it enough
+          time to start both processes.
+
+RUN CMD:  bash -c "cd backend_vNext && python3 run.py --host 0.0.0.0 --port 8080 & cd frontend-vNext && NODE_ENV=production node dist/index.cjs"
+
+BUILD CMD: npm run build (runs from root, which triggers frontend-vNext build)
+
+
+--------------------------------------------------------------------
+2. ROOT package.json REQUIRED
+--------------------------------------------------------------------
+PROBLEM:  Replit runs "npm install" and "npm run build" from the
+          workspace root. Without a root package.json, it can't
+          find the frontend dependencies or build script.
+
+FIX:      A root-level package.json must exist with these scripts:
+            - "postinstall": "cd frontend-vNext && npm install"
+            - "build": "cd frontend-vNext && npm run build"
+            - "start": "cd frontend-vNext && npm run start"
+
+
+--------------------------------------------------------------------
+3. REBUILD PRODUCTION BUNDLE BEFORE PUBLISHING
+--------------------------------------------------------------------
+PROBLEM:  The production bundle (frontend-vNext/dist/index.cjs) can
+          become stale if source code changes but the bundle isn't
+          rebuilt. This causes "Cannot find module" errors for
+          libraries that were removed from the code but still
+          referenced in the old bundle.
+
+EXAMPLE:  "http-proxy-middleware" was removed from server code but
+          the old dist/index.cjs still required it, causing a crash.
+
+FIX:      Always rebuild before publishing:
+            cd frontend-vNext && npx tsx script/build.ts
+
+VERIFY:   Test the production build locally:
+            cd frontend-vNext && NODE_ENV=production node dist/index.cjs
+          (It should start without module errors. An EADDRINUSE error
+          is OK — it just means the dev server is already using the port.)
+
+
+--------------------------------------------------------------------
+4. NO import.meta.url IN BUNDLED SERVER CODE
+--------------------------------------------------------------------
+PROBLEM:  The esbuild config outputs CommonJS format (dist/index.cjs).
+          "import.meta.url" is an ES Module feature and returns
+          undefined in CJS, causing a crash:
+            TypeError: The "path" argument must be of type string
+
+WHERE:    This was in server/db.ts, used to resolve the .env file path.
+
+FIX:      Use process.cwd() instead of import.meta.url for resolving
+          file paths in any server-side code:
+            BEFORE: const __filename = fileURLToPath(import.meta.url);
+                    dotenv.config({ path: path.resolve(__dirname, "../../.env") });
+            AFTER:  dotenv.config({ path: path.resolve(process.cwd(), "../.env") });
+
+
+--------------------------------------------------------------------
+5. ESBUILD ALLOWLIST vs EXTERNALS
+--------------------------------------------------------------------
+PROBLEM:  The build script (frontend-vNext/script/build.ts) bundles
+          only dependencies listed in the "allowlist" array. Everything
+          else is marked as "external" — meaning it must be available
+          in node_modules at runtime.
+
+          If a dependency is external but not installed, the production
+          build will crash with "Cannot find module".
+
+FIX:      When adding a new server-side dependency:
+            Option A: Add it to the allowlist in script/build.ts
+                      (it gets bundled into dist/index.cjs)
+            Option B: Make sure it's in package.json "dependencies"
+                      (it stays external but gets installed)
+
+          When removing a dependency from server code:
+            - Always rebuild dist/index.cjs so the old reference is gone.
+
+
+--------------------------------------------------------------------
+6. DATABASE SCHEMA — Use "public" Schema Only
+--------------------------------------------------------------------
+PROBLEM:  Both backend (SQLAlchemy) and frontend (Drizzle ORM) access
+          the same PostgreSQL database. All tables must be in the
+          "public" schema to avoid "relation does not exist" errors.
+
+FIX:      - Backend: SQLAlchemy models use __table_args__ = {"schema": "public"}
+          - Frontend: Drizzle schema uses { schema: "public" } in table defs
+          - Connection pool sets search_path: SET search_path TO public
+
+
+--------------------------------------------------------------------
+7. PDF LOADING — Use ArrayBuffer Pattern
+--------------------------------------------------------------------
+PROBLEM:  Direct URL-based PDF loading fails in Replit's iframe
+          environment because the react-pdf web worker can't fetch
+          URLs through the proxy.
+
+FIX:      Fetch PDFs as ArrayBuffer through the frontend proxy, then
+          pass { data: new Uint8Array(buffer) } to the react-pdf
+          Document component.
+
+          Proxy routes:
+            /api/protocols/:studyId/pdf
+            /api/protocols/:studyId/pdf/annotated
+
+          These forward to the Python backend which serves the actual PDFs.
+
+
+--------------------------------------------------------------------
+8. NO LOCALHOST REFERENCES IN FRONTEND CODE
+--------------------------------------------------------------------
+PROBLEM:  The app runs in the cloud. Any "localhost:8080" reference
+          in client-side code will fail because the user's browser
+          can't reach the server's localhost.
+
+FIX:      All backend API calls from the React frontend must go through
+          the Express proxy at /api/backend/* which forwards to the
+          Python backend internally.
+
+
+--------------------------------------------------------------------
+9. PRE-PUBLISH VERIFICATION STEPS
+--------------------------------------------------------------------
+Run these checks in order before clicking Publish:
+
+  [ ] 1. Rebuild production bundle:
+         cd frontend-vNext && npx tsx script/build.ts
+
+  [ ] 2. Test production server starts (expect EADDRINUSE if dev is running):
+         cd frontend-vNext && NODE_ENV=production node dist/index.cjs
+
+  [ ] 3. Confirm no "Cannot find module" errors in step 2
+
+  [ ] 4. Confirm deployment target is set to "vm"
+
+  [ ] 5. Confirm root package.json exists with postinstall and build scripts
+
+  [ ] 6. Confirm both workflows run without errors:
+         - Python Backend (port 8080)
+         - Start application (port 5000)
+
+  [ ] 7. Test the app in the browser preview — check PDF loading,
+         document list, and review pages
+
+  [ ] 8. Click Publish
+
+
+====================================================================
+  END OF CHECKLIST
+====================================================================
