@@ -49,7 +49,7 @@ outputType = "webview"
 [deployment]
 deploymentTarget = "autoscale"
 run = ["bash", "-c", "cd backend_vNext && python3 run.py --host 0.0.0.0 --port 8080 & cd frontend-vNext && npm run start"]
-build = ["bash", "-c", "cd frontend-vNext && npm install && npm run build"]
+build = ["npm", "run", "build"]
 
 [nix]
 channel = "stable-25_05"
