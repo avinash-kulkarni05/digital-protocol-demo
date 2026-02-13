@@ -1,11 +1,8 @@
-import { pgSchema, text, varchar, timestamp, jsonb, serial, integer } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar, timestamp, jsonb, serial, integer } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-// Use backend_vnext schema for all tables
-const backendVnext = pgSchema("backend_vnext");
-
-export const usdmDocuments = backendVnext.table("usdm_documents", {
+export const usdmDocuments = pgTable("usdm_documents", {
   id: serial("id").primaryKey(),
   studyId: varchar("study_id", { length: 255 }).notNull().unique(),
   studyTitle: text("study_title").notNull(),
@@ -16,7 +13,7 @@ export const usdmDocuments = backendVnext.table("usdm_documents", {
 });
 
 // Audit table to track all field edits with full USDM snapshots
-export const usdmEditAudit = backendVnext.table("usdm_edit_audit", {
+export const usdmEditAudit = pgTable("usdm_edit_audit", {
   id: serial("id").primaryKey(),
   documentId: integer("document_id").notNull().references(() => usdmDocuments.id),
   studyId: varchar("study_id", { length: 255 }).notNull(), // For easy identification

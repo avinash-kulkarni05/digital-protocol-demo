@@ -122,7 +122,7 @@ async def list_protocols(
     """
     List all uploaded protocols.
 
-    Returns protocols from backend_vnext.protocols table for display on landing page.
+    Returns protocols from the protocols table for display on landing page.
     Includes extracted USDM data for rich metadata display.
     """
     protocols = db.query(Protocol).order_by(Protocol.created_at.desc()).all()

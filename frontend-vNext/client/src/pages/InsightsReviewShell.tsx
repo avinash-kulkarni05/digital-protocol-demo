@@ -1242,7 +1242,7 @@ export default function InsightsReviewShell() {
   // Get studyId from URL params and determine PDF URL - NO hardcoded default
   const searchParams = new URLSearchParams(searchString);
   const studyId = searchParams.get('studyId') || searchParams.get('protocolId') || null;
-  const pdfUrl = studyId ? `http://localhost:8080/api/v1/protocols/${encodeURIComponent(studyId)}/pdf/annotated` : '';
+  const pdfUrl = studyId ? `/api/protocols/${encodeURIComponent(studyId)}/pdf/annotated` : '';
   
   const [activeStage, setActiveStage] = useState("domains");
   const [stage1Data, setStage1Data] = useState<Stage1Data | null>(null);

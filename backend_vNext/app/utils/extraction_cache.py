@@ -9,7 +9,7 @@ Cache invalidates automatically when any component changes:
 - JSON Schema (hash of schema file)
 - Model name
 
-Primary storage: PostgreSQL database (backend_vnext.extraction_cache table)
+Primary storage: PostgreSQL database (extraction_cache table)
 Fallback: File-based cache in backend_vNext/.cache/ (if DB unavailable)
 """
 
@@ -169,7 +169,7 @@ class ExtractionCache:
                 result = conn.execute(
                     text("""
                         SELECT extracted_data, quality_score, pdf_path, cache_hits, created_at, protocol_id
-                        FROM backend_vnext.extraction_cache
+                        FROM extraction_cache
                         WHERE pdf_hash = :pdf_hash
                           AND module_id = :module_id
                           AND model_name = :model_name
@@ -187,7 +187,7 @@ class ExtractionCache:
                     # Update accessed_at and cache_hits
                     conn.execute(
                         text("""
-                            UPDATE backend_vnext.extraction_cache
+                            UPDATE extraction_cache
                             SET accessed_at = NOW(), cache_hits = cache_hits + 1
                             WHERE pdf_hash = :pdf_hash
                               AND module_id = :module_id
@@ -239,7 +239,7 @@ class ExtractionCache:
                 # Use upsert (INSERT ... ON CONFLICT UPDATE)
                 conn.execute(
                     text("""
-                        INSERT INTO backend_vnext.extraction_cache
+                        INSERT INTO extraction_cache
                             (id, module_id, model_name, pdf_hash, prompt_hash, extracted_data, quality_score, pdf_path, protocol_id)
                         VALUES
                             (:id, :module_id, :model_name, :pdf_hash, :prompt_hash, :extracted_data, :quality_score, :pdf_path, :protocol_id)
@@ -413,7 +413,7 @@ class ExtractionCache:
                     if module_name and pdf_hash:
                         result = conn.execute(
                             text("""
-                                DELETE FROM backend_vnext.extraction_cache
+                                DELETE FROM extraction_cache
                                 WHERE module_id = :module_id AND pdf_hash = :pdf_hash
                             """),
                             {"module_id": module_name, "pdf_hash": pdf_hash}
@@ -421,7 +421,7 @@ class ExtractionCache:
                     elif module_name:
                         result = conn.execute(
                             text("""
-                                DELETE FROM backend_vnext.extraction_cache
+                                DELETE FROM extraction_cache
                                 WHERE module_id = :module_id
                             """),
                             {"module_id": module_name}
@@ -429,14 +429,14 @@ class ExtractionCache:
                     elif pdf_hash:
                         result = conn.execute(
                             text("""
-                                DELETE FROM backend_vnext.extraction_cache
+                                DELETE FROM extraction_cache
                                 WHERE pdf_hash = :pdf_hash
                             """),
                             {"pdf_hash": pdf_hash}
                         )
                     else:
                         result = conn.execute(
-                            text("DELETE FROM backend_vnext.extraction_cache")
+                            text("DELETE FROM extraction_cache")
                         )
                     conn.commit()
                     count += result.rowcount
@@ -475,7 +475,7 @@ class ExtractionCache:
                     result = conn.execute(
                         text("""
                             SELECT COUNT(*), COALESCE(SUM(cache_hits), 0)
-                            FROM backend_vnext.extraction_cache
+                            FROM extraction_cache
                         """)
                     ).fetchone()
                     stats["database"]["available"] = True
@@ -486,7 +486,7 @@ class ExtractionCache:
                     modules = conn.execute(
                         text("""
                             SELECT module_id, COUNT(*), SUM(cache_hits)
-                            FROM backend_vnext.extraction_cache
+                            FROM extraction_cache
                             GROUP BY module_id
                         """)
                     ).fetchall()

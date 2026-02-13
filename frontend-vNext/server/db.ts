@@ -21,7 +21,7 @@ const pool = new Pool({
 });
 
 pool.on('connect', (client) => {
-  client.query('SET search_path TO backend_vnext');
+  client.query('SET search_path TO public');
 });
 
 export const db = drizzle(pool, { schema });

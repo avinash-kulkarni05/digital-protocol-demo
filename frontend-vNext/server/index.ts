@@ -17,15 +17,23 @@ declare module "http" {
   }
 }
 
-app.use(
+app.use((req, res, next) => {
+  if (req.path.startsWith("/api/backend") && req.headers["content-type"]?.includes("multipart/form-data")) {
+    return next();
+  }
   express.json({
-    verify: (req, _res, buf) => {
-      req.rawBody = buf;
+    verify: (innerReq, _res, buf) => {
+      innerReq.rawBody = buf;
     },
-  }),
-);
+  })(req, res, next);
+});
 
-app.use(express.urlencoded({ extended: false }));
+app.use((req, res, next) => {
+  if (req.path.startsWith("/api/backend") && req.headers["content-type"]?.includes("multipart/form-data")) {
+    return next();
+  }
+  express.urlencoded({ extended: false })(req, res, next);
+});
 
 export function log(message: string, source = "express") {
   const formattedTime = new Date().toLocaleTimeString("en-US", {
@@ -95,7 +103,7 @@ app.use((req, res, next) => {
   httpServer.listen(
     {
       port,
-      host: process.env.HOST || "127.0.0.1",
+      host: "0.0.0.0",
     },
     () => {
       log(`serving on port ${port}`);

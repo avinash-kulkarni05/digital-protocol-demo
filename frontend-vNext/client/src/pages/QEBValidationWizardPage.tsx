@@ -3551,7 +3551,7 @@ export default function QEBValidationWizardPage() {
             <ScrollArea className="flex-1">
               <div className="flex justify-center p-4">
                 <Document
-                  file={`http://localhost:8080/api/v1/protocols/${studyId}/pdf/annotated`}
+                  file={`/api/protocols/${encodeURIComponent(studyId || '')}/pdf/annotated`}
                   onLoadSuccess={({ numPages }) => setPdfNumPages(numPages)}
                   loading={<Loader2 className="w-8 h-8 animate-spin" />}
                 >

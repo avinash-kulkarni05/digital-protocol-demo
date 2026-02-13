@@ -39,7 +39,7 @@ Preferred communication style: Simple, everyday language.
 
 **Process-Based Extraction**: Long-running extractions run in separate processes. The API supports SSE (Server-Sent Events) for real-time progress streaming to the frontend.
 
-**Database**: PostgreSQL (via SQLAlchemy ORM) with all tables in an isolated `backend_vnext` schema. Tables include `protocols` (with PDF binary storage via BYTEA), extraction jobs, and module results. The schema is initialized via `init_schema.py`.
+**Database**: PostgreSQL (via SQLAlchemy ORM) with all tables in the `public` schema. Tables include `protocols` (with PDF binary storage via BYTEA), extraction jobs, and module results. The schema is initialized via `init_schema.py`.
 
 **Key Backend Files**:
 | File | Purpose |
@@ -92,7 +92,7 @@ The React frontend communicates with the FastAPI backend via REST API calls:
 - **Anthropic Claude** (`anthropic`): Used in eligibility extraction pipeline
 
 ### Database
-- **PostgreSQL** (NeonDB): Primary data store. Connection via `DATABASE_URL` env var. Backend uses SQLAlchemy with `psycopg2-binary`. Frontend uses Drizzle ORM. Backend tables live in `backend_vnext` schema.
+- **PostgreSQL** (NeonDB): Primary data store. Connection via `DATABASE_URL` env var. Backend uses SQLAlchemy with `psycopg2-binary`. Frontend uses Drizzle ORM. All tables live in the `public` schema.
 
 ### Task Queue (configured but optional)
 - **Celery** with **Redis** broker: Configured for background job processing (`app/celery_app.py`), though the primary mode uses process-based extraction

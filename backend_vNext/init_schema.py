@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """
-Initialize the backend_vnext PostgreSQL schema in NeonDB.
+Initialize the PostgreSQL schema in NeonDB.
 
-This script creates all tables in an isolated 'backend_vnext' schema,
-ensuring no interference with existing data in the 'public' schema.
+This script creates all tables in the 'public' schema.
 
 Usage:
     source venv/bin/activate
@@ -27,20 +26,13 @@ if not DATABASE_URL:
     print("ERROR: DATABASE_URL not found in .env file")
     sys.exit(1)
 
-# SQL to create the backend_vnext schema and all tables
+# SQL to create tables in public schema
 SCHEMA_SQL = """
 -- ============================================================
--- BACKEND_VNEXT SCHEMA INITIALIZATION
+-- PUBLIC SCHEMA INITIALIZATION
 -- ============================================================
--- This creates an isolated schema for backend_vNext
--- All tables are prefixed with backend_vnext. to avoid conflicts
+-- Creates all tables in the public schema
 -- ============================================================
-
--- Create the schema if it doesn't exist
-CREATE SCHEMA IF NOT EXISTS backend_vnext;
-
--- Set search path for this session
-SET search_path TO backend_vnext;
 
 -- ============================================================
 -- TABLE: protocols
@@ -48,7 +40,7 @@ SET search_path TO backend_vnext;
 -- Stores uploaded protocol PDFs with Gemini File API cache
 -- Now supports binary storage in database (file_data BYTEA column)
 -- ============================================================
-CREATE TABLE IF NOT EXISTS backend_vnext.protocols (
+CREATE TABLE IF NOT EXISTS protocols (
     id VARCHAR(64) PRIMARY KEY DEFAULT gen_random_uuid()::text,
     filename VARCHAR(255) NOT NULL,
     protocol_name VARCHAR(255),
@@ -63,20 +55,20 @@ CREATE TABLE IF NOT EXISTS backend_vnext.protocols (
     updated_at TIMESTAMP DEFAULT NOW()
 );
 
-COMMENT ON TABLE backend_vnext.protocols IS 'Uploaded protocol PDFs with Gemini File API cache. Supports both filesystem (file_path) and database storage (file_data).';
-COMMENT ON COLUMN backend_vnext.protocols.file_data IS 'Binary PDF data stored in database (BYTEA)';
-COMMENT ON COLUMN backend_vnext.protocols.file_size IS 'Size of PDF file in bytes';
-COMMENT ON COLUMN backend_vnext.protocols.content_type IS 'MIME type of uploaded file';
-COMMENT ON COLUMN backend_vnext.protocols.gemini_file_uri IS 'Cached Gemini File API URI (48-hour expiry)';
+COMMENT ON TABLE protocols IS 'Uploaded protocol PDFs with Gemini File API cache. Supports both filesystem (file_path) and database storage (file_data).';
+COMMENT ON COLUMN protocols.file_data IS 'Binary PDF data stored in database (BYTEA)';
+COMMENT ON COLUMN protocols.file_size IS 'Size of PDF file in bytes';
+COMMENT ON COLUMN protocols.content_type IS 'MIME type of uploaded file';
+COMMENT ON COLUMN protocols.gemini_file_uri IS 'Cached Gemini File API URI (48-hour expiry)';
 
 -- ============================================================
 -- TABLE: jobs
 -- ============================================================
 -- Extraction jobs - one job runs all 10 modules sequentially
 -- ============================================================
-CREATE TABLE IF NOT EXISTS backend_vnext.jobs (
+CREATE TABLE IF NOT EXISTS jobs (
     id VARCHAR(64) PRIMARY KEY DEFAULT gen_random_uuid()::text,
-    protocol_id VARCHAR(64) NOT NULL REFERENCES backend_vnext.protocols(id),
+    protocol_id VARCHAR(64) NOT NULL REFERENCES protocols(id),
     protocol_name VARCHAR(255),
     status VARCHAR(50) NOT NULL DEFAULT 'pending',
     current_module VARCHAR(100),
@@ -89,18 +81,18 @@ CREATE TABLE IF NOT EXISTS backend_vnext.jobs (
     created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
-COMMENT ON TABLE backend_vnext.jobs IS 'Extraction jobs - one job = all 10 modules for a protocol';
-COMMENT ON COLUMN backend_vnext.jobs.status IS 'pending, running, completed, failed';
-COMMENT ON COLUMN backend_vnext.jobs.completed_modules IS 'Array of completed module IDs';
+COMMENT ON TABLE jobs IS 'Extraction jobs - one job = all 10 modules for a protocol';
+COMMENT ON COLUMN jobs.status IS 'pending, running, completed, failed';
+COMMENT ON COLUMN jobs.completed_modules IS 'Array of completed module IDs';
 
 -- ============================================================
 -- TABLE: module_results
 -- ============================================================
 -- Per-module extraction results with provenance tracking
 -- ============================================================
-CREATE TABLE IF NOT EXISTS backend_vnext.module_results (
+CREATE TABLE IF NOT EXISTS module_results (
     id VARCHAR(64) PRIMARY KEY DEFAULT gen_random_uuid()::text,
-    job_id VARCHAR(64) NOT NULL REFERENCES backend_vnext.jobs(id),
+    job_id VARCHAR(64) NOT NULL REFERENCES jobs(id),
     protocol_name VARCHAR(255),
     module_id VARCHAR(100) NOT NULL,
     status VARCHAR(50) NOT NULL,
@@ -115,18 +107,18 @@ CREATE TABLE IF NOT EXISTS backend_vnext.module_results (
     UNIQUE(job_id, module_id)
 );
 
-COMMENT ON TABLE backend_vnext.module_results IS 'Per-module extraction results with provenance tracking';
-COMMENT ON COLUMN backend_vnext.module_results.provenance_coverage IS '0.0 to 1.0 - target is 1.0 (100%)';
-COMMENT ON COLUMN backend_vnext.module_results.extracted_data IS 'Pass 1 + Pass 2 merged result';
+COMMENT ON TABLE module_results IS 'Per-module extraction results with provenance tracking';
+COMMENT ON COLUMN module_results.provenance_coverage IS '0.0 to 1.0 - target is 1.0 (100%)';
+COMMENT ON COLUMN module_results.extracted_data IS 'Pass 1 + Pass 2 merged result';
 
 -- ============================================================
 -- TABLE: job_events
 -- ============================================================
 -- Job events for SSE streaming
 -- ============================================================
-CREATE TABLE IF NOT EXISTS backend_vnext.job_events (
+CREATE TABLE IF NOT EXISTS job_events (
     id SERIAL PRIMARY KEY,
-    job_id VARCHAR(64) NOT NULL REFERENCES backend_vnext.jobs(id),
+    job_id VARCHAR(64) NOT NULL REFERENCES jobs(id),
     protocol_name VARCHAR(255),
     event_type VARCHAR(50) NOT NULL,
     module_id VARCHAR(100),
@@ -134,8 +126,8 @@ CREATE TABLE IF NOT EXISTS backend_vnext.job_events (
     created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
-COMMENT ON TABLE backend_vnext.job_events IS 'Job events for SSE streaming';
-COMMENT ON COLUMN backend_vnext.job_events.event_type IS 'module_started, module_completed, job_failed, etc.';
+COMMENT ON TABLE job_events IS 'Job events for SSE streaming';
+COMMENT ON COLUMN job_events.event_type IS 'module_started, module_completed, job_failed, etc.';
 
 -- ============================================================
 -- TABLE: extraction_cache
@@ -143,7 +135,7 @@ COMMENT ON COLUMN backend_vnext.job_events.event_type IS 'module_started, module
 -- Database-backed cache for 16-agent extraction pipeline
 -- Replaces file-based cache with database persistence
 -- ============================================================
-CREATE TABLE IF NOT EXISTS backend_vnext.extraction_cache (
+CREATE TABLE IF NOT EXISTS extraction_cache (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     protocol_name VARCHAR(255),
     module_id VARCHAR(100) NOT NULL,
@@ -159,19 +151,19 @@ CREATE TABLE IF NOT EXISTS backend_vnext.extraction_cache (
     UNIQUE (pdf_hash, module_id, model_name, prompt_hash)
 );
 
-COMMENT ON TABLE backend_vnext.extraction_cache IS 'Database-backed cache for extraction pipeline results';
-COMMENT ON COLUMN backend_vnext.extraction_cache.pdf_hash IS 'SHA256 hash of PDF file (first 1MB + file size)';
-COMMENT ON COLUMN backend_vnext.extraction_cache.prompt_hash IS 'SHA256 hash of combined pass1+pass2+schema';
-COMMENT ON COLUMN backend_vnext.extraction_cache.cache_hits IS 'Number of times this cache entry was retrieved';
+COMMENT ON TABLE extraction_cache IS 'Database-backed cache for extraction pipeline results';
+COMMENT ON COLUMN extraction_cache.pdf_hash IS 'SHA256 hash of PDF file (first 1MB + file size)';
+COMMENT ON COLUMN extraction_cache.prompt_hash IS 'SHA256 hash of combined pass1+pass2+schema';
+COMMENT ON COLUMN extraction_cache.cache_hits IS 'Number of times this cache entry was retrieved';
 
 -- ============================================================
 -- EXTRACTION OUTPUTS TABLE
 -- ============================================================
 -- Stores all extraction output files (PDFs and JSONs) in database
-CREATE TABLE IF NOT EXISTS backend_vnext.extraction_outputs (
+CREATE TABLE IF NOT EXISTS extraction_outputs (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    job_id UUID NOT NULL REFERENCES backend_vnext.jobs(id) ON DELETE CASCADE,
-    protocol_id UUID NOT NULL REFERENCES backend_vnext.protocols(id) ON DELETE CASCADE,
+    job_id UUID NOT NULL REFERENCES jobs(id) ON DELETE CASCADE,
+    protocol_id UUID NOT NULL REFERENCES protocols(id) ON DELETE CASCADE,
     protocol_name VARCHAR(255),
     file_type VARCHAR(50) NOT NULL,
     file_name VARCHAR(255) NOT NULL,
@@ -183,19 +175,19 @@ CREATE TABLE IF NOT EXISTS backend_vnext.extraction_outputs (
     UNIQUE(job_id, file_type)
 );
 
-CREATE INDEX IF NOT EXISTS idx_extraction_outputs_job_id ON backend_vnext.extraction_outputs(job_id);
-CREATE INDEX IF NOT EXISTS idx_extraction_outputs_protocol_id ON backend_vnext.extraction_outputs(protocol_id);
-CREATE INDEX IF NOT EXISTS idx_extraction_outputs_job_type ON backend_vnext.extraction_outputs(job_id, file_type);
+CREATE INDEX IF NOT EXISTS idx_extraction_outputs_job_id ON extraction_outputs(job_id);
+CREATE INDEX IF NOT EXISTS idx_extraction_outputs_protocol_id ON extraction_outputs(protocol_id);
+CREATE INDEX IF NOT EXISTS idx_extraction_outputs_job_type ON extraction_outputs(job_id, file_type);
 
-COMMENT ON TABLE backend_vnext.extraction_outputs IS 'Database storage for all extraction output files (annotated PDF, quality report, etc.)';
-COMMENT ON COLUMN backend_vnext.extraction_outputs.file_type IS 'Type: usdm_json, extraction_results, quality_report, annotated_pdf, annotation_report';
-COMMENT ON COLUMN backend_vnext.extraction_outputs.file_data IS 'Binary data for PDF files';
-COMMENT ON COLUMN backend_vnext.extraction_outputs.json_data IS 'JSONB data for JSON files (queryable)';
+COMMENT ON TABLE extraction_outputs IS 'Database storage for all extraction output files (annotated PDF, quality report, etc.)';
+COMMENT ON COLUMN extraction_outputs.file_type IS 'Type: usdm_json, extraction_results, quality_report, annotated_pdf, annotation_report';
+COMMENT ON COLUMN extraction_outputs.file_data IS 'Binary data for PDF files';
+COMMENT ON COLUMN extraction_outputs.json_data IS 'JSONB data for JSON files (queryable)';
 
 -- ============================================================
 -- TABLE: usdm_documents (for frontend review UI)
 -- ============================================================
-CREATE TABLE IF NOT EXISTS backend_vnext.usdm_documents (
+CREATE TABLE IF NOT EXISTS usdm_documents (
     id SERIAL PRIMARY KEY,
     study_id VARCHAR(255) NOT NULL UNIQUE,
     study_title TEXT NOT NULL,
@@ -205,14 +197,14 @@ CREATE TABLE IF NOT EXISTS backend_vnext.usdm_documents (
     updated_at TIMESTAMP DEFAULT NOW() NOT NULL
 );
 
-COMMENT ON TABLE backend_vnext.usdm_documents IS 'USDM 4.0 extracted documents for frontend review UI';
+COMMENT ON TABLE usdm_documents IS 'USDM 4.0 extracted documents for frontend review UI';
 
 -- ============================================================
 -- TABLE: usdm_edit_audit (audit trail for field edits)
 -- ============================================================
-CREATE TABLE IF NOT EXISTS backend_vnext.usdm_edit_audit (
+CREATE TABLE IF NOT EXISTS usdm_edit_audit (
     id SERIAL PRIMARY KEY,
-    document_id INTEGER NOT NULL REFERENCES backend_vnext.usdm_documents(id),
+    document_id INTEGER NOT NULL REFERENCES usdm_documents(id),
     study_id VARCHAR(255) NOT NULL,
     study_title TEXT,
     field_path VARCHAR(500) NOT NULL,
@@ -224,16 +216,16 @@ CREATE TABLE IF NOT EXISTS backend_vnext.usdm_edit_audit (
     updated_at TIMESTAMP DEFAULT NOW() NOT NULL
 );
 
-COMMENT ON TABLE backend_vnext.usdm_edit_audit IS 'Audit trail for USDM field edits with full snapshots';
+COMMENT ON TABLE usdm_edit_audit IS 'Audit trail for USDM field edits with full snapshots';
 
 -- ============================================================
 -- TABLE: soa_jobs (SOA extraction jobs)
 -- ============================================================
 -- SOA extraction job with human-in-the-loop checkpoint support
 -- ============================================================
-CREATE TABLE IF NOT EXISTS backend_vnext.soa_jobs (
+CREATE TABLE IF NOT EXISTS soa_jobs (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    protocol_id UUID NOT NULL REFERENCES backend_vnext.protocols(id) ON DELETE CASCADE,
+    protocol_id UUID NOT NULL REFERENCES protocols(id) ON DELETE CASCADE,
     protocol_name VARCHAR(255),
 
     -- Status: detecting_pages, awaiting_page_confirmation, extracting, interpreting, validating, completed, failed
@@ -266,21 +258,21 @@ CREATE TABLE IF NOT EXISTS backend_vnext.soa_jobs (
     completed_at TIMESTAMP
 );
 
-COMMENT ON TABLE backend_vnext.soa_jobs IS 'SOA extraction jobs with human-in-the-loop checkpoint support';
-COMMENT ON COLUMN backend_vnext.soa_jobs.status IS 'detecting_pages, awaiting_page_confirmation, extracting, interpreting, validating, completed, failed';
-COMMENT ON COLUMN backend_vnext.soa_jobs.detected_pages IS 'Pages detected by Phase 1 (Gemini Vision)';
-COMMENT ON COLUMN backend_vnext.soa_jobs.confirmed_pages IS 'Pages confirmed/corrected by user';
-COMMENT ON COLUMN backend_vnext.soa_jobs.usdm_data IS 'Final merged USDM output (all tables combined)';
+COMMENT ON TABLE soa_jobs IS 'SOA extraction jobs with human-in-the-loop checkpoint support';
+COMMENT ON COLUMN soa_jobs.status IS 'detecting_pages, awaiting_page_confirmation, extracting, interpreting, validating, completed, failed';
+COMMENT ON COLUMN soa_jobs.detected_pages IS 'Pages detected by Phase 1 (Gemini Vision)';
+COMMENT ON COLUMN soa_jobs.confirmed_pages IS 'Pages confirmed/corrected by user';
+COMMENT ON COLUMN soa_jobs.usdm_data IS 'Final merged USDM output (all tables combined)';
 
-CREATE INDEX IF NOT EXISTS idx_soa_jobs_protocol_id ON backend_vnext.soa_jobs(protocol_id);
-CREATE INDEX IF NOT EXISTS idx_soa_jobs_status ON backend_vnext.soa_jobs(status);
+CREATE INDEX IF NOT EXISTS idx_soa_jobs_protocol_id ON soa_jobs(protocol_id);
+CREATE INDEX IF NOT EXISTS idx_soa_jobs_status ON soa_jobs(status);
 
 -- ============================================================
 -- TABLE: soa_edit_audit (audit trail for SOA edits)
 -- ============================================================
-CREATE TABLE IF NOT EXISTS backend_vnext.soa_edit_audit (
+CREATE TABLE IF NOT EXISTS soa_edit_audit (
     id SERIAL PRIMARY KEY,
-    soa_job_id UUID NOT NULL REFERENCES backend_vnext.soa_jobs(id) ON DELETE CASCADE,
+    soa_job_id UUID NOT NULL REFERENCES soa_jobs(id) ON DELETE CASCADE,
     protocol_id UUID,
     protocol_name VARCHAR(255),
     field_path VARCHAR(500) NOT NULL,
@@ -291,9 +283,9 @@ CREATE TABLE IF NOT EXISTS backend_vnext.soa_edit_audit (
     updated_at TIMESTAMP DEFAULT NOW() NOT NULL
 );
 
-CREATE INDEX IF NOT EXISTS idx_soa_edit_audit_job_id ON backend_vnext.soa_edit_audit(soa_job_id);
+CREATE INDEX IF NOT EXISTS idx_soa_edit_audit_job_id ON soa_edit_audit(soa_job_id);
 
-COMMENT ON TABLE backend_vnext.soa_edit_audit IS 'Audit trail for SOA field edits';
+COMMENT ON TABLE soa_edit_audit IS 'Audit trail for SOA field edits';
 
 -- ============================================================
 -- TABLE: soa_table_results (per-table SOA USDM storage)
@@ -301,10 +293,10 @@ COMMENT ON TABLE backend_vnext.soa_edit_audit IS 'Audit trail for SOA field edit
 -- Stores individual USDM output for each SOA table in a protocol
 -- Enables granular quality control and modular review
 -- ============================================================
-CREATE TABLE IF NOT EXISTS backend_vnext.soa_table_results (
+CREATE TABLE IF NOT EXISTS soa_table_results (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    soa_job_id UUID NOT NULL REFERENCES backend_vnext.soa_jobs(id) ON DELETE CASCADE,
-    protocol_id UUID NOT NULL REFERENCES backend_vnext.protocols(id) ON DELETE CASCADE,
+    soa_job_id UUID NOT NULL REFERENCES soa_jobs(id) ON DELETE CASCADE,
+    protocol_id UUID NOT NULL REFERENCES protocols(id) ON DELETE CASCADE,
     protocol_name VARCHAR(255),
 
     -- Table identification
@@ -339,11 +331,11 @@ CREATE TABLE IF NOT EXISTS backend_vnext.soa_table_results (
     UNIQUE(soa_job_id, table_id)
 );
 
-COMMENT ON TABLE backend_vnext.soa_table_results IS 'Per-table SOA extraction results - stores individual USDM for each SOA table';
-COMMENT ON COLUMN backend_vnext.soa_table_results.table_id IS 'Table identifier: SOA-1, SOA-2, etc.';
-COMMENT ON COLUMN backend_vnext.soa_table_results.table_category IS 'Table type: MAIN_SOA, PK_SOA, SAFETY_SOA, PD_SOA';
-COMMENT ON COLUMN backend_vnext.soa_table_results.usdm_data IS 'Full USDM JSON for this specific table';
-COMMENT ON COLUMN backend_vnext.soa_table_results.sais_count IS 'Count of scheduledActivityInstances';
+COMMENT ON TABLE soa_table_results IS 'Per-table SOA extraction results - stores individual USDM for each SOA table';
+COMMENT ON COLUMN soa_table_results.table_id IS 'Table identifier: SOA-1, SOA-2, etc.';
+COMMENT ON COLUMN soa_table_results.table_category IS 'Table type: MAIN_SOA, PK_SOA, SAFETY_SOA, PD_SOA';
+COMMENT ON COLUMN soa_table_results.usdm_data IS 'Full USDM JSON for this specific table';
+COMMENT ON COLUMN soa_table_results.sais_count IS 'Count of scheduledActivityInstances';
 
 -- ============================================================
 -- TABLE: soa_merge_plans (merge plan for human review)
@@ -351,10 +343,10 @@ COMMENT ON COLUMN backend_vnext.soa_table_results.sais_count IS 'Count of schedu
 -- Stores suggested merge groups from 8-level merge analysis
 -- Human reviews and confirms before 12-stage interpretation runs
 -- ============================================================
-CREATE TABLE IF NOT EXISTS backend_vnext.soa_merge_plans (
+CREATE TABLE IF NOT EXISTS soa_merge_plans (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    soa_job_id UUID NOT NULL REFERENCES backend_vnext.soa_jobs(id) ON DELETE CASCADE,
-    protocol_id UUID NOT NULL REFERENCES backend_vnext.protocols(id) ON DELETE CASCADE,
+    soa_job_id UUID NOT NULL REFERENCES soa_jobs(id) ON DELETE CASCADE,
+    protocol_id UUID NOT NULL REFERENCES protocols(id) ON DELETE CASCADE,
     protocol_name VARCHAR(255),
 
     -- Status: pending_confirmation, confirmed, modified
@@ -377,13 +369,13 @@ CREATE TABLE IF NOT EXISTS backend_vnext.soa_merge_plans (
     updated_at TIMESTAMP DEFAULT NOW()
 );
 
-COMMENT ON TABLE backend_vnext.soa_merge_plans IS 'SOA table merge plans for human-in-the-loop confirmation';
-COMMENT ON COLUMN backend_vnext.soa_merge_plans.merge_plan IS 'Suggested merge groups from 8-level analysis';
-COMMENT ON COLUMN backend_vnext.soa_merge_plans.confirmed_plan IS 'Final confirmed plan after user review/edits';
+COMMENT ON TABLE soa_merge_plans IS 'SOA table merge plans for human-in-the-loop confirmation';
+COMMENT ON COLUMN soa_merge_plans.merge_plan IS 'Suggested merge groups from 8-level analysis';
+COMMENT ON COLUMN soa_merge_plans.confirmed_plan IS 'Final confirmed plan after user review/edits';
 
-CREATE INDEX IF NOT EXISTS idx_soa_merge_plans_job_id ON backend_vnext.soa_merge_plans(soa_job_id);
-CREATE INDEX IF NOT EXISTS idx_soa_merge_plans_protocol_id ON backend_vnext.soa_merge_plans(protocol_id);
-CREATE INDEX IF NOT EXISTS idx_soa_merge_plans_status ON backend_vnext.soa_merge_plans(status);
+CREATE INDEX IF NOT EXISTS idx_soa_merge_plans_job_id ON soa_merge_plans(soa_job_id);
+CREATE INDEX IF NOT EXISTS idx_soa_merge_plans_protocol_id ON soa_merge_plans(protocol_id);
+CREATE INDEX IF NOT EXISTS idx_soa_merge_plans_status ON soa_merge_plans(status);
 
 -- ============================================================
 -- TABLE: soa_merge_group_results (per-group interpretation results)
@@ -391,11 +383,11 @@ CREATE INDEX IF NOT EXISTS idx_soa_merge_plans_status ON backend_vnext.soa_merge
 -- Stores interpretation results for each confirmed merge group
 -- Each group may contain 1+ tables that were merged together
 -- ============================================================
-CREATE TABLE IF NOT EXISTS backend_vnext.soa_merge_group_results (
+CREATE TABLE IF NOT EXISTS soa_merge_group_results (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    soa_job_id UUID NOT NULL REFERENCES backend_vnext.soa_jobs(id) ON DELETE CASCADE,
-    merge_plan_id UUID NOT NULL REFERENCES backend_vnext.soa_merge_plans(id) ON DELETE CASCADE,
-    protocol_id UUID NOT NULL REFERENCES backend_vnext.protocols(id) ON DELETE CASCADE,
+    soa_job_id UUID NOT NULL REFERENCES soa_jobs(id) ON DELETE CASCADE,
+    merge_plan_id UUID NOT NULL REFERENCES soa_merge_plans(id) ON DELETE CASCADE,
+    protocol_id UUID NOT NULL REFERENCES protocols(id) ON DELETE CASCADE,
     protocol_name VARCHAR(255),
 
     -- Merge group identification
@@ -430,14 +422,14 @@ CREATE TABLE IF NOT EXISTS backend_vnext.soa_merge_group_results (
     completed_at TIMESTAMP
 );
 
-COMMENT ON TABLE backend_vnext.soa_merge_group_results IS 'Per-group interpretation results after merge confirmation';
-COMMENT ON COLUMN backend_vnext.soa_merge_group_results.source_table_ids IS 'Source table IDs: ["SOA-1", "SOA-2"]';
-COMMENT ON COLUMN backend_vnext.soa_merge_group_results.merged_usdm IS 'Combined USDM from source tables before interpretation';
-COMMENT ON COLUMN backend_vnext.soa_merge_group_results.final_usdm IS 'Final USDM after 12-stage interpretation';
+COMMENT ON TABLE soa_merge_group_results IS 'Per-group interpretation results after merge confirmation';
+COMMENT ON COLUMN soa_merge_group_results.source_table_ids IS 'Source table IDs: ["SOA-1", "SOA-2"]';
+COMMENT ON COLUMN soa_merge_group_results.merged_usdm IS 'Combined USDM from source tables before interpretation';
+COMMENT ON COLUMN soa_merge_group_results.final_usdm IS 'Final USDM after 12-stage interpretation';
 
-CREATE INDEX IF NOT EXISTS idx_soa_merge_group_results_job_id ON backend_vnext.soa_merge_group_results(soa_job_id);
-CREATE INDEX IF NOT EXISTS idx_soa_merge_group_results_plan_id ON backend_vnext.soa_merge_group_results(merge_plan_id);
-CREATE INDEX IF NOT EXISTS idx_soa_merge_group_results_status ON backend_vnext.soa_merge_group_results(status);
+CREATE INDEX IF NOT EXISTS idx_soa_merge_group_results_job_id ON soa_merge_group_results(soa_job_id);
+CREATE INDEX IF NOT EXISTS idx_soa_merge_group_results_plan_id ON soa_merge_group_results(merge_plan_id);
+CREATE INDEX IF NOT EXISTS idx_soa_merge_group_results_status ON soa_merge_group_results(status);
 
 -- ============================================================
 -- MIGRATIONS: Add missing columns to existing tables
@@ -448,71 +440,71 @@ CREATE INDEX IF NOT EXISTS idx_soa_merge_group_results_status ON backend_vnext.s
 -- ============================================================
 
 -- soa_jobs: Add merge_analysis column (added for merge plan storage)
-ALTER TABLE backend_vnext.soa_jobs
+ALTER TABLE soa_jobs
 ADD COLUMN IF NOT EXISTS merge_analysis JSONB;
 
 -- soa_jobs: Add extraction_review column
-ALTER TABLE backend_vnext.soa_jobs
+ALTER TABLE soa_jobs
 ADD COLUMN IF NOT EXISTS extraction_review JSONB;
 
 -- soa_jobs: Add interpretation_review column
-ALTER TABLE backend_vnext.soa_jobs
+ALTER TABLE soa_jobs
 ADD COLUMN IF NOT EXISTS interpretation_review JSONB;
 
 -- soa_jobs: Add quality_report column
-ALTER TABLE backend_vnext.soa_jobs
+ALTER TABLE soa_jobs
 ADD COLUMN IF NOT EXISTS quality_report JSONB;
 
 -- soa_jobs: Add current_phase column
-ALTER TABLE backend_vnext.soa_jobs
+ALTER TABLE soa_jobs
 ADD COLUMN IF NOT EXISTS current_phase VARCHAR(50);
 
 -- soa_jobs: Add phase_progress column
-ALTER TABLE backend_vnext.soa_jobs
+ALTER TABLE soa_jobs
 ADD COLUMN IF NOT EXISTS phase_progress JSONB;
 
 -- soa_table_results: Add interpretation_stages column
-ALTER TABLE backend_vnext.soa_table_results
+ALTER TABLE soa_table_results
 ADD COLUMN IF NOT EXISTS interpretation_stages JSONB;
 
 -- protocols: Add file_data column (for database storage)
-ALTER TABLE backend_vnext.protocols
+ALTER TABLE protocols
 ADD COLUMN IF NOT EXISTS file_data BYTEA;
 
 -- protocols: Add file_size column
-ALTER TABLE backend_vnext.protocols
+ALTER TABLE protocols
 ADD COLUMN IF NOT EXISTS file_size BIGINT;
 
 -- protocols: Add content_type column
-ALTER TABLE backend_vnext.protocols
+ALTER TABLE protocols
 ADD COLUMN IF NOT EXISTS content_type VARCHAR(100) DEFAULT 'application/pdf';
 
 -- ============================================================
 -- INDEXES
 -- ============================================================
-CREATE INDEX IF NOT EXISTS idx_protocols_file_hash ON backend_vnext.protocols(file_hash);
-CREATE INDEX IF NOT EXISTS idx_protocols_file_size ON backend_vnext.protocols(file_size);
-CREATE INDEX IF NOT EXISTS idx_protocols_protocol_name ON backend_vnext.protocols(protocol_name);
-CREATE INDEX IF NOT EXISTS idx_jobs_protocol_id ON backend_vnext.jobs(protocol_id);
-CREATE INDEX IF NOT EXISTS idx_jobs_status ON backend_vnext.jobs(status);
-CREATE INDEX IF NOT EXISTS idx_jobs_protocol_name ON backend_vnext.jobs(protocol_name);
-CREATE INDEX IF NOT EXISTS idx_module_results_job_id ON backend_vnext.module_results(job_id);
-CREATE INDEX IF NOT EXISTS idx_job_events_job_id ON backend_vnext.job_events(job_id);
-CREATE INDEX IF NOT EXISTS idx_cache_lookup ON backend_vnext.extraction_cache(pdf_hash, module_id, model_name);
-CREATE INDEX IF NOT EXISTS idx_cache_accessed ON backend_vnext.extraction_cache(accessed_at);
-CREATE INDEX IF NOT EXISTS idx_usdm_documents_study_id ON backend_vnext.usdm_documents(study_id);
-CREATE INDEX IF NOT EXISTS idx_usdm_edit_audit_document_id ON backend_vnext.usdm_edit_audit(document_id);
-CREATE INDEX IF NOT EXISTS idx_soa_table_results_job_id ON backend_vnext.soa_table_results(soa_job_id);
-CREATE INDEX IF NOT EXISTS idx_soa_table_results_protocol_id ON backend_vnext.soa_table_results(protocol_id);
-CREATE INDEX IF NOT EXISTS idx_soa_table_results_category ON backend_vnext.soa_table_results(table_category);
+CREATE INDEX IF NOT EXISTS idx_protocols_file_hash ON protocols(file_hash);
+CREATE INDEX IF NOT EXISTS idx_protocols_file_size ON protocols(file_size);
+CREATE INDEX IF NOT EXISTS idx_protocols_protocol_name ON protocols(protocol_name);
+CREATE INDEX IF NOT EXISTS idx_jobs_protocol_id ON jobs(protocol_id);
+CREATE INDEX IF NOT EXISTS idx_jobs_status ON jobs(status);
+CREATE INDEX IF NOT EXISTS idx_jobs_protocol_name ON jobs(protocol_name);
+CREATE INDEX IF NOT EXISTS idx_module_results_job_id ON module_results(job_id);
+CREATE INDEX IF NOT EXISTS idx_job_events_job_id ON job_events(job_id);
+CREATE INDEX IF NOT EXISTS idx_cache_lookup ON extraction_cache(pdf_hash, module_id, model_name);
+CREATE INDEX IF NOT EXISTS idx_cache_accessed ON extraction_cache(accessed_at);
+CREATE INDEX IF NOT EXISTS idx_usdm_documents_study_id ON usdm_documents(study_id);
+CREATE INDEX IF NOT EXISTS idx_usdm_edit_audit_document_id ON usdm_edit_audit(document_id);
+CREATE INDEX IF NOT EXISTS idx_soa_table_results_job_id ON soa_table_results(soa_job_id);
+CREATE INDEX IF NOT EXISTS idx_soa_table_results_protocol_id ON soa_table_results(protocol_id);
+CREATE INDEX IF NOT EXISTS idx_soa_table_results_category ON soa_table_results(table_category);
 
 -- ============================================================
 -- VERIFICATION
 -- ============================================================
--- List all tables in backend_vnext schema
+-- List all tables in public schema
 SELECT table_name
 FROM information_schema.tables
-WHERE table_schema = 'backend_vnext'
+WHERE table_schema = 'public'
 ORDER BY table_name;
 """
 
@@ -520,14 +512,14 @@ ORDER BY table_name;
 VERIFY_COLUMNS_SQL = """
 SELECT column_name, data_type
 FROM information_schema.columns
-WHERE table_schema = 'backend_vnext'
+WHERE table_schema = 'public'
 AND table_name = 'soa_jobs'
 ORDER BY ordinal_position;
 """
 
 
 def init_schema():
-    """Initialize the backend_vnext schema in NeonDB."""
+    """Initialize the public schema in NeonDB."""
     print(f"Connecting to database...")
     print(f"Using DATABASE_URL from: {env_path}")
 
@@ -536,7 +528,7 @@ def init_schema():
         conn.autocommit = True
         cursor = conn.cursor()
 
-        print("\nCreating backend_vnext schema and tables...")
+        print("\nCreating tables in public schema...")
 
         # Execute schema SQL
         cursor.execute(SCHEMA_SQL)
@@ -545,16 +537,16 @@ def init_schema():
         tables = cursor.fetchall()
 
         print("\n" + "=" * 60)
-        print("SUCCESS: backend_vnext schema created!")
+        print("SUCCESS: public schema tables created!")
         print("=" * 60)
-        print(f"\nTables created in backend_vnext schema:")
+        print(f"\nTables created in public schema:")
         for table in tables:
-            print(f"  - backend_vnext.{table[0]}")
+            print(f"  - {table[0]}")
 
         # Verify row counts
         print("\nTable verification:")
         for table in tables:
-            cursor.execute(f"SELECT COUNT(*) FROM backend_vnext.{table[0]}")
+            cursor.execute(f"SELECT COUNT(*) FROM {table[0]}")
             count = cursor.fetchone()[0]
             print(f"  - {table[0]}: {count} rows")
 

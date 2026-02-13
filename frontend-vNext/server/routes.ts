@@ -3,10 +3,109 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertUsdmDocumentSchema } from "@shared/schema";
 
+const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:8080";
+
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
+
+  app.get("/api/protocols/:studyId/pdf", async (req, res) => {
+    try {
+      const { studyId } = req.params;
+      const backendUrl = `${BACKEND_URL}/api/v1/protocols/${encodeURIComponent(studyId)}/pdf`;
+      const backendRes = await fetch(backendUrl);
+      if (backendRes.ok) {
+        res.setHeader("Content-Type", "application/pdf");
+        res.setHeader("Cache-Control", "no-cache");
+        const buffer = Buffer.from(await backendRes.arrayBuffer());
+        return res.send(buffer);
+      }
+      res.status(backendRes.status).json({ error: "PDF not available" });
+    } catch (error) {
+      console.error("Error serving PDF:", error);
+      res.status(500).json({ error: "Failed to serve PDF" });
+    }
+  });
+
+  app.get("/api/protocols/:studyId/pdf/annotated", async (req, res) => {
+    try {
+      const { studyId } = req.params;
+      const backendUrl = `${BACKEND_URL}/api/v1/protocols/${encodeURIComponent(studyId)}/pdf/annotated`;
+      const backendRes = await fetch(backendUrl);
+      if (backendRes.ok) {
+        res.setHeader("Content-Type", "application/pdf");
+        res.setHeader("Cache-Control", "no-cache");
+        const buffer = Buffer.from(await backendRes.arrayBuffer());
+        return res.send(buffer);
+      }
+      res.status(backendRes.status).json({ error: "Annotated PDF not available" });
+    } catch (error) {
+      console.error("Error serving annotated PDF:", error);
+      res.status(500).json({ error: "Failed to serve annotated PDF" });
+    }
+  });
+
+  app.use("/api/backend", async (req, res) => {
+    try {
+      const backendPath = req.url;
+      const backendUrl = `${BACKEND_URL}/api/v1${backendPath}`;
+      const reqContentType = req.headers["content-type"] || "";
+      const fetchOptions: RequestInit = {
+        method: req.method,
+      };
+      if (req.method !== "GET" && req.method !== "HEAD") {
+        if (reqContentType.includes("multipart/form-data")) {
+          const chunks: Buffer[] = [];
+          await new Promise<void>((resolve, reject) => {
+            req.on("data", (chunk: Buffer) => chunks.push(chunk));
+            req.on("end", () => resolve());
+            req.on("error", reject);
+          });
+          const rawBody = Buffer.concat(chunks);
+          fetchOptions.body = rawBody;
+          fetchOptions.headers = { "Content-Type": reqContentType };
+        } else if (req.body) {
+          fetchOptions.body = JSON.stringify(req.body);
+          fetchOptions.headers = { "Content-Type": "application/json" };
+        }
+      }
+      const backendRes = await fetch(backendUrl, fetchOptions);
+      const contentType = backendRes.headers.get("content-type") || "";
+
+      if (contentType.includes("text/event-stream")) {
+        res.setHeader("Content-Type", "text/event-stream");
+        res.setHeader("Cache-Control", "no-cache");
+        res.setHeader("Connection", "keep-alive");
+        const reader = (backendRes.body as any)?.getReader?.();
+        if (reader) {
+          const pump = async () => {
+            while (true) {
+              const { done, value } = await reader.read();
+              if (done) break;
+              res.write(value);
+            }
+            res.end();
+          };
+          pump().catch(() => res.end());
+        } else {
+          res.end();
+        }
+        return;
+      }
+
+      if (contentType.includes("application/json")) {
+        const data = await backendRes.json();
+        return res.status(backendRes.status).json(data);
+      }
+      const buffer = Buffer.from(await backendRes.arrayBuffer());
+      res.status(backendRes.status).send(buffer);
+    } catch (error) {
+      console.error("Backend proxy error:", error);
+      res.status(502).json({ error: "Backend unavailable" });
+    }
+  });
+
   app.get("/api/documents", async (req, res) => {
     try {
       const documents = await storage.getAllDocumentsSummary();
@@ -25,7 +124,7 @@ export async function registerRoutes(
       let localDoc = await storage.getDocument(studyId);
 
       // Try to get from backend protocols table (primary source of truth)
-      const backendUrl = `http://localhost:8080/api/v1/protocols`;
+      const backendUrl = `${BACKEND_URL}/api/v1/protocols`;
       const backendResponse = await fetch(backendUrl);
 
       if (backendResponse.ok) {
@@ -42,7 +141,7 @@ export async function registerRoutes(
           const docStudyId = protocol.studyId || protocol.filename?.replace('.pdf', '');
           const docStudyTitle = protocol.studyTitle || protocol.filename?.replace('.pdf', '').replace(/_/g, ' ');
           const backendUsdmData = protocol.usdmData || {};
-          const sourceDocumentUrl = `http://localhost:8080/api/v1/protocols/${encodeURIComponent(docStudyId)}/pdf/annotated`;
+          const sourceDocumentUrl = `${BACKEND_URL}/api/v1/protocols/${encodeURIComponent(docStudyId)}/pdf/annotated`;
 
           // If document doesn't exist locally, create it so field updates work
           if (!localDoc) {

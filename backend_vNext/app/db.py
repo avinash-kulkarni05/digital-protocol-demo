@@ -1,7 +1,7 @@
 """
-SQLAlchemy models for backend_vnext schema.
+SQLAlchemy models for the public schema.
 
-All tables are created in the 'backend_vnext' schema to isolate from existing data.
+All tables are created in the 'public' schema.
 """
 
 import uuid
@@ -20,7 +20,7 @@ from app.config import settings
 
 
 # Schema name for all tables
-SCHEMA_NAME = "backend_vnext"
+SCHEMA_NAME = "public"
 
 # Create base with schema
 Base = declarative_base()
@@ -554,7 +554,6 @@ def get_db() -> Session:
     SessionLocal = get_session_factory()
     db = SessionLocal()
     try:
-        # Set search path to backend_vnext schema
         db.execute(text(f"SET search_path TO {SCHEMA_NAME}"))
         yield db
     finally:

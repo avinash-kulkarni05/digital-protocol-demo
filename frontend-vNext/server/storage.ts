@@ -113,7 +113,7 @@ export class DatabaseStorage implements IStorage {
     // Use sql.raw() for the path array since Drizzle's sql tag would escape it incorrectly
     // Use fully qualified table name to avoid search_path issues with pooled connections
     await db.execute(
-      sql`UPDATE backend_vnext.usdm_documents
+      sql`UPDATE usdm_documents
           SET usdm_data = jsonb_set(usdm_data, ${sql.raw(`'${pgPathArray}'`)}::text[], ${serializedValue}::jsonb),
               updated_at = NOW()
           WHERE id = ${documentId}`

@@ -86,7 +86,7 @@ class Settings(BaseSettings):
     gemini_max_output_tokens: int = Field(default=65536, description="Max output tokens for Gemini")
 
     # Schema settings
-    db_schema: str = Field(default="backend_vnext", description="PostgreSQL schema name")
+    db_schema: str = Field(default="public", description="PostgreSQL schema name")
 
     # Parallel execution settings
     max_parallel_agents: int = Field(
