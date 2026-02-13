@@ -47,7 +47,7 @@ waitForPort = 5000
 outputType = "webview"
 
 [deployment]
-deploymentTarget = "autoscale"
+deploymentTarget = "vm"
 run = ["bash", "-c", "cd backend_vNext && python3 run.py --host 0.0.0.0 --port 8080 & cd frontend-vNext && NODE_ENV=production node dist/index.cjs"]
 build = ["npm", "run", "build"]
 
