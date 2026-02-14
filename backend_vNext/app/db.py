@@ -564,17 +564,51 @@ def get_db() -> Session:
             pass
 
 
+def _repair_schema(engine):
+    """Repair known schema issues that CREATE TABLE IF NOT EXISTS won't fix."""
+    repairs = [
+        """
+        DO $$
+        BEGIN
+            IF NOT EXISTS (
+                SELECT 1 FROM pg_class WHERE relname = 'job_events_id_seq'
+            ) THEN
+                CREATE SEQUENCE public.job_events_id_seq OWNED BY public.job_events.id;
+                PERFORM setval('public.job_events_id_seq',
+                    COALESCE((SELECT MAX(id) FROM public.job_events), 0) + 1);
+                ALTER TABLE public.job_events
+                    ALTER COLUMN id SET DEFAULT nextval('public.job_events_id_seq');
+            END IF;
+        END $$;
+        """,
+        """
+        CREATE UNIQUE INDEX IF NOT EXISTS idx_extraction_cache_unique
+            ON public.extraction_cache(pdf_hash, module_id, model_name, prompt_hash);
+        """,
+    ]
+    with engine.connect() as conn:
+        for sql in repairs:
+            try:
+                conn.execute(text(sql))
+            except Exception:
+                pass
+        conn.commit()
+
+
 def init_schema():
     """Initialize database schema (create tables if not exist)."""
     engine = get_engine()
 
-    # Create schema if not exists
     with engine.connect() as conn:
         conn.execute(text(f"CREATE SCHEMA IF NOT EXISTS {SCHEMA_NAME}"))
         conn.commit()
 
-    # Create all tables in the schema
     Base.metadata.create_all(bind=engine)
+
+    try:
+        _repair_schema(engine)
+    except Exception:
+        pass
 
 
 def drop_schema():
