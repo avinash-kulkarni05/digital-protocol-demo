@@ -1,6 +1,6 @@
 ====================================================================
   DEPLOYMENT CHECKLIST — Clinical Trial Protocol Digitalization Platform
-  Last Updated: February 13, 2026
+  Last Updated: February 14, 2026
 ====================================================================
 
 Use this checklist before every publish to avoid common deployment failures.
@@ -18,9 +18,9 @@ FIX:      Set deployment target to "vm" in the deployment config.
           VM keeps the app running continuously and gives it enough
           time to start both processes.
 
-RUN CMD:  bash -c "cd backend_vNext && python3 run.py --host 0.0.0.0 --port 8080 & cd frontend-vNext && NODE_ENV=production node dist/index.cjs"
+BUILD CMD: bash -c "cd backend_vNext && pip install -r requirements.txt && cd ../frontend-vNext && npm install && npx tsx script/build.ts"
 
-BUILD CMD: npm run build (runs from root, which triggers frontend-vNext build)
+RUN CMD:  bash -c "cd backend_vNext && python3 run.py --host 0.0.0.0 --port 8080 2>&1 & sleep 3 && cd frontend-vNext && NODE_ENV=production node dist/index.cjs"
 
 
 --------------------------------------------------------------------
@@ -138,30 +138,64 @@ FIX:      All backend API calls from the React frontend must go through
 
 
 --------------------------------------------------------------------
-9. PRE-PUBLISH VERIFICATION STEPS
+9. PYTHON BACKEND DEPENDENCIES MUST BE INSTALLED IN BUILD
+--------------------------------------------------------------------
+PROBLEM:  The production build step only built the frontend (npm run
+          build). Python dependencies were never installed, so the
+          backend process crashed immediately with ImportError — but
+          because it runs in the background (&), the error was silent
+          and the frontend started without a working backend.
+
+          Result: ECONNREFUSED 127.0.0.1:8080 when frontend tries to
+          proxy requests to the backend.
+
+FIX:      The deployment BUILD command must install Python deps first:
+            cd backend_vNext && pip install -r requirements.txt
+
+          The RUN command should start backend first with a short delay
+          so it's ready before the frontend tries to connect:
+            cd backend_vNext && python3 run.py ... 2>&1 &
+            sleep 3 &&
+            cd frontend-vNext && NODE_ENV=production node dist/index.cjs
+
+          The "2>&1" ensures any backend errors appear in the production
+          logs instead of being silently lost.
+
+
+--------------------------------------------------------------------
+10. PRE-PUBLISH VERIFICATION STEPS
 --------------------------------------------------------------------
 Run these checks in order before clicking Publish:
 
-  [ ] 1. Rebuild production bundle:
+  [ ] 1. Confirm Python backend dependencies are installed:
+         cd backend_vNext && pip install -r requirements.txt
+
+  [ ] 2. Test Python backend starts:
+         cd backend_vNext && python3 run.py --host 0.0.0.0 --port 8080
+
+  [ ] 3. Rebuild production bundle:
          cd frontend-vNext && npx tsx script/build.ts
 
-  [ ] 2. Test production server starts (expect EADDRINUSE if dev is running):
+  [ ] 4. Test production server starts (expect EADDRINUSE if dev is running):
          cd frontend-vNext && NODE_ENV=production node dist/index.cjs
 
-  [ ] 3. Confirm no "Cannot find module" errors in step 2
+  [ ] 5. Confirm no "Cannot find module" errors in step 4
 
-  [ ] 4. Confirm deployment target is set to "vm"
+  [ ] 6. Confirm deployment target is set to "vm"
 
-  [ ] 5. Confirm root package.json exists with postinstall and build scripts
+  [ ] 7. Confirm deployment BUILD installs Python deps:
+         bash -c "cd backend_vNext && pip install -r requirements.txt && ..."
 
-  [ ] 6. Confirm both workflows run without errors:
+  [ ] 8. Confirm root package.json exists with postinstall and build scripts
+
+  [ ] 9. Confirm both workflows run without errors:
          - Python Backend (port 8080)
          - Start application (port 5000)
 
-  [ ] 7. Test the app in the browser preview — check PDF loading,
-         document list, and review pages
+  [ ] 10. Test the app in the browser preview — check PDF loading,
+          document list, and review pages
 
-  [ ] 8. Click Publish
+  [ ] 11. Click Publish
 
 
 ====================================================================
