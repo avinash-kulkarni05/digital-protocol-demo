@@ -51,9 +51,9 @@ waitForPort = 5000
 outputType = "webview"
 
 [deployment]
-deploymentTarget = "cloudrun"
+deploymentTarget = "vm"
 run = ["bash", "-c", "cd backend_vNext && python3 run.py --host 0.0.0.0 --port 8080 2>&1 & sleep 3 && cd frontend-vNext && NODE_ENV=production node dist/index.cjs"]
-build = ["bash", "-c", "cd backend_vNext && pip install -r requirements.txt && cd ../frontend-vNext && npm install && npx tsx script/build.ts"]
+build = ["bash", "-c", "pip install -r backend_vNext/requirements.txt && cd frontend-vNext && npm install && npx tsx script/build.ts"]
 
 [nix]
 channel = "stable-25_05"
