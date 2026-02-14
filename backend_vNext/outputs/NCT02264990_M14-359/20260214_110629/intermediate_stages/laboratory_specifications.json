@@ -1,0 +1,1531 @@
+{
+  "module_id": "laboratory_specifications",
+  "module_name": "Laboratory Specifications",
+  "protocol_id": "NCT02264990_M14-359",
+  "timestamp": "2026-02-14T11:40:00.126639",
+  "success": true,
+  "metrics": {
+    "provenance_coverage": 0.9812,
+    "pass1_duration_seconds": 111.86,
+    "pass2_duration_seconds": 129.18,
+    "total_duration_seconds": 241.04,
+    "pass2_skipped": false
+  },
+  "quality_scores": {
+    "accuracy": 0.9988558352402745,
+    "completeness": 1.0,
+    "usdm_adherence": 0.9,
+    "provenance": 0.9811616954474097,
+    "terminology": 1.0,
+    "overall": 0.9759462978995507,
+    "from_cache": false,
+    "duration_seconds": 241.13636255264282
+  },
+  "extracted_data": {
+    "id": "LS-001",
+    "instanceType": "LaboratorySpecifications",
+    "name": "Laboratory Specifications",
+    "description": "Protocol-discovered laboratory testing requirements",
+    "central_laboratory": {
+      "vendor_name": "Certified Central Laboratory",
+      "accreditations": null,
+      "data_transfer_method": null,
+      "provenance": {
+        "section_number": "Clinical Laboratory Tests",
+        "page_number": 47,
+        "text_snippet": "All laboratory samples will be assessed using a certified central laboratory and these data will be used for all data analysis."
+      }
+    },
+    "discovered_panels": [
+      {
+        "panel_id": "PNL-001",
+        "panel_name": "Hematology",
+        "panel_code": "C78713",
+        "panel_description": "Assessment of blood cells, including red blood cells, white blood cells, and platelets.",
+        "panel_category": "hematology",
+        "test_count": 14,
+        "biomedicalConcept": {
+          "conceptName": "Complete Blood Count with Differential",
+          "cdiscCode": "C78713",
+          "domain": "LB",
+          "specimen": "whole blood",
+          "method": "Automated hematology analyzer",
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for CBC panel with differential components listed in Table 5."
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Table 5. Clinical Laboratory Tests\nHematology\nHematocrit\nHemoglobin\nRed blood cell (RBC) count\nWhite blood cell (WBC) count..."
+        }
+      },
+      {
+        "panel_id": "PNL-002",
+        "panel_name": "Clinical Chemistry",
+        "panel_code": "CUSTOM",
+        "panel_description": "Assessment of various chemical components in the blood to evaluate organ function and metabolic state.",
+        "panel_category": "chemistry",
+        "test_count": 18,
+        "biomedicalConcept": {
+          "conceptName": "Comprehensive Metabolic Panel",
+          "cdiscCode": "CUSTOM",
+          "domain": "LB",
+          "specimen": "serum",
+          "method": "Automated chemistry analyzer",
+          "confidence": 0.5,
+          "rationale": "The list of tests in Table 5 is more extensive than a standard CMP, thus a custom panel is defined."
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Table 5. Clinical Laboratory Tests\nClinical Chemistry\nBlood urea nitrogen (BUN)\nSerum creatinine**\nTotal bilirubin..."
+        }
+      },
+      {
+        "panel_id": "PNL-003",
+        "panel_name": "Urinalysis",
+        "panel_code": "C78832",
+        "panel_description": "Analysis of urine to detect and manage a wide range of disorders, such as urinary tract infections, kidney disease and diabetes.",
+        "panel_category": "urinalysis",
+        "test_count": 8,
+        "biomedicalConcept": {
+          "conceptName": "Urinalysis",
+          "cdiscCode": "C78832",
+          "domain": "LB",
+          "specimen": "urine",
+          "method": "Dipstick and/or microscopy",
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for Urinalysis panel."
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Table 5. Clinical Laboratory Tests\nUrinalysis\nSpecific gravity\nKetones\npH\nProtein\nBlood\nGlucose\nUrobilinogen\nBilirubin"
+        }
+      },
+      {
+        "panel_id": "PNL-004",
+        "panel_name": "Coagulation",
+        "panel_code": "CUSTOM",
+        "panel_description": "Assessment of blood clotting function.",
+        "panel_category": "coagulation",
+        "test_count": 2,
+        "biomedicalConcept": {
+          "conceptName": "Coagulation Panel",
+          "cdiscCode": "CUSTOM",
+          "domain": "LB",
+          "specimen": "plasma",
+          "method": "Coagulation analyzer",
+          "confidence": 0.5,
+          "rationale": "Custom panel for aPTT and INR as specified in Table 5."
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Table 5. Clinical Laboratory Tests\nCoagulation\nActivated Partial Thromboplastin Time (aPTT)*\nInternational Normalized Ratio (INR)*"
+        }
+      }
+    ],
+    "laboratory_tests": [
+      {
+        "test_id": "LAB-001",
+        "test_name": "Hematocrit",
+        "test_code": "C64847",
+        "panel_ref": "PNL-001",
+        "specimen_type": "whole_blood",
+        "collection_container": "EDTA",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Part of routine hematology assessment for anemia and blood disorders.",
+        "biomedicalConcept": {
+          "conceptName": "Hematocrit",
+          "cdiscCode": "C64847",
+          "domain": "LB",
+          "specimen": "whole blood",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Hematology\nHematocrit"
+        }
+      },
+      {
+        "test_id": "LAB-002",
+        "test_name": "Hemoglobin",
+        "test_code": "C64848",
+        "panel_ref": "PNL-001",
+        "specimen_type": "whole_blood",
+        "collection_container": "EDTA",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": "g/dL",
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Eligibility criterion and monitoring for anemia.",
+        "biomedicalConcept": {
+          "conceptName": "Hemoglobin",
+          "cdiscCode": "C64848",
+          "domain": "LB",
+          "specimen": "whole blood",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Hematology\nHemoglobin"
+        }
+      },
+      {
+        "test_id": "LAB-003",
+        "test_name": "Red blood cell (RBC) count",
+        "test_code": "C51949",
+        "panel_ref": "PNL-001",
+        "specimen_type": "whole_blood",
+        "collection_container": "EDTA",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Part of routine hematology assessment.",
+        "biomedicalConcept": {
+          "conceptName": "Red Blood Cell Count",
+          "cdiscCode": "C51949",
+          "domain": "LB",
+          "specimen": "whole blood",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Hematology\nRed blood cell (RBC) count"
+        }
+      },
+      {
+        "test_id": "LAB-004",
+        "test_name": "White blood cell (WBC) count",
+        "test_code": "C51948",
+        "panel_ref": "PNL-001",
+        "specimen_type": "whole_blood",
+        "collection_container": "EDTA",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Monitoring for infection and myelosuppression.",
+        "biomedicalConcept": {
+          "conceptName": "White Blood Cell Count",
+          "cdiscCode": "C51948",
+          "domain": "LB",
+          "specimen": "whole blood",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Hematology\nWhite blood cell (WBC) count"
+        }
+      },
+      {
+        "test_id": "LAB-005",
+        "test_name": "Neutrophils",
+        "test_code": "C63321",
+        "panel_ref": "PNL-001",
+        "specimen_type": "whole_blood",
+        "collection_container": "EDTA",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": "/mm3",
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Absolute Neutrophil Count (ANC) is an eligibility criterion and key safety parameter for dose modification.",
+        "biomedicalConcept": {
+          "conceptName": "Absolute Neutrophil Count",
+          "cdiscCode": "C63321",
+          "domain": "LB",
+          "specimen": "whole blood",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Hematology\nNeutrophils"
+        }
+      },
+      {
+        "test_id": "LAB-006",
+        "test_name": "Bands (if indicated)",
+        "test_code": "C65038",
+        "panel_ref": "PNL-001",
+        "specimen_type": "whole_blood",
+        "collection_container": "EDTA",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Part of WBC differential to assess for infection.",
+        "biomedicalConcept": {
+          "conceptName": "Band Neutrophil Count",
+          "cdiscCode": "C65038",
+          "domain": "LB",
+          "specimen": "whole blood",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Hematology\nBands (if indicated)"
+        }
+      },
+      {
+        "test_id": "LAB-007",
+        "test_name": "Lymphocytes",
+        "test_code": "C65040",
+        "panel_ref": "PNL-001",
+        "specimen_type": "whole_blood",
+        "collection_container": "EDTA",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Part of WBC differential.",
+        "biomedicalConcept": {
+          "conceptName": "Lymphocyte Count",
+          "cdiscCode": "C65040",
+          "domain": "LB",
+          "specimen": "whole blood",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Hematology\nLymphocytes"
+        }
+      },
+      {
+        "test_id": "LAB-008",
+        "test_name": "Monocytes",
+        "test_code": "C65041",
+        "panel_ref": "PNL-001",
+        "specimen_type": "whole_blood",
+        "collection_container": "EDTA",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Part of WBC differential.",
+        "biomedicalConcept": {
+          "conceptName": "Monocyte Count",
+          "cdiscCode": "C65041",
+          "domain": "LB",
+          "specimen": "whole blood",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Hematology\nMonocytes"
+        }
+      },
+      {
+        "test_id": "LAB-009",
+        "test_name": "Basophils (if indicated)",
+        "test_code": "C65037",
+        "panel_ref": "PNL-001",
+        "specimen_type": "whole_blood",
+        "collection_container": "EDTA",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Part of WBC differential.",
+        "biomedicalConcept": {
+          "conceptName": "Basophil Count",
+          "cdiscCode": "C65037",
+          "domain": "LB",
+          "specimen": "whole blood",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Hematology\nBasophils (if indicated)"
+        }
+      },
+      {
+        "test_id": "LAB-010",
+        "test_name": "Eosinophils (if indicated)",
+        "test_code": "C65039",
+        "panel_ref": "PNL-001",
+        "specimen_type": "whole_blood",
+        "collection_container": "EDTA",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Part of WBC differential.",
+        "biomedicalConcept": {
+          "conceptName": "Eosinophil Count",
+          "cdiscCode": "C65039",
+          "domain": "LB",
+          "specimen": "whole blood",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Hematology\nEosinophils (if indicated)"
+        }
+      },
+      {
+        "test_id": "LAB-011",
+        "test_name": "Platelet count",
+        "test_code": "C51951",
+        "panel_ref": "PNL-001",
+        "specimen_type": "whole_blood",
+        "collection_container": "EDTA",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": "/mm3",
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Eligibility criterion and key safety parameter for dose modification.",
+        "biomedicalConcept": {
+          "conceptName": "Platelet Count",
+          "cdiscCode": "C51951",
+          "domain": "LB",
+          "specimen": "whole blood",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Hematology\nPlatelet count (estimate not acceptable)"
+        }
+      },
+      {
+        "test_id": "LAB-012",
+        "test_name": "Mean corpuscular volume",
+        "test_code": "C65042",
+        "panel_ref": "PNL-001",
+        "specimen_type": "whole_blood",
+        "collection_container": "EDTA",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Part of routine hematology assessment.",
+        "biomedicalConcept": {
+          "conceptName": "Mean Corpuscular Volume",
+          "cdiscCode": "C65042",
+          "domain": "LB",
+          "specimen": "whole blood",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Hematology\nMean corpuscular volume"
+        }
+      },
+      {
+        "test_id": "LAB-013",
+        "test_name": "Mean corpuscular hemoglobin concentration",
+        "test_code": "C65044",
+        "panel_ref": "PNL-001",
+        "specimen_type": "whole_blood",
+        "collection_container": "EDTA",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Part of routine hematology assessment.",
+        "biomedicalConcept": {
+          "conceptName": "Mean Corpuscular Hemoglobin Concentration",
+          "cdiscCode": "C65044",
+          "domain": "LB",
+          "specimen": "whole blood",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Hematology\nMean corpuscular hemoglobin concentration"
+        }
+      },
+      {
+        "test_id": "LAB-014",
+        "test_name": "RBC distribution width",
+        "test_code": "C65046",
+        "panel_ref": "PNL-001",
+        "specimen_type": "whole_blood",
+        "collection_container": "EDTA",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Part of routine hematology assessment.",
+        "biomedicalConcept": {
+          "conceptName": "Red Cell Distribution Width",
+          "cdiscCode": "C65046",
+          "domain": "LB",
+          "specimen": "whole blood",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Hematology\nRBC distribution width"
+        }
+      },
+      {
+        "test_id": "LAB-015",
+        "test_name": "Blood urea nitrogen (BUN)",
+        "test_code": "C64809",
+        "panel_ref": "PNL-002",
+        "specimen_type": "serum",
+        "collection_container": "SST",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Assessment of renal function.",
+        "biomedicalConcept": {
+          "conceptName": "Blood Urea Nitrogen",
+          "cdiscCode": "C64809",
+          "domain": "LB",
+          "specimen": "serum",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Clinical Chemistry\nBlood urea nitrogen (BUN)"
+        }
+      },
+      {
+        "test_id": "LAB-016",
+        "test_name": "Serum creatinine",
+        "test_code": "C64547",
+        "panel_ref": "PNL-002",
+        "specimen_type": "serum",
+        "collection_container": "SST",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Used to calculate creatinine clearance for renal function eligibility.",
+        "biomedicalConcept": {
+          "conceptName": "Creatinine",
+          "cdiscCode": "C64547",
+          "domain": "LB",
+          "specimen": "serum",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Clinical Chemistry\nSerum creatinine**"
+        }
+      },
+      {
+        "test_id": "LAB-017",
+        "test_name": "Total bilirubin",
+        "test_code": "C64807",
+        "panel_ref": "PNL-002",
+        "specimen_type": "serum",
+        "collection_container": "SST",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": "x ULN",
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Eligibility criterion and safety parameter for hepatic function.",
+        "biomedicalConcept": {
+          "conceptName": "Total Bilirubin",
+          "cdiscCode": "C64807",
+          "domain": "LB",
+          "specimen": "serum",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Clinical Chemistry\nTotal bilirubin"
+        }
+      },
+      {
+        "test_id": "LAB-018",
+        "test_name": "Serum glutamic-pyruvic transaminase (SGPT/ALT)",
+        "test_code": "C64810",
+        "panel_ref": "PNL-002",
+        "specimen_type": "serum",
+        "collection_container": "SST",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": "x ULN",
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Eligibility criterion and safety parameter for hepatic function.",
+        "biomedicalConcept": {
+          "conceptName": "Alanine Aminotransferase",
+          "cdiscCode": "C64810",
+          "domain": "LB",
+          "specimen": "serum",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Clinical Chemistry\nSerum glutamic-pyruvic transaminase (SGPT/ALT)"
+        }
+      },
+      {
+        "test_id": "LAB-019",
+        "test_name": "Serum glutamic-oxaloacetic transaminase (SGOT/AST)",
+        "test_code": "C64467",
+        "panel_ref": "PNL-002",
+        "specimen_type": "serum",
+        "collection_container": "SST",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": "x ULN",
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Eligibility criterion and safety parameter for hepatic function.",
+        "biomedicalConcept": {
+          "conceptName": "Aspartate Aminotransferase",
+          "cdiscCode": "C64467",
+          "domain": "LB",
+          "specimen": "serum",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Clinical Chemistry\nSerum glutamic-oxaloacetic transaminase (SGOT/AST)"
+        }
+      },
+      {
+        "test_id": "LAB-020",
+        "test_name": "Alkaline phosphatase",
+        "test_code": "C64432",
+        "panel_ref": "PNL-002",
+        "specimen_type": "serum",
+        "collection_container": "SST",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Assessment of liver and bone function.",
+        "biomedicalConcept": {
+          "conceptName": "Alkaline Phosphatase",
+          "cdiscCode": "C64432",
+          "domain": "LB",
+          "specimen": "serum",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Clinical Chemistry\nAlkaline phosphatase"
+        }
+      },
+      {
+        "test_id": "LAB-021",
+        "test_name": "Sodium",
+        "test_code": "C64854",
+        "panel_ref": "PNL-002",
+        "specimen_type": "serum",
+        "collection_container": "SST",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Assessment of electrolyte balance.",
+        "biomedicalConcept": {
+          "conceptName": "Sodium",
+          "cdiscCode": "C64854",
+          "domain": "LB",
+          "specimen": "serum",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Clinical Chemistry\nSodium"
+        }
+      },
+      {
+        "test_id": "LAB-022",
+        "test_name": "Potassium",
+        "test_code": "C64853",
+        "panel_ref": "PNL-002",
+        "specimen_type": "serum",
+        "collection_container": "SST",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Assessment of electrolyte balance.",
+        "biomedicalConcept": {
+          "conceptName": "Potassium",
+          "cdiscCode": "C64853",
+          "domain": "LB",
+          "specimen": "serum",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Clinical Chemistry\nPotassium"
+        }
+      },
+      {
+        "test_id": "LAB-023",
+        "test_name": "Calcium",
+        "test_code": "C64811",
+        "panel_ref": "PNL-002",
+        "specimen_type": "serum",
+        "collection_container": "SST",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Assessment of electrolyte balance.",
+        "biomedicalConcept": {
+          "conceptName": "Calcium",
+          "cdiscCode": "C64811",
+          "domain": "LB",
+          "specimen": "serum",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Clinical Chemistry\nCalcium"
+        }
+      },
+      {
+        "test_id": "LAB-024",
+        "test_name": "Inorganic phosphorus",
+        "test_code": "C64852",
+        "panel_ref": "PNL-002",
+        "specimen_type": "serum",
+        "collection_container": "SST",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Assessment of electrolyte balance.",
+        "biomedicalConcept": {
+          "conceptName": "Phosphorus",
+          "cdiscCode": "C64852",
+          "domain": "LB",
+          "specimen": "serum",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Clinical Chemistry\nInorganic phosphorus"
+        }
+      },
+      {
+        "test_id": "LAB-025",
+        "test_name": "Uric acid",
+        "test_code": "C64856",
+        "panel_ref": "PNL-002",
+        "specimen_type": "serum",
+        "collection_container": "SST",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Assessment of metabolic function.",
+        "biomedicalConcept": {
+          "conceptName": "Uric Acid",
+          "cdiscCode": "C64856",
+          "domain": "LB",
+          "specimen": "serum",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Clinical Chemistry\nUric acid"
+        }
+      },
+      {
+        "test_id": "LAB-026",
+        "test_name": "Total protein",
+        "test_code": "C64855",
+        "panel_ref": "PNL-002",
+        "specimen_type": "serum",
+        "collection_container": "SST",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Assessment of nutritional status.",
+        "biomedicalConcept": {
+          "conceptName": "Total Protein",
+          "cdiscCode": "C64855",
+          "domain": "LB",
+          "specimen": "serum",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Clinical Chemistry\nTotal protein"
+        }
+      },
+      {
+        "test_id": "LAB-027",
+        "test_name": "Glucose",
+        "test_code": "C105586",
+        "panel_ref": "PNL-002",
+        "specimen_type": "serum",
+        "collection_container": "SST",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Assessment of metabolic function.",
+        "biomedicalConcept": {
+          "conceptName": "Glucose",
+          "cdiscCode": "C105586",
+          "domain": "LB",
+          "specimen": "serum",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Clinical Chemistry\nGlucose"
+        }
+      },
+      {
+        "test_id": "LAB-028",
+        "test_name": "Albumin",
+        "test_code": "C64431",
+        "panel_ref": "PNL-002",
+        "specimen_type": "serum",
+        "collection_container": "SST",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Assessment of nutritional status and liver function.",
+        "biomedicalConcept": {
+          "conceptName": "Albumin",
+          "cdiscCode": "C64431",
+          "domain": "LB",
+          "specimen": "serum",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Clinical Chemistry\nAlbumin"
+        }
+      },
+      {
+        "test_id": "LAB-029",
+        "test_name": "Lactate dehydrogenase (LDH)",
+        "test_code": "C64849",
+        "panel_ref": "PNL-002",
+        "specimen_type": "serum",
+        "collection_container": "SST",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "General marker of tissue damage.",
+        "biomedicalConcept": {
+          "conceptName": "Lactate Dehydrogenase",
+          "cdiscCode": "C64849",
+          "domain": "LB",
+          "specimen": "serum",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Clinical Chemistry\nLactate dehydrogenase (LDH)"
+        }
+      },
+      {
+        "test_id": "LAB-030",
+        "test_name": "Magnesium",
+        "test_code": "C64850",
+        "panel_ref": "PNL-002",
+        "specimen_type": "serum",
+        "collection_container": "SST",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Assessment of electrolyte balance.",
+        "biomedicalConcept": {
+          "conceptName": "Magnesium",
+          "cdiscCode": "C64850",
+          "domain": "LB",
+          "specimen": "serum",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Clinical Chemistry\nMagnesium"
+        }
+      },
+      {
+        "test_id": "LAB-031",
+        "test_name": "Chloride",
+        "test_code": "C64812",
+        "panel_ref": "PNL-002",
+        "specimen_type": "serum",
+        "collection_container": "SST",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Assessment of electrolyte balance.",
+        "biomedicalConcept": {
+          "conceptName": "Chloride",
+          "cdiscCode": "C64812",
+          "domain": "LB",
+          "specimen": "serum",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Clinical Chemistry\nChloride"
+        }
+      },
+      {
+        "test_id": "LAB-032",
+        "test_name": "Bicarbonate",
+        "test_code": "C64806",
+        "panel_ref": "PNL-002",
+        "specimen_type": "serum",
+        "collection_container": "SST",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Assessment of acid-base balance.",
+        "biomedicalConcept": {
+          "conceptName": "Bicarbonate",
+          "cdiscCode": "C64806",
+          "domain": "LB",
+          "specimen": "serum",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Clinical Chemistry\nBicarbonate"
+        }
+      },
+      {
+        "test_id": "LAB-033",
+        "test_name": "Activated Partial Thromboplastin Time (aPTT)",
+        "test_code": "C64466",
+        "panel_ref": "PNL-004",
+        "specimen_type": "plasma",
+        "collection_container": "Sodium Citrate",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Baseline assessment of coagulation.",
+        "biomedicalConcept": {
+          "conceptName": "Activated Partial Thromboplastin Time",
+          "cdiscCode": "C64466",
+          "domain": "LB",
+          "specimen": "plasma",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Coagulation\nActivated Partial Thromboplastin Time (aPTT)*"
+        }
+      },
+      {
+        "test_id": "LAB-034",
+        "test_name": "International Normalized Ratio (INR)",
+        "test_code": "C64846",
+        "panel_ref": "PNL-004",
+        "specimen_type": "plasma",
+        "collection_container": "Sodium Citrate",
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": null,
+        "unit": null,
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Baseline assessment of coagulation.",
+        "biomedicalConcept": {
+          "conceptName": "International Normalized Ratio",
+          "cdiscCode": "C64846",
+          "domain": "LB",
+          "specimen": "plasma",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "Table 5",
+          "page_number": 48,
+          "text_snippet": "Coagulation\nInternational Normalized Ratio (INR)*"
+        }
+      },
+      {
+        "test_id": "LAB-035",
+        "test_name": "Creatinine Clearance",
+        "test_code": "C94413",
+        "panel_ref": null,
+        "specimen_type": "serum",
+        "collection_container": null,
+        "collection_volume": null,
+        "fasting_required": null,
+        "special_handling": "Calculated using the Cockcroft-Gault formula from serum creatinine.",
+        "unit": "mL/min",
+        "reference_ranges": [],
+        "critical_values": [],
+        "clinical_significance": "Eligibility criterion for renal function.",
+        "biomedicalConcept": {
+          "conceptName": "Creatinine Clearance",
+          "cdiscCode": "C94413",
+          "domain": "LB",
+          "specimen": "serum",
+          "confidence": 1.0
+        },
+        "provenance": {
+          "section_number": "11",
+          "page_number": 34,
+          "text_snippet": "Renal function: Serum calculated creatinine clearance > 50 mL/min according to the Cockcroft-Gault formula"
+        }
+      }
+    ],
+    "testing_schedule": [
+      {
+        "schedule_id": "SCH-001",
+        "test_or_panel_ref": "PNL-001",
+        "timepoints": [
+          {
+            "timepoint_name": "Screening",
+            "timepoint_type": "screening",
+            "window": "Within 28 days of randomization",
+            "conditions": null
+          },
+          {
+            "timepoint_name": "Cycle 1 Day 1",
+            "timepoint_type": "treatment",
+            "window": null,
+            "conditions": null
+          },
+          {
+            "timepoint_name": "Cycle 2-6 Day 1",
+            "timepoint_type": "treatment",
+            "window": null,
+            "conditions": null
+          },
+          {
+            "timepoint_name": "Final Visit",
+            "timepoint_type": "follow_up",
+            "window": null,
+            "conditions": null
+          },
+          {
+            "timepoint_name": "30-day Follow-Up Visit",
+            "timepoint_type": "follow_up",
+            "window": null,
+            "conditions": "Required if Final Visit is < 30 days from last drug administration."
+          }
+        ],
+        "frequency": "At Screening, C1D1, Day 1 of each subsequent cycle, and at Final/Follow-up visits.",
+        "provenance": {
+          "section_number": "Table 2",
+          "page_number": 41,
+          "text_snippet": "Chemistry/Hematology | SCR: X | Cycle 1 Day 1: X | Cycle 2-6 Day 1: X | Final Visit: X | 30-day FU Visit: X"
+        }
+      },
+      {
+        "schedule_id": "SCH-002",
+        "test_or_panel_ref": "PNL-002",
+        "timepoints": [
+          {
+            "timepoint_name": "Screening",
+            "timepoint_type": "screening",
+            "window": "Within 28 days of randomization",
+            "conditions": null
+          },
+          {
+            "timepoint_name": "Cycle 1 Day 1",
+            "timepoint_type": "treatment",
+            "window": null,
+            "conditions": null
+          },
+          {
+            "timepoint_name": "Cycle 2-6 Day 1",
+            "timepoint_type": "treatment",
+            "window": null,
+            "conditions": null
+          },
+          {
+            "timepoint_name": "Final Visit",
+            "timepoint_type": "follow_up",
+            "window": null,
+            "conditions": null
+          },
+          {
+            "timepoint_name": "30-day Follow-Up Visit",
+            "timepoint_type": "follow_up",
+            "window": null,
+            "conditions": "Required if Final Visit is < 30 days from last drug administration."
+          }
+        ],
+        "frequency": "At Screening, C1D1, Day 1 of each subsequent cycle, and at Final/Follow-up visits.",
+        "provenance": {
+          "section_number": "Table 2",
+          "page_number": 41,
+          "text_snippet": "Chemistry/Hematology | SCR: X | Cycle 1 Day 1: X | Cycle 2-6 Day 1: X | Final Visit: X | 30-day FU Visit: X"
+        }
+      },
+      {
+        "schedule_id": "SCH-003",
+        "test_or_panel_ref": "PNL-003",
+        "timepoints": [
+          {
+            "timepoint_name": "Screening",
+            "timepoint_type": "screening",
+            "window": "Within 28 days of randomization",
+            "conditions": null
+          },
+          {
+            "timepoint_name": "Final Visit",
+            "timepoint_type": "follow_up",
+            "window": null,
+            "conditions": null
+          }
+        ],
+        "frequency": "At Screening and Final Visit.",
+        "provenance": {
+          "section_number": "Table 2",
+          "page_number": 41,
+          "text_snippet": "Urinalysis | SCR: X | Final Visit: X"
+        }
+      },
+      {
+        "schedule_id": "SCH-004",
+        "test_or_panel_ref": "PNL-004",
+        "timepoints": [
+          {
+            "timepoint_name": "Screening",
+            "timepoint_type": "screening",
+            "window": "Within 28 days of randomization",
+            "conditions": null
+          }
+        ],
+        "frequency": "At Screening only.",
+        "provenance": {
+          "section_number": "Table 2",
+          "page_number": 41,
+          "text_snippet": "aPTT, INR | SCR: X"
+        }
+      }
+    ],
+    "sample_collection_requirements": {
+      "fasting_requirements": "Not specified.",
+      "timing_requirements": "Clinical laboratory tests can be performed up to 72 hours prior to dosing.",
+      "processing_requirements": "Follow instructions from the central laboratory manual for collection, processing, and shipping.",
+      "storage_requirements": "Follow instructions from the central laboratory manual.",
+      "shipping_requirements": "All laboratory samples will be shipped to the central laboratory.",
+      "provenance": {
+        "section_number": "Clinical Laboratory Tests",
+        "page_number": 47,
+        "text_snippet": "All laboratory samples will be assessed using a certified central laboratory... The central laboratory will provide instructions regarding the collection, processing and shipping of samples. All laboratory samples will be shipped to the central laboratory."
+      }
+    },
+    "lab_based_dose_modifications": [
+      {
+        "modification_id": "MOD-001",
+        "parameter_name": "Absolute Neutrophil Count (ANC)",
+        "trigger_condition": "ANC < 1,500/mm3 on Day 1 of each cycle",
+        "operator": "lt",
+        "threshold_value": 1500,
+        "threshold_unit": "/mm3",
+        "reference_type": "absolute",
+        "required_action": "dose_hold",
+        "recovery_criteria": "Delay treatment until recovery of ANC to >= 1,500/mm3.",
+        "provenance": {
+          "section_number": "5.7.2.1",
+          "page_number": 72,
+          "text_snippet": "For absolute neutrophil count (ANC) < 1,500/mm3 or platelet count < 100,000/mm3 on Day 1 of each cycle, treatment is to be delayed until recovery of ANC and platelet count above these values."
+        }
+      },
+      {
+        "modification_id": "MOD-002",
+        "parameter_name": "Platelet Count",
+        "trigger_condition": "Platelet count < 100,000/mm3 on Day 1 of each cycle",
+        "operator": "lt",
+        "threshold_value": 100000,
+        "threshold_unit": "/mm3",
+        "reference_type": "absolute",
+        "required_action": "dose_hold",
+        "recovery_criteria": "Delay treatment until recovery of platelet count to >= 100,000/mm3.",
+        "provenance": {
+          "section_number": "5.7.2.1",
+          "page_number": 72,
+          "text_snippet": "For absolute neutrophil count (ANC) < 1,500/mm3 or platelet count < 100,000/mm3 on Day 1 of each cycle, treatment is to be delayed until recovery of ANC and platelet count above these values."
+        }
+      },
+      {
+        "modification_id": "MOD-003",
+        "parameter_name": "Febrile Neutropenia",
+        "trigger_condition": "Grade 3/4 Febrile Neutropenia",
+        "operator": "eq",
+        "threshold_value": 3,
+        "threshold_unit": "CTCAE Grade",
+        "reference_type": "absolute",
+        "required_action": "dose_reduce",
+        "recovery_criteria": "Reduce carboplatin and paclitaxel doses by one dose level.",
+        "provenance": {
+          "section_number": "5.7.2.1",
+          "page_number": 72,
+          "text_snippet": "For febrile neutropenia or for grade 4 thrombocytopenia, carboplatin and paclitaxel doses are to be reduced by one dose level."
+        }
+      },
+      {
+        "modification_id": "MOD-004",
+        "parameter_name": "Thrombocytopenia",
+        "trigger_condition": "Grade 4 Thrombocytopenia",
+        "operator": "eq",
+        "threshold_value": 4,
+        "threshold_unit": "CTCAE Grade",
+        "reference_type": "absolute",
+        "required_action": "dose_reduce",
+        "recovery_criteria": "Reduce carboplatin and paclitaxel doses by one dose level.",
+        "provenance": {
+          "section_number": "5.7.2.1",
+          "page_number": 72,
+          "text_snippet": "For febrile neutropenia or for grade 4 thrombocytopenia, carboplatin and paclitaxel doses are to be reduced by one dose level."
+        }
+      },
+      {
+        "modification_id": "MOD-005",
+        "parameter_name": "Bilirubin and ALT",
+        "trigger_condition": "Bilirubin > 1.5 x ULN with increased ALT above ULN",
+        "operator": "gt",
+        "threshold_value": 1.5,
+        "threshold_unit": "xULN",
+        "reference_type": "ULN",
+        "required_action": "dose_hold",
+        "recovery_criteria": "Hold paclitaxel until bilirubin is <= 1.5 x ULN, then reduce dose by one level when treatment is resumed.",
+        "provenance": {
+          "section_number": "5.7.2.1",
+          "page_number": 72,
+          "text_snippet": "For bilirubin > 1.5 \u00d7 ULN with increased ALT above ULN that is attributed to protocol therapy, paclitaxel is to be held until bilirubin is \u2264 1.5 \u00d7 ULN, and the dose is to be reduced by one level when treatment is resumed."
+        }
+      },
+      {
+        "modification_id": "MOD-006",
+        "parameter_name": "ALT and Bilirubin",
+        "trigger_condition": "ALT > 5 x ULN with bilirubin < 1.5 x ULN",
+        "operator": "gt",
+        "threshold_value": 5,
+        "threshold_unit": "xULN",
+        "reference_type": "ULN",
+        "required_action": "dose_reduce",
+        "recovery_criteria": "Reduce paclitaxel dose by one level.",
+        "provenance": {
+          "section_number": "Neurologic Toxicity",
+          "page_number": 73,
+          "text_snippet": "For ALT > 5 \u00d7 ULN with bilirubin < 1.5 \u00d7 ULN that is attributed to protocol therapy, paclitaxel dose is to be reduced by one level."
+        }
+      },
+      {
+        "modification_id": "MOD-007",
+        "parameter_name": "Any toxicity not attributable to carboplatin/paclitaxel",
+        "trigger_condition": "Grade 3/4 toxicity",
+        "operator": "gte",
+        "threshold_value": 3,
+        "threshold_unit": "CTCAE Grade",
+        "reference_type": "absolute",
+        "required_action": "dose_hold",
+        "recovery_criteria": "Hold veliparib until toxicity resolves to grade 1 or lower. Upon resuming, reduce veliparib dose one level.",
+        "provenance": {
+          "section_number": "5.7.1",
+          "page_number": 71,
+          "text_snippet": "For any subject who experiences grade 3/4 toxicity which is not attributable to carboplatin/paclitaxel or the underlying disease, the veliparib dose is to be held until the toxicity resolves to grade 1 or lower... Upon resuming veliparib treatment, the dose is to be reduced one dose level."
+        }
+      }
+    ],
+    "eligibility_lab_criteria": [
+      {
+        "criteria_id": "ELIG-001",
+        "criteria_type": "inclusion",
+        "parameter_name": "Absolute neutrophil count (ANC)",
+        "condition": "Absolute neutrophil count (ANC) >= 1,500/mm3 (1.5 x 10^9/L)",
+        "operator": "gte",
+        "threshold_value": 1500,
+        "threshold_unit": "/mm3",
+        "provenance": {
+          "section_number": "11",
+          "page_number": 34,
+          "text_snippet": "Bone Marrow: Absolute neutrophil count (ANC) \u2265 1,500/mm3 (1.5 \u00d7 10^9/L);"
+        }
+      },
+      {
+        "criteria_id": "ELIG-002",
+        "criteria_type": "inclusion",
+        "parameter_name": "Platelets",
+        "condition": "Platelets >= 100,000/mm3 (100 x 10^9/L)",
+        "operator": "gte",
+        "threshold_value": 100000,
+        "threshold_unit": "/mm3",
+        "provenance": {
+          "section_number": "11",
+          "page_number": 34,
+          "text_snippet": "Platelets \u2265 100,000/mm3 (100 \u00d7 10^9/L);"
+        }
+      },
+      {
+        "criteria_id": "ELIG-003",
+        "criteria_type": "inclusion",
+        "parameter_name": "Hemoglobin",
+        "condition": "Hemoglobin >= 9.0 g/dL",
+        "operator": "gte",
+        "threshold_value": 9.0,
+        "threshold_unit": "g/dL",
+        "provenance": {
+          "section_number": "11",
+          "page_number": 34,
+          "text_snippet": "Hemoglobin \u2265 9.0 g/dL;"
+        }
+      },
+      {
+        "criteria_id": "ELIG-004",
+        "criteria_type": "inclusion",
+        "parameter_name": "Serum calculated creatinine clearance",
+        "condition": "Serum calculated creatinine clearance > 50 mL/min according to the Cockcroft-Gault formula",
+        "operator": "gt",
+        "threshold_value": 50,
+        "threshold_unit": "mL/min",
+        "provenance": {
+          "section_number": "11",
+          "page_number": 34,
+          "text_snippet": "Renal function: Serum calculated creatinine clearance > 50 mL/min according to the Cockcroft-Gault formula;"
+        }
+      },
+      {
+        "criteria_id": "ELIG-005",
+        "criteria_type": "inclusion",
+        "parameter_name": "AST and ALT",
+        "condition": "AST and ALT <= 2.5 x ULN unless liver metastases are present, then AST and ALT < 5.0 x ULN",
+        "operator": "lte",
+        "threshold_value": 2.5,
+        "threshold_unit": "xULN",
+        "provenance": {
+          "section_number": "11",
+          "page_number": 35,
+          "text_snippet": "Hepatic function: AST and ALT \u2264 2.5 \u00d7 ULN unless liver metastases are present, then AST and ALT < 5.0 \u00d7 ULN;"
+        }
+      },
+      {
+        "criteria_id": "ELIG-006",
+        "criteria_type": "inclusion",
+        "parameter_name": "Bilirubin",
+        "condition": "Bilirubin <= 1.5 x ULN; unless Gilbert's Syndrome is present, then bilirubin >= 1.5 x ULN",
+        "operator": "lte",
+        "threshold_value": 1.5,
+        "threshold_unit": "xULN",
+        "provenance": {
+          "section_number": "11",
+          "page_number": 35,
+          "text_snippet": "bilirubin \u2264 1.5 \u00d7 ULN unless Gilbert's Syndrome is present, then bilirubin \u2265 1.5 \u00d7 ULN."
+        }
+      },
+      {
+        "criteria_id": "ELIG-007",
+        "criteria_type": "exclusion",
+        "parameter_name": "Peripheral neuropathy",
+        "condition": "Subjects with peripheral neuropathy >= grade 2",
+        "operator": "gte",
+        "threshold_value": 2,
+        "threshold_unit": "CTCAE Grade",
+        "provenance": {
+          "section_number": "5.2.2",
+          "page_number": 36,
+          "text_snippet": "3. Subjects with peripheral neuropathy \u2265 grade 2."
+        }
+      }
+    ],
+    "critical_value_reporting": null,
+    "abnormal_result_grading": {
+      "grading_system": "NCI CTCAE",
+      "grading_version": "4.0",
+      "clinically_significant_threshold": null,
+      "ae_reporting_threshold": null,
+      "provenance": {
+        "section_number": "6.3",
+        "page_number": 76,
+        "text_snippet": "The study Investigator will rate the severity of each adverse event according to the National Cancer Institute Common Terminology Criteria for Adverse Events NCI CTCAE version 4.0."
+      }
+    },
+    "pregnancy_testing": {
+      "required": true,
+      "applicable_population": "Female subjects of childbearing potential",
+      "test_type": "serum, urine",
+      "timing": "Serum test at Screening. Urine test prior to dosing at C1D-2 (if serum test >7 days prior) and at each subsequent Cycle Day 1 visit.",
+      "sensitivity": null,
+      "action_if_positive": "A positive urine pregnancy test will be confirmed with a serum pregnancy test. Administration of study drug must be discontinued immediately.",
+      "provenance": {
+        "section_number": "Documentation of Non-Childbearing Status or Pregnancy Test",
+        "page_number": 46,
+        "text_snippet": "For subjects of childbearing potential, a serum pregnancy test will be performed at Screening... A urine pregnancy test should also be performed prior to dosing on C1D-2 if > 7 days since obtaining Screening serum test results. Local urine pregnancy testing should also be performed at each subsequent Cycle Day 1 visit."
+      }
+    },
+    "pharmacokinetic_samples": {
+      "pk_sampling_required": true,
+      "analytes": [
+        "veliparib"
+      ],
+      "sample_type": "plasma",
+      "timepoints_description": "C1D-2: 1, 2, 3 hours after AM dose. C2D1, C3D1, C4D1: 0 hours (pre-dose).",
+      "volume_per_sample": "3 mL",
+      "processing_requirements": "Blood to be processed to plasma and frozen as per the study specific laboratory manual.",
+      "provenance": {
+        "section_number": "5.3.2.1",
+        "page_number": 53,
+        "text_snippet": "Approximately 3 mL of blood will be collected by venipuncture for veliparib concentrations at 0 hours (just before morning dose of veliparib) and other timepoints as specified per Table 4."
+      }
+    },
+    "biomarker_samples": {
+      "biomarker_sampling_required": true,
+      "biomarkers": [
+        {
+          "name": "Genetic (DNA) markers",
+          "purpose": "Pharmacogenetic analysis",
+          "sample_type": "whole_blood",
+          "timing": "C1D-2 or any time throughout the study"
+        },
+        {
+          "name": "Plasma Markers",
+          "purpose": "Pharmacodynamic analysis",
+          "sample_type": "plasma",
+          "timing": "C1D-2, C3D1, Final Visit"
+        },
+        {
+          "name": "Serum Markers",
+          "purpose": "Pharmacodynamic analysis",
+          "sample_type": "serum",
+          "timing": "C1D-2, C3D1, Final Visit"
+        },
+        {
+          "name": "LSP status",
+          "purpose": "To determine subjects' tumor LSP status with a commercially developed RNA seq based LSP classifier.",
+          "sample_type": "archived_tumor_tissue",
+          "timing": "Screening or C1D-2"
+        }
+      ],
+      "optional_consent_required": true,
+      "provenance": {
+        "section_number": "Table 3",
+        "page_number": 43,
+        "text_snippet": "Table 3. Schedule of Pharmacogenetic and Pharmacodynamic Assessments\nOptional with Consent PG Blood Sampling* Genetic (DNA)\nPD Blood Sampling Plasma Markers\nSerum Markers\nTissue Sample Collection"
+      }
+    },
+    "local_lab_requirements": {
+      "local_lab_allowed": true,
+      "allowed_tests": [
+        "All tests for treatment decisions"
+      ],
+      "certification_requirements": "A qualified (e.g., certification or accreditation) local laboratory may be used.",
+      "provenance": {
+        "section_number": "Table 2",
+        "page_number": 42,
+        "text_snippet": "i. ...A qualified (e.g., certification or accreditation) local laboratory may be used to perform laboratory analyses for treatment decisions but this cannot replace the central laboratory analysis on a protocol defined visit."
+      }
+    },
+    "extraction_statistics": {
+      "total_panels_discovered": 4,
+      "total_tests_discovered": 35,
+      "total_schedule_entries": 4,
+      "dose_modification_rules": 7,
+      "eligibility_criteria_count": 7,
+      "critical_values_defined": 0
+    },
+    "provenance": {
+      "section_number": "Clinical Laboratory Tests",
+      "page_number": 47,
+      "text_snippet": "Samples for chemistry, hematology and urinalysis will be collected per Table 2. Specific laboratory assessments are outlined in Table 5."
+    }
+  }
+}

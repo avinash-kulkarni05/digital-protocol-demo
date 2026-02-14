@@ -1,0 +1,1843 @@
+{
+  "module_id": "quality_management",
+  "module_name": "Quality Management (Monitoring + RBQM)",
+  "protocol_id": "NCT02264990_M14-359",
+  "timestamp": "2026-02-14T12:00:18.415138",
+  "success": true,
+  "metrics": {
+    "provenance_coverage": 1.0,
+    "pass1_duration_seconds": 130.72,
+    "pass2_duration_seconds": 548.54,
+    "total_duration_seconds": 679.26,
+    "pass2_skipped": false
+  },
+  "quality_scores": {
+    "accuracy": 0.993421052631579,
+    "completeness": 1.0,
+    "usdm_adherence": 0.8,
+    "provenance": 1.0,
+    "terminology": 1.0,
+    "overall": 0.9583552631578948,
+    "from_cache": false,
+    "duration_seconds": 679.3713216781616
+  },
+  "extracted_data": {
+    "id": "M14-359-quality-management",
+    "instanceType": "QualityManagement",
+    "name": "M14-359 Quality Management",
+    "schemaVersion": "2.0",
+    "ich_m11_section": "6.3",
+    "monitoring": {
+      "monitoring_approach": {
+        "instanceType": "MonitoringApproach",
+        "strategy": "hybrid",
+        "rationale": "Combination of on-site monitoring to ensure site compliance and centralized monitoring to oversee data quality and identify risks across sites, consistent with ICH E6(R2) principles.",
+        "regulatory_framework": [
+          "ICH_E6_R2"
+        ],
+        "adaptive_monitoring": true,
+        "centralized_monitoring_enabled": true,
+        "centralized_monitoring_tools": [
+          "EDC_data_review",
+          "statistical_monitoring",
+          "KRI_dashboard"
+        ],
+        "provenance": {
+          "kind": "derived",
+          "derived": {
+            "reasoning": "The protocol does not explicitly define a monitoring strategy (e.g., 'risk-based'). However, it mentions on-site monitoring (Section 9.2) and the use of an EDC system (Section 10.2), which enables centralized data review. A hybrid approach is inferred as standard practice for a Phase 3 study under ICH GCP guidelines, which are explicitly mentioned.",
+            "supporting_context": [
+              "Section 9.2 Ethical Conduct of the Study",
+              "Section 10.2 Case Report Forms"
+            ],
+            "confidence": "high"
+          }
+        }
+      },
+      "sdv_strategy": {
+        "instanceType": "SDVStrategy",
+        "overall_approach": "risk_based",
+        "default_sdv_percentage": 25,
+        "critical_data_100_percent": [
+          "informed_consent",
+          "eligibility_criteria",
+          "primary_endpoint",
+          "SAEs",
+          "withdrawal_reason"
+        ],
+        "remote_sdv_enabled": true,
+        "provenance": {
+          "kind": "derived",
+          "derived": {
+            "reasoning": "The protocol does not specify an SDV strategy, percentages, or which data are critical. This information is derived from standard industry practice for a risk-based approach in a Phase 3 oncology trial. Critical data points are inferred from the protocol's primary objective (Overall Survival), key safety reporting requirements (SAEs), and fundamental GCP requirements (informed consent, eligibility).",
+            "supporting_context": [
+              "Section 4.0 Study Objectives",
+              "Section 6.1.2 Serious Adverse Events",
+              "Section 5.2 Selection of Study Population",
+              "Section 9.3 Subject Information and Consent"
+            ],
+            "confidence": "medium"
+          }
+        },
+        "sdv_reduction_criteria": {
+          "enabled": true,
+          "minimum_subjects_enrolled": 5,
+          "error_rate_threshold_percent": 2,
+          "reduced_sdv_percentage": 15,
+          "provenance": {
+            "kind": "derived",
+            "derived": {
+              "reasoning": "The protocol does not mention criteria for reducing SDV. These values are derived based on common adaptive monitoring strategies where sites demonstrating high quality can have their monitoring intensity reduced.",
+              "supporting_context": [],
+              "confidence": "low"
+            }
+          }
+        },
+        "sdv_escalation_criteria": {
+          "error_rate_threshold_percent": 8,
+          "escalated_sdv_percentage": 100,
+          "provenance": {
+            "kind": "derived",
+            "derived": {
+              "reasoning": "The protocol does not mention criteria for escalating SDV. These values are derived based on common adaptive monitoring strategies where sites with poor performance trigger increased oversight to ensure data quality and patient safety.",
+              "supporting_context": [],
+              "confidence": "low"
+            }
+          }
+        }
+      },
+      "monitoring_visits": {
+        "instanceType": "MonitoringVisits",
+        "site_initiation_visit": {
+          "required": true,
+          "timing": "Before first subject enrolled",
+          "format": "on_site",
+          "key_activities": [
+            "protocol_training",
+            "review_of_inclusion_exclusion_criteria",
+            "investigational_product_handling_training",
+            "EDC_training",
+            "regulatory_binder_review"
+          ],
+          "provenance": {
+            "kind": "explicit",
+            "explicit": {
+              "section_number": "5.5.2.2",
+              "page_number": 62,
+              "text_snippet": "Instructions for the handling of study supplies to the study site are available in the veliparib IB, study Dosing Cards and from participants at the Site Initiation Visit."
+            }
+          }
+        },
+        "routine_monitoring": {
+          "on_site_visit_frequency": "risk_based_adaptive",
+          "remote_monitoring_frequency": "biweekly",
+          "on_site_activities": [
+            "ICF_review",
+            "source_data_verification",
+            "AE_SAE_review",
+            "drug_accountability",
+            "regulatory_binder_review"
+          ],
+          "remote_activities": [
+            "centralized_data_review",
+            "query_management_review",
+            "KRI_monitoring",
+            "protocol_deviation_review"
+          ],
+          "provenance": {
+            "kind": "derived",
+            "derived": {
+              "reasoning": "The protocol does not specify the frequency or activities of routine monitoring visits. This is derived from standard clinical trial practice. On-site monitoring is mentioned in Section 9.2, and the use of an EDC system (Section 10.2) implies remote monitoring capabilities. Activities are standard for ensuring GCP compliance.",
+              "supporting_context": [
+                "Section 9.2 Ethical Conduct of the Study",
+                "Section 10.2 Case Report Forms"
+              ],
+              "confidence": "medium"
+            }
+          }
+        },
+        "triggered_visits": [
+          {
+            "id": "trigger-001",
+            "trigger_type": "KRI_threshold_breach",
+            "response_timeline_hours": 48,
+            "actions": [
+              "remote_contact_with_site",
+              "root_cause_analysis",
+              "determination_of_need_for_on_site_visit"
+            ],
+            "provenance": {
+              "kind": "derived",
+              "derived": {
+                "reasoning": "The protocol does not describe triggered visits. This is a standard component of a risk-based monitoring plan, where predefined risk indicators crossing a threshold would trigger a specific response from the monitoring team.",
+                "supporting_context": [],
+                "confidence": "low"
+              }
+            }
+          },
+          {
+            "id": "trigger-002",
+            "trigger_type": "SAE_occurrence",
+            "response_timeline_hours": 24,
+            "actions": [
+              "confirm_timely_reporting",
+              "verify_source_documentation",
+              "assess_relatedness"
+            ],
+            "provenance": {
+              "kind": "derived",
+              "derived": {
+                "reasoning": "The protocol requires SAEs to be reported within 24 hours (Section 6.6.1). While not explicitly called a 'triggered visit', an SAE triggers immediate follow-up actions by the monitor to ensure compliance and safety oversight. These actions are standard practice.",
+                "supporting_context": [
+                  "Section 6.6.1 Reporting Serious Adverse Events"
+                ],
+                "confidence": "medium"
+              }
+            }
+          }
+        ],
+        "close_out_visit": {
+          "timing": "after_LPLV",
+          "timing_days_after_event": 45,
+          "format": "on_site",
+          "activities": [
+            "final_SDV",
+            "final_drug_accountability_and_reconciliation",
+            "essential_document_collection",
+            "ensure_all_data_entered_and_queries_resolved",
+            "review_archiving_requirements"
+          ],
+          "site_release_criteria": [
+            "all_CRFs_complete",
+            "all_queries_resolved",
+            "final_investigational_product_reconciliation_complete"
+          ],
+          "provenance": {
+            "kind": "explicit",
+            "explicit": {
+              "section_number": "6.7",
+              "page_number": 67,
+              "text_snippet": "An overall accountability of the study drug supplied by AbbVie will be performed and verified by the site monitor throughout the study and at the study site closeout visit."
+            }
+          }
+        }
+      },
+      "key_risk_indicators": [
+        {
+          "id": "KRI-001",
+          "instanceType": "KeyRiskIndicator",
+          "name": "Informed Consent Compliance",
+          "category": "protocol_compliance",
+          "metric": "Percentage of subjects with informed consent date after the first study procedure date.",
+          "data_source": "EDC",
+          "review_frequency": "weekly",
+          "threshold_green": "0%",
+          "threshold_amber": ">0% and <2%",
+          "threshold_red": ">=2% or 1 subject",
+          "action_amber": "Review specific subject data with site, request clarification.",
+          "action_red": "Immediate site call, root cause analysis, potential for triggered visit and CAPA.",
+          "applies_to": "site_level",
+          "provenance": {
+            "kind": "explicit",
+            "explicit": {
+              "section_number": "9.3",
+              "page_number": 93,
+              "text_snippet": "Prior to any study-related screening procedures being performed on the subject, the informed consent statement will be reviewed and signed and dated by the subject..."
+            }
+          }
+        },
+        {
+          "id": "KRI-002",
+          "instanceType": "KeyRiskIndicator",
+          "name": "Primary Endpoint Data Availability",
+          "category": "data_integrity",
+          "metric": "Percentage of expected survival follow-up data points that are overdue by > 14 days.",
+          "data_source": "EDC",
+          "review_frequency": "monthly",
+          "threshold_green": "<5%",
+          "threshold_amber": "5-10%",
+          "threshold_red": ">10%",
+          "action_amber": "Follow up with site on specific overdue subjects.",
+          "action_red": "Escalate to project manager, implement site-level action plan for follow-up.",
+          "applies_to": "site_level",
+          "provenance": {
+            "kind": "explicit",
+            "explicit": {
+              "section_number": "5.1",
+              "page_number": 32,
+              "text_snippet": "Subjects no longer undergoing clinical assessments will have survival information reported via the eCRF at two month intervals (or as requested by sponsor to support data analysis) beginning at the last clinical assessment and continuing until the endpoint of death..."
+            }
+          }
+        },
+        {
+          "id": "KRI-003",
+          "instanceType": "KeyRiskIndicator",
+          "name": "SAE Reporting Timeliness",
+          "category": "patient_safety",
+          "metric": "Percentage of SAEs reported to sponsor > 24 hours after site awareness.",
+          "data_source": "Safety DB",
+          "review_frequency": "weekly",
+          "threshold_green": "0%",
+          "threshold_amber": "1 late report",
+          "threshold_red": ">1 late report",
+          "action_amber": "Discuss with site to understand delay.",
+          "action_red": "Immediate retraining of site staff on SAE reporting requirements, document as major deviation.",
+          "applies_to": "site_level",
+          "provenance": {
+            "kind": "explicit",
+            "explicit": {
+              "section_number": "6.6.1",
+              "page_number": 79,
+              "text_snippet": "In the event of a serious adverse event, whether associated with study drug or not, the Investigator will notify the Clinical Pharmacovigilance within 24 hours of the site being made aware of the serious adverse event..."
+            }
+          }
+        },
+        {
+          "id": "KRI-004",
+          "instanceType": "KeyRiskIndicator",
+          "name": "Major Protocol Deviation Rate",
+          "category": "protocol_compliance",
+          "metric": "Rate of major protocol deviations per subject enrolled at a site.",
+          "data_source": "CTMS",
+          "review_frequency": "monthly",
+          "threshold_green": "<5%",
+          "threshold_amber": "5-10%",
+          "threshold_red": ">10%",
+          "action_amber": "Review nature of deviations and discuss trends with site.",
+          "action_red": "Initiate root cause analysis, consider enrollment hold, develop CAPA.",
+          "applies_to": "site_level",
+          "provenance": {
+            "kind": "explicit",
+            "explicit": {
+              "section_number": "7.0",
+              "page_number": 81,
+              "text_snippet": "Protocol Deviations. AbbVie does not allow intentional/prospective deviations from the protocol. The principal Investigator is responsible for complying with all protocol requirements..."
+            }
+          }
+        },
+        {
+          "id": "KRI-005",
+          "instanceType": "KeyRiskIndicator",
+          "name": "Visit Compliance Rate",
+          "category": "protocol_compliance",
+          "metric": "Percentage of scheduled study visits missed or outside the protocol-defined window.",
+          "data_source": "EDC",
+          "review_frequency": "monthly",
+          "threshold_green": "<10%",
+          "threshold_amber": "10-20%",
+          "threshold_red": ">20%",
+          "action_amber": "Investigate reasons for out-of-window visits with site staff.",
+          "action_red": "Site retraining on visit schedule importance, evaluate for systemic issues at site.",
+          "applies_to": "site_level",
+          "provenance": {
+            "kind": "explicit",
+            "explicit": {
+              "section_number": "Table 2",
+              "page_number": 41,
+              "text_snippet": "Table 2. Study Activities"
+            }
+          }
+        },
+        {
+          "id": "KRI-006",
+          "instanceType": "KeyRiskIndicator",
+          "name": "Eligibility Violation Rate",
+          "category": "protocol_compliance",
+          "metric": "Percentage of enrolled subjects who did not meet all inclusion/exclusion criteria.",
+          "data_source": "EDC",
+          "review_frequency": "monthly",
+          "threshold_green": "0%",
+          "threshold_amber": "1 subject",
+          "threshold_red": ">1 subject",
+          "action_amber": "Perform root cause analysis for the single violation.",
+          "action_red": "Halt enrollment at site, retrain on eligibility criteria, implement CAPA.",
+          "applies_to": "site_level",
+          "provenance": {
+            "kind": "explicit",
+            "explicit": {
+              "section_number": "5.2",
+              "page_number": 33,
+              "text_snippet": "Subjects must meet all inclusion criteria and none of the exclusion criteria within 28 days of randomization."
+            }
+          }
+        },
+        {
+          "id": "KRI-007",
+          "instanceType": "KeyRiskIndicator",
+          "name": "LSP Tissue Sample Submission Rate",
+          "category": "data_integrity",
+          "metric": "Percentage of enrolled subjects for whom an archived tissue sample has not been submitted within 14 days of randomization.",
+          "data_source": "Lab Portal",
+          "review_frequency": "weekly",
+          "threshold_green": "<5%",
+          "threshold_amber": "5-15%",
+          "threshold_red": ">15%",
+          "action_amber": "Site reminder to submit outstanding samples.",
+          "action_red": "Escalate to site management, potential delay in IMP shipment until samples are sent.",
+          "applies_to": "site_level",
+          "provenance": {
+            "kind": "explicit",
+            "explicit": {
+              "section_number": "5.2.1",
+              "page_number": 34,
+              "text_snippet": "Subject must consent to provide archived tissue or cytology sample of NSCLC lesion (primary or metastatic) for analysis if available."
+            }
+          }
+        },
+        {
+          "id": "KRI-008",
+          "instanceType": "KeyRiskIndicator",
+          "name": "Screen Failure Rate",
+          "category": "enrollment",
+          "metric": "Overall percentage of subjects who fail screening.",
+          "data_source": "EDC",
+          "review_frequency": "monthly",
+          "threshold_green": "<40%",
+          "threshold_amber": "40-60%",
+          "threshold_red": ">60%",
+          "action_amber": "Monitor trend and reasons for screen failure.",
+          "action_red": "Analyze screen failure reasons, may indicate issues with protocol criteria or patient population access. Re-evaluate enrollment strategy.",
+          "applies_to": "study_level",
+          "provenance": {
+            "kind": "explicit",
+            "explicit": {
+              "section_number": "4.4",
+              "page_number": 44,
+              "text_snippet": "Subjects will be considered screen failures if the informed consent has been signed and a study-specific procedure has been performed (e.g., central laboratories drawn), but subject does not randomize into the study."
+            }
+          }
+        }
+      ],
+      "quality_tolerance_limits": [
+        {
+          "id": "QTL-001",
+          "instanceType": "QualityToleranceLimit",
+          "parameter": "Informed Consent Deviations",
+          "category": "informed_consent",
+          "acceptable_limit": "0% of subjects consented after initiation of study procedures.",
+          "acceptable_limit_numeric": 0,
+          "alert_threshold": "1 subject with consent deviation.",
+          "alert_threshold_numeric": 1,
+          "action_threshold": "2 subjects with consent deviations.",
+          "action_threshold_numeric": 2,
+          "predefined_actions": [
+            "Immediate investigation of the deviation",
+            "root_cause_analysis",
+            "CAPA_initiation",
+            "site_retraining",
+            "report_to_IRB_IEC"
+          ],
+          "escalation_path": [
+            "project_manager",
+            "sponsor_QA",
+            "regulatory_affairs"
+          ],
+          "provenance": {
+            "kind": "derived",
+            "derived": {
+              "reasoning": "The protocol does not define any Quality Tolerance Limits. This QTL is derived from the fundamental GCP requirement in Section 9.3 that consent must be obtained *prior* to any study procedures. A zero-tolerance limit is standard for such a critical process.",
+              "supporting_context": [
+                "Section 9.3 Subject Information and Consent"
+              ],
+              "confidence": "high"
+            }
+          }
+        },
+        {
+          "id": "QTL-002",
+          "instanceType": "QualityToleranceLimit",
+          "parameter": "Major Protocol Deviations Affecting Eligibility",
+          "category": "eligibility",
+          "acceptable_limit": "< 2% of subjects enrolled in violation of key eligibility criteria.",
+          "acceptable_limit_numeric": 2,
+          "alert_threshold": "1% of subjects.",
+          "alert_threshold_numeric": 1,
+          "action_threshold": "2% of subjects.",
+          "action_threshold_numeric": 2,
+          "predefined_actions": [
+            "Halt enrollment across study",
+            "root_cause_analysis",
+            "retrain all sites on eligibility criteria",
+            "assess impact on study integrity"
+          ],
+          "escalation_path": [
+            "medical_monitor",
+            "head_of_clinical_operations",
+            "steering_committee"
+          ],
+          "provenance": {
+            "kind": "derived",
+            "derived": {
+              "reasoning": "The protocol does not define any Quality Tolerance Limits. This QTL is derived from the importance of maintaining a well-defined study population as per the extensive criteria in Sections 5.2.1 and 5.2.2. A low tolerance for eligibility violations is standard for ensuring study integrity.",
+              "supporting_context": [
+                "Section 5.2.1 Inclusion Criteria",
+                "Section 5.2.2 Exclusion Criteria"
+              ],
+              "confidence": "high"
+            }
+          }
+        },
+        {
+          "id": "QTL-003",
+          "instanceType": "QualityToleranceLimit",
+          "parameter": "Missing Primary Endpoint Data",
+          "category": "endpoint_collection",
+          "acceptable_limit": "< 5% of subjects lost to follow-up before primary endpoint event.",
+          "acceptable_limit_numeric": 5,
+          "alert_threshold": "2.5% of subjects.",
+          "alert_threshold_numeric": 2.5,
+          "action_threshold": "5% of subjects.",
+          "action_threshold_numeric": 5,
+          "predefined_actions": [
+            "Investigate reasons for loss to follow-up",
+            "implement enhanced subject retention strategies",
+            "consult with statisticians on impact analysis"
+          ],
+          "escalation_path": [
+            "project_manager",
+            "biostatistics",
+            "sponsor_management"
+          ],
+          "provenance": {
+            "kind": "derived",
+            "derived": {
+              "reasoning": "The protocol does not define any Quality Tolerance Limits. This QTL is derived from the critical nature of the primary endpoint, Overall Survival (Section 4.0). A limit on missing data due to loss to follow-up is essential to maintain the statistical power and validity of the primary analysis.",
+              "supporting_context": [
+                "Section 4.0 Study Objectives",
+                "Section 8.1.2.1 Primary Efficacy Endpoint"
+              ],
+              "confidence": "high"
+            }
+          }
+        },
+        {
+          "id": "QTL-004",
+          "instanceType": "QualityToleranceLimit",
+          "parameter": "LSP Assay Failure Rate",
+          "category": "data_integrity",
+          "acceptable_limit": "< 24% of submitted tissue samples failing LSP analysis (based on 76% assumed success rate).",
+          "acceptable_limit_numeric": 24,
+          "alert_threshold": "15% failure rate.",
+          "alert_threshold_numeric": 15,
+          "action_threshold": "24% failure rate.",
+          "action_threshold_numeric": 24,
+          "predefined_actions": [
+            "Investigate cause of failures (e.g., tissue quality, shipping, lab process)",
+            "retrain sites on sample collection and handling",
+            "re-evaluate sample size assumptions"
+          ],
+          "escalation_path": [
+            "central_lab_manager",
+            "biomarker_lead",
+            "head_of_development"
+          ],
+          "provenance": {
+            "kind": "explicit",
+            "explicit": {
+              "section_number": "8.2",
+              "page_number": 91,
+              "text_snippet": "Based on 452 subjects having LSP tissue samples (assumed 76% LSP sample availability rate), the below table provides the power and number of events..."
+            }
+          }
+        },
+        {
+          "id": "QTL-005",
+          "instanceType": "QualityToleranceLimit",
+          "parameter": "Investigational Product Dosing Errors",
+          "category": "patient_safety",
+          "acceptable_limit": "< 3% of subjects with a major dosing error.",
+          "acceptable_limit_numeric": 3,
+          "alert_threshold": "1.5% of subjects.",
+          "alert_threshold_numeric": 1.5,
+          "action_threshold": "3% of subjects.",
+          "action_threshold_numeric": 3,
+          "predefined_actions": [
+            "Root cause analysis of errors",
+            "review and simplify dosing instructions",
+            "implement additional checks at dispensing",
+            "retrain relevant sites"
+          ],
+          "escalation_path": [
+            "pharmacist",
+            "medical_monitor",
+            "safety_committee"
+          ],
+          "provenance": {
+            "kind": "derived",
+            "derived": {
+              "reasoning": "The protocol does not define any Quality Tolerance Limits. This QTL is derived from the need to ensure patient safety and data integrity related to treatment administration (Section 5.5). A low tolerance for major dosing errors is a standard quality measure.",
+              "supporting_context": [
+                "Section 5.5 Treatments",
+                "Section 5.7 Dose Reductions or Delays"
+              ],
+              "confidence": "medium"
+            }
+          }
+        }
+      ],
+      "findings_management": {
+        "instanceType": "FindingsManagement",
+        "provenance": {
+          "kind": "derived",
+          "derived": {
+            "reasoning": "The protocol does not have a dedicated section on findings management. The framework is derived from standard GCP expectations for monitoring, issue resolution, and documentation, including the management of protocol deviations as mentioned in Section 7.0.",
+            "supporting_context": [
+              "Section 7.0 Protocol Deviations"
+            ],
+            "confidence": "medium"
+          }
+        },
+        "finding_categories": [
+          {
+            "id": "finding-cat-001",
+            "category": "critical",
+            "definition": "A finding that adversely affects the rights, safety, or well-being of a subject, or the integrity of the study data.",
+            "response_timeline_days": 1,
+            "requires_capa": true,
+            "provenance": {
+              "kind": "derived",
+              "derived": {
+                "reasoning": "The protocol does not define finding categories. This definition is based on standard industry (e.g., TransCelerate) and regulatory definitions for a critical finding that requires immediate attention.",
+                "supporting_context": [],
+                "confidence": "medium"
+              }
+            }
+          },
+          {
+            "id": "finding-cat-002",
+            "category": "major",
+            "definition": "A finding that could potentially affect the rights, safety, or well-being of a subject, or the integrity of the study data.",
+            "response_timeline_days": 15,
+            "requires_capa": false,
+            "provenance": {
+              "kind": "derived",
+              "derived": {
+                "reasoning": "The protocol does not define finding categories. This definition is based on standard industry (e.g., TransCelerate) and regulatory definitions for a major finding.",
+                "supporting_context": [],
+                "confidence": "medium"
+              }
+            }
+          },
+          {
+            "id": "finding-cat-003",
+            "category": "minor",
+            "definition": "A finding that is unlikely to affect subject safety or data integrity, but represents a departure from the protocol or SOPs.",
+            "response_timeline_days": 30,
+            "requires_capa": false,
+            "provenance": {
+              "kind": "derived",
+              "derived": {
+                "reasoning": "The protocol does not define finding categories. This definition is based on standard industry (e.g., TransCelerate) and regulatory definitions for a minor finding.",
+                "supporting_context": [],
+                "confidence": "medium"
+              }
+            }
+          }
+        ],
+        "capa_process": {
+          "capa_triggers": [
+            "critical_finding",
+            "repeated_major_finding",
+            "QTL_breach",
+            "systemic_issue_identified"
+          ],
+          "response_timeline_days": 30,
+          "verification_required": true,
+          "tracking_system": "CTMS",
+          "provenance": {
+            "kind": "derived",
+            "derived": {
+              "reasoning": "The protocol does not describe a CAPA process. This is derived from standard quality management system requirements under ICH GCP, where significant or systemic issues (like QTL breaches or critical findings) must be addressed through a formal corrective and preventive action plan.",
+              "supporting_context": [],
+              "confidence": "medium"
+            }
+          }
+        },
+        "protocol_deviation_management": {
+          "deviation_categories": [
+            "major",
+            "minor"
+          ],
+          "internal_reporting_timeline_days": 5,
+          "irb_reporting_required": true,
+          "irb_reporting_timeline_days": 10,
+          "root_cause_analysis_required": true,
+          "provenance": {
+            "kind": "explicit",
+            "explicit": {
+              "section_number": "7.0",
+              "page_number": 81,
+              "text_snippet": "If a protocol deviation occurs (or is identified) after a subject has been enrolled, the principal Investigator is responsible for notifying Independent Ethics Committee (IEC)/Independent Review Board (IRB) regulatory authorities (as applicable), and the following AbbVie Clinical Monitor(s):"
+            }
+          }
+        }
+      },
+      "monitoring_reports": {
+        "report_timeline_days": 14,
+        "review_timeline_days": 7,
+        "storage_location": "eTMF",
+        "key_content": [
+          "visit_summary",
+          "findings_and_action_items",
+          "protocol_deviation_log",
+          "sdv_completion_log"
+        ],
+        "provenance": {
+          "kind": "derived",
+          "derived": {
+            "reasoning": "The protocol does not specify requirements for monitoring reports. The timelines, location (eTMF is standard), and key content are derived from standard industry practice and ICH GCP E6(R2) section 5.18.6, which outlines the content of monitoring reports.",
+            "supporting_context": [],
+            "confidence": "medium"
+          }
+        }
+      }
+    },
+    "rbqm": {
+      "ract_register": {
+        "critical_to_quality_factors": [
+          {
+            "ctq_id": "CTQ-001",
+            "ctq_category": "Endpoint Integrity",
+            "factor": "Accurate and timely collection of survival status for the primary endpoint of Overall Survival (OS).",
+            "insight_type": "explicit",
+            "clinical_reasoning": "The primary objective of the study is to assess OS. Failure to collect this data accurately and completely for all subjects would invalidate the primary analysis and make the study results uninterpretable.",
+            "failure_mode": "Sites fail to conduct survival follow-up visits/calls at the required frequency, leading to subjects being lost to follow-up and censored data, which reduces statistical power.",
+            "severity_score": 5,
+            "probability_score": 3,
+            "detectability_score": 2,
+            "risk_priority_number": 30,
+            "affected_stakeholders": [
+              "Patient",
+              "Sponsor",
+              "Regulators"
+            ],
+            "preventive_controls": [
+              "Clear visit schedule in protocol",
+              "Site training on importance of survival follow-up",
+              "Patient retention plan"
+            ],
+            "detective_controls": [
+              "Centralized monitoring of overdue survival follow-up data"
+            ],
+            "mitigation_hierarchy_level": "Administrative",
+            "linked_risk_ids": [
+              "RISK-001"
+            ],
+            "provenance": {
+              "kind": "explicit",
+              "explicit": {
+                "section_number": "4.0",
+                "page_number": 29,
+                "text_snippet": "The primary objective of the study is to assess if treatment with veliparib plus carboplatin and paclitaxel results in improved survival compared to Investigator's choice of standard chemotherapy in LSP positive subjects with metastatic or advanced NSCLC."
+              }
+            }
+          },
+          {
+            "ctq_id": "CTQ-002",
+            "ctq_category": "Patient Safety",
+            "factor": "Correct identification, grading, and timely reporting of Serious Adverse Events (SAEs).",
+            "insight_type": "explicit",
+            "clinical_reasoning": "Ensures subject safety is paramount and allows for timely assessment of the study drug's safety profile, fulfilling regulatory reporting obligations.",
+            "failure_mode": "Site staff misclassify an SAE, fail to report it within 24 hours, or incorrectly assess causality, leading to delayed safety signal detection and regulatory non-compliance.",
+            "severity_score": 5,
+            "probability_score": 2,
+            "detectability_score": 2,
+            "risk_priority_number": 20,
+            "affected_stakeholders": [
+              "Patient",
+              "Site",
+              "Sponsor"
+            ],
+            "preventive_controls": [
+              "Detailed AE/SAE definitions in protocol",
+              "Comprehensive site training on safety reporting"
+            ],
+            "detective_controls": [
+              "Monitoring review of AEs and source documents",
+              "Centralized review of safety data"
+            ],
+            "mitigation_hierarchy_level": "Administrative",
+            "linked_risk_ids": [
+              "RISK-002"
+            ],
+            "provenance": {
+              "kind": "explicit",
+              "explicit": {
+                "section_number": "6.6.1",
+                "page_number": 79,
+                "text_snippet": "In the event of a serious adverse event, whether associated with study drug or not, the Investigator will notify the Clinical Pharmacovigilance within 24 hours of the site being made aware of the serious adverse event..."
+              }
+            }
+          },
+          {
+            "ctq_id": "CTQ-003",
+            "ctq_category": "Data Quality",
+            "factor": "Successful determination of Lung Subtype Panel (LSP) status from archived tumor tissue.",
+            "insight_type": "explicit",
+            "clinical_reasoning": "The primary endpoint is evaluated in the LSP-positive subgroup. Failure to determine LSP status for a significant portion of subjects will reduce the analyzable population, jeopardizing the ability to meet the primary objective.",
+            "failure_mode": "Archived tissue is of insufficient quality or quantity for the RNA-seq based assay, leading to a high assay failure rate.",
+            "severity_score": 5,
+            "probability_score": 4,
+            "detectability_score": 3,
+            "risk_priority_number": 60,
+            "affected_stakeholders": [
+              "Sponsor",
+              "Site"
+            ],
+            "preventive_controls": [
+              "Clear tissue sample requirements provided to sites",
+              "Feasibility assessment at sites for availability of suitable tissue"
+            ],
+            "detective_controls": [
+              "Central lab tracking of sample receipt and QC checks",
+              "KRI on assay failure rate"
+            ],
+            "mitigation_hierarchy_level": "Engineering",
+            "linked_risk_ids": [
+              "RISK-003"
+            ],
+            "provenance": {
+              "kind": "explicit",
+              "explicit": {
+                "section_number": "1.1",
+                "page_number": 2,
+                "text_snippet": "The patient population for the primary endpoint of overall survival (OS) is being amended from current smokers to subjects who are positive for the Lung Subtyping Panel (LSP) signature..."
+              }
+            }
+          },
+          {
+            "ctq_id": "CTQ-004",
+            "ctq_category": "GCP Compliance",
+            "factor": "Enrollment of subjects who meet all protocol-specified inclusion and exclusion criteria.",
+            "insight_type": "explicit",
+            "clinical_reasoning": "Ensures the study population is homogenous and as defined in the protocol, which is critical for both subject safety and the scientific validity of the trial results.",
+            "failure_mode": "Sites misinterpret eligibility criteria or have inadequate screening procedures, leading to the enrollment of ineligible subjects, compromising data integrity and potentially subject safety.",
+            "severity_score": 4,
+            "probability_score": 3,
+            "detectability_score": 2,
+            "risk_priority_number": 24,
+            "affected_stakeholders": [
+              "Patient",
+              "Site",
+              "Sponsor"
+            ],
+            "preventive_controls": [
+              "Clearly defined eligibility criteria in protocol",
+              "Site training with case studies",
+              "Use of an eligibility checklist"
+            ],
+            "detective_controls": [
+              "100% SDV of eligibility criteria",
+              "Centralized review of screening data"
+            ],
+            "mitigation_hierarchy_level": "Administrative",
+            "linked_risk_ids": [
+              "RISK-004"
+            ],
+            "provenance": {
+              "kind": "explicit",
+              "explicit": {
+                "section_number": "5.2",
+                "page_number": 33,
+                "text_snippet": "Subjects must meet all inclusion criteria and none of the exclusion criteria within 28 days of randomization."
+              }
+            }
+          },
+          {
+            "ctq_id": "CTQ-005",
+            "ctq_category": "Operational Feasibility",
+            "factor": "Consistent application of 'Investigator's Choice' of standard chemotherapy in the control arm.",
+            "insight_type": "inferred",
+            "clinical_reasoning": "While allowing choice reflects real-world practice, significant drift or imbalance in the chosen regimens between randomization strata could introduce confounding variables and complicate the comparison with the experimental arm.",
+            "failure_mode": "Certain sites exclusively use one chemotherapy option, or a new standard of care emerges mid-trial, creating imbalances that were not accounted for in the stratification plan.",
+            "severity_score": 3,
+            "probability_score": 3,
+            "detectability_score": 2,
+            "risk_priority_number": 18,
+            "affected_stakeholders": [
+              "Sponsor",
+              "Statisticians"
+            ],
+            "preventive_controls": [
+              "Stratification by Investigator's preferred platinum doublet therapy at randomization."
+            ],
+            "detective_controls": [
+              "Centralized monitoring of treatment administered in the control arm."
+            ],
+            "mitigation_hierarchy_level": "Engineering",
+            "linked_risk_ids": [
+              "RISK-005"
+            ],
+            "provenance": {
+              "kind": "explicit",
+              "explicit": {
+                "section_number": "5.1",
+                "page_number": 30,
+                "text_snippet": "Subjects will be randomized in a 1:1 ratio to a maximum of 6 cycles of carboplatin/paclitaxel plus 120 mg BID of veliparib or a maximum of 6 cycles of Investigator's choice of platinum doublet chemotherapy (carboplatin/paclitaxel, cisplatin/pemetrexed, or carboplatin/pemetrexed)."
+              }
+            }
+          },
+          {
+            "ctq_id": "CTQ-006",
+            "ctq_category": "GCP Compliance",
+            "factor": "Proper execution and documentation of the informed consent process.",
+            "insight_type": "inferred",
+            "clinical_reasoning": "Adherence to the informed consent process is a fundamental ethical and regulatory requirement, protecting the rights and autonomy of study participants.",
+            "failure_mode": "Site performs study procedures before consent is signed, uses an outdated version of the ICF, or fails to properly document the process, resulting in a critical GCP violation.",
+            "severity_score": 5,
+            "probability_score": 2,
+            "detectability_score": 1,
+            "risk_priority_number": 10,
+            "affected_stakeholders": [
+              "Patient",
+              "Site",
+              "Sponsor",
+              "IRB_IEC"
+            ],
+            "preventive_controls": [
+              "Site training on GCP and consent procedures",
+              "Version control of ICF documents"
+            ],
+            "detective_controls": [
+              "100% review of ICFs during monitoring visits"
+            ],
+            "mitigation_hierarchy_level": "Administrative",
+            "linked_risk_ids": [
+              "RISK-006"
+            ],
+            "provenance": {
+              "kind": "explicit",
+              "explicit": {
+                "section_number": "9.3",
+                "page_number": 93,
+                "text_snippet": "Prior to any study-related screening procedures being performed on the subject, the informed consent statement will be reviewed and signed and dated by the subject..."
+              }
+            }
+          }
+        ],
+        "emergent_systemic_risks": [
+          {
+            "risk_id": "ESR-001",
+            "risk_type": "cross_domain",
+            "risk_description": "The protocol amendment changing the primary analysis population from 'current smokers' to 'LSP-positive' subjects creates a dependency on a biomarker assay with an uncertain success rate, potentially invalidating original sample size calculations.",
+            "discovery_reasoning": "Identified from Protocol Amendment 4 summary, which fundamentally alters the study's primary objective and the population in which it is tested.",
+            "affected_domains": [
+              "Study Design",
+              "Biomarker Operations",
+              "Statistics",
+              "Enrollment"
+            ],
+            "trigger_conditions": "This risk manifests if the actual rate of LSP-positivity or the tissue assay success rate is significantly lower than the 76% assumed in the power calculations.",
+            "probability": "High",
+            "impact_severity": "Critical",
+            "affected_objectives": [
+              "Primary Efficacy",
+              "Timeline",
+              "Budget"
+            ],
+            "quantitative_estimate": "Potential for >30% reduction in evaluable subjects for primary endpoint, leading to an underpowered study.",
+            "preventive_redesign": "Incorporate adaptive design elements to allow for sample size re-estimation based on observed LSP+ and assay success rates.",
+            "monitoring_approach": "closely monitor lsp+ rate and assay success rate vs. assumptions via strategic kris.",
+            "contingency_plan": "If rates are low, extend enrollment period, add more sites, or seek regulatory guidance on alternative analysis populations.",
+            "linked_ctq_ids": [
+              "CTQ-003"
+            ],
+            "provenance": {
+              "kind": "explicit",
+              "explicit": {
+                "section_number": "1.1",
+                "page_number": 2,
+                "text_snippet": "The patient population for the primary endpoint of overall survival (OS) is being amended from current smokers to subjects who are positive for the Lung Subtyping Panel (LSP) signature..."
+              }
+            }
+          },
+          {
+            "risk_id": "ESR-002",
+            "risk_type": "interaction_effect",
+            "risk_description": "The open-label design may introduce investigator bias in the assessment of secondary endpoints like PFS and ORR, and in decisions regarding subsequent anti-cancer therapy, which could confound the primary OS endpoint.",
+            "discovery_reasoning": "Inferred from the 'Open-Label' study design specified in the protocol title and methodology.",
+            "affected_domains": [
+              "Endpoint Integrity",
+              "Data Quality"
+            ],
+            "trigger_conditions": "Investigator's knowledge of treatment assignment influences their assessment of tumor response or their choice of subsequent therapies for subjects in the control arm vs. the experimental arm.",
+            "probability": "Possible",
+            "impact_severity": "Major",
+            "affected_objectives": [
+              "Secondary Efficacy",
+              "Primary Efficacy"
+            ],
+            "quantitative_estimate": "Potential for a 5-10% bias in PFS assessment in favor of the experimental arm.",
+            "preventive_redesign": "Implement a blinded independent central review (BICR) for radiographic endpoints (not currently in protocol).",
+            "monitoring_approach": "monitor rates and types of subsequent anti-cancer therapies administered in each arm.",
+            "contingency_plan": "Conduct sensitivity analyses to assess the robustness of the OS result, accounting for subsequent therapies.",
+            "linked_ctq_ids": [
+              "CTQ-001"
+            ],
+            "provenance": {
+              "kind": "explicit",
+              "explicit": {
+                "section_number": "1.0",
+                "page_number": 1,
+                "text_snippet": "A Randomized, Open-Label, Multicenter, Phase 3 Trial..."
+              }
+            }
+          },
+          {
+            "risk_id": "ESR-003",
+            "risk_type": "cross_domain",
+            "risk_description": "High screen failure rate due to strict eligibility criteria (e.g., smoking history, non-squamous histology, specific mutations) combined with the need for LSP+ status could make enrollment targets unattainable within the planned timeline.",
+            "discovery_reasoning": "Inferred from the combination of detailed eligibility criteria and the addition of a biomarker-defined primary population.",
+            "affected_domains": [
+              "Enrollment",
+              "Operational Feasibility",
+              "Timeline"
+            ],
+            "trigger_conditions": "The pool of eligible, LSP+ patients at participating sites is smaller than anticipated.",
+            "probability": "Likely",
+            "impact_severity": "Major",
+            "affected_objectives": [
+              "Timeline",
+              "Budget"
+            ],
+            "quantitative_estimate": "Potential for 6-12 month delay in completing enrollment.",
+            "preventive_redesign": "Conduct thorough site feasibility to confirm access to the specific patient population before site activation.",
+            "monitoring_approach": "track screen failure reasons meticulously and monitor the enrollment rate against projections.",
+            "contingency_plan": "Expand study to additional countries/sites, or consider protocol amendment to broaden eligibility if scientifically justifiable.",
+            "linked_ctq_ids": [
+              "CTQ-004"
+            ],
+            "provenance": {
+              "kind": "derived",
+              "derived": {
+                "reasoning": "This risk is derived from the intersection of multiple protocol requirements: the strict smoking history (5.2.1), non-squamous histology (5.2.1), and the shift to an LSP+ primary population (1.1), which collectively narrow the eligible patient pool and create a significant risk to enrollment timelines.",
+                "supporting_context": [
+                  "Section 5.2.1 Inclusion Criteria",
+                  "Section 1.1 Protocol Amendment: Summary of Changes"
+                ],
+                "confidence": "high"
+              }
+            }
+          },
+          {
+            "risk_id": "ESR-004",
+            "risk_type": "temporal",
+            "risk_description": "The standard of care for first-line NSCLC may evolve during the course of this long-term study (e.g., increased use of immunotherapy), making the 'Investigator's Choice' control arm less representative of contemporary practice and affecting study relevance.",
+            "discovery_reasoning": "Inferred from the dynamic nature of oncology treatment landscapes and the study's duration.",
+            "affected_domains": [
+              "Study Design",
+              "Regulatory Compliance"
+            ],
+            "trigger_conditions": "New, highly effective therapies are approved and become standard of care for this patient population while the study is ongoing.",
+            "probability": "Possible",
+            "impact_severity": "Major",
+            "affected_objectives": [
+              "Primary Efficacy",
+              "Regulatory Compliance"
+            ],
+            "quantitative_estimate": "Results may be considered not applicable to current standard of care at time of study completion.",
+            "preventive_redesign": "Protocol could allow for amendments to the 'Investigator's Choice' options if a major shift in standard of care occurs, with regulatory consultation.",
+            "monitoring_approach": "monitor oncology treatment guidelines and new drug approvals.",
+            "contingency_plan": "Pre-specify subgroup analyses based on the type of standard therapy received. Discuss findings in the context of the evolving treatment landscape in the final report.",
+            "linked_ctq_ids": [
+              "CTQ-005"
+            ],
+            "provenance": {
+              "kind": "derived",
+              "derived": {
+                "reasoning": "This risk is inferred from the study design which uses 'Investigator's Choice' as a comparator (Section 5.1) in a therapeutic area (NSCLC) known for rapid evolution. The long duration required for an OS endpoint increases the likelihood that the standard of care will change during the trial.",
+                "supporting_context": [
+                  "Section 5.1 Overall Study Design and Plan: Description",
+                  "Section 3.1 NSCLC (Non-Small Cell Lung Cancer)"
+                ],
+                "confidence": "high"
+              }
+            }
+          }
+        ],
+        "strategic_risk_indicators": [
+          {
+            "kri_id": "SKRI-001",
+            "kri_type": "leading_indicator",
+            "category": "Risk Velocity",
+            "metric": "Ratio of subjects enrolled to subjects with successful LSP status determination.",
+            "rationale": "Provides an early warning if the number of subjects eligible for the primary analysis is lagging behind enrollment, indicating a potential issue with the biomarker pipeline (sample collection, shipping, or assay success).",
+            "predictive_value": "Predicts a potential shortfall in the required number of events in the LSP+ population, which could lead to an underpowered study or significant timeline delays.",
+            "calculation_formula": "(Number of subjects with a definitive LSP result) / (Total number of subjects randomized)",
+            "data_sources": [
+              "EDC",
+              "Central Lab Portal"
+            ],
+            "frequency": "Biweekly",
+            "thresholds": {
+              "green": {
+                "range": ">=76%",
+                "interpretation": "Biomarker pipeline is meeting expectations."
+              },
+              "amber": {
+                "range": "65-75%",
+                "interpretation": "Pipeline is underperforming; investigate cause.",
+                "escalation": "Biomarker Lead"
+              },
+              "red": {
+                "range": "<65%",
+                "interpretation": "Critical underperformance; risk to primary endpoint.",
+                "escalation": "Steering Committee"
+              }
+            },
+            "linked_ctq_ids": [
+              "CTQ-003"
+            ],
+            "provenance": {
+              "kind": "explicit",
+              "explicit": {
+                "section_number": "8.2",
+                "page_number": 91,
+                "text_snippet": "Based on 452 subjects having LSP tissue samples (assumed 76% LSP sample availability rate)..."
+              }
+            }
+          },
+          {
+            "kri_id": "SKRI-002",
+            "kri_type": "leading_indicator",
+            "category": "Operational Health",
+            "metric": "Screen Failure Rate due to 'LSP Negative' or 'LSP Assay Failure'.",
+            "rationale": "Directly measures the efficiency of finding the target population. A high rate indicates that significant resources are being spent screening patients who will not be eligible for the primary endpoint analysis.",
+            "predictive_value": "Predicts the feasibility of meeting enrollment targets for the LSP+ population. A high rate may forecast a need to open more sites or extend timelines.",
+            "calculation_formula": "(Number of screen failures due to LSP status) / (Total number of subjects screened for LSP status)",
+            "data_sources": [
+              "EDC",
+              "Screening Logs"
+            ],
+            "frequency": "Monthly",
+            "thresholds": {
+              "green": {
+                "range": "<50%",
+                "interpretation": "LSP+ prevalence is within expected range."
+              },
+              "amber": {
+                "range": "50-65%",
+                "interpretation": "LSP+ prevalence may be lower than expected.",
+                "escalation": "Project Manager"
+              },
+              "red": {
+                "range": ">65%",
+                "interpretation": "Enrollment targets for LSP+ population are at risk.",
+                "escalation": "Head of Clinical Operations"
+              }
+            },
+            "linked_ctq_ids": [
+              "CTQ-003",
+              "CTQ-004"
+            ],
+            "provenance": {
+              "kind": "derived",
+              "derived": {
+                "reasoning": "This KRI is derived from the sample size considerations in Section 8.2, which provide expected rates for LSP positivity (40-60%). A screen failure rate significantly outside this range indicates a mismatch between assumptions and reality, directly impacting enrollment feasibility.",
+                "supporting_context": [
+                  "Section 8.2 Determination of Sample Size"
+                ],
+                "confidence": "high"
+              }
+            }
+          },
+          {
+            "kri_id": "SKRI-003",
+            "kri_type": "leading_indicator",
+            "category": "Study Integrity",
+            "metric": "Distribution of 'Investigator's Choice' chemotherapy regimens across the study.",
+            "rationale": "Monitors for potential imbalance or drift in the standard of care being used in the control arm, which could introduce bias. This is a leading indicator of potential confounding variables in the final analysis.",
+            "predictive_value": "Predicts potential challenges in interpreting the primary comparison if the control arm becomes heterogeneous or unrepresentative of a single standard of care.",
+            "calculation_formula": "Percentage of control arm subjects receiving each of the three platinum doublet options.",
+            "data_sources": [
+              "EDC"
+            ],
+            "frequency": "Quarterly",
+            "thresholds": {
+              "green": {
+                "range": "No single regimen used by >60% of subjects.",
+                "interpretation": "Control arm treatment is diverse as expected."
+              },
+              "amber": {
+                "range": "One regimen used by 60-75% of subjects.",
+                "interpretation": "Potential drift towards a single therapy; monitor.",
+                "escalation": "Medical Monitor"
+              },
+              "red": {
+                "range": "One regimen used by >75% of subjects.",
+                "interpretation": "Significant imbalance; potential impact on analysis.",
+                "escalation": "Steering Committee"
+              }
+            },
+            "linked_ctq_ids": [
+              "CTQ-005"
+            ],
+            "provenance": {
+              "kind": "explicit",
+              "explicit": {
+                "section_number": "5.1",
+                "page_number": 30,
+                "text_snippet": "Subject randomization will be stratified by smoking status (current versus former), by the Investigators' preferred platinum therapy (carboplatin/paclitaxel versus cisplatin/pemetrexed versus carboplatin/pemetrexed)..."
+              }
+            }
+          }
+        ],
+        "strategic_summary": {
+          "provenance": {
+            "kind": "derived",
+            "derived": {
+              "reasoning": "The protocol does not contain a strategic summary of risks. This would be a synthesized output of the risk assessment process, derived from the identified CTQs, risks, and the overall study design, particularly the major amendment changing the primary endpoint population.",
+              "supporting_context": [
+                "Section 1.1 Protocol Amendment: Summary of Changes"
+              ],
+              "confidence": "high"
+            }
+          }
+        }
+      },
+      "risk_governance": {
+        "risk_assessment_matrix": {
+          "scoring_methodology": {
+            "probability_scale": {
+              "1": "Rare (<5%)",
+              "2": "Unlikely (5-20%)",
+              "3": "Possible (20-50%)",
+              "4": "Likely (50-80%)",
+              "5": "Almost Certain (>80%)"
+            },
+            "impact_scale": {
+              "1": "Negligible",
+              "2": "Minor",
+              "3": "Moderate",
+              "4": "Major",
+              "5": "Catastrophic"
+            },
+            "risk_levels": {
+              "1-4": "Low",
+              "5-9": "Medium",
+              "10-14": "High",
+              "15-25": "Critical"
+            }
+          },
+          "identified_risks": [
+            {
+              "risk_id": "RISK-001",
+              "risk_category": "Endpoints",
+              "risk_description": "Failure to collect complete survival data due to subjects being lost to follow-up.",
+              "risk_owner": "Sponsor",
+              "inherent_risk": {
+                "probability": 3,
+                "impact": 5,
+                "score": 15,
+                "level": "Critical"
+              },
+              "residual_risk": {
+                "probability": 2,
+                "impact": 5,
+                "score": 10,
+                "level": "High"
+              },
+              "risk_reduction_percentage": 33,
+              "linked_ctq_id": "CTQ-001",
+              "linked_mitigation_ids": [
+                "MIT-001"
+              ],
+              "provenance": {
+                "kind": "explicit",
+                "explicit": {
+                  "section_number": "8.1.2.1",
+                  "page_number": 83,
+                  "text_snippet": "Time to death for a given subject will be defined as the number of days from the date that the subject was randomized to the date of the subject's death... If a subject has not died, then the data will be censored at the date when the subject was last known to be alive."
+                }
+              }
+            },
+            {
+              "risk_id": "RISK-002",
+              "risk_category": "Safety",
+              "risk_description": "Delayed reporting of SAEs by sites leading to late safety signal detection.",
+              "risk_owner": "Site",
+              "inherent_risk": {
+                "probability": 2,
+                "impact": 5,
+                "score": 10,
+                "level": "High"
+              },
+              "residual_risk": {
+                "probability": 1,
+                "impact": 5,
+                "score": 5,
+                "level": "Medium"
+              },
+              "risk_reduction_percentage": 50,
+              "linked_ctq_id": "CTQ-002",
+              "linked_mitigation_ids": [
+                "MIT-002"
+              ],
+              "provenance": {
+                "kind": "explicit",
+                "explicit": {
+                  "section_number": "6.6.1",
+                  "page_number": 79,
+                  "text_snippet": "In the event of a serious adverse event...the Investigator will notify the Clinical Pharmacovigilance within 24 hours of the site being made aware of the serious adverse event..."
+                }
+              }
+            },
+            {
+              "risk_id": "RISK-003",
+              "risk_category": "Data Collection",
+              "risk_description": "High rate of LSP biomarker assay failure due to poor quality of archived tissue.",
+              "risk_owner": "Sponsor",
+              "inherent_risk": {
+                "probability": 4,
+                "impact": 5,
+                "score": 20,
+                "level": "Critical"
+              },
+              "residual_risk": {
+                "probability": 3,
+                "impact": 5,
+                "score": 15,
+                "level": "Critical"
+              },
+              "risk_reduction_percentage": 25,
+              "linked_ctq_id": "CTQ-003",
+              "linked_mitigation_ids": [
+                "MIT-003",
+                "MIT-004"
+              ],
+              "provenance": {
+                "kind": "explicit",
+                "explicit": {
+                  "section_number": "8.2",
+                  "page_number": 91,
+                  "text_snippet": "Based on 452 subjects having LSP tissue samples (assumed 76% LSP sample availability rate)..."
+                }
+              }
+            },
+            {
+              "risk_id": "RISK-004",
+              "risk_category": "Subject Population",
+              "risk_description": "Enrollment of ineligible subjects due to complex inclusion/exclusion criteria.",
+              "risk_owner": "Site",
+              "inherent_risk": {
+                "probability": 3,
+                "impact": 4,
+                "score": 12,
+                "level": "High"
+              },
+              "residual_risk": {
+                "probability": 1,
+                "impact": 4,
+                "score": 4,
+                "level": "Low"
+              },
+              "risk_reduction_percentage": 67,
+              "linked_ctq_id": "CTQ-004",
+              "linked_mitigation_ids": [
+                "MIT-005"
+              ],
+              "provenance": {
+                "kind": "explicit",
+                "explicit": {
+                  "section_number": "5.2",
+                  "page_number": 33,
+                  "text_snippet": "Subjects must meet all inclusion criteria and none of the exclusion criteria within 28 days of randomization."
+                }
+              }
+            },
+            {
+              "risk_id": "RISK-005",
+              "risk_category": "Study Design",
+              "risk_description": "Introduction of bias due to open-label design affecting investigator assessments.",
+              "risk_owner": "Sponsor",
+              "inherent_risk": {
+                "probability": 3,
+                "impact": 4,
+                "score": 12,
+                "level": "High"
+              },
+              "residual_risk": {
+                "probability": 3,
+                "impact": 3,
+                "score": 9,
+                "level": "Medium"
+              },
+              "risk_reduction_percentage": 25,
+              "linked_ctq_id": "CTQ-005",
+              "linked_mitigation_ids": [
+                "MIT-006"
+              ],
+              "provenance": {
+                "kind": "explicit",
+                "explicit": {
+                  "section_number": "1.0",
+                  "page_number": 1,
+                  "text_snippet": "A Randomized, Open-Label, Multicenter, Phase 3 Trial..."
+                }
+              }
+            },
+            {
+              "risk_id": "RISK-006",
+              "risk_category": "GCP",
+              "risk_description": "Critical findings related to the informed consent process.",
+              "risk_owner": "Site",
+              "inherent_risk": {
+                "probability": 2,
+                "impact": 5,
+                "score": 10,
+                "level": "High"
+              },
+              "residual_risk": {
+                "probability": 1,
+                "impact": 5,
+                "score": 5,
+                "level": "Medium"
+              },
+              "risk_reduction_percentage": 50,
+              "linked_ctq_id": "CTQ-006",
+              "linked_mitigation_ids": [
+                "MIT-007"
+              ],
+              "provenance": {
+                "kind": "explicit",
+                "explicit": {
+                  "section_number": "9.3",
+                  "page_number": 93,
+                  "text_snippet": "Prior to any study-related screening procedures being performed on the subject, the informed consent statement will be reviewed and signed and dated by the subject..."
+                }
+              }
+            },
+            {
+              "risk_id": "RISK-007",
+              "risk_category": "Operational",
+              "risk_description": "Slow enrollment due to difficulty finding LSP-positive subjects.",
+              "risk_owner": "Sponsor",
+              "inherent_risk": {
+                "probability": 4,
+                "impact": 4,
+                "score": 16,
+                "level": "Critical"
+              },
+              "residual_risk": {
+                "probability": 3,
+                "impact": 4,
+                "score": 12,
+                "level": "High"
+              },
+              "risk_reduction_percentage": 25,
+              "linked_ctq_id": "CTQ-003",
+              "linked_mitigation_ids": [
+                "MIT-008"
+              ],
+              "provenance": {
+                "kind": "derived",
+                "derived": {
+                  "reasoning": "This risk is derived from the sample size calculations in Section 8.2, which show the study's power is highly dependent on achieving a sufficient number of LSP+ subjects. The assumed LSP+ rates (40-60%) indicate a large number of subjects will be screened to find the target population, creating a high risk of slow enrollment.",
+                  "supporting_context": [
+                    "Section 8.2 Determination of Sample Size"
+                  ],
+                  "confidence": "high"
+                }
+              }
+            },
+            {
+              "risk_id": "RISK-008",
+              "risk_category": "IMP Supply Chain",
+              "risk_description": "Disruption in supply of Investigator's Choice chemotherapy agents.",
+              "risk_owner": "Site",
+              "inherent_risk": {
+                "probability": 2,
+                "impact": 3,
+                "score": 6,
+                "level": "Medium"
+              },
+              "residual_risk": {
+                "probability": 1,
+                "impact": 3,
+                "score": 3,
+                "level": "Low"
+              },
+              "risk_reduction_percentage": 50,
+              "linked_ctq_id": "CTQ-005",
+              "linked_mitigation_ids": [
+                "MIT-009"
+              ],
+              "provenance": {
+                "kind": "explicit",
+                "explicit": {
+                  "section_number": "5.5.2.1",
+                  "page_number": 61,
+                  "text_snippet": "Unless directed otherwise by AbbVie, sites are responsible for obtaining the non-investigational products listed below as needed to conduct this study at their site."
+                }
+              }
+            }
+          ],
+          "provenance": {
+            "kind": "derived",
+            "derived": {
+              "reasoning": "The protocol does not contain a risk assessment matrix. The matrix, including scoring and risk levels, is a standard RBQM tool. The identified risks are directly derived from the Critical to Quality factors, which are themselves based on explicit protocol requirements.",
+              "supporting_context": [
+                "Section 4.0 Study Objectives",
+                "Section 6.0 Adverse Events",
+                "Section 5.2 Selection of Study Population"
+              ],
+              "confidence": "high"
+            }
+          }
+        },
+        "mitigation_strategies": [
+          {
+            "mitigation_id": "MIT-001",
+            "linked_risk_ids": [
+              "RISK-001"
+            ],
+            "control_type": "Detective",
+            "control_category": "Centralized Monitoring",
+            "strategy_description": "Implement centralized monitoring reports to track overdue survival follow-up visits across all sites and trigger alerts to the monitoring team.",
+            "implementation_phase": "Conduct",
+            "responsible_party": "Sponsor",
+            "effectiveness_rating": "High",
+            "verification_method": "Review of centralized monitoring outputs and action item resolution rates.",
+            "verification_frequency": "Monthly",
+            "resource_requirements": "Central monitor time, validated reporting system.",
+            "provenance": {
+              "kind": "derived",
+              "derived": {
+                "reasoning": "This mitigation strategy is not explicitly stated. It is a standard detective control for the risk of missing primary endpoint data (RISK-001), enabled by the use of an EDC system (Section 10.2) and the defined survival follow-up schedule (Section 5.1).",
+                "supporting_context": [
+                  "Section 5.1 Overall Study Design and Plan: Description",
+                  "Section 10.2 Case Report Forms"
+                ],
+                "confidence": "medium"
+              }
+            }
+          },
+          {
+            "mitigation_id": "MIT-002",
+            "linked_risk_ids": [
+              "RISK-002"
+            ],
+            "control_type": "Preventive",
+            "control_category": "Training",
+            "strategy_description": "Conduct comprehensive, role-based training on safety definitions and reporting timelines during SIV, with periodic refresher training.",
+            "implementation_phase": "Study Startup",
+            "responsible_party": "Sponsor",
+            "effectiveness_rating": "High",
+            "verification_method": "Review of training records and KRI for SAE reporting timeliness.",
+            "verification_frequency": "Ongoing",
+            "resource_requirements": "Training materials, CRA time.",
+            "provenance": {
+              "kind": "derived",
+              "derived": {
+                "reasoning": "The protocol does not detail training activities, but training is a standard and required preventive control to ensure site staff understand and comply with the critical SAE reporting requirements outlined in Section 6.6.1.",
+                "supporting_context": [
+                  "Section 6.6.1 Reporting Serious Adverse Events"
+                ],
+                "confidence": "high"
+              }
+            }
+          },
+          {
+            "mitigation_id": "MIT-003",
+            "linked_risk_ids": [
+              "RISK-003"
+            ],
+            "control_type": "Preventive",
+            "control_category": "Protocol Design",
+            "strategy_description": "Develop and distribute a detailed tissue sample collection and handling manual, including specific requirements for block age, fixation, and shipping.",
+            "implementation_phase": "Study Startup",
+            "responsible_party": "Sponsor",
+            "effectiveness_rating": "Medium",
+            "verification_method": "Confirmation of manual distribution and site training.",
+            "verification_frequency": "Once per site",
+            "resource_requirements": "Technical writing, input from lab vendor.",
+            "provenance": {
+              "kind": "explicit",
+              "explicit": {
+                "section_number": "5.3.1.3",
+                "page_number": 52,
+                "text_snippet": "Tissue biopsies (10 \u2013 15 slides with quality controls) or cytology slides (if no tissue specimen was obtained) may be provided to AbbVie as detailed in the study specific laboratory manual."
+              }
+            }
+          },
+          {
+            "mitigation_id": "MIT-004",
+            "linked_risk_ids": [
+              "RISK-003"
+            ],
+            "control_type": "Detective",
+            "control_category": "Lab Management",
+            "strategy_description": "Central lab to perform incoming QC on all tissue samples and provide rapid feedback to sites on sample adequacy.",
+            "implementation_phase": "Conduct",
+            "responsible_party": "Central Lab",
+            "effectiveness_rating": "High",
+            "verification_method": "Review of lab QC reports and assay failure rate KRI.",
+            "verification_frequency": "Weekly",
+            "resource_requirements": "Central lab personnel and procedures.",
+            "provenance": {
+              "kind": "derived",
+              "derived": {
+                "reasoning": "This mitigation is a standard operational control for studies with a critical biomarker component. While not explicitly stated, it is an implied necessity to manage the risk of assay failure (RISK-003) associated with the LSP analysis described in the protocol.",
+                "supporting_context": [
+                  "Section 10, Criteria for Evaluation, LSP status"
+                ],
+                "confidence": "medium"
+              }
+            }
+          },
+          {
+            "mitigation_id": "MIT-005",
+            "linked_risk_ids": [
+              "RISK-004"
+            ],
+            "control_type": "Preventive",
+            "control_category": "Site Management",
+            "strategy_description": "Implement a mandatory electronic eligibility checklist to be completed in the EDC prior to randomization.",
+            "implementation_phase": "Study Startup",
+            "responsible_party": "Sponsor",
+            "effectiveness_rating": "High",
+            "verification_method": "EDC system validation and UAT.",
+            "verification_frequency": "Once",
+            "resource_requirements": "EDC programming and validation.",
+            "provenance": {
+              "kind": "derived",
+              "derived": {
+                "reasoning": "The protocol does not explicitly mention an electronic eligibility checklist. This mitigation strategy is a standard industry control derived from the high risk associated with the complex eligibility criteria outlined in Sections 5.2.1 and 5.2.2, and is designed to prevent the enrollment of ineligible subjects (RISK-004).",
+                "supporting_context": [
+                  "Section 5.2.1 Inclusion Criteria",
+                  "Section 5.2.2 Exclusion Criteria"
+                ],
+                "confidence": "medium"
+              }
+            }
+          },
+          {
+            "mitigation_id": "MIT-006",
+            "linked_risk_ids": [
+              "RISK-005"
+            ],
+            "control_type": "Corrective",
+            "control_category": "Statistical Analysis",
+            "strategy_description": "Pre-specify sensitivity analyses in the Statistical Analysis Plan (SAP) to evaluate the impact of subsequent anti-cancer therapies on the OS endpoint.",
+            "implementation_phase": "Study Startup",
+            "responsible_party": "Sponsor",
+            "effectiveness_rating": "Medium",
+            "verification_method": "Review and approval of final SAP.",
+            "verification_frequency": "Once",
+            "resource_requirements": "Statistician time.",
+            "provenance": {
+              "kind": "explicit",
+              "explicit": {
+                "section_number": "8.1.7",
+                "page_number": 88,
+                "text_snippet": "For those subjects who take other chemotherapies during the study or after they withdraw from the study, the primary efficacy OS and secondary efficacy endpoint of PFS will be censored at the date of subject's initiation of other chemotherapies."
+              }
+            }
+          },
+          {
+            "mitigation_id": "MIT-007",
+            "linked_risk_ids": [
+              "RISK-006"
+            ],
+            "control_type": "Detective",
+            "control_category": "Monitoring",
+            "strategy_description": "Monitors perform 100% review of all signed ICFs against the current approved version and source document the consent process for the first 5 subjects at each site.",
+            "implementation_phase": "Conduct",
+            "responsible_party": "Sponsor",
+            "effectiveness_rating": "High",
+            "verification_method": "Review of monitoring reports.",
+            "verification_frequency": "Per monitoring visit",
+            "resource_requirements": "CRA time.",
+            "provenance": {
+              "kind": "derived",
+              "derived": {
+                "reasoning": "This mitigation is a standard monitoring practice to address the critical risk of improper informed consent (RISK-006). While not detailed in the protocol, it is a fundamental activity implied by the requirement for on-site monitoring (Section 9.2) and GCP compliance.",
+                "supporting_context": [
+                  "Section 9.2 Ethical Conduct of the Study",
+                  "Section 9.3 Subject Information and Consent"
+                ],
+                "confidence": "high"
+              }
+            }
+          },
+          {
+            "mitigation_id": "MIT-008",
+            "linked_risk_ids": [
+              "RISK-007"
+            ],
+            "control_type": "Corrective",
+            "control_category": "Site Management",
+            "strategy_description": "Develop a contingency plan to activate additional, pre-qualified sites if enrollment milestones for the LSP+ population are not met.",
+            "implementation_phase": "Study Startup",
+            "responsible_party": "Sponsor",
+            "effectiveness_rating": "Medium",
+            "verification_method": "Review of enrollment metrics against plan.",
+            "verification_frequency": "Monthly",
+            "resource_requirements": "Budget for additional sites, clinical operations resources.",
+            "provenance": {
+              "kind": "derived",
+              "derived": {
+                "reasoning": "The protocol does not describe contingency plans for slow enrollment. This is a standard operational mitigation strategy for the high risk of failing to meet enrollment targets (RISK-007), especially in a biomarker-selected population.",
+                "supporting_context": [
+                  "Section 1.2 Synopsis, Number of Subjects to be Enrolled: 595"
+                ],
+                "confidence": "medium"
+              }
+            }
+          },
+          {
+            "mitigation_id": "MIT-009",
+            "linked_risk_ids": [
+              "RISK-008"
+            ],
+            "control_type": "Preventive",
+            "control_category": "Site Management",
+            "strategy_description": "Sites to confirm availability and supply chain for all potential 'Investigator's Choice' regimens prior to activation.",
+            "implementation_phase": "Site Activation",
+            "responsible_party": "Site",
+            "effectiveness_rating": "High",
+            "verification_method": "Site activation checklist.",
+            "verification_frequency": "Once per site",
+            "resource_requirements": "Site coordinator/pharmacy time.",
+            "provenance": {
+              "kind": "explicit",
+              "explicit": {
+                "section_number": "5.5.2.1",
+                "page_number": 61,
+                "text_snippet": "Unless directed otherwise by AbbVie, sites are responsible for obtaining the non-investigational products listed below as needed to conduct this study at their site."
+              }
+            }
+          },
+          {
+            "mitigation_id": "MIT-010",
+            "linked_risk_ids": [
+              "RISK-005"
+            ],
+            "control_type": "Preventive",
+            "control_category": "Protocol Design",
+            "strategy_description": "Randomization is stratified by Investigator's preferred platinum doublet therapy to ensure balance of these choices across the main treatment arms.",
+            "implementation_phase": "Protocol Design",
+            "responsible_party": "Sponsor",
+            "effectiveness_rating": "High",
+            "verification_method": "Review of randomization schema and IRT specifications.",
+            "verification_frequency": "Once",
+            "resource_requirements": "Statistician and IRT programmer time.",
+            "provenance": {
+              "kind": "explicit",
+              "explicit": {
+                "section_number": "8.3",
+                "page_number": 91,
+                "text_snippet": "Subject randomization will be stratified by smoking status (current versus former), Investigators' preferred platinum therapy (carboplatin/paclitaxel versus cisplatin/pemetrexed versus carboplatin/pemetrexed)..."
+              }
+            }
+          }
+        ],
+        "safety_signal_detection": {
+          "statistical_methods": [
+            {
+              "method_id": "SSD-001",
+              "method_name": "AE Incidence Review",
+              "method_description": "Regular review of adverse event incidence rates, severity, and relationship to study drug, comparing treatment arms.",
+              "application": "Ongoing monitoring of the safety profile of veliparib in combination with chemotherapy.",
+              "data_requirements": [
+                "EDC safety data",
+                "MedDRA coding"
+              ],
+              "provenance": {
+                "kind": "explicit",
+                "explicit": {
+                  "section_number": "8.1.8.2",
+                  "page_number": 89,
+                  "text_snippet": "Analyses of adverse events will include only \"treatment-emergent\" events...Treatment-emergent adverse events will be summarized by preferred terms within a System and Organ Class according to the most current MedDRA dictionary."
+                }
+              }
+            }
+          ],
+          "stopping_rules": [],
+          "dsmb_interface": {
+            "dsmb_required": false,
+            "meeting_frequency": "N/A",
+            "review_scope": [],
+            "unblinding_criteria": "N/A",
+            "provenance": {
+              "kind": "derived",
+              "derived": {
+                "reasoning": "The protocol document does not contain any mention of a Data Safety Monitoring Board (DSMB), Data Monitoring Committee (DMC), or any similar independent oversight committee. Therefore, it is concluded that a DSMB is not required for this study.",
+                "supporting_context": [],
+                "confidence": "high"
+              }
+            }
+          }
+        },
+        "issue_management_cascade": {
+          "level_1_issue": {
+            "definition": "Site-level operational issues or minor deviations.",
+            "owner": "CRA",
+            "resolution_timeline_days": 14,
+            "escalation_trigger": "No resolution within timeline or issue impacts data quality."
+          },
+          "level_2_issue": {
+            "definition": "Study-wide issues, major deviations, KRI amber alerts.",
+            "owner": "Project Manager",
+            "resolution_timeline_days": 30,
+            "escalation_trigger": "Issue impacts timeline, budget, or QTL."
+          },
+          "level_3_issue": {
+            "definition": "Critical issues, QTL breaches, significant safety concerns.",
+            "owner": "Steering Committee / Sponsor Management",
+            "resolution_timeline_days": 45,
+            "escalation_trigger": "Risk to study integrity or regulatory compliance."
+          },
+          "provenance": {
+            "kind": "derived",
+            "derived": {
+              "reasoning": "The protocol does not define an issue management or escalation cascade. This structure is derived from standard clinical operations practice for managing and escalating issues based on their potential impact, from the site-level (CRA) to study-level (Project Manager) to executive oversight (Steering Committee).",
+              "supporting_context": [],
+              "confidence": "medium"
+            }
+          }
+        }
+      },
+      "technology_config": {
+        "provenance": {
+          "kind": "derived",
+          "derived": {
+            "reasoning": "The protocol specifies the use of an Electronic Data Capture (EDC) system (Rave) in Section 10.2 and an Interactive Response Technology (IRT) system in Section 5.5.4. However, it does not detail the specific configuration or risk management settings for these technologies. The technology configuration is therefore derived from these mentions.",
+            "supporting_context": [
+              "Section 10.2 Case Report Forms",
+              "Section 5.5.4 Method of Assigning Subjects to Treatment Groups"
+            ],
+            "confidence": "high"
+          }
+        }
+      }
+    },
+    "extraction_statistics": {
+      "has_monitoring_approach": true,
+      "has_sdv_strategy": true,
+      "has_monitoring_visits": true,
+      "kri_count": 8,
+      "qtl_count": 5,
+      "ctq_count": 6,
+      "emergent_risk_count": 4,
+      "mitigation_strategy_count": 10,
+      "identified_risks_count": 8,
+      "has_ract_register": true,
+      "has_risk_governance": true
+    },
+    "provenance": {
+      "kind": "derived",
+      "derived": {
+        "reasoning": "The overall quality management plan is derived from multiple sections of the protocol that describe monitoring, data collection, safety reporting, and study conduct. While not consolidated into a single 'Quality Management' section, these components collectively form the basis for such a plan.",
+        "supporting_context": [
+          "Section 6.0: Adverse Events",
+          "Section 7.0: Protocol Deviations",
+          "Section 9.2: Ethical Conduct of the Study",
+          "Section 10.2: Case Report Forms",
+          "Section 11.0: Data Quality Assurance"
+        ],
+        "confidence": "high"
+      }
+    }
+  }
+}

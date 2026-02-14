@@ -1,0 +1,452 @@
+{
+  "module_id": "data_management",
+  "module_name": "Data Management",
+  "protocol_id": "NCT02264990_M14-359",
+  "timestamp": "2026-02-14T11:44:11.680340",
+  "success": true,
+  "metrics": {
+    "provenance_coverage": 1.0,
+    "pass1_duration_seconds": 50.89,
+    "pass2_duration_seconds": 200.46,
+    "total_duration_seconds": 251.35,
+    "pass2_skipped": false
+  },
+  "quality_scores": {
+    "accuracy": 1.0,
+    "completeness": 1.0,
+    "usdm_adherence": 0.5,
+    "provenance": 1.0,
+    "terminology": 1.0,
+    "overall": 0.9,
+    "from_cache": false,
+    "duration_seconds": 251.46805429458618
+  },
+  "extracted_data": {
+    "id": "M14-359-data-management",
+    "instanceType": "DataManagementPlan",
+    "name": "M14-359 Data Management Plan",
+    "edc_specifications": {
+      "instanceType": "EDCSpecifications",
+      "vendor_name": "Medidata Rave",
+      "system_capabilities": [
+        "randomization",
+        "audit_trail",
+        "electronic_signature",
+        "IWRS_integration",
+        "central_lab_integration"
+      ],
+      "integration_systems": [
+        {
+          "id": "integration-001",
+          "system_type": "IWRS",
+          "vendor_name": null,
+          "transfer_frequency": null,
+          "transfer_method": null,
+          "provenance": {
+            "section_number": null,
+            "page_number": 49,
+            "text_snippet": "Randomization and Subject Number Assignment\n\nAn Interactive Response Technology system (IRT) will be utilized to register subjects."
+          }
+        },
+        {
+          "id": "integration-002",
+          "system_type": "central_lab",
+          "vendor_name": null,
+          "transfer_frequency": null,
+          "transfer_method": null,
+          "provenance": {
+            "section_number": null,
+            "page_number": 47,
+            "text_snippet": "All laboratory samples will be assessed using a certified central laboratory and these data will be used for all data analysis. The central laboratory will provide instructions regarding the collection, processing and shipping of samples."
+          }
+        }
+      ],
+      "language_requirements": [
+        "English"
+      ],
+      "crf_modules": [
+        {
+          "id": "crf-001",
+          "module_name": "Informed Consent",
+          "forms": [
+            "Informed Consent"
+          ],
+          "visit_schedule": [
+            "Screening"
+          ],
+          "is_repeating": false,
+          "provenance": {
+            "section_number": "Table 2",
+            "page_number": 41,
+            "text_snippet": "Activity: Informed Consent"
+          }
+        },
+        {
+          "id": "crf-002",
+          "module_name": "Medical History",
+          "forms": [
+            "Medical and Cancer History"
+          ],
+          "visit_schedule": [
+            "Screening"
+          ],
+          "is_repeating": false,
+          "provenance": {
+            "section_number": "Table 2",
+            "page_number": 41,
+            "text_snippet": "Activity: Medical and Cancer History"
+          }
+        },
+        {
+          "id": "crf-003",
+          "module_name": "Physical Exam",
+          "forms": [
+            "Physical Exam"
+          ],
+          "visit_schedule": [
+            "Screening",
+            "Cycle 1 Day -2",
+            "Cycle 2-6",
+            "Maintenance Therapy",
+            "Post-Treatment",
+            "Final Visit"
+          ],
+          "is_repeating": true,
+          "provenance": {
+            "section_number": "Table 2",
+            "page_number": 41,
+            "text_snippet": "Activity: Physical Exam (including weight)"
+          }
+        },
+        {
+          "id": "crf-004",
+          "module_name": "Vital Signs",
+          "forms": [
+            "Vital Signs"
+          ],
+          "visit_schedule": [
+            "Screening",
+            "Cycle 1 Day 1",
+            "Cycle 2-6",
+            "Maintenance Therapy",
+            "Post-Treatment",
+            "Final Visit"
+          ],
+          "is_repeating": true,
+          "provenance": {
+            "section_number": "Table 2",
+            "page_number": 41,
+            "text_snippet": "Activity: Vital Signs"
+          }
+        },
+        {
+          "id": "crf-005",
+          "module_name": "ECG",
+          "forms": [
+            "12-Lead ECG"
+          ],
+          "visit_schedule": [
+            "Screening",
+            "Final Visit"
+          ],
+          "is_repeating": false,
+          "provenance": {
+            "section_number": "Table 2",
+            "page_number": 41,
+            "text_snippet": "Activity: 12-Lead ECG"
+          }
+        },
+        {
+          "id": "crf-006",
+          "module_name": "Performance Status",
+          "forms": [
+            "ECOG"
+          ],
+          "visit_schedule": [
+            "Screening",
+            "Cycle 1 Day -2",
+            "Cycle 2-6",
+            "Maintenance Therapy",
+            "Post-Treatment",
+            "Final Visit"
+          ],
+          "is_repeating": true,
+          "provenance": {
+            "section_number": "Table 2",
+            "page_number": 41,
+            "text_snippet": "Activity: Performance Status (ECOG)"
+          }
+        },
+        {
+          "id": "crf-007",
+          "module_name": "Laboratory Results",
+          "forms": [
+            "Chemistry",
+            "Hematology",
+            "Urinalysis",
+            "Coagulation",
+            "Pregnancy Test"
+          ],
+          "visit_schedule": [
+            "Screening",
+            "Cycle 1 Day -2",
+            "Cycle 1 Day 1",
+            "Cycle 2-6",
+            "Maintenance Therapy",
+            "Final Visit"
+          ],
+          "is_repeating": true,
+          "provenance": {
+            "section_number": "Table 2",
+            "page_number": 41,
+            "text_snippet": "Activity: Chemistry/Hematology; Urinalysis; aPTT, INR; Documentation of Non-Childbearing Status or Pregnancy Test"
+          }
+        },
+        {
+          "id": "crf-008",
+          "module_name": "Tumor Assessments",
+          "forms": [
+            "Tumor Assessments",
+            "MRI of the Brain"
+          ],
+          "visit_schedule": [
+            "Screening",
+            "Cycle 3 Day 1",
+            "Cycle 5 Day 1",
+            "Post-Treatment",
+            "Final Visit"
+          ],
+          "is_repeating": true,
+          "provenance": {
+            "section_number": "Table 2",
+            "page_number": 41,
+            "text_snippet": "Activity: Tumor Assessments; MRI of the Brain"
+          }
+        },
+        {
+          "id": "crf-009",
+          "module_name": "Quality of Life",
+          "forms": [
+            "NFLSI-17",
+            "EQ-5D-5L"
+          ],
+          "visit_schedule": [
+            "Cycle 1 Day -2",
+            "Cycle 3 Day 1",
+            "Cycle 5 Day 1",
+            "Post-Treatment",
+            "Final Visit"
+          ],
+          "is_repeating": true,
+          "provenance": {
+            "section_number": "Table 2",
+            "page_number": 41,
+            "text_snippet": "Activity: QoL Questionnaires"
+          }
+        },
+        {
+          "id": "crf-010",
+          "module_name": "Adverse Events and Concomitant Medications",
+          "forms": [
+            "Adverse Event",
+            "Concomitant Medication"
+          ],
+          "visit_schedule": [
+            "All Visits"
+          ],
+          "is_repeating": true,
+          "provenance": {
+            "section_number": "Table 2",
+            "page_number": 41,
+            "text_snippet": "Activity: Adverse Event and Concomitant Medication Assessment"
+          }
+        },
+        {
+          "id": "crf-011",
+          "module_name": "Study Drug Administration",
+          "forms": [
+            "Drug Dispensation",
+            "Drug Administration"
+          ],
+          "visit_schedule": [
+            "Cycle 1 Day -2",
+            "Cycle 1 Day 1",
+            "Cycle 2-6"
+          ],
+          "is_repeating": true,
+          "provenance": {
+            "section_number": "Table 2",
+            "page_number": 41,
+            "text_snippet": "Activity: Dispense veliparib; Administer premedication; Administer platinum doublet chemotherapy; Administer maintenance pemetrexed"
+          }
+        },
+        {
+          "id": "crf-012",
+          "module_name": "Survival",
+          "forms": [
+            "Survival Follow-up"
+          ],
+          "visit_schedule": [
+            "Survival Period"
+          ],
+          "is_repeating": true,
+          "provenance": {
+            "section_number": "5.3.1.2",
+            "page_number": 51,
+            "text_snippet": "Subjects no longer undergoing clinical assessments will have survival information reported at 2-month intervals (or as requested by sponsor to support data analysis) beginning at the last clinical assessment and continuing until the endpoint of death"
+          }
+        }
+      ],
+      "provenance": {
+        "section_number": "10.2",
+        "page_number": 95,
+        "text_snippet": "The CRF data for this study are being collected with an electronic data capture (EDC) system called Rave\u00ae provided by the technology vendor Medidata Solutions Incorporated, NY, USA."
+      }
+    },
+    "data_standards": {
+      "instanceType": "DataStandards",
+      "sdtm_version": null,
+      "sdtm_ig_version": null,
+      "adam_version": null,
+      "controlled_terminology": {
+        "cdisc_ct_version": null,
+        "meddra_version": "13.1",
+        "whodrug_version": null,
+        "snomed_version": null
+      },
+      "define_xml_required": null,
+      "define_xml_version": null,
+      "adrg_required": null,
+      "sdrg_required": null,
+      "provenance": {
+        "section_number": "Appendix F",
+        "page_number": 112,
+        "text_snippet": "Preferred Term (MedDRA Version 13.1)"
+      }
+    },
+    "data_quality": {
+      "instanceType": "DataQuality",
+      "edit_checks": {
+        "standard_checks": [
+          "date_logic",
+          "consistency_checks"
+        ],
+        "protocol_specific_checks": [],
+        "auto_query_enabled": null
+      },
+      "sdv_strategy": {
+        "approach": null,
+        "sdv_percentage": null,
+        "critical_data_points": [],
+        "sdv_timing": null
+      },
+      "query_management": {
+        "resolution_target_days": null,
+        "escalation_threshold_days": null,
+        "auto_query_triggers": []
+      },
+      "data_review": {
+        "medical_review_frequency": null,
+        "statistical_review_frequency": null,
+        "data_review_committee": null
+      },
+      "provenance": {
+        "section_number": "11.0",
+        "page_number": 96,
+        "text_snippet": "Computer logic and manual checks will be created to identify items such as inconsistent study dates. Any necessary corrections will be made to the eCRF."
+      }
+    },
+    "database_management": {
+      "instanceType": "DatabaseManagement",
+      "database_design": {
+        "external_data_sources": [
+          "central_lab",
+          "imaging",
+          "ECG"
+        ],
+        "calculated_fields": [
+          "Creatinine Clearance"
+        ],
+        "derived_variables": [
+          "Overall Survival",
+          "Progression-Free Survival",
+          "Duration of Overall Response"
+        ]
+      },
+      "interim_locks": [],
+      "final_database_lock": {
+        "trigger_event": "When LSP status is determined by the Qiagen assay for all submitted tissue samples, and a final review of the eCRF data is complete.",
+        "timeline_days_from_lplv": null,
+        "prerequisites": [
+          "All data collection is completed",
+          "Data reviewed for completeness",
+          "All data management QA and QC procedures are performed"
+        ],
+        "signoff_required": [],
+        "provenance": {
+          "section_number": "8.1.3",
+          "page_number": 85,
+          "text_snippet": "When LSP status is determined by the Qiagen assay for all submitted tissue samples, there will be a final review of the eCRF data. When the data collection is completed and reviewed for completeness and all data management quality assurance (QA) and quality control (QC) procedures are performed, the clinical database data will be extracted for documentation and statistical analyses of the efficacy and safety data."
+        }
+      },
+      "provenance": {
+        "section_number": "8.1.3",
+        "page_number": 85,
+        "text_snippet": "Timing of Efficacy Analyses and Safety Evaluations"
+      }
+    },
+    "data_transfers": {
+      "instanceType": "DataTransfers",
+      "central_lab": {
+        "vendor_name": null,
+        "transfer_frequency": null,
+        "transfer_method": null,
+        "data_reconciliation": true
+      },
+      "imaging": {
+        "vendor_name": null,
+        "data_collected": [
+          "CT scan",
+          "MRI"
+        ],
+        "transfer_method": null
+      },
+      "epro": null,
+      "external_adjudication": null,
+      "dsmb_exports": null,
+      "provenance": {
+        "section_number": null,
+        "page_number": 47,
+        "text_snippet": "All laboratory samples will be assessed using a certified central laboratory and these data will be used for all data analysis. The central laboratory will provide instructions regarding the collection, processing and shipping of samples. All laboratory samples will be shipped to the central laboratory."
+      }
+    },
+    "data_archival": {
+      "instanceType": "DataArchival",
+      "retention_period_years": null,
+      "retention_basis": "Retain records according to local requirements.",
+      "archival_format": [
+        "electronic"
+      ],
+      "archival_location": "sponsor",
+      "destruction_policy": null,
+      "provenance": {
+        "section_number": "13.0",
+        "page_number": 97,
+        "text_snippet": "The Investigator (Director of the Site in Japan) must retain any records related to the study according to local requirements. If the Investigator (Director of the Site in Japan) is not able to retain the records, he/she must notify AbbVie to arrange alternative archiving options."
+      }
+    },
+    "extraction_statistics": {
+      "has_edc_specifications": true,
+      "has_data_standards": true,
+      "has_sdv_strategy": false,
+      "has_database_lock_plan": true,
+      "integration_count": 2,
+      "crf_module_count": 12
+    },
+    "provenance": {
+      "section_number": "11.0",
+      "page_number": 96,
+      "text_snippet": "11.0 Data Quality Assurance"
+    }
+  }
+}

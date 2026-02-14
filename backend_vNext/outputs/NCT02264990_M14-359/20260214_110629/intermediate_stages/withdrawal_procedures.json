@@ -1,0 +1,338 @@
+{
+  "module_id": "withdrawal_procedures",
+  "module_name": "Withdrawal Procedures",
+  "protocol_id": "NCT02264990_M14-359",
+  "timestamp": "2026-02-14T12:03:37.488370",
+  "success": true,
+  "metrics": {
+    "provenance_coverage": 1.0,
+    "pass1_duration_seconds": 44.31,
+    "pass2_duration_seconds": 154.58,
+    "total_duration_seconds": 198.9,
+    "pass2_skipped": false
+  },
+  "quality_scores": {
+    "accuracy": 1.0,
+    "completeness": 1.0,
+    "usdm_adherence": 0.6,
+    "provenance": 1.0,
+    "terminology": 1.0,
+    "overall": 0.92,
+    "from_cache": false,
+    "duration_seconds": 198.97313451766968
+  },
+  "extracted_data": {
+    "id": "WP-001",
+    "instanceType": "WithdrawalProcedures",
+    "name": "Withdrawal and Discontinuation Procedures",
+    "description": "Procedural specifications for subject withdrawal and discontinuation",
+    "discontinuation_types": [
+      {
+        "id": "DT-001",
+        "type_name": {
+          "code": "TREATMENT_DISCONTINUATION",
+          "decode": "Treatment Discontinuation",
+          "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "codeSystemVersion": "24.03e"
+        },
+        "definition": "Discontinuation from study treatment due to radiographic progression, need for alternate anti-cancer agents, treatment toxicity, or other medical reasons deemed appropriate by the investigator.",
+        "allows_continued_followup": true,
+        "provenance": {
+          "section_number": "5.4",
+          "page_number": 56,
+          "text_snippet": "Each subject will be withdrawn from the study or study treatment (as applicable) per Section 5.4.1 if any of the following occur:\n\u25cf The subject has radiographic progression according to RECIST version 1.1.\n\u25cf The subject requires cancer-directed radiotherapy or surgery related to clinical disease progression, or alternate anti-cancer agents during the study period.\n\u25cf The subject experiences treatment toxicity which, in the Investigator's opinion, prohibits further therapy..."
+        }
+      },
+      {
+        "id": "DT-002",
+        "type_name": {
+          "code": "STUDY_WITHDRAWAL",
+          "decode": "Study Withdrawal",
+          "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "codeSystemVersion": "24.03e"
+        },
+        "definition": "The subject decides to withdraw consent for any reason, or is withdrawn due to confirmed pregnancy.",
+        "allows_continued_followup": false,
+        "provenance": {
+          "section_number": "5.4",
+          "page_number": 56,
+          "text_snippet": "Each subject will be withdrawn from the study or study treatment (as applicable) per Section 5.4.1 if any of the following occur:\n\u25cf Subject is suspected to be pregnant; pregnancy is confirmed or begins breastfeeding during the treatment portion of the study.\n\u25cf The subject decides to withdraw consent for any reason."
+        }
+      }
+    ],
+    "consent_withdrawal": {
+      "right_to_withdraw": "Each subject has the right to withdraw from study treatment at any time. In addition, the Investigator may discontinue a subject from the study treatment at any time for any reason if the Investigator considers it necessary. The subject decides to withdraw consent for any reason.",
+      "withdrawal_process": "When subject discontinuation from the study is planned, the Investigator is to notify the AbbVie medical monitor or the clinical team representative via telephone as soon as possible.",
+      "data_handling_options": [],
+      "sample_handling": "For subjects who consent to pharmacogenetic analysis, DNA samples will be retained while research on ABT-888 (or drugs of this class) continues but no longer than 20 years.",
+      "consequences": "The protocol does not specify any penalty for withdrawal.",
+      "provenance": {
+        "section_number": "5.4",
+        "page_number": 55,
+        "text_snippet": "Each subject has the right to withdraw from study treatment at any time. In addition, the Investigator may discontinue a subject from the study treatment at any time for any reason if the Investigator considers it necessary, including the occurrence of an adverse event or noncompliance with the protocol."
+      }
+    },
+    "discontinuation_visit": {
+      "timing": "The visit at which an investigator identifies disease progression or at which a subject meets other criteria for study discontinuation will be considered the Final Visit. It is preferable that Final Visit procedures be conducted prior to the initiation of another anticancer therapy.",
+      "timing_days_from_last_dose": null,
+      "required_assessments": [
+        {
+          "id": "ASS-001",
+          "assessment_type": {
+            "code": "PHYSICAL_EXAM",
+            "decode": "Physical Exam",
+            "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+            "codeSystemVersion": "24.03e"
+          },
+          "assessment_name": "Physical Exam (including weight)",
+          "mandatory": true
+        },
+        {
+          "id": "ASS-002",
+          "assessment_type": {
+            "code": "VITAL_SIGNS",
+            "decode": "Vital Signs",
+            "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+            "codeSystemVersion": "24.03e"
+          },
+          "assessment_name": "Vital Signs",
+          "mandatory": true
+        },
+        {
+          "id": "ASS-003",
+          "assessment_type": {
+            "code": "QUESTIONNAIRE",
+            "decode": "Questionnaire",
+            "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+            "codeSystemVersion": "24.03e"
+          },
+          "assessment_name": "Performance Status (ECOG)",
+          "mandatory": true
+        },
+        {
+          "id": "ASS-004",
+          "assessment_type": {
+            "code": "LABORATORY",
+            "decode": "Laboratory",
+            "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+            "codeSystemVersion": "24.03e"
+          },
+          "assessment_name": "Chemistry/Hematology",
+          "mandatory": true
+        },
+        {
+          "id": "ASS-005",
+          "assessment_type": {
+            "code": "IMAGING",
+            "decode": "Imaging",
+            "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+            "codeSystemVersion": "24.03e"
+          },
+          "assessment_name": "Tumor Assessments",
+          "mandatory": true
+        },
+        {
+          "id": "ASS-006",
+          "assessment_type": {
+            "code": "QUESTIONNAIRE",
+            "decode": "Questionnaire",
+            "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+            "codeSystemVersion": "24.03e"
+          },
+          "assessment_name": "QoL Questionnaires",
+          "mandatory": true
+        },
+        {
+          "id": "ASS-007",
+          "assessment_type": {
+            "code": "AE_REVIEW",
+            "decode": "Adverse Event Review",
+            "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+            "codeSystemVersion": "24.03e"
+          },
+          "assessment_name": "Adverse Event Assessment",
+          "mandatory": true
+        },
+        {
+          "id": "ASS-008",
+          "assessment_type": {
+            "code": "CONMED_REVIEW",
+            "decode": "Concomitant Medication Review",
+            "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+            "codeSystemVersion": "24.03e"
+          },
+          "assessment_name": "Concomitant Medication Assessment",
+          "mandatory": true
+        },
+        {
+          "id": "ASS-009",
+          "assessment_type": {
+            "code": "LABORATORY",
+            "decode": "Laboratory",
+            "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+            "codeSystemVersion": "24.03e"
+          },
+          "assessment_name": "PD Blood Sampling (Plasma Markers)",
+          "mandatory": true
+        },
+        {
+          "id": "ASS-010",
+          "assessment_type": {
+            "code": "LABORATORY",
+            "decode": "Laboratory",
+            "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+            "codeSystemVersion": "24.03e"
+          },
+          "assessment_name": "Serum Markers",
+          "mandatory": true
+        }
+      ],
+      "documentation_requirements": [
+        "The reason(s) for the discontinuation from the study will be recorded."
+      ],
+      "provenance": {
+        "section_number": "5.4.1",
+        "page_number": 57,
+        "text_snippet": "The visit at which an investigator identifies disease progression or at which a subject meets other criteria for study discontinuation will be considered the Final Visit. The reason(s) for the discontinuation from the study will be recorded and assessments will be performed per Table 2. It is preferable that Final Visit procedures be conducted prior to the initiation of another anticancer therapy."
+      }
+    },
+    "post_discontinuation_followup": {
+      "safety_followup": {
+        "duration_days": 30,
+        "duration_description": "Subjects who have a Final Visit within 30 days of therapy will have one Follow-Up Visit approximately 30 days after the last dose of study drug.",
+        "assessments": [
+          "Physical Exam",
+          "Vital Signs",
+          "Performance Status (ECOG)",
+          "Chemistry/Hematology",
+          "Adverse Event and Concomitant Medication Assessment"
+        ],
+        "contact_method": {
+          "code": "IN_PERSON",
+          "decode": "In-person visit",
+          "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "codeSystemVersion": "24.03e"
+        }
+      },
+      "survival_followup": {
+        "required": true,
+        "frequency": "2-month intervals (or as requested by sponsor)",
+        "duration": "Until the endpoint of death, the subject has become lost to follow-up, or AbbVie terminates the study.",
+        "information_collected": [
+          "Survival information",
+          "Post-study anti-cancer therapy information"
+        ]
+      },
+      "ae_followup": {
+        "ongoing_ae_followup": true,
+        "followup_until": "a satisfactory clinical resolution of the laboratory results or adverse event is achieved"
+      },
+      "provenance": {
+        "section_number": "5.4.1",
+        "page_number": 57,
+        "text_snippet": "Subjects who have a Final Visit within 30 days of therapy will have one Follow-Up Visit approximately 30 days after the last dose of study drug. ... If a subject is discontinued from the study with an ongoing adverse event or an unresolved clinically significant laboratory result, the site will attempt to provide follow-up until a satisfactory clinical resolution of the laboratory results or adverse event is achieved."
+      }
+    },
+    "lost_to_followup": {
+      "definition": "The protocol does not provide a specific definition for lost to follow-up, but lists it as a reason to end survival follow-up for a subject.",
+      "missed_visits_threshold": null,
+      "contact_attempts_required": null,
+      "contact_methods": [],
+      "documentation_required": [],
+      "provenance": {
+        "section_number": "5.4.1",
+        "page_number": 57,
+        "text_snippet": "Subjects no longer undergoing clinical assessments will have survival information reported at 2-month intervals (or as requested by sponsor to support data analysis) beginning at the last clinical assessment and continuing until the endpoint of death, the subject has become lost to follow-up, or AbbVie terminates the study."
+      }
+    },
+    "replacement_strategy": {
+      "allows_replacement": false,
+      "replacement_conditions": [
+        {
+          "discontinuation_reason": "Any",
+          "replacement_allowed": false
+        }
+      ],
+      "timing_cutoff": "Discontinued subjects will not be replaced.",
+      "randomization_handling": null,
+      "stratification_maintenance": false,
+      "provenance": {
+        "section_number": "5.4",
+        "page_number": 56,
+        "text_snippet": "Discontinued subjects will not be replaced."
+      }
+    },
+    "administrative_withdrawal": {
+      "reasons": [
+        {
+          "id": "AWR-001",
+          "reason_type": {
+            "code": "SPONSOR_DECISION",
+            "decode": "Sponsor Decision",
+            "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+            "codeSystemVersion": "24.03e"
+          },
+          "description": "AbbVie may terminate this study prematurely, either in its entirety or at any study site, for reasonable cause."
+        },
+        {
+          "id": "AWR-002",
+          "reason_type": {
+            "code": "INVESTIGATOR_DECISION",
+            "decode": "Investigator Decision",
+            "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+            "codeSystemVersion": "24.03e"
+          },
+          "description": "The Investigator may also terminate the study at his/her site for reasonable cause."
+        },
+        {
+          "id": "AWR-003",
+          "reason_type": {
+            "code": "OTHER",
+            "decode": "Other",
+            "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+            "codeSystemVersion": "24.03e"
+          },
+          "description": "The study may be stopped due to safety concerns, in which case advance notice is not required."
+        }
+      ],
+      "notification_requirements": "If the Sponsor has decided to prematurely discontinue the study, the Sponsor will promptly notify in writing each Investigator as well as regulatory authorities. Each Investigator must promptly notify the enrolled subjects of the premature discontinuation and administer appropriate treatments.",
+      "irb_notification": true,
+      "provenance": {
+        "section_number": "5.4.2",
+        "page_number": 58,
+        "text_snippet": "AbbVie may terminate this study prematurely, either in its entirety or at any study site, for reasonable cause provided that written notice is submitted in advance of the intended termination. The Investigator may also terminate the study at his/her site for reasonable cause, after providing written notice to AbbVie in advance of the intended termination. Advance notice is not required by either party if the study is stopped due to safety concerns."
+      }
+    },
+    "data_retention": {
+      "retention_period_years": 20,
+      "retention_policy": "DNA samples will be retained while research on ABT-888 (or drugs of this class) continues but no longer than 20 years.",
+      "analysis_populations": [
+        {
+          "population": {
+            "code": "SAFETY",
+            "decode": "Safety Population",
+            "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+            "codeSystemVersion": "24.03e"
+          },
+          "inclusion_criteria": "Subjects who were randomized but did not receive study drug will not be included in the analyses of safety."
+        }
+      ],
+      "provenance": {
+        "section_number": "5.3.1.2",
+        "page_number": 51,
+        "text_snippet": "AbbVie will store the DNA samples in a secure storage space with adequate measures to protect confidentiality. The samples will be retained while research on ABT-888 (or drugs of this class) continues but no longer than 20 years."
+      }
+    },
+    "retention_strategies": {
+      "prevention_measures": [],
+      "incentives": [],
+      "re_consent_procedures": null,
+      "provenance": null
+    },
+    "provenance": {
+      "section_number": "5.4",
+      "page_number": 55,
+      "text_snippet": "5.4 Removal of Subjects from Therapy or Assessment"
+    }
+  }
+}

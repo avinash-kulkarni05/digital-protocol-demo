@@ -1,0 +1,777 @@
+{
+  "module_id": "site_operations_logistics",
+  "module_name": "Site Operations & Logistics",
+  "protocol_id": "NCT02264990_M14-359",
+  "timestamp": "2026-02-14T11:48:58.954940",
+  "success": true,
+  "metrics": {
+    "provenance_coverage": 1.0,
+    "pass1_duration_seconds": 62.74,
+    "pass2_duration_seconds": 224.24,
+    "total_duration_seconds": 286.98,
+    "pass2_skipped": false
+  },
+  "quality_scores": {
+    "accuracy": 0.9907692307692307,
+    "completeness": 1.0,
+    "usdm_adherence": 1.0,
+    "provenance": 1.0,
+    "terminology": 1.0,
+    "overall": 0.9976923076923078,
+    "from_cache": false,
+    "duration_seconds": 287.0824730396271
+  },
+  "extracted_data": {
+    "id": "M14-359-site-operations-logistics",
+    "instanceType": "SiteOperationsLogistics",
+    "name": "M14-359 Site Operations & Logistics",
+    "site_selection": {
+      "instanceType": "SiteSelectionCriteria",
+      "required_criteria": [
+        {
+          "id": "REQ-001",
+          "criterion": "Experience with Chemotherapy",
+          "description": "Site must have clinicians experienced in the preparation and handling of parenteral cancer chemotherapeutic agents.",
+          "assessment_method": "Review of site personnel qualifications and site history.",
+          "minimum_requirement": "Demonstrated experience in administering IV oncology treatments.",
+          "provenance": {
+            "section_number": "5.5.3",
+            "page_number": 64,
+            "text_snippet": "All chemotherapy agents administered as part of this protocol should be prepared for administration by clinicians experienced in the preparation and handling of parenteral cancer chemotherapeutic agents."
+          }
+        },
+        {
+          "id": "REQ-002",
+          "criterion": "Access to Required Equipment",
+          "description": "Site must have access to CT scanners for tumor assessment and MRI for subjects with suspected CNS involvement.",
+          "assessment_method": "Site feasibility questionnaire.",
+          "minimum_requirement": "On-site or readily available access to specified imaging equipment.",
+          "provenance": {
+            "section_number": null,
+            "page_number": 48,
+            "text_snippet": "A CT scan of the full chest and abdomen (with image of liver and adrenal glands) will be used in the evaluation of tumor responses, as per Table 2... Magnetic resonance imaging (MRI) can be conducted in cases where local laws/requirements mandate, but should have Sponsor approval prior to performing the MRI."
+          }
+        }
+      ],
+      "preferred_criteria": [],
+      "exclusionary_criteria": [],
+      "geographic_requirements": {
+        "countries": [
+          "JPN",
+          "AUS",
+          "NZL"
+        ],
+        "regions": [
+          "Multicenter"
+        ],
+        "site_count_target": 150,
+        "language_requirements": [],
+        "provenance": {
+          "section_number": "1.2",
+          "page_number": 4,
+          "text_snippet": "Investigators: Multicenter\nStudy Sites: 150"
+        }
+      },
+      "facility_requirements": {
+        "patient_population_access": "Access to subjects with metastatic or advanced non-squamous NSCLC who are current or former smokers.",
+        "equipment_required": [
+          "CT scanner",
+          "MRI scanner",
+          "12-lead ECG machine"
+        ],
+        "laboratory_capabilities": [
+          "On-site phlebotomy",
+          "Sample processing and shipping capabilities for central lab"
+        ],
+        "pharmacy_capabilities": "Ability to prepare and administer IV chemotherapy agents (carboplatin, paclitaxel, cisplatin, pemetrexed).",
+        "storage_capabilities": "Secure, temperature-controlled storage for investigational products (15-30\u00b0C, protect from light).",
+        "provenance": {
+          "section_number": "5.2",
+          "page_number": 33,
+          "text_snippet": "The study population will consist of adult subjects who are current or former smokers with cytologically or histologically confirmed locally advanced or metastatic non-squamous NSCLC that is not amenable to surgical resection or radiation with curative intent, and who have not received prior cytotoxic chemotherapy or chemoradiotherapy for their NSCLC."
+        }
+      },
+      "experience_requirements": {
+        "therapeutic_area_experience": "Experience in conducting clinical trials for Non-Small Cell Lung Cancer (NSCLC).",
+        "phase_experience": "Experience with Phase 3 oncology trials.",
+        "enrollment_history": null,
+        "gcp_compliance_record": "Must be able to conduct the study in accordance with ICH GCP.",
+        "provenance": {
+          "section_number": "9.2",
+          "page_number": 93,
+          "text_snippet": "The study will be conducted in accordance with the protocol, International Conference on Harmonization (ICH) guidelines, applicable regulations and guidelines governing clinical study conduct and the ethical principles that have their origin in the Declaration of Helsinki."
+        }
+      },
+      "provenance": {
+        "section_number": "5.2",
+        "page_number": 33,
+        "text_snippet": "Selection of Study Population"
+      }
+    },
+    "regulatory_ethics": {
+      "instanceType": "RegulatoryEthics",
+      "regulatory_authorities": [
+        {
+          "id": "AUTH-001",
+          "authority_name": "European Union Clinical Trials Register",
+          "country_region": "EU",
+          "submission_type": "EudraCT",
+          "submission_number": "2014-002565-30",
+          "approval_status": null,
+          "approval_date": null,
+          "special_designations": [],
+          "provenance": {
+            "section_number": null,
+            "page_number": 1,
+            "text_snippet": "EudraCT 2014-002565-30"
+          }
+        },
+        {
+          "id": "AUTH-002",
+          "authority_name": "ClinicalTrials.gov",
+          "country_region": "USA",
+          "submission_type": "NCT",
+          "submission_number": "NCT02264990",
+          "approval_status": null,
+          "approval_date": null,
+          "special_designations": [],
+          "provenance": {
+            "section_number": null,
+            "page_number": 1,
+            "text_snippet": "NCT02264990"
+          }
+        }
+      ],
+      "ethics_committees": [
+        {
+          "id": "EC-001",
+          "committee_type": "IEC/IRB",
+          "centralized_or_local": "local",
+          "approval_requirements": "Approval of protocol, amendments, informed consent, and other subject-facing materials is required prior to implementation.",
+          "approval_timeline": null,
+          "continuing_review_frequency": "As required by local regulations.",
+          "provenance": {
+            "section_number": "9.1",
+            "page_number": 92,
+            "text_snippet": "Good Clinical Practice (GCP) requires that the clinical protocol, any protocol amendments, the Investigator's Brochure, the informed consent and all other forms of subject information related to the study (e.g., advertisements used to recruit subjects) and any other necessary documents be reviewed by an IEC/IRB."
+          }
+        }
+      ],
+      "informed_consent": {
+        "consent_type": "written",
+        "languages_required": [],
+        "reconsent_triggers": [
+          "protocol_amendment",
+          "important_new_information"
+        ],
+        "assent_required": false,
+        "electronic_consent_allowed": false,
+        "provenance": {
+          "section_number": "9.3",
+          "page_number": 93,
+          "text_snippet": "Prior to any study-related screening procedures being performed on the subject, the informed consent statement will be reviewed and signed and dated by the subject, the person who administered the informed consent, and any other signatories according to local requirements."
+        }
+      },
+      "data_privacy": {
+        "applicable_regulations": [],
+        "data_transfer_requirements": null,
+        "anonymization_requirements": "DNA samples will be stored with adequate measures to protect confidentiality. Samples for diagnostic test development may be anonymized.",
+        "provenance": {
+          "section_number": "5.3.1.2",
+          "page_number": 51,
+          "text_snippet": "AbbVie will store the DNA samples in a secure storage space with adequate measures to protect confidentiality."
+        }
+      },
+      "provenance": {
+        "section_number": "9.0",
+        "page_number": 92,
+        "text_snippet": "Ethics"
+      }
+    },
+    "site_personnel": {
+      "instanceType": "SitePersonnel",
+      "principal_investigator": {
+        "qualifications_required": [
+          "Qualified physician"
+        ],
+        "responsibilities": [
+          "Conducting the study in accordance with the protocol",
+          "Personally conducting or supervising the investigation",
+          "Informing subjects and obtaining informed consent",
+          "Reporting adverse experiences",
+          "Maintaining adequate and accurate records",
+          "Ensuring IEC/IRB approval is obtained and maintained"
+        ],
+        "delegation_restrictions": [],
+        "time_commitment": null,
+        "provenance": {
+          "section_number": "Appendix A",
+          "page_number": 103,
+          "text_snippet": "Responsibilities of the Clinical Investigator"
+        }
+      },
+      "sub_investigators": {
+        "minimum_number": null,
+        "qualifications": [],
+        "delegated_duties": [],
+        "provenance": {
+          "section_number": "Appendix A",
+          "page_number": 103,
+          "text_snippet": "6. Informing all associates, colleagues, and employees assisting in the conduct of the study about their obligations in meeting the above commitments."
+        }
+      },
+      "coordinators": {
+        "minimum_number": null,
+        "responsibilities": [
+          "Data entry into EDC system",
+          "Sample collection, processing, and shipping",
+          "Subject scheduling"
+        ],
+        "experience_required": null,
+        "provenance": {
+          "section_number": "10.2",
+          "page_number": 95,
+          "text_snippet": "All eCRF data required by this protocol will be recorded by investigative site personnel in the EDC system."
+        }
+      },
+      "other_personnel": [
+        {
+          "id": "PERSONNEL-001",
+          "role": "Pharmacist",
+          "responsibilities": [
+            "Preparation and handling of parenteral cancer chemotherapeutic agents"
+          ],
+          "qualifications": [
+            "Experienced in handling parenteral chemotherapy"
+          ],
+          "provenance": {
+            "section_number": "5.5.3",
+            "page_number": 64,
+            "text_snippet": "All chemotherapy agents administered as part of this protocol should be prepared for administration by clinicians experienced in the preparation and handling of parenteral cancer chemotherapeutic agents."
+          }
+        }
+      ],
+      "provenance": {
+        "section_number": "Appendix A",
+        "page_number": 103,
+        "text_snippet": "Responsibilities of the Clinical Investigator"
+      }
+    },
+    "training_requirements": {
+      "instanceType": "TrainingRequirements",
+      "protocol_training": {
+        "required_for": [
+          "PI",
+          "Sub-I",
+          "CRC",
+          "Pharmacist"
+        ],
+        "format": null,
+        "duration": null,
+        "assessment_required": false,
+        "completion_deadline": "before_study_start",
+        "provenance": {
+          "section_number": "14.0",
+          "page_number": 98,
+          "text_snippet": "2. I have read this protocol and agree that the study is ethical.\n3. I agree to conduct the study as outlined and in accordance with all applicable regulations and guidelines."
+        }
+      },
+      "gcp_training": {
+        "required": true,
+        "frequency": null,
+        "certification_required": false,
+        "accepted_providers": [],
+        "provenance": {
+          "section_number": "9.2",
+          "page_number": 93,
+          "text_snippet": "The study will be conducted in accordance with the protocol, International Conference on Harmonization (ICH) guidelines, applicable regulations and guidelines governing clinical study conduct and the ethical principles that have their origin in the Declaration of Helsinki."
+        }
+      },
+      "specialized_training": [
+        {
+          "id": "TRAIN-001",
+          "training_name": "Parenteral Chemotherapy Handling",
+          "required_for": [
+            "Pharmacist",
+            "Study Nurse"
+          ],
+          "certification_required": false,
+          "renewal_period": null,
+          "provenance": {
+            "section_number": "5.5.3",
+            "page_number": 64,
+            "text_snippet": "All chemotherapy agents administered as part of this protocol should be prepared for administration by clinicians experienced in the preparation and handling of parenteral cancer chemotherapeutic agents."
+          }
+        }
+      ],
+      "training_documentation": {
+        "required": true,
+        "storage_location": "Investigator Site File"
+      },
+      "provenance": {
+        "section_number": "Appendix A",
+        "page_number": 103,
+        "text_snippet": "Responsibilities of the Clinical Investigator"
+      }
+    },
+    "monitoring_plan": {
+      "instanceType": "MonitoringPlan",
+      "monitoring_approach": "hybrid",
+      "site_initiation_visit": {
+        "required": true,
+        "timing": "before_first_patient",
+        "format": "on_site",
+        "activities": [
+          "Review of protocol and procedures",
+          "Training on study drug handling and administration"
+        ],
+        "provenance": {
+          "section_number": "5.5.2.2",
+          "page_number": 62,
+          "text_snippet": "Instructions for the handling of study supplies to the study site are available in the veliparib IB, study Dosing Cards and from participants at the Site Initiation Visit."
+        }
+      },
+      "routine_monitoring": {
+        "frequency": null,
+        "visit_type": "on_site",
+        "sdv_percentage": 100,
+        "sdv_scope": [
+          "Verification of eCRF entries against source documents"
+        ],
+        "remote_monitoring_activities": [],
+        "provenance": {
+          "section_number": "10.2",
+          "page_number": 95,
+          "text_snippet": "AbbVie (or their representatives) will also be allowed access to all source documents pertinent to the study in order to verify eCRF entries."
+        }
+      },
+      "triggered_monitoring": {
+        "triggers": [],
+        "response_timeline": null,
+        "escalation_criteria": [],
+        "provenance": {
+          "section_number": "9.2",
+          "page_number": 93,
+          "text_snippet": "On-site monitoring will be performed before, during and after the trial to assure appropriate conduct of the trial in accordance with ICH GCP."
+        }
+      },
+      "close_out_visit": {
+        "required": true,
+        "timing": "after_study_completion_or_termination",
+        "format": "on_site",
+        "activities": [
+          "Final drug accountability",
+          "Review of essential documents"
+        ],
+        "provenance": {
+          "section_number": "5.6",
+          "page_number": 67,
+          "text_snippet": "An overall accountability of the study drug supplied by AbbVie will be performed and verified by the site monitor throughout the study and at the study site closeout visit."
+        }
+      },
+      "provenance": {
+        "section_number": "9.2",
+        "page_number": 93,
+        "text_snippet": "On-site monitoring will be performed before, during and after the trial to assure appropriate conduct of the trial in accordance with ICH GCP."
+      }
+    },
+    "site_activation_timeline": {
+      "instanceType": "SiteActivationTimeline",
+      "site_selection_phase": null,
+      "feasibility_assessment": null,
+      "contract_negotiation": null,
+      "regulatory_submission": null,
+      "ethics_approval": null,
+      "site_training": null,
+      "site_initiation_visit": null,
+      "first_patient_ready": null,
+      "critical_path_items": [
+        "IEC/IRB approval",
+        "Drug shipment authorization"
+      ],
+      "provenance": {
+        "section_number": "9.1",
+        "page_number": 92,
+        "text_snippet": "IEC/IRB approval of the protocol, informed consent and subject information and/or advertising, as relevant, will be obtained prior to the authorization of drug shipment to a study site."
+      }
+    },
+    "drug_supply_logistics": {
+      "instanceType": "DrugSupplyLogistics",
+      "packaging_labeling": {
+        "blinding_requirements": "open_label",
+        "label_languages": [
+          "English",
+          "Local language"
+        ],
+        "temperature_indicators": false,
+        "tamper_evident": false,
+        "kit_design": null,
+        "provenance": {
+          "section_number": "5.5.2.2",
+          "page_number": 62,
+          "text_snippet": "Veliparib will be packaged in bottles containing 15 or 33 of the 40 mg strength capsules. This will allow for the 2 or 5 days of administration with one additional dose to cover loss, spillage or replacement due to vomiting within 15 minutes. Each bottle label will include all information as required by local regulations and must remain affixed to the bottle."
+        }
+      },
+      "storage_distribution": {
+        "storage_temperature": "15\u00b0C to 25\u00b0C",
+        "distribution_model": null,
+        "cold_chain_required": false,
+        "shelf_life_months": null,
+        "shipping_conditions": "Store Veliparib at 15-25\u00b0C (most countries), below 25\u00b0C (Australia/New Zealand), or 15-30\u00b0C (Japan). Store chemotherapy at 15-25\u00b0C and protect from light.",
+        "provenance": {
+          "section_number": "5.5.2.3",
+          "page_number": 63,
+          "text_snippet": "Table 8. Study Drug Storage Conditions\nStudy Drug Country Storage Conditions\nVeliparib All countries, except Australia/New Zealand/Japan Store at 15\u00b0 to 25\u00b0C (59\u00b0 to 77\u00b0F)\nVeliparib Australia/New Zealand Store below 25\u00b0C\nVeliparib Japan Store at 15\u00b0 to 30\u00b0C"
+        }
+      },
+      "inventory_management": {
+        "iwrs_rtsm_system": "Interactive Response Technology (IRT) system",
+        "kit_design": null,
+        "resupply_triggers": null,
+        "resupply_threshold_days": null,
+        "expiry_management": null,
+        "provenance": {
+          "section_number": null,
+          "page_number": 49,
+          "text_snippet": "An Interactive Response Technology system (IRT) will be utilized to register subjects."
+        }
+      },
+      "dispensing_schedule": [
+        {
+          "id": "DISP-001",
+          "visit_name": "C1D-2",
+          "cycle_day": "Day -2",
+          "kits_dispensed": [
+            "Veliparib"
+          ],
+          "quantity_dispensed": "Sufficient quantities for Cycle 1 Days -2 and -1.",
+          "titration_rules": null,
+          "provenance": {
+            "section_number": null,
+            "page_number": 49,
+            "text_snippet": "Randomized subjects will receive sufficient quantities of veliparib for Cycle 1 Days \u20132 and \u20131."
+          }
+        },
+        {
+          "id": "DISP-002",
+          "visit_name": "C1D1",
+          "cycle_day": "Day 1",
+          "kits_dispensed": [
+            "Veliparib",
+            "Carboplatin/Paclitaxel or Investigator's Choice"
+          ],
+          "quantity_dispensed": "Veliparib for current cycle & next cycle pre-dosing",
+          "titration_rules": null,
+          "provenance": {
+            "section_number": null,
+            "page_number": 49,
+            "text_snippet": "Beginning with C1D1, subjects will receive veliparib for Days 1 \u2013 5 of the current cycle and a separate bottle for Days \u20132, \u20131 of the following cycle."
+          }
+        }
+      ],
+      "drug_accountability": {
+        "accountability_frequency": "Each study visit",
+        "accountability_method": "visual_inspection",
+        "documentation_requirements": "Record dose of chemotherapy in source documents and eCRF. Document returned veliparib bottles. Maintain inventory via IRT.",
+        "discrepancy_handling": null,
+        "provenance": {
+          "section_number": "5.5.7",
+          "page_number": 66,
+          "text_snippet": "The site will record the dose of carboplatin, paclitaxel, cisplatin and pemetrexed given to each subject in the source documents and on the eCRF... Subjects will be instructed to return all veliparib bottles (empty, partially filled or full) to the study site personnel prior to each cycle, their first post-treatment visit and/or at the Final Visit."
+        }
+      },
+      "drug_return_destruction": {
+        "return_required": true,
+        "return_timing": "Prior to each cycle, first post-treatment visit, and/or at the Final Visit.",
+        "destruction_method": "return_to_sponsor",
+        "destruction_documentation": null,
+        "environmental_requirements": "Empty containers will be defaced and discarded on site.",
+        "provenance": {
+          "section_number": "5.6",
+          "page_number": 67,
+          "text_snippet": "Upon completion or termination of the study, all original bottles/cartons containing unused veliparib and if applicable carboplatin, paclitaxel, cisplatin and pemetrexed (empty containers will be defaced and discarded on site) will be returned to AbbVie according to AbbVie's instructions, or if pre-arranged between the sponsor and site, destruction of used and unused bottles/cartons will be performed at the site."
+        }
+      },
+      "dosing_error_handling": {
+        "overdose_procedures": null,
+        "underdose_procedures": null,
+        "missed_dose_procedures": "If a subject misses a scheduled dose of veliparib and less than 6 hours have passed, the dose should be immediately taken. If more than 6 hours have passed, skip the dose and wait for the next scheduled dose.",
+        "dose_timing_windows": null,
+        "provenance": {
+          "section_number": "5.5.1.1",
+          "page_number": 59,
+          "text_snippet": "It is recommended that if a subject misses a scheduled dose of veliparib and less than 6 hours have passed since the scheduled dosing time, the dose should be immediately taken. It is recommended that if more than 6 hours have passed since the scheduled dosing time, the subject should not take the missed dose but should wait for the next regularly scheduled dose."
+        }
+      },
+      "comparator_medications": [
+        {
+          "id": "COMP-001",
+          "medication_name": "Carboplatin",
+          "source": "commercially_obtained",
+          "provenance": {
+            "section_number": "5.5.2.1",
+            "page_number": 62,
+            "text_snippet": "Carboplatin (commercially available)*"
+          }
+        },
+        {
+          "id": "COMP-002",
+          "medication_name": "Paclitaxel",
+          "source": "commercially_obtained",
+          "provenance": {
+            "section_number": "5.5.2.1",
+            "page_number": 62,
+            "text_snippet": "Paclitaxel (commercially available)*"
+          }
+        },
+        {
+          "id": "COMP-003",
+          "medication_name": "Cisplatin",
+          "source": "commercially_obtained",
+          "provenance": {
+            "section_number": "5.5.2.1",
+            "page_number": 62,
+            "text_snippet": "Cisplatin (commercially available)*"
+          }
+        },
+        {
+          "id": "COMP-004",
+          "medication_name": "Pemetrexed",
+          "source": "commercially_obtained",
+          "provenance": {
+            "section_number": "5.5.2.1",
+            "page_number": 62,
+            "text_snippet": "Pemetrexed (commercially available)*"
+          }
+        }
+      ],
+      "emergency_unblinding": {
+        "unblinding_allowed": false,
+        "unblinding_triggers": [],
+        "unblinding_procedure": "Not applicable, open-label study.",
+        "who_can_unblind": [],
+        "documentation_required": null,
+        "provenance": {
+          "section_number": "1.2",
+          "page_number": 4,
+          "text_snippet": "A Randomized, Open-Label, Multicenter, Phase 3 Trial"
+        }
+      },
+      "provenance": {
+        "section_number": "5.5",
+        "page_number": 59,
+        "text_snippet": "Treatments"
+      }
+    },
+    "technology_systems": {
+      "instanceType": "TechnologySystems",
+      "edc_system": {
+        "vendor_name": "Medidata Solutions Incorporated",
+        "system_capabilities": [
+          "electronic_data_capture",
+          "audit_trail",
+          "electronic_signature"
+        ],
+        "integration_requirements": [],
+        "language_requirements": [],
+        "provenance": {
+          "section_number": "10.2",
+          "page_number": 95,
+          "text_snippet": "The CRF data for this study are being collected with an electronic data capture (EDC) system called Rave\u00ae provided by the technology vendor Medidata Solutions Incorporated, NY, USA. The EDC system and the study-specific electronic case report forms (eCRFs) will comply with Title 21 CFR Part 11."
+        }
+      },
+      "iwrs_rtsm": {
+        "vendor_name": null,
+        "functions": [
+          "randomization",
+          "drug_dispensing",
+          "subject_registration"
+        ],
+        "integration_with_edc": false,
+        "provenance": {
+          "section_number": null,
+          "page_number": 49,
+          "text_snippet": "An Interactive Response Technology system (IRT) will be utilized to register subjects."
+        }
+      },
+      "epro_devices": {
+        "required": false,
+        "device_type": "paper_form",
+        "instruments_collected": [
+          "NFLSI-17",
+          "EQ-5D-5L"
+        ],
+        "training_required": false,
+        "provenance": {
+          "section_number": null,
+          "page_number": 50,
+          "text_snippet": "To assess the subject's health-related quality of life and symptoms, two questionnaires will be administered: the NCCN-Functional Assessment of Cancer Therapy (FACT) Lung Symptom Index-17 (NFLSI-17) questionnaire and the European Quality of Life-5 Dimensions (EQ-5D-5L)... Subjects in both arms must complete this questionnaire on paper forms, which is then entered into EDC by the Investigator or designee."
+        }
+      },
+      "central_services": [
+        {
+          "id": "SVC-001",
+          "service_type": "central_lab",
+          "vendor_name": null,
+          "data_flow": null,
+          "turnaround_time": null,
+          "provenance": {
+            "section_number": null,
+            "page_number": 47,
+            "text_snippet": "All laboratory samples will be assessed using a certified central laboratory and these data will be used for all data analysis. The central laboratory will provide instructions regarding the collection, processing and shipping of samples."
+          }
+        }
+      ],
+      "provenance": {
+        "section_number": "10.2",
+        "page_number": 95,
+        "text_snippet": "Case Report Forms"
+      }
+    },
+    "equipment_facilities": {
+      "instanceType": "EquipmentFacilities",
+      "specialized_equipment": [
+        {
+          "id": "EQUIP-001",
+          "equipment": "CT scanner",
+          "required_or_preferred": "required",
+          "specifications": "Cuts of 5 mm or less in slice thickness for chest and abdomen.",
+          "calibration_frequency": null,
+          "provenance": {
+            "section_number": "Appendix H",
+            "page_number": 116,
+            "text_snippet": "Conventional CT should be performed with cuts of 5 mm or less in slice thickness contiguously. This applies to tumors of the chest and abdomen."
+          }
+        },
+        {
+          "id": "EQUIP-002",
+          "equipment": "MRI scanner",
+          "required_or_preferred": "required",
+          "specifications": "Required for subjects with signs or symptoms of CNS involvement if CT is not used.",
+          "calibration_frequency": null,
+          "provenance": {
+            "section_number": null,
+            "page_number": 49,
+            "text_snippet": "A baseline MRI (or CT if MRI is contraindicated) of the brain is to be performed on any subject with signs or symptoms suggesting CNS involvement by tumor."
+          }
+        },
+        {
+          "id": "EQUIP-003",
+          "equipment": "12-lead ECG machine",
+          "required_or_preferred": "required",
+          "specifications": null,
+          "calibration_frequency": null,
+          "provenance": {
+            "section_number": null,
+            "page_number": 45,
+            "text_snippet": "A resting 12-lead ECG will be performed per Table 2."
+          }
+        }
+      ],
+      "facility_requirements": {
+        "patient_space": "Facility for IV infusion of chemotherapy.",
+        "storage_space": "Secure area for study drug storage under proper conditions.",
+        "safety_equipment": [],
+        "provenance": {
+          "section_number": "5.5.2.3",
+          "page_number": 63,
+          "text_snippet": "All clinical supplies must be stored in a secure place until they are dispensed for subject use, are destroyed at the site or are returned to AbbVie. Investigational products are for investigational use only, and are to be used only within the context of this study. The clinical supplies for this study must be maintained under adequate security and stored under conditions specified on the label."
+        }
+      },
+      "provenance": {
+        "section_number": null,
+        "page_number": 48,
+        "text_snippet": "Tumor Assessments (Radiologic)"
+      }
+    },
+    "vendor_coordination": [
+      {
+        "id": "VENDOR-001",
+        "vendor_type": "other",
+        "vendor_name": "Medidata Solutions Incorporated",
+        "services_provided": [
+          "Electronic data capture system (Rave\u00ae)"
+        ],
+        "site_interface_required": true,
+        "training_required": false,
+        "contact_info": null,
+        "provenance": {
+          "section_number": "10.2",
+          "page_number": 95,
+          "text_snippet": "The CRF data for this study are being collected with an electronic data capture (EDC) system called Rave\u00ae provided by the technology vendor Medidata Solutions Incorporated, NY, USA."
+        }
+      },
+      {
+        "id": "VENDOR-002",
+        "vendor_type": "IRT",
+        "vendor_name": null,
+        "services_provided": [
+          "Randomization",
+          "Drug supply management"
+        ],
+        "site_interface_required": true,
+        "training_required": false,
+        "contact_info": null,
+        "provenance": {
+          "section_number": null,
+          "page_number": 49,
+          "text_snippet": "An Interactive Response Technology system (IRT) will be utilized to register subjects... A copy of all randomization schedules will be kept by the Clinical Statistics Department at AbbVie and a copy will be forwarded to the IRT vendor."
+        }
+      },
+      {
+        "id": "VENDOR-003",
+        "vendor_type": "central_lab",
+        "vendor_name": null,
+        "services_provided": [
+          "Analysis of chemistry, hematology, and urinalysis samples"
+        ],
+        "site_interface_required": true,
+        "training_required": false,
+        "contact_info": null,
+        "provenance": {
+          "section_number": null,
+          "page_number": 47,
+          "text_snippet": "All laboratory samples will be assessed using a certified central laboratory and these data will be used for all data analysis."
+        }
+      },
+      {
+        "id": "VENDOR-004",
+        "vendor_type": "other",
+        "vendor_name": "Qiagen",
+        "services_provided": [
+          "Development of RNA seq based LSP classifier"
+        ],
+        "site_interface_required": false,
+        "training_required": false,
+        "contact_info": null,
+        "provenance": {
+          "section_number": null,
+          "page_number": 5,
+          "text_snippet": "Subjects LSP status (positive or negative) will be determined from tissue samples obtained to confirm diagnosis of NSCLC with a commercially developed RNA seq based LSP classifier developed in partnership with Qiagen."
+        }
+      }
+    ],
+    "extraction_statistics": {
+      "has_site_selection_criteria": true,
+      "has_regulatory_info": true,
+      "has_personnel_requirements": true,
+      "has_training_requirements": true,
+      "has_monitoring_plan": true,
+      "has_activation_timeline": true,
+      "has_drug_supply_info": true,
+      "has_technology_systems": true,
+      "has_dispensing_schedule": true,
+      "has_drug_accountability": true,
+      "has_emergency_unblinding": true,
+      "site_count_target": 150,
+      "country_count": 3,
+      "vendor_count": 4,
+      "comparator_medication_count": 4
+    },
+    "provenance": {
+      "section_number": "1.0",
+      "page_number": 1,
+      "text_snippet": "Clinical Study Protocol M14-359\n\nA Randomized, Open-Label, Multicenter, Phase 3 Trial Comparing Veliparib Plus Carboplatin and Paclitaxel Versus Investigator's Choice of Standard Chemotherapy in Subjects Receiving First Cytotoxic Chemotherapy for Metastatic or Advanced Non-Squamous Non-Small Cell Lung Cancer (NSCLC) and Who Are Current or Former Smokers"
+    }
+  }
+}
