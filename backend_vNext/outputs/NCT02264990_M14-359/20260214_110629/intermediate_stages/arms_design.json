@@ -1,0 +1,899 @@
+{
+  "module_id": "arms_design",
+  "module_name": "Treatment Arms Design",
+  "protocol_id": "NCT02264990_M14-359",
+  "timestamp": "2026-02-14T11:19:33.637328",
+  "success": true,
+  "metrics": {
+    "provenance_coverage": 1.0,
+    "pass1_duration_seconds": 223.59,
+    "pass2_duration_seconds": 321.95,
+    "total_duration_seconds": 545.54,
+    "pass2_skipped": false
+  },
+  "quality_scores": {
+    "accuracy": 0.9978401727861771,
+    "completeness": 1.0,
+    "usdm_adherence": 1.0,
+    "provenance": 1.0,
+    "terminology": 1.0,
+    "overall": 0.9994600431965442,
+    "from_cache": false,
+    "duration_seconds": 545.6596140861511
+  },
+  "extracted_data": {
+    "id": "M14-359-arms-design",
+    "instanceType": "StudyDesign",
+    "name": "M14-359 Study Design",
+    "studyArms": [
+      {
+        "id": "ARM01",
+        "instanceType": "StudyArm",
+        "name": "Veliparib + Carboplatin + Paclitaxel",
+        "label": "Veliparib Arm",
+        "description": "Veliparib 120 mg BID orally on Days -2 through 5, with Carboplatin AUC 6 and Paclitaxel 200 mg/m\u00b2 administered intravenously on Day 1 of each 21-day cycle for a maximum of 6 cycles. Optional pemetrexed maintenance therapy may be administered after completion of the initial 6 cycles.",
+        "armType": {
+          "code": "C174266",
+          "decode": "Experimental",
+          "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "codeSystemVersion": "24.03e"
+        },
+        "allocationRatio": 1,
+        "plannedSubjects": 298,
+        "interventions": [
+          {
+            "id": "INT01",
+            "instanceType": "StudyIntervention",
+            "name": "Veliparib",
+            "type": "Drug",
+            "role": {
+              "decode": "Investigational"
+            },
+            "drugClass": "PARP inhibitor",
+            "dosingRegimen": {
+              "dose": 120,
+              "doseUnit": "mg",
+              "frequency": "BID",
+              "route": {
+                "code": "C38288",
+                "decode": "Oral",
+                "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                "codeSystemVersion": "24.03e"
+              },
+              "cycleLengthDays": 21,
+              "doseCalculationBasis": "Fixed"
+            },
+            "formulation": "Capsule",
+            "strength": "40 mg",
+            "isBlinded": false,
+            "isPlacebo": false,
+            "isComparator": false,
+            "biomedicalConcept": {
+              "conceptName": "Veliparib",
+              "cdiscCode": "C82299",
+              "domain": "CM"
+            },
+            "doseModifications": {
+              "reductionLevels": [
+                {
+                  "level": -1,
+                  "dose": 80,
+                  "doseUnit": "mg",
+                  "percentReduction": 33.3,
+                  "provenance": {
+                    "section_number": "5.7.1",
+                    "page_number": 70,
+                    "text_snippet": "Table 9. Suggested Guidelines for Veliparib + Carboplatin/Paclitaxel Independent Dose Reductions\nDose Level \u20131 ... 80 mg BID"
+                  }
+                },
+                {
+                  "level": -2,
+                  "dose": 40,
+                  "doseUnit": "mg",
+                  "percentReduction": 66.7,
+                  "provenance": {
+                    "section_number": "5.7.1",
+                    "page_number": 70,
+                    "text_snippet": "Table 9. Suggested Guidelines for Veliparib + Carboplatin/Paclitaxel Independent Dose Reductions\nDose Level \u20132 ... 40 mg BID"
+                  }
+                }
+              ],
+              "modificationTriggers": [
+                {
+                  "id": "TRIG01",
+                  "condition": "Grade 3/4 toxicity not attributable to carboplatin/paclitaxel or underlying disease",
+                  "toxicityGrade": 3,
+                  "action": "Hold then reduce",
+                  "targetLevel": -1,
+                  "holdCriteria": "Resolves to grade 1 or lower or to baseline if grade 2 is present at study entry",
+                  "provenance": {
+                    "section_number": "5.7.1",
+                    "page_number": 71,
+                    "text_snippet": "For any subject who experiences grade 3/4 toxicity which is not attributable to carboplatin/paclitaxel or the underlying disease, the veliparib dose is to be held until the toxicity resolves to grade 1 or lower or to baseline if grade 2 is present at the time of study entry. Upon resuming veliparib treatment, the dose is to be reduced one dose level."
+                  }
+                }
+              ],
+              "permanentDiscontinuationTriggers": [
+                "Any dose reduction beyond 40 mg BID",
+                "Any >= grade 2 event of seizure attributed to veliparib"
+              ],
+              "provenance": {
+                "section_number": "5.7.1",
+                "page_number": 70,
+                "text_snippet": "Veliparib Dose Reductions and Delays"
+              }
+            },
+            "provenance": {
+              "section_number": "8",
+              "page_number": 8,
+              "text_snippet": "Investigational Products: Veliparib (ABT-888)\nDoses: 120 mg BID Days \u20132 through 5 of 21-day cycle\nMode of Administration: Oral"
+            }
+          },
+          {
+            "id": "INT02",
+            "instanceType": "StudyIntervention",
+            "name": "Carboplatin",
+            "type": "Drug",
+            "role": {
+              "decode": "Concomitant"
+            },
+            "drugClass": "Platinum compound",
+            "dosingRegimen": {
+              "dose": 6,
+              "doseUnit": "AUC",
+              "frequency": "Q3W",
+              "route": {
+                "code": "C38276",
+                "decode": "Intravenous",
+                "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                "codeSystemVersion": "24.03e"
+              },
+              "cycleLengthDays": 21,
+              "doseCalculationBasis": "AUC-based"
+            },
+            "isBlinded": false,
+            "isPlacebo": false,
+            "isComparator": false,
+            "biomedicalConcept": {
+              "conceptName": "Carboplatin",
+              "cdiscCode": "C263",
+              "domain": "CM"
+            },
+            "doseModifications": {
+              "reductionLevels": [
+                {
+                  "level": -1,
+                  "dose": 5,
+                  "doseUnit": "AUC",
+                  "percentReduction": 16.7,
+                  "provenance": {
+                    "section_number": "5.7.1",
+                    "page_number": 70,
+                    "text_snippet": "Table 9. Suggested Guidelines for Veliparib + Carboplatin/Paclitaxel Independent Dose Reductions\nDose Level \u20131 AUC 5"
+                  }
+                },
+                {
+                  "level": -2,
+                  "dose": 4,
+                  "doseUnit": "AUC",
+                  "percentReduction": 33.3,
+                  "provenance": {
+                    "section_number": "5.7.1",
+                    "page_number": 70,
+                    "text_snippet": "Table 9. Suggested Guidelines for Veliparib + Carboplatin/Paclitaxel Independent Dose Reductions\nDose Level \u20132 AUC 4"
+                  }
+                }
+              ],
+              "modificationTriggers": [
+                {
+                  "id": "TRIG02",
+                  "condition": "Grade 3/4 Febrile Neutropenia",
+                  "toxicityGrade": 3,
+                  "action": "Reduce",
+                  "targetLevel": -1,
+                  "provenance": {
+                    "section_number": null,
+                    "page_number": 113,
+                    "text_snippet": "Grade 3/4 Febrile Neutropenia Reduce to Dose Level \u20131 for 1st episode and Dose Level \u20132 for 2nd episode."
+                  }
+                },
+                {
+                  "id": "TRIG03",
+                  "condition": "Grade 3/4 nausea, vomiting, or stomatitis",
+                  "toxicityGrade": 3,
+                  "action": "Reduce",
+                  "targetLevel": -1,
+                  "provenance": {
+                    "section_number": null,
+                    "page_number": 113,
+                    "text_snippet": "Grade 3/4 nausea, vomiting despite standard supportive care, or grade 3/4 Stomatitis Dose Level \u20131 for 1st episode and Dose Level \u20132 for 2nd episode."
+                  }
+                },
+                {
+                  "id": "TRIG04",
+                  "condition": "Grade 4 Thrombocytopenia",
+                  "toxicityGrade": 4,
+                  "action": "Reduce",
+                  "targetLevel": -1,
+                  "provenance": {
+                    "section_number": null,
+                    "page_number": 113,
+                    "text_snippet": "Grade 4 Thrombocytopenia Dose Level \u20131 for 1st episode and Dose Level \u20132 for 2nd episode."
+                  }
+                }
+              ],
+              "permanentDiscontinuationTriggers": [
+                "Stomatitis not resolved to grade 1 or less within 3 weeks"
+              ],
+              "provenance": {
+                "section_number": "5.7.2",
+                "page_number": 71,
+                "text_snippet": "Carboplatin/Paclitaxel Dose Reductions and Delays"
+              }
+            },
+            "provenance": {
+              "section_number": "8",
+              "page_number": 8,
+              "text_snippet": "Reference Therapy or Investigational products: Carboplatin Day 1 of 21-day cycle\nDose: AUC 6 mg/mL\u2022min\nMode of Administration: Intravenous"
+            }
+          },
+          {
+            "id": "INT03",
+            "instanceType": "StudyIntervention",
+            "name": "Paclitaxel",
+            "type": "Drug",
+            "role": {
+              "decode": "Concomitant"
+            },
+            "drugClass": "Taxane",
+            "dosingRegimen": {
+              "dose": 200,
+              "doseUnit": "mg/m\u00b2",
+              "frequency": "Q3W",
+              "route": {
+                "code": "C38276",
+                "decode": "Intravenous",
+                "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                "codeSystemVersion": "24.03e"
+              },
+              "cycleLengthDays": 21,
+              "doseCalculationBasis": "BSA-based"
+            },
+            "isBlinded": false,
+            "isPlacebo": false,
+            "isComparator": false,
+            "biomedicalConcept": {
+              "conceptName": "Paclitaxel",
+              "cdiscCode": "C814",
+              "domain": "CM"
+            },
+            "doseModifications": {
+              "reductionLevels": [
+                {
+                  "level": -1,
+                  "dose": 175,
+                  "doseUnit": "mg/m\u00b2",
+                  "percentReduction": 12.5,
+                  "provenance": {
+                    "section_number": "5.7.1",
+                    "page_number": 70,
+                    "text_snippet": "Table 9. Suggested Guidelines for Veliparib + Carboplatin/Paclitaxel Independent Dose Reductions\nDose Level \u20131 ... 175 mg/m2"
+                  }
+                },
+                {
+                  "level": -2,
+                  "dose": 150,
+                  "doseUnit": "mg/m\u00b2",
+                  "percentReduction": 25,
+                  "provenance": {
+                    "section_number": "5.7.1",
+                    "page_number": 70,
+                    "text_snippet": "Table 9. Suggested Guidelines for Veliparib + Carboplatin/Paclitaxel Independent Dose Reductions\nDose Level \u20132 ... 150 mg/m2"
+                  }
+                }
+              ],
+              "modificationTriggers": [
+                {
+                  "id": "TRIG10",
+                  "condition": "Grade 2 Neuropathy",
+                  "toxicityGrade": 2,
+                  "action": "Reduce",
+                  "targetLevel": -1,
+                  "provenance": {
+                    "section_number": null,
+                    "page_number": 113,
+                    "text_snippet": "Grade 2 Neuropathy No Change Reduce to Dose Level \u20131."
+                  }
+                },
+                {
+                  "id": "TRIG11",
+                  "condition": "Grade 3/4 Neuropathy",
+                  "toxicityGrade": 3,
+                  "action": "Hold then reduce",
+                  "targetLevel": -2,
+                  "holdCriteria": "Until recovery to Grade 2",
+                  "provenance": {
+                    "section_number": null,
+                    "page_number": 113,
+                    "text_snippet": "Grade 3/4 Neuropathy No Change Hold until recovery to Grade 2. Reduce to Dose Level \u20132."
+                  }
+                }
+              ],
+              "permanentDiscontinuationTriggers": [
+                "Stomatitis not resolved to grade 1 or less within 3 weeks"
+              ],
+              "provenance": {
+                "section_number": "5.7.2",
+                "page_number": 71,
+                "text_snippet": "Carboplatin/Paclitaxel Dose Reductions and Delays"
+              }
+            },
+            "provenance": {
+              "section_number": "8",
+              "page_number": 8,
+              "text_snippet": "Reference Therapy or Investigational products: Paclitaxel Day 1 of 21-day cycle\nDose: 200 mg/m2\nMode of Administration: Intravenous"
+            }
+          },
+          {
+            "id": "INT04",
+            "instanceType": "StudyIntervention",
+            "name": "Pemetrexed",
+            "type": "Drug",
+            "role": {
+              "decode": "Concomitant"
+            },
+            "description": "Optional maintenance therapy",
+            "drugClass": "Antifolate",
+            "dosingRegimen": {
+              "dose": 500,
+              "doseUnit": "mg/m\u00b2",
+              "frequency": "Q3W",
+              "route": {
+                "code": "C38276",
+                "decode": "Intravenous",
+                "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                "codeSystemVersion": "24.03e"
+              },
+              "cycleLengthDays": 21,
+              "doseCalculationBasis": "BSA-based"
+            },
+            "isBlinded": false,
+            "isPlacebo": false,
+            "isComparator": false,
+            "biomedicalConcept": {
+              "conceptName": "Pemetrexed",
+              "cdiscCode": "C2039",
+              "domain": "CM"
+            },
+            "provenance": {
+              "section_number": "5.5.1",
+              "page_number": 59,
+              "text_snippet": "Maintenance therapy after completion of up to 6 cycles of either veliparib/carboplatin/paclitaxel or Investigator's choice of chemotherapy. Maintenance therapy consists of pemetrexed or no maintenance therapy (observational). Maintenance pemetrexed will be administered as 500 mg/m2 on Day 1 of each 21-day cycle."
+            }
+          }
+        ],
+        "provenance": {
+          "section_number": "5.1",
+          "page_number": 30,
+          "text_snippet": "Subjects will be randomized in a 1:1 ratio to a maximum of 6 cycles of carboplatin/paclitaxel plus 120 mg BID of veliparib or a maximum of 6 cycles of Investigator's choice of platinum doublet chemotherapy"
+        }
+      },
+      {
+        "id": "ARM02",
+        "instanceType": "StudyArm",
+        "name": "Investigator's Choice of Standard Chemotherapy",
+        "label": "Investigator's Choice Arm",
+        "description": "Investigator's choice of one of three platinum doublet chemotherapy regimens: carboplatin/paclitaxel, cisplatin/pemetrexed, or carboplatin/pemetrexed for a maximum of 6 cycles. Optional pemetrexed maintenance therapy may be administered after completion of the initial 6 cycles.",
+        "armType": {
+          "code": "C174267",
+          "decode": "Active Comparator",
+          "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "codeSystemVersion": "24.03e"
+        },
+        "allocationRatio": 1,
+        "plannedSubjects": 297,
+        "interventions": [
+          {
+            "id": "INT02",
+            "instanceType": "StudyIntervention",
+            "name": "Carboplatin",
+            "type": "Drug",
+            "role": {
+              "decode": "Comparator"
+            },
+            "drugClass": "Platinum compound",
+            "dosingRegimen": {
+              "dose": 6,
+              "doseUnit": "AUC",
+              "frequency": "Q3W",
+              "route": {
+                "code": "C38276",
+                "decode": "Intravenous",
+                "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                "codeSystemVersion": "24.03e"
+              },
+              "cycleLengthDays": 21,
+              "doseCalculationBasis": "AUC-based"
+            },
+            "isBlinded": false,
+            "isPlacebo": false,
+            "isComparator": true,
+            "biomedicalConcept": {
+              "conceptName": "Carboplatin",
+              "cdiscCode": "C263",
+              "domain": "CM"
+            },
+            "provenance": {
+              "section_number": "5.5.1",
+              "page_number": 59,
+              "text_snippet": "o Carboplatin AUC 6 mg/mL\u2022min + paclitaxel 200 mg/m2"
+            }
+          },
+          {
+            "id": "INT03",
+            "instanceType": "StudyIntervention",
+            "name": "Paclitaxel",
+            "type": "Drug",
+            "role": {
+              "decode": "Comparator"
+            },
+            "drugClass": "Taxane",
+            "dosingRegimen": {
+              "dose": 200,
+              "doseUnit": "mg/m\u00b2",
+              "frequency": "Q3W",
+              "route": {
+                "code": "C38276",
+                "decode": "Intravenous",
+                "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                "codeSystemVersion": "24.03e"
+              },
+              "cycleLengthDays": 21,
+              "doseCalculationBasis": "BSA-based"
+            },
+            "isBlinded": false,
+            "isPlacebo": false,
+            "isComparator": true,
+            "biomedicalConcept": {
+              "conceptName": "Paclitaxel",
+              "cdiscCode": "C814",
+              "domain": "CM"
+            },
+            "provenance": {
+              "section_number": "5.5.1",
+              "page_number": 59,
+              "text_snippet": "o Carboplatin AUC 6 mg/mL\u2022min + paclitaxel 200 mg/m2"
+            }
+          },
+          {
+            "id": "INT05",
+            "instanceType": "StudyIntervention",
+            "name": "Cisplatin",
+            "type": "Drug",
+            "role": {
+              "decode": "Comparator"
+            },
+            "drugClass": "Platinum compound",
+            "dosingRegimen": {
+              "dose": 75,
+              "doseUnit": "mg/m\u00b2",
+              "frequency": "Q3W",
+              "route": {
+                "code": "C38276",
+                "decode": "Intravenous",
+                "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                "codeSystemVersion": "24.03e"
+              },
+              "cycleLengthDays": 21,
+              "doseCalculationBasis": "BSA-based"
+            },
+            "isBlinded": false,
+            "isPlacebo": false,
+            "isComparator": true,
+            "biomedicalConcept": {
+              "conceptName": "Cisplatin",
+              "cdiscCode": "C376",
+              "domain": "CM"
+            },
+            "provenance": {
+              "section_number": "5.5.1",
+              "page_number": 59,
+              "text_snippet": "o Cisplatin 75 mg/m2 + pemetrexed 500 mg/m2"
+            }
+          },
+          {
+            "id": "INT06",
+            "instanceType": "StudyIntervention",
+            "name": "Pemetrexed",
+            "type": "Drug",
+            "role": {
+              "decode": "Comparator"
+            },
+            "description": "Induction therapy component",
+            "drugClass": "Antifolate",
+            "dosingRegimen": {
+              "dose": 500,
+              "doseUnit": "mg/m\u00b2",
+              "frequency": "Q3W",
+              "route": {
+                "code": "C38276",
+                "decode": "Intravenous",
+                "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                "codeSystemVersion": "24.03e"
+              },
+              "cycleLengthDays": 21,
+              "doseCalculationBasis": "BSA-based"
+            },
+            "isBlinded": false,
+            "isPlacebo": false,
+            "isComparator": true,
+            "biomedicalConcept": {
+              "conceptName": "Pemetrexed",
+              "cdiscCode": "C2039",
+              "domain": "CM"
+            },
+            "provenance": {
+              "section_number": "5.5.1",
+              "page_number": 59,
+              "text_snippet": "o Cisplatin 75 mg/m2 + pemetrexed 500 mg/m2"
+            }
+          },
+          {
+            "id": "INT04",
+            "instanceType": "StudyIntervention",
+            "name": "Pemetrexed",
+            "type": "Drug",
+            "role": {
+              "decode": "Concomitant"
+            },
+            "description": "Optional maintenance therapy",
+            "drugClass": "Antifolate",
+            "dosingRegimen": {
+              "dose": 500,
+              "doseUnit": "mg/m\u00b2",
+              "frequency": "Q3W",
+              "route": {
+                "code": "C38276",
+                "decode": "Intravenous",
+                "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                "codeSystemVersion": "24.03e"
+              },
+              "cycleLengthDays": 21,
+              "doseCalculationBasis": "BSA-based"
+            },
+            "isBlinded": false,
+            "isPlacebo": false,
+            "isComparator": false,
+            "biomedicalConcept": {
+              "conceptName": "Pemetrexed",
+              "cdiscCode": "C2039",
+              "domain": "CM"
+            },
+            "provenance": {
+              "section_number": "5.5.1",
+              "page_number": 59,
+              "text_snippet": "Maintenance therapy after completion of up to 6 cycles of either veliparib/carboplatin/paclitaxel or Investigator's choice of chemotherapy. Maintenance therapy consists of pemetrexed or no maintenance therapy (observational). Maintenance pemetrexed will be administered as 500 mg/m2 on Day 1 of each 21-day cycle."
+            }
+          }
+        ],
+        "provenance": {
+          "section_number": "5.1",
+          "page_number": 30,
+          "text_snippet": "Subjects will be randomized in a 1:1 ratio to a maximum of 6 cycles of carboplatin/paclitaxel plus 120 mg BID of veliparib or a maximum of 6 cycles of Investigator's choice of platinum doublet chemotherapy (carboplatin/paclitaxel, cisplatin/pemetrexed, or carboplatin/pemetrexed)."
+        }
+      }
+    ],
+    "studyEpochs": [
+      {
+        "id": "EPOCH01",
+        "instanceType": "StudyEpoch",
+        "name": "Screening",
+        "description": "Eligibility assessment and baseline evaluations up to 28 days prior to randomization.",
+        "epochType": {
+          "code": "C48262",
+          "decode": "Screening",
+          "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "codeSystemVersion": "24.03e"
+        },
+        "sequenceInStudy": 1,
+        "durationDays": 28,
+        "provenance": {
+          "section_number": "5.2",
+          "page_number": 33,
+          "text_snippet": "Subjects must meet all inclusion criteria and none of the exclusion criteria within 28 days of randomization."
+        }
+      },
+      {
+        "id": "EPOCH02",
+        "instanceType": "StudyEpoch",
+        "name": "Treatment",
+        "description": "Up to 6 cycles of platinum-doublet chemotherapy with or without veliparib.",
+        "epochType": {
+          "code": "C101526",
+          "decode": "Treatment",
+          "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "codeSystemVersion": "24.03e"
+        },
+        "sequenceInStudy": 2,
+        "durationDays": 126,
+        "provenance": {
+          "section_number": "5.1",
+          "page_number": 30,
+          "text_snippet": "Subjects will be randomized in a 1:1 ratio to a maximum of 6 cycles of carboplatin/paclitaxel plus 120 mg BID of veliparib or a maximum of 6 cycles of Investigator's choice of platinum doublet chemotherapy"
+        }
+      },
+      {
+        "id": "EPOCH03",
+        "instanceType": "StudyEpoch",
+        "name": "Maintenance",
+        "description": "Optional pemetrexed maintenance therapy administered in 21-day cycles until disease progression or unacceptable toxicity.",
+        "epochType": {
+          "code": "C101526",
+          "decode": "Treatment",
+          "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "codeSystemVersion": "24.03e"
+        },
+        "sequenceInStudy": 3,
+        "provenance": {
+          "section_number": "5.1",
+          "page_number": 31,
+          "text_snippet": "Suitable subjects in either arm will receive pemetrexed maintenance therapy after completion of platinum doublet chemotherapy regimen. Maintenance pemetrexed will be administered on Day 1 of each 21-day cycle."
+        }
+      },
+      {
+        "id": "EPOCH04",
+        "instanceType": "StudyEpoch",
+        "name": "Follow-up",
+        "description": "Survival follow-up after discontinuation of all study therapy, with visits every 9-12 weeks.",
+        "epochType": {
+          "code": "C99158",
+          "decode": "Follow-up",
+          "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "codeSystemVersion": "24.03e"
+        },
+        "sequenceInStudy": 4,
+        "provenance": {
+          "section_number": "5.1",
+          "page_number": 31,
+          "text_snippet": "After cessation of therapy, physician visits and quality of life measures will be performed q9 weeks until one year after randomization (or beyond 1 year until maintenance therapy is discontinued), then q12 weeks until radiographic progression or death."
+        }
+      }
+    ],
+    "studyCells": [
+      {
+        "id": "CELL01",
+        "instanceType": "StudyCell",
+        "armId": "ARM01",
+        "epochId": "EPOCH01",
+        "interventionIds": [],
+        "provenance": {
+          "section_number": null,
+          "page_number": 32,
+          "text_snippet": "Figure 1. Study Schedule Schematic\nScreening (\u2264 28Days)"
+        }
+      },
+      {
+        "id": "CELL02",
+        "instanceType": "StudyCell",
+        "armId": "ARM02",
+        "epochId": "EPOCH01",
+        "interventionIds": [],
+        "provenance": {
+          "section_number": null,
+          "page_number": 32,
+          "text_snippet": "Figure 1. Study Schedule Schematic\nScreening (\u2264 28Days)"
+        }
+      },
+      {
+        "id": "CELL03",
+        "instanceType": "StudyCell",
+        "armId": "ARM01",
+        "epochId": "EPOCH02",
+        "interventionIds": [
+          "INT01",
+          "INT02",
+          "INT03"
+        ],
+        "provenance": {
+          "section_number": null,
+          "page_number": 32,
+          "text_snippet": "Figure 1. Study Schedule Schematic\nVeliparib (BID)/carboplatin/paclitaxel"
+        }
+      },
+      {
+        "id": "CELL04",
+        "instanceType": "StudyCell",
+        "armId": "ARM02",
+        "epochId": "EPOCH02",
+        "interventionIds": [
+          "INT02",
+          "INT03",
+          "INT05",
+          "INT06"
+        ],
+        "provenance": {
+          "section_number": null,
+          "page_number": 32,
+          "text_snippet": "Figure 1. Study Schedule Schematic\nInvestigator's Choice"
+        }
+      },
+      {
+        "id": "CELL05",
+        "instanceType": "StudyCell",
+        "armId": "ARM01",
+        "epochId": "EPOCH03",
+        "interventionIds": [
+          "INT04"
+        ],
+        "provenance": {
+          "section_number": null,
+          "page_number": 32,
+          "text_snippet": "Figure 1. Study Schedule Schematic\nMaintenance therapy*"
+        }
+      },
+      {
+        "id": "CELL06",
+        "instanceType": "StudyCell",
+        "armId": "ARM02",
+        "epochId": "EPOCH03",
+        "interventionIds": [
+          "INT04"
+        ],
+        "provenance": {
+          "section_number": null,
+          "page_number": 32,
+          "text_snippet": "Figure 1. Study Schedule Schematic\nMaintenance therapy*"
+        }
+      },
+      {
+        "id": "CELL07",
+        "instanceType": "StudyCell",
+        "armId": "ARM01",
+        "epochId": "EPOCH04",
+        "interventionIds": [],
+        "provenance": {
+          "section_number": null,
+          "page_number": 32,
+          "text_snippet": "Figure 1. Study Schedule Schematic\nPost-Platinum Therapy Phase"
+        }
+      },
+      {
+        "id": "CELL08",
+        "instanceType": "StudyCell",
+        "armId": "ARM02",
+        "epochId": "EPOCH04",
+        "interventionIds": [],
+        "provenance": {
+          "section_number": null,
+          "page_number": 32,
+          "text_snippet": "Figure 1. Study Schedule Schematic\nPost-Platinum Therapy Phase"
+        }
+      }
+    ],
+    "designMetadata": {
+      "id": "DESIGN01",
+      "designType": {
+        "code": "C82639",
+        "decode": "Parallel",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.03e"
+      },
+      "isRandomized": true,
+      "allocationRatio": "1:1",
+      "randomizationAlgorithm": "Stratified",
+      "randomizationDetails": {
+        "randomization_type": "central",
+        "randomization_method": "IRT",
+        "provenance": {
+          "section_number": "5.5.4",
+          "page_number": 65,
+          "text_snippet": "All subjects in the study will be randomized using an IRT system."
+        }
+      },
+      "blindingType": "Open-label",
+      "whoIsBlinded": [],
+      "isPlaceboControlled": false,
+      "isActiveControlled": true,
+      "stratificationFactors": [
+        {
+          "id": "STRAT01",
+          "name": "Smoking status",
+          "levels": [
+            {
+              "level_id": "STRAT01-L1",
+              "level_name": "Current"
+            },
+            {
+              "level_id": "STRAT01-L2",
+              "level_name": "Former"
+            }
+          ],
+          "is_irt_stratification": true,
+          "is_analysis_stratification": true,
+          "provenance": {
+            "section_number": "5.1",
+            "page_number": 30,
+            "text_snippet": "Subject randomization will be stratified by smoking status (current versus former)"
+          }
+        },
+        {
+          "id": "STRAT02",
+          "name": "Investigator's preferred platinum doublet therapy",
+          "levels": [
+            {
+              "level_id": "STRAT02-L1",
+              "level_name": "carboplatin/paclitaxel"
+            },
+            {
+              "level_id": "STRAT02-L2",
+              "level_name": "cisplatin/pemetrexed"
+            },
+            {
+              "level_id": "STRAT02-L3",
+              "level_name": "carboplatin/pemetrexed"
+            }
+          ],
+          "is_irt_stratification": true,
+          "is_analysis_stratification": true,
+          "provenance": {
+            "section_number": "5.1",
+            "page_number": 30,
+            "text_snippet": "by the Investigators' preferred platinum therapy (carboplatin/paclitaxel versus cisplatin/pemetrexed versus carboplatin/pemetrexed)"
+          }
+        },
+        {
+          "id": "STRAT03",
+          "name": "Gender",
+          "levels": [
+            {
+              "level_id": "STRAT03-L1",
+              "level_name": "Male"
+            },
+            {
+              "level_id": "STRAT03-L2",
+              "level_name": "Female"
+            }
+          ],
+          "is_irt_stratification": true,
+          "is_analysis_stratification": true,
+          "provenance": {
+            "section_number": "5.1",
+            "page_number": 30,
+            "text_snippet": "by gender (male versus female)"
+          }
+        },
+        {
+          "id": "STRAT04",
+          "name": "ECOG performance status",
+          "levels": [
+            {
+              "level_id": "STRAT04-L1",
+              "level_name": "0"
+            },
+            {
+              "level_id": "STRAT04-L2",
+              "level_name": "1"
+            }
+          ],
+          "is_irt_stratification": true,
+          "is_analysis_stratification": true,
+          "provenance": {
+            "section_number": "5.1",
+            "page_number": 30,
+            "text_snippet": "and by ECOG performance status (0 versus 1)."
+          }
+        }
+      ],
+      "provenance": {
+        "section_number": "5.1",
+        "page_number": 30,
+        "text_snippet": "This is a Phase 3, randomized, open-label, multi-center study evaluating the efficacy, safety, and tolerability of veliparib plus carboplatin and paclitaxel versus Investigator's choice of standard chemotherapy in subjects receiving first cytotoxic chemotherapy for advanced or metastatic non-squamous NSCLC who are current or former smokers."
+      }
+    },
+    "provenance": {
+      "section_number": "1.0",
+      "page_number": 1,
+      "text_snippet": "Clinical Study Protocol M14-359"
+    }
+  }
+}
