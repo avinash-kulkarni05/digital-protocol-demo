@@ -78,6 +78,31 @@ async def get_job_status(
     except ValueError:
         raise HTTPException(status_code=404, detail="Job not found")
 
+    if status["status"] == "running":
+        from app.services.extraction_worker import get_active_extractions
+        active = get_active_extractions()
+        job_id_str = str(job_id)
+        should_mark_failed = False
+        error_msg = ""
+
+        if job_id_str in active and not active[job_id_str]["alive"]:
+            exit_code = active[job_id_str].get("exitcode", "unknown")
+            should_mark_failed = True
+            error_msg = f"Extraction worker process crashed (exit code: {exit_code})"
+        elif job_id_str not in active:
+            should_mark_failed = True
+            error_msg = "Extraction worker process is no longer running (process not found)"
+
+        if should_mark_failed:
+            job = db.query(Job).filter(Job.id == job_id).first()
+            if job:
+                job.status = "failed"
+                job.error_message = error_msg
+                job.completed_at = datetime.utcnow()
+                db.commit()
+                logger.warning(f"Stale job detected {job_id}: {error_msg}")
+                status = checkpoint_service.get_job_status(job_id)
+
     # Get module results for quality scores
     module_results = db.query(ModuleResult).filter(
         ModuleResult.job_id == job_id

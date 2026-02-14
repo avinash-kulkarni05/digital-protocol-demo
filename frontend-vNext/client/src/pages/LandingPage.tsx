@@ -63,7 +63,6 @@ export default function LandingPage() {
         // Navigate to review page
         setLocation(`/review/study_metadata?studyId=${encodeURIComponent(studyId)}&protocolId=${encodeURIComponent(protocolId)}`);
       } else if (status.status === 'failed') {
-        // Stop polling on failure
         setPollingJobs(prev => {
           const next = new Set(prev);
           next.delete(protocolId);
@@ -71,17 +70,21 @@ export default function LandingPage() {
         });
         setExtractionProgress(prev => {
           const next = new Map(prev);
+          next.set(protocolId, -1);
+          return next;
+        });
+        setExtractingProtocols(prev => {
+          const next = new Set(prev);
           next.delete(protocolId);
           return next;
         });
         toast({
           title: "Extraction Failed",
-          description: `Failed to process ${studyId}. Please try again.`,
+          description: status.error_message || `Failed to process ${studyId}. Please try again.`,
           variant: "destructive",
         });
         queryClient.invalidateQueries({ queryKey: ["documents"] });
       } else {
-        // Continue polling
         setTimeout(() => pollJobProgress(protocolId, jobId, studyId), 5000);
       }
     } catch (error) {
@@ -266,10 +269,9 @@ export default function LandingPage() {
             // Redirect to review page with both studyId and protocolId
             setLocation(`/review/study_metadata?studyId=${encodeURIComponent(studyId)}&protocolId=${encodeURIComponent(protocolId)}`);
           } else if (status.status === 'failed') {
-            // Handle failure gracefully
             toast({
               title: "Extraction Failed",
-              description: `Failed to process ${studyId}. Please try again.`,
+              description: status.error_message || `Failed to process ${studyId}. Please try again.`,
               variant: "destructive",
             });
             setExtractingProtocols(prev => {
@@ -277,10 +279,9 @@ export default function LandingPage() {
               next.delete(protocolId);
               return next;
             });
-            // Clear progress
             setExtractionProgress(prev => {
               const next = new Map(prev);
-              next.delete(protocolId);
+              next.set(protocolId, -1);
               return next;
             });
           } else {
@@ -420,8 +421,10 @@ export default function LandingPage() {
                 const study = usdm?.study;
                 const status = (doc as any).extractionStatus;
                 const isCompleted = status === 'completed' || status === 'completed_with_errors';
-                const isProcessing = extractingProtocols.has(String(doc.id)) || pollingJobs.has(String(doc.id)) || status === 'processing';
-                const progressPercent = extractionProgress.get(String(doc.id)) || 0;
+                const rawProgress = extractionProgress.get(String(doc.id));
+                const isFailed = rawProgress === -1 || status === 'failed';
+                const isProcessing = !isFailed && (extractingProtocols.has(String(doc.id)) || pollingJobs.has(String(doc.id)) || status === 'processing');
+                const progressPercent = rawProgress && rawProgress > 0 ? rawProgress : 0;
 
                 // Get study acronym/short name (e.g., ADAURA)
                 const studyAcronym = study?.name || doc.studyId;
@@ -477,7 +480,12 @@ export default function LandingPage() {
                         )}
                       </div>
                       <span className="flex items-center gap-1.5">
-                        {isProcessing ? (
+                        {isFailed ? (
+                          <>
+                            <span className="w-2 h-2 rounded-full bg-red-500" />
+                            <span className="text-xs font-medium text-red-600">Extraction Failed</span>
+                          </>
+                        ) : isProcessing ? (
                           <>
                             <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
                             <span className="text-xs font-medium text-blue-600">
@@ -578,40 +586,59 @@ export default function LandingPage() {
                       onClick={() => {
                         if (isCompleted) {
                           setLocation(`/review/study_metadata?studyId=${encodeURIComponent(doc.studyId)}`);
+                        } else if (isFailed) {
+                          setExtractionProgress(prev => {
+                            const next = new Map(prev);
+                            next.delete(String(doc.id));
+                            return next;
+                          });
+                          handleStartExtraction(String(doc.id), doc.studyId);
                         } else if (!isProcessing) {
                           handleStartExtraction(String(doc.id), doc.studyId);
                         }
                       }}
-                      className={`relative w-full flex items-center justify-between px-4 py-2.5 rounded-full border border-gray-200 bg-white overflow-hidden transition-all duration-200 group/btn ${
-                        !isProcessing ? 'hover:bg-gray-900 hover:border-gray-900 hover:text-white' : ''
+                      className={`relative w-full flex items-center justify-between px-4 py-2.5 rounded-full border overflow-hidden transition-all duration-200 group/btn ${
+                        isFailed
+                          ? 'border-red-300 bg-red-50 hover:bg-red-100'
+                          : !isProcessing
+                            ? 'border-gray-200 bg-white hover:bg-gray-900 hover:border-gray-900 hover:text-white'
+                            : 'border-gray-200 bg-white'
                       }`}
                       data-testid={`button-review-${doc.id}`}
                     >
-                      {/* Progress bar fill */}
                       {isProcessing && (
                         <div
                           className="absolute left-0 top-0 bottom-0 bg-gray-100 transition-all duration-500 ease-out"
                           style={{ width: `${progressPercent}%` }}
                         />
                       )}
+                      {isFailed && (
+                        <div
+                          className="absolute left-0 top-0 bottom-0 bg-red-100 w-full"
+                        />
+                      )}
                       <div className="relative flex items-center gap-2 z-10">
-                        {isProcessing ? (
+                        {isFailed ? (
+                          <Eye className="w-4 h-4 text-red-500" />
+                        ) : isProcessing ? (
                           <Loader2 className="w-4 h-4 text-gray-500 animate-spin" />
                         ) : (
                           <Eye className="w-4 h-4 text-gray-500 group-hover/btn:text-white transition-colors" />
                         )}
                         <span className={`text-sm font-medium transition-colors ${
-                          isProcessing ? 'text-gray-700' : 'text-gray-700 group-hover/btn:text-white'
+                          isFailed ? 'text-red-700' : isProcessing ? 'text-gray-700' : 'text-gray-700 group-hover/btn:text-white'
                         }`}>
-                          {isProcessing
-                            ? `Processing... ${progressPercent}%`
-                            : isCompleted
-                              ? 'Review Protocol'
-                              : 'Start Extraction'}
+                          {isFailed
+                            ? 'Failed — Retry Extraction'
+                            : isProcessing
+                              ? `Processing... ${progressPercent}%`
+                              : isCompleted
+                                ? 'Review Protocol'
+                                : 'Start Extraction'}
                         </span>
                       </div>
                       <ChevronRight className={`relative w-4 h-4 z-10 transition-colors ${
-                        isProcessing ? 'text-gray-400' : 'text-gray-400 group-hover/btn:text-white'
+                        isFailed ? 'text-red-400' : isProcessing ? 'text-gray-400' : 'text-gray-400 group-hover/btn:text-white'
                       }`} />
                     </button>
                   </motion.div>
