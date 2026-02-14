@@ -1,0 +1,818 @@
+{
+  "module_id": "safety_decision_points",
+  "module_name": "Safety Decision Points",
+  "protocol_id": "NCT02264990_M14-359",
+  "timestamp": "2026-02-14T11:28:50.830450",
+  "success": true,
+  "metrics": {
+    "provenance_coverage": 1.0,
+    "pass1_duration_seconds": 52.14,
+    "pass2_duration_seconds": 95.59,
+    "total_duration_seconds": 147.74,
+    "pass2_skipped": false
+  },
+  "quality_scores": {
+    "accuracy": 1.0,
+    "completeness": 1.0,
+    "usdm_adherence": 1.0,
+    "provenance": 1.0,
+    "terminology": 1.0,
+    "overall": 1.0,
+    "from_cache": false,
+    "duration_seconds": 147.9153983592987
+  },
+  "extracted_data": {
+    "id": "M14-359-safety-decision-points",
+    "instanceType": "SafetyDecisionPoints",
+    "name": "M14-359 Safety Decision Points",
+    "discovered_categories": [
+      {
+        "category_id": "cat-001",
+        "category_name": "Hematologic Toxicity",
+        "category_description": "Adverse events related to blood cell counts and bone marrow function.",
+        "parameters_count": 3,
+        "provenance": {
+          "section_number": "5.7.2.1",
+          "page_number": 72,
+          "text_snippet": "Hematologic Toxicity\nFor absolute neutrophil count (ANC) < 1,500/mm3 or platelet count < 100,000/mm3 on Day 1 of each cycle, treatment is to be delayed until recovery of ANC and platelet count above these values. For febrile neutropenia or for grade 4 thrombocytopenia, carboplatin and paclitaxel doses are to be reduced by one dose level."
+        }
+      },
+      {
+        "category_id": "cat-002",
+        "category_name": "Gastrointestinal Toxicity",
+        "category_description": "Adverse events related to the digestive system.",
+        "parameters_count": 2,
+        "provenance": {
+          "section_number": "5.7.2.1",
+          "page_number": 72,
+          "text_snippet": "Gastrointestinal Toxicity\nFor grade 3 or 4 nausea/vomiting despite maximal anti-emetic therapy or for grade 3 or 4 stomatitis, the dose of carboplatin and paclitaxel are to be reduced by 1 dose level."
+        }
+      },
+      {
+        "category_id": "cat-003",
+        "category_name": "Hepatic Toxicity",
+        "category_description": "Adverse events related to liver function.",
+        "parameters_count": 2,
+        "provenance": {
+          "section_number": "5.7.2.1",
+          "page_number": 72,
+          "text_snippet": "Hepatic Toxicity\nFor bilirubin > 1.5 \u00d7 ULN with increased ALT above ULN that is attributed to protocol therapy, paclitaxel is to be held until bilirubin is \u2264 1.5 \u00d7 ULN, and the dose is to be reduced by one level when treatment is resumed."
+        }
+      },
+      {
+        "category_id": "cat-004",
+        "category_name": "Neurologic Toxicity",
+        "category_description": "Adverse events related to the nervous system.",
+        "parameters_count": 2,
+        "provenance": {
+          "section_number": "5.7.2.1",
+          "page_number": 73,
+          "text_snippet": "Neurologic Toxicity\nFor grade 2 neuropathy, paclitaxel dose is to be reduced to Dose Level \u20131. For grade 3/4 neuropathy, paclitaxel dose is to be held until neuropathy is grade 2, and the dose is to be reduced to Dose Level \u20132 when treatment is resumed. The dose of carboplatin will not be reduced for neurologic toxicity."
+        }
+      },
+      {
+        "category_id": "cat-005",
+        "category_name": "General Toxicity",
+        "category_description": "General or non-organ specific adverse events.",
+        "parameters_count": 1,
+        "provenance": {
+          "section_number": "5.7.1",
+          "page_number": 71,
+          "text_snippet": "For any subject who experiences grade 3/4 toxicity which is not attributable to carboplatin/paclitaxel or the underlying disease, the veliparib dose is to be held until the toxicity resolves to grade 1 or lower or to baseline if grade 2 is present at the time of study entry. Upon resuming veliparib treatment, the dose is to be reduced one dose level."
+        }
+      }
+    ],
+    "decision_points": [
+      {
+        "id": "dp-001",
+        "parameter_name": "Neutropenia without fever",
+        "parameter_category": "Hematologic Toxicity",
+        "measurement_type": "ANC (cells/mm\u00b3)",
+        "decision_rules": [
+          {
+            "rule_id": "dp-001-r1",
+            "rule_type": "dose_hold",
+            "rule_description": "Delay treatment for low absolute neutrophil count on Day 1 of a cycle.",
+            "conditions": {
+              "grade": null,
+              "anc_threshold": "<1500",
+              "duration": null
+            },
+            "actions": [
+              {
+                "action_type": "hold_dose",
+                "action_description": "Delay carboplatin and paclitaxel until ANC recovery."
+              }
+            ],
+            "recovery_criteria": {
+              "anc_required": ">=1500",
+              "timeframe": null
+            },
+            "provenance": {
+              "section_number": "5.7.2.1",
+              "page_number": 72,
+              "text_snippet": "For absolute neutrophil count (ANC) < 1,500/mm3 or platelet count < 100,000/mm3 on Day 1 of each cycle, treatment is to be delayed until recovery of ANC and platelet count above these values."
+            }
+          }
+        ],
+        "monitoring_requirements": null,
+        "provenance": {
+          "section_number": "Appendix G",
+          "page_number": 113,
+          "text_snippet": "Grade 3/4 Neutropenia without fever | Carboplatin Dose: Wait until ANC \u2265 1,500/mm\u00b3. | Paclitaxel Dose: Wait until ANC \u2265 1,500/mm\u00b3."
+        }
+      },
+      {
+        "id": "dp-002",
+        "parameter_name": "Febrile Neutropenia",
+        "parameter_category": "Hematologic Toxicity",
+        "measurement_type": "NCI CTCAE Grade",
+        "decision_rules": [
+          {
+            "rule_id": "dp-002-r1",
+            "rule_type": "dose_reduce",
+            "rule_description": "Reduce dose of carboplatin and paclitaxel for Grade 3/4 febrile neutropenia.",
+            "conditions": {
+              "grade": "3/4",
+              "anc_threshold": null,
+              "duration": null
+            },
+            "actions": [
+              {
+                "action_type": "reduce_dose",
+                "action_description": "Reduce to Dose Level -1 for 1st episode and Dose Level -2 for 2nd episode."
+              },
+              {
+                "action_type": "supportive_care",
+                "action_description": "Consider Prophylactic G-CSF after 1st episode."
+              }
+            ],
+            "recovery_criteria": null,
+            "provenance": {
+              "section_number": "Appendix G",
+              "page_number": 113,
+              "text_snippet": "Grade 3/4 Febrile Neutropenia | Reduce to Dose Level \u20131 for 1st episode and Dose Level \u20132 for 2nd episode. Any further reduction after consultation with AbbVie medical monitor. Consider Prophylactic G-CSF after 1st episode"
+            }
+          }
+        ],
+        "monitoring_requirements": null,
+        "provenance": {
+          "section_number": "5.7.2.1",
+          "page_number": 72,
+          "text_snippet": "For febrile neutropenia or for grade 4 thrombocytopenia, carboplatin and paclitaxel doses are to be reduced by one dose level."
+        }
+      },
+      {
+        "id": "dp-003",
+        "parameter_name": "Thrombocytopenia",
+        "parameter_category": "Hematologic Toxicity",
+        "measurement_type": "NCI CTCAE Grade",
+        "decision_rules": [
+          {
+            "rule_id": "dp-003-r1",
+            "rule_type": "dose_hold",
+            "rule_description": "Delay treatment for low platelet count on Day 1 of a cycle.",
+            "conditions": {
+              "grade": null,
+              "platelet_threshold": "<100000",
+              "duration": null
+            },
+            "actions": [
+              {
+                "action_type": "hold_dose",
+                "action_description": "Delay treatment until platelet count recovery."
+              }
+            ],
+            "recovery_criteria": {
+              "platelet_required": ">=100000",
+              "timeframe": null
+            },
+            "provenance": {
+              "section_number": "5.7.2.1",
+              "page_number": 72,
+              "text_snippet": "For absolute neutrophil count (ANC) < 1,500/mm3 or platelet count < 100,000/mm3 on Day 1 of each cycle, treatment is to be delayed until recovery of ANC and platelet count above these values."
+            }
+          },
+          {
+            "rule_id": "dp-003-r2",
+            "rule_type": "dose_reduce",
+            "rule_description": "Reduce dose of carboplatin and paclitaxel for Grade 4 thrombocytopenia.",
+            "conditions": {
+              "grade": "4",
+              "platelet_threshold": null,
+              "duration": null
+            },
+            "actions": [
+              {
+                "action_type": "reduce_dose",
+                "action_description": "Reduce to Dose Level -1 for 1st episode and Dose Level -2 for 2nd episode."
+              }
+            ],
+            "recovery_criteria": null,
+            "provenance": {
+              "section_number": "Appendix G",
+              "page_number": 113,
+              "text_snippet": "Grade 4 Thrombocytopenia | Dose Level \u20131 for 1st episode and Dose Level \u20132 for 2nd episode. Any further reduction after consultation with AbbVie medical monitor."
+            }
+          }
+        ],
+        "monitoring_requirements": null,
+        "provenance": {
+          "section_number": "Appendix G",
+          "page_number": 113,
+          "text_snippet": "Grade 4 Thrombocytopenia"
+        }
+      },
+      {
+        "id": "dp-004",
+        "parameter_name": "Nausea/Vomiting",
+        "parameter_category": "Gastrointestinal Toxicity",
+        "measurement_type": "NCI CTCAE Grade",
+        "decision_rules": [
+          {
+            "rule_id": "dp-004-r1",
+            "rule_type": "dose_reduce",
+            "rule_description": "Reduce dose for Grade 3/4 nausea/vomiting despite maximal anti-emetic therapy.",
+            "conditions": {
+              "grade": "3/4",
+              "value_threshold": null,
+              "duration": null
+            },
+            "actions": [
+              {
+                "action_type": "reduce_dose",
+                "action_description": "Reduce dose of carboplatin and paclitaxel by 1 dose level."
+              }
+            ],
+            "recovery_criteria": {
+              "grade_required": "<=1",
+              "timeframe": "before initiation of a new cycle"
+            },
+            "provenance": {
+              "section_number": "5.7.2.1",
+              "page_number": 72,
+              "text_snippet": "For grade 3 or 4 nausea/vomiting despite maximal anti-emetic therapy or for grade 3 or 4 stomatitis, the dose of carboplatin and paclitaxel are to be reduced by 1 dose level. Nausea, vomiting, and stomatitis are to have resolved to grade 1 before initiation of a new cycle of therapy."
+            }
+          }
+        ],
+        "monitoring_requirements": null,
+        "provenance": {
+          "section_number": "5.7.2.1",
+          "page_number": 72,
+          "text_snippet": "Gastrointestinal Toxicity\nFor grade 3 or 4 nausea/vomiting despite maximal anti-emetic therapy..."
+        }
+      },
+      {
+        "id": "dp-005",
+        "parameter_name": "Stomatitis",
+        "parameter_category": "Gastrointestinal Toxicity",
+        "measurement_type": "NCI CTCAE Grade",
+        "decision_rules": [
+          {
+            "rule_id": "dp-005-r1",
+            "rule_type": "dose_reduce",
+            "rule_description": "Reduce dose for Grade 3/4 stomatitis.",
+            "conditions": {
+              "grade": "3/4",
+              "value_threshold": null,
+              "duration": null
+            },
+            "actions": [
+              {
+                "action_type": "reduce_dose",
+                "action_description": "Reduce dose of carboplatin and paclitaxel by 1 dose level."
+              }
+            ],
+            "recovery_criteria": {
+              "grade_required": "<=1",
+              "timeframe": "before initiation of a new cycle"
+            },
+            "provenance": {
+              "section_number": "5.7.2.1",
+              "page_number": 72,
+              "text_snippet": "For grade 3 or 4 nausea/vomiting despite maximal anti-emetic therapy or for grade 3 or 4 stomatitis, the dose of carboplatin and paclitaxel are to be reduced by 1 dose level. Nausea, vomiting, and stomatitis are to have resolved to grade 1 before initiation of a new cycle of therapy."
+            }
+          },
+          {
+            "rule_id": "dp-005-r2",
+            "rule_type": "dose_discontinue",
+            "rule_description": "Discontinue treatment if stomatitis does not resolve.",
+            "conditions": {
+              "grade": ">1",
+              "value_threshold": null,
+              "duration": "3 weeks"
+            },
+            "actions": [
+              {
+                "action_type": "discontinue_treatment",
+                "action_description": "Discontinue subject's study treatment."
+              }
+            ],
+            "recovery_criteria": null,
+            "provenance": {
+              "section_number": "5.7.2.1",
+              "page_number": 72,
+              "text_snippet": "If the stomatitis has not resolved to grade 1 or less within 3 weeks, the subject's study treatment is to be discontinued."
+            }
+          }
+        ],
+        "monitoring_requirements": null,
+        "provenance": {
+          "section_number": "5.7.2.1",
+          "page_number": 72,
+          "text_snippet": "Gastrointestinal Toxicity"
+        }
+      },
+      {
+        "id": "dp-006",
+        "parameter_name": "Elevated Bilirubin and ALT",
+        "parameter_category": "Hepatic Toxicity",
+        "measurement_type": "Bilirubin and ALT (x ULN)",
+        "decision_rules": [
+          {
+            "rule_id": "dp-006-r1",
+            "rule_type": "dose_hold",
+            "rule_description": "Hold paclitaxel for elevated bilirubin with increased ALT.",
+            "conditions": {
+              "grade": null,
+              "bilirubin_threshold": ">1.5",
+              "alt_threshold": ">ULN"
+            },
+            "actions": [
+              {
+                "action_type": "hold_dose",
+                "action_description": "Hold paclitaxel until bilirubin recovers."
+              }
+            ],
+            "recovery_criteria": {
+              "bilirubin_required": "<=1.5",
+              "timeframe": null
+            },
+            "provenance": {
+              "section_number": "5.7.2.1",
+              "page_number": 72,
+              "text_snippet": "For bilirubin > 1.5 \u00d7 ULN with increased ALT above ULN that is attributed to protocol therapy, paclitaxel is to be held until bilirubin is \u2264 1.5 \u00d7 ULN..."
+            }
+          },
+          {
+            "rule_id": "dp-006-r2",
+            "rule_type": "dose_reduce",
+            "rule_description": "Reduce paclitaxel dose upon recovery from elevated bilirubin and ALT.",
+            "conditions": {
+              "grade": null,
+              "bilirubin_threshold": ">1.5",
+              "alt_threshold": ">ULN"
+            },
+            "actions": [
+              {
+                "action_type": "reduce_dose",
+                "action_description": "Reduce paclitaxel to Dose Level -1 for 1st episode and Dose Level -2 for 2nd episode upon recovery."
+              }
+            ],
+            "recovery_criteria": {
+              "bilirubin_required": "<=1.5",
+              "timeframe": null
+            },
+            "provenance": {
+              "section_number": "Appendix G",
+              "page_number": 113,
+              "text_snippet": "Bilirubin > 1.5 \u00d7 ULN with increased ALT above ULN | Paclitaxel Dose: Hold until recovery, then reduce to Dose Level \u20131 for 1st episode and Dose Level \u20132 for 2nd episode. Any further reduction requires consultation with AbbVie medical monitor."
+            }
+          }
+        ],
+        "monitoring_requirements": null,
+        "provenance": {
+          "section_number": "5.7.2.1",
+          "page_number": 72,
+          "text_snippet": "Hepatic Toxicity\nFor bilirubin > 1.5 \u00d7 ULN with increased ALT above ULN that is attributed to protocol therapy, paclitaxel is to be held until bilirubin is \u2264 1.5 \u00d7 ULN, and the dose is to be reduced by one level when treatment is resumed."
+        }
+      },
+      {
+        "id": "dp-007",
+        "parameter_name": "Elevated ALT",
+        "parameter_category": "Hepatic Toxicity",
+        "measurement_type": "ALT (x ULN)",
+        "decision_rules": [
+          {
+            "rule_id": "dp-007-r1",
+            "rule_type": "dose_reduce",
+            "rule_description": "Reduce paclitaxel dose for elevated ALT with normal bilirubin.",
+            "conditions": {
+              "grade": null,
+              "alt_threshold": ">5",
+              "bilirubin_threshold": "<1.5"
+            },
+            "actions": [
+              {
+                "action_type": "reduce_dose",
+                "action_description": "Reduce paclitaxel dose by one level."
+              }
+            ],
+            "recovery_criteria": null,
+            "provenance": {
+              "section_number": "5.7.2.1",
+              "page_number": 73,
+              "text_snippet": "For ALT > 5 \u00d7 ULN with bilirubin < 1.5 \u00d7 ULN that is attributed to protocol therapy, paclitaxel dose is to be reduced by one level."
+            }
+          }
+        ],
+        "monitoring_requirements": null,
+        "provenance": {
+          "section_number": "Appendix G",
+          "page_number": 113,
+          "text_snippet": "ALT > 5 \u00d7 ULN with Bilirubin < 1.5 \u00d7 ULN"
+        }
+      },
+      {
+        "id": "dp-008",
+        "parameter_name": "Neuropathy",
+        "parameter_category": "Neurologic Toxicity",
+        "measurement_type": "NCI CTCAE Grade",
+        "decision_rules": [
+          {
+            "rule_id": "dp-008-r1",
+            "rule_type": "dose_reduce",
+            "rule_description": "Reduce paclitaxel dose for Grade 2 neuropathy.",
+            "conditions": {
+              "grade": "2",
+              "value_threshold": null,
+              "duration": null
+            },
+            "actions": [
+              {
+                "action_type": "reduce_dose",
+                "action_description": "Reduce paclitaxel to Dose Level -1."
+              }
+            ],
+            "recovery_criteria": null,
+            "provenance": {
+              "section_number": "5.7.2.1",
+              "page_number": 73,
+              "text_snippet": "For grade 2 neuropathy, paclitaxel dose is to be reduced to Dose Level \u20131."
+            }
+          },
+          {
+            "rule_id": "dp-008-r2",
+            "rule_type": "dose_hold",
+            "rule_description": "Hold paclitaxel for Grade 3/4 neuropathy.",
+            "conditions": {
+              "grade": "3/4",
+              "value_threshold": null,
+              "duration": null
+            },
+            "actions": [
+              {
+                "action_type": "hold_dose",
+                "action_description": "Hold paclitaxel until neuropathy recovers to Grade 2."
+              }
+            ],
+            "recovery_criteria": {
+              "grade_required": "2",
+              "timeframe": null
+            },
+            "provenance": {
+              "section_number": "5.7.2.1",
+              "page_number": 73,
+              "text_snippet": "For grade 3/4 neuropathy, paclitaxel dose is to be held until neuropathy is grade 2..."
+            }
+          },
+          {
+            "rule_id": "dp-008-r3",
+            "rule_type": "dose_reduce",
+            "rule_description": "Reduce paclitaxel dose upon recovery from Grade 3/4 neuropathy.",
+            "conditions": {
+              "grade": "3/4",
+              "value_threshold": null,
+              "duration": null
+            },
+            "actions": [
+              {
+                "action_type": "reduce_dose",
+                "action_description": "Reduce paclitaxel to Dose Level -2 when treatment is resumed."
+              }
+            ],
+            "recovery_criteria": {
+              "grade_required": "2",
+              "timeframe": null
+            },
+            "provenance": {
+              "section_number": "5.7.2.1",
+              "page_number": 73,
+              "text_snippet": "For grade 3/4 neuropathy, paclitaxel dose is to be held until neuropathy is grade 2, and the dose is to be reduced to Dose Level \u20132 when treatment is resumed."
+            }
+          }
+        ],
+        "monitoring_requirements": null,
+        "provenance": {
+          "section_number": "5.7.2.1",
+          "page_number": 73,
+          "text_snippet": "Neurologic Toxicity"
+        }
+      },
+      {
+        "id": "dp-009",
+        "parameter_name": "Seizure",
+        "parameter_category": "Neurologic Toxicity",
+        "measurement_type": "NCI CTCAE Grade",
+        "decision_rules": [
+          {
+            "rule_id": "dp-009-r1",
+            "rule_type": "dose_discontinue",
+            "rule_description": "Discontinue veliparib for seizure attributed to the drug.",
+            "conditions": {
+              "grade": ">=2",
+              "value_threshold": null,
+              "duration": null
+            },
+            "actions": [
+              {
+                "action_type": "discontinue_treatment",
+                "action_description": "Discontinue veliparib."
+              }
+            ],
+            "recovery_criteria": null,
+            "provenance": {
+              "section_number": "5.7.1",
+              "page_number": 71,
+              "text_snippet": "For any \u2265 grade 2 event of seizure attributed to veliparib, veliparib is to be discontinued and the event should be discussed with the AbbVie medical monitor."
+            }
+          }
+        ],
+        "monitoring_requirements": null,
+        "provenance": {
+          "section_number": "5.7.1",
+          "page_number": 71,
+          "text_snippet": "For any \u2265 grade 2 event of seizure attributed to veliparib, veliparib is to be discontinued and the event should be discussed with the AbbVie medical monitor."
+        }
+      },
+      {
+        "id": "dp-010",
+        "parameter_name": "General Toxicity (Veliparib)",
+        "parameter_category": "General Toxicity",
+        "measurement_type": "NCI CTCAE Grade",
+        "decision_rules": [
+          {
+            "rule_id": "dp-010-r1",
+            "rule_type": "dose_hold",
+            "rule_description": "Hold veliparib for Grade 3/4 toxicity not attributable to carboplatin/paclitaxel or underlying disease.",
+            "conditions": {
+              "grade": "3/4",
+              "value_threshold": null,
+              "duration": null
+            },
+            "actions": [
+              {
+                "action_type": "hold_dose",
+                "action_description": "Hold veliparib dose until toxicity resolves."
+              }
+            ],
+            "recovery_criteria": {
+              "grade_required": "<=1",
+              "timeframe": null
+            },
+            "provenance": {
+              "section_number": "5.7.1",
+              "page_number": 71,
+              "text_snippet": "For any subject who experiences grade 3/4 toxicity which is not attributable to carboplatin/paclitaxel or the underlying disease, the veliparib dose is to be held until the toxicity resolves to grade 1 or lower or to baseline if grade 2 is present at the time of study entry."
+            }
+          },
+          {
+            "rule_id": "dp-010-r2",
+            "rule_type": "dose_reduce",
+            "rule_description": "Reduce veliparib dose upon recovery from Grade 3/4 toxicity.",
+            "conditions": {
+              "grade": "3/4",
+              "value_threshold": null,
+              "duration": null
+            },
+            "actions": [
+              {
+                "action_type": "reduce_dose",
+                "action_description": "Reduce veliparib dose one dose level upon resuming treatment."
+              }
+            ],
+            "recovery_criteria": {
+              "grade_required": "<=1",
+              "timeframe": null
+            },
+            "provenance": {
+              "section_number": "5.7.1",
+              "page_number": 71,
+              "text_snippet": "Upon resuming veliparib treatment, the dose is to be reduced one dose level. Any dose reduction beyond 40 mg BID is to result in veliparib discontinuation."
+            }
+          }
+        ],
+        "monitoring_requirements": null,
+        "provenance": {
+          "section_number": "5.7.1",
+          "page_number": 71,
+          "text_snippet": "Veliparib Dose Reductions and Delays"
+        }
+      }
+    ],
+    "stopping_rules_summary": {
+      "total_permanent_stopping_conditions": 9,
+      "stopping_conditions": [
+        {
+          "condition_id": "stop-001",
+          "condition_type": "individual_subject",
+          "description": "Radiographic progression according to RECIST version 1.1.",
+          "trigger_threshold": "RECIST 1.1 defined progression",
+          "action": "Withdrawal from study treatment.",
+          "provenance": {
+            "section_number": "5.4",
+            "page_number": 56,
+            "text_snippet": "The subject has radiographic progression according to RECIST version 1.1."
+          }
+        },
+        {
+          "condition_id": "stop-002",
+          "condition_type": "individual_subject",
+          "description": "Subject requires cancer-directed radiotherapy or surgery related to clinical disease progression.",
+          "trigger_threshold": "Need for alternative cancer therapy for progression",
+          "action": "Withdrawal from study treatment.",
+          "provenance": {
+            "section_number": "5.4",
+            "page_number": 56,
+            "text_snippet": "The subject requires cancer-directed radiotherapy or surgery related to clinical disease progression, or alternate anti-cancer agents during the study period."
+          }
+        },
+        {
+          "condition_id": "stop-003",
+          "condition_type": "individual_subject",
+          "description": "Unacceptable treatment toxicity which, in the Investigator's opinion, prohibits further therapy.",
+          "trigger_threshold": "Investigator's clinical judgment",
+          "action": "Withdrawal from study treatment.",
+          "provenance": {
+            "section_number": "5.4",
+            "page_number": 56,
+            "text_snippet": "The subject experiences treatment toxicity which, in the Investigator's opinion, prohibits further therapy or the Investigator believes it is otherwise in the best interest of the subject."
+          }
+        },
+        {
+          "condition_id": "stop-004",
+          "condition_type": "individual_subject",
+          "description": "Subject is suspected to be pregnant; pregnancy is confirmed or begins breastfeeding.",
+          "trigger_threshold": "Confirmed pregnancy or start of breastfeeding",
+          "action": "Withdrawal from study treatment.",
+          "provenance": {
+            "section_number": "5.4",
+            "page_number": 56,
+            "text_snippet": "Subject is suspected to be pregnant; pregnancy is confirmed or begins breastfeeding during the treatment portion of the study."
+          }
+        },
+        {
+          "condition_id": "stop-005",
+          "condition_type": "individual_subject",
+          "description": "Subject decides to withdraw consent.",
+          "trigger_threshold": "Subject withdrawal of consent",
+          "action": "Withdrawal from study.",
+          "provenance": {
+            "section_number": "5.4",
+            "page_number": 56,
+            "text_snippet": "The subject decides to withdraw consent for any reason."
+          }
+        },
+        {
+          "condition_id": "stop-006",
+          "condition_type": "individual_subject",
+          "description": "Veliparib dose reduction beyond 40 mg BID is required.",
+          "trigger_threshold": "Requirement for dose below 40 mg BID",
+          "action": "Permanent discontinuation of veliparib.",
+          "provenance": {
+            "section_number": "5.7.1",
+            "page_number": 71,
+            "text_snippet": "Any dose reduction beyond 40 mg BID is to result in veliparib discontinuation."
+          }
+        },
+        {
+          "condition_id": "stop-007",
+          "condition_type": "individual_subject",
+          "description": "Grade >= 2 seizure attributed to veliparib.",
+          "trigger_threshold": "Occurrence of Grade >=2 seizure",
+          "action": "Permanent discontinuation of veliparib.",
+          "provenance": {
+            "section_number": "5.7.1",
+            "page_number": 71,
+            "text_snippet": "For any \u2265 grade 2 event of seizure attributed to veliparib, veliparib is to be discontinued and the event should be discussed with the AbbVie medical monitor."
+          }
+        },
+        {
+          "condition_id": "stop-008",
+          "condition_type": "individual_subject",
+          "description": "Stomatitis has not resolved to grade 1 or less within 3 weeks.",
+          "trigger_threshold": "Stomatitis > Grade 1 for 3 weeks",
+          "action": "Permanent discontinuation of study treatment.",
+          "provenance": {
+            "section_number": "5.7.2.1",
+            "page_number": 72,
+            "text_snippet": "If the stomatitis has not resolved to grade 1 or less within 3 weeks, the subject's study treatment is to be discontinued."
+          }
+        },
+        {
+          "condition_id": "stop-009",
+          "condition_type": "study_level",
+          "description": "Study may be terminated prematurely by AbbVie or Investigator for reasonable cause.",
+          "trigger_threshold": "Reasonable cause, including safety concerns",
+          "action": "Termination of study at a site or in its entirety.",
+          "provenance": {
+            "section_number": "5.4.2",
+            "page_number": 58,
+            "text_snippet": "AbbVie may terminate this study prematurely, either in its entirety or at any study site, for reasonable cause provided that written notice is submitted in advance of the intended termination. The Investigator may also terminate the study at his/her site for reasonable cause, after providing written notice to AbbVie in advance of the intended termination."
+          }
+        }
+      ],
+      "provenance": {
+        "section_number": "5.4",
+        "page_number": 56,
+        "text_snippet": "Removal of Subjects from Therapy or Assessment\nif the Investigator considers it necessary, including the occurrence of an adverse event or noncompliance with the protocol. Each subject will be withdrawn from the study or study treatment (as applicable) per Section 5.4.1 if any of the following occur:"
+      }
+    },
+    "dose_modification_levels": {
+      "has_defined_levels": true,
+      "levels": [
+        {
+          "level_id": "dose-0",
+          "level_name": "Starting Dose Level",
+          "dose_percentage": null,
+          "absolute_dose": "veliparib 120 mg BID; carboplatin AUC 6; paclitaxel 200 mg/m\u00b2",
+          "provenance": {
+            "section_number": "Table 9",
+            "page_number": 70,
+            "text_snippet": "Starting Dose Level | carboplatin AUC 6 | paclitaxel 200 mg/m\u00b2 | veliparib 120 mg BID"
+          }
+        },
+        {
+          "level_id": "dose-1",
+          "level_name": "Dose Level -1",
+          "dose_percentage": null,
+          "absolute_dose": "veliparib 80 mg BID; carboplatin AUC 5; paclitaxel 175 mg/m\u00b2",
+          "provenance": {
+            "section_number": "Table 9",
+            "page_number": 70,
+            "text_snippet": "Dose Level \u20131 | carboplatin AUC 5 | paclitaxel 175 mg/m\u00b2 | veliparib 80 mg BID"
+          }
+        },
+        {
+          "level_id": "dose-2",
+          "level_name": "Dose Level -2",
+          "dose_percentage": null,
+          "absolute_dose": "veliparib 40 mg BID; carboplatin AUC 4; paclitaxel 150 mg/m\u00b2",
+          "provenance": {
+            "section_number": "Table 9",
+            "page_number": 70,
+            "text_snippet": "Dose Level \u20132 | carboplatin AUC 4 | paclitaxel 150 mg/m\u00b2 | veliparib 40 mg BID"
+          }
+        }
+      ],
+      "minimum_dose": "veliparib 40 mg BID; carboplatin AUC 4; paclitaxel 150 mg/m\u00b2",
+      "re_escalation_allowed": false,
+      "re_escalation_criteria": "Re-escalation of chemotherapy treatments or veliparib doses is not allowed.",
+      "provenance": {
+        "section_number": "5.7",
+        "page_number": 70,
+        "text_snippet": "Table 9. Suggested Guidelines for Veliparib + Carboplatin/Paclitaxel Independent Dose Reductions"
+      }
+    },
+    "organ_specific_adjustments": [
+      {
+        "id": "organ-001",
+        "organ_system": "Hepatic",
+        "organ_system_detail": "Liver function impairment",
+        "adjustment_trigger": "Bilirubin > 1.5 x ULN with increased ALT above ULN",
+        "adjustment_action": "Hold paclitaxel until bilirubin <= 1.5 x ULN, then reduce dose by one level upon resumption.",
+        "monitoring_requirements": null,
+        "provenance": {
+          "section_number": "5.7.2.1",
+          "page_number": 72,
+          "text_snippet": "For bilirubin > 1.5 \u00d7 ULN with increased ALT above ULN that is attributed to protocol therapy, paclitaxel is to be held until bilirubin is \u2264 1.5 \u00d7 ULN, and the dose is to be reduced by one level when treatment is resumed."
+        }
+      },
+      {
+        "id": "organ-002",
+        "organ_system": "Hepatic",
+        "organ_system_detail": "Liver function impairment",
+        "adjustment_trigger": "ALT > 5 x ULN with Bilirubin < 1.5 x ULN",
+        "adjustment_action": "Reduce paclitaxel dose by one level.",
+        "monitoring_requirements": null,
+        "provenance": {
+          "section_number": "5.7.2.1",
+          "page_number": 73,
+          "text_snippet": "For ALT > 5 \u00d7 ULN with bilirubin < 1.5 \u00d7 ULN that is attributed to protocol therapy, paclitaxel dose is to be reduced by one level."
+        }
+      }
+    ],
+    "extraction_statistics": {
+      "decision_points_count": 10,
+      "stopping_rules_count": 9,
+      "organ_adjustments_count": 2,
+      "dose_levels_count": 3,
+      "categories_count": 5
+    },
+    "provenance": {
+      "section_number": "5.7",
+      "page_number": 69,
+      "text_snippet": "5.7 Dose Reductions or Delays\nAll dose modifications (including dose delay, reduction, resumption, and discontinuation) are to be performed at the discretion of the Investigator. Guidelines suggesting dose modifications based on prior studies with veliparib, carboplatin, and paclitaxel appear in Table 9 and Appendix G."
+    }
+  }
+}

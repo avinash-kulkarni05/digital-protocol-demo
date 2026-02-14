@@ -1,0 +1,777 @@
+{
+  "module_id": "concomitant_medications",
+  "module_name": "Concomitant Medications",
+  "protocol_id": "NCT02264990_M14-359",
+  "timestamp": "2026-02-14T11:31:30.542373",
+  "success": true,
+  "metrics": {
+    "provenance_coverage": 1.0,
+    "pass1_duration_seconds": 72.94,
+    "pass2_duration_seconds": 86.6,
+    "total_duration_seconds": 159.55,
+    "pass2_skipped": false
+  },
+  "quality_scores": {
+    "accuracy": 0.9893899204244032,
+    "completeness": 1.0,
+    "usdm_adherence": 1.0,
+    "provenance": 1.0,
+    "terminology": 1.0,
+    "overall": 0.9973474801061007,
+    "from_cache": false,
+    "duration_seconds": 159.61686873435974
+  },
+  "extracted_data": {
+    "id": "M14-359-concomitant-medications",
+    "instanceType": "ConcomitantMedicationRestrictions",
+    "name": "M14-359 Concomitant Medication Restrictions",
+    "description": "Medication restrictions and requirements for M14-359",
+    "prohibited_medications": [
+      {
+        "id": "proh-001",
+        "instanceType": "ProhibitedMedication",
+        "medication_class": "PARP inhibitors",
+        "specific_drugs": [],
+        "prohibition_reason": {
+          "decode": "contraindicated"
+        },
+        "prohibition_reason_detail": "Prior treatment with a PARP inhibitor is an exclusion criterion.",
+        "prohibition_period": {
+          "decode": "entire_study"
+        },
+        "prohibition_period_detail": "Subjects must not have been previously treated with a PARP inhibitor.",
+        "biomedicalConcept": {
+          "conceptName": "Poly(ADP-ribose) Polymerase Inhibitor",
+          "cdiscCode": "C95333",
+          "domain": "CM",
+          "method": null,
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the medication class."
+        },
+        "provenance": {
+          "section_number": "5.2.2",
+          "page_number": 37,
+          "text_snippet": "11. Subject has previously been treated with a PARP inhibitor."
+        }
+      },
+      {
+        "id": "proh-002",
+        "instanceType": "ProhibitedMedication",
+        "medication_class": "Anti-cancer agents",
+        "specific_drugs": [],
+        "prohibition_reason": {
+          "decode": "efficacy_interference"
+        },
+        "prohibition_reason_detail": "Other anti-cancer agents or investigational agents are not permitted during the study as they would confound efficacy assessments.",
+        "prohibition_period": {
+          "decode": "treatment_period"
+        },
+        "prohibition_period_detail": "Prohibited throughout the study until after the Final Visit.",
+        "biomedicalConcept": {
+          "conceptName": "Antineoplastic Agent",
+          "cdiscCode": "C279",
+          "domain": "CM",
+          "method": null,
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the broad class of anti-cancer agents."
+        },
+        "provenance": {
+          "section_number": "5.2.3.2",
+          "page_number": 38,
+          "text_snippet": "Anti-cancer agents: No anti-cancer agents or investigational agents may be taken throughout the study until after the Final Visit."
+        }
+      },
+      {
+        "id": "proh-003",
+        "instanceType": "ProhibitedMedication",
+        "medication_class": "Investigational agents",
+        "specific_drugs": [],
+        "prohibition_reason": {
+          "decode": "study_design"
+        },
+        "prohibition_reason_detail": "Use of other investigational agents is prohibited to avoid confounding study results.",
+        "prohibition_period": {
+          "decode": "treatment_period"
+        },
+        "prohibition_period_detail": "Prohibited throughout the study until after the Final Visit.",
+        "biomedicalConcept": {
+          "conceptName": "Investigational Drug",
+          "cdiscCode": "C16745",
+          "domain": "CM",
+          "method": null,
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for investigational agents."
+        },
+        "provenance": {
+          "section_number": "5.2.3.2",
+          "page_number": 38,
+          "text_snippet": "Anti-cancer agents: No anti-cancer agents or investigational agents may be taken throughout the study until after the Final Visit."
+        }
+      },
+      {
+        "id": "proh-004",
+        "instanceType": "ProhibitedMedication",
+        "medication_class": "Anti-cancer Chinese medicine or herbal remedies",
+        "specific_drugs": [],
+        "prohibition_reason": {
+          "decode": "efficacy_interference"
+        },
+        "prohibition_reason_detail": "Prohibited due to potential for unknown interactions and effects on efficacy.",
+        "prohibition_period": {
+          "decode": "treatment_period"
+        },
+        "prohibition_period_detail": "Prohibited from 14 days prior to C1D-2 and throughout the study.",
+        "biomedicalConcept": {
+          "conceptName": "Herbal Medication",
+          "cdiscCode": "C16698",
+          "domain": "CM",
+          "method": null,
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for herbal medications."
+        },
+        "provenance": {
+          "section_number": "5.2.2",
+          "page_number": 36,
+          "text_snippet": "7. Subject has received anti-cancer Chinese medicine or anti-cancer herbal remedies within 14 days prior to C1D-2."
+        }
+      }
+    ],
+    "restricted_medications": [
+      {
+        "id": "rest-001",
+        "instanceType": "RestrictedMedication",
+        "medication_class": "Radiation Therapy",
+        "specific_drugs": [],
+        "restriction_type": {
+          "decode": "conditional_use"
+        },
+        "conditions": {
+          "max_dose": null,
+          "approval_required_from": "medical_monitor",
+          "monitoring_requirements": null,
+          "timing_restriction": null,
+          "clinical_scenario": "Allowed only for palliative radiation to a non-target lesion. If a subject requires radiotherapy during the study, the AbbVie medical monitor must be contacted."
+        },
+        "rationale": "To avoid confounding efficacy assessments of target lesions.",
+        "biomedicalConcept": {
+          "conceptName": "Radiation Therapy",
+          "cdiscCode": "C15313",
+          "domain": "CM",
+          "method": null,
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the procedure."
+        },
+        "provenance": {
+          "section_number": "5.2.3.2",
+          "page_number": 39,
+          "text_snippet": "Radiation: Radiation therapy is not allowed during the study, except for palliative radiation to a non-target lesion. Sites to be radiated should be assessed for radiographic progression, prior to beginning radiotherapy. If the subject requires radiotherapy during the study, the AbbVie medical monitor must be contacted."
+        }
+      },
+      {
+        "id": "rest-002",
+        "instanceType": "RestrictedMedication",
+        "medication_class": "Bisphosphonates and RANKL inhibitors",
+        "specific_drugs": [
+          "denosumab"
+        ],
+        "restriction_type": {
+          "decode": "timing_restriction"
+        },
+        "conditions": {
+          "max_dose": null,
+          "approval_required_from": "not_specified",
+          "monitoring_requirements": null,
+          "timing_restriction": "First-time administration should be delayed until after cycle 1.",
+          "clinical_scenario": "Permitted for bone metastases."
+        },
+        "rationale": "To not introduce both veliparib and bisphosphonate/denosumab together for the first time, to better assess causality of any adverse events.",
+        "biomedicalConcept": {
+          "conceptName": "Bisphosphonate",
+          "cdiscCode": "C316",
+          "domain": "CM",
+          "method": null,
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the medication class."
+        },
+        "provenance": {
+          "section_number": "5.2.3.2",
+          "page_number": 39,
+          "text_snippet": "The use of bisphosphonates or denosumab for bone metastases is permitted, but it is strongly encouraged that first time administration of a bisphosphonate or denosumab should be delayed until after cycle 1 so as to not introduce both the veliparib and bisphosphonate/denosumab together for the first time."
+        }
+      },
+      {
+        "id": "rest-003",
+        "instanceType": "RestrictedMedication",
+        "medication_class": "Surgery",
+        "specific_drugs": [],
+        "restriction_type": {
+          "decode": "approval_required"
+        },
+        "conditions": {
+          "max_dose": null,
+          "approval_required_from": "medical_monitor",
+          "monitoring_requirements": null,
+          "timing_restriction": null,
+          "clinical_scenario": "If the subject requires surgery during the study, the AbbVie medical monitor must be contacted."
+        },
+        "rationale": "To assess potential impact on study conduct and safety.",
+        "biomedicalConcept": {
+          "conceptName": "Surgical Procedure",
+          "cdiscCode": "C17338",
+          "domain": "CM",
+          "method": null,
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the procedure."
+        },
+        "provenance": {
+          "section_number": "5.2.3.2",
+          "page_number": 40,
+          "text_snippet": "Surgery: If the subject requires surgery during the study, the AbbVie medical monitor must be contacted."
+        }
+      }
+    ],
+    "required_medications": [
+      {
+        "id": "req-001",
+        "instanceType": "RequiredMedication",
+        "medication_name": null,
+        "medication_class": "Corticosteroids, Antihistamines, H2 antagonists",
+        "requirement_type": {
+          "decode": "premedication"
+        },
+        "dosing": {
+          "dose": null,
+          "route": {
+            "decode": "not_specified"
+          },
+          "frequency": null
+        },
+        "timing": {
+          "relative_to": "paclitaxel infusion",
+          "time_before_minutes": null,
+          "timing_description": "Administered prior to paclitaxel infusion according to institutional guidelines, local practice, or applicable SmPC."
+        },
+        "purpose": "To reduce the severity of hypersensitivity reactions due to treatment with paclitaxel.",
+        "alternatives": [],
+        "biomedicalConcept": {
+          "conceptName": "Premedication",
+          "cdiscCode": "C17119",
+          "domain": "CM",
+          "method": null,
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the general requirement."
+        },
+        "provenance": {
+          "section_number": "5.2.3.2",
+          "page_number": 38,
+          "text_snippet": "Premedication: To reduce the severity of hypersensitivity reactions due to treatment with paclitaxel, manage according to institutional guidelines, the locally approved product label, local practice, or applicable SmPC (i.e., premedication with corticosteroids, diphenhydramine, and H2 antagonists)."
+        }
+      },
+      {
+        "id": "req-002",
+        "instanceType": "RequiredMedication",
+        "medication_name": "palonosetron",
+        "medication_class": "5-HT3 receptor antagonist",
+        "requirement_type": {
+          "decode": "supportive_care"
+        },
+        "dosing": {
+          "dose": "0.25 mg IV or 0.50 mg oral",
+          "route": {
+            "decode": "other"
+          },
+          "frequency": "Day 1 only"
+        },
+        "timing": {
+          "relative_to": "chemotherapy",
+          "time_before_minutes": null,
+          "timing_description": "Administered on Day 1."
+        },
+        "purpose": "Anti-emetic therapy, recommended in combination with dexamethasone.",
+        "alternatives": [
+          "ondansetron",
+          "granisetron"
+        ],
+        "biomedicalConcept": {
+          "conceptName": "Palonosetron",
+          "cdiscCode": "C49491",
+          "domain": "CM",
+          "method": "Oral, IV",
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the medication."
+        },
+        "provenance": {
+          "section_number": "5.2.3.2",
+          "page_number": 39,
+          "text_snippet": "For anti-emetic therapy, ASCO guidelines recommend a two drug combination of palonosetron and dexamethasone. If palonosetron is not available, any of the first generation 5-HT3 receptor antagonists may be used, preferably ondansetron or granisetron. ASCO dosing guidelines are as follows: Palonosetron: 0.25 mg IV OR 0.50 mg oral, Day 1 only"
+        }
+      },
+      {
+        "id": "req-003",
+        "instanceType": "RequiredMedication",
+        "medication_name": "dexamethasone",
+        "medication_class": "Corticosteroid",
+        "requirement_type": {
+          "decode": "supportive_care"
+        },
+        "dosing": {
+          "dose": "8 mg",
+          "route": {
+            "decode": "other"
+          },
+          "frequency": "Days 1 to 3"
+        },
+        "timing": {
+          "relative_to": "chemotherapy",
+          "time_before_minutes": null,
+          "timing_description": "Administered on Days 1 to 3."
+        },
+        "purpose": "Anti-emetic therapy, recommended in combination with palonosetron.",
+        "alternatives": [],
+        "biomedicalConcept": {
+          "conceptName": "Dexamethasone",
+          "cdiscCode": "C476",
+          "domain": "CM",
+          "method": "Oral, IV",
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the medication."
+        },
+        "provenance": {
+          "section_number": "5.2.3.2",
+          "page_number": 39,
+          "text_snippet": "Dexamethasone: 8 mg (IV or oral), Days 1 to 3"
+        }
+      }
+    ],
+    "rescue_medications": [],
+    "washout_requirements": [
+      {
+        "id": "wash-001",
+        "instanceType": "WashoutRequirement",
+        "medication_class": "Cytotoxic chemotherapy or chemoradiotherapy for NSCLC",
+        "specific_drugs": [],
+        "washout_duration_days": 365,
+        "washout_description": "Must be completed greater than 12 months prior to C1D-2. This applies to prior adjuvant or neoadjuvant therapy.",
+        "rationale": "To ensure the study evaluates first-line treatment for advanced/metastatic disease and to avoid overlapping toxicity.",
+        "applies_to": {
+          "decode": "first_dose"
+        },
+        "biomedicalConcept": {
+          "conceptName": "Cytotoxic Chemotherapy",
+          "cdiscCode": "CUSTOM",
+          "domain": "CM",
+          "method": null,
+          "confidence": 0.5,
+          "rationale": "Broad class of therapy."
+        },
+        "provenance": {
+          "section_number": "5.2.2",
+          "page_number": 36,
+          "text_snippet": "6. Subject has received prior cytotoxic chemotherapy or chemoradiotherapy for NSCLC, except adjuvant or neoadjuvant therapy > 12 months prior to C1D-2..."
+        }
+      },
+      {
+        "id": "wash-002",
+        "instanceType": "WashoutRequirement",
+        "medication_class": "Targeted small molecule monotherapy for EGFR/ALK-positive disease",
+        "specific_drugs": [],
+        "washout_duration_days": 14,
+        "washout_description": "Must be received > 14 days prior to C1D-2.",
+        "rationale": "To allow for clearance of prior therapy and avoid overlapping toxicity or efficacy effects.",
+        "applies_to": {
+          "decode": "first_dose"
+        },
+        "biomedicalConcept": {
+          "conceptName": "Targeted Small Molecule Therapy",
+          "cdiscCode": "CUSTOM",
+          "domain": "CM",
+          "method": null,
+          "confidence": 0.5,
+          "rationale": "Broad class of therapy."
+        },
+        "provenance": {
+          "section_number": "5.2.2",
+          "page_number": 36,
+          "text_snippet": "6. ...subject has received targeted small molecule monotherapy for EGFR and/or ALK-positive disease \u2264 14 days prior to C1D-2..."
+        }
+      },
+      {
+        "id": "wash-003",
+        "instanceType": "WashoutRequirement",
+        "medication_class": "Biologic therapy",
+        "specific_drugs": [],
+        "washout_duration_days": 21,
+        "washout_description": "Must be received > 21 days prior to C1D-2.",
+        "rationale": "To allow for clearance of prior therapy and avoid overlapping toxicity or efficacy effects.",
+        "applies_to": {
+          "decode": "first_dose"
+        },
+        "biomedicalConcept": {
+          "conceptName": "Biologic Therapy",
+          "cdiscCode": "C1513",
+          "domain": "CM",
+          "method": null,
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the therapy class."
+        },
+        "provenance": {
+          "section_number": "5.2.2",
+          "page_number": 36,
+          "text_snippet": "6. ...or biologic therapy \u2264 21 days prior to C1D-2."
+        }
+      },
+      {
+        "id": "wash-004",
+        "instanceType": "WashoutRequirement",
+        "medication_class": "Anti-cancer Chinese medicine or herbal remedies",
+        "specific_drugs": [],
+        "washout_duration_days": 14,
+        "washout_description": "Must be discontinued within 14 days prior to C1D-2.",
+        "rationale": "To avoid unknown interactions and confounding effects.",
+        "applies_to": {
+          "decode": "first_dose"
+        },
+        "biomedicalConcept": {
+          "conceptName": "Herbal Medication",
+          "cdiscCode": "C16698",
+          "domain": "CM",
+          "method": null,
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the medication class."
+        },
+        "provenance": {
+          "section_number": "5.2.2",
+          "page_number": 36,
+          "text_snippet": "7. Subject has received anti-cancer Chinese medicine or anti-cancer herbal remedies within 14 days prior to C1D-2."
+        }
+      },
+      {
+        "id": "wash-005",
+        "instanceType": "WashoutRequirement",
+        "medication_class": "External Beam Radiation Therapy (EBRT) to bone",
+        "specific_drugs": [],
+        "washout_duration_days": 14,
+        "washout_description": "Focal EBRT to bone must be completed more than 2 weeks (14 days) prior to C1D-2.",
+        "rationale": "To allow for recovery from radiation effects and avoid overlapping toxicity.",
+        "applies_to": {
+          "decode": "first_dose"
+        },
+        "biomedicalConcept": {
+          "conceptName": "External Beam Radiation Therapy",
+          "cdiscCode": "C15332",
+          "domain": "CM",
+          "method": null,
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the procedure."
+        },
+        "provenance": {
+          "section_number": "5.2.2",
+          "page_number": 36,
+          "text_snippet": "8. Subject has undergone focal External Beam Radiation Therapy (EBRT) to bone \u2264 2 weeks prior to C1D-2..."
+        }
+      },
+      {
+        "id": "wash-006",
+        "instanceType": "WashoutRequirement",
+        "medication_class": "External Beam Radiation Therapy (EBRT) to larger fields",
+        "specific_drugs": [],
+        "washout_duration_days": 28,
+        "washout_description": "EBRT to larger fields (i.e., 100 cm2 to thorax) must be completed more than 4 weeks (28 days) prior to C1D-2.",
+        "rationale": "To allow for recovery from radiation effects and avoid overlapping toxicity.",
+        "applies_to": {
+          "decode": "first_dose"
+        },
+        "biomedicalConcept": {
+          "conceptName": "External Beam Radiation Therapy",
+          "cdiscCode": "C15332",
+          "domain": "CM",
+          "method": null,
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the procedure."
+        },
+        "provenance": {
+          "section_number": "5.2.2",
+          "page_number": 36,
+          "text_snippet": "8. ...or subject has undergone EBRT to larger fields (i.e., 100 cm2 to thorax) \u2264 4 weeks prior to C1D-2."
+        }
+      }
+    ],
+    "drug_interactions": [
+      {
+        "id": "int-001",
+        "instanceType": "DrugInteraction",
+        "interaction_type": {
+          "decode": "other"
+        },
+        "severity": {
+          "decode": "weak"
+        },
+        "affected_drugs": [
+          "aminoglycosides",
+          "vancomycin",
+          "capreomycin",
+          "diuretics"
+        ],
+        "clinical_effect": "May increase or exacerbate ototoxicity and nephrotoxicity due to carboplatin induced changes in renal function.",
+        "management": {
+          "decode": "allowed_with_caution"
+        },
+        "management_detail": "Use with caution.",
+        "biomedicalConcept": {
+          "conceptName": "Carboplatin",
+          "cdiscCode": "C376",
+          "domain": "CM",
+          "method": "IV",
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the affected study drug."
+        },
+        "provenance": {
+          "section_number": "5.2.3.2",
+          "page_number": 40,
+          "text_snippet": "Carboplatin: Ototoxic and nephrotoxic drugs such as aminoglycosides, vancomycin, capreomycin and diuretics, may increase or exacerbate toxicity due to carboplatin induced changes in renal function."
+        }
+      },
+      {
+        "id": "int-002",
+        "instanceType": "DrugInteraction",
+        "interaction_type": {
+          "decode": "CYP3A4_inhibitor"
+        },
+        "severity": {
+          "decode": "weak"
+        },
+        "affected_drugs": [
+          "atazanavir",
+          "clarithromycin",
+          "erythromycin",
+          "fluoxetine",
+          "gemfibrozil",
+          "indinavir",
+          "itraconazole",
+          "ketoconazole",
+          "nefazodone",
+          "nelfinavir",
+          "ritonavir",
+          "saquinavir",
+          "telithromycin"
+        ],
+        "clinical_effect": "Potential to alter paclitaxel metabolism.",
+        "management": {
+          "decode": "allowed_with_caution"
+        },
+        "management_detail": "Caution should be taken when administering paclitaxel concomitantly with known inhibitors of CYP3A4 or CYP2C8.",
+        "biomedicalConcept": {
+          "conceptName": "Paclitaxel",
+          "cdiscCode": "C745",
+          "domain": "CM",
+          "method": "IV",
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the affected study drug."
+        },
+        "provenance": {
+          "section_number": "5.2.3.2",
+          "page_number": 40,
+          "text_snippet": "Paclitaxel: Caution should also be taken when administering paclitaxel concomitantly with known... inhibitors (e.g., atazanavir, clarithromycin, erythromycin, fluoxetine, gemfibrozil, indinavir, itraconazole, ketoconazole, nefazodone, nelfinavir, ritonavir, saquinavir, and telithromycin)... of CYP3A4 or CYP2C8."
+        }
+      },
+      {
+        "id": "int-003",
+        "instanceType": "DrugInteraction",
+        "interaction_type": {
+          "decode": "CYP3A4_inducer"
+        },
+        "severity": {
+          "decode": "weak"
+        },
+        "affected_drugs": [
+          "rifampin",
+          "carbamazepine",
+          "phenytoin",
+          "phenobarbital",
+          "efavirenz",
+          "nevirapine"
+        ],
+        "clinical_effect": "Potential to alter paclitaxel metabolism.",
+        "management": {
+          "decode": "allowed_with_caution"
+        },
+        "management_detail": "Caution should be taken when administering paclitaxel concomitantly with known inducers of CYP3A4 or CYP2C8.",
+        "biomedicalConcept": {
+          "conceptName": "Paclitaxel",
+          "cdiscCode": "C745",
+          "domain": "CM",
+          "method": "IV",
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the affected study drug."
+        },
+        "provenance": {
+          "section_number": "5.2.3.2",
+          "page_number": 40,
+          "text_snippet": "Paclitaxel: Caution should also be taken when administering paclitaxel concomitantly with known... inducers (e.g., rifampin, carbamazepine, phenytoin, phenobarbital, efavirenz, and nevirapine) of CYP3A4 or CYP2C8."
+        }
+      },
+      {
+        "id": "int-004",
+        "instanceType": "DrugInteraction",
+        "interaction_type": {
+          "decode": "other"
+        },
+        "severity": {
+          "decode": "weak"
+        },
+        "affected_drugs": [
+          "midazolam",
+          "buspirone",
+          "felodipine",
+          "lovastatin",
+          "eletriptan",
+          "repaglinide",
+          "rosiglitazone",
+          "sildenafil",
+          "simvastatin",
+          "triazolam"
+        ],
+        "clinical_effect": "Paclitaxel is a substrate of CYP3A4/CYP2C8; co-administration with other substrates may lead to competitive inhibition.",
+        "management": {
+          "decode": "allowed_with_caution"
+        },
+        "management_detail": "Caution should be taken when administering paclitaxel concomitantly with known substrates of CYP3A4 or CYP2C8.",
+        "biomedicalConcept": {
+          "conceptName": "Paclitaxel",
+          "cdiscCode": "C745",
+          "domain": "CM",
+          "method": "IV",
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the affected study drug."
+        },
+        "provenance": {
+          "section_number": "5.2.3.2",
+          "page_number": 40,
+          "text_snippet": "Paclitaxel: Caution should also be taken when administering paclitaxel concomitantly with known substrates (e.g., midazolam, buspirone, felodipine, lovastatin, eletriptan, repaglinide, rosiglitazone, sildenafil, simvastatin, and triazolam)... of CYP3A4 or CYP2C8."
+        }
+      }
+    ],
+    "allowed_medications": [
+      {
+        "id": "allow-001",
+        "instanceType": "AllowedMedication",
+        "medication_class": "Hormonal contraceptives",
+        "specific_drugs": [],
+        "notes": "Hormonal contraceptives are allowed.",
+        "biomedicalConcept": {
+          "conceptName": "Hormonal Contraceptive",
+          "cdiscCode": "C16711",
+          "domain": "CM",
+          "method": null,
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the medication class."
+        },
+        "provenance": {
+          "section_number": "5.2.3.2",
+          "page_number": 38,
+          "text_snippet": "Hormonal contraceptives, hormonal replacement therapy, etc. are allowed."
+        }
+      },
+      {
+        "id": "allow-002",
+        "instanceType": "AllowedMedication",
+        "medication_class": "Hormonal replacement therapy",
+        "specific_drugs": [],
+        "notes": "Hormonal replacement therapy is allowed.",
+        "biomedicalConcept": {
+          "conceptName": "Hormone Replacement Therapy",
+          "cdiscCode": "C16712",
+          "domain": "CM",
+          "method": null,
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the therapy class."
+        },
+        "provenance": {
+          "section_number": "5.2.3.2",
+          "page_number": 38,
+          "text_snippet": "Hormonal contraceptives, hormonal replacement therapy, etc. are allowed."
+        }
+      },
+      {
+        "id": "allow-003",
+        "instanceType": "AllowedMedication",
+        "medication_class": "Erythropoiesis-stimulating agents",
+        "specific_drugs": [
+          "erythropoietin",
+          "darbepoetin alfa"
+        ],
+        "notes": "May be administered during dosing of veliparib and carboplatin/paclitaxel.",
+        "biomedicalConcept": {
+          "conceptName": "Erythropoiesis-Stimulating Agent",
+          "cdiscCode": "C62689",
+          "domain": "CM",
+          "method": null,
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the medication class."
+        },
+        "provenance": {
+          "section_number": "5.2.3.2",
+          "page_number": 39,
+          "text_snippet": "Growth factors: Biologic response modifiers administered for erythropoiesis (e.g., erythropoietin, darbepoetin alpha) may be administered during dosing of veliparib and carboplatin/paclitaxel."
+        }
+      },
+      {
+        "id": "allow-004",
+        "instanceType": "AllowedMedication",
+        "medication_class": "Granulocyte growth factors",
+        "specific_drugs": [
+          "G-CSF",
+          "GM-CSF"
+        ],
+        "notes": "To be administered according to the Investigator's standard practice and/or ASCO guidelines. After C1D1, may be given to prevent dose reductions or delays.",
+        "biomedicalConcept": {
+          "conceptName": "Colony-Stimulating Factor",
+          "cdiscCode": "C424",
+          "domain": "CM",
+          "method": null,
+          "confidence": 1.0,
+          "rationale": "NCI Thesaurus code for the medication class."
+        },
+        "provenance": {
+          "section_number": "5.2.3.2",
+          "page_number": 39,
+          "text_snippet": "Granulocyte growth factors (e.g., G CSF, GM-CSF, etc.) are to be administered according to the Investigator's standard practice and/or ASCO guidelines. After C1D1, growth factors may be given with the intent to prevent dose reductions or delays after C1D1."
+        }
+      }
+    ],
+    "vaccine_policy": {
+      "instanceType": "VaccinePolicy",
+      "live_vaccines_prohibited": true,
+      "live_vaccine_washout_days": null,
+      "inactivated_vaccines_allowed": true,
+      "covid_vaccine_policy": null,
+      "specific_restrictions": [
+        "Yellow fever vaccine is contraindicated with carboplatin and paclitaxel."
+      ],
+      "provenance": {
+        "section_number": "5.2.3.2",
+        "page_number": 38,
+        "text_snippet": "The locally approved carboplatin and paclitaxel product labels or SmPCs should be referenced to determine if there are any contraindications associated with concomitant medications (e.g., yellow fever vaccine, phenytoin, etc.)."
+      }
+    },
+    "herbal_supplements_policy": {
+      "instanceType": "HerbalSupplementsPolicy",
+      "prohibited_supplements": [
+        "anti-cancer Chinese medicine",
+        "anti-cancer herbal remedies",
+        "non-prescription anti-cancer supplements"
+      ],
+      "rationale": "Prohibited due to potential for unknown interactions and effects on efficacy. A 14-day washout period is required.",
+      "provenance": {
+        "section_number": "5.2.3.2",
+        "page_number": 40,
+        "text_snippet": "Alternate therapy: No herbal remedies or non-prescription anti-cancer supplements may be taken for cancer treatment concurrently with veliparib (a 14-day washout period from C1D-2 must be documented)."
+      }
+    },
+    "provenance": {
+      "section_number": "5.2.3",
+      "page_number": 37,
+      "text_snippet": "5.2.3 Prior and Concomitant Therapy"
+    }
+  }
+}
