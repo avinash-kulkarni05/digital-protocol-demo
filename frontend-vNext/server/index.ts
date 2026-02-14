@@ -4,8 +4,11 @@ import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
 import path from "path";
+import { repairSchema } from "./db";
 
 const app = express();
+
+repairSchema().catch(() => {});
 
 // Serve attached_assets folder for PDF files
 app.use("/attached_assets", express.static(path.join(process.cwd(), "attached_assets")));
