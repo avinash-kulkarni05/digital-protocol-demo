@@ -11,6 +11,23 @@ declare module "express-session" {
 
 const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:8080";
 
+async function fetchWithRetry(url: string, options?: RequestInit, retries = 3, delayMs = 2000): Promise<globalThis.Response> {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      return await fetch(url, options);
+    } catch (err: any) {
+      const isConnRefused = err?.cause?.code === "ECONNREFUSED" || err?.message?.includes("ECONNREFUSED");
+      if (isConnRefused && attempt < retries) {
+        console.log(`Backend not ready (attempt ${attempt}/${retries}), retrying in ${delayMs}ms...`);
+        await new Promise(r => setTimeout(r, delayMs));
+        continue;
+      }
+      throw err;
+    }
+  }
+  throw new Error("fetchWithRetry: should not reach here");
+}
+
 function requireAuth(req: Request, res: Response, next: NextFunction) {
   if (req.session?.user) {
     return next();
@@ -77,7 +94,7 @@ export async function registerRoutes(
     try {
       const { studyId } = req.params;
       const backendUrl = `${BACKEND_URL}/api/v1/protocols/${encodeURIComponent(studyId)}/pdf`;
-      const backendRes = await fetch(backendUrl);
+      const backendRes = await fetchWithRetry(backendUrl);
       if (backendRes.ok) {
         res.setHeader("Content-Type", "application/pdf");
         res.setHeader("Cache-Control", "no-cache");
@@ -95,7 +112,7 @@ export async function registerRoutes(
     try {
       const { studyId } = req.params;
       const backendUrl = `${BACKEND_URL}/api/v1/protocols/${encodeURIComponent(studyId)}/pdf/annotated`;
-      const backendRes = await fetch(backendUrl);
+      const backendRes = await fetchWithRetry(backendUrl);
       if (backendRes.ok) {
         res.setHeader("Content-Type", "application/pdf");
         res.setHeader("Cache-Control", "no-cache");
@@ -133,7 +150,7 @@ export async function registerRoutes(
           fetchOptions.headers = { "Content-Type": "application/json" };
         }
       }
-      const backendRes = await fetch(backendUrl, fetchOptions);
+      const backendRes = await fetchWithRetry(backendUrl, fetchOptions);
       const contentType = backendRes.headers.get("content-type") || "";
 
       if (contentType.includes("text/event-stream")) {
@@ -188,7 +205,7 @@ export async function registerRoutes(
 
       // Try to get from backend protocols table (primary source of truth)
       const backendUrl = `${BACKEND_URL}/api/v1/protocols`;
-      const backendResponse = await fetch(backendUrl);
+      const backendResponse = await fetchWithRetry(backendUrl);
 
       if (backendResponse.ok) {
         const protocols = await backendResponse.json();
