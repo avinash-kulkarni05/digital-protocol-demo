@@ -21,6 +21,7 @@ pool.on('connect', (client) => {
 });
 
 export const db = drizzle(pool, { schema });
+export { pool };
 
 export async function repairSchema() {
   const client = await pool.connect();

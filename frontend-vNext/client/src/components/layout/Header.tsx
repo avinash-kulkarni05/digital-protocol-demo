@@ -1,7 +1,13 @@
 import { useState, useRef, useEffect } from "react";
 import { Search, ChevronDown, LogOut, User, Settings } from "lucide-react";
 
-export function Header({ title }: { title: string }) {
+interface HeaderProps {
+  title: string;
+  userEmail?: string;
+  onLogout?: () => void;
+}
+
+export function Header({ title, userEmail, onLogout }: HeaderProps) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -15,13 +21,29 @@ export function Header({ title }: { title: string }) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const userInitials = "AD";
-  const userName = "Angshuman Deb";
-  const userEmail = "angshuman.deb@saama.com";
+  const email = userEmail || "user@saama.com";
+  const namePart = email.split("@")[0];
+  const userName = namePart
+    .split(".")
+    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+    .join(" ");
+  const userInitials = namePart
+    .split(".")
+    .map((s) => s.charAt(0).toUpperCase())
+    .join("")
+    .slice(0, 2) || "U";
+
+  const handleSignOut = async () => {
+    setDropdownOpen(false);
+    try {
+      await fetch("/api/auth/logout", { method: "POST" });
+    } catch {}
+    if (onLogout) onLogout();
+    else window.location.reload();
+  };
 
   return (
     <header className="h-[52px] bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50 px-6 py-3 flex items-center justify-between gap-8">
-      {/* LEFT SECTION - Logo & Branding */}
       <div className="flex items-center gap-3 flex-shrink-0">
         <img 
           src="/saama-logo.svg" 
@@ -35,7 +57,6 @@ export function Header({ title }: { title: string }) {
         </span>
       </div>
 
-      {/* CENTER SECTION - Search Bar */}
       <div className="hidden lg:flex flex-1 max-w-2xl mx-8">
         <div className="relative w-full">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -48,7 +69,6 @@ export function Header({ title }: { title: string }) {
         </div>
       </div>
 
-      {/* RIGHT SECTION - User Menu */}
       <div className="relative flex-shrink-0" ref={dropdownRef}>
         <button
           onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -66,12 +86,11 @@ export function Header({ title }: { title: string }) {
           <ChevronDown className="w-4 h-4 text-gray-600 flex-shrink-0" />
         </button>
 
-        {/* Dropdown Menu */}
         {dropdownOpen && (
           <div className="absolute right-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-20">
             <div className="px-4 py-3 border-b border-gray-200">
               <p className="text-sm font-medium text-gray-900" data-testid="text-dropdown-name">{userName}</p>
-              <p className="text-xs text-gray-500" data-testid="text-dropdown-email">{userEmail}</p>
+              <p className="text-xs text-gray-500" data-testid="text-dropdown-email">{email}</p>
             </div>
             <div className="py-1">
               <button 
@@ -91,6 +110,7 @@ export function Header({ title }: { title: string }) {
             </div>
             <div className="border-t border-gray-200 pt-1">
               <button 
+                onClick={handleSignOut}
                 className="w-full px-4 py-2 text-left text-sm text-gray-600 hover:bg-gray-100 flex items-center gap-3"
                 data-testid="button-signout"
               >

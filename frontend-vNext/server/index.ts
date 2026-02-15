@@ -1,14 +1,40 @@
 import "dotenv/config";
 import express, { type Request, Response, NextFunction } from "express";
+import session from "express-session";
+import connectPgSimple from "connect-pg-simple";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
 import path from "path";
-import { repairSchema } from "./db";
+import { repairSchema, pool } from "./db";
 
 const app = express();
 
 repairSchema().catch(() => {});
+
+if (process.env.NODE_ENV === "production") {
+  app.set("trust proxy", 1);
+}
+
+const PgSession = connectPgSimple(session);
+app.use(
+  session({
+    store: new PgSession({
+      pool: pool as any,
+      tableName: "session",
+      createTableIfMissing: true,
+    }),
+    secret: process.env.APP_PASSWORD || process.env.SESSION_SECRET || (() => { console.error("WARNING: APP_PASSWORD not set, using random session secret"); return require("crypto").randomBytes(32).toString("hex"); })(),
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+    },
+  })
+);
 
 // Serve attached_assets folder for PDF files
 app.use("/attached_assets", express.static(path.join(process.cwd(), "attached_assets")));

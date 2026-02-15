@@ -8,8 +8,10 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { api } from "@/lib/api";
 import { useQueryClient } from "@tanstack/react-query";
+import { useAuth } from "@/lib/auth";
 
 export default function LandingPage() {
+  const { user, logout } = useAuth();
   const { data: documents, isLoading } = useAllDocuments();
   const queryClient = useQueryClient();
   const [isDragging, setIsDragging] = useState(false);
@@ -319,7 +321,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-full bg-gradient-to-b from-gray-50/50 to-white">
-      <Header title="Digital Study Platform" />
+      <Header title="Digital Study Platform" userEmail={user?.email} onLogout={logout} />
       
       <motion.section
         initial={{ opacity: 0, y: -20 }}

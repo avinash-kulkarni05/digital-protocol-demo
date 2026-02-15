@@ -1,14 +1,77 @@
-import type { Express } from "express";
+import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertUsdmDocumentSchema } from "@shared/schema";
 
+declare module "express-session" {
+  interface SessionData {
+    user?: { email: string };
+  }
+}
+
 const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:8080";
+
+function requireAuth(req: Request, res: Response, next: NextFunction) {
+  if (req.session?.user) {
+    return next();
+  }
+  res.status(401).json({ error: "Not authenticated" });
+}
 
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
+
+  app.post("/api/auth/login", (req, res) => {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).json({ error: "Email and password are required" });
+    }
+
+    if (!email.toLowerCase().endsWith("@saama.com")) {
+      return res.status(401).json({ error: "Only @saama.com email addresses are allowed" });
+    }
+
+    const appPassword = process.env.APP_PASSWORD;
+    if (!appPassword) {
+      return res.status(500).json({ error: "Server authentication not configured" });
+    }
+
+    if (password !== appPassword) {
+      return res.status(401).json({ error: "Invalid password" });
+    }
+
+    req.session.user = { email: email.toLowerCase() };
+    req.session.save((err) => {
+      if (err) {
+        return res.status(500).json({ error: "Failed to create session" });
+      }
+      res.json({ user: { email: email.toLowerCase() } });
+    });
+  });
+
+  app.get("/api/auth/check", (req, res) => {
+    if (req.session?.user) {
+      return res.json({ authenticated: true, user: req.session.user });
+    }
+    res.json({ authenticated: false });
+  });
+
+  app.post("/api/auth/logout", (req, res) => {
+    req.session.destroy((err) => {
+      if (err) {
+        return res.status(500).json({ error: "Failed to logout" });
+      }
+      res.clearCookie("connect.sid");
+      res.json({ success: true });
+    });
+  });
+
+  app.use("/api/protocols", requireAuth);
+  app.use("/api/documents", requireAuth);
+  app.use("/api/backend", requireAuth);
 
   app.get("/api/protocols/:studyId/pdf", async (req, res) => {
     try {
