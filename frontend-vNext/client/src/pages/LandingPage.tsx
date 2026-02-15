@@ -108,7 +108,6 @@ export default function LandingPage() {
       const protocolId = String(doc.id);
       const studyId = doc.studyId;
 
-      // If processing and not already polling
       if (status === 'processing' && !pollingJobs.has(protocolId) && !extractingProtocols.has(protocolId)) {
         try {
           const latestJob = await api.extraction.getLatestJob(protocolId);
@@ -117,9 +116,20 @@ export default function LandingPage() {
           if (latestJob.job_id && (latestJob.status === 'running' || latestJob.status === 'pending')) {
             setPollingJobs(prev => new Set(prev).add(protocolId));
             pollJobProgress(protocolId, latestJob.job_id, studyId);
+          } else if (latestJob.status === 'failed' || latestJob.status === 'completed') {
+            setExtractionProgress(prev => {
+              const next = new Map(prev);
+              next.set(protocolId, -1);
+              return next;
+            });
           }
         } catch (error) {
           console.error('Failed to get latest job:', error);
+          setExtractionProgress(prev => {
+            const next = new Map(prev);
+            next.set(protocolId, -1);
+            return next;
+          });
         }
       }
     });
@@ -585,10 +595,15 @@ export default function LandingPage() {
 
                     {/* Review Protocol Button */}
                     <button
-                      onClick={() => {
+                      onClick={async () => {
                         if (isCompleted) {
                           setLocation(`/review/study_metadata?studyId=${encodeURIComponent(doc.studyId)}`);
                         } else if (isFailed) {
+                          try {
+                            await api.extraction.resetProtocolStatus(String(doc.id));
+                          } catch (e) {
+                            console.log('Reset not needed or already reset:', e);
+                          }
                           setExtractionProgress(prev => {
                             const next = new Map(prev);
                             next.delete(String(doc.id));

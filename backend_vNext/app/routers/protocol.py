@@ -410,6 +410,32 @@ async def start_extraction(
     )
 
 
+@router.post("/{protocol_id}/reset-status")
+async def reset_protocol_status(
+    protocol_id: UUID,
+    db: Session = Depends(get_db),
+):
+    """Reset a stuck protocol's extraction status back to 'uploaded' so extraction can be retried."""
+    protocol = db.query(Protocol).filter(Protocol.id == protocol_id).first()
+    if not protocol:
+        raise HTTPException(status_code=404, detail="Protocol not found")
+
+    if protocol.extraction_status == "completed":
+        raise HTTPException(status_code=400, detail="Protocol extraction already completed")
+
+    old_status = protocol.extraction_status
+    protocol.extraction_status = "uploaded"
+    db.commit()
+    logger.info(f"Reset protocol {protocol_id} status from '{old_status}' to 'uploaded'")
+
+    return {
+        "protocol_id": str(protocol_id),
+        "old_status": old_status,
+        "new_status": "uploaded",
+        "message": "Protocol status reset. You can now retry extraction.",
+    }
+
+
 @router.get("/{protocol_id}/jobs")
 async def list_protocol_jobs(
     protocol_id: UUID,

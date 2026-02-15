@@ -84,6 +84,16 @@ export const api = {
       return response.json();
     },
 
+    resetProtocolStatus: async (protocolId: string): Promise<any> => {
+      const response = await fetch(`${BACKEND_API_BASE}/protocols/${encodeURIComponent(protocolId)}/reset-status`, {
+        method: 'POST',
+      });
+      if (!response.ok) {
+        throw new Error(`Failed to reset protocol status: ${response.statusText}`);
+      }
+      return response.json();
+    },
+
     getJobStatus: async (jobId: string): Promise<any> => {
       const response = await fetch(`${BACKEND_API_BASE}/jobs/${jobId}`);
       if (!response.ok) {
