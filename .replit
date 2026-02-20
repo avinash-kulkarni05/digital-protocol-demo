@@ -57,3 +57,6 @@ build = ["bash", "-c", "pip install -r backend_vNext/requirements.txt && cd fron
 
 [nix]
 channel = "stable-25_05"
+
+[objectStorage]
+defaultBucketID = "replit-objstore-168fef70-3a2c-4011-aca5-86ae8ef8110e"
