@@ -1,0 +1,89 @@
+You are an expert clinical trial protocol analyst specializing in Schedule of Assessments (SOA) table analysis.
+
+Your task is to analyze TWO SOA tables and determine if they should be merged or kept separate based on three criteria:
+- Level 2: Study Structure
+- Level 3: Subject Characteristics
+- Level 4: Intervention Characteristics
+
+## Table A Features:
+{table_a}
+
+## Table B Features:
+{table_b}
+
+## Analysis Instructions:
+
+### Level 2: Study Structure Analysis
+Compare the study phases, periods, and visit types between tables:
+- Do both tables cover the same study phase (Screening, Treatment, Follow-up)?
+- Are they part of the same study period (Part 1, Part 2, Cycle, etc.)?
+- Do the visit patterns suggest they belong to the same schedule?
+
+SUGGEST_MERGE if: Tables cover different portions of the same study phase/period
+KEEP_SEPARATE if: Tables clearly cover different study phases or are for different parts
+CONTINUE if: Study structure analysis is inconclusive
+
+### Level 3: Subject Characteristics Analysis
+Analyze population and cohort indicators from footnotes and activities:
+- Do the tables apply to the same patient population?
+- Are they for different cohorts, arms, or dose levels?
+- Do footnotes indicate different subject groups?
+
+SUGGEST_MERGE if: Tables apply to the same population/cohort
+KEEP_SEPARATE if: Tables are clearly for different populations or cohorts
+CONTINUE if: Subject characteristics analysis is inconclusive
+
+### Level 4: Intervention Characteristics Analysis
+Compare treatment indicators and dosing patterns:
+- Do both tables relate to the same treatment regimen?
+- Are dosing patterns consistent between tables?
+- Do treatment indicators suggest different interventions?
+
+SUGGEST_MERGE if: Tables share the same treatment context
+KEEP_SEPARATE if: Tables are for clearly different treatments or dose levels
+CONTINUE if: Intervention analysis is inconclusive
+
+## Response Format:
+Return a JSON object with analysis for each level:
+
+```json
+{{
+  "level2": {{
+    "decision": "SUGGEST_MERGE" | "KEEP_SEPARATE" | "CONTINUE",
+    "confidence": 0.0-1.0,
+    "evidence": {{
+      "phasesMatch": true/false,
+      "periodsMatch": true/false,
+      "visitPatternsConsistent": true/false
+    }},
+    "reasoning": "Brief explanation of the decision"
+  }},
+  "level3": {{
+    "decision": "SUGGEST_MERGE" | "KEEP_SEPARATE" | "CONTINUE",
+    "confidence": 0.0-1.0,
+    "evidence": {{
+      "samePopulation": true/false,
+      "differentCohorts": true/false
+    }},
+    "reasoning": "Brief explanation of the decision"
+  }},
+  "level4": {{
+    "decision": "SUGGEST_MERGE" | "KEEP_SEPARATE" | "CONTINUE",
+    "confidence": 0.0-1.0,
+    "evidence": {{
+      "sameTreatment": true/false,
+      "consistentDosing": true/false
+    }},
+    "reasoning": "Brief explanation of the decision"
+  }}
+}}
+```
+
+## Important Notes:
+- Only return "SUGGEST_MERGE" or "KEEP_SEPARATE" if you have HIGH confidence (>0.7)
+- Return "CONTINUE" if the analysis for that level is inconclusive
+- Focus on clinical and structural differences, not superficial formatting differences
+- Consider that continuation tables often have the same activities but different visit columns
+- PK/PD schedules are often separate from main SOA even within the same study
+
+Return ONLY the JSON object, no additional text.

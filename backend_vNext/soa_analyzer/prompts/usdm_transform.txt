@@ -1,0 +1,120 @@
+You are a clinical data standards expert. Transform the Schedule of Activities (SOA) HTML table into USDM 4.0 compliant JSON.
+
+## Input
+
+Protocol ID: {protocol_id}
+SOA Table: {table_name}
+Page Range: {page_start} - {page_end}
+
+HTML Content:
+```html
+{html_content}
+```
+
+{footnotes_section}
+
+## Output Requirements
+
+Generate USDM 4.0 compliant JSON with the following structure:
+
+```json
+{{
+  "scheduleTimelines": [
+    {{
+      "id": "TL-001",
+      "name": "<timeline name from table>",
+      "mainTimeline": true,
+      "instanceType": "ScheduleTimeline",
+      "entryCondition": "Enrollment",
+      "entryId": "TL-001-ENTRY",
+      "description": "<brief description>"
+    }}
+  ],
+  "encounters": [
+    {{
+      "id": "ENC-001",
+      "name": "<visit/timepoint name from column header>",
+      "type": {{
+        "code": "<CDISC visit type code>",
+        "decode": "<Screening|Treatment|Follow-up>"
+      }},
+      "instanceType": "Encounter",
+      "scheduledAtTimingId": "TIM-001",
+      "provenance": {{
+        "page_number": {page_start},
+        "text_snippet": "<column header text>"
+      }}
+    }}
+  ],
+  "activities": [
+    {{
+      "id": "ACT-001",
+      "name": "<procedure/assessment name from row>",
+      "instanceType": "Activity",
+      "cdiscDomain": "<LB|VS|EG|PE|QS|PR|PC|PP>",
+      "cdiscCode": "<CDISC test code if applicable>",
+      "definedProcedures": [
+        {{
+          "id": "PROC-001",
+          "name": "<specific procedure>",
+          "procedureType": "<Laboratory|Vital Signs|ECG|Physical Exam|Imaging|Questionnaire>"
+        }}
+      ],
+      "provenance": {{
+        "page_number": {page_start},
+        "text_snippet": "<row label text>"
+      }}
+    }}
+  ],
+  "scheduledActivityInstances": [
+    {{
+      "id": "SAI-001",
+      "name": "<activity at visit>",
+      "instanceType": "ScheduledActivityInstance",
+      "activityIds": ["ACT-001"],
+      "encounterId": "ENC-001",
+      "timelineId": "TL-001",
+      "defaultConditionId": null
+    }}
+  ],
+  "timings": [
+    {{
+      "id": "TIM-001",
+      "name": "<timing description>",
+      "type": {{
+        "code": "C71738",
+        "decode": "Study Day"
+      }},
+      "value": "<numeric value or range>",
+      "valueLabel": "<display label>",
+      "relativeToFrom": "STUDY_START",
+      "relativeFromScheduledInstanceId": null,
+      "instanceType": "Timing"
+    }}
+  ]
+}}
+```
+
+## Critical Instructions
+
+1. **ID Generation**: Use prefixes (TL-, ENC-, ACT-, SAI-, TIM-, PROC-) with sequential numbers
+2. **Encounters**: Create one Encounter per visit column in the table
+3. **Activities**: Create one Activity per procedure row in the table
+4. **ScheduledActivityInstances**: Create one SAI for each X mark (activity-visit intersection)
+5. **Timings**: Extract timing info from column headers (Day 1, Week 2, Cycle 1, etc.)
+6. **Provenance**: Include page_number and text_snippet for traceability
+7. **CDISC Mapping**: Map procedures to appropriate CDISC domains:
+   - LB: Laboratory tests (CBC, chemistry, urinalysis)
+   - VS: Vital signs (BP, HR, temp, weight)
+   - EG: ECG/electrocardiogram
+   - PE: Physical examination
+   - QS: Questionnaires (PRO, QoL)
+   - PR: Procedures, imaging
+   - PC: Pharmacokinetics (PK sampling)
+   - PP: Pharmacodynamics
+
+8. **Footnotes**: If footnotes are provided, associate them with relevant activities
+
+## Response
+
+Respond ONLY with valid JSON. No markdown code fences. No explanation.

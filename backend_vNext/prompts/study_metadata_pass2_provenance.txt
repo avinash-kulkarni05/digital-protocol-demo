@@ -1,0 +1,305 @@
+system
+You are an expert at finding source locations in clinical protocol documents. Your task is to provide precise provenance (source location) for extracted data.
+
+user
+### OBJECTIVE
+For each field in the extracted data below, provide the provenance showing WHERE in the protocol document the information was derived from.
+
+You have the PDF document available. Search through it to find the EXACT source location for each extracted value.
+
+### EXTRACTED DATA (from Pass 1)
+{{ extracted_data }}
+
+### YOUR TASK
+For EACH field in the extracted data, provide provenance with:
+- `section_number`: The protocol section number (e.g., "1.1", "5.2", "10.3") or null if no section number visible
+- `page_number`: The EXACT physical page number where the text appears (integer, 1-indexed)
+- `text_snippet`: A direct quote (max 500 chars) from the protocol showing the source text
+
+### CRITICAL PAGE NUMBER RULES
+1. Use PHYSICAL page numbers (1st page of PDF = 1, 2nd page = 2, etc.)
+2. Do NOT use page numbers printed in headers/footers (like "Page 17 of 200")
+3. The text_snippet MUST appear ENTIRELY on the EXACT page_number you specify
+4. Your provenance will be VERIFIED against the source PDF using exact text matching
+5. IMPORTANT: Title pages and cover pages count as page 1. The first page with protocol content is often page 2 or later.
+
+### PAGE NUMBER VERIFICATION STEPS (MANDATORY)
+Before providing each provenance:
+1. Navigate to the exact page in the PDF where you found the text
+2. Count the page number from the beginning of the PDF (not from headers/footers)
+3. Verify the ENTIRE snippet text is visible on that single page
+4. If text spans multiple pages, ONLY quote the portion from ONE page
+5. If unsure about the page number, leave it as null rather than guessing
+
+### SINGLE-PAGE SNIPPET RULE
+- Each text_snippet must be fully contained within ONE page
+- Do NOT include text that spans across page breaks
+- If the source text crosses pages, extract only the portion from the page you cite
+- Trim snippets at natural sentence boundaries when possible
+
+### SCHEMA PROVENANCE RULES (CRITICAL - 100% COVERAGE REQUIRED)
+Provenance MUST be placed on ALL of these locations:
+
+#### Root level:
+- `provenance` (covers id, name, officialTitle, version)
+
+#### Code objects (nested inside):
+- `studyPhase.provenance`
+- `studyType.provenance`
+
+#### Array items with objects (EACH item needs provenance):
+- `studyIdentifiers[i].provenance` - each identifier has its own provenance
+- `studyProtocolVersions[i].provenance` - each version has its own provenance
+
+#### Container objects:
+- `studyPopulation.provenance` (covers overall studyPopulation context)
+- `studyPopulation.targetDisease.provenance` (covers name, stage, histology, meddraCode, icdCode)
+- `studyPopulation.sex.allowed[i].provenance` - EACH item in sex.allowed array needs its own provenance
+- `studyPopulation.performanceStatus.provenance` (covers scale and allowedValues)
+- `studyPopulation.priorTherapyRequirements.provenance` (covers required therapies, min/max lines)
+- `studyPopulation.biomarkerRequirements[i].provenance` - EACH biomarker needs its own provenance
+- `studyMilestones.provenance` (covers overall milestones context)
+- `studyMilestones.studyStartDate.provenance` (if present)
+- `studyMilestones.firstSubjectScreened.provenance` (if present)
+- `studyMilestones.firstSubjectRandomized.provenance` (if present)
+- `studyMilestones.enrollmentCompletionDate.provenance` (if present)
+- `studyMilestones.primaryCompletionDate.provenance` (if present)
+- `studyMilestones.studyCompletionDate.provenance` (if present)
+- `studyMilestones.estimatedDurations.provenance` (covers all duration fields)
+- `studyMilestones.interimAnalyses[i].provenance` - EACH interim analysis needs its own provenance
+- `studyDesignInfo.provenance` (covers designType, targetEnrollment, plannedSites)
+- `studyDesignInfo.randomization.provenance` (covers isRandomized, allocationRatio, allocationMethod, blockSize)
+- `studyDesignInfo.blinding.provenance` (covers blindingType, whoIsBlinded)
+
+#### CRITICAL: Array items with objects need individual provenance
+- Each `studyIdentifiers[i].provenance` - already required
+- Each `studyProtocolVersions[i].provenance` - already required
+- Each `sex.allowed[i].provenance` - REQUIRED (e.g., provenance for Male eligibility, Female eligibility)
+
+#### Text fields with integrated provenance (value + provenance pattern):
+- `therapeuticArea.provenance` - inside the therapeuticArea object with value
+- `indication.provenance` - inside the indication object with value
+- `sponsorName.provenance` - inside the sponsorName object with value
+
+#### REQUIRED: Text arrays with integrated provenance:
+- `keyInclusionSummary.provenance` - covers ALL items in keyInclusionSummary.values array
+- `keyExclusionSummary.provenance` - covers ALL items in keyExclusionSummary.values array
+- `countries.provenance` - covers ALL items in countries.values array
+
+DO NOT add provenance to:
+- `isPivotalProvenance` (FORBIDDEN - no provenance for this field)
+- `nameProvenance`, `versionProvenance`, `officialTitleProvenance` (FORBIDDEN - use root `provenance` instead)
+- `extensionAttributes` (FORBIDDEN - these are system metadata)
+
+### IMPORTANT RULES FOR text_snippet
+1. The text_snippet should be the ACTUAL TEXT from the protocol that the value was derived from
+2. It does NOT need to contain the exact extracted value - it should show the SOURCE TEXT used to derive the value
+3. For interpreted values (like "Oncology" derived from disease description), quote the disease description
+4. For identifiers (NCT number, protocol ID), quote the line where they appear WITH CONTEXT
+5. NEVER use boilerplate text like "Proprietary and Confidential" or "Page X" or "CLINICAL STUDY PROTOCOL"
+6. The snippet should be meaningful and help readers understand where the information came from
+7. Copy the text EXACTLY as it appears - no paraphrasing
+8. MINIMUM SNIPPET LENGTH: 15 characters - always include enough context to make the snippet meaningful
+9. For short values (like "IND 136626"), include surrounding text: "FDA IND Number: 136626" or "IND: 136626 (United States)"
+
+### EXAMPLES
+
+**Good provenance for therapeutic area "Oncology" (value + provenance pattern):**
+```json
+"therapeuticArea": {
+  "value": "Oncology",
+  "provenance": {
+    "section_number": "1.1",
+    "page_number": 1,
+    "text_snippet": "A Phase 3, Open-label, Randomized Study of DS-1062a Versus Docetaxel in Previously Treated Advanced or Metastatic Non-Small Cell Lung Cancer"
+  }
+}
+```
+(The value "Oncology" is derived from "Non-Small Cell Lung Cancer" which is a cancer/oncology indication)
+
+**Good provenance for studyIdentifier NCT04656652:**
+```json
+"provenance": {
+  "section_number": null,
+  "page_number": 1,
+  "text_snippet": "ClinicalTrials.gov Identifier: NCT04656652"
+}
+```
+
+### MANDATORY ROOT-LEVEL FIELDS (MUST PRESERVE)
+The following fields from Pass 1 MUST be preserved in your output:
+- "id": The protocol number - COPY THIS EXACTLY from Pass 1 input
+- "instanceType": MUST be exactly "Study" - ALWAYS include this
+- "name", "officialTitle", "version": COPY from Pass 1 input
+
+### OUTPUT FORMAT
+Return JSON with provenance for each field path. Use the same structure as the input, but add provenance objects.
+CRITICAL: Text fields use integrated value + provenance pattern (therapeuticArea, indication, sponsorName, keyInclusionSummary, keyExclusionSummary, countries).
+
+```json
+{
+  "id": "DS1062-A-U301",
+  "instanceType": "Study",
+  "name": "TROPION-LUNG01",
+  "officialTitle": "Phase 3 Randomized Study of DS-1062a...",
+  "version": "5.0",
+  "provenance": {
+    "section_number": "1.1",
+    "page_number": 1,
+    "text_snippet": "Protocol Number: DS1062-A-U301"
+  },
+  "studyPhase": {
+    "provenance": {
+      "section_number": null,
+      "page_number": 1,
+      "text_snippet": "A Phase 3, Open-label, Randomized Study..."
+    }
+  },
+  "studyType": {
+    "provenance": {
+      "section_number": "3.1",
+      "page_number": 25,
+      "text_snippet": "This is an interventional, randomized, open-label study..."
+    }
+  },
+  "therapeuticArea": {
+    "value": "Oncology",
+    "provenance": {
+      "section_number": "1.1",
+      "page_number": 1,
+      "text_snippet": "Non-Small Cell Lung Cancer..."
+    }
+  },
+  "indication": {
+    "value": "Previously Treated Advanced or Metastatic Non-Small Cell Lung Cancer",
+    "provenance": {
+      "section_number": "1.1",
+      "page_number": 1,
+      "text_snippet": "Previously Treated Advanced or Metastatic Non-Small Cell Lung Cancer..."
+    }
+  },
+  "sponsorName": {
+    "value": "Daiichi Sankyo, Inc.",
+    "provenance": {
+      "section_number": null,
+      "page_number": 1,
+      "text_snippet": "Sponsor: Daiichi Sankyo, Inc."
+    }
+  },
+  "studyIdentifiers": [
+    {
+      "id": "NCT04656652",
+      "scopeId": "clinicaltrials.gov",
+      "provenance": {
+        "section_number": null,
+        "page_number": 1,
+        "text_snippet": "ClinicalTrials.gov Identifier: NCT04656652"
+      }
+    },
+    {
+      "id": "IND 136626",
+      "scopeId": "fda_ind",
+      "provenance": {
+        "section_number": null,
+        "page_number": 1,
+        "text_snippet": "FDA IND Number: 136626 (United States)"
+      }
+    }
+  ],
+  "studyProtocolVersions": [
+    {
+      "versionNumber": "5.0",
+      "versionDate": "2023-10-09",
+      "provenance": {
+        "section_number": null,
+        "page_number": 3,
+        "text_snippet": "Amendment 5.0, dated 09 Oct 2023"
+      }
+    }
+  ],
+  "studyPopulation": {
+    "provenance": {
+      "section_number": "5.1",
+      "page_number": 32,
+      "text_snippet": "Adults ≥18 years with histologically or cytologically confirmed..."
+    },
+    "sex": {
+      "allowed": [
+        {
+          "code": "C20197",
+          "decode": "Male",
+          "provenance": {
+            "section_number": "5.1",
+            "page_number": 73,
+            "text_snippet": "If male, the subject must be surgically sterile or must use a condom..."
+          }
+        },
+        {
+          "code": "C16576",
+          "decode": "Female",
+          "provenance": {
+            "section_number": "5.1",
+            "page_number": 73,
+            "text_snippet": "If the subject is a female of childbearing potential, she must have..."
+          }
+        }
+      ],
+      "provenance": {
+        "section_number": "5.1",
+        "page_number": 73,
+        "text_snippet": "Both male and female subjects are eligible for enrollment in this study."
+      }
+    },
+    "performanceStatus": {
+      "scale": "ECOG",
+      "allowedValues": [0, 1],
+      "provenance": {
+        "section_number": "5.1",
+        "page_number": 73,
+        "text_snippet": "Eastern Cooperative Oncology Group performance status of 0 or 1 at Screening"
+      }
+    },
+    "keyInclusionSummary": {
+      "values": ["criterion 1", "criterion 2"],
+      "provenance": {
+        "section_number": "5.1",
+        "page_number": 73,
+        "text_snippet": "Key Inclusion Criteria: 1. Adults aged 18 years or older. 2. Pathologically documented Stage IIIB..."
+      }
+    },
+    "keyExclusionSummary": {
+      "values": ["exclusion 1", "exclusion 2"],
+      "provenance": {
+        "section_number": "5.2",
+        "page_number": 77,
+        "text_snippet": "Key Exclusion Criteria: 1. Mixed small-cell lung cancer (SCLC) and NSCLC histology..."
+      }
+    }
+  },
+  "studyMilestones": {
+    "provenance": {
+      "section_number": "1.2",
+      "page_number": 18,
+      "text_snippet": "Study start: March 2021. Enrollment period: approximately 27 months..."
+    }
+  },
+  "studyDesignInfo": {
+    "provenance": {
+      "section_number": "1.2",
+      "page_number": 16,
+      "text_snippet": "This is a Phase 3, open-label, randomized (1:1), multicenter study..."
+    },
+    "countries": {
+      "values": ["USA", "Japan", "Germany"],
+      "provenance": {
+        "section_number": "4.1",
+        "page_number": 64,
+        "text_snippet": "Study sites will be located in the United States, Japan, Germany, and other countries..."
+      }
+    }
+  }
+}
+```
+
+### OUTPUT
+Return ONLY valid JSON with the provenance structure, no additional text.

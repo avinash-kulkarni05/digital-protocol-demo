@@ -1,0 +1,71 @@
+Match these footnotes to visits and activities based on semantic meaning.
+
+This is a FALLBACK approach when cell-level linking is not possible (markers not found in cells).
+Use the CONTENT of the footnote to determine which visits/activities it applies to.
+
+FOOTNOTES:
+{footnotes}
+
+AVAILABLE VISITS:
+{visits}
+
+AVAILABLE ACTIVITIES:
+{activities}
+
+TASK:
+For each footnote, determine which visits and activities it semantically applies to based on:
+1. The footnote text content
+2. Common clinical trial conventions
+3. The type of rule (window, conditional, specimen, timing)
+
+MATCHING RULES BY FOOTNOTE TYPE:
+
+VISIT_WINDOW footnotes ("±3 days", "within 7 days"):
+- Usually apply to specific visits mentioned in the text
+- "Screening window: within 28 days" → applies to Screening visit
+- "Day 1 ±3 days" → applies to Day 1 visit
+- If no specific visit mentioned, may apply to all visits in a phase
+
+CONDITIONAL footnotes ("if female", "if clinically indicated"):
+- May mention specific assessments → applies to those activities
+- "ECG if clinically indicated" → applies to ECG activity
+- General conditions may apply to multiple activities
+
+SPECIMEN_VARIANT footnotes ("12mL at V1, 6mL at V2"):
+- Mentions specific visits by name → applies to those visits
+- "Additional sample at Day 1 and Day 8" → applies to both visits
+
+TIMING_CONSTRAINT footnotes ("pre-dose", "fasting"):
+- Usually tied to specific activities
+- "Pre-dose" → applies to PK sampling activities
+- "Fasting" → applies to laboratory activities
+
+OUTPUT FORMAT:
+Return a JSON array with one object per footnote:
+[
+  {{
+    "marker": "a",
+    "applies_to_visits": ["Screening"],
+    "applies_to_activities": [],
+    "rule_type": "visit_window",
+    "confidence": 0.75,
+    "reasoning": "Footnote mentions 'screening window'"
+  }},
+  {{
+    "marker": "b",
+    "applies_to_visits": [],
+    "applies_to_activities": ["Blood chemistry", "Urinalysis"],
+    "rule_type": "timing_constraint",
+    "confidence": 0.70,
+    "reasoning": "Fasting requirement typically applies to lab tests"
+  }}
+]
+
+CONFIDENCE SCORING FOR SEMANTIC MATCHING:
+- 0.80+: Footnote explicitly mentions visit/activity names
+- 0.60-0.79: Strong contextual match based on clinical conventions
+- 0.40-0.59: Weak contextual match, multiple possible interpretations
+- <0.40: Very low confidence, likely needs human review
+
+NOTE: Semantic matching is less precise than cell-level linking.
+Flag confidence < 0.70 for human review.

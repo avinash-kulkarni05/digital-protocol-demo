@@ -1,0 +1,63 @@
+{
+  "stage": 8,
+  "stageName": "Cycle Expansion",
+  "success": true,
+  "expansions": [],
+  "decisions": {
+    "ENC-006": {
+      "encounterName": "On Treatment",
+      "recurrenceKey": "FIXED_INTERVAL:1_weeks",
+      "shouldExpand": false,
+      "expandedCycles": [],
+      "patternType": "fixed_interval",
+      "cycleLengthDays": 84,
+      "confidence": 0.0,
+      "rationale": "Fixed interval pattern ('Every 12 weeks') lacks a specified maximum number of occurrences or total duration, making it an open-ended pattern that cannot be automatically expanded.",
+      "source": "llm",
+      "requiresHumanReview": true,
+      "reviewReason": "Open-ended pattern - protocol does not specify max number of visits for the 'Every 12 weeks' interval.",
+      "cachedAt": "2025-12-10T00:25:36.326060Z",
+      "modelName": "gemini-2.5-pro",
+      "provenance": null,
+      "isOpenEnded": false,
+      "protocolContext": null
+    },
+    "ENC-010": {
+      "encounterName": "Follow Up for Survival",
+      "recurrenceKey": "FIXED_INTERVAL:1_weeks",
+      "shouldExpand": false,
+      "expandedCycles": [],
+      "patternType": "fixed_interval",
+      "cycleLengthDays": 168,
+      "confidence": 0.0,
+      "rationale": "Follow-up visit with a fixed interval ('Every 24 weeks') but no specified maximum number of occurrences. This is an open-ended pattern requiring human review.",
+      "source": "llm",
+      "requiresHumanReview": true,
+      "reviewReason": "Open-ended follow-up schedule. The protocol does not specify the total duration or maximum number of follow-up visits.",
+      "cachedAt": "2025-12-10T00:25:36.326173Z",
+      "modelName": "gemini-2.5-pro",
+      "provenance": null,
+      "isOpenEnded": false,
+      "protocolContext": null
+    }
+  },
+  "discrepancies": [],
+  "reviewItems": [],
+  "metrics": {
+    "encountersProcessed": 10,
+    "encountersWithRecurrence": 2,
+    "encountersExpanded": 0,
+    "encountersCreated": 0,
+    "encountersSkipped": 8,
+    "saisProcessed": 86,
+    "saisDuplicated": 0,
+    "saisCreated": 0,
+    "uniquePatternsAnalyzed": 2,
+    "cacheHits": 0,
+    "llmCalls": 1,
+    "validationFlags": 0,
+    "eventDrivenFlagged": 0,
+    "reviewItemsCount": 0,
+    "expansionRate": 0.0
+  }
+}

@@ -1,0 +1,720 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LaboratorySpecifications",
+  "description": "USDM 4.0-compliant schema for protocol-agnostic laboratory testing extraction. Designed for 2-pass extraction with discovery-based panel identification.",
+  "type": "object",
+  "definitions": {
+    "provenance": {
+      "type": "object",
+      "description": "Source location information for audit trail",
+      "properties": {
+        "section_number": {
+          "type": ["string", "null"],
+          "description": "Section number from document (e.g., '8.1', '9.3.2')",
+          "maxLength": 50
+        },
+        "page_number": {
+          "type": ["integer", "null"],
+          "description": "PDF page number (1-indexed)"
+        },
+        "text_snippet": {
+          "type": ["string", "null"],
+          "description": "Direct quote from source (max 500 chars)",
+          "maxLength": 500
+        }
+      }
+    },
+    "biomedicalConcept": {
+      "type": ["object", "null"],
+      "description": "CDISC Biomedical Concept for laboratory test standardization",
+      "properties": {
+        "conceptName": {
+          "type": "string",
+          "description": "Standardized laboratory test name",
+          "maxLength": 150
+        },
+        "cdiscCode": {
+          "type": "string",
+          "description": "NCI EVS code (e.g., C78713 for CBC) or 'CUSTOM' for unmapped",
+          "maxLength": 20
+        },
+        "domain": {
+          "type": "string",
+          "description": "CDISC domain - LB for Laboratory",
+          "enum": ["LB", "VS", "EG", "MI", "OTHER"],
+          "default": "LB"
+        },
+        "specimen": {
+          "type": ["string", "null"],
+          "description": "Specimen type (blood, serum, plasma, urine, etc.)",
+          "maxLength": 50
+        },
+        "method": {
+          "type": ["string", "null"],
+          "description": "Measurement/analytical method",
+          "maxLength": 100
+        },
+        "confidence": {
+          "type": ["number", "null"],
+          "description": "Mapping confidence (1.0 = exact match, 0.5 = custom)",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "rationale": {
+          "type": ["string", "null"],
+          "description": "Brief explanation for code assignment",
+          "maxLength": 200
+        }
+      },
+      "required": ["conceptName", "cdiscCode", "domain"]
+    },
+    "code_decode": {
+      "type": "object",
+      "description": "Flexible code/decode pair for categorization",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Machine-readable code (LOINC, local code, etc.)",
+          "maxLength": 100
+        },
+        "decode": {
+          "type": "string",
+          "description": "Human-readable display value",
+          "maxLength": 200
+        }
+      },
+      "required": ["code", "decode"]
+    },
+    "reference_range": {
+      "type": "object",
+      "description": "Reference range specification",
+      "properties": {
+        "low": {
+          "type": ["number", "null"],
+          "description": "Lower bound of normal range"
+        },
+        "high": {
+          "type": ["number", "null"],
+          "description": "Upper bound of normal range"
+        },
+        "unit": {
+          "type": ["string", "null"],
+          "description": "Unit of measurement",
+          "maxLength": 50
+        },
+        "population": {
+          "type": ["string", "null"],
+          "description": "Population this range applies to (e.g., adult_male, adult_female, pediatric)",
+          "maxLength": 100
+        },
+        "text": {
+          "type": ["string", "null"],
+          "description": "Full range as text if non-numeric",
+          "maxLength": 200
+        }
+      }
+    },
+    "critical_value": {
+      "type": "object",
+      "description": "Critical/alert value specification",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Type of critical value (low, high)",
+          "maxLength": 20
+        },
+        "value": {
+          "description": "Critical threshold value"
+        },
+        "unit": {
+          "type": ["string", "null"],
+          "description": "Unit of measurement",
+          "maxLength": 50
+        },
+        "action_required": {
+          "type": ["string", "null"],
+          "description": "Required action when critical value encountered",
+          "maxLength": 400
+        }
+      }
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this laboratory specifications resource",
+      "maxLength": 50
+    },
+    "instanceType": {
+      "type": "string",
+      "const": "LaboratorySpecifications",
+      "description": "USDM instance type"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the laboratory specifications resource",
+      "maxLength": 200
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "Brief description of the laboratory testing program",
+      "maxLength": 500
+    },
+    "central_laboratory": {
+      "type": ["object", "null"],
+      "description": "Central laboratory vendor information if specified",
+      "properties": {
+        "vendor_name": {
+          "type": ["string", "null"],
+          "description": "Name of central lab vendor",
+          "maxLength": 200
+        },
+        "accreditations": {
+          "type": ["array", "null"],
+          "items": {"type": "string", "maxLength": 100},
+          "description": "Lab accreditations (e.g., CAP, CLIA, ISO 15189)"
+        },
+        "data_transfer_method": {
+          "type": ["string", "null"],
+          "description": "Method for transferring lab data",
+          "maxLength": 200
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      }
+    },
+    "discovered_panels": {
+      "type": "array",
+      "description": "Test panels/batteries discovered from protocol (not prescribed)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "panel_id": {
+            "type": "string",
+            "description": "Unique panel identifier (e.g., PNL-001)",
+            "maxLength": 50
+          },
+          "panel_name": {
+            "type": "string",
+            "description": "Panel name as stated in protocol",
+            "maxLength": 200
+          },
+          "panel_code": {
+            "type": ["string", "null"],
+            "description": "Standard code if available (LOINC panel code)",
+            "maxLength": 100
+          },
+          "panel_description": {
+            "type": ["string", "null"],
+            "description": "Brief description of panel purpose",
+            "maxLength": 400
+          },
+          "panel_category": {
+            "type": ["string", "null"],
+            "description": "Category (e.g., hematology, chemistry, coagulation, urinalysis, immunology, microbiology, other)",
+            "maxLength": 100
+          },
+          "test_count": {
+            "type": ["integer", "null"],
+            "description": "Number of tests in this panel"
+          },
+          "biomedicalConcept": {
+            "$ref": "#/definitions/biomedicalConcept"
+          },
+          "provenance": {
+            "$ref": "#/definitions/provenance"
+          }
+        },
+        "required": ["panel_id", "panel_name"]
+      }
+    },
+    "laboratory_tests": {
+      "type": "array",
+      "description": "Individual laboratory tests discovered in protocol",
+      "items": {
+        "type": "object",
+        "properties": {
+          "test_id": {
+            "type": "string",
+            "description": "Unique test identifier (e.g., LAB-001)",
+            "maxLength": 50
+          },
+          "test_name": {
+            "type": "string",
+            "description": "Test name as stated in protocol",
+            "maxLength": 200
+          },
+          "test_code": {
+            "type": ["string", "null"],
+            "description": "Standard code (LOINC preferred)",
+            "maxLength": 100
+          },
+          "panel_ref": {
+            "type": ["string", "null"],
+            "description": "Reference to parent panel ID",
+            "maxLength": 50
+          },
+          "specimen_type": {
+            "type": ["string", "null"],
+            "description": "Required specimen type (e.g., whole blood, serum, plasma, urine)",
+            "maxLength": 100
+          },
+          "collection_container": {
+            "type": ["string", "null"],
+            "description": "Collection tube/container type",
+            "maxLength": 100
+          },
+          "collection_volume": {
+            "type": ["string", "null"],
+            "description": "Required sample volume",
+            "maxLength": 50
+          },
+          "fasting_required": {
+            "type": ["boolean", "null"],
+            "description": "Whether fasting is required"
+          },
+          "special_handling": {
+            "type": ["string", "null"],
+            "description": "Special handling requirements",
+            "maxLength": 300
+          },
+          "unit": {
+            "type": ["string", "null"],
+            "description": "Unit of measurement for results",
+            "maxLength": 50
+          },
+          "reference_ranges": {
+            "type": ["array", "null"],
+            "items": {"$ref": "#/definitions/reference_range"},
+            "description": "Reference ranges if specified in protocol"
+          },
+          "critical_values": {
+            "type": ["array", "null"],
+            "items": {"$ref": "#/definitions/critical_value"},
+            "description": "Critical/alert values requiring immediate action"
+          },
+          "clinical_significance": {
+            "type": ["string", "null"],
+            "description": "Clinical significance as stated in protocol",
+            "maxLength": 400
+          },
+          "biomedicalConcept": {
+            "$ref": "#/definitions/biomedicalConcept"
+          },
+          "provenance": {
+            "$ref": "#/definitions/provenance"
+          }
+        },
+        "required": ["test_id"]
+      }
+    },
+    "testing_schedule": {
+      "type": "array",
+      "description": "When laboratory tests are performed",
+      "items": {
+        "type": "object",
+        "properties": {
+          "schedule_id": {
+            "type": "string",
+            "description": "Unique schedule identifier",
+            "maxLength": 50
+          },
+          "test_or_panel_ref": {
+            "type": "string",
+            "description": "Reference to test ID or panel ID",
+            "maxLength": 50
+          },
+          "timepoints": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "timepoint_name": {
+                  "type": "string",
+                  "description": "Timepoint label (e.g., Screening, Day 1, Week 4, End of Treatment)",
+                  "maxLength": 100
+                },
+                "timepoint_type": {
+                  "type": ["string", "null"],
+                  "description": "Type (screening, baseline, treatment, follow_up, unscheduled)",
+                  "maxLength": 50
+                },
+                "window": {
+                  "type": ["string", "null"],
+                  "description": "Timing window (e.g., '±3 days', 'Within 7 days before dosing')",
+                  "maxLength": 200
+                },
+                "conditions": {
+                  "type": ["string", "null"],
+                  "description": "Conditions for this timepoint",
+                  "maxLength": 300
+                }
+              },
+              "required": ["timepoint_name"]
+            },
+            "description": "List of timepoints when test is performed"
+          },
+          "frequency": {
+            "type": ["string", "null"],
+            "description": "Frequency description (e.g., 'every 3 weeks', 'monthly', 'at screening and every cycle')",
+            "maxLength": 500
+          },
+          "provenance": {
+            "$ref": "#/definitions/provenance"
+          }
+        },
+        "required": ["schedule_id", "test_or_panel_ref", "timepoints"]
+      }
+    },
+    "sample_collection_requirements": {
+      "type": ["object", "null"],
+      "description": "General sample collection requirements",
+      "properties": {
+        "fasting_requirements": {
+          "type": ["string", "null"],
+          "description": "General fasting requirements for lab draws",
+          "maxLength": 300
+        },
+        "timing_requirements": {
+          "type": ["string", "null"],
+          "description": "Timing requirements (e.g., 'prior to dosing', 'trough')",
+          "maxLength": 300
+        },
+        "processing_requirements": {
+          "type": ["string", "null"],
+          "description": "Sample processing requirements",
+          "maxLength": 400
+        },
+        "storage_requirements": {
+          "type": ["string", "null"],
+          "description": "Sample storage conditions",
+          "maxLength": 300
+        },
+        "shipping_requirements": {
+          "type": ["string", "null"],
+          "description": "Shipping and transport requirements",
+          "maxLength": 400
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      }
+    },
+    "lab_based_dose_modifications": {
+      "type": "array",
+      "description": "Dose modifications triggered by laboratory values",
+      "items": {
+        "type": "object",
+        "properties": {
+          "modification_id": {
+            "type": "string",
+            "description": "Unique modification rule identifier",
+            "maxLength": 50
+          },
+          "parameter_name": {
+            "type": "string",
+            "description": "Laboratory parameter triggering modification",
+            "maxLength": 200
+          },
+          "trigger_condition": {
+            "type": "string",
+            "description": "Condition that triggers modification (e.g., 'ALT >3x ULN')",
+            "maxLength": 300
+          },
+          "operator": {
+            "type": ["string", "null"],
+            "description": "Comparison operator (gt, gte, lt, lte, eq, between)",
+            "maxLength": 20
+          },
+          "threshold_value": {
+            "description": "Threshold value for trigger"
+          },
+          "threshold_unit": {
+            "type": ["string", "null"],
+            "description": "Unit (may be xULN, absolute, percentage)",
+            "maxLength": 50
+          },
+          "reference_type": {
+            "type": ["string", "null"],
+            "description": "Reference type (ULN, LLN, baseline, absolute)",
+            "maxLength": 50
+          },
+          "required_action": {
+            "type": "string",
+            "description": "Required action (dose_reduce, dose_hold, dose_discontinue)",
+            "maxLength": 400
+          },
+          "recovery_criteria": {
+            "type": ["string", "null"],
+            "description": "Criteria for treatment resumption",
+            "maxLength": 400
+          },
+          "provenance": {
+            "$ref": "#/definitions/provenance"
+          }
+        },
+        "required": ["modification_id", "parameter_name", "trigger_condition", "required_action"]
+      }
+    },
+    "eligibility_lab_criteria": {
+      "type": "array",
+      "description": "Laboratory criteria for study eligibility (inclusion/exclusion)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "criteria_id": {
+            "type": "string",
+            "description": "Unique criteria identifier",
+            "maxLength": 50
+          },
+          "criteria_type": {
+            "type": "string",
+            "description": "Type (inclusion, exclusion)",
+            "maxLength": 20
+          },
+          "parameter_name": {
+            "type": "string",
+            "description": "Laboratory parameter",
+            "maxLength": 200
+          },
+          "condition": {
+            "type": "string",
+            "description": "Eligibility condition",
+            "maxLength": 400
+          },
+          "operator": {
+            "type": ["string", "null"],
+            "description": "Comparison operator",
+            "maxLength": 20
+          },
+          "threshold_value": {
+            "description": "Threshold value"
+          },
+          "threshold_unit": {
+            "type": ["string", "null"],
+            "description": "Unit of measurement",
+            "maxLength": 50
+          },
+          "provenance": {
+            "$ref": "#/definitions/provenance"
+          }
+        },
+        "required": ["criteria_id", "criteria_type", "parameter_name", "condition"]
+      }
+    },
+    "critical_value_reporting": {
+      "type": ["object", "null"],
+      "description": "Critical value notification procedures",
+      "properties": {
+        "notification_timeline": {
+          "type": ["string", "null"],
+          "description": "Required notification timeframe",
+          "maxLength": 200
+        },
+        "notification_recipients": {
+          "type": ["array", "null"],
+          "items": {"type": "string", "maxLength": 100},
+          "description": "Who must be notified (e.g., investigator, sponsor, medical monitor)"
+        },
+        "documentation_requirements": {
+          "type": ["string", "null"],
+          "description": "Required documentation for critical values",
+          "maxLength": 300
+        },
+        "critical_value_list": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "object",
+            "properties": {
+              "parameter": {"type": "string", "maxLength": 200},
+              "critical_low": {"description": "Low critical threshold"},
+              "critical_high": {"description": "High critical threshold"},
+              "unit": {"type": ["string", "null"], "maxLength": 50},
+              "clinical_action": {"type": ["string", "null"], "maxLength": 300}
+            },
+            "required": ["parameter"]
+          }
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      }
+    },
+    "abnormal_result_grading": {
+      "type": ["object", "null"],
+      "description": "Grading system for abnormal laboratory results",
+      "properties": {
+        "grading_system": {
+          "type": ["string", "null"],
+          "description": "Grading system used (e.g., CTCAE v5.0, DAIDS)",
+          "maxLength": 100
+        },
+        "grading_version": {
+          "type": ["string", "null"],
+          "description": "Version of grading system",
+          "maxLength": 50
+        },
+        "clinically_significant_threshold": {
+          "type": ["string", "null"],
+          "description": "Threshold for clinical significance (e.g., Grade 2+)",
+          "maxLength": 100
+        },
+        "ae_reporting_threshold": {
+          "type": ["string", "null"],
+          "description": "Threshold requiring AE reporting (e.g., Grade 3+)",
+          "maxLength": 100
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      }
+    },
+    "pregnancy_testing": {
+      "type": ["object", "null"],
+      "description": "Pregnancy testing requirements",
+      "properties": {
+        "required": {
+          "type": ["boolean", "null"],
+          "description": "Whether pregnancy testing is required"
+        },
+        "applicable_population": {
+          "type": ["string", "null"],
+          "description": "Who requires pregnancy testing",
+          "maxLength": 200
+        },
+        "test_type": {
+          "type": ["string", "null"],
+          "description": "Type of pregnancy test (serum, urine)",
+          "maxLength": 100
+        },
+        "timing": {
+          "type": ["string", "null"],
+          "description": "When pregnancy testing is performed",
+          "maxLength": 300
+        },
+        "sensitivity": {
+          "type": ["string", "null"],
+          "description": "Required test sensitivity",
+          "maxLength": 100
+        },
+        "action_if_positive": {
+          "type": ["string", "null"],
+          "description": "Required action if positive",
+          "maxLength": 300
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      }
+    },
+    "pharmacokinetic_samples": {
+      "type": ["object", "null"],
+      "description": "PK sample collection if specified",
+      "properties": {
+        "pk_sampling_required": {
+          "type": ["boolean", "null"],
+          "description": "Whether PK sampling is included"
+        },
+        "analytes": {
+          "type": ["array", "null"],
+          "items": {"type": "string", "maxLength": 200},
+          "description": "Analytes being measured"
+        },
+        "sample_type": {
+          "type": ["string", "null"],
+          "description": "Sample type for PK (plasma, serum, whole blood)",
+          "maxLength": 100
+        },
+        "timepoints_description": {
+          "type": ["string", "null"],
+          "description": "Description of PK sampling timepoints",
+          "maxLength": 500
+        },
+        "volume_per_sample": {
+          "type": ["string", "null"],
+          "description": "Volume collected per PK sample",
+          "maxLength": 50
+        },
+        "processing_requirements": {
+          "type": ["string", "null"],
+          "description": "PK sample processing requirements",
+          "maxLength": 400
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      }
+    },
+    "biomarker_samples": {
+      "type": ["object", "null"],
+      "description": "Biomarker sample collection if specified",
+      "properties": {
+        "biomarker_sampling_required": {
+          "type": ["boolean", "null"],
+          "description": "Whether biomarker sampling is included"
+        },
+        "biomarkers": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {"type": "string", "maxLength": 200},
+              "purpose": {"type": ["string", "null"], "maxLength": 300},
+              "sample_type": {"type": ["string", "null"], "maxLength": 100},
+              "timing": {"type": ["string", "null"], "maxLength": 200}
+            },
+            "required": ["name"]
+          },
+          "description": "Biomarkers being collected"
+        },
+        "optional_consent_required": {
+          "type": ["boolean", "null"],
+          "description": "Whether separate consent is needed"
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      }
+    },
+    "local_lab_requirements": {
+      "type": ["object", "null"],
+      "description": "Local laboratory requirements",
+      "properties": {
+        "local_lab_allowed": {
+          "type": ["boolean", "null"],
+          "description": "Whether local labs can be used"
+        },
+        "allowed_tests": {
+          "type": ["array", "null"],
+          "items": {"type": "string", "maxLength": 200},
+          "description": "Tests that can be performed locally"
+        },
+        "certification_requirements": {
+          "type": ["string", "null"],
+          "description": "Required certifications for local labs",
+          "maxLength": 300
+        },
+        "provenance": {
+          "$ref": "#/definitions/provenance"
+        }
+      }
+    },
+    "extraction_statistics": {
+      "type": ["object", "null"],
+      "description": "Statistics about the extraction",
+      "properties": {
+        "total_panels_discovered": {"type": ["integer", "null"]},
+        "total_tests_discovered": {"type": ["integer", "null"]},
+        "total_schedule_entries": {"type": ["integer", "null"]},
+        "dose_modification_rules": {"type": ["integer", "null"]},
+        "eligibility_criteria_count": {"type": ["integer", "null"]},
+        "critical_values_defined": {"type": ["integer", "null"]}
+      }
+    },
+    "provenance": {
+      "$ref": "#/definitions/provenance"
+    }
+  },
+  "required": ["id", "instanceType", "name", "discovered_panels", "laboratory_tests"]
+}

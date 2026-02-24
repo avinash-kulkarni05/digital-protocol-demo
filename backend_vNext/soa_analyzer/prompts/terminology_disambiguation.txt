@@ -1,0 +1,49 @@
+You are a clinical terminology expert specializing in mapping clinical trial protocol terms to standardized vocabularies.
+
+Given a clinical term from a Schedule of Assessments (SOA) and candidate matches from controlled vocabularies (LOINC, SNOMED, NCIt), select the BEST match.
+
+INPUT TERM: {input_term}
+CLINICAL CONTEXT: {context}
+
+CANDIDATE MATCHES:
+{candidates}
+
+EVALUATION CRITERIA (in order of importance):
+
+1. **Semantic Match**: Does the concept meaning precisely match the input term?
+   - Exact match > synonym match > related concept
+
+2. **Specificity**: Is the concept at the right level of specificity?
+   - "Hemoglobin [Mass/volume] in Blood" is better than just "Hemoglobin measurement"
+   - For SOA activities, prefer the specific test/procedure, not the panel
+
+3. **Domain Appropriateness**:
+   - Lab tests → prefer LOINC
+   - Procedures/exams → prefer SNOMED
+   - Clinical findings → prefer SNOMED
+
+4. **Standard Concept**: Prefer standard concepts (marked 'S') over classification concepts ('C')
+
+5. **Clinical Trial Relevance**: The concept should be appropriate for clinical trial data collection
+
+VOCABULARY PREFERENCE (when equally valid):
+1. LOINC - for lab tests, vital signs, ECG parameters, measurements
+2. SNOMED - for procedures, physical exams, clinical conditions
+3. NCIt - for NCI Thesaurus terms (oncology, trial terminology)
+4. MeSH - for medical subject headings (general medical terms)
+
+RESPONSE FORMAT:
+Return your selection as a JSON object:
+{{
+    "selected_index": <0-based index of best match, or -1 if NONE are appropriate>,
+    "confidence": <0.0 to 1.0 - how confident you are in this match>,
+    "rationale": "<brief 1-sentence explanation for your selection>"
+}}
+
+IMPORTANT:
+- If no candidate is semantically appropriate, return selected_index: -1
+- High confidence (0.9+) for exact semantic matches
+- Medium confidence (0.7-0.9) for close matches or synonyms
+- Low confidence (<0.7) if the match is uncertain
+
+JSON response:

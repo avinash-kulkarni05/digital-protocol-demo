@@ -1,0 +1,2057 @@
+{
+  "timestamp": "2026-02-13T14:57:03.173453",
+  "protocol_id": "NCT04983589",
+  "is_draft": true,
+  "counts": {
+    "visits": 21,
+    "activities": 39,
+    "instances": 214,
+    "footnotes": 19
+  },
+  "quality": {
+    "scores": {
+      "accuracy": 0.9971,
+      "completeness": 1.0,
+      "compliance": 1.0,
+      "provenance": 1.0,
+      "terminology": 0.1105,
+      "overall": 0.8658
+    },
+    "thresholds_met": false,
+    "failed_dimensions": [
+      "terminology"
+    ],
+    "counts": {
+      "total_fields": 7475,
+      "valid_fields": 7133,
+      "total_provenance": 214,
+      "valid_provenance": 214,
+      "total_terminology": 172,
+      "valid_terminology": 19
+    },
+    "issues": {
+      "accuracy": [
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.visits[1].window.description",
+          "message": "Placeholder value detected",
+          "value": "N/A",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.visits[2].window.description",
+          "message": "Placeholder value detected",
+          "value": "N/A",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.visits[3].window.description",
+          "message": "Placeholder value detected",
+          "value": "N/A",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.visits[4].window.description",
+          "message": "Placeholder value detected",
+          "value": "N/A",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.visits[5].window.description",
+          "message": "Placeholder value detected",
+          "value": "N/A",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.visits[6].window.description",
+          "message": "Placeholder value detected",
+          "value": "N/A",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.visits[7].window.description",
+          "message": "Placeholder value detected",
+          "value": "N/A",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.encounters[1].window.description",
+          "message": "Placeholder value detected",
+          "value": "N/A",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.encounters[2].window.description",
+          "message": "Placeholder value detected",
+          "value": "N/A",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.encounters[3].window.description",
+          "message": "Placeholder value detected",
+          "value": "N/A",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.encounters[4].window.description",
+          "message": "Placeholder value detected",
+          "value": "N/A",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.encounters[5].window.description",
+          "message": "Placeholder value detected",
+          "value": "N/A",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.encounters[6].window.description",
+          "message": "Placeholder value detected",
+          "value": "N/A",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.encounters[7].window.description",
+          "message": "Placeholder value detected",
+          "value": "N/A",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.activities[26]._expansion.components[0].provenance.textSnippet",
+          "message": "Placeholder value detected",
+          "value": "Eyelid/Eyelid Margins/Lashes:\nEdema\n0 (None) = No edema\n+0.5 (Trace) = Localized, minimal (trace) swelling",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.activities[26]._expansion.components[1].provenance.textSnippet",
+          "message": "Placeholder value detected",
+          "value": "Erythema\n0 (None) = No erythema\n+0.5 (Trace) = Localized, minimal (trace), flush reddish color",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.activities[26]._expansion.components[2].provenance.textSnippet",
+          "message": "Placeholder value detected",
+          "value": "Crusting:\n0 (None)\n+0.5 (Trace)\n+1 (Mild)",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.activities[26]._expansion.components[3].provenance.textSnippet",
+          "message": "Placeholder value detected",
+          "value": "Conjunctiva (Bulbar):\nHyperemia\n0 (None) = No hyperemia\n+0.5 (Trace) = Minimal (trace) flush, reddish color",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.activities[26]._expansion.components[4].provenance.textSnippet",
+          "message": "Placeholder value detected",
+          "value": "Conjunctiva (Bulbar):\n...\nEdema\n0 (None) = No edema\n+0.5 (Trace) = Localized, minimal (trace) swelling",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.activities[26]._expansion.components[5].provenance.textSnippet",
+          "message": "Placeholder value detected",
+          "value": "Conjunctiva (Palpebral):\nHyperemia\n0 (None) = No hyperemia\n+0.5 (Trace) = Minimal (trace) flush, reddish color",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.activities[26]._expansion.components[6].provenance.textSnippet",
+          "message": "Placeholder value detected",
+          "value": "Conjunctiva (Palpebral):\n...\nEdema\n0 (None) = No edema\n+0.5 (Trace) = Localized, minimal (trace) swelling",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "error",
+          "path": "$.activities[26]._expansion.components[7].provenance.textSnippet",
+          "message": "Placeholder value detected",
+          "value": "Cornea:\nEdema\n0 (None) = No edema\n+0.5 (Trace) = Localized, minimal (trace) epithelial haze",
+          "suggestion": "Extract actual value from protocol"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.footnotes[8].structuredRule.durationUnit",
+          "message": "Invalid time/duration format",
+          "value": "minutes",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.footnotes[9].structuredRule.triggerTime",
+          "message": "Invalid time/duration format",
+          "value": "hour_1",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.footnotes[9].structuredRule.referenceTime",
+          "message": "Invalid time/duration format",
+          "value": "hour_0",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.footnotes[14].structuredRule.waitTimeUnit",
+          "message": "Invalid time/duration format",
+          "value": "minutes",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.footnotes[15].structuredRule.waitTimeUnit",
+          "message": "Invalid time/duration format",
+          "value": "minutes",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.footnotes[18].structuredRule.timeUnit",
+          "message": "Invalid time/duration format",
+          "value": "minutes",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditions[0].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.573594Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditions[1].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.573833Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditions[2].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.573969Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditions[3].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.574122Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditions[4].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.574203Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[0].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.578784Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[1].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.578864Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[2].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.578887Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[3].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.578901Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[4].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.578912Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[5].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.578925Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[6].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.578936Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[7].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.578949Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[8].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.578961Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[9].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.578973Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[10].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.578985Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[11].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.578998Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[12].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.579011Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[13].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.579031Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[14].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.579043Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[15].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.579111Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[16].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.579168Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[17].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.579182Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[18].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.579194Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[19].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.579206Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[20].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.579219Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[21].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.579231Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[22].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.579243Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[23].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.579256Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[24].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.579269Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[25].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.579282Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[26].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.579295Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[27].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.579309Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[28].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.579323Z",
+          "suggestion": null
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "path": "$.conditionAssignments[29].provenance.timestamp",
+          "message": "Invalid time/duration format",
+          "value": "2026-02-13T22:53:47.579337Z",
+          "suggestion": null
+        }
+      ],
+      "completeness": [],
+      "compliance": [],
+      "provenance": [
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[0].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[1].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[2].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[3].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[4].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[5].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[6].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[7].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[8].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[9].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[10].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[11].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[12].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[13].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[14].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[15].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[16].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[17].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[18].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[19].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[20].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[21].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[22].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[23].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[24].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[25].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[26].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[27].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[28].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        },
+        {
+          "dimension": "provenance",
+          "severity": "warning",
+          "path": "$.conditionAssignments[29].provenance",
+          "message": "Provenance object missing page_number",
+          "value": null,
+          "suggestion": null
+        }
+      ],
+      "terminology": [
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[1]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 1 Visit 1",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[2]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 1 Visit 1",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[3]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 1 Visit 1",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[4]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 1 Visit 1",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[5]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 1 Visit 1",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[6]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 1 Visit 1",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[7]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 1 Visit 1",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[8]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 7 Visit 2",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[9]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 7 Visit 2",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[10]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 7 Visit 2",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[11]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 7 Visit 2",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[12]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 7 Visit 2",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[13]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 7 Visit 2",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[14]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 14/Early Exit Visit 3",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[15]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 14/Early Exit Visit 3",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[16]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 14/Early Exit Visit 3",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[17]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 14/Early Exit Visit 3",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[18]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 14/Early Exit Visit 3",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[19]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 14/Early Exit Visit 3",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.visits[20]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 14/Early Exit Visit 3",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[1]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 1 Visit 1",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[2]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 1 Visit 1",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[3]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 1 Visit 1",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[4]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 1 Visit 1",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[5]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 1 Visit 1",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[6]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 1 Visit 1",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[7]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 1 Visit 1",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[8]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 7 Visit 2",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[9]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 7 Visit 2",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[10]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 7 Visit 2",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[11]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 7 Visit 2",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[12]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 7 Visit 2",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[13]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 7 Visit 2",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[14]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 14/Early Exit Visit 3",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[15]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 14/Early Exit Visit 3",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[16]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 14/Early Exit Visit 3",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[17]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 14/Early Exit Visit 3",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[18]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 14/Early Exit Visit 3",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[19]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 14/Early Exit Visit 3",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.encounters[20]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Day 14/Early Exit Visit 3",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[1]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Contact IRT for subject ID number",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[3]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Demography",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[4]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Medical and ophthalmic history",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[4]._expansion.components[1]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "History of alcohol use",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[4]._expansion.components[2]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "History of drug use",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[5]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Prestudy/ concomitant medication query",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[6]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "NEI VFQ-25 and near vision subscale in the Appendix of Optional Additional Questions",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[6]._expansion.components[0]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "NEI VFQ-25 Question 5",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[6]._expansion.components[1]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "NEI VFQ-25 Question 6",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[6]._expansion.components[2]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "NEI VFQ-25 Question 7",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[6]._expansion.components[3]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "NEI VFQ-25 Appendix Question A3",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[6]._expansion.components[4]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "NEI VFQ-25 Appendix Question A4",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[6]._expansion.components[5]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "NEI VFQ-25 Appendix Question A5",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[7]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "OSDI",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[7]._expansion.components[0]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Eyes that are sensitive to light",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[7]._expansion.components[1]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Eyes that feel gritty",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[7]._expansion.components[2]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Painful or sore eyes",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[7]._expansion.components[3]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Blurred vision",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[7]._expansion.components[4]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Poor vision",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[7]._expansion.components[5]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Reading",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[7]._expansion.components[6]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Driving at night",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[7]._expansion.components[7]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Working with a computer or bank machine (ATM)",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[7]._expansion.components[8]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Watching TV",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[7]._expansion.components[9]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Windy conditions",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[7]._expansion.components[10]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Places or areas with low humidity (very dry)",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[7]._expansion.components[11]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Areas that are air conditioned",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[7]._expansion.components[13]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "OSDI Score",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[11]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Dominant eye determination",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[12]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Contact IRT for kit assignment/ randomization",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[13]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "PICQ",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[13]._expansion.components[0]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Coping score",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[14]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Pupillary reaction to light assessment",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[14]._expansion.components[0]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Pupillary reaction to light",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[15]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Dark adaptation",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[16]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Mesopic manifest refraction (distance and near)",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[17]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Mesopic, high-contrast CDVA + pupil diameter",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[18]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Mesopic, high-contrast DCNVA + pupil diameter",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[19]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Mesopic NVPTQ",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[19]._expansion.components[0]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Ability to read",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[19]._expansion.components[1]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Squinting while reading",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[19]._expansion.components[2]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Satisfaction with ability to read",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[19]._expansion.components[3]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Performance score",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[20]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Photopic manifest refraction (distance and near)",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[21]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Photopic high-contrast CDVA + pupil diameter",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[22]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Photopic, high-contrast DCNVA + pupil diameter",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[23]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Single-item PGIS",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[24]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Single-item PGIC",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[24]._expansion.components[0]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Impression of study medication's effect on near vision",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[25]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Visual Function Assessment application (VFA app)",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[25]._expansion.components[0]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Average number of blinks per minute",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[25]._expansion.components[1]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Median working distance",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[25]._expansion.components[2]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Median magnification level",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[25]._expansion.components[3]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Reading speed",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[25]._expansion.components[4]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Median contrast level",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[26]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Slit-lamp biomicroscopy",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[26]._expansion.components[0]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Eyelid Edema",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[26]._expansion.components[1]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Eyelid Erythema",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[26]._expansion.components[2]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Eyelid Crusting",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[26]._expansion.components[3]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Conjunctiva (Bulbar) Hyperemia",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[26]._expansion.components[4]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Conjunctiva (Bulbar) Edema",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[26]._expansion.components[5]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Conjunctiva (Palpebral) Hyperemia",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[26]._expansion.components[6]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Conjunctiva (Palpebral) Edema",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[26]._expansion.components[7]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Cornea Edema",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[26]._expansion.components[8]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Cornea Superficial Punctate Keratopathy",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[26]._expansion.components[9]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Anterior Chamber Cells",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[26]._expansion.components[10]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Anterior Chamber Flare",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[26]._expansion.components[12]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Anterior Chamber Hypopyon",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[26]._expansion.components[13]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Anterior Chamber Hyphema",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[26]._expansion.components[14]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Iris/Pupil Rubeosis Iridis",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[26]._expansion.components[15]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Iris/Pupil Afferent Pupillary Defect",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[26]._expansion.components[17]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Iris/Pupil Transillumination Defects",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[26]._expansion.components[18]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Iris/Pupil Pseudoexfoliative Material",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[29]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Gonioscopy/angle assessment",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[30]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Dilating drop administration",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[31]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Cycloplegic refraction",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[32]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Dilated fundoscopic examination",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[32]._expansion.components[0]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Lens evaluation",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[32]._expansion.components[1]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Nuclear cataract severity",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[32]._expansion.components[2]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Cortical cataract severity",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[32]._expansion.components[3]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Posterior subcapsular cataract severity",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[32]._expansion.components[4]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Capsular bag evaluation",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[32]._expansion.components[5]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Vitreous evaluation",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[32]._expansion.components[6]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Vitreous cells",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[32]._expansion.components[7]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Vitreous haze",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[32]._expansion.components[8]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Vitreous hemorrhage",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[32]._expansion.components[9]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Posterior vitreous detachment",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[32]._expansion.components[11]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Macula evaluation",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[32]._expansion.components[12]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Retina periphery evaluation",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[32]._expansion.components[13]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Optic nerve evaluation",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[32]._expansion.components[14]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Cup-to-Disc (C/D) Ratio",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[33]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Review inclusion and exclusion criteria",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[34]._expansion.components[0]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "AGN-190584",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[34]._expansion.components[1]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "AUC0-tau",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[34]._expansion.components[2]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Cmax",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[34]._expansion.components[3]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Tmax",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[34]._expansion.components[4]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Ctrough",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[34]._expansion.components[5]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Peak-to-trough ratio",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[34]._expansion.components[6]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "AUC0-tau,ss",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[34]._expansion.components[7]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Cmax,ss",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[34]._expansion.components[8]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Tmax,ss",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[34]._expansion.components[9]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Ctrough,ss",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[34]._expansion.components[10]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Accumulation Index (AI)",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[36]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Drop comfort questionnaire",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[36]._expansion.components[0]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Subject Evaluation of Drop Comfort",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[37]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Post-Dose Tolerability Assessment",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.activities[38]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Study drug dispensing to subject",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.conditions[0]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Adverse Event Occurrence",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.conditions[1]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Women of Childbearing Potential",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.conditions[2]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Vision Loss Threshold",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.conditions[3]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Site Selection",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.conditions[4]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Symptom Reporting",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.conditions[5]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Women of childbearing potential",
+          "suggestion": "Consider mapping to CDISC concept"
+        },
+        {
+          "dimension": "terminology",
+          "severity": "warning",
+          "path": "$.scheduleTimelines[0]",
+          "message": "Clinical term not mapped to CDISC terminology",
+          "value": "Main Study Schedule",
+          "suggestion": "Consider mapping to CDISC concept"
+        }
+      ]
+    }
+  },
+  "interpretation_pipeline": {
+    "success": true,
+    "isDraft": true,
+    "totalDurationSeconds": 516.7175331115723,
+    "stagesCompleted": 11,
+    "stagesFailed": 1,
+    "stagesSkipped": 0,
+    "stageDurations": {
+      "0": 3.677612066268921,
+      "1": 0.005351066589355469,
+      "2": 504.79530024528503,
+      "3": 0.002093076705932617,
+      "4": 0.007391929626464844,
+      "5": 0.0007388591766357422,
+      "6": 7.918226957321167,
+      "7": 0.0018110275268554688,
+      "8": 0.002560853958129883,
+      "9": 0.2649390697479248,
+      "12": 0.0005428791046142578,
+      "11": 0.0017919540405273438,
+      "10": 0.0004971027374267578
+    },
+    "stageStatuses": {
+      "0": "success",
+      "1": "success",
+      "2": "success",
+      "3": "success",
+      "4": "success",
+      "5": "failed",
+      "6": "success",
+      "7": "success",
+      "8": "success",
+      "9": "success",
+      "12": "success",
+      "11": "success",
+      "10": "success"
+    },
+    "errors": [],
+    "warnings": [
+      "Non-critical stage failed: Stage 5 (Specimen Enrichment) error: Athena database not found: /backend_vNext/athena_concepts_full.db"
+    ]
+  },
+  "review_files": {
+    "extraction_review": "NCT04983589_extraction_review.json",
+    "interpretation_review": "NCT04983589_interpretation_review.json"
+  }
+}

@@ -1,0 +1,1163 @@
+{
+  "stage": 2,
+  "stageName": "Activity Expansion",
+  "success": true,
+  "expansions": [
+    {
+      "id": "EXP-ABED4DB8",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-008",
+      "parentActivityName": "12-Lead ECG",
+      "components": [
+        {
+          "id": "COMP-E0ABBD67",
+          "name": "Heart Rate",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "EG",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 86,
+            "textSnippet": "The ECG will be evaluated locally for heart rate, PR interval, QRS duration, QT interval, and corrected QT interval (QTcF).",
+            "rationale": "This parameter is explicitly listed as one of the components to be evaluated from the 12-lead ECG."
+          }
+        },
+        {
+          "id": "COMP-F8EF9449",
+          "name": "PR Interval",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "cdashDomain": "EG",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 86,
+            "textSnippet": "The ECG will be evaluated locally for heart rate, PR interval, QRS duration, QT interval, and corrected QT interval (QTcF).",
+            "rationale": "This parameter is explicitly listed as one of the components to be evaluated from the 12-lead ECG."
+          }
+        },
+        {
+          "id": "COMP-E79E2FDE",
+          "name": "QRS Duration",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.95,
+          "cdashDomain": "EG",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 86,
+            "textSnippet": "The ECG will be evaluated locally for heart rate, PR interval, QRS duration, QT interval, and corrected QT interval (QTcF).",
+            "rationale": "This parameter is explicitly listed as one of the components to be evaluated from the 12-lead ECG."
+          }
+        },
+        {
+          "id": "COMP-F4936D13",
+          "name": "QT Interval",
+          "isRequired": true,
+          "order": 3,
+          "confidence": 0.95,
+          "cdashDomain": "EG",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 86,
+            "textSnippet": "The ECG will be evaluated locally for heart rate, PR interval, QRS duration, QT interval, and corrected QT interval (QTcF).",
+            "rationale": "This parameter is explicitly listed as one of the components to be evaluated from the 12-lead ECG."
+          }
+        },
+        {
+          "id": "COMP-EDC0A36E",
+          "name": "Corrected QT Interval (QTcF)",
+          "isRequired": true,
+          "order": 4,
+          "confidence": 0.95,
+          "cdashDomain": "EG",
+          "provenance": {
+            "source": "pdf_text",
+            "pageNumber": 86,
+            "textSnippet": "The ECG will be evaluated locally for heart rate, PR interval, QRS duration, QT interval, and corrected QT interval (QTcF).",
+            "rationale": "This parameter is explicitly listed as one of the components to be evaluated from the 12-lead ECG."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "Found an explicit, enumerated list of 5 ECG parameters in the protocol PDF (page 86). The provided extraction JSON did not contain any information related to ECG assessments.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-5E71F036",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-009",
+      "parentActivityName": "Arterial blood gas analysis or percutaneous oxygen saturation",
+      "components": [
+        {
+          "id": "COMP-D01027E8",
+          "name": "PaO2",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "loincCode": "2703-7",
+          "cdashDomain": "LB",
+          "unit": "mmHg",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.eligibility_lab_criteria[10].parameter_name",
+            "pageNumber": 46,
+            "textSnippet": "France and Japan Subjects Only: PaO2 \u2265 60 millimeter mercury (mmHg) by arterial blood gas analysis",
+            "rationale": "This is the specific measurement derived from the \"Arterial blood gas analysis\" part of the activity, as explicitly stated in the protocol's eligibility criteria."
+          }
+        },
+        {
+          "id": "COMP-96CF7850",
+          "name": "SpO2",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "loincCode": "59408-5",
+          "cdashDomain": "LB",
+          "unit": "%",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.eligibility_lab_criteria[11].parameter_name",
+            "pageNumber": 46,
+            "textSnippet": "France and Japan Subjects Only: ...SpO2 \u2265 93% by percutaneous oxygen saturation.",
+            "rationale": "This is the specific measurement derived from the \"percutaneous oxygen saturation\" part of the activity, as explicitly stated in the protocol's eligibility criteria."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol explicitly decomposes this activity into two measurable components, PaO2 and SpO2, within the eligibility criteria for specific populations (page 46). This is clearly captured in the extraction JSON.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-AC3C8549",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-012",
+      "parentActivityName": "Serum Chemistry",
+      "components": [
+        {
+          "id": "COMP-4F412BC0",
+          "name": "Blood urea nitrogen (BUN) or urea",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "loincCode": "3094-0",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[11]",
+            "pageNumber": 70,
+            "textSnippet": "Serum Chemistry \u2013 Local Lab\nBlood urea nitrogen (BUN) or urea",
+            "rationale": "This test is explicitly listed as part of the Serum Chemistry panel in Table 3 of the protocol."
+          }
+        },
+        {
+          "id": "COMP-A7388232",
+          "name": "Creatinine",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "loincCode": "2160-0",
+          "cdashDomain": "LB",
+          "unit": "mg/dL",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[12]",
+            "pageNumber": 70,
+            "textSnippet": "Serum Chemistry \u2013 Local Lab\nCreatinine",
+            "rationale": "This test is explicitly listed as part of the Serum Chemistry panel in Table 3 of the protocol."
+          }
+        },
+        {
+          "id": "COMP-FA35C724",
+          "name": "Total bilirubin",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.95,
+          "loincCode": "1975-2",
+          "cdashDomain": "LB",
+          "unit": "x ULN",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[13]",
+            "pageNumber": 10,
+            "textSnippet": "Total bilirubin \u2264 1.5 \u00d7 ULN.",
+            "rationale": "This test is explicitly listed as part of the Serum Chemistry panel (PNL-002) in the extraction JSON."
+          }
+        },
+        {
+          "id": "COMP-AA6AEE0C",
+          "name": "Alanine aminotransferase (ALT/SGPT)",
+          "isRequired": true,
+          "order": 3,
+          "confidence": 0.95,
+          "loincCode": "1742-6",
+          "cdashDomain": "LB",
+          "unit": "x ULN",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[14]",
+            "pageNumber": 10,
+            "textSnippet": "AST and ALT \u2264 3 \u00d7 upper limit of normal (ULN).",
+            "rationale": "This test is explicitly listed as part of the Serum Chemistry panel (PNL-002) in the extraction JSON."
+          }
+        },
+        {
+          "id": "COMP-2D063D40",
+          "name": "Aspartate aminotransferase (AST/SGOT)",
+          "isRequired": true,
+          "order": 4,
+          "confidence": 0.95,
+          "loincCode": "1920-8",
+          "cdashDomain": "LB",
+          "unit": "x ULN",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[15]",
+            "pageNumber": 10,
+            "textSnippet": "AST and ALT \u2264 3 \u00d7 upper limit of normal (ULN).",
+            "rationale": "This test is explicitly listed as part of the Serum Chemistry panel (PNL-002) in the extraction JSON."
+          }
+        },
+        {
+          "id": "COMP-4CFD5ABC",
+          "name": "Alkaline phosphatase",
+          "isRequired": true,
+          "order": 5,
+          "confidence": 0.95,
+          "loincCode": "6768-6",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[16]",
+            "pageNumber": 70,
+            "textSnippet": "Serum Chemistry \u2013 Local Lab\nAlkaline phosphatase",
+            "rationale": "This test is explicitly listed as part of the Serum Chemistry panel in Table 3 of the protocol."
+          }
+        },
+        {
+          "id": "COMP-0FD6677A",
+          "name": "Sodium",
+          "isRequired": true,
+          "order": 6,
+          "confidence": 0.95,
+          "loincCode": "2951-2",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[17]",
+            "pageNumber": 70,
+            "textSnippet": "Serum Chemistry \u2013 Local Lab\nSodium",
+            "rationale": "This test is explicitly listed as part of the Serum Chemistry panel in Table 3 of the protocol."
+          }
+        },
+        {
+          "id": "COMP-0123D26E",
+          "name": "Potassium",
+          "isRequired": true,
+          "order": 7,
+          "confidence": 0.95,
+          "loincCode": "2823-3",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[18]",
+            "pageNumber": 70,
+            "textSnippet": "Serum Chemistry \u2013 Local Lab\nPotassium",
+            "rationale": "This test is explicitly listed as part of the Serum Chemistry panel in Table 3 of the protocol."
+          }
+        },
+        {
+          "id": "COMP-FCF7F7A2",
+          "name": "Calcium",
+          "isRequired": true,
+          "order": 8,
+          "confidence": 0.95,
+          "loincCode": "17861-6",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[19]",
+            "pageNumber": 70,
+            "textSnippet": "Serum Chemistry \u2013 Local Lab\nCalcium",
+            "rationale": "This test is explicitly listed as part of the Serum Chemistry panel in Table 3 of the protocol."
+          }
+        },
+        {
+          "id": "COMP-D5A262F7",
+          "name": "Inorganic phosphorus",
+          "isRequired": true,
+          "order": 9,
+          "confidence": 0.95,
+          "loincCode": "2777-1",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[20]",
+            "pageNumber": 70,
+            "textSnippet": "Serum Chemistry \u2013 Local Lab\nInorganic phosphorus",
+            "rationale": "This test is explicitly listed as part of the Serum Chemistry panel in Table 3 of the protocol."
+          }
+        },
+        {
+          "id": "COMP-BB84821D",
+          "name": "Uric acid",
+          "isRequired": true,
+          "order": 10,
+          "confidence": 0.95,
+          "loincCode": "3084-1",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[21]",
+            "pageNumber": 70,
+            "textSnippet": "Uric acida\na. ...The following special sample handling procedure must be followed to avoid ex vivo uric acid degradation.",
+            "rationale": "This test is explicitly listed as part of the Serum Chemistry panel (PNL-002) in the extraction JSON and is located under the Serum Chemistry section of Table 3."
+          }
+        },
+        {
+          "id": "COMP-5975D627",
+          "name": "Total protein",
+          "isRequired": true,
+          "order": 11,
+          "confidence": 0.95,
+          "loincCode": "2885-2",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[22]",
+            "pageNumber": 70,
+            "textSnippet": "Serum Chemistry \u2013 Local Lab\nTotal protein",
+            "rationale": "This test is explicitly listed as part of the Serum Chemistry panel in Table 3 of the protocol."
+          }
+        },
+        {
+          "id": "COMP-7A6E2CBC",
+          "name": "Glucose",
+          "isRequired": true,
+          "order": 12,
+          "confidence": 0.95,
+          "loincCode": "2345-7",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[23]",
+            "pageNumber": 70,
+            "textSnippet": "Serum Chemistry \u2013 Local Lab\nGlucose",
+            "rationale": "This test is explicitly listed as part of the Serum Chemistry panel in Table 3 of the protocol."
+          }
+        },
+        {
+          "id": "COMP-E32F9840",
+          "name": "Albumin",
+          "isRequired": true,
+          "order": 13,
+          "confidence": 0.95,
+          "loincCode": "1751-7",
+          "cdashDomain": "LB",
+          "unit": "g/dL",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[24]",
+            "pageNumber": 70,
+            "textSnippet": "Serum Chemistry \u2013 Local Lab\nAlbumin",
+            "rationale": "This test is explicitly listed as part of the Serum Chemistry panel in Table 3 of the protocol."
+          }
+        },
+        {
+          "id": "COMP-F8852823",
+          "name": "Lactate dehydrogenase (LDH)",
+          "isRequired": true,
+          "order": 14,
+          "confidence": 0.95,
+          "loincCode": "2532-0",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[25]",
+            "pageNumber": 70,
+            "textSnippet": "Serum Chemistry \u2013 Local Lab\nLactate dehydrogenase (LDH)",
+            "rationale": "This test is explicitly listed as part of the Serum Chemistry panel in Table 3 of the protocol."
+          }
+        },
+        {
+          "id": "COMP-8C29277E",
+          "name": "Magnesium",
+          "isRequired": true,
+          "order": 15,
+          "confidence": 0.95,
+          "loincCode": "2601-3",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[26]",
+            "pageNumber": 70,
+            "textSnippet": "Serum Chemistry \u2013 Local Lab\nMagnesium",
+            "rationale": "This test is explicitly listed as part of the Serum Chemistry panel in Table 3 of the protocol."
+          }
+        },
+        {
+          "id": "COMP-F67C40D6",
+          "name": "Chloride",
+          "isRequired": true,
+          "order": 16,
+          "confidence": 0.95,
+          "loincCode": "2075-0",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[27]",
+            "pageNumber": 70,
+            "textSnippet": "Serum Chemistry \u2013 Local Lab\nChloride",
+            "rationale": "This test is explicitly listed as part of the Serum Chemistry panel in Table 3 of the protocol."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "Found 17 components explicitly defined for the 'Serum Chemistry' panel (PNL-002) in the extraction JSON. The provenance for each component traces back to an explicit list in Table 3 on page 70 of the protocol.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-6F9EDAB3",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-013",
+      "parentActivityName": "Amylase, Lipase",
+      "components": [
+        {
+          "id": "COMP-4FCF919A",
+          "name": "Amylase",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "loincCode": "1798-8",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[33].test_name",
+            "pageNumber": 70,
+            "textSnippet": "Special Chemistry Labs \u2013 Central Lab\nAmylase",
+            "rationale": "Amylase is explicitly listed as a distinct laboratory test within the 'Special Chemistry Labs' panel in the protocol's clinical laboratory tests table."
+          }
+        },
+        {
+          "id": "COMP-47A1454A",
+          "name": "Lipase",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "loincCode": "2553-6",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[34].test_name",
+            "pageNumber": 70,
+            "textSnippet": "Special Chemistry Labs \u2013 Central Lab\nLipase",
+            "rationale": "Lipase is explicitly listed as a distinct laboratory test alongside Amylase within the 'Special Chemistry Labs' panel in the protocol's clinical laboratory tests table."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol explicitly decomposes this activity into two distinct components, 'Amylase' and 'Lipase', which are listed as individual tests within the 'Special Chemistry Labs' panel in Table 3 on page 70. This is confirmed by the extraction JSON data.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-DEFCE492",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-014",
+      "parentActivityName": "Hematology",
+      "components": [
+        {
+          "id": "COMP-2043BA82",
+          "name": "Hematocrit",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "loincCode": "4544-3",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[0].test_name",
+            "pageNumber": 70,
+            "textSnippet": "Hematology \u2013 Local Lab\nHematocrit",
+            "rationale": "This test is explicitly linked to the 'Hematology' panel (PNL-001) in the laboratory specifications data."
+          }
+        },
+        {
+          "id": "COMP-F8ED22EA",
+          "name": "Hemoglobin",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "loincCode": "718-7",
+          "cdashDomain": "LB",
+          "unit": "g/dL",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[1].test_name",
+            "pageNumber": 10,
+            "textSnippet": "Hemoglobin \u2265 8.0 g/dL, within 2 weeks prior to randomization.",
+            "rationale": "This test is explicitly linked to the 'Hematology' panel (PNL-001) in the laboratory specifications data."
+          }
+        },
+        {
+          "id": "COMP-2AE2E816",
+          "name": "RBC count",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.95,
+          "loincCode": "789-8",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[2].test_name",
+            "pageNumber": 70,
+            "textSnippet": "Hematology \u2013 Local Lab\nRBC count",
+            "rationale": "This test is explicitly linked to the 'Hematology' panel (PNL-001) in the laboratory specifications data."
+          }
+        },
+        {
+          "id": "COMP-76509622",
+          "name": "White blood cell (WBC) count",
+          "isRequired": true,
+          "order": 3,
+          "confidence": 0.95,
+          "loincCode": "6690-2",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[3].test_name",
+            "pageNumber": 70,
+            "textSnippet": "Hematology \u2013 Local Lab\nWhite blood cell (WBC) count",
+            "rationale": "This test is explicitly linked to the 'Hematology' panel (PNL-001) in the laboratory specifications data."
+          }
+        },
+        {
+          "id": "COMP-3BF966CD",
+          "name": "Neutrophils",
+          "isRequired": true,
+          "order": 4,
+          "confidence": 0.95,
+          "loincCode": "751-8",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[4].test_name",
+            "pageNumber": 70,
+            "textSnippet": "Hematology \u2013 Local Lab\nNeutrophils",
+            "rationale": "This test is explicitly linked to the 'Hematology' panel (PNL-001) in the laboratory specifications data."
+          }
+        },
+        {
+          "id": "COMP-B80C5846",
+          "name": "Lymphocytes",
+          "isRequired": true,
+          "order": 5,
+          "confidence": 0.95,
+          "loincCode": "736-9",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[5].test_name",
+            "pageNumber": 70,
+            "textSnippet": "Hematology \u2013 Local Lab\nLymphocytes",
+            "rationale": "This test is explicitly linked to the 'Hematology' panel (PNL-001) in the laboratory specifications data."
+          }
+        },
+        {
+          "id": "COMP-2C9CE3BF",
+          "name": "Monocytes",
+          "isRequired": true,
+          "order": 6,
+          "confidence": 0.95,
+          "loincCode": "742-7",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[6].test_name",
+            "pageNumber": 70,
+            "textSnippet": "Hematology \u2013 Local Lab\nMonocytes",
+            "rationale": "This test is explicitly linked to the 'Hematology' panel (PNL-001) in the laboratory specifications data."
+          }
+        },
+        {
+          "id": "COMP-38E5D31C",
+          "name": "Basophils",
+          "isRequired": true,
+          "order": 7,
+          "confidence": 0.95,
+          "loincCode": "706-2",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[7].test_name",
+            "pageNumber": 70,
+            "textSnippet": "Hematology \u2013 Local Lab\nBasophils",
+            "rationale": "This test is explicitly linked to the 'Hematology' panel (PNL-001) in the laboratory specifications data."
+          }
+        },
+        {
+          "id": "COMP-D5874851",
+          "name": "Eosinophils",
+          "isRequired": true,
+          "order": 8,
+          "confidence": 0.95,
+          "loincCode": "713-8",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[8].test_name",
+            "pageNumber": 70,
+            "textSnippet": "Hematology \u2013 Local Lab\nEosinophils",
+            "rationale": "This test is explicitly linked to the 'Hematology' panel (PNL-001) in the laboratory specifications data."
+          }
+        },
+        {
+          "id": "COMP-51D73520",
+          "name": "Platelet count",
+          "isRequired": true,
+          "order": 9,
+          "confidence": 0.95,
+          "loincCode": "777-3",
+          "cdashDomain": "LB",
+          "unit": "/mm3",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[9].test_name",
+            "pageNumber": 10,
+            "textSnippet": "Platelet count \u2265 50,000/millimeter (mm)3, within 2 weeks prior to randomization.",
+            "rationale": "This test is explicitly linked to the 'Hematology' panel (PNL-001) in the laboratory specifications data."
+          }
+        },
+        {
+          "id": "COMP-B7E4D2E2",
+          "name": "Reticulocyte Count",
+          "isRequired": true,
+          "order": 10,
+          "confidence": 0.95,
+          "loincCode": "17848-2",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[10].test_name",
+            "pageNumber": 70,
+            "textSnippet": "Reticulocyte Count (Screening, Day 1 of each cycle, and TCV only)",
+            "rationale": "This test is explicitly linked to the 'Hematology' panel (PNL-001) in the laboratory specifications data."
+          }
+        },
+        {
+          "id": "COMP-26178C48",
+          "name": "Absolute Neutrophil Count (ANC)",
+          "isRequired": true,
+          "order": 11,
+          "confidence": 0.95,
+          "loincCode": "751-8",
+          "cdashDomain": "LB",
+          "unit": "/\u00b5L",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[45].test_name",
+            "pageNumber": 10,
+            "textSnippet": "Absolute neutrophil count (ANC) \u2265 1000/microliter (\u00b5L) within 2 weeks prior to randomization",
+            "rationale": "This test is explicitly linked to the 'Hematology' panel (PNL-001) in the laboratory specifications data."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The extraction JSON explicitly defines a 'Hematology' panel (PNL-001) and lists 12 specific laboratory tests as its components, each with supporting provenance from the protocol.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-7C86A0E2",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-016",
+      "parentActivityName": "Coagulation Panel",
+      "components": [
+        {
+          "id": "COMP-5AD7251B",
+          "name": "Prothrombin time (PT)",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "loincCode": "5902-2",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[28].test_name",
+            "pageNumber": 70,
+            "textSnippet": "Coagulation \u2013 Central Lab\nPT",
+            "rationale": "This test is explicitly listed as a component of the 'Coagulation' panel in Table 3 of the protocol, and its panel_ref in the JSON data links it to the Coagulation panel (PNL-004)."
+          }
+        },
+        {
+          "id": "COMP-38DFB2DB",
+          "name": "Activated Partial Thromboplastin Time (aPTT)",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "loincCode": "14979-9",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[29].test_name",
+            "pageNumber": 70,
+            "textSnippet": "Coagulation \u2013 Central Lab\naPTT",
+            "rationale": "This test is explicitly listed as a component of the 'Coagulation' panel in Table 3 of the protocol, and its panel_ref in the JSON data links it to the Coagulation panel (PNL-004)."
+          }
+        },
+        {
+          "id": "COMP-37DA1D0E",
+          "name": "International Normalized Ratio (INR)",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.95,
+          "loincCode": "34714-6",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[30].test_name",
+            "pageNumber": 70,
+            "textSnippet": "Coagulation \u2013 Central Lab\nINR",
+            "rationale": "This test is explicitly listed as a component of the 'Coagulation' panel in Table 3 of the protocol, and its panel_ref in the JSON data links it to the Coagulation panel (PNL-004)."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "Found 3 components explicitly defined under the 'Coagulation' panel in Table 3 (page 70) and confirmed in the extraction JSON data.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-70ECEFF0",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-024",
+      "parentActivityName": "Serum Free Light Chains",
+      "components": [
+        {
+          "id": "COMP-921C23BB",
+          "name": "Kappa Free Light Chain",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.9,
+          "loincCode": "15159-1",
+          "cdashDomain": "LB",
+          "unit": "mg/dL",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.eligibility_lab_criteria[8].condition",
+            "pageNumber": 10,
+            "textSnippet": "Serum immunoglobulin free light chain (FLC) \u2265 10 mg/dL provided serum FLC ratio is abnormal.",
+            "rationale": "This is a required component for the calculation of the 'serum FLC ratio', which is explicitly mentioned in the eligibility criteria for measurable disease."
+          }
+        },
+        {
+          "id": "COMP-165AF0F1",
+          "name": "Lambda Free Light Chain",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.9,
+          "loincCode": "15160-9",
+          "cdashDomain": "LB",
+          "unit": "mg/dL",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.eligibility_lab_criteria[8].condition",
+            "pageNumber": 10,
+            "textSnippet": "Serum immunoglobulin free light chain (FLC) \u2265 10 mg/dL provided serum FLC ratio is abnormal.",
+            "rationale": "This is a required component for the calculation of the 'serum FLC ratio', which is explicitly mentioned in the eligibility criteria for measurable disease."
+          }
+        },
+        {
+          "id": "COMP-1141ABDB",
+          "name": "Kappa/Lambda Ratio",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.9,
+          "loincCode": "33883-0",
+          "cdashDomain": "LB",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "laboratory_specifications.data.eligibility_lab_criteria[8].condition",
+            "pageNumber": 10,
+            "textSnippet": "Serum immunoglobulin free light chain (FLC) \u2265 10 mg/dL provided serum FLC ratio is abnormal.",
+            "rationale": "This component is explicitly mentioned as 'serum FLC ratio' in the eligibility criteria for defining measurable disease."
+          }
+        }
+      ],
+      "confidence": 0.9,
+      "rationale": "The protocol's eligibility criteria explicitly mention the 'serum FLC ratio' as a condition for defining measurable disease. This confirms the ratio is a required component and necessitates the measurement of its constituent parts, Kappa and Lambda Free Light Chains.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-89A829CA",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-025",
+      "parentActivityName": "Corrected Serum Calcium",
+      "components": [
+        {
+          "id": "COMP-74B74011",
+          "name": "Calcium",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "loincCode": "17861-6",
+          "cdashDomain": "LB",
+          "unit": "mg/dL",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[44].special_handling",
+            "pageNumber": 85,
+            "textSnippet": "Corrected Serum Calcium [mg/dL] = Measured serum calcium [mg/dL] + 0.8 \u00d7 (4 \u2013 serum albumin [g/dL]).",
+            "rationale": "This is an explicit component in the formula provided for calculating Corrected Serum Calcium."
+          }
+        },
+        {
+          "id": "COMP-120CDA5E",
+          "name": "Albumin",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "loincCode": "1751-7",
+          "cdashDomain": "LB",
+          "unit": "g/dL",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "laboratory_specifications.data.laboratory_tests[44].special_handling",
+            "pageNumber": 85,
+            "textSnippet": "Corrected Serum Calcium [mg/dL] = Measured serum calcium [mg/dL] + 0.8 \u00d7 (4 \u2013 serum albumin [g/dL]).",
+            "rationale": "This is an explicit component in the formula provided for calculating Corrected Serum Calcium."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol provides an explicit formula for calculating Corrected Serum Calcium on page 85, which is also captured in the extraction JSON. This formula decomposes the activity into two measurable components: Measured serum calcium and Serum albumin.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-03C0DAF5",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-030",
+      "parentActivityName": "Plasmacytoma Evaluation",
+      "components": [
+        {
+          "id": "COMP-1D7A529E",
+          "name": "CT",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "TU",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "imaging_central_reading.data.special_assessments[1].methodology",
+            "pageNumber": 87,
+            "textSnippet": "Plasmacytoma evaluation... CT, PETCT (CT component) or MRI (same method should be used throughout study if possible) should be performed in all subjects if clinically indicated at baseline...",
+            "rationale": "CT is explicitly listed as an imaging methodology for Plasmacytoma Evaluation in the special assessments section of the protocol."
+          }
+        },
+        {
+          "id": "COMP-BC1B6DBD",
+          "name": "PET-CT (CT component)",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "cdashDomain": "TU",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "imaging_central_reading.data.special_assessments[1].methodology",
+            "pageNumber": 87,
+            "textSnippet": "Plasmacytoma evaluation... CT, PETCT (CT component) or MRI (same method should be used throughout study if possible) should be performed in all subjects if clinically indicated at baseline...",
+            "rationale": "PET-CT (CT component) is explicitly listed as an imaging methodology for Plasmacytoma Evaluation in the special assessments section of the protocol."
+          }
+        },
+        {
+          "id": "COMP-AACE0C57",
+          "name": "MRI",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.95,
+          "cdashDomain": "TU",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "imaging_central_reading.data.special_assessments[1].methodology",
+            "pageNumber": 87,
+            "textSnippet": "Plasmacytoma evaluation... CT, PETCT (CT component) or MRI (same method should be used throughout study if possible) should be performed in all subjects if clinically indicated at baseline...",
+            "rationale": "MRI is explicitly listed as an imaging methodology for Plasmacytoma Evaluation in the special assessments section of the protocol."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol explicitly decomposes 'Plasmacytoma Evaluation' into three distinct imaging methodologies (CT, PET-CT, MRI) in the special assessments section (page 87). This is directly supported by the extraction JSON.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-CCB27E16",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-033",
+      "parentActivityName": "BPI-SF",
+      "components": [
+        {
+          "id": "COMP-6D258D47",
+          "name": "Worst Pain",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pro_specifications.data.pro_instruments[0].scoring.domains[0].provenance.text_snippet",
+            "pageNumber": 63,
+            "textSnippet": "The four pain severity items assess pain at its \"worst,\" \"least,\" \"average,\" and \"now\" (current pain).",
+            "rationale": "Explicitly listed as one of the four pain severity items that comprise the BPI-SF assessment."
+          }
+        },
+        {
+          "id": "COMP-9A9AB693",
+          "name": "Least Pain",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pro_specifications.data.pro_instruments[0].scoring.domains[0].provenance.text_snippet",
+            "pageNumber": 63,
+            "textSnippet": "The four pain severity items assess pain at its \"worst,\" \"least,\" \"average,\" and \"now\" (current pain).",
+            "rationale": "Explicitly listed as one of the four pain severity items that comprise the BPI-SF assessment."
+          }
+        },
+        {
+          "id": "COMP-DE6EF727",
+          "name": "Average Pain",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pro_specifications.data.pro_instruments[0].scoring.domains[0].provenance.text_snippet",
+            "pageNumber": 63,
+            "textSnippet": "The four pain severity items assess pain at its \"worst,\" \"least,\" \"average,\" and \"now\" (current pain).",
+            "rationale": "Explicitly listed as one of the four pain severity items that comprise the BPI-SF assessment."
+          }
+        },
+        {
+          "id": "COMP-CBE846AB",
+          "name": "Current Pain",
+          "isRequired": true,
+          "order": 3,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pro_specifications.data.pro_instruments[0].scoring.domains[0].provenance.text_snippet",
+            "pageNumber": 63,
+            "textSnippet": "The four pain severity items assess pain at its \"worst,\" \"least,\" \"average,\" and \"now\" (current pain).",
+            "rationale": "Explicitly listed as one of the four pain severity items that comprise the BPI-SF assessment."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol explicitly decomposes the BPI-SF into four pain severity items on page 63. This decomposition is present in both the extraction JSON and the source PDF text, providing high confidence.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-C194FED5",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-034",
+      "parentActivityName": "PROMIS Cancer Fatigue SF",
+      "components": [
+        {
+          "id": "COMP-FA84ED95",
+          "name": "Fatigue",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pro_specifications.data.pro_instruments[3].scoring.domains[0].domain_name",
+            "pageNumber": 7,
+            "textSnippet": "and Fatigue (Patient Reported Outcomes Measurement Information System [PROMIS] Cancer Fatigue Short Form [SF])",
+            "rationale": "The protocol explicitly identifies 'Fatigue' as the scoring domain measured by the PROMIS Cancer Fatigue SF instrument in the secondary endpoints description."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol's PRO specifications explicitly define 'Fatigue' as the single scoring domain for the PROMIS Cancer Fatigue SF instrument. This is found in both the extraction JSON and confirmed in the PDF on page 7.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-89CA7169",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-035",
+      "parentActivityName": "EORTC QLQ-C30",
+      "components": [
+        {
+          "id": "COMP-3C9D175E",
+          "name": "Physical Functioning",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pro_specifications.data.pro_instruments[1].scoring.domains[0].domain_name",
+            "pageNumber": 7,
+            "textSnippet": "Patient Reported Outcomes (PRO) including Worst Pain (Brief Pain Inventory \u2013 Short Form [BPI-SF]), Physical Functioning and Global Health Status/Quality of Life (GHS/QoL) (European Organization for Researc",
+            "rationale": "Explicitly listed as a scoring domain for the EORTC QLQ-C30 instrument in the PRO specifications."
+          }
+        },
+        {
+          "id": "COMP-13FFDA52",
+          "name": "Global Health Status/Quality of Life",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pro_specifications.data.pro_instruments[1].scoring.domains[1].domain_name",
+            "pageNumber": 7,
+            "textSnippet": "Patient Reported Outcomes (PRO) including Worst Pain (Brief Pain Inventory \u2013 Short Form [BPI-SF]), Physical Functioning and Global Health Status/Quality of Life (GHS/QoL) (European Organization for Researc",
+            "rationale": "Explicitly listed as a scoring domain for the EORTC QLQ-C30 instrument in the PRO specifications."
+          }
+        },
+        {
+          "id": "COMP-5C57A0E9",
+          "name": "Brief Pain Inventory \u2013 Short Form (BPI-SF)",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.95,
+          "cdashDomain": "QS",
+          "provenance": {
+            "source": "both",
+            "jsonPath": "pro_specifications.data.pro_instruments[1].scoring.domains[0].domain_name",
+            "pageNumber": 7,
+            "textSnippet": "Patient Reported Outcomes (PRO) including Worst Pain (Brief Pain Inventory \u2013 Short Form [BPI-SF]), Physical Functioning and Global Health Status/Quality of Life (GHS/QoL) (European Organization for Re",
+            "rationale": "LLM-validated: Specific patient-reported outcome instrument (Brief Pain Inventory \u2013 Short Form [BPI-SF]) used for pain assessment. Not a semantic duplicate of existing EORTC QLQ-C30 or its domains."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "Found 2 scoring domains explicitly defined for EORTC QLQ-C30 in the PRO specifications section of the extraction JSON. The existence of these components is confirmed by text on page 7 of the protocol.",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    },
+    {
+      "id": "EXP-BB15CE88",
+      "expansionType": "component_expansion",
+      "parentActivityId": "ACT-038",
+      "parentActivityName": "Pharmacokinetic Samples",
+      "components": [
+        {
+          "id": "COMP-FF9B9D5F",
+          "name": "venetoclax",
+          "isRequired": true,
+          "order": 0,
+          "confidence": 0.95,
+          "cdashDomain": "PC",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "pkpd_sampling.data.pk_sampling.analytes[0].analyte_name",
+            "pageNumber": 78,
+            "textSnippet": "Blood samples for venetoclax, bortezomib (and dexamethasone, only in Japanese subjects), and possible metabolite(s) will be collected by venipuncture per Appendix H.",
+            "rationale": "Venetoclax is explicitly listed as an analyte for which pharmacokinetic samples will be collected and analyzed."
+          }
+        },
+        {
+          "id": "COMP-118501AA",
+          "name": "bortezomib",
+          "isRequired": true,
+          "order": 1,
+          "confidence": 0.95,
+          "cdashDomain": "PC",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "pkpd_sampling.data.pk_sampling.analytes[1].analyte_name",
+            "pageNumber": 78,
+            "textSnippet": "Blood samples for venetoclax, bortezomib (and dexamethasone, only in Japanese subjects), and possible metabolite(s) will be collected by venipuncture per Appendix H.",
+            "rationale": "Bortezomib is explicitly listed as an analyte for which pharmacokinetic samples will be collected and analyzed."
+          }
+        },
+        {
+          "id": "COMP-DDCFB9A1",
+          "name": "dexamethasone",
+          "isRequired": true,
+          "order": 2,
+          "confidence": 0.95,
+          "cdashDomain": "PC",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "pkpd_sampling.data.pk_sampling.analytes[2].analyte_name",
+            "pageNumber": 78,
+            "textSnippet": "Blood samples for venetoclax, bortezomib (and dexamethasone, only in Japanese subjects), and possible metabolite(s) will be collected by venipuncture per Appendix H.",
+            "rationale": "Dexamethasone is explicitly listed as an analyte for which pharmacokinetic samples will be collected and analyzed, specifically for subjects enrolled in Japan."
+          }
+        },
+        {
+          "id": "COMP-67F912FE",
+          "name": "venetoclax metabolite(s)",
+          "isRequired": true,
+          "order": 3,
+          "confidence": 0.95,
+          "cdashDomain": "PC",
+          "provenance": {
+            "source": "extraction_json",
+            "jsonPath": "pkpd_sampling.data.pk_sampling.analytes[3].analyte_name",
+            "pageNumber": 80,
+            "textSnippet": "Plasma concentrations of venetoclax will be determined by the Drug Analysis Department at AbbVie using validated method. Plasma concentrations of other possible metabolites from venetoclax may be determined...",
+            "rationale": "Possible metabolites of venetoclax are explicitly mentioned as substances that may be determined from collected plasma samples."
+          }
+        }
+      ],
+      "confidence": 0.95,
+      "rationale": "The protocol explicitly lists four analytes (venetoclax, bortezomib, dexamethasone, and venetoclax metabolite(s)) to be measured in pharmacokinetic samples, as detailed in the extraction JSON (pkpd_sampling.data.pk_sampling.analytes).",
+      "source": "protocol_extraction",
+      "requiresReview": false,
+      "reviewReason": null,
+      "provenance": null
+    }
+  ],
+  "metrics": {
+    "activitiesProcessed": 50,
+    "activitiesExpanded": 13,
+    "componentsCreated": 61,
+    "libraryMatches": 0,
+    "llmExpansions": 13,
+    "skipped": 37
+  },
+  "reviewItems": []
+}

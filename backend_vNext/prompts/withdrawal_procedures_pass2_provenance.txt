@@ -1,0 +1,243 @@
+# WITHDRAWAL PROCEDURES - PASS 2: PROVENANCE EXTRACTION
+# Purpose: Find exact source locations for previously extracted values
+# CRITICAL: Do NOT change any values - only add provenance objects
+
+You are locating the exact source of previously extracted withdrawal procedure values in the protocol document.
+
+## PASS 2 INSTRUCTION
+
+You are given:
+1. The original protocol document
+2. Previously extracted values from Pass 1 (see EXTRACTED_VALUES below)
+
+Your task: Find the EXACT location in the document where each value was found and add provenance.
+
+## PROVENANCE REQUIREMENTS
+
+For each provenance object, provide:
+- section_number: Section number from document (e.g., "7.1", "7.3.2", "10.2")
+- page_number: Exact PDF page number (integer, 1-indexed)
+- text_snippet: Direct quote from source (MAX 500 chars, truncate with "..." if longer)
+
+## PROVENANCE PATHS TO POPULATE
+
+Add provenance to these locations in the JSON:
+
+### Root Level
+- $.provenance (overall withdrawal procedures section)
+
+### Discontinuation Types
+For each item in discontinuation_types array:
+- $.discontinuation_types[*].provenance
+
+### Consent Withdrawal
+- $.consent_withdrawal.provenance
+
+### Discontinuation Visit
+- $.discontinuation_visit.provenance
+
+### Post-Discontinuation Follow-up
+- $.post_discontinuation_followup.provenance
+
+### Lost to Follow-up
+- $.lost_to_followup.provenance
+
+### Replacement Strategy
+- $.replacement_strategy.provenance
+
+### Administrative Withdrawal
+- $.administrative_withdrawal.provenance
+
+### Data Retention
+- $.data_retention.provenance
+
+### Retention Strategies
+- $.retention_strategies.provenance
+
+## SEARCH STRATEGY
+
+For each section, search the protocol for the exact text that supports the extracted values:
+
+1. **Discontinuation Types**: Look in "Discontinuation", "Withdrawal", "Study Completion" sections
+2. **Consent Withdrawal**: Look in "Informed Consent", "Subject Rights", "Withdrawal of Consent"
+3. **Discontinuation Visit**: Look in "Early Termination Visit", "End of Treatment", "Assessments"
+4. **Post-Discontinuation Follow-up**: Look in "Safety Follow-up", "Survival Follow-up", "Post-Treatment"
+5. **Lost to Follow-up**: Look in "Lost to Follow-up", "LTFU", "Subject Contact"
+6. **Replacement Strategy**: Look in "Subject Replacement", "Discontinuation", "Sample Size"
+7. **Administrative Withdrawal**: Look in "Administrative", "Study Termination", "Site Closure"
+8. **Data Retention**: Look in "Data Management", "Analysis Populations", "Statistical"
+9. **Retention Strategies**: Look in "Retention", "Compliance", "Subject Management"
+
+## TEXT SNIPPET RULES
+
+1. Quote EXACTLY from the document
+2. Maximum 500 characters
+3. If longer, truncate and add "..."
+4. Include enough context to verify the value
+5. Do not paraphrase or summarize
+6. Focus on the KEY phrase that supports the extracted value
+7. For multi-paragraph content, extract only the most relevant 1-2 sentences
+
+## PREVIOUSLY EXTRACTED VALUES
+
+{{ extracted_values }}
+
+## OUTPUT FORMAT
+
+Return the COMPLETE JSON with provenance added to each section.
+
+Example structure:
+
+```json
+{
+  "id": "WP-001",
+  "instanceType": "WithdrawalProcedures",
+  "name": "Withdrawal and Discontinuation Procedures",
+  "description": "...",
+  
+  "discontinuation_types": [
+    {
+      "id": "DT-001",
+      "type_name": {"code": "TREATMENT_DISCONTINUATION", "decode": "Treatment Discontinuation"},
+      "definition": "Permanent discontinuation of study drug...",
+      "allows_continued_followup": true,
+      "provenance": {
+        "section_number": "7.1",
+        "page_number": 52,
+        "text_snippet": "Subjects who permanently discontinue study drug should continue in the study..."
+      }
+    }
+  ],
+  
+  "consent_withdrawal": {
+    "right_to_withdraw": "Subject may withdraw at any time...",
+    "withdrawal_process": "...",
+    "data_handling_options": [...],
+    "sample_handling": "...",
+    "consequences": "...",
+    "provenance": {
+      "section_number": "7.2",
+      "page_number": 53,
+      "text_snippet": "The subject has the right to withdraw from the study at any time..."
+    }
+  },
+  
+  "discontinuation_visit": {
+    "timing": "Within 7 days of last dose",
+    "timing_days_from_last_dose": 7,
+    "required_assessments": [...],
+    "documentation_requirements": [...],
+    "provenance": {
+      "section_number": "7.3",
+      "page_number": 54,
+      "text_snippet": "An early termination visit should be performed within 7 days of the last..."
+    }
+  },
+  
+  "post_discontinuation_followup": {
+    "safety_followup": {...},
+    "survival_followup": {...},
+    "ae_followup": {...},
+    "provenance": {
+      "section_number": "7.4",
+      "page_number": 55,
+      "text_snippet": "All subjects must complete a 30-day safety follow-up period..."
+    }
+  },
+  
+  "lost_to_followup": {
+    "definition": "...",
+    "missed_visits_threshold": 2,
+    "contact_attempts_required": 3,
+    "contact_methods": [...],
+    "documentation_required": [...],
+    "provenance": {
+      "section_number": "7.5",
+      "page_number": 56,
+      "text_snippet": "A subject is considered lost to follow-up if they miss 2 consecutive..."
+    }
+  },
+  
+  "replacement_strategy": {
+    "allows_replacement": true,
+    "replacement_conditions": [...],
+    "timing_cutoff": "...",
+    "randomization_handling": "...",
+    "stratification_maintenance": true,
+    "provenance": {
+      "section_number": "5.3",
+      "page_number": 35,
+      "text_snippet": "Subjects who discontinue prior to Week 12 may be replaced..."
+    }
+  },
+  
+  "administrative_withdrawal": {
+    "reasons": [...],
+    "notification_requirements": "...",
+    "irb_notification": true,
+    "provenance": {
+      "section_number": "7.6",
+      "page_number": 57,
+      "text_snippet": "Administrative withdrawal may occur if the study is terminated..."
+    }
+  },
+  
+  "data_retention": {
+    "retention_period_years": 15,
+    "retention_policy": "...",
+    "analysis_populations": [...],
+    "provenance": {
+      "section_number": "11.2",
+      "page_number": 78,
+      "text_snippet": "Study data will be retained for a minimum of 15 years..."
+    }
+  },
+  
+  "retention_strategies": {
+    "prevention_measures": [...],
+    "incentives": [...],
+    "re_consent_procedures": "...",
+    "provenance": {
+      "section_number": "5.4",
+      "page_number": 36,
+      "text_snippet": "To minimize discontinuation, sites should maintain regular contact..."
+    }
+  },
+  
+  "provenance": {
+    "section_number": "7",
+    "page_number": 52,
+    "text_snippet": "Subject Discontinuation and Withdrawal..."
+  }
+}
+```
+
+## VALIDATION CHECKLIST (MANDATORY)
+
+**Before returning, verify ALL of these provenance objects exist:**
+
+Root Level:
+- [ ] `$.provenance` exists with page_number and text_snippet
+
+Section Level:
+- [ ] `$.consent_withdrawal.provenance` exists (if not null)
+- [ ] `$.discontinuation_visit.provenance` exists (if not null)
+- [ ] `$.post_discontinuation_followup.provenance` exists (if not null)
+- [ ] `$.lost_to_followup.provenance` exists (if not null)
+- [ ] `$.replacement_strategy.provenance` exists (if not null)
+- [ ] `$.administrative_withdrawal.provenance` exists (if not null)
+- [ ] `$.data_retention.provenance` exists (if not null)
+- [ ] `$.retention_strategies.provenance` exists (if not null)
+
+Array Items:
+- [ ] Every item in `discontinuation_types[]` has provenance
+
+Format Requirements:
+- [ ] All page_number values are integers (1-indexed)
+- [ ] All text_snippets are ≤500 characters
+- [ ] text_snippets are EXACT quotes from the document
+- [ ] No values were modified from Pass 1
+
+**DO NOT RETURN until ALL checkboxes above are satisfied.**
+
+Return ONLY valid JSON. No markdown fences.

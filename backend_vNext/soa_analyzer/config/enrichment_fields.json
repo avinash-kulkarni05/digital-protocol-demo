@@ -1,0 +1,288 @@
+{
+  "_metadata": {
+    "version": "1.0.0",
+    "description": "Fields to extract from each module for protocol mining enrichment",
+    "stage": "Stage 9: Protocol Mining",
+    "last_updated": "2025-12-06"
+  },
+  "laboratory_specifications": {
+    "target_fields": [
+      "labTests[].testName",
+      "labTests[].testCode",
+      "labTests[].loincCode",
+      "labTests[].specimenType",
+      "labTests[].collectionRequirements",
+      "labTests[].processingInstructions",
+      "labTests[].stabilityRequirements",
+      "labTests[].tubeType",
+      "labTests[].sampleVolume",
+      "labTests[].fastingRequired",
+      "labTests[].referenceRanges",
+      "centralLabInfo.labName",
+      "centralLabInfo.labAddress",
+      "centralLabInfo.testCatalog",
+      "localLabRequirements.required",
+      "localLabRequirements.tests"
+    ],
+    "match_keys": ["testName", "testCode", "loincCode", "specimenType"],
+    "provenance_fields": ["provenance.page_number", "provenance.text_snippet"]
+  },
+  "pkpd_sampling": {
+    "target_fields": [
+      "pkSampling[].analyteName",
+      "pkSampling[].analyteType",
+      "pkSampling[].samplingTimepoints",
+      "pkSampling[].samplingWindows",
+      "pkSampling[].sampleVolume",
+      "pkSampling[].sampleMatrix",
+      "pkSampling[].processingRequirements",
+      "pkSampling[].storageConditions",
+      "pkSampling[].bioanalyticalMethod",
+      "pkParameters[].parameterName",
+      "pkParameters[].parameterCode",
+      "pkParameters[].derivationMethod",
+      "pdMarkers[].markerName",
+      "pdMarkers[].markerType",
+      "pdMarkers[].samplingSchedule",
+      "pdMarkers[].assayMethod",
+      "immunogenicity.adaSampling",
+      "immunogenicity.samplingTimepoints",
+      "immunogenicity.tieredApproach"
+    ],
+    "match_keys": ["analyteName", "analyteType", "markerName"],
+    "provenance_fields": ["provenance.page_number", "provenance.text_snippet"]
+  },
+  "adverse_events": {
+    "target_fields": [
+      "ae_definitions.ae_definition",
+      "ae_definitions.teae_definition",
+      "ae_definitions.collection_start",
+      "ae_definitions.collection_end",
+      "grading_system.system_name",
+      "grading_system.system_version",
+      "grading_system.grade_definitions[]",
+      "causality_assessment.assessment_method",
+      "causality_assessment.categories[]",
+      "aesi[].term",
+      "aesi[].definition",
+      "aesi[].monitoring_requirements",
+      "reporting_requirements.timeframes",
+      "reporting_requirements.expedited_reporting"
+    ],
+    "match_keys": ["term", "system_name"],
+    "provenance_fields": ["provenance.page_number", "provenance.text_snippet"]
+  },
+  "biospecimen_handling": {
+    "target_fields": [
+      "specimens[].specimenType",
+      "specimens[].collectionMethod",
+      "specimens[].processingRequirements",
+      "specimens[].storageConditions",
+      "specimens[].shippingRequirements",
+      "biobankConsent.required",
+      "biobankConsent.consentType",
+      "storageConditions.shortTerm",
+      "storageConditions.longTerm",
+      "futureResearchUses[]",
+      "geneticTesting.included",
+      "geneticTesting.consentRequired",
+      "retentionPeriod",
+      "destructionPolicy"
+    ],
+    "match_keys": ["specimenType"],
+    "provenance_fields": ["provenance.page_number", "provenance.text_snippet"]
+  },
+  "endpoints_estimands": {
+    "target_fields": [
+      "protocol_endpoints.objectives[].name",
+      "protocol_endpoints.objectives[].level",
+      "protocol_endpoints.objectives[].description",
+      "protocol_endpoints.endpoints[].name",
+      "protocol_endpoints.endpoints[].endpointType",
+      "protocol_endpoints.endpoints[].assessmentTiming",
+      "protocol_endpoints.endpoints[].measurementMethod",
+      "protocol_endpoints.endpoints[].linkedObjective",
+      "protocol_endpoints.estimands[].population",
+      "protocol_endpoints.estimands[].treatment",
+      "protocol_endpoints.estimands[].variable",
+      "protocol_endpoints.estimands[].strategy",
+      "protocol_endpoints.estimands[].intercurrentEvents[]",
+      "protocol_endpoints.analysis_populations[].name",
+      "protocol_endpoints.analysis_populations[].definition"
+    ],
+    "match_keys": ["name", "endpointType", "assessmentTiming"],
+    "provenance_fields": ["provenance.page_number", "provenance.text_snippet"]
+  },
+  "imaging_central_reading": {
+    "target_fields": [
+      "response_criteria.primary_criteria",
+      "response_criteria.criteria_version",
+      "response_criteria.secondary_criteria[]",
+      "response_criteria.modifications",
+      "imaging_modalities[].modality_type",
+      "imaging_modalities[].body_regions[]",
+      "imaging_modalities[].contrast_required",
+      "imaging_modalities[].contrast_type",
+      "imaging_modalities[].slice_thickness",
+      "imaging_modalities[].technical_requirements",
+      "assessment_schedule.baseline_window",
+      "assessment_schedule.on_treatment_frequency",
+      "assessment_schedule.first_assessment_timing",
+      "assessment_schedule.post_treatment_schedule",
+      "assessment_schedule.confirmatory_scan_required",
+      "assessment_schedule.confirmatory_scan_window",
+      "lesion_requirements.measurable_disease_definition",
+      "lesion_requirements.target_lesion_minimum_size",
+      "lesion_requirements.lymph_node_criteria",
+      "lesion_requirements.max_target_lesions",
+      "lesion_requirements.max_target_lesions_per_organ",
+      "lesion_requirements.non_target_lesion_definition",
+      "response_categories[].category_code",
+      "response_categories[].category_name",
+      "response_categories[].definition",
+      "response_categories[].target_lesion_criteria",
+      "response_categories[].non_target_lesion_criteria",
+      "central_reading.bicr_required",
+      "central_reading.bicr_purpose",
+      "central_reading.reading_methodology",
+      "central_reading.reader_qualifications",
+      "central_reading.blinding_requirements",
+      "central_reading.adjudication_process",
+      "central_reading.vendor_name",
+      "central_reading.turnaround_time",
+      "immune_related_criteria.irecist_used",
+      "immune_related_criteria.pseudoprogression_handling",
+      "immune_related_criteria.confirmation_requirements",
+      "immune_related_criteria.treatment_beyond_progression",
+      "special_assessments[].assessment_name",
+      "special_assessments[].purpose",
+      "special_assessments[].methodology",
+      "special_assessments[].schedule"
+    ],
+    "match_keys": ["modality_type", "category_code", "primary_criteria"],
+    "provenance_fields": ["provenance.page_number", "provenance.text_snippet"]
+  },
+  "dose_modifications": {
+    "target_fields": [
+      "dlt_criteria.definition",
+      "dlt_criteria.evaluation_period",
+      "dlt_criteria.qualifying_events[]",
+      "dlt_criteria.non_dlt_exceptions[]",
+      "dose_reduction_rules.starting_dose",
+      "dose_reduction_rules.levels[].level",
+      "dose_reduction_rules.levels[].dose",
+      "dose_reduction_rules.triggers[]",
+      "dose_reduction_rules.max_reductions",
+      "dose_reduction_rules.permanent_discontinuation_criteria[]",
+      "dose_delay_rules.criteria",
+      "dose_delay_rules.max_duration",
+      "dose_delay_rules.recovery_requirements",
+      "discontinuation_criteria[].criterion",
+      "discontinuation_criteria[].grade",
+      "discontinuation_criteria[].duration",
+      "re_escalation.allowed",
+      "re_escalation.criteria",
+      "re_escalation.conditions",
+      "supportive_care.g_csf_allowed",
+      "supportive_care.antiemetics",
+      "supportive_care.growth_factors"
+    ],
+    "match_keys": ["qualifying_events", "criterion"],
+    "provenance_fields": ["provenance.page_number", "provenance.text_snippet"]
+  },
+  "pro_specifications": {
+    "target_fields": [
+      "instruments[].name",
+      "instruments[].type",
+      "instruments[].version",
+      "instruments[].domains[]",
+      "instruments[].assessment_schedule",
+      "instruments[].administration_method",
+      "instruments[].recall_period",
+      "instruments[].scoring_method",
+      "instruments[].minimally_important_difference",
+      "instruments[].validated_populations[]",
+      "compliance_requirements.target_rate",
+      "compliance_requirements.handling_missing_data",
+      "electronic_capture.epro_system",
+      "electronic_capture.device_type",
+      "electronic_capture.training_requirements"
+    ],
+    "match_keys": ["name", "type"],
+    "provenance_fields": ["provenance.page_number", "provenance.text_snippet"]
+  },
+  "safety_monitoring": {
+    "target_fields": [
+      "safety_assessments[].name",
+      "safety_assessments[].type",
+      "safety_assessments[].schedule",
+      "safety_assessments[].methodology",
+      "dsmb.required",
+      "dsmb.charter",
+      "dsmb.review_frequency",
+      "stopping_rules[].criterion",
+      "stopping_rules[].threshold",
+      "stopping_rules[].action"
+    ],
+    "match_keys": ["name", "type"],
+    "provenance_fields": ["provenance.page_number", "provenance.text_snippet"]
+  },
+  "concomitant_medications": {
+    "target_fields": [
+      "prohibited_medications[].name",
+      "prohibited_medications[].class",
+      "prohibited_medications[].reason",
+      "prohibited_medications[].washout_period",
+      "restricted_medications[].name",
+      "restricted_medications[].conditions",
+      "permitted_medications[]",
+      "rescue_medications[].name",
+      "rescue_medications[].indication",
+      "rescue_medications[].dose_limits"
+    ],
+    "match_keys": ["name", "class"],
+    "provenance_fields": ["provenance.page_number", "provenance.text_snippet"]
+  },
+  "investigational_product": {
+    "target_fields": [
+      "drug_name",
+      "drug_class",
+      "mechanism_of_action",
+      "formulation",
+      "route_of_administration",
+      "dosing_regimen",
+      "dose_levels[]",
+      "administration_schedule",
+      "storage_conditions",
+      "preparation_instructions"
+    ],
+    "match_keys": ["drug_name", "drug_class"],
+    "provenance_fields": ["provenance.page_number", "provenance.text_snippet"]
+  },
+  "arms_design": {
+    "target_fields": [
+      "arms[].name",
+      "arms[].type",
+      "arms[].description",
+      "arms[].treatment_regimen",
+      "randomization_ratio",
+      "stratification_factors[]",
+      "blinding.type",
+      "blinding.method"
+    ],
+    "match_keys": ["name", "type"],
+    "provenance_fields": ["provenance.page_number", "provenance.text_snippet"]
+  },
+  "visit_schedule": {
+    "target_fields": [
+      "visits[].name",
+      "visits[].day",
+      "visits[].window",
+      "visits[].required_assessments[]",
+      "study_periods[].name",
+      "study_periods[].duration"
+    ],
+    "match_keys": ["name", "day"],
+    "provenance_fields": ["provenance.page_number", "provenance.text_snippet"]
+  }
+}

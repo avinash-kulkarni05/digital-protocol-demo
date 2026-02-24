@@ -1,0 +1,172 @@
+{
+  "stage": 8,
+  "stageName": "Cycle Expansion",
+  "success": true,
+  "expansions": [],
+  "decisions": {
+    "ENC-005": {
+      "encounterName": "Cycle 2-6 Day 1",
+      "recurrenceKey": "NONE",
+      "shouldExpand": false,
+      "expandedCycles": [],
+      "patternType": "steady_state",
+      "cycleLengthDays": 21,
+      "confidence": 0.0,
+      "rationale": "Open-ended pattern starting at Cycle 2. Protocol specifies treatment until discontinuation - no fixed maximum. Human input required to determine expansion.",
+      "source": "open_ended_review",
+      "requiresHumanReview": true,
+      "reviewReason": "Open-ended cycle pattern (Cycle 2+) cannot be auto-expanded. Protocol does not specify a maximum cycle count.",
+      "cachedAt": "2025-12-09T16:05:49.853508Z",
+      "modelName": null,
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 5
+      },
+      "isOpenEnded": true,
+      "protocolContext": {}
+    },
+    "ENC-008": {
+      "encounterName": "Maintenance Therapy",
+      "recurrenceKey": "FIXED_INTERVAL:1_weeks",
+      "shouldExpand": false,
+      "expandedCycles": [],
+      "patternType": "fixed_interval",
+      "cycleLengthDays": 21,
+      "confidence": 0.7,
+      "rationale": "Fixed interval pattern without explicit dose count. Requires human review to determine max cycles.",
+      "source": "cache",
+      "requiresHumanReview": true,
+      "reviewReason": "Fixed interval pattern without explicit dose count",
+      "cachedAt": "2025-12-08T03:04:22.929726Z",
+      "modelName": "gemini-2.0-flash-exp",
+      "provenance": null,
+      "isOpenEnded": false,
+      "protocolContext": null
+    },
+    "ENC-009": {
+      "encounterName": "Post-Treatment Visits",
+      "recurrenceKey": "FIXED_INTERVAL:1_weeks",
+      "shouldExpand": false,
+      "expandedCycles": [],
+      "patternType": "fixed_interval",
+      "cycleLengthDays": 21,
+      "confidence": 0.7,
+      "rationale": "Fixed interval pattern without explicit dose count. Requires human review to determine max cycles.",
+      "source": "cache",
+      "requiresHumanReview": true,
+      "reviewReason": "Fixed interval pattern without explicit dose count",
+      "cachedAt": "2025-12-08T03:04:22.929737Z",
+      "modelName": "gemini-2.0-flash-exp",
+      "provenance": null,
+      "isOpenEnded": false,
+      "protocolContext": null
+    },
+    "ENC-010": {
+      "encounterName": "Survival Period",
+      "recurrenceKey": "FIXED_INTERVAL:1_weeks",
+      "shouldExpand": false,
+      "expandedCycles": [],
+      "patternType": "fixed_interval",
+      "cycleLengthDays": 21,
+      "confidence": 0.7,
+      "rationale": "Fixed interval pattern without explicit dose count. Requires human review to determine max cycles.",
+      "source": "cache",
+      "requiresHumanReview": true,
+      "reviewReason": "Fixed interval pattern without explicit dose count",
+      "cachedAt": "2025-12-08T03:04:22.929747Z",
+      "modelName": "gemini-2.0-flash-exp",
+      "provenance": null,
+      "isOpenEnded": false,
+      "protocolContext": null
+    }
+  },
+  "discrepancies": [],
+  "reviewItems": [
+    {
+      "id": "REV-CC7F4AA2",
+      "encounterId": "ENC-005",
+      "encounterName": "Cycle 2-6 Day 1",
+      "recurrenceKey": "NONE",
+      "reason": "Open-ended cycle pattern (Cycle 2+) cannot be auto-expanded. Protocol does not specify a maximum cycle count.",
+      "context": {
+        "recurrence": {
+          "pattern": "CYCLE:2-6",
+          "type": "cycle_based",
+          "startCycle": 2,
+          "endCycle": 6,
+          "provenance": {
+            "pageNumber": 41,
+            "tableId": "SOA-2",
+            "colIdx": 5
+          }
+        },
+        "originalEncounter": {
+          "id": "ENC-005",
+          "name": "Cycle 2-6 Day 1",
+          "originalName": "Cycle 2 \u2013 6 Day 1*",
+          "visitType": "treatment",
+          "timing": {
+            "value": 1,
+            "unit": "days",
+            "relativeTo": "cycle_start",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 5
+            }
+          },
+          "window": {
+            "earlyBound": 0,
+            "lateBound": 0,
+            "type": "exact",
+            "description": "Day 1 of cycles 2-6",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 5
+            }
+          },
+          "recurrence": {
+            "pattern": "CYCLE:2-6",
+            "type": "cycle_based",
+            "startCycle": 2,
+            "endCycle": 6,
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 5
+            }
+          },
+          "footnoteMarkers": [],
+          "provenance": {
+            "pageNumber": 41,
+            "tableId": "SOA-2",
+            "colIdx": 5
+          }
+        }
+      },
+      "suggestedAction": "Manually specify max_cycles or convert to explicit cycle list",
+      "priority": "high",
+      "stage": "Stage8CycleExpansion",
+      "createdAt": "2025-12-09T16:05:49.853546Z"
+    }
+  ],
+  "metrics": {
+    "encountersProcessed": 10,
+    "encountersWithRecurrence": 3,
+    "encountersExpanded": 0,
+    "encountersCreated": 0,
+    "encountersSkipped": 7,
+    "saisProcessed": 80,
+    "saisDuplicated": 0,
+    "saisCreated": 0,
+    "uniquePatternsAnalyzed": 0,
+    "cacheHits": 3,
+    "llmCalls": 0,
+    "validationFlags": 0,
+    "eventDrivenFlagged": 1,
+    "reviewItemsCount": 1,
+    "expansionRate": 0.0
+  }
+}

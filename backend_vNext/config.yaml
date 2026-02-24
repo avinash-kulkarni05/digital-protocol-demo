@@ -1,0 +1,249 @@
+# =============================================================================
+# AGENT CONFIGURATION
+# =============================================================================
+# Controls which extraction agents run during pipeline execution.
+# Set enabled: true/false to control each agent.
+#
+# Usage:
+#   python scripts/main.py --pdf /path/to/protocol.pdf
+#   (No runtime parameters needed - reads from this file)
+#
+# Waves:
+#   Wave 0: Foundation (must run first, all other agents depend on it)
+#   Wave 1: Core modules (run in parallel after Wave 0)
+#   Wave 2: Dependent modules (run after Wave 1)
+#
+# Priority (within wave):
+#   P0 = Critical, P1 = High, P2 = Medium, P3 = Specialized
+# =============================================================================
+
+agents:
+  # ---------------------------------------------------------------------------
+  # WAVE 0: Foundation (REQUIRED - all other agents depend on this)
+  # ---------------------------------------------------------------------------
+  study_metadata:
+    enabled: true
+    description: "Study-level metadata (protocol ID, title, phase, sponsor, therapeutic area)"
+    wave: 0
+    priority: 0  # P0 - Critical
+
+  # ---------------------------------------------------------------------------
+  # WAVE 1: Core Modules (run in parallel after Wave 0)
+  # ---------------------------------------------------------------------------
+
+  # P0 - Critical
+  arms_design:
+    enabled: true
+    description: "Treatment arms, dosing regimens, randomization design"
+    wave: 1
+    priority: 0
+
+  endpoints_estimands_sap:
+    enabled: true
+    description: "Primary/secondary endpoints, estimands, statistical analysis plan"
+    wave: 1
+    priority: 0
+
+  adverse_events:
+    enabled: true
+    description: "AE/SAE definitions, grading, reporting timelines, AESI"
+    wave: 1
+    priority: 0
+
+  safety_decision_points:
+    enabled: true
+    description: "Dose modifications, stopping rules, safety thresholds"
+    wave: 1
+    priority: 0
+
+  # P1 - High Priority
+  concomitant_medications:
+    enabled: true
+    description: "Prohibited/restricted medications, washout, drug interactions"
+    wave: 1
+    priority: 1
+
+  biospecimen_handling:
+    enabled: true
+    description: "Sample collection, processing, storage, shipping"
+    wave: 1
+    priority: 1
+
+  laboratory_specifications:
+    enabled: true
+    description: "Lab panels, tests, eligibility criteria, dose modifications"
+    wave: 1
+    priority: 1
+
+  informed_consent:
+    enabled: true
+    description: "ICF content elements, risks, benefits, alternatives"
+    wave: 1
+    priority: 1
+
+  pro_specifications:
+    enabled: true
+    description: "PRO/ePRO instruments, timing, compliance thresholds"
+    wave: 1
+    priority: 1
+
+  # P2 - Medium Priority
+  data_management:
+    enabled: true
+    description: "EDC, CDISC standards, data quality, database lock"
+    wave: 1
+    priority: 2
+
+  site_operations_logistics:
+    enabled: true
+    description: "Site management, drug supply, equipment, vendors"
+    wave: 1
+    priority: 2
+
+  # ---------------------------------------------------------------------------
+  # WAVE 2: Dependent Modules (run after Wave 1)
+  # ---------------------------------------------------------------------------
+
+  # P1 - High Priority
+  quality_management:
+    enabled: true
+    description: "Monitoring plan, RBQM, KRIs, quality tolerance limits"
+    wave: 2
+    priority: 1
+
+  # P2 - Medium Priority
+  withdrawal_procedures:
+    enabled: true
+    description: "Discontinuation types, consent withdrawal, follow-up"
+    wave: 2
+    priority: 2
+
+  # P3 - Specialized (Oncology/PK)
+  imaging_central_reading:
+    enabled: true
+    description: "RECIST/RANO criteria, imaging modalities, central reading"
+    wave: 2
+    priority: 3
+
+  pkpd_sampling:
+    enabled: true
+    description: "PK/PD sampling schedule, bioanalytical methods"
+    wave: 2
+    priority: 3
+
+
+# =============================================================================
+# EXECUTION SETTINGS
+# =============================================================================
+
+execution:
+  # Maximum concurrent agents within a wave
+  max_parallel_agents: 3
+
+  # Delay between agent starts (seconds) to avoid rate limits
+  wave_stagger_delay: 0.5
+
+  # Stop entire pipeline if Wave 0 fails
+  fail_fast_wave0: true
+
+
+# =============================================================================
+# MODEL SETTINGS
+# =============================================================================
+
+model:
+  # Primary model for extraction
+  primary: "gemini-2.5-flash"
+
+  # Maximum output tokens
+  max_output_tokens: 65536
+
+  # Retry settings
+  max_retries: 3
+  retry_delay_seconds: 2.0
+
+
+# =============================================================================
+# API RETRY SETTINGS (for transient errors like 503, 429, timeouts)
+# =============================================================================
+
+api_retry:
+  # Maximum retry attempts for transient API errors
+  max_attempts: 3
+
+  # Base delay in seconds for exponential backoff
+  base_delay_seconds: 2.0
+
+  # Maximum delay in seconds between retries
+  max_delay_seconds: 60.0
+
+  # Base for exponential backoff calculation (delay = base_delay * exponential_base^attempt)
+  exponential_base: 2.0
+
+
+# =============================================================================
+# QUALITY THRESHOLDS
+# =============================================================================
+
+quality:
+  # Minimum scores for extraction acceptance (0.0 - 1.0)
+  accuracy: 0.95
+  completeness: 0.90
+  compliance: 0.90
+  provenance: 0.95
+
+  # Retry on quality failure
+  max_quality_retries: 3
+
+
+# =============================================================================
+# CACHE SETTINGS
+# =============================================================================
+
+cache:
+  # Enable extraction caching
+  enabled: true
+
+  # Use database for primary cache storage (PostgreSQL)
+  use_database: true
+
+  # Fall back to file cache if database unavailable
+  fallback_to_file: true
+
+  # Cache directory for file fallback (relative to backend_vNext)
+  directory: ".cache"
+
+  # Maximum cache size in MB (0 = unlimited, file cache only)
+  max_size_mb: 500
+
+
+# =============================================================================
+# PDF ANNOTATION SETTINGS
+# =============================================================================
+# Highlights provenance text snippets in the source PDF with yellow highlighting.
+# Produces an annotated PDF alongside extraction results.
+
+annotation:
+  # Enable/disable PDF annotation step
+  enabled: true
+
+  # Minimum fuzzy match score (0.0-1.0) for text matching
+  # Higher = stricter matching, fewer false positives
+  fuzzy_threshold: 0.85
+
+  # Tesseract OCR language for image-based pages
+  # See: https://tesseract-ocr.github.io/tessdoc/Data-Files-in-different-versions.html
+  ocr_language: "eng"
+
+  # Highlight color as RGB (0-255 each)
+  highlight_color: [255, 255, 0]  # Yellow
+
+  # Highlight opacity (0.0-1.0)
+  highlight_opacity: 0.3
+
+  # Merge overlapping highlight rectangles
+  merge_overlapping: true
+
+  # Warning threshold for success rate (0.0-1.0)
+  # Logs warning if annotation success rate falls below this
+  min_success_rate: 0.80

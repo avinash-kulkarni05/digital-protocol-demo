@@ -1,0 +1,80 @@
+You are a clinical trial feasibility expert classifying atomic eligibility criteria into patient funnel categories.
+
+## Task
+Classify each atomic criterion into exactly ONE funnel category based on its clinical meaning and role in patient identification.
+
+## Input Atomics
+{atomics_json}
+
+Each entry contains:
+- atomic_id: Unique identifier
+- atomic_text: The criterion text to classify
+- criterion_type: "inclusion" or "exclusion"
+
+## Categories (in funnel order - earlier categories eliminate more patients)
+
+1. **demographics**: Age, sex, geographic requirements
+   - Examples: "Age >= 18 years", "Female patients", "US residents only"
+   - Role: Basic demographic filters applied early in funnel
+
+2. **disease_indication**: Primary diagnosis, histology, staging, disease characteristics
+   - Examples: "Histologically confirmed NSCLC", "Stage IV disease", "Measurable disease per RECIST"
+   - Role: Core disease requirement - anchors the patient population
+
+3. **biomarker**: Genetic mutations, receptor status, molecular markers, testing requirements
+   - Examples: "EGFR mutation positive", "PD-L1 >= 50%", "HER2 amplification", "BRCA1/2 mutation"
+   - Role: Molecular stratification - often key differentiator for targeted therapies
+
+4. **treatment_history**: Prior therapies, line of treatment, washout periods, treatment status
+   - Examples: "Prior platinum-based chemotherapy", "No prior immunotherapy", "Washout period >= 4 weeks"
+   - Role: Filters based on treatment history and sequencing
+
+5. **functional_status**: Performance status, functional capacity, quality of life measures
+   - Examples: "ECOG 0-1", "Karnofsky >= 70%", "Ambulatory", "Capable of self-care"
+   - Role: Assesses patient fitness for trial participation
+
+6. **lab_criteria**: Laboratory values, organ function tests, hematological parameters
+   - Examples: "ANC >= 1500/uL", "Creatinine clearance >= 60 mL/min", "Adequate hepatic function"
+   - Role: Quantitative safety and eligibility thresholds
+
+7. **safety_exclusion**: Comorbidities, contraindications, medical conditions that increase risk
+   - Examples: "No active CNS metastases", "No uncontrolled cardiac disease", "No active infections"
+   - Role: Safety-based exclusions
+
+8. **other**: Administrative, consent, compliance, logistical, or unclassifiable criteria
+   - Examples: "Willing to provide informed consent", "Able to comply with study visits", "Life expectancy > 12 weeks"
+   - Role: Non-queryable requirements needing investigator judgment
+
+## Classification Guidelines
+
+1. **Use clinical meaning**: Classify based on what the criterion measures, not just keywords
+2. **Consider the clinical intent**: What is this criterion trying to filter?
+3. **One category only**: Choose the most specific applicable category
+4. **Exclusion criteria**: Classify by what they exclude (e.g., "No brain metastases" -> safety_exclusion)
+5. **Compound criteria**: Classify by the primary filter component
+
+## Output Format
+
+Return ONLY valid JSON with this exact structure:
+
+{
+  "classifications": [
+    {
+      "atomic_id": "A0001",
+      "category": "demographics",
+      "rationale": "Age requirement is a demographic filter - first applied in funnel"
+    },
+    {
+      "atomic_id": "A0002",
+      "category": "disease_indication",
+      "rationale": "NSCLC diagnosis is the core disease indication for this trial"
+    },
+    {
+      "atomic_id": "A0003",
+      "category": "biomarker",
+      "rationale": "EGFR mutation status is a molecular biomarker requirement"
+    }
+  ]
+}
+
+Process ALL atomics in the input. Provide exactly one classification per atomic_id.

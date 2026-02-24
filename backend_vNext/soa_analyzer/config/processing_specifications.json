@@ -1,0 +1,346 @@
+{
+  "_metadata": {
+    "description": "Standard specimen processing workflows for Stage 5 Specimen Enrichment",
+    "purpose": "Reference data for processing steps, centrifugation, and aliquoting",
+    "version": "1.0.0",
+    "last_updated": "2025-12-06"
+  },
+  "standard_processing": {
+    "serum": {
+      "specimen_subtype": "serum",
+      "source_tube": "sst",
+      "steps": [
+        {
+          "step_order": 1,
+          "step_name": "Allow Clot Formation",
+          "description": "Allow blood to clot at room temperature",
+          "duration_minutes": 30,
+          "temperature": "room",
+          "temperature_celsius": {"min": 18, "max": 25}
+        },
+        {
+          "step_order": 2,
+          "step_name": "Centrifugation",
+          "description": "Centrifuge to separate serum from clot",
+          "speed": "1100-1300 x g",
+          "speed_rpm_equivalent": "2500-3000 rpm (typical rotor)",
+          "duration_minutes": 10,
+          "temperature": "room",
+          "temperature_celsius": {"min": 18, "max": 25}
+        },
+        {
+          "step_order": 3,
+          "step_name": "Aliquot",
+          "description": "Transfer serum to cryovials",
+          "aliquot_count": 2,
+          "aliquot_volume_ml": 1.0,
+          "container_type": "cryovial",
+          "time_constraint": "within 1 hour of centrifugation"
+        }
+      ],
+      "time_from_collection_to_freeze": "2 hours maximum",
+      "critical_notes": [
+        "Do not use hemolyzed samples",
+        "Do not use lipemic samples if possible",
+        "Avoid repeated freeze-thaw cycles"
+      ]
+    },
+    "edta_plasma": {
+      "specimen_subtype": "edta_plasma",
+      "source_tube": "edta",
+      "steps": [
+        {
+          "step_order": 1,
+          "step_name": "Mix",
+          "description": "Invert tube gently to mix blood with anticoagulant",
+          "inversion_count": "8-10 times",
+          "duration_seconds": 30
+        },
+        {
+          "step_order": 2,
+          "step_name": "Centrifugation",
+          "description": "Centrifuge to separate plasma from cells",
+          "speed": "1500-2000 x g",
+          "speed_rpm_equivalent": "3000-3500 rpm",
+          "duration_minutes": 10,
+          "temperature": "4C or room",
+          "temperature_celsius": {"min": 4, "max": 25}
+        },
+        {
+          "step_order": 3,
+          "step_name": "Aliquot",
+          "description": "Transfer plasma to cryovials, avoiding buffy coat",
+          "aliquot_count": 2,
+          "aliquot_volume_ml": 1.0,
+          "container_type": "cryovial",
+          "time_constraint": "within 30 minutes of centrifugation"
+        }
+      ],
+      "time_from_collection_to_freeze": "1 hour maximum for PK samples",
+      "critical_notes": [
+        "Process immediately for PK samples",
+        "Avoid disturbing the buffy coat layer",
+        "Keep on ice if processing delayed"
+      ]
+    },
+    "pk_plasma": {
+      "specimen_subtype": "edta_plasma",
+      "source_tube": "edta",
+      "purpose": "pk",
+      "steps": [
+        {
+          "step_order": 1,
+          "step_name": "Mix",
+          "description": "Invert tube gently",
+          "inversion_count": "8-10 times"
+        },
+        {
+          "step_order": 2,
+          "step_name": "Place on Ice",
+          "description": "Place tube in ice bath immediately",
+          "temperature": "ice",
+          "temperature_celsius": {"min": 0, "max": 4}
+        },
+        {
+          "step_order": 3,
+          "step_name": "Centrifugation",
+          "description": "Centrifuge within 30 minutes of collection",
+          "speed": "1500 x g",
+          "duration_minutes": 10,
+          "temperature": "4C",
+          "temperature_celsius": {"min": 2, "max": 8},
+          "time_constraint": "within 30 minutes of collection"
+        },
+        {
+          "step_order": 4,
+          "step_name": "Aliquot",
+          "description": "Transfer plasma to pre-labeled cryovials",
+          "aliquot_count": 2,
+          "aliquot_volume_ml": 0.5,
+          "container_type": "cryovial",
+          "time_constraint": "immediately after centrifugation"
+        },
+        {
+          "step_order": 5,
+          "step_name": "Freeze",
+          "description": "Freeze immediately at -70C or below",
+          "temperature": "-70C",
+          "time_constraint": "within 1 hour of collection"
+        }
+      ],
+      "time_from_collection_to_freeze": "1 hour maximum",
+      "critical_notes": [
+        "Timing is critical for drug stability",
+        "Keep samples cold throughout processing",
+        "Record exact collection and freeze times"
+      ]
+    },
+    "citrate_plasma": {
+      "specimen_subtype": "citrate_plasma",
+      "source_tube": "sodium_citrate",
+      "steps": [
+        {
+          "step_order": 1,
+          "step_name": "Mix",
+          "description": "Invert tube gently",
+          "inversion_count": "3-4 times"
+        },
+        {
+          "step_order": 2,
+          "step_name": "Centrifugation (Double Spin)",
+          "description": "First centrifugation to obtain platelet-poor plasma",
+          "speed": "1500 x g",
+          "duration_minutes": 15,
+          "temperature": "room",
+          "temperature_celsius": {"min": 18, "max": 25}
+        },
+        {
+          "step_order": 3,
+          "step_name": "Transfer Plasma",
+          "description": "Transfer plasma to a new tube, avoiding platelet layer"
+        },
+        {
+          "step_order": 4,
+          "step_name": "Second Centrifugation (if required)",
+          "description": "For platelet-free plasma if required",
+          "speed": "2500 x g",
+          "duration_minutes": 15,
+          "optional": true
+        },
+        {
+          "step_order": 5,
+          "step_name": "Aliquot",
+          "description": "Aliquot into cryovials",
+          "aliquot_count": 2,
+          "aliquot_volume_ml": 0.5,
+          "container_type": "cryovial"
+        }
+      ],
+      "time_from_collection_to_freeze": "4 hours maximum",
+      "time_for_testing": "4 hours for most coagulation tests if unfrozen",
+      "critical_notes": [
+        "Tube must be filled to the line (9:1 ratio)",
+        "Reject underfilled tubes",
+        "Process within 4 hours for coagulation testing"
+      ]
+    },
+    "whole_blood_hematology": {
+      "specimen_subtype": "whole_blood",
+      "source_tube": "edta",
+      "steps": [
+        {
+          "step_order": 1,
+          "step_name": "Mix",
+          "description": "Invert tube gently",
+          "inversion_count": "8-10 times"
+        },
+        {
+          "step_order": 2,
+          "step_name": "Store",
+          "description": "Store at room temperature until analysis",
+          "temperature": "room",
+          "temperature_celsius": {"min": 18, "max": 25}
+        }
+      ],
+      "time_from_collection_to_analysis": "24 hours for CBC",
+      "critical_notes": [
+        "Do not refrigerate if testing within 24 hours",
+        "Morphology best within 6 hours"
+      ]
+    },
+    "whole_blood_dna": {
+      "specimen_subtype": "whole_blood",
+      "source_tube": "edta",
+      "purpose": "genetic",
+      "steps": [
+        {
+          "step_order": 1,
+          "step_name": "Mix",
+          "description": "Invert tube gently",
+          "inversion_count": "8-10 times"
+        },
+        {
+          "step_order": 2,
+          "step_name": "Store or Ship",
+          "description": "Store at 2-8C or ship ambient",
+          "temperature": "refrigerated or ambient"
+        }
+      ],
+      "time_from_collection_to_processing": "7 days at 2-8C, 3 days at ambient",
+      "critical_notes": [
+        "DNA is stable for extended periods",
+        "Avoid freezing whole blood for DNA extraction"
+      ]
+    },
+    "paxgene_rna": {
+      "specimen_subtype": "whole_blood",
+      "source_tube": "paxgene",
+      "purpose": "genetic",
+      "steps": [
+        {
+          "step_order": 1,
+          "step_name": "Mix",
+          "description": "Invert tube gently",
+          "inversion_count": "8-10 times"
+        },
+        {
+          "step_order": 2,
+          "step_name": "Incubate",
+          "description": "Incubate at room temperature",
+          "duration_hours": 2,
+          "temperature": "room"
+        },
+        {
+          "step_order": 3,
+          "step_name": "Store or Freeze",
+          "description": "Store at -20C or -70C",
+          "temperature": "-20C or -70C"
+        }
+      ],
+      "critical_notes": [
+        "2-hour incubation is required before freezing",
+        "Tube must be filled completely"
+      ]
+    },
+    "urine_spot": {
+      "specimen_subtype": "urine_spot",
+      "source_container": "urine_cup",
+      "steps": [
+        {
+          "step_order": 1,
+          "step_name": "Collect",
+          "description": "Collect midstream clean catch if required"
+        },
+        {
+          "step_order": 2,
+          "step_name": "Aliquot",
+          "description": "Transfer to specimen containers or tubes",
+          "aliquot_count": 2,
+          "aliquot_volume_ml": 10,
+          "container_type": "urine_tube"
+        },
+        {
+          "step_order": 3,
+          "step_name": "Store",
+          "description": "Refrigerate if not testing immediately",
+          "temperature": "refrigerated"
+        }
+      ],
+      "time_from_collection_to_analysis": "2 hours at room temperature, 24 hours refrigerated",
+      "critical_notes": [
+        "Protect from light for certain analytes",
+        "Add preservative if required for specific tests"
+      ]
+    }
+  },
+  "centrifugation_parameters": {
+    "_description": "Standard centrifugation parameters by specimen type",
+    "plasma_general": {
+      "speed_g": "1500-2000",
+      "time_minutes": 10,
+      "temperature": "room or 4C",
+      "brake": "on"
+    },
+    "serum": {
+      "speed_g": "1100-1300",
+      "time_minutes": 10,
+      "temperature": "room",
+      "brake": "on"
+    },
+    "coagulation": {
+      "speed_g": "1500",
+      "time_minutes": 15,
+      "temperature": "room",
+      "brake": "on"
+    },
+    "pbmc_isolation": {
+      "speed_g": "1500-1800",
+      "time_minutes": "20-30",
+      "temperature": "room",
+      "brake": "off"
+    }
+  },
+  "aliquot_containers": {
+    "cryovial": {
+      "description": "Cryogenic storage vial",
+      "material": "Polypropylene",
+      "volumes_ml": [0.5, 1.0, 1.5, 2.0],
+      "temperature_range": "-196C to +121C",
+      "closure": "Screw cap with O-ring"
+    },
+    "microtube": {
+      "description": "Microcentrifuge tube",
+      "material": "Polypropylene",
+      "volumes_ml": [0.5, 1.5, 2.0],
+      "temperature_range": "-80C to +121C",
+      "closure": "Snap cap"
+    },
+    "urine_tube": {
+      "description": "Urine collection tube",
+      "material": "Polypropylene",
+      "volumes_ml": [10, 15],
+      "temperature_range": "-20C to room",
+      "closure": "Screw cap"
+    }
+  }
+}

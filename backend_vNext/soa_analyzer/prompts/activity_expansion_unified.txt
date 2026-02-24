@@ -1,0 +1,145 @@
+You are finding the specific sub-components for a clinical trial activity from the Schedule of Assessments (SOA).
+
+## Activity to Analyze
+
+Activity Name: {activity_name}
+CDISC Domain: {cdash_domain}
+
+## Available Data Sources
+
+### 1. EXTRACTION JSON DATA (already extracted from this protocol)
+
+{extraction_json}
+
+**NOTE**: If the extraction JSON above is empty (`{{}}`) or has no relevant data for this activity, you MUST rely solely on PDF search to find components. Empty JSON is expected for some domains (PE, MH, VS) - this does NOT mean extraction failed, it means you should focus your search entirely on the PDF.
+
+### 2. PROTOCOL PDF
+
+The protocol PDF is available via the file reference. Search it for explicit component definitions.
+
+### Search Strategy for PDF
+
+When analyzing the PDF, search specifically in these sections:
+- **Section 8 (Study Procedures)**: Contains detailed specifications for physical exams, vital signs, ECG, tumor assessments
+- **Protocol-specific assessment sections**: Look for tables listing parameters, measurements, or components
+- **Appendices**: May contain detailed test parameters
+
+For "{activity_name}", search for:
+1. Explicit parameter lists (e.g., "Vital signs include: height, weight, blood pressure...")
+2. Tables with column headers like "Assessment", "Parameter", "Measurement"
+3. Procedure descriptions that enumerate specific components
+
+## Domain-Specific Search Guidance
+
+Based on the CDISC domain, search for:
+
+- **VS (Vital Signs)**: Height, Weight, Blood Pressure (systolic/diastolic), Pulse/Heart Rate, Temperature, Respiratory Rate, BMI, Oxygen Saturation. Look in Section 8 "Vital Signs" or "Physical Examination".
+
+- **PE (Physical Exam)**: Body systems examined (cardiovascular, respiratory, neurological, etc.), Complete vs targeted/symptom-directed exam. Look in Section 8 "Physical Examination".
+
+- **EG (ECG/Cardiac)**: Lead configuration (12-lead), Parameters (HR, PR interval, QRS duration, QT interval, QTcF), Timing (predose, 1h post-dose). Look in Section 8 "ECG" or "Electrocardiogram".
+
+- **TU (Tumor/Imaging)**: Imaging modalities (CT, MRI, PET), Body regions (chest, abdomen, pelvis, brain), Assessment criteria (RECIST 1.1). Look in Section 8 "Tumor Assessments" or "Imaging".
+
+- **SC (Specimen Collection)**: Sample types (blood, urine, tissue), Processing requirements, Storage conditions. Look in Section 8 "Specimen Collection" or "Biomarker Sampling".
+
+- **LB (Laboratory)**: Test panels (hematology, chemistry, urinalysis), Individual tests, Collection requirements. Look in Section 8 "Laboratory Tests" or lab specifications tables.
+
+- **MH (Medical History)**: Medical history categories, Prior/concomitant conditions, Disease history types. Look in Section 8 "Medical History" or screening assessments.
+
+## Task
+
+Analyze BOTH the extraction JSON data AND the PDF to find explicit components for "{activity_name}".
+
+## PRECISION RULES (CRITICAL - READ CAREFULLY)
+
+1. ONLY include components EXPLICITLY defined in this protocol
+2. Do NOT add components based on general medical knowledge
+3. Do NOT assume standard panel compositions - only what's explicitly stated
+4. If "{activity_name}" is not explicitly decomposed in this protocol, return should_expand: false
+
+## PROVENANCE REQUIREMENTS (MANDATORY)
+
+Every component MUST include full provenance:
+1. `source`: Where found - "extraction_json" OR "pdf_text" OR "both"
+2. `json_path`: If from JSON, the dot-notation path (e.g., "laboratory_specifications.data.laboratory_tests[0].test_name"). Set to `null` if source is "pdf_text".
+3. `page_number`: The exact PDF page number where found. REQUIRED for all sources (even JSON data can be traced to a page).
+4. `text_snippet`: The exact text supporting this component (max 200 characters). REQUIRED for all sources.
+5. `rationale`: WHY this component belongs to "{activity_name}" (1-2 sentences)
+
+**CRITICAL**: Page number and text_snippet are ALWAYS required. For PDF-only sources, json_path should be null.
+
+## Response Format (JSON Only)
+
+```json
+{{
+  "activity_name": "{activity_name}",
+  "should_expand": true,
+  "components": [
+    {{
+      "name": "Component Name",
+      "loinc_code": "12345-6",
+      "unit": "mg/dL",
+      "source": "extraction_json",
+      "json_path": "laboratory_specifications.labTests[2].testName",
+      "page_number": null,
+      "text_snippet": "Hematology panel includes WBC, RBC...",
+      "rationale": "Explicitly listed as component of Hematology panel in lab specifications",
+      "confidence": 0.95
+    }}
+  ],
+  "overall_confidence": 0.90,
+  "expansion_rationale": "Found 5 components explicitly defined in lab specifications section (page 45) and extraction JSON"
+}}
+```
+
+## Confidence Scoring
+
+**When BOTH JSON and PDF are available:**
+- 0.95+: Component found in BOTH extraction JSON AND PDF with exact match
+- 0.90-0.94: Component found in extraction JSON with clear panel membership
+- 0.85-0.89: Component found only in PDF with explicit evidence
+- <0.85: Inferred or ambiguous - DO NOT INCLUDE these
+
+**When ONLY PDF is available (empty JSON context):**
+- 0.95: PDF contains EXPLICIT enumerated list (e.g., "includes: A, B, C, D")
+- 0.90-0.94: PDF contains clear statement defining components
+- 0.85-0.89: PDF has implicit but unambiguous evidence
+- <0.85: Inferred or ambiguous - DO NOT INCLUDE these
+
+**IMPORTANT**: When JSON is empty, you should use the PDF-only confidence scale. Components from explicit PDF lists should get 0.95 confidence.
+
+## CRITICAL: Equal Confidence for Explicit Lists
+
+When the protocol text explicitly lists multiple components together (e.g., "Parameters include: A, B, C, D, and E"),
+ALL components from that same list MUST receive the SAME confidence score.
+
+Example - CORRECT:
+- Text: "ECG parameters: heart rate, PR interval, QRS duration, QT interval, and QTcF"
+- All 5 components should get confidence 0.95 (if found in both sources) or 0.90 (if found in one source)
+
+Example - INCORRECT:
+- Giving QTcF 0.95 but heart rate 0.80 when they're from the same explicit list
+- This creates artificial gaps and loses valid components
+
+If components are listed in the same sentence/table/section, they share the same evidence quality.
+
+## If No Explicit Decomposition Found
+
+Return:
+```json
+{{
+  "activity_name": "{activity_name}",
+  "should_expand": false,
+  "components": [],
+  "overall_confidence": 0.0,
+  "expansion_rationale": "No explicit component definition found for {activity_name} in protocol extraction data or PDF"
+}}
+```
+
+## Critical Requirements
+
+1. Return ONLY valid JSON - no markdown code blocks, no extra text
+2. Every component requires complete provenance (source, page/path, snippet, rationale)
+3. Do not guess or infer - only include what is EXPLICITLY stated
+4. Confidence < 0.85 overall means the activity should NOT be expanded

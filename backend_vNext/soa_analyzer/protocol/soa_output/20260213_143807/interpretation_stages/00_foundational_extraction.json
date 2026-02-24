@@ -1,0 +1,6549 @@
+{
+  "stage": 0,
+  "stageName": "Foundational Extraction",
+  "description": "Raw USDM from HTML interpretation, before 12-stage enrichment",
+  "success": true,
+  "protocolId": "NCT04983589",
+  "metrics": {
+    "visitsCount": 21,
+    "activitiesCount": 39,
+    "instancesCount": 214,
+    "footnotesCount": 19
+  },
+  "usdm": {
+    "protocolId": "NCT04983589",
+    "protocolType": "fixed_duration",
+    "primaryReferencePoint": "first_dose",
+    "visits": [
+      {
+        "id": "ENC-001",
+        "name": "Screening",
+        "originalName": "Screening (text on blue background)",
+        "visitType": "screening",
+        "timingModifier": null,
+        "parentVisit": null,
+        "timing": {
+          "value": -30,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 1
+          }
+        },
+        "window": {
+          "earlyBound": 30,
+          "lateBound": 1,
+          "type": "range",
+          "description": "Days -30 to -1",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 1
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "ENC-002",
+        "name": "Day 1 Visit 1",
+        "originalName": "Day 1 (Visit 1)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "timing": {
+          "value": 1,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 2
+          }
+        },
+        "window": {
+          "earlyBound": 0,
+          "lateBound": 0,
+          "type": "exact",
+          "description": "N/A",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 2
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "ENC-003",
+        "name": "Day 1 Visit 1",
+        "originalName": "Day 1 (Visit 1)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 1 Visit 1",
+        "timing": {
+          "value": 1,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 3
+          }
+        },
+        "window": {
+          "earlyBound": 0,
+          "lateBound": 0,
+          "type": "exact",
+          "description": "N/A",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 3
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 3
+        }
+      },
+      {
+        "id": "ENC-004",
+        "name": "Day 1 Visit 1",
+        "originalName": "Day 1 (Visit 1)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 1 Visit 1",
+        "timing": {
+          "value": 1,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 4
+          }
+        },
+        "window": {
+          "earlyBound": 0,
+          "lateBound": 0,
+          "type": "exact",
+          "description": "N/A",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 4
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 4
+        }
+      },
+      {
+        "id": "ENC-005",
+        "name": "Day 1 Visit 1",
+        "originalName": "Day 1 (Visit 1)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 1 Visit 1",
+        "timing": {
+          "value": 1,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 5
+          }
+        },
+        "window": {
+          "earlyBound": 0,
+          "lateBound": 0,
+          "type": "exact",
+          "description": "N/A",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 5
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 5
+        }
+      },
+      {
+        "id": "ENC-006",
+        "name": "Day 1 Visit 1",
+        "originalName": "Day 1 (Visit 1)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 1 Visit 1",
+        "timing": {
+          "value": 1,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 6
+          }
+        },
+        "window": {
+          "earlyBound": 0,
+          "lateBound": 0,
+          "type": "exact",
+          "description": "N/A",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 6
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 6
+        }
+      },
+      {
+        "id": "ENC-007",
+        "name": "Day 1 Visit 1",
+        "originalName": "Day 1 (Visit 1)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 1 Visit 1",
+        "timing": {
+          "value": 1,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 7
+          }
+        },
+        "window": {
+          "earlyBound": 0,
+          "lateBound": 0,
+          "type": "exact",
+          "description": "N/A",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 7
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 7
+        }
+      },
+      {
+        "id": "ENC-008",
+        "name": "Day 1 Visit 1",
+        "originalName": "Day 1 (Visit 1)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 12",
+        "parentVisit": "Day 1 Visit 1",
+        "timing": {
+          "value": 1,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 8
+          }
+        },
+        "window": {
+          "earlyBound": 0,
+          "lateBound": 0,
+          "type": "exact",
+          "description": "N/A",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 8
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 8
+        }
+      },
+      {
+        "id": "ENC-009",
+        "name": "Day 7 Visit 2",
+        "originalName": "Day 7 (Visit 2)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 7 Visit 2",
+        "timing": {
+          "value": 7,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 9
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 9
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 9
+        }
+      },
+      {
+        "id": "ENC-010",
+        "name": "Day 7 Visit 2",
+        "originalName": "Day 7 (Visit 2)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 7 Visit 2",
+        "timing": {
+          "value": 7,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 10
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 10
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 10
+        }
+      },
+      {
+        "id": "ENC-011",
+        "name": "Day 7 Visit 2",
+        "originalName": "Day 7 (Visit 2)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 7 Visit 2",
+        "timing": {
+          "value": 7,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 11
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 11
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 11
+        }
+      },
+      {
+        "id": "ENC-012",
+        "name": "Day 7 Visit 2",
+        "originalName": "Day 7 (Visit 2)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 7 Visit 2",
+        "timing": {
+          "value": 7,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 12
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 12
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 12
+        }
+      },
+      {
+        "id": "ENC-013",
+        "name": "Day 7 Visit 2",
+        "originalName": "Day 7 (Visit 2)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 7 Visit 2",
+        "timing": {
+          "value": 7,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 13
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 13
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 13
+        }
+      },
+      {
+        "id": "ENC-014",
+        "name": "Day 7 Visit 2",
+        "originalName": "Day 7 (Visit 2)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 7 Visit 2",
+        "timing": {
+          "value": 7,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 14
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 14
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 14
+        }
+      },
+      {
+        "id": "ENC-015",
+        "name": "Day 14/Early Exit Visit 3",
+        "originalName": "Day 14/Early Exit (Visit 3)",
+        "visitType": "end_of_treatment",
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "timing": {
+          "value": 14,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 15
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 15
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 15
+        }
+      },
+      {
+        "id": "ENC-016",
+        "name": "Day 14/Early Exit Visit 3",
+        "originalName": "Day 14/Early Exit (Visit 3)",
+        "visitType": "end_of_treatment",
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "timing": {
+          "value": 14,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 16
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 16
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 16
+        }
+      },
+      {
+        "id": "ENC-017",
+        "name": "Day 14/Early Exit Visit 3",
+        "originalName": "Day 14/Early Exit (Visit 3)",
+        "visitType": "end_of_treatment",
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "timing": {
+          "value": 14,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 17
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 17
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 17
+        }
+      },
+      {
+        "id": "ENC-018",
+        "name": "Day 14/Early Exit Visit 3",
+        "originalName": "Day 14/Early Exit (Visit 3)",
+        "visitType": "end_of_treatment",
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "timing": {
+          "value": 14,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 18
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 18
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 18
+        }
+      },
+      {
+        "id": "ENC-019",
+        "name": "Day 14/Early Exit Visit 3",
+        "originalName": "Day 14/Early Exit (Visit 3)",
+        "visitType": "end_of_treatment",
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "timing": {
+          "value": 14,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 19
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 19
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 19
+        }
+      },
+      {
+        "id": "ENC-020",
+        "name": "Day 14/Early Exit Visit 3",
+        "originalName": "Day 14/Early Exit (Visit 3)",
+        "visitType": "end_of_treatment",
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "timing": {
+          "value": 14,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 20
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 20
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 20
+        }
+      },
+      {
+        "id": "ENC-021",
+        "name": "Day 14/Early Exit Visit 3",
+        "originalName": "Day 14/Early Exit (Visit 3)",
+        "visitType": "end_of_treatment",
+        "timingModifier": "Hour 12",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "timing": {
+          "value": 14,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 21
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 21
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 21
+        }
+      }
+    ],
+    "encounters": [
+      {
+        "id": "ENC-001",
+        "name": "Screening",
+        "originalName": "Screening (text on blue background)",
+        "visitType": "screening",
+        "timingModifier": null,
+        "parentVisit": null,
+        "timing": {
+          "value": -30,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 1
+          }
+        },
+        "window": {
+          "earlyBound": 30,
+          "lateBound": 1,
+          "type": "range",
+          "description": "Days -30 to -1",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 1
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "ENC-002",
+        "name": "Day 1 Visit 1",
+        "originalName": "Day 1 (Visit 1)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "timing": {
+          "value": 1,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 2
+          }
+        },
+        "window": {
+          "earlyBound": 0,
+          "lateBound": 0,
+          "type": "exact",
+          "description": "N/A",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 2
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "ENC-003",
+        "name": "Day 1 Visit 1",
+        "originalName": "Day 1 (Visit 1)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 1 Visit 1",
+        "timing": {
+          "value": 1,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 3
+          }
+        },
+        "window": {
+          "earlyBound": 0,
+          "lateBound": 0,
+          "type": "exact",
+          "description": "N/A",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 3
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 3
+        }
+      },
+      {
+        "id": "ENC-004",
+        "name": "Day 1 Visit 1",
+        "originalName": "Day 1 (Visit 1)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 1 Visit 1",
+        "timing": {
+          "value": 1,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 4
+          }
+        },
+        "window": {
+          "earlyBound": 0,
+          "lateBound": 0,
+          "type": "exact",
+          "description": "N/A",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 4
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 4
+        }
+      },
+      {
+        "id": "ENC-005",
+        "name": "Day 1 Visit 1",
+        "originalName": "Day 1 (Visit 1)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 1 Visit 1",
+        "timing": {
+          "value": 1,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 5
+          }
+        },
+        "window": {
+          "earlyBound": 0,
+          "lateBound": 0,
+          "type": "exact",
+          "description": "N/A",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 5
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 5
+        }
+      },
+      {
+        "id": "ENC-006",
+        "name": "Day 1 Visit 1",
+        "originalName": "Day 1 (Visit 1)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 1 Visit 1",
+        "timing": {
+          "value": 1,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 6
+          }
+        },
+        "window": {
+          "earlyBound": 0,
+          "lateBound": 0,
+          "type": "exact",
+          "description": "N/A",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 6
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 6
+        }
+      },
+      {
+        "id": "ENC-007",
+        "name": "Day 1 Visit 1",
+        "originalName": "Day 1 (Visit 1)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 1 Visit 1",
+        "timing": {
+          "value": 1,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 7
+          }
+        },
+        "window": {
+          "earlyBound": 0,
+          "lateBound": 0,
+          "type": "exact",
+          "description": "N/A",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 7
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 7
+        }
+      },
+      {
+        "id": "ENC-008",
+        "name": "Day 1 Visit 1",
+        "originalName": "Day 1 (Visit 1)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 12",
+        "parentVisit": "Day 1 Visit 1",
+        "timing": {
+          "value": 1,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 8
+          }
+        },
+        "window": {
+          "earlyBound": 0,
+          "lateBound": 0,
+          "type": "exact",
+          "description": "N/A",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 8
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 8
+        }
+      },
+      {
+        "id": "ENC-009",
+        "name": "Day 7 Visit 2",
+        "originalName": "Day 7 (Visit 2)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 7 Visit 2",
+        "timing": {
+          "value": 7,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 9
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 9
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 9
+        }
+      },
+      {
+        "id": "ENC-010",
+        "name": "Day 7 Visit 2",
+        "originalName": "Day 7 (Visit 2)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 7 Visit 2",
+        "timing": {
+          "value": 7,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 10
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 10
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 10
+        }
+      },
+      {
+        "id": "ENC-011",
+        "name": "Day 7 Visit 2",
+        "originalName": "Day 7 (Visit 2)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 7 Visit 2",
+        "timing": {
+          "value": 7,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 11
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 11
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 11
+        }
+      },
+      {
+        "id": "ENC-012",
+        "name": "Day 7 Visit 2",
+        "originalName": "Day 7 (Visit 2)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 7 Visit 2",
+        "timing": {
+          "value": 7,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 12
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 12
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 12
+        }
+      },
+      {
+        "id": "ENC-013",
+        "name": "Day 7 Visit 2",
+        "originalName": "Day 7 (Visit 2)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 7 Visit 2",
+        "timing": {
+          "value": 7,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 13
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 13
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 13
+        }
+      },
+      {
+        "id": "ENC-014",
+        "name": "Day 7 Visit 2",
+        "originalName": "Day 7 (Visit 2)",
+        "visitType": "treatment",
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 7 Visit 2",
+        "timing": {
+          "value": 7,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 14
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 14
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 14
+        }
+      },
+      {
+        "id": "ENC-015",
+        "name": "Day 14/Early Exit Visit 3",
+        "originalName": "Day 14/Early Exit (Visit 3)",
+        "visitType": "end_of_treatment",
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "timing": {
+          "value": 14,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 15
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 15
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 15
+        }
+      },
+      {
+        "id": "ENC-016",
+        "name": "Day 14/Early Exit Visit 3",
+        "originalName": "Day 14/Early Exit (Visit 3)",
+        "visitType": "end_of_treatment",
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "timing": {
+          "value": 14,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 16
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 16
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 16
+        }
+      },
+      {
+        "id": "ENC-017",
+        "name": "Day 14/Early Exit Visit 3",
+        "originalName": "Day 14/Early Exit (Visit 3)",
+        "visitType": "end_of_treatment",
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "timing": {
+          "value": 14,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 17
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 17
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 17
+        }
+      },
+      {
+        "id": "ENC-018",
+        "name": "Day 14/Early Exit Visit 3",
+        "originalName": "Day 14/Early Exit (Visit 3)",
+        "visitType": "end_of_treatment",
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "timing": {
+          "value": 14,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 18
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 18
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 18
+        }
+      },
+      {
+        "id": "ENC-019",
+        "name": "Day 14/Early Exit Visit 3",
+        "originalName": "Day 14/Early Exit (Visit 3)",
+        "visitType": "end_of_treatment",
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "timing": {
+          "value": 14,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 19
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 19
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 19
+        }
+      },
+      {
+        "id": "ENC-020",
+        "name": "Day 14/Early Exit Visit 3",
+        "originalName": "Day 14/Early Exit (Visit 3)",
+        "visitType": "end_of_treatment",
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "timing": {
+          "value": 14,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 20
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 20
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 20
+        }
+      },
+      {
+        "id": "ENC-021",
+        "name": "Day 14/Early Exit Visit 3",
+        "originalName": "Day 14/Early Exit (Visit 3)",
+        "visitType": "end_of_treatment",
+        "timingModifier": "Hour 12",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "timing": {
+          "value": 14,
+          "unit": "days",
+          "relativeTo": "first_dose",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 21
+          }
+        },
+        "window": {
+          "earlyBound": 2,
+          "lateBound": 2,
+          "type": "range",
+          "description": "\u00b1 2 days",
+          "provenance": {
+            "pageNumber": 38,
+            "tableId": "SOA-1",
+            "colIdx": 21
+          }
+        },
+        "recurrence": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "colIdx": 21
+        }
+      }
+    ],
+    "activities": [
+      {
+        "id": "ACT-001",
+        "name": "Informed consent",
+        "category": "OTHER",
+        "cdashDomain": "IE",
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 4
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-002",
+        "name": "Contact IRT for subject ID number",
+        "category": "OTHER",
+        "cdashDomain": "IE",
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 5
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-003",
+        "name": "Iris color assessment",
+        "category": "OTHER",
+        "cdashDomain": "PE",
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 6
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-004",
+        "name": "Demography",
+        "category": "OTHER",
+        "cdashDomain": "DM",
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 7
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-005",
+        "name": "Medical and ophthalmic history",
+        "category": "OTHER",
+        "cdashDomain": "MH",
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 8
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-006",
+        "name": "Prestudy/ concomitant medication query",
+        "category": "OTHER",
+        "cdashDomain": "CM",
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 9
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-007",
+        "name": "NEI VFQ-25 and near vision subscale in the Appendix of Optional Additional Questions",
+        "category": "QUESTIONNAIRE",
+        "cdashDomain": "QS",
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 10
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-008",
+        "name": "OSDI",
+        "category": "QUESTIONNAIRE",
+        "cdashDomain": "QS",
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 11
+        },
+        "footnoteMarkers": [
+          "b"
+        ]
+      },
+      {
+        "id": "ACT-009",
+        "name": "AE query",
+        "category": "SAFETY",
+        "cdashDomain": "AE",
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12
+        },
+        "footnoteMarkers": [
+          "c"
+        ]
+      },
+      {
+        "id": "ACT-010",
+        "name": "Vital signs",
+        "category": "VITAL_SIGNS",
+        "cdashDomain": "VS",
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 13
+        },
+        "footnoteMarkers": [
+          "d"
+        ]
+      },
+      {
+        "id": "ACT-011",
+        "name": "Urine pregnancy test",
+        "category": "LABORATORY",
+        "cdashDomain": "LB",
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 14
+        },
+        "footnoteMarkers": [
+          "e"
+        ]
+      },
+      {
+        "id": "ACT-012",
+        "name": "Dominant eye determination",
+        "category": "OTHER",
+        "cdashDomain": "PE",
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 15
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-013",
+        "name": "Contact IRT for kit assignment/ randomization",
+        "category": "OTHER",
+        "cdashDomain": "IE",
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 16
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-014",
+        "name": "PICQ",
+        "category": "QUESTIONNAIRE",
+        "cdashDomain": "QS",
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 17
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-015",
+        "name": "Pupillary reaction to light assessment",
+        "category": "OTHER",
+        "cdashDomain": "PE",
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 18
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-016",
+        "name": "Dark adaptation",
+        "category": "EFFICACY",
+        "cdashDomain": "FT",
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-017",
+        "name": "Mesopic manifest refraction (distance and near)",
+        "category": "OTHER",
+        "cdashDomain": "OE",
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 20
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-018",
+        "name": "Mesopic, high-contrast CDVA + pupil diameter",
+        "category": "EFFICACY",
+        "cdashDomain": "OE",
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-019",
+        "name": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "category": "EFFICACY",
+        "cdashDomain": "OE",
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-020",
+        "name": "Mesopic NVPTQ",
+        "category": "QUESTIONNAIRE",
+        "cdashDomain": "QS",
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 23
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-021",
+        "name": "Photopic manifest refraction (distance and near)",
+        "category": "OTHER",
+        "cdashDomain": "OE",
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 25
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-022",
+        "name": "Photopic high-contrast CDVA + pupil diameter",
+        "category": "EFFICACY",
+        "cdashDomain": "OE",
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-023",
+        "name": "Photopic, high-contrast DCNVA + pupil diameter",
+        "category": "EFFICACY",
+        "cdashDomain": "OE",
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-024",
+        "name": "Single-item PGIS",
+        "category": "QUESTIONNAIRE",
+        "cdashDomain": "QS",
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 28
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-025",
+        "name": "Single-item PGIC",
+        "category": "QUESTIONNAIRE",
+        "cdashDomain": "QS",
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 29
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-026",
+        "name": "Visual Function Assessment application (VFA app)",
+        "category": "EFFICACY",
+        "cdashDomain": "QS",
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 30
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-027",
+        "name": "Slit-lamp biomicroscopy",
+        "category": "PHYSICAL_EXAM",
+        "cdashDomain": "PE",
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 31
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-028",
+        "name": "Fluorescein corneal staining",
+        "category": "OTHER",
+        "cdashDomain": "OE",
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 32
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-029",
+        "name": "IOP measurement",
+        "category": "OTHER",
+        "cdashDomain": "OE",
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 33
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-030",
+        "name": "Gonioscopy/angle assessment",
+        "category": "OTHER",
+        "cdashDomain": "OE",
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 34
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-031",
+        "name": "Dilating drop administration",
+        "category": "OTHER",
+        "cdashDomain": "EX",
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 35
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-032",
+        "name": "Cycloplegic refraction",
+        "category": "OTHER",
+        "cdashDomain": "OE",
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 36
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-033",
+        "name": "Dilated fundoscopic examination",
+        "category": "PHYSICAL_EXAM",
+        "cdashDomain": "PE",
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 37
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-034",
+        "name": "Review inclusion and exclusion criteria",
+        "category": "OTHER",
+        "cdashDomain": "IE",
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 38
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-035",
+        "name": "PK",
+        "category": "SPECIMEN_COLLECTION",
+        "cdashDomain": "PC",
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 39
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-036",
+        "name": "Study drug administration",
+        "category": "OTHER",
+        "cdashDomain": "EX",
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 40
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-037",
+        "name": "Drop comfort questionnaire",
+        "category": "QUESTIONNAIRE",
+        "cdashDomain": "QS",
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 41
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-038",
+        "name": "Post-Dose Tolerability Assessment",
+        "category": "SAFETY",
+        "cdashDomain": "FT",
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 42
+        },
+        "footnoteMarkers": []
+      },
+      {
+        "id": "ACT-039",
+        "name": "Study drug dispensing to subject",
+        "category": "OTHER",
+        "cdashDomain": "EX",
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 43
+        },
+        "footnoteMarkers": []
+      }
+    ],
+    "scheduledActivityInstances": [
+      {
+        "id": "SAI-001",
+        "activityId": "ACT-001",
+        "activityName": "Informed consent",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 4,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-002",
+        "activityId": "ACT-002",
+        "activityName": "Contact IRT for subject ID number",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 5,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-003",
+        "activityId": "ACT-003",
+        "activityName": "Iris color assessment",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 6,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-004",
+        "activityId": "ACT-004",
+        "activityName": "Demography",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 7,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-005",
+        "activityId": "ACT-005",
+        "activityName": "Medical and ophthalmic history",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 8,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-006",
+        "activityId": "ACT-006",
+        "activityName": "Prestudy/ concomitant medication query",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 9,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-007",
+        "activityId": "ACT-006",
+        "activityName": "Prestudy/ concomitant medication query",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 9,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-008",
+        "activityId": "ACT-006",
+        "activityName": "Prestudy/ concomitant medication query",
+        "visitId": "ENC-009",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 9,
+          "colIdx": 9
+        }
+      },
+      {
+        "id": "SAI-009",
+        "activityId": "ACT-006",
+        "activityName": "Prestudy/ concomitant medication query",
+        "visitId": "ENC-015",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 9,
+          "colIdx": 15
+        }
+      },
+      {
+        "id": "SAI-010",
+        "activityId": "ACT-007",
+        "activityName": "NEI VFQ-25 and near vision subscale in the Appendix of Optional Additional Questions",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [
+          "a"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 10,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-011",
+        "activityId": "ACT-008",
+        "activityName": "OSDI",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [
+          "b"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 11,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-012",
+        "activityId": "ACT-009",
+        "activityName": "AE query",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [
+          "c"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-013",
+        "activityId": "ACT-009",
+        "activityName": "AE query",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "c"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-014",
+        "activityId": "ACT-009",
+        "activityName": "AE query",
+        "visitId": "ENC-003",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "c"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12,
+          "colIdx": 3
+        }
+      },
+      {
+        "id": "SAI-015",
+        "activityId": "ACT-009",
+        "activityName": "AE query",
+        "visitId": "ENC-004",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "c"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12,
+          "colIdx": 4
+        }
+      },
+      {
+        "id": "SAI-016",
+        "activityId": "ACT-009",
+        "activityName": "AE query",
+        "visitId": "ENC-005",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "c"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12,
+          "colIdx": 5
+        }
+      },
+      {
+        "id": "SAI-017",
+        "activityId": "ACT-009",
+        "activityName": "AE query",
+        "visitId": "ENC-006",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "c"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12,
+          "colIdx": 6
+        }
+      },
+      {
+        "id": "SAI-018",
+        "activityId": "ACT-009",
+        "activityName": "AE query",
+        "visitId": "ENC-007",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "c"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12,
+          "colIdx": 7
+        }
+      },
+      {
+        "id": "SAI-019",
+        "activityId": "ACT-009",
+        "activityName": "AE query",
+        "visitId": "ENC-009",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [
+          "c"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12,
+          "colIdx": 9
+        }
+      },
+      {
+        "id": "SAI-020",
+        "activityId": "ACT-009",
+        "activityName": "AE query",
+        "visitId": "ENC-010",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [
+          "c"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12,
+          "colIdx": 10
+        }
+      },
+      {
+        "id": "SAI-021",
+        "activityId": "ACT-009",
+        "activityName": "AE query",
+        "visitId": "ENC-011",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [
+          "c"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12,
+          "colIdx": 11
+        }
+      },
+      {
+        "id": "SAI-022",
+        "activityId": "ACT-009",
+        "activityName": "AE query",
+        "visitId": "ENC-012",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [
+          "c"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12,
+          "colIdx": 12
+        }
+      },
+      {
+        "id": "SAI-023",
+        "activityId": "ACT-009",
+        "activityName": "AE query",
+        "visitId": "ENC-013",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [
+          "c"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12,
+          "colIdx": 13
+        }
+      },
+      {
+        "id": "SAI-024",
+        "activityId": "ACT-009",
+        "activityName": "AE query",
+        "visitId": "ENC-014",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [
+          "c"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12,
+          "colIdx": 14
+        }
+      },
+      {
+        "id": "SAI-025",
+        "activityId": "ACT-009",
+        "activityName": "AE query",
+        "visitId": "ENC-015",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12,
+          "colIdx": 15
+        }
+      },
+      {
+        "id": "SAI-026",
+        "activityId": "ACT-009",
+        "activityName": "AE query",
+        "visitId": "ENC-016",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12,
+          "colIdx": 16
+        }
+      },
+      {
+        "id": "SAI-027",
+        "activityId": "ACT-009",
+        "activityName": "AE query",
+        "visitId": "ENC-017",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12,
+          "colIdx": 17
+        }
+      },
+      {
+        "id": "SAI-028",
+        "activityId": "ACT-009",
+        "activityName": "AE query",
+        "visitId": "ENC-018",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12,
+          "colIdx": 18
+        }
+      },
+      {
+        "id": "SAI-029",
+        "activityId": "ACT-009",
+        "activityName": "AE query",
+        "visitId": "ENC-019",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12,
+          "colIdx": 19
+        }
+      },
+      {
+        "id": "SAI-030",
+        "activityId": "ACT-009",
+        "activityName": "AE query",
+        "visitId": "ENC-020",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 12,
+          "colIdx": 20
+        }
+      },
+      {
+        "id": "SAI-031",
+        "activityId": "ACT-010",
+        "activityName": "Vital signs",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [
+          "d"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 13,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-032",
+        "activityId": "ACT-010",
+        "activityName": "Vital signs",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "d"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 13,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-033",
+        "activityId": "ACT-010",
+        "activityName": "Vital signs",
+        "visitId": "ENC-006",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "d"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 13,
+          "colIdx": 6
+        }
+      },
+      {
+        "id": "SAI-034",
+        "activityId": "ACT-010",
+        "activityName": "Vital signs",
+        "visitId": "ENC-015",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 13,
+          "colIdx": 15
+        }
+      },
+      {
+        "id": "SAI-035",
+        "activityId": "ACT-010",
+        "activityName": "Vital signs",
+        "visitId": "ENC-019",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 13,
+          "colIdx": 19
+        }
+      },
+      {
+        "id": "SAI-036",
+        "activityId": "ACT-011",
+        "activityName": "Urine pregnancy test",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [
+          "e"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 14,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-037",
+        "activityId": "ACT-011",
+        "activityName": "Urine pregnancy test",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "e"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 14,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-038",
+        "activityId": "ACT-011",
+        "activityName": "Urine pregnancy test",
+        "visitId": "ENC-015",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 14,
+          "colIdx": 15
+        }
+      },
+      {
+        "id": "SAI-039",
+        "activityId": "ACT-012",
+        "activityName": "Dominant eye determination",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 15,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-040",
+        "activityId": "ACT-013",
+        "activityName": "Contact IRT for kit assignment/ randomization",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "f"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 16,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-041",
+        "activityId": "ACT-014",
+        "activityName": "PICQ",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "g"
+        ],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 17,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-042",
+        "activityId": "ACT-014",
+        "activityName": "PICQ",
+        "visitId": "ENC-011",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 17,
+          "colIdx": 11
+        }
+      },
+      {
+        "id": "SAI-043",
+        "activityId": "ACT-014",
+        "activityName": "PICQ",
+        "visitId": "ENC-017",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 17,
+          "colIdx": 17
+        }
+      },
+      {
+        "id": "SAI-044",
+        "activityId": "ACT-015",
+        "activityName": "Pupillary reaction to light assessment",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 38,
+          "tableId": "SOA-1",
+          "rowIdx": 18,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-045",
+        "activityId": "ACT-016",
+        "activityName": "Dark adaptation",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [
+          "h"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-046",
+        "activityId": "ACT-016",
+        "activityName": "Dark adaptation",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "h"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-047",
+        "activityId": "ACT-016",
+        "activityName": "Dark adaptation",
+        "visitId": "ENC-003",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "h"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19,
+          "colIdx": 3
+        }
+      },
+      {
+        "id": "SAI-048",
+        "activityId": "ACT-016",
+        "activityName": "Dark adaptation",
+        "visitId": "ENC-004",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "h"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19,
+          "colIdx": 4
+        }
+      },
+      {
+        "id": "SAI-049",
+        "activityId": "ACT-016",
+        "activityName": "Dark adaptation",
+        "visitId": "ENC-005",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "h"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19,
+          "colIdx": 5
+        }
+      },
+      {
+        "id": "SAI-050",
+        "activityId": "ACT-016",
+        "activityName": "Dark adaptation",
+        "visitId": "ENC-006",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "h"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19,
+          "colIdx": 6
+        }
+      },
+      {
+        "id": "SAI-051",
+        "activityId": "ACT-016",
+        "activityName": "Dark adaptation",
+        "visitId": "ENC-007",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "h"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19,
+          "colIdx": 7
+        }
+      },
+      {
+        "id": "SAI-052",
+        "activityId": "ACT-016",
+        "activityName": "Dark adaptation",
+        "visitId": "ENC-009",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [
+          "h"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19,
+          "colIdx": 9
+        }
+      },
+      {
+        "id": "SAI-053",
+        "activityId": "ACT-016",
+        "activityName": "Dark adaptation",
+        "visitId": "ENC-010",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [
+          "h"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19,
+          "colIdx": 10
+        }
+      },
+      {
+        "id": "SAI-054",
+        "activityId": "ACT-016",
+        "activityName": "Dark adaptation",
+        "visitId": "ENC-011",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [
+          "h"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19,
+          "colIdx": 11
+        }
+      },
+      {
+        "id": "SAI-055",
+        "activityId": "ACT-016",
+        "activityName": "Dark adaptation",
+        "visitId": "ENC-012",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [
+          "h"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19,
+          "colIdx": 12
+        }
+      },
+      {
+        "id": "SAI-056",
+        "activityId": "ACT-016",
+        "activityName": "Dark adaptation",
+        "visitId": "ENC-013",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [
+          "h"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19,
+          "colIdx": 13
+        }
+      },
+      {
+        "id": "SAI-057",
+        "activityId": "ACT-016",
+        "activityName": "Dark adaptation",
+        "visitId": "ENC-014",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [
+          "h"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19,
+          "colIdx": 14
+        }
+      },
+      {
+        "id": "SAI-058",
+        "activityId": "ACT-016",
+        "activityName": "Dark adaptation",
+        "visitId": "ENC-015",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [
+          "h"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19,
+          "colIdx": 15
+        }
+      },
+      {
+        "id": "SAI-059",
+        "activityId": "ACT-016",
+        "activityName": "Dark adaptation",
+        "visitId": "ENC-016",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [
+          "h"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19,
+          "colIdx": 16
+        }
+      },
+      {
+        "id": "SAI-060",
+        "activityId": "ACT-016",
+        "activityName": "Dark adaptation",
+        "visitId": "ENC-017",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [
+          "h"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19,
+          "colIdx": 17
+        }
+      },
+      {
+        "id": "SAI-061",
+        "activityId": "ACT-016",
+        "activityName": "Dark adaptation",
+        "visitId": "ENC-018",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [
+          "h"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19,
+          "colIdx": 18
+        }
+      },
+      {
+        "id": "SAI-062",
+        "activityId": "ACT-016",
+        "activityName": "Dark adaptation",
+        "visitId": "ENC-019",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [
+          "h"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19,
+          "colIdx": 19
+        }
+      },
+      {
+        "id": "SAI-063",
+        "activityId": "ACT-016",
+        "activityName": "Dark adaptation",
+        "visitId": "ENC-020",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [
+          "h"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 19,
+          "colIdx": 20
+        }
+      },
+      {
+        "id": "SAI-064",
+        "activityId": "ACT-017",
+        "activityName": "Mesopic manifest refraction (distance and near)",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 20,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-065",
+        "activityId": "ACT-018",
+        "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-066",
+        "activityId": "ACT-018",
+        "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-067",
+        "activityId": "ACT-018",
+        "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-003",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21,
+          "colIdx": 3
+        }
+      },
+      {
+        "id": "SAI-068",
+        "activityId": "ACT-018",
+        "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-004",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21,
+          "colIdx": 4
+        }
+      },
+      {
+        "id": "SAI-069",
+        "activityId": "ACT-018",
+        "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-005",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21,
+          "colIdx": 5
+        }
+      },
+      {
+        "id": "SAI-070",
+        "activityId": "ACT-018",
+        "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-006",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21,
+          "colIdx": 6
+        }
+      },
+      {
+        "id": "SAI-071",
+        "activityId": "ACT-018",
+        "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-007",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21,
+          "colIdx": 7
+        }
+      },
+      {
+        "id": "SAI-072",
+        "activityId": "ACT-018",
+        "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-009",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21,
+          "colIdx": 9
+        }
+      },
+      {
+        "id": "SAI-073",
+        "activityId": "ACT-018",
+        "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-010",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21,
+          "colIdx": 10
+        }
+      },
+      {
+        "id": "SAI-074",
+        "activityId": "ACT-018",
+        "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-011",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21,
+          "colIdx": 11
+        }
+      },
+      {
+        "id": "SAI-075",
+        "activityId": "ACT-018",
+        "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-012",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21,
+          "colIdx": 12
+        }
+      },
+      {
+        "id": "SAI-076",
+        "activityId": "ACT-018",
+        "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-013",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21,
+          "colIdx": 13
+        }
+      },
+      {
+        "id": "SAI-077",
+        "activityId": "ACT-018",
+        "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-014",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21,
+          "colIdx": 14
+        }
+      },
+      {
+        "id": "SAI-078",
+        "activityId": "ACT-018",
+        "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-015",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21,
+          "colIdx": 15
+        }
+      },
+      {
+        "id": "SAI-079",
+        "activityId": "ACT-018",
+        "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-016",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21,
+          "colIdx": 16
+        }
+      },
+      {
+        "id": "SAI-080",
+        "activityId": "ACT-018",
+        "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-017",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21,
+          "colIdx": 17
+        }
+      },
+      {
+        "id": "SAI-081",
+        "activityId": "ACT-018",
+        "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-018",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21,
+          "colIdx": 18
+        }
+      },
+      {
+        "id": "SAI-082",
+        "activityId": "ACT-018",
+        "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-019",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21,
+          "colIdx": 19
+        }
+      },
+      {
+        "id": "SAI-083",
+        "activityId": "ACT-018",
+        "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-020",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 21,
+          "colIdx": 20
+        }
+      },
+      {
+        "id": "SAI-084",
+        "activityId": "ACT-019",
+        "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-085",
+        "activityId": "ACT-019",
+        "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-086",
+        "activityId": "ACT-019",
+        "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-003",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22,
+          "colIdx": 3
+        }
+      },
+      {
+        "id": "SAI-087",
+        "activityId": "ACT-019",
+        "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-004",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22,
+          "colIdx": 4
+        }
+      },
+      {
+        "id": "SAI-088",
+        "activityId": "ACT-019",
+        "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-005",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22,
+          "colIdx": 5
+        }
+      },
+      {
+        "id": "SAI-089",
+        "activityId": "ACT-019",
+        "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-006",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22,
+          "colIdx": 6
+        }
+      },
+      {
+        "id": "SAI-090",
+        "activityId": "ACT-019",
+        "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-007",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22,
+          "colIdx": 7
+        }
+      },
+      {
+        "id": "SAI-091",
+        "activityId": "ACT-019",
+        "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-009",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22,
+          "colIdx": 9
+        }
+      },
+      {
+        "id": "SAI-092",
+        "activityId": "ACT-019",
+        "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-010",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22,
+          "colIdx": 10
+        }
+      },
+      {
+        "id": "SAI-093",
+        "activityId": "ACT-019",
+        "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-011",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22,
+          "colIdx": 11
+        }
+      },
+      {
+        "id": "SAI-094",
+        "activityId": "ACT-019",
+        "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-012",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22,
+          "colIdx": 12
+        }
+      },
+      {
+        "id": "SAI-095",
+        "activityId": "ACT-019",
+        "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-013",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22,
+          "colIdx": 13
+        }
+      },
+      {
+        "id": "SAI-096",
+        "activityId": "ACT-019",
+        "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-014",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22,
+          "colIdx": 14
+        }
+      },
+      {
+        "id": "SAI-097",
+        "activityId": "ACT-019",
+        "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-015",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22,
+          "colIdx": 15
+        }
+      },
+      {
+        "id": "SAI-098",
+        "activityId": "ACT-019",
+        "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-016",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22,
+          "colIdx": 16
+        }
+      },
+      {
+        "id": "SAI-099",
+        "activityId": "ACT-019",
+        "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-017",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22,
+          "colIdx": 17
+        }
+      },
+      {
+        "id": "SAI-100",
+        "activityId": "ACT-019",
+        "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-018",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22,
+          "colIdx": 18
+        }
+      },
+      {
+        "id": "SAI-101",
+        "activityId": "ACT-019",
+        "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-019",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22,
+          "colIdx": 19
+        }
+      },
+      {
+        "id": "SAI-102",
+        "activityId": "ACT-019",
+        "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-020",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 22,
+          "colIdx": 20
+        }
+      },
+      {
+        "id": "SAI-103",
+        "activityId": "ACT-020",
+        "activityName": "Mesopic NVPTQ",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 23,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-104",
+        "activityId": "ACT-020",
+        "activityName": "Mesopic NVPTQ",
+        "visitId": "ENC-014",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 23,
+          "colIdx": 14
+        }
+      },
+      {
+        "id": "SAI-105",
+        "activityId": "ACT-020",
+        "activityName": "Mesopic NVPTQ",
+        "visitId": "ENC-020",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 23,
+          "colIdx": 20
+        }
+      },
+      {
+        "id": "SAI-106",
+        "activityId": "ACT-021",
+        "activityName": "Photopic manifest refraction (distance and near)",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [
+          "i"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 25,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-107",
+        "activityId": "ACT-022",
+        "activityName": "Photopic high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [
+          "j"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-108",
+        "activityId": "ACT-022",
+        "activityName": "Photopic high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-109",
+        "activityId": "ACT-022",
+        "activityName": "Photopic high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-003",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26,
+          "colIdx": 3
+        }
+      },
+      {
+        "id": "SAI-110",
+        "activityId": "ACT-022",
+        "activityName": "Photopic high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-004",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26,
+          "colIdx": 4
+        }
+      },
+      {
+        "id": "SAI-111",
+        "activityId": "ACT-022",
+        "activityName": "Photopic high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-005",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26,
+          "colIdx": 5
+        }
+      },
+      {
+        "id": "SAI-112",
+        "activityId": "ACT-022",
+        "activityName": "Photopic high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-006",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26,
+          "colIdx": 6
+        }
+      },
+      {
+        "id": "SAI-113",
+        "activityId": "ACT-022",
+        "activityName": "Photopic high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-007",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26,
+          "colIdx": 7
+        }
+      },
+      {
+        "id": "SAI-114",
+        "activityId": "ACT-022",
+        "activityName": "Photopic high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-009",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26,
+          "colIdx": 9
+        }
+      },
+      {
+        "id": "SAI-115",
+        "activityId": "ACT-022",
+        "activityName": "Photopic high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-010",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26,
+          "colIdx": 10
+        }
+      },
+      {
+        "id": "SAI-116",
+        "activityId": "ACT-022",
+        "activityName": "Photopic high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-011",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26,
+          "colIdx": 11
+        }
+      },
+      {
+        "id": "SAI-117",
+        "activityId": "ACT-022",
+        "activityName": "Photopic high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-012",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26,
+          "colIdx": 12
+        }
+      },
+      {
+        "id": "SAI-118",
+        "activityId": "ACT-022",
+        "activityName": "Photopic high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-013",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26,
+          "colIdx": 13
+        }
+      },
+      {
+        "id": "SAI-119",
+        "activityId": "ACT-022",
+        "activityName": "Photopic high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-014",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26,
+          "colIdx": 14
+        }
+      },
+      {
+        "id": "SAI-120",
+        "activityId": "ACT-022",
+        "activityName": "Photopic high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-015",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26,
+          "colIdx": 15
+        }
+      },
+      {
+        "id": "SAI-121",
+        "activityId": "ACT-022",
+        "activityName": "Photopic high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-016",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26,
+          "colIdx": 16
+        }
+      },
+      {
+        "id": "SAI-122",
+        "activityId": "ACT-022",
+        "activityName": "Photopic high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-017",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26,
+          "colIdx": 17
+        }
+      },
+      {
+        "id": "SAI-123",
+        "activityId": "ACT-022",
+        "activityName": "Photopic high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-018",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26,
+          "colIdx": 18
+        }
+      },
+      {
+        "id": "SAI-124",
+        "activityId": "ACT-022",
+        "activityName": "Photopic high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-019",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26,
+          "colIdx": 19
+        }
+      },
+      {
+        "id": "SAI-125",
+        "activityId": "ACT-022",
+        "activityName": "Photopic high-contrast CDVA + pupil diameter",
+        "visitId": "ENC-020",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 26,
+          "colIdx": 20
+        }
+      },
+      {
+        "id": "SAI-126",
+        "activityId": "ACT-023",
+        "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [
+          "k"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-127",
+        "activityId": "ACT-023",
+        "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-128",
+        "activityId": "ACT-023",
+        "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-003",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27,
+          "colIdx": 3
+        }
+      },
+      {
+        "id": "SAI-129",
+        "activityId": "ACT-023",
+        "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-004",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27,
+          "colIdx": 4
+        }
+      },
+      {
+        "id": "SAI-130",
+        "activityId": "ACT-023",
+        "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-005",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27,
+          "colIdx": 5
+        }
+      },
+      {
+        "id": "SAI-131",
+        "activityId": "ACT-023",
+        "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-006",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27,
+          "colIdx": 6
+        }
+      },
+      {
+        "id": "SAI-132",
+        "activityId": "ACT-023",
+        "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-007",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27,
+          "colIdx": 7
+        }
+      },
+      {
+        "id": "SAI-133",
+        "activityId": "ACT-023",
+        "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-009",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27,
+          "colIdx": 9
+        }
+      },
+      {
+        "id": "SAI-134",
+        "activityId": "ACT-023",
+        "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-010",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27,
+          "colIdx": 10
+        }
+      },
+      {
+        "id": "SAI-135",
+        "activityId": "ACT-023",
+        "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-011",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27,
+          "colIdx": 11
+        }
+      },
+      {
+        "id": "SAI-136",
+        "activityId": "ACT-023",
+        "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-012",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27,
+          "colIdx": 12
+        }
+      },
+      {
+        "id": "SAI-137",
+        "activityId": "ACT-023",
+        "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-013",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27,
+          "colIdx": 13
+        }
+      },
+      {
+        "id": "SAI-138",
+        "activityId": "ACT-023",
+        "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-014",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27,
+          "colIdx": 14
+        }
+      },
+      {
+        "id": "SAI-139",
+        "activityId": "ACT-023",
+        "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-015",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27,
+          "colIdx": 15
+        }
+      },
+      {
+        "id": "SAI-140",
+        "activityId": "ACT-023",
+        "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-016",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27,
+          "colIdx": 16
+        }
+      },
+      {
+        "id": "SAI-141",
+        "activityId": "ACT-023",
+        "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-017",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27,
+          "colIdx": 17
+        }
+      },
+      {
+        "id": "SAI-142",
+        "activityId": "ACT-023",
+        "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-018",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27,
+          "colIdx": 18
+        }
+      },
+      {
+        "id": "SAI-143",
+        "activityId": "ACT-023",
+        "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-019",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27,
+          "colIdx": 19
+        }
+      },
+      {
+        "id": "SAI-144",
+        "activityId": "ACT-023",
+        "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+        "visitId": "ENC-020",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 27,
+          "colIdx": 20
+        }
+      },
+      {
+        "id": "SAI-145",
+        "activityId": "ACT-024",
+        "activityName": "Single-item PGIS",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "l"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 28,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-146",
+        "activityId": "ACT-024",
+        "activityName": "Single-item PGIS",
+        "visitId": "ENC-014",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 28,
+          "colIdx": 14
+        }
+      },
+      {
+        "id": "SAI-147",
+        "activityId": "ACT-024",
+        "activityName": "Single-item PGIS",
+        "visitId": "ENC-020",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 28,
+          "colIdx": 20
+        }
+      },
+      {
+        "id": "SAI-148",
+        "activityId": "ACT-025",
+        "activityName": "Single-item PGIC",
+        "visitId": "ENC-014",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 29,
+          "colIdx": 14
+        }
+      },
+      {
+        "id": "SAI-149",
+        "activityId": "ACT-025",
+        "activityName": "Single-item PGIC",
+        "visitId": "ENC-020",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 29,
+          "colIdx": 20
+        }
+      },
+      {
+        "id": "SAI-150",
+        "activityId": "ACT-026",
+        "activityName": "Visual Function Assessment application (VFA app)",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "m"
+        ],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 30,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-151",
+        "activityId": "ACT-026",
+        "activityName": "Visual Function Assessment application (VFA app)",
+        "visitId": "ENC-014",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 30,
+          "colIdx": 14
+        }
+      },
+      {
+        "id": "SAI-152",
+        "activityId": "ACT-026",
+        "activityName": "Visual Function Assessment application (VFA app)",
+        "visitId": "ENC-020",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 30,
+          "colIdx": 20
+        }
+      },
+      {
+        "id": "SAI-153",
+        "activityId": "ACT-027",
+        "activityName": "Slit-lamp biomicroscopy",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 31,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-154",
+        "activityId": "ACT-027",
+        "activityName": "Slit-lamp biomicroscopy",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 31,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-155",
+        "activityId": "ACT-027",
+        "activityName": "Slit-lamp biomicroscopy",
+        "visitId": "ENC-003",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 31,
+          "colIdx": 3
+        }
+      },
+      {
+        "id": "SAI-156",
+        "activityId": "ACT-027",
+        "activityName": "Slit-lamp biomicroscopy",
+        "visitId": "ENC-006",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 31,
+          "colIdx": 6
+        }
+      },
+      {
+        "id": "SAI-157",
+        "activityId": "ACT-027",
+        "activityName": "Slit-lamp biomicroscopy",
+        "visitId": "ENC-009",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 31,
+          "colIdx": 9
+        }
+      },
+      {
+        "id": "SAI-158",
+        "activityId": "ACT-027",
+        "activityName": "Slit-lamp biomicroscopy",
+        "visitId": "ENC-010",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 31,
+          "colIdx": 10
+        }
+      },
+      {
+        "id": "SAI-159",
+        "activityId": "ACT-027",
+        "activityName": "Slit-lamp biomicroscopy",
+        "visitId": "ENC-013",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 31,
+          "colIdx": 13
+        }
+      },
+      {
+        "id": "SAI-160",
+        "activityId": "ACT-027",
+        "activityName": "Slit-lamp biomicroscopy",
+        "visitId": "ENC-015",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 31,
+          "colIdx": 15
+        }
+      },
+      {
+        "id": "SAI-161",
+        "activityId": "ACT-027",
+        "activityName": "Slit-lamp biomicroscopy",
+        "visitId": "ENC-016",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 31,
+          "colIdx": 16
+        }
+      },
+      {
+        "id": "SAI-162",
+        "activityId": "ACT-027",
+        "activityName": "Slit-lamp biomicroscopy",
+        "visitId": "ENC-019",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 31,
+          "colIdx": 19
+        }
+      },
+      {
+        "id": "SAI-163",
+        "activityId": "ACT-028",
+        "activityName": "Fluorescein corneal staining",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 32,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-164",
+        "activityId": "ACT-029",
+        "activityName": "IOP measurement",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 33,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-165",
+        "activityId": "ACT-029",
+        "activityName": "IOP measurement",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 33,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-166",
+        "activityId": "ACT-029",
+        "activityName": "IOP measurement",
+        "visitId": "ENC-003",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 33,
+          "colIdx": 3
+        }
+      },
+      {
+        "id": "SAI-167",
+        "activityId": "ACT-029",
+        "activityName": "IOP measurement",
+        "visitId": "ENC-006",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 33,
+          "colIdx": 6
+        }
+      },
+      {
+        "id": "SAI-168",
+        "activityId": "ACT-029",
+        "activityName": "IOP measurement",
+        "visitId": "ENC-009",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 33,
+          "colIdx": 9
+        }
+      },
+      {
+        "id": "SAI-169",
+        "activityId": "ACT-029",
+        "activityName": "IOP measurement",
+        "visitId": "ENC-010",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 33,
+          "colIdx": 10
+        }
+      },
+      {
+        "id": "SAI-170",
+        "activityId": "ACT-029",
+        "activityName": "IOP measurement",
+        "visitId": "ENC-013",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 33,
+          "colIdx": 13
+        }
+      },
+      {
+        "id": "SAI-171",
+        "activityId": "ACT-029",
+        "activityName": "IOP measurement",
+        "visitId": "ENC-015",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 33,
+          "colIdx": 15
+        }
+      },
+      {
+        "id": "SAI-172",
+        "activityId": "ACT-029",
+        "activityName": "IOP measurement",
+        "visitId": "ENC-016",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 33,
+          "colIdx": 16
+        }
+      },
+      {
+        "id": "SAI-173",
+        "activityId": "ACT-029",
+        "activityName": "IOP measurement",
+        "visitId": "ENC-019",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 39,
+          "tableId": "SOA-1",
+          "rowIdx": 33,
+          "colIdx": 19
+        }
+      },
+      {
+        "id": "SAI-174",
+        "activityId": "ACT-030",
+        "activityName": "Gonioscopy/angle assessment",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 34,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-175",
+        "activityId": "ACT-031",
+        "activityName": "Dilating drop administration",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 35,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-176",
+        "activityId": "ACT-031",
+        "activityName": "Dilating drop administration",
+        "visitId": "ENC-020",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 35,
+          "colIdx": 20
+        }
+      },
+      {
+        "id": "SAI-177",
+        "activityId": "ACT-032",
+        "activityName": "Cycloplegic refraction",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [
+          "n"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 36,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-178",
+        "activityId": "ACT-033",
+        "activityName": "Dilated fundoscopic examination",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [
+          "o"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 37,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-179",
+        "activityId": "ACT-033",
+        "activityName": "Dilated fundoscopic examination",
+        "visitId": "ENC-020",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 37,
+          "colIdx": 20
+        }
+      },
+      {
+        "id": "SAI-180",
+        "activityId": "ACT-034",
+        "activityName": "Review inclusion and exclusion criteria",
+        "visitId": "ENC-001",
+        "visitName": "Screening",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": null,
+        "parentVisit": null,
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 38,
+          "colIdx": 1
+        }
+      },
+      {
+        "id": "SAI-181",
+        "activityId": "ACT-034",
+        "activityName": "Review inclusion and exclusion criteria",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 38,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-182",
+        "activityId": "ACT-035",
+        "activityName": "PK",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "p"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 39,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-183",
+        "activityId": "ACT-035",
+        "activityName": "PK",
+        "visitId": "ENC-003",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "p"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 39,
+          "colIdx": 3
+        }
+      },
+      {
+        "id": "SAI-184",
+        "activityId": "ACT-035",
+        "activityName": "PK",
+        "visitId": "ENC-004",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "p"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 39,
+          "colIdx": 4
+        }
+      },
+      {
+        "id": "SAI-185",
+        "activityId": "ACT-035",
+        "activityName": "PK",
+        "visitId": "ENC-005",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "p"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 39,
+          "colIdx": 5
+        }
+      },
+      {
+        "id": "SAI-186",
+        "activityId": "ACT-035",
+        "activityName": "PK",
+        "visitId": "ENC-006",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "p"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 39,
+          "colIdx": 6
+        }
+      },
+      {
+        "id": "SAI-187",
+        "activityId": "ACT-035",
+        "activityName": "PK",
+        "visitId": "ENC-007",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "p"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 39,
+          "colIdx": 7
+        }
+      },
+      {
+        "id": "SAI-188",
+        "activityId": "ACT-035",
+        "activityName": "PK",
+        "visitId": "ENC-008",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 12",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [
+          "p"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 39,
+          "colIdx": 8
+        }
+      },
+      {
+        "id": "SAI-189",
+        "activityId": "ACT-035",
+        "activityName": "PK",
+        "visitId": "ENC-015",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [
+          "p"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 39,
+          "colIdx": 15
+        }
+      },
+      {
+        "id": "SAI-190",
+        "activityId": "ACT-035",
+        "activityName": "PK",
+        "visitId": "ENC-016",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 1",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [
+          "p"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 39,
+          "colIdx": 16
+        }
+      },
+      {
+        "id": "SAI-191",
+        "activityId": "ACT-035",
+        "activityName": "PK",
+        "visitId": "ENC-017",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 3",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [
+          "p"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 39,
+          "colIdx": 17
+        }
+      },
+      {
+        "id": "SAI-192",
+        "activityId": "ACT-035",
+        "activityName": "PK",
+        "visitId": "ENC-018",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [
+          "p"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 39,
+          "colIdx": 18
+        }
+      },
+      {
+        "id": "SAI-193",
+        "activityId": "ACT-035",
+        "activityName": "PK",
+        "visitId": "ENC-019",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 7",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [
+          "p"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 39,
+          "colIdx": 19
+        }
+      },
+      {
+        "id": "SAI-194",
+        "activityId": "ACT-035",
+        "activityName": "PK",
+        "visitId": "ENC-020",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [
+          "p"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 39,
+          "colIdx": 20
+        }
+      },
+      {
+        "id": "SAI-195",
+        "activityId": "ACT-035",
+        "activityName": "PK",
+        "visitId": "ENC-021",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 12",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [
+          "p"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 39,
+          "colIdx": 21
+        }
+      },
+      {
+        "id": "SAI-196",
+        "activityId": "ACT-036",
+        "activityName": "Study drug administration",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 40,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-197",
+        "activityId": "ACT-036",
+        "activityName": "Study drug administration",
+        "visitId": "ENC-005",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 40,
+          "colIdx": 5
+        }
+      },
+      {
+        "id": "SAI-198",
+        "activityId": "ACT-036",
+        "activityName": "Study drug administration",
+        "visitId": "ENC-009",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 40,
+          "colIdx": 9
+        }
+      },
+      {
+        "id": "SAI-199",
+        "activityId": "ACT-036",
+        "activityName": "Study drug administration",
+        "visitId": "ENC-012",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 40,
+          "colIdx": 12
+        }
+      },
+      {
+        "id": "SAI-200",
+        "activityId": "ACT-036",
+        "activityName": "Study drug administration",
+        "visitId": "ENC-015",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 40,
+          "colIdx": 15
+        }
+      },
+      {
+        "id": "SAI-201",
+        "activityId": "ACT-036",
+        "activityName": "Study drug administration",
+        "visitId": "ENC-018",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 40,
+          "colIdx": 18
+        }
+      },
+      {
+        "id": "SAI-202",
+        "activityId": "ACT-037",
+        "activityName": "Drop comfort questionnaire",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 41,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-203",
+        "activityId": "ACT-037",
+        "activityName": "Drop comfort questionnaire",
+        "visitId": "ENC-005",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 41,
+          "colIdx": 5
+        }
+      },
+      {
+        "id": "SAI-204",
+        "activityId": "ACT-037",
+        "activityName": "Drop comfort questionnaire",
+        "visitId": "ENC-009",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 41,
+          "colIdx": 9
+        }
+      },
+      {
+        "id": "SAI-205",
+        "activityId": "ACT-037",
+        "activityName": "Drop comfort questionnaire",
+        "visitId": "ENC-012",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 41,
+          "colIdx": 12
+        }
+      },
+      {
+        "id": "SAI-206",
+        "activityId": "ACT-037",
+        "activityName": "Drop comfort questionnaire",
+        "visitId": "ENC-015",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 41,
+          "colIdx": 15
+        }
+      },
+      {
+        "id": "SAI-207",
+        "activityId": "ACT-037",
+        "activityName": "Drop comfort questionnaire",
+        "visitId": "ENC-018",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 41,
+          "colIdx": 18
+        }
+      },
+      {
+        "id": "SAI-208",
+        "activityId": "ACT-038",
+        "activityName": "Post-Dose Tolerability Assessment",
+        "visitId": "ENC-002",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 42,
+          "colIdx": 2
+        }
+      },
+      {
+        "id": "SAI-209",
+        "activityId": "ACT-038",
+        "activityName": "Post-Dose Tolerability Assessment",
+        "visitId": "ENC-005",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 42,
+          "colIdx": 5
+        }
+      },
+      {
+        "id": "SAI-210",
+        "activityId": "ACT-038",
+        "activityName": "Post-Dose Tolerability Assessment",
+        "visitId": "ENC-009",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 42,
+          "colIdx": 9
+        }
+      },
+      {
+        "id": "SAI-211",
+        "activityId": "ACT-038",
+        "activityName": "Post-Dose Tolerability Assessment",
+        "visitId": "ENC-012",
+        "visitName": "Day 7 Visit 2",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 7 Visit 2",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 42,
+          "colIdx": 12
+        }
+      },
+      {
+        "id": "SAI-212",
+        "activityId": "ACT-038",
+        "activityName": "Post-Dose Tolerability Assessment",
+        "visitId": "ENC-015",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 0",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 42,
+          "colIdx": 15
+        }
+      },
+      {
+        "id": "SAI-213",
+        "activityId": "ACT-038",
+        "activityName": "Post-Dose Tolerability Assessment",
+        "visitId": "ENC-018",
+        "visitName": "Day 14/Early Exit Visit 3",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 6",
+        "parentVisit": "Day 14/Early Exit Visit 3",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 42,
+          "colIdx": 18
+        }
+      },
+      {
+        "id": "SAI-214",
+        "activityId": "ACT-039",
+        "activityName": "Study drug dispensing to subject",
+        "visitId": "ENC-007",
+        "visitName": "Day 1 Visit 1",
+        "isRequired": true,
+        "condition": null,
+        "timingModifier": "Hour 9",
+        "parentVisit": "Day 1 Visit 1",
+        "footnoteMarkers": [],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1",
+          "rowIdx": 43,
+          "colIdx": 7
+        }
+      }
+    ],
+    "footnotes": [
+      {
+        "marker": "*",
+        "text": "For subject self-administered PROs, choose 'Subject form' in Medidata for 'Interviewer administered' PROs, choose 'Clinician form' in Medidata.",
+        "ruleType": "reference",
+        "category": "OPERATIONAL",
+        "subcategory": "documentation",
+        "classificationReasoning": "Provides EDC documentation instructions for how to categorize different types of questionnaires in the system.",
+        "edcImpact": {
+          "affectsScheduling": false,
+          "affectsBranching": false,
+          "isInformational": true
+        },
+        "structuredRule": {},
+        "appliesTo": [],
+        "provenance": {
+          "pageNumber": 56,
+          "tableId": "SOA-2"
+        }
+      },
+      {
+        "marker": "a",
+        "text": "Near vision subscale includes questions A3 to A5 in the Appendix of Optional Additional Questions. This questionnaire will be completed on paper.",
+        "ruleType": "reference",
+        "category": "OPERATIONAL",
+        "subcategory": "documentation",
+        "classificationReasoning": "Specifies the format (paper) and content of a questionnaire without affecting scheduling or creating conditions.",
+        "edcImpact": {
+          "affectsScheduling": false,
+          "affectsBranching": false,
+          "isInformational": true
+        },
+        "structuredRule": {},
+        "appliesTo": [
+          "ACT-007@ENC-001"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1"
+        }
+      },
+      {
+        "marker": "b",
+        "text": "OSDI will be completed on paper.",
+        "ruleType": "reference",
+        "category": "OPERATIONAL",
+        "subcategory": "documentation",
+        "classificationReasoning": "Specifies the format (paper) for questionnaire completion without affecting scheduling or branching logic.",
+        "edcImpact": {
+          "affectsScheduling": false,
+          "affectsBranching": false,
+          "isInformational": true
+        },
+        "structuredRule": {},
+        "appliesTo": [
+          "ACT-008@ENC-001"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1"
+        }
+      },
+      {
+        "marker": "c",
+        "text": "Subjects reporting a headache AE will be provided the supplemental headache AE assessment form.",
+        "ruleType": "conditional",
+        "category": "CONDITIONAL",
+        "subcategory": "triggered",
+        "classificationReasoning": "Creates conditional logic where additional assessment occurs only if subject reports headache, creating triggered branching.",
+        "edcImpact": {
+          "affectsScheduling": false,
+          "affectsBranching": true,
+          "isInformational": false
+        },
+        "structuredRule": {
+          "condition": "if_headache_ae_reported"
+        },
+        "appliesTo": [
+          "ACT-009@ENC-001",
+          "ACT-009@ENC-002",
+          "ACT-009@ENC-003",
+          "ACT-009@ENC-004",
+          "ACT-009@ENC-005",
+          "ACT-009@ENC-006",
+          "ACT-009@ENC-007",
+          "ACT-009@ENC-009",
+          "ACT-009@ENC-010",
+          "ACT-009@ENC-011",
+          "ACT-009@ENC-012",
+          "ACT-009@ENC-013",
+          "ACT-009@ENC-014"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1"
+        }
+      },
+      {
+        "marker": "d",
+        "text": "Blood pressure and heart rate measured after subject has been at rest (seated) for at least 5 minutes",
+        "ruleType": "timing_modifier",
+        "category": "SCHEDULING",
+        "subcategory": "timing_constraint",
+        "classificationReasoning": "Specifies timing requirement (5 minutes rest) for vital signs measurement, affecting when the activity occurs within visit.",
+        "edcImpact": {
+          "affectsScheduling": true,
+          "affectsBranching": false,
+          "isInformational": false
+        },
+        "structuredRule": {
+          "restPeriod": 5,
+          "restPeriodUnit": "minutes",
+          "position": "seated"
+        },
+        "appliesTo": [
+          "ACT-010@ENC-001",
+          "ACT-010@ENC-002",
+          "ACT-010@ENC-006"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1"
+        }
+      },
+      {
+        "marker": "e",
+        "text": "WOCBP only",
+        "ruleType": "conditional",
+        "category": "CONDITIONAL",
+        "subcategory": "population_subset",
+        "classificationReasoning": "Creates conditional logic where activity applies only to women of childbearing potential, creating population subset branching.",
+        "edcImpact": {
+          "affectsScheduling": false,
+          "affectsBranching": true,
+          "isInformational": false
+        },
+        "structuredRule": {
+          "condition": "if_female_childbearing_potential"
+        },
+        "appliesTo": [
+          "ACT-011@ENC-001",
+          "ACT-011@ENC-002"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1"
+        }
+      },
+      {
+        "marker": "f",
+        "text": "IRT will be used to dispense medication. Please refer to the IRT manual for additional information.",
+        "ruleType": "reference",
+        "category": "OPERATIONAL",
+        "subcategory": "site_instruction",
+        "classificationReasoning": "Provides procedural instructions for site staff about using IRT system without affecting scheduling or branching.",
+        "edcImpact": {
+          "affectsScheduling": false,
+          "affectsBranching": false,
+          "isInformational": true
+        },
+        "structuredRule": {},
+        "appliesTo": [
+          "ACT-013@ENC-002"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1"
+        }
+      },
+      {
+        "marker": "g",
+        "text": "Conducted with subject's habitual distance correction.",
+        "ruleType": "reference",
+        "category": "OPERATIONAL",
+        "subcategory": "site_instruction",
+        "classificationReasoning": "Specifies testing conditions for activity without creating conditional logic or affecting scheduling.",
+        "edcImpact": {
+          "affectsScheduling": false,
+          "affectsBranching": false,
+          "isInformational": true
+        },
+        "structuredRule": {
+          "correction": "habitual_distance"
+        },
+        "appliesTo": [
+          "ACT-014@ENC-002"
+        ],
+        "provenance": {
+          "pageNumber": 40,
+          "tableId": "SOA-1"
+        }
+      },
+      {
+        "marker": "h",
+        "text": "5 to 10 minutes in mesopic conditions.",
+        "ruleType": "timing_modifier",
+        "category": "SCHEDULING",
+        "subcategory": "timing_constraint",
+        "classificationReasoning": "Specifies duration (5-10 minutes) and conditions for activity, affecting how long the assessment takes.",
+        "edcImpact": {
+          "affectsScheduling": true,
+          "affectsBranching": false,
+          "isInformational": false
+        },
+        "structuredRule": {
+          "minDuration": 5,
+          "maxDuration": 10,
+          "durationUnit": "minutes",
+          "conditions": "mesopic"
+        },
+        "appliesTo": [
+          "ACT-016@ENC-001",
+          "ACT-016@ENC-002",
+          "ACT-016@ENC-003",
+          "ACT-016@ENC-004",
+          "ACT-016@ENC-005",
+          "ACT-016@ENC-006",
+          "ACT-016@ENC-007",
+          "ACT-016@ENC-009",
+          "ACT-016@ENC-010",
+          "ACT-016@ENC-011",
+          "ACT-016@ENC-012",
+          "ACT-016@ENC-013",
+          "ACT-016@ENC-014",
+          "ACT-016@ENC-015",
+          "ACT-016@ENC-016",
+          "ACT-016@ENC-017",
+          "ACT-016@ENC-018",
+          "ACT-016@ENC-019",
+          "ACT-016@ENC-020"
+        ],
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-1"
+        }
+      },
+      {
+        "marker": "i",
+        "text": "If a subject loses \u2265 1 line (\u2265 5 letters) of CDVA or DCNVA compared with Hour 0 of the same study visit at Hour 1 after dosing, a manifest refraction should be repeated under the same lighting conditions.",
+        "ruleType": "conditional",
+        "category": "CONDITIONAL",
+        "subcategory": "triggered",
+        "classificationReasoning": "Creates conditional logic where refraction is repeated based on vision loss criteria, creating triggered assessment.",
+        "edcImpact": {
+          "affectsScheduling": false,
+          "affectsBranching": true,
+          "isInformational": false
+        },
+        "structuredRule": {
+          "condition": "if_vision_loss_1_line_or_5_letters",
+          "triggerTime": "hour_1",
+          "referenceTime": "hour_0"
+        },
+        "appliesTo": [
+          "ACT-021@ENC-001"
+        ],
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-1"
+        }
+      },
+      {
+        "marker": "j",
+        "text": "Conducted with subject's best distance correction. CDVA to be measured binocularly. Pupil diameter must be measured in each individual eye.",
+        "ruleType": "reference",
+        "category": "OPERATIONAL",
+        "subcategory": "site_instruction",
+        "classificationReasoning": "Specifies testing conditions and measurement requirements without creating conditional logic or scheduling constraints.",
+        "edcImpact": {
+          "affectsScheduling": false,
+          "affectsBranching": false,
+          "isInformational": true
+        },
+        "structuredRule": {
+          "correction": "best_distance",
+          "measurement": "binocular",
+          "pupilMeasurement": "individual_eyes"
+        },
+        "appliesTo": [
+          "ACT-022@ENC-001"
+        ],
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-1"
+        }
+      },
+      {
+        "marker": "k",
+        "text": "Conducted with subject's best distance correction. DCNVA to be measured binocularly. Pupil diameter must be measured in each individual eye.",
+        "ruleType": "reference",
+        "category": "OPERATIONAL",
+        "subcategory": "site_instruction",
+        "classificationReasoning": "Specifies testing conditions and measurement requirements without creating conditional logic or scheduling constraints.",
+        "edcImpact": {
+          "affectsScheduling": false,
+          "affectsBranching": false,
+          "isInformational": true
+        },
+        "structuredRule": {
+          "correction": "best_distance",
+          "measurement": "binocular",
+          "pupilMeasurement": "individual_eyes"
+        },
+        "appliesTo": [
+          "ACT-023@ENC-001"
+        ],
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-1"
+        }
+      },
+      {
+        "marker": "l",
+        "text": "Conducted with subject's best distance correction",
+        "ruleType": "reference",
+        "category": "OPERATIONAL",
+        "subcategory": "site_instruction",
+        "classificationReasoning": "Specifies testing conditions for activity without creating conditional logic or affecting scheduling.",
+        "edcImpact": {
+          "affectsScheduling": false,
+          "affectsBranching": false,
+          "isInformational": true
+        },
+        "structuredRule": {
+          "correction": "best_distance"
+        },
+        "appliesTo": [
+          "ACT-024@ENC-002"
+        ],
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-1"
+        }
+      },
+      {
+        "marker": "m",
+        "text": "Conducted with subject's best distance correction. Half-eye style trial frames with full field trial lenses only.",
+        "ruleType": "reference",
+        "category": "OPERATIONAL",
+        "subcategory": "site_instruction",
+        "classificationReasoning": "Specifies testing equipment and correction requirements without creating conditional logic or scheduling constraints.",
+        "edcImpact": {
+          "affectsScheduling": false,
+          "affectsBranching": false,
+          "isInformational": true
+        },
+        "structuredRule": {
+          "correction": "best_distance",
+          "equipment": "half_eye_trial_frames_full_field_lenses"
+        },
+        "appliesTo": [
+          "ACT-026@ENC-002"
+        ],
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-1"
+        }
+      },
+      {
+        "marker": "n",
+        "text": "Distance, photopic. Minimum 30-minute wait after administration of dilating drops.",
+        "ruleType": "timing_modifier",
+        "category": "SCHEDULING",
+        "subcategory": "timing_constraint",
+        "classificationReasoning": "Specifies minimum wait time (30 minutes) after dilating drops, creating scheduling constraint for when assessment can occur.",
+        "edcImpact": {
+          "affectsScheduling": true,
+          "affectsBranching": false,
+          "isInformational": false
+        },
+        "structuredRule": {
+          "minWaitTime": 30,
+          "waitTimeUnit": "minutes",
+          "afterEvent": "dilating_drops_administration",
+          "conditions": "distance_photopic"
+        },
+        "appliesTo": [
+          "ACT-032@ENC-001"
+        ],
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-1"
+        }
+      },
+      {
+        "marker": "o",
+        "text": "Investigator should note if the pupil dilated normally. Minimum 30-minute wait after administration of dilating drops.",
+        "ruleType": "timing_modifier",
+        "category": [
+          "SCHEDULING",
+          "OPERATIONAL"
+        ],
+        "subcategory": "timing_constraint",
+        "classificationReasoning": "Multi-label: Creates scheduling constraint (30 minute wait) AND provides operational instruction about noting pupil dilation.",
+        "edcImpact": {
+          "affectsScheduling": true,
+          "affectsBranching": false,
+          "isInformational": true
+        },
+        "structuredRule": {
+          "minWaitTime": 30,
+          "waitTimeUnit": "minutes",
+          "afterEvent": "dilating_drops_administration",
+          "note": "pupil_dilation_status"
+        },
+        "appliesTo": [
+          "ACT-033@ENC-001"
+        ],
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-1"
+        }
+      },
+      {
+        "marker": "p",
+        "text": "Blood collection for PK at selected sites (on Days 1 and 14 at Hours 0, 0.25, 0.5, 1, 3, 6 [pre-dose], 6.25, 6.5, 7, 9, and 12). Collection windows of \u00b1 5 minutes should be used for Hours 0.25, 0.5, 6.25, and 6.5; and collection windows of \u00b1 15 minutes should be used for all other blood collection timepoints. Predose samples must be drawn within 15 minutes of the dosing time.",
+        "ruleType": "timing_modifier",
+        "category": "SCHEDULING",
+        "subcategory": "timing_constraint",
+        "classificationReasoning": "Specifies detailed timing windows and constraints for PK sample collection across multiple timepoints, affecting visit scheduling.",
+        "edcImpact": {
+          "affectsScheduling": true,
+          "affectsBranching": false,
+          "isInformational": false
+        },
+        "structuredRule": {
+          "sites": "selected_sites_only",
+          "days": [
+            1,
+            14
+          ],
+          "hours": [
+            0,
+            0.25,
+            0.5,
+            1,
+            3,
+            6,
+            6.25,
+            6.5,
+            7,
+            9,
+            12
+          ],
+          "window5min": [
+            0.25,
+            0.5,
+            6.25,
+            6.5
+          ],
+          "window15min": [
+            0,
+            1,
+            3,
+            6,
+            7,
+            9,
+            12
+          ],
+          "predoseWindow": 15
+        },
+        "appliesTo": [
+          "ACT-035@ENC-002",
+          "ACT-035@ENC-003",
+          "ACT-035@ENC-004",
+          "ACT-035@ENC-005",
+          "ACT-035@ENC-006",
+          "ACT-035@ENC-007",
+          "ACT-035@ENC-008",
+          "ACT-035@ENC-015",
+          "ACT-035@ENC-016",
+          "ACT-035@ENC-017",
+          "ACT-035@ENC-018",
+          "ACT-035@ENC-019",
+          "ACT-035@ENC-020",
+          "ACT-035@ENC-021"
+        ],
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-1"
+        }
+      },
+      {
+        "marker": "q",
+        "text": "Hour 0 starts after study drug administration. Second dose should be applied within 15 minutes after Hour 6. Site staff will administer study drug during study visits. Subjects will administer the study drug at home in between visits.",
+        "ruleType": "timing_modifier",
+        "category": [
+          "SCHEDULING",
+          "OPERATIONAL"
+        ],
+        "subcategory": "timing_constraint",
+        "classificationReasoning": "Multi-label: Creates timing constraints for drug administration (15 minute window) AND provides operational instructions about who administers drug.",
+        "edcImpact": {
+          "affectsScheduling": true,
+          "affectsBranching": false,
+          "isInformational": true
+        },
+        "structuredRule": {
+          "hour0StartAfter": "drug_administration",
+          "secondDoseWindow": 15,
+          "secondDoseWindowUnit": "minutes",
+          "afterHour": 6,
+          "siteAdministration": "during_visits",
+          "subjectAdministration": "at_home_between_visits"
+        },
+        "appliesTo": [],
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-1"
+        }
+      },
+      {
+        "marker": "r",
+        "text": "Conducted 5 to 10 minutes post-dosing. Only those who reported ocular discomfort symptom(s) will be further queried on the severity and duration of each symptom.",
+        "ruleType": "conditional",
+        "category": [
+          "CONDITIONAL",
+          "SCHEDULING"
+        ],
+        "subcategory": "triggered",
+        "classificationReasoning": "Multi-label: Creates timing constraint (5-10 minutes post-dose) AND conditional logic for additional queries based on symptoms reported.",
+        "edcImpact": {
+          "affectsScheduling": true,
+          "affectsBranching": true,
+          "isInformational": false
+        },
+        "structuredRule": {
+          "minTime": 5,
+          "maxTime": 10,
+          "timeUnit": "minutes",
+          "relativeTo": "post_dosing",
+          "condition": "if_ocular_discomfort_reported",
+          "additionalQueries": "severity_and_duration"
+        },
+        "appliesTo": [],
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-1"
+        }
+      }
+    ],
+    "qualityMetrics": {
+      "totalVisits": 21,
+      "visitsWithWindows": 21,
+      "visitsWithRecurrence": 0,
+      "timepointEncounters": 20,
+      "standaloneEncounters": 1,
+      "visitGroupCount": 3,
+      "totalActivities": 39,
+      "totalScheduledInstances": 214,
+      "matrixCoverage": 0.261,
+      "footnotesLinked": 19,
+      "footnoteCategoryDistribution": {
+        "CONDITIONAL": 4,
+        "SCHEDULING": 7,
+        "OPERATIONAL": 11,
+        "multiLabel": 3
+      }
+    }
+  }
+}

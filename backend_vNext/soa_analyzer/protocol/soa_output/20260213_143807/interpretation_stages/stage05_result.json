@@ -1,0 +1,105 @@
+{
+  "result": "None",
+  "_agentDefinition": {
+    "stageNumber": 5,
+    "stageName": "Specimen Enrichment",
+    "displayName": "Biospecimen Detail Extractor",
+    "purpose": "Extracts detailed specimen collection requirements (tube types, volumes, processing instructions) from protocol text and lab manuals, enabling precise site logistics.",
+    "extractionMethodology": "PDF search for specimen/collection tables using Gemini File API. Pattern matching for tube colors, volumes (mL), temperature requirements. Cross-reference with laboratory specifications extraction module.",
+    "keyOutputs": [
+      {
+        "field": "specimenType",
+        "description": "Type of specimen (blood, urine, tissue, etc.)"
+      },
+      {
+        "field": "tubeType",
+        "description": "Collection tube specification (EDTA, SST, etc.)"
+      },
+      {
+        "field": "volume",
+        "description": "Required collection volume with units"
+      },
+      {
+        "field": "processingInstructions",
+        "description": "Handling and processing requirements"
+      },
+      {
+        "field": "storageConditions",
+        "description": "Temperature and storage specifications"
+      },
+      {
+        "field": "shippingRequirements",
+        "description": "Transport and shipping conditions"
+      }
+    ],
+    "downstreamIntegrations": [
+      {
+        "system": "IRT Build",
+        "useCase": "Kit configuration and supply planning",
+        "automationType": "configuration",
+        "fieldsUsed": [
+          "tubeType",
+          "volume",
+          "storageConditions"
+        ],
+        "automationExample": "IRT kit builder auto-selects tubes: 2x EDTA (4mL), 1x SST (6mL) per visit"
+      },
+      {
+        "system": "EDC Build",
+        "useCase": "Collection checklist and deviation tracking",
+        "automationType": "direct_mapping",
+        "fieldsUsed": [
+          "specimenType",
+          "tubeType",
+          "volume"
+        ],
+        "automationExample": "Lab form includes collection checklist with tube types and expected volumes"
+      },
+      {
+        "system": "Central Lab",
+        "useCase": "Requisition form pre-population",
+        "automationType": "direct_mapping",
+        "fieldsUsed": [
+          "specimenType",
+          "processingInstructions",
+          "shippingRequirements"
+        ],
+        "automationExample": "Lab requisition auto-filled with specimen handling instructions"
+      },
+      {
+        "system": "Supply Chain",
+        "useCase": "Kit inventory forecasting",
+        "automationType": "rule_generation",
+        "fieldsUsed": [
+          "tubeType",
+          "volume"
+        ],
+        "automationExample": "Supply system calculates tube requirements: visits x sites x buffer = order quantity"
+      }
+    ],
+    "automationInsights": [
+      {
+        "insight": "Kit Composition",
+        "description": "Specimen details drive exact kit contents for each visit type"
+      },
+      {
+        "insight": "Site Training",
+        "description": "Processing instructions feed into site training materials"
+      },
+      {
+        "insight": "Deviation Detection",
+        "description": "Volume requirements enable automated deviation flagging"
+      }
+    ],
+    "dataQualityIndicators": [
+      "volume is numeric with units",
+      "tube type is from standard list",
+      "processing instructions present"
+    ],
+    "humanReviewTriggers": [
+      "unusual tube type",
+      "volume seems incorrect",
+      "conflicting instructions"
+    ]
+  }
+}

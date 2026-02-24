@@ -1,0 +1,149 @@
+{
+  "_metadata": {
+    "description": "Condition pattern validation registry for Stage 6 Conditional Expansion",
+    "purpose": "Cross-check LLM decisions - NOT for primary routing (LLM-first strategy)",
+    "version": "1.0.0",
+    "created": "2025-12-06"
+  },
+  "demographic_patterns": {
+    "DEMOGRAPHIC_SEX": {
+      "female": ["female", "females", "women", "woman", "female subjects", "female patients"],
+      "male": ["male", "males", "men", "man", "male subjects", "male patients"]
+    },
+    "DEMOGRAPHIC_FERTILITY": {
+      "childbearing": [
+        "childbearing potential",
+        "child-bearing potential",
+        "childbearing age",
+        "reproductive potential",
+        "wocbp",
+        "wcbp",
+        "fertile female",
+        "females of reproductive age"
+      ],
+      "postmenopausal": [
+        "post-menopausal",
+        "postmenopausal",
+        "post menopausal",
+        "surgically sterile",
+        "non-fertile"
+      ]
+    },
+    "DEMOGRAPHIC_AGE": {
+      "elderly": ["elderly", "≥65", ">65", "65 years or older", "geriatric", "age 65 or older"],
+      "pediatric": ["pediatric", "child", "children", "<18", "under 18", "adolescent", "minor"]
+    }
+  },
+  "clinical_patterns": {
+    "CLINICAL_INDICATION": [
+      "clinically indicated",
+      "if indicated",
+      "as clinically indicated",
+      "when clinically indicated",
+      "as needed",
+      "as required",
+      "prn",
+      "when indicated",
+      "if necessary"
+    ],
+    "CLINICAL_RESULT": [
+      "if abnormal",
+      "if positive",
+      "if negative",
+      "if elevated",
+      "if out of range",
+      "if results indicate",
+      "repeat if",
+      "if value",
+      "if lab"
+    ],
+    "CLINICAL_EVENT": [
+      "if adverse event",
+      "if ae",
+      "if dose modification",
+      "if treatment discontin",
+      "if treatment interrupt",
+      "if toxicity",
+      "if relapse"
+    ]
+  },
+  "temporal_patterns": {
+    "TEMPORAL_PRIOR": [
+      "if not performed",
+      "if not done",
+      "if not obtained",
+      "if not collected",
+      "within 72 hours",
+      "within 7 days",
+      "within 28 days"
+    ],
+    "TEMPORAL_SEQUENCE": [
+      "after completing",
+      "before first dose",
+      "prior to",
+      "following",
+      "subsequent to"
+    ]
+  },
+  "visit_patterns": {
+    "VISIT_OPTIONAL": [
+      "at investigator discretion",
+      "at investigator's discretion",
+      "investigator discretion",
+      "optional",
+      "may be performed",
+      "may be done",
+      "if deemed necessary",
+      "at the discretion"
+    ],
+    "VISIT_TRIGGERED": [
+      "early termination",
+      "premature discontinuation",
+      "unscheduled visit",
+      "if dose escalation",
+      "if dose reduction",
+      "triggered by"
+    ]
+  },
+  "non_condition_patterns": [
+    "must be performed",
+    "should be done",
+    "refer to",
+    "see appendix",
+    "see section",
+    "defined as",
+    "includes",
+    "consists of",
+    "performed by",
+    "collected by",
+    "shipped to",
+    "processed at",
+    "stored at",
+    "within 30 minutes",
+    "within 1 hour",
+    "at each visit",
+    "every visit",
+    "all visits"
+  ],
+  "criterion_mappings": {
+    "DEMOGRAPHIC_SEX": {
+      "female": {"sex": "F"},
+      "male": {"sex": "M"}
+    },
+    "DEMOGRAPHIC_FERTILITY": {
+      "childbearing": {"sex": "F", "fertilityStatus": "fertile"},
+      "postmenopausal": {"sex": "F", "fertilityStatus": "postmenopausal"}
+    },
+    "DEMOGRAPHIC_AGE": {
+      "elderly": {"ageRange": {"min": 65}},
+      "pediatric": {"ageRange": {"max": 18}}
+    }
+  },
+  "confidence_adjustments": {
+    "explicit_population": 0.05,
+    "implicit_population": -0.05,
+    "multiple_indicators": 0.03,
+    "ambiguous_language": -0.10,
+    "clinical_judgment": -0.05
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "gender": {
+    "female": {
+      "concept_id": 8532,
+      "concept_name": "FEMALE",
+      "vocabulary_id": "Gender",
+      "domain_id": "Gender"
+    },
+    "male": {
+      "concept_id": 8507,
+      "concept_name": "MALE",
+      "vocabulary_id": "Gender",
+      "domain_id": "Gender"
+    }
+  },
+  "race": {
+    "white": {
+      "concept_id": 8527,
+      "concept_name": "White",
+      "vocabulary_id": "Race",
+      "domain_id": "Race"
+    },
+    "black": {
+      "concept_id": 8516,
+      "concept_name": "Black or African American",
+      "vocabulary_id": "Race",
+      "domain_id": "Race"
+    },
+    "asian": {
+      "concept_id": 8515,
+      "concept_name": "Asian",
+      "vocabulary_id": "Race",
+      "domain_id": "Race"
+    },
+    "hispanic": {
+      "concept_id": 38003563,
+      "concept_name": "Hispanic or Latino",
+      "vocabulary_id": "Ethnicity",
+      "domain_id": "Ethnicity"
+    }
+  },
+  "age": {
+    "note": "Age is calculated from person.birth_datetime, not a concept",
+    "sql_pattern": "EXTRACT(YEAR FROM AGE(@reference_date, p.birth_datetime))"
+  },
+  "demographic_patterns": {
+    "age": ["age", "years old", "years of age", "adult", "pediatric", "elderly", "geriatric"],
+    "gender": ["gender", "sex", "male", "female", "woman", "man", "men", "women"],
+    "race": ["race", "ethnicity", "white", "black", "african american", "asian", "hispanic", "latino"]
+  }
+}

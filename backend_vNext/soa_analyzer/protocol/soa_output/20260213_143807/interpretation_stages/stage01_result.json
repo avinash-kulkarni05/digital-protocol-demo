@@ -1,0 +1,533 @@
+{
+  "stage": 1,
+  "stageName": "Domain Categorization",
+  "success": true,
+  "mappings": [
+    {
+      "activityId": "ACT-001",
+      "activityName": "Informed consent",
+      "category": "DEMOGRAPHICS",
+      "cdashDomain": "DM",
+      "cdiscCode": "C16735",
+      "cdiscDecode": "Informed Consent",
+      "confidence": 0.95,
+      "rationale": "Informed consent is a standard demographics domain activity in clinical trials",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-002",
+      "activityName": "Contact IRT for subject ID number",
+      "category": "DEMOGRAPHICS",
+      "cdashDomain": "DM",
+      "cdiscCode": "C53190",
+      "cdiscDecode": "Demographics",
+      "confidence": 0.85,
+      "rationale": "Subject identification assignment is part of demographics and enrollment process",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-003",
+      "activityName": "Iris color assessment",
+      "category": "PHYSICAL_EXAMINATION",
+      "cdashDomain": "PE",
+      "cdiscCode": "C62596",
+      "cdiscDecode": "Physical Examination",
+      "confidence": 0.9,
+      "rationale": "Iris color assessment is an ophthalmologic physical examination component",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-004",
+      "activityName": "Demography",
+      "category": "DEMOGRAPHICS",
+      "cdashDomain": "DM",
+      "cdiscCode": "C53190",
+      "cdiscDecode": "Demographics",
+      "confidence": 0.98,
+      "rationale": "Demography directly corresponds to demographics data collection",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-005",
+      "activityName": "Medical and ophthalmic history",
+      "category": "MEDICAL_HISTORY",
+      "cdashDomain": "MH",
+      "cdiscCode": "C62599",
+      "cdiscDecode": "Medical History Assessment",
+      "confidence": 0.95,
+      "rationale": "Medical and ophthalmic history collection falls under medical history domain",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-006",
+      "activityName": "Prestudy/ concomitant medication query",
+      "category": "CONCOMITANT_MEDICATIONS",
+      "cdashDomain": "CM",
+      "cdiscCode": "C19376",
+      "cdiscDecode": "Medication",
+      "confidence": 0.98,
+      "rationale": "The activity explicitly refers to the collection of prestudy and concomitant medication history, which maps directly to the CM domain.",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-007",
+      "activityName": "NEI VFQ-25 and near vision subscale in the Appendix of Optional Additional Questions",
+      "category": "QUESTIONNAIRE",
+      "cdashDomain": "QS",
+      "cdiscCode": "C100342",
+      "cdiscDecode": "NEI VFQ-25 Questionnaire",
+      "confidence": 0.95,
+      "rationale": "NEI VFQ-25 (National Eye Institute Visual Function Questionnaire) is a standardized patient-reported outcome instrument, mapping to the Questionnaire domain.",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-008",
+      "activityName": "OSDI",
+      "category": "QUESTIONNAIRE",
+      "cdashDomain": "QS",
+      "cdiscCode": "C62737",
+      "cdiscDecode": "Questionnaire",
+      "confidence": 0.95,
+      "rationale": "OSDI (Ocular Surface Disease Index) is a patient-reported outcome questionnaire",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-009",
+      "activityName": "AE query",
+      "category": "ADVERSE_EVENTS",
+      "cdashDomain": "AE",
+      "cdiscCode": "C41331",
+      "cdiscDecode": "Adverse Event Assessment",
+      "confidence": 0.98,
+      "rationale": "AE query directly corresponds to adverse events assessment",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-010",
+      "activityName": "Vital signs",
+      "category": "VITAL_SIGNS",
+      "cdashDomain": "VS",
+      "cdiscCode": "C25298",
+      "cdiscDecode": "Vital Signs",
+      "confidence": 0.98,
+      "rationale": "Vital signs directly maps to the VS domain",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-011",
+      "activityName": "Urine pregnancy test",
+      "category": "LABORATORY",
+      "cdashDomain": "LB",
+      "cdiscCode": "C71563",
+      "cdiscDecode": "Pregnancy Test",
+      "confidence": 0.95,
+      "rationale": "Pregnancy tests are laboratory assessments regardless of specimen type",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-012",
+      "activityName": "Dominant eye determination",
+      "category": "PHYSICAL_EXAMINATION",
+      "cdashDomain": "PE",
+      "cdiscCode": "C62596",
+      "cdiscDecode": "Physical Examination",
+      "confidence": 0.9,
+      "rationale": "Dominant eye determination is an ophthalmologic examination procedure",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-013",
+      "activityName": "Contact IRT for kit assignment/ randomization",
+      "category": "DISPOSITION",
+      "cdashDomain": "DS",
+      "cdiscCode": "C16032",
+      "cdiscDecode": "Randomization",
+      "confidence": 0.9,
+      "rationale": "Randomization is a key protocol milestone event typically recorded in the Disposition (DS) domain, although the resulting kit assignment data might link to Drug Accountability or Exposure.",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-014",
+      "activityName": "PICQ",
+      "category": "QUESTIONNAIRE",
+      "cdashDomain": "QS",
+      "cdiscCode": "C62737",
+      "cdiscDecode": "Questionnaire",
+      "confidence": 0.85,
+      "rationale": "PICQ appears to be a questionnaire based on the 'Q' suffix pattern",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-015",
+      "activityName": "Pupillary reaction to light assessment",
+      "category": "PHYSICAL_EXAMINATION",
+      "cdashDomain": "PE",
+      "cdiscCode": "C62596",
+      "cdiscDecode": "Physical Examination",
+      "confidence": 0.92,
+      "rationale": "Pupillary light reflex is a standard neurologic/ophthalmologic physical examination",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-016",
+      "activityName": "Dark adaptation",
+      "category": "PHYSICAL_EXAMINATION",
+      "cdashDomain": "PE",
+      "cdiscCode": "C62596",
+      "cdiscDecode": "Physical Examination",
+      "confidence": 0.88,
+      "rationale": "Dark adaptation testing is an ophthalmologic functional assessment",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-017",
+      "activityName": "Mesopic manifest refraction (distance and near)",
+      "category": "PHYSICAL_EXAMINATION",
+      "cdashDomain": "PE",
+      "cdiscCode": "C62596",
+      "cdiscDecode": "Physical Examination",
+      "confidence": 0.9,
+      "rationale": "Refraction measurements are ophthalmologic examination procedures",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-018",
+      "activityName": "Mesopic, high-contrast CDVA + pupil diameter",
+      "category": "PHYSICAL_EXAMINATION",
+      "cdashDomain": "PE",
+      "cdiscCode": "C62596",
+      "cdiscDecode": "Physical Examination",
+      "confidence": 0.9,
+      "rationale": "Visual acuity and pupil measurements are ophthalmologic examination procedures",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-019",
+      "activityName": "Mesopic, high-contrast DCNVA + pupil diameter",
+      "category": "PHYSICAL_EXAMINATION",
+      "cdashDomain": "PE",
+      "cdiscCode": "C62596",
+      "cdiscDecode": "Physical Examination",
+      "confidence": 0.9,
+      "rationale": "Near visual acuity and pupil measurements are ophthalmologic examination procedures",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-020",
+      "activityName": "Mesopic NVPTQ",
+      "category": "QUESTIONNAIRE",
+      "cdashDomain": "QS",
+      "cdiscCode": "C62737",
+      "cdiscDecode": "Questionnaire",
+      "confidence": 0.85,
+      "rationale": "NVPTQ appears to be a questionnaire based on the 'Q' suffix, likely near vision related",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-021",
+      "activityName": "Photopic manifest refraction (distance and near)",
+      "category": "PHYSICAL_EXAMINATION",
+      "cdashDomain": "PE",
+      "cdiscCode": "C62596",
+      "cdiscDecode": "Physical Examination",
+      "confidence": 0.9,
+      "rationale": "Refraction measurements are ophthalmologic examination procedures",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-022",
+      "activityName": "Photopic high-contrast CDVA + pupil diameter",
+      "category": "PHYSICAL_EXAMINATION",
+      "cdashDomain": "PE",
+      "cdiscCode": "C62596",
+      "cdiscDecode": "Physical Examination",
+      "confidence": 0.9,
+      "rationale": "Visual acuity and pupil measurements are ophthalmologic examination procedures",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-023",
+      "activityName": "Photopic, high-contrast DCNVA + pupil diameter",
+      "category": "PHYSICAL_EXAMINATION",
+      "cdashDomain": "PE",
+      "cdiscCode": "C62596",
+      "cdiscDecode": "Physical Examination",
+      "confidence": 0.9,
+      "rationale": "Near visual acuity and pupil measurements are ophthalmologic examination procedures",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-024",
+      "activityName": "Single-item PGIS",
+      "category": "QUESTIONNAIRE",
+      "cdashDomain": "QS",
+      "cdiscCode": "C62737",
+      "cdiscDecode": "Questionnaire",
+      "confidence": 0.95,
+      "rationale": "PGIS (Patient Global Impression of Severity) is a patient-reported outcome questionnaire",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-025",
+      "activityName": "Single-item PGIC",
+      "category": "QUESTIONNAIRE",
+      "cdashDomain": "QS",
+      "cdiscCode": "C62737",
+      "cdiscDecode": "Questionnaire",
+      "confidence": 0.95,
+      "rationale": "PGIC (Patient Global Impression of Change) is a patient-reported outcome questionnaire",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-026",
+      "activityName": "Visual Function Assessment application (VFA app)",
+      "category": "QUESTIONNAIRE",
+      "cdashDomain": "QS",
+      "cdiscCode": "C62737",
+      "cdiscDecode": "Questionnaire",
+      "confidence": 0.88,
+      "rationale": "Visual function assessment via app is likely a patient-reported outcome tool",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-027",
+      "activityName": "Slit-lamp biomicroscopy",
+      "category": "PHYSICAL_EXAMINATION",
+      "cdashDomain": "PE",
+      "cdiscCode": "C62596",
+      "cdiscDecode": "Physical Examination",
+      "confidence": 0.92,
+      "rationale": "Slit-lamp examination is a standard ophthalmologic physical examination procedure",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-028",
+      "activityName": "Fluorescein corneal staining",
+      "category": "PHYSICAL_EXAMINATION",
+      "cdashDomain": "PE",
+      "cdiscCode": "C62596",
+      "cdiscDecode": "Physical Examination",
+      "confidence": 0.9,
+      "rationale": "Corneal staining is an ophthalmologic examination procedure to assess corneal surface",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-029",
+      "activityName": "IOP measurement",
+      "category": "PHYSICAL_EXAMINATION",
+      "cdashDomain": "PE",
+      "cdiscCode": "C62596",
+      "cdiscDecode": "Physical Examination",
+      "confidence": 0.9,
+      "rationale": "Intraocular pressure measurement is an ophthalmologic examination procedure",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-030",
+      "activityName": "Gonioscopy/angle assessment",
+      "category": "PHYSICAL_EXAMINATION",
+      "cdashDomain": "PE",
+      "cdiscCode": "C62596",
+      "cdiscDecode": "Physical Examination",
+      "confidence": 0.9,
+      "rationale": "Gonioscopy is an ophthalmologic examination procedure to assess eye angle structures",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-031",
+      "activityName": "Dilating drop administration",
+      "category": "PROCEDURES",
+      "cdashDomain": "PR",
+      "cdiscCode": "C25218",
+      "cdiscDecode": "Procedure",
+      "confidence": 0.85,
+      "rationale": "Administration of dilating drops is a medical procedure for examination preparation",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-032",
+      "activityName": "Cycloplegic refraction",
+      "category": "PHYSICAL_EXAMINATION",
+      "cdashDomain": "PE",
+      "cdiscCode": "C62596",
+      "cdiscDecode": "Physical Examination",
+      "confidence": 0.9,
+      "rationale": "Cycloplegic refraction is an ophthalmologic examination procedure",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-033",
+      "activityName": "Dilated fundoscopic examination",
+      "category": "PHYSICAL_EXAMINATION",
+      "cdashDomain": "PE",
+      "cdiscCode": "C62596",
+      "cdiscDecode": "Physical Examination",
+      "confidence": 0.92,
+      "rationale": "Fundoscopic examination is a standard ophthalmologic physical examination",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-034",
+      "activityName": "Review inclusion and exclusion criteria",
+      "category": "DEMOGRAPHICS",
+      "cdashDomain": "DM",
+      "cdiscCode": "C53190",
+      "cdiscDecode": "Demographics",
+      "confidence": 0.8,
+      "rationale": "Eligibility assessment is part of the enrollment and demographics process",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-035",
+      "activityName": "PK",
+      "category": "PHARMACOKINETICS",
+      "cdashDomain": "PC",
+      "cdiscCode": "C62735",
+      "cdiscDecode": "Pharmacokinetics",
+      "confidence": 0.95,
+      "rationale": "PK directly refers to pharmacokinetic sampling and assessment",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-036",
+      "activityName": "Study drug administration",
+      "category": "EXPOSURE",
+      "cdashDomain": "EX",
+      "cdiscCode": "C62597",
+      "cdiscDecode": "Exposure",
+      "confidence": 0.98,
+      "rationale": "Study drug administration directly corresponds to exposure domain",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-037",
+      "activityName": "Drop comfort questionnaire",
+      "category": "QUESTIONNAIRE",
+      "cdashDomain": "QS",
+      "cdiscCode": "C62737",
+      "cdiscDecode": "Questionnaire Assessment",
+      "confidence": 0.95,
+      "rationale": "Comfort assessment questionnaire is a patient-reported outcome measure",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-038",
+      "activityName": "Post-Dose Tolerability Assessment",
+      "category": "ADVERSE_EVENTS",
+      "cdashDomain": "AE",
+      "cdiscCode": "C41331",
+      "cdiscDecode": "Adverse Event",
+      "confidence": 0.88,
+      "rationale": "Tolerability assessment is related to safety monitoring and adverse event collection",
+      "source": "cached"
+    },
+    {
+      "activityId": "ACT-039",
+      "activityName": "Study drug dispensing to subject",
+      "category": "EXPOSURE",
+      "cdashDomain": "EX",
+      "cdiscCode": "C62597",
+      "cdiscDecode": "Exposure Assessment",
+      "confidence": 0.9,
+      "rationale": "Drug dispensing is part of exposure tracking and treatment administration",
+      "source": "cached"
+    }
+  ],
+  "metrics": {
+    "totalActivities": 39,
+    "highConfidence": 31,
+    "needsReview": 8,
+    "uncertain": 0,
+    "cacheHits": 39,
+    "llmCalls": 0,
+    "coverageRate": 1.0
+  },
+  "reviewItems": [],
+  "_agentDefinition": {
+    "stageNumber": 1,
+    "stageName": "Domain Categorization",
+    "displayName": "CDISC Domain Mapper",
+    "purpose": "Maps each SOA activity to its appropriate CDISC CDASH domain (LB, VS, EG, PE, etc.) with NCI Thesaurus codes, enabling standardized data collection form generation.",
+    "extractionMethodology": "LLM-based semantic analysis of activity names against CDISC domain definitions. Uses few-shot prompting with domain examples and NCI EVS code lookup for standardization. Confidence scoring based on semantic similarity and domain rule matching.",
+    "keyOutputs": [
+      {
+        "field": "cdashDomain",
+        "description": "CDISC CDASH domain code (LB, VS, EG, PE, AE, CM, etc.)"
+      },
+      {
+        "field": "cdiscCode",
+        "description": "NCI Thesaurus concept code (e.g., C78713 for Complete Blood Count)"
+      },
+      {
+        "field": "cdiscDecode",
+        "description": "Human-readable decode for the CDISC code"
+      },
+      {
+        "field": "category",
+        "description": "High-level categorization (LABORATORY, VITAL_SIGNS, ECG, etc.)"
+      },
+      {
+        "field": "confidence",
+        "description": "Model confidence score (0.0-1.0) for the mapping"
+      }
+    ],
+    "downstreamIntegrations": [
+      {
+        "system": "EDC Build",
+        "useCase": "Automatic form selection and CRF generation",
+        "automationType": "direct_mapping",
+        "fieldsUsed": [
+          "cdashDomain",
+          "cdiscCode",
+          "category"
+        ],
+        "automationExample": "Domain=LB triggers Lab Form template selection; cdiscCode=C78713 pre-populates CBC test panel fields"
+      },
+      {
+        "system": "CDASH Library",
+        "useCase": "Standard field set selection from CDISC library",
+        "automationType": "configuration",
+        "fieldsUsed": [
+          "cdashDomain",
+          "cdiscCode"
+        ],
+        "automationExample": "cdashDomain=VS selects CDASH VS domain fields (VSTEST, VSORRES, VSORRESU, etc.)"
+      },
+      {
+        "system": "Data Standards",
+        "useCase": "SDTM mapping specification generation",
+        "automationType": "rule_generation",
+        "fieldsUsed": [
+          "cdashDomain",
+          "cdiscCode",
+          "category"
+        ],
+        "automationExample": "Generates CDASH-to-SDTM mapping rules based on domain assignment"
+      }
+    ],
+    "automationInsights": [
+      {
+        "insight": "Domain-Form Mapping",
+        "description": "Each CDASH domain maps to a specific CRF form template in EDC"
+      },
+      {
+        "insight": "Test Panel Selection",
+        "description": "cdiscCode determines which lab panels or assessment batteries to include"
+      },
+      {
+        "insight": "Edit Check Seeding",
+        "description": "Domain-specific edit checks can be pre-configured based on mapping"
+      }
+    ],
+    "dataQualityIndicators": [
+      "confidence >= 0.90",
+      "cdiscCode is valid NCI code",
+      "domain is in allowed list"
+    ],
+    "humanReviewTriggers": [
+      "confidence < 0.70",
+      "multiple domains could apply",
+      "activity name is ambiguous"
+    ]
+  }
+}

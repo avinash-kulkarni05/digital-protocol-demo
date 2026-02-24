@@ -1,0 +1,401 @@
+system
+You are an expert clinical pharmacologist and drug safety specialist specializing in extracting concomitant medication restrictions, drug-drug interactions, and washout requirements from clinical trial protocols in USDM 4.0 format.
+
+user
+### OBJECTIVE
+Extract ALL concomitant medication restrictions and requirements from this clinical trial protocol PDF.
+
+This unified extraction covers:
+- Prohibited medications (completely banned)
+- Restricted medications (conditional use allowed)
+- Required medications (premedications, prophylaxis)
+- Rescue medications (allowed for symptom management)
+- Washout requirements (time periods before study entry)
+- Drug-drug interactions (CYP450, P-gp, QT, etc.)
+- Allowed medications (explicitly permitted)
+- Vaccine policies
+- Herbal/dietary supplement restrictions
+
+### CRITICAL: VALUES ONLY
+Extract VALUES ONLY. Do NOT include any provenance fields (section_number, page_number, text_snippet).
+Provenance will be added in a separate extraction step.
+
+### OUTPUT STRUCTURE
+Return JSON matching this structure. Do NOT include provenance objects anywhere.
+
+```json
+{
+  "id": "PROTOCOL_ID-concomitant-medications",
+  "instanceType": "ConcomitantMedicationRestrictions",
+  "name": "PROTOCOL_ID Concomitant Medication Restrictions",
+  "description": "Medication restrictions and requirements for PROTOCOL_ID",
+  "prohibited_medications": [],
+  "restricted_medications": [],
+  "required_medications": [],
+  "rescue_medications": [],
+  "washout_requirements": [],
+  "drug_interactions": [],
+  "allowed_medications": [],
+  "vaccine_policy": {},
+  "herbal_supplements_policy": {}
+}
+```
+
+### PROHIBITED MEDICATIONS STRUCTURE
+Medications completely banned during study participation.
+
+```json
+{
+  "id": "proh-001",
+  "instanceType": "ProhibitedMedication",
+  "medication_class": "Strong CYP3A4 Inhibitors",
+  "specific_drugs": ["ketoconazole", "itraconazole", "clarithromycin", "ritonavir", "cobicistat"],
+  "prohibition_reason": {
+    "decode": "pk_interaction"
+  },
+  "prohibition_reason_detail": "May increase study drug exposure by >5-fold, increasing toxicity risk",
+  "prohibition_period": {
+    "decode": "entire_study"
+  },
+  "prohibition_period_detail": "From 14 days before first dose through 30 days after last dose"
+}
+```
+
+### PROHIBITION REASON (use decode values)
+| decode | Description |
+|--------|-------------|
+| safety | Direct safety concern with study drug |
+| efficacy_interference | May affect efficacy endpoints |
+| drug_interaction | Known drug-drug interaction |
+| pk_interaction | Pharmacokinetic interaction (CYP, transporter) |
+| pharmacodynamic | Pharmacodynamic interaction |
+| contraindicated | Contraindicated with study drug class |
+| study_design | Would confound study design or interpretation |
+
+### PROHIBITION PERIOD (use decode values)
+| decode | Description |
+|--------|-------------|
+| screening_only | Only during screening period |
+| treatment_period | During active treatment only |
+| entire_study | From screening through follow-up |
+| treatment_plus_followup | Treatment plus follow-up period |
+
+### RESTRICTED MEDICATIONS STRUCTURE
+Medications allowed under specific conditions.
+
+```json
+{
+  "id": "rest-001",
+  "instanceType": "RestrictedMedication",
+  "medication_class": "Systemic Corticosteroids",
+  "specific_drugs": ["prednisone", "prednisolone", "methylprednisolone", "dexamethasone"],
+  "restriction_type": {
+    "decode": "dose_limit"
+  },
+  "conditions": {
+    "max_dose": "10mg/day prednisone equivalent",
+    "approval_required_from": "medical_monitor",
+    "monitoring_requirements": null,
+    "timing_restriction": null,
+    "clinical_scenario": "Allowed for acute conditions only, not chronic use"
+  },
+  "rationale": "Higher doses may affect immune response and efficacy endpoints"
+}
+```
+
+### RESTRICTION TYPE (use decode values)
+| decode | Description |
+|--------|-------------|
+| dose_limit | Maximum dose restriction |
+| duration_limit | Maximum duration of use |
+| approval_required | Requires approval before use |
+| monitoring_required | Requires additional monitoring |
+| timing_restriction | Must be taken at specific times relative to study drug |
+| conditional_use | Allowed only in specific clinical circumstances |
+| avoid_if_possible | Should be avoided if alternatives available |
+| use_with_caution | Use with caution and documentation |
+
+### APPROVAL REQUIRED FROM (use decode values)
+| decode | Description |
+|--------|-------------|
+| investigator | Investigator approval required |
+| medical_monitor | Medical monitor approval required |
+| sponsor | Sponsor approval required |
+| investigator_discretion | At investigator discretion |
+| not_specified | Not specified in protocol |
+
+### REQUIRED MEDICATIONS STRUCTURE
+Medications that must be administered (premedications, prophylaxis).
+
+**IMPORTANT**: If specific dosing or timing details are not mentioned in the protocol, use null values:
+- If dose not specified: `"dose": null`
+- If route not specified: `"route": {"decode": "not_specified"}`
+- If frequency not specified: `"frequency": null`
+- If timing not specified in minutes: `"time_before_minutes": null` and use `"timing_description"` instead
+
+```json
+{
+  "id": "req-001",
+  "instanceType": "RequiredMedication",
+  "medication_name": "diphenhydramine",
+  "medication_class": "Antihistamine",
+  "requirement_type": {
+    "decode": "premedication"
+  },
+  "dosing": {
+    "dose": "50mg",
+    "route": {"decode": "PO"},
+    "frequency": "Once before each infusion"
+  },
+  "timing": {
+    "relative_to": "study drug infusion",
+    "time_before_minutes": 30,
+    "timing_description": "30 to 60 minutes before infusion"
+  },
+  "purpose": "Prevention of infusion-related reactions",
+  "alternatives": ["cetirizine 10mg PO", "loratadine 10mg PO"]
+}
+```
+
+### ROUTE (use decode values)
+| decode | Description |
+|--------|-------------|
+| PO | Oral |
+| IV | Intravenous |
+| IM | Intramuscular |
+| SC | Subcutaneous |
+| topical | Topical |
+| inhaled | Inhaled |
+| transdermal | Transdermal |
+| sublingual | Sublingual |
+| other | Other route |
+| not_specified | Route not specified in protocol |
+
+### REQUIREMENT TYPE (use decode values)
+| decode | Description |
+|--------|-------------|
+| premedication | Required before study drug administration |
+| prophylaxis | Preventive medication during study |
+| supportive_care | Required supportive care medication |
+| rescue | Rescue medication protocol |
+| mandatory_background | Required background therapy |
+
+### RESCUE MEDICATIONS STRUCTURE
+```json
+{
+  "id": "resc-001",
+  "instanceType": "RescueMedication",
+  "medication_name": "acetaminophen",
+  "medication_class": "Analgesic",
+  "indication": "Pain or fever management",
+  "dosing_instructions": "Up to 3000mg/day as needed",
+  "documentation_required": true,
+  "impact_on_endpoints": "Rescue use will be captured as secondary endpoint"
+}
+```
+
+### WASHOUT REQUIREMENTS STRUCTURE
+Time periods medications must be stopped before study entry.
+
+```json
+{
+  "id": "wash-001",
+  "instanceType": "WashoutRequirement",
+  "medication_class": "Prior Checkpoint Inhibitors",
+  "specific_drugs": ["pembrolizumab", "nivolumab", "ipilimumab", "atezolizumab"],
+  "washout_duration_days": 28,
+  "washout_description": "4 weeks (28 days) before first dose",
+  "rationale": "Allow immune system recovery and prevent overlapping immunomodulation",
+  "applies_to": {
+    "decode": "first_dose"
+  }
+}
+```
+
+### WASHOUT APPLIES TO (use decode values)
+| decode | Description |
+|--------|-------------|
+| screening | Must complete before screening |
+| randomization | Must complete before randomization |
+| first_dose | Must complete before first study drug dose |
+| enrollment | Must complete before enrollment |
+
+### DRUG INTERACTIONS STRUCTURE
+CYP450, transporter, and pharmacodynamic interactions.
+
+```json
+{
+  "id": "int-001",
+  "instanceType": "DrugInteraction",
+  "interaction_type": {
+    "decode": "CYP3A4_inhibitor"
+  },
+  "severity": {
+    "decode": "strong"
+  },
+  "affected_drugs": ["ketoconazole", "itraconazole", "posaconazole", "voriconazole", "clarithromycin", "telithromycin", "ritonavir", "cobicistat", "nefazodone"],
+  "clinical_effect": "May increase study drug AUC by >5-fold",
+  "management": {
+    "decode": "prohibited"
+  },
+  "management_detail": "Must not use during study; if essential, discontinue study drug"
+}
+```
+
+### INTERACTION TYPE (use decode values)
+| decode | Description |
+|--------|-------------|
+| CYP3A4_inhibitor | CYP3A4 inhibitor |
+| CYP3A4_inducer | CYP3A4 inducer |
+| CYP2D6_inhibitor | CYP2D6 inhibitor |
+| CYP2D6_inducer | CYP2D6 inducer |
+| CYP2C19_inhibitor | CYP2C19 inhibitor |
+| CYP2C19_inducer | CYP2C19 inducer |
+| CYP2C9_inhibitor | CYP2C9 inhibitor |
+| CYP2C9_inducer | CYP2C9 inducer |
+| CYP1A2_inhibitor | CYP1A2 inhibitor |
+| CYP1A2_inducer | CYP1A2 inducer |
+| P_gp_inhibitor | P-glycoprotein inhibitor |
+| P_gp_inducer | P-glycoprotein inducer |
+| BCRP_inhibitor | Breast cancer resistance protein inhibitor |
+| OATP_inhibitor | OATP transporter inhibitor |
+| QT_prolonging | QT interval prolongation risk |
+| bleeding_risk | Increased bleeding risk |
+| serotonin_syndrome | Serotonin syndrome risk |
+| other | Other interaction type |
+
+### SEVERITY (use decode values)
+| decode | Description |
+|--------|-------------|
+| strong | Strong inhibitor/inducer (>5-fold change) |
+| moderate | Moderate inhibitor/inducer (2-5-fold change) |
+| weak | Weak inhibitor/inducer (<2-fold change) |
+
+### MANAGEMENT (use decode values)
+| decode | Description |
+|--------|-------------|
+| prohibited | Must not use |
+| dose_adjustment | Study drug dose adjustment required |
+| monitoring | Additional monitoring required |
+| avoid_if_possible | Avoid but permitted if medically necessary |
+| allowed_with_caution | Allowed with caution and documentation |
+
+### ALLOWED MEDICATIONS STRUCTURE
+Medications explicitly permitted without restriction.
+
+```json
+{
+  "id": "allow-001",
+  "instanceType": "AllowedMedication",
+  "medication_class": "Statins",
+  "specific_drugs": ["atorvastatin", "rosuvastatin", "simvastatin", "pravastatin"],
+  "notes": "May continue at stable dose; no interaction with study drug"
+}
+```
+
+### BIOMEDICAL CONCEPT (biomedicalConcept)
+For EACH medication entry, include a biomedicalConcept object to standardize with CDISC terminology.
+
+```json
+{
+  "biomedicalConcept": {
+    "conceptName": "Warfarin",
+    "cdiscCode": "C29503",
+    "domain": "CM",
+    "method": "Oral",
+    "confidence": 1.0,
+    "rationale": "NCI Thesaurus code for anticoagulant"
+  }
+}
+```
+
+**biomedicalConcept fields:**
+- conceptName (REQUIRED): Standardized medication name (max 150 chars)
+- cdiscCode (REQUIRED): NCI EVS code (e.g., "C29503") or "CUSTOM" if no standard code exists (max 20 chars)
+- domain (REQUIRED): Always "CM" for Concomitant Medications
+- method (optional): Route of administration (Oral, IV, SC, Topical, etc.)
+- confidence (optional): 1.0 for exact NCI match, 0.5 for CUSTOM codes
+- rationale (optional): Brief explanation for code assignment (max 200 chars)
+
+**Common NCI EVS codes for medications:**
+| Medication | NCI Code | Class |
+|------------|----------|-------|
+| Warfarin | C29503 | Anticoagulant |
+| Aspirin | C287 | NSAID/Antiplatelet |
+| Metformin | C61612 | Antidiabetic |
+| Prednisone | C770 | Corticosteroid |
+| Acetaminophen | C198 | Analgesic |
+| Omeprazole | C62051 | PPI |
+| Ketoconazole | C62040 | Antifungal/CYP3A4 inhibitor |
+| Rifampin | C62078 | CYP3A4 inducer |
+
+If the exact NCI code is unknown, use "CUSTOM" as cdiscCode with confidence 0.5.
+
+### VACCINE POLICY STRUCTURE
+```json
+{
+  "instanceType": "VaccinePolicy",
+  "live_vaccines_prohibited": true,
+  "live_vaccine_washout_days": 28,
+  "inactivated_vaccines_allowed": true,
+  "covid_vaccine_policy": "mRNA vaccines allowed; timing should not coincide with study visits",
+  "specific_restrictions": [
+    "No live attenuated vaccines during treatment and for 6 months after",
+    "Inactivated influenza vaccine permitted"
+  ]
+}
+```
+
+### HERBAL SUPPLEMENTS POLICY STRUCTURE
+```json
+{
+  "instanceType": "HerbalSupplementsPolicy",
+  "prohibited_supplements": ["St. John's Wort", "grapefruit juice", "Seville oranges", "starfruit"],
+  "rationale": "St. John's Wort is a strong CYP3A4 inducer; grapefruit is a CYP3A4 inhibitor"
+}
+```
+
+### HIGH RECALL EXTRACTION GUIDANCE
+**EXTRACT EVERY SINGLE medication specification. Search for ALL mentions of:**
+
+1. **Prohibited**: "prohibited", "not permitted", "contraindicated", "must not use", "excluded", "avoid", "not allowed"
+2. **Restricted**: "restricted", "limited to", "only if", "with caution", "requires approval", "conditional"
+3. **Required**: "must receive", "premedication", "prophylaxis", "required", "mandatory", "prior to"
+4. **Rescue**: "rescue", "as needed", "PRN", "symptom management", "breakthrough"
+5. **Washout**: "washout", "discontinue prior", "days before", "half-lives", "prior therapy"
+6. **Interactions**: "CYP", "inhibitor", "inducer", "P-gp", "QT", "drug interaction", "DDI"
+7. **Vaccines**: "vaccine", "immunization", "live vaccine", "attenuated"
+8. **Supplements**: "herbal", "supplement", "St. John's Wort", "grapefruit"
+
+**Protocol Sections to Search:**
+- Concomitant Medications / Prior Medications (usually Section 6)
+- Prohibited Medications / Restricted Medications
+- Drug-Drug Interactions
+- Premedication / Prophylaxis
+- Eligibility Criteria (exclusion criteria often contain washout requirements)
+- Investigational Product Administration
+- Appendices (may contain detailed drug lists)
+
+### EXTRACTION RULES
+1. Use GENERIC drug names, not brand names (e.g., "acetaminophen" not "Tylenol")
+2. Extract numeric values as integers (28, not "twenty-eight days")
+3. List specific drugs as arrays, not comma-separated strings
+4. Include ALL categories even if empty arrays
+5. Be exhaustive - it's better to over-extract than miss medications
+6. Distinguish between prohibited (never allowed) vs restricted (conditionally allowed)
+7. For washouts, extract BOTH days AND half-lives if both are mentioned
+
+### FIELD CONSTRAINTS
+- medication_class: ≤150 characters
+- medication_name: ≤150 characters
+- All detail/rationale fields: ≤300 characters
+- All IDs must follow patterns: proh-001, rest-001, req-001, resc-001, wash-001, int-001, allow-001
+
+### DO NOT EXTRACT
+- Dose modification rules (belong to SafetyParameters module)
+- AE management (belong to AdverseEvents module)
+- ANY provenance fields (section_number, page_number, text_snippet)
+
+### OUTPUT
+Return ONLY valid JSON. No markdown fences, no explanations.
+Do NOT include any provenance fields anywhere in the output.

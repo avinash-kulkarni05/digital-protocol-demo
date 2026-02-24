@@ -1,0 +1,152 @@
+system
+You are an expert clinical trial document analyst specializing in locating exact source references in clinical protocol documents.
+
+user
+# IMAGING & CENTRAL READING - PASS 2: PROVENANCE EXTRACTION
+
+## OBJECTIVE
+Add provenance (source references) to ALL values extracted in Pass 1. For EVERY extracted element, locate the supporting evidence in the protocol and add provenance.
+
+You are provided with:
+1. Extracted imaging and central reading data from Pass 1
+2. The original protocol PDF
+
+Your task is to find EXACT source locations (provenance) for each extracted item.
+
+---
+
+## CRITICAL: 100% PROVENANCE COVERAGE REQUIRED
+
+**EVERY extracted field MUST have provenance coverage.** Provenance coverage means either:
+1. The field's parent object has a `provenance` object, OR
+2. The field has a sibling `{fieldName}Provenance` object
+
+**FAILURE MODE**: If ANY section is missing a `provenance` object, the quality check FAILS.
+
+**MANDATORY ROOT PROVENANCE OBJECTS** - You MUST add `provenance` to ALL these paths:
+- `$.provenance` - Root document provenance (REQUIRED)
+- `$.response_criteria.provenance` - Response criteria section (REQUIRED)
+- `$.assessment_schedule.provenance` - Assessment schedule (REQUIRED)
+- `$.lesion_requirements.provenance` - Lesion requirements (REQUIRED)
+- `$.central_reading.provenance` - Central reading section (REQUIRED)
+- `$.image_submission.provenance` - Image submission (REQUIRED)
+- `$.immune_related_criteria.provenance` - If immune criteria present (REQUIRED)
+
+---
+
+## PROVENANCE STRUCTURE
+
+For each provenance object, provide:
+```json
+{
+  "section_number": "8.3",
+  "page_number": 95,
+  "text_snippet": "Direct quote from protocol (max 500 chars)"
+}
+```
+
+- **section_number**: SHORT section number ONLY (e.g., "8", "8.3"). MAX 20 characters. Can be null if unknown.
+- **page_number**: PDF page number (integer, 1-indexed) - REQUIRED
+- **text_snippet**: Direct quote from protocol (STRICT MAX 500 chars) - REQUIRED
+
+---
+
+## PASS 1 EXTRACTION (Data Requiring Provenance)
+
+{{ extracted_values }}
+
+---
+
+## PROVENANCE PATHS TO POPULATE
+
+**Root Level:**
+- $.provenance
+
+**Response Criteria:**
+- $.response_criteria.provenance
+
+**Imaging Modalities (EACH item):**
+- $.imaging_modalities[*].provenance
+
+**Assessment Schedule:**
+- $.assessment_schedule.provenance
+
+**Lesion Requirements:**
+- $.lesion_requirements.provenance
+
+**Response Categories (EACH item):**
+- $.response_categories[*].provenance
+
+**Central Reading:**
+- $.central_reading.provenance
+
+**Image Submission:**
+- $.image_submission.provenance
+
+**Special Assessments (EACH item):**
+- $.special_assessments[*].provenance
+
+**Immune-Related Criteria:**
+- $.immune_related_criteria.provenance
+
+---
+
+## SEARCH STRATEGY
+
+| Content Type | Typical Sections |
+|--------------|------------------|
+| Response Criteria | "Tumor Assessment", "RECIST", "Response Evaluation" |
+| Imaging Modalities | "Radiographic Assessment", "Imaging Requirements" |
+| Assessment Schedule | "Schedule of Activities", "Tumor Assessment Schedule" |
+| Lesion Definitions | "Measurable Disease", "Target Lesions" |
+| Response Categories | "Response Definitions", "RECIST Criteria" |
+| Central Reading | "BICR", "Central Imaging", "Independent Review" |
+| Image Submission | "Image Transfer", "Data Submission" |
+| Immune Criteria | "iRECIST", "Pseudoprogression" |
+
+---
+
+## CRITICAL: DO NOT MODIFY PRIMITIVE ARRAYS
+
+**Arrays that must remain as PLAIN STRING arrays:**
+- `body_regions`: ["chest", "abdomen"] - KEEP AS PLAIN STRINGS
+- `secondary_criteria`: ["iRECIST"] - KEEP AS PLAIN STRINGS
+- `non_measurable_disease`: ["bone lesions"] - KEEP AS PLAIN STRINGS
+
+Provenance for these arrays should be at the PARENT object level.
+
+---
+
+## VALIDATION CHECKLIST (MANDATORY)
+
+**Before returning, verify ALL of these provenance objects exist:**
+
+Root Level:
+- [ ] `$.provenance` exists with page_number and text_snippet
+
+Section Level (ALL REQUIRED):
+- [ ] `$.response_criteria.provenance` exists
+- [ ] `$.assessment_schedule.provenance` exists
+- [ ] `$.lesion_requirements.provenance` exists
+- [ ] `$.central_reading.provenance` exists
+- [ ] `$.image_submission.provenance` exists
+
+Array Items:
+- [ ] Every item in `imaging_modalities[]` has provenance
+- [ ] Every item in `response_categories[]` has provenance
+- [ ] Every item in `special_assessments[]` has provenance (if present)
+
+Format Requirements:
+- [ ] All page_number values are integers (1-indexed)
+- [ ] All text_snippets are ≤500 characters
+- [ ] text_snippets are EXACT quotes from the document
+- [ ] Primitive arrays remain as plain strings
+
+**DO NOT RETURN until ALL checkboxes above are satisfied.**
+
+---
+
+## OUTPUT
+
+Return ONLY valid JSON. No markdown fences, no explanations.
+Return the complete merged JSON object with all Pass 1 data PLUS provenance for EVERY section.

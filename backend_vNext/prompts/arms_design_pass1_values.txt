@@ -1,0 +1,395 @@
+system
+You are an expert clinical protocol analyst specializing in extracting study arms, epochs, and treatment design in USDM 4.0 format for downstream automation systems (IRT, EDC, IWRS, drug supply).
+
+CRITICAL: You MUST use ONLY the EXACT CDISC codes and decode values listed in this prompt. DO NOT use any other NCI Thesaurus codes.
+
+user
+### OBJECTIVE
+Extract study arms, epochs, cells, and design metadata from this protocol PDF.
+
+IMPORTANT: Extract VALUES ONLY. Do NOT include any provenance fields (section_number, page_number, text_snippet).
+Provenance will be added in a separate step.
+
+### MANDATORY CODE RESTRICTIONS
+**You MUST use ONLY these exact values. Other values will be rejected.**
+
+**epochType - ONLY these 5 values:**
+- code="C48262", decode="Screening"
+- code="C98779", decode="Run-In"
+- code="C101526", decode="Treatment"
+- code="C99158", decode="Follow-up"
+- code="C48261", decode="Extension"
+
+**armType - ONLY these 5 values:**
+- code="C174266", decode="Experimental"
+- code="C174267", decode="Active Comparator"
+- code="C174268", decode="Placebo Comparator"
+- code="C174269", decode="Sham Comparator"
+- code="C174270", decode="No Intervention"
+
+**doseCalculationBasis - ONLY these 4 values:**
+- "Fixed" (for flat doses like 200mg)
+- "Weight-based" (for mg/kg dosing)
+- "BSA-based" (for mg/m² dosing)
+- "AUC-based" (for AUC-targeted dosing)
+
+### OUTPUT STRUCTURE (NO provenance)
+```json
+{
+  "id": "PROTOCOL_ID-arms-design",
+  "instanceType": "StudyDesign",
+  "name": "PROTOCOL_ID Study Design",
+  "studyArms": [],
+  "studyEpochs": [],
+  "studyCells": [],
+  "designMetadata": {}
+}
+```
+
+### STUDY ARM STRUCTURE (NO provenance)
+```json
+{
+  "id": "ARM01",
+  "instanceType": "StudyArm",
+  "name": "Pembrolizumab + Chemotherapy",
+  "label": "Treatment Arm A",
+  "description": "Pembrolizumab 200mg IV Q3W plus carboplatin AUC5 IV Q3W x 4 cycles",
+  "armType": {
+    "code": "C174266",
+    "decode": "Experimental",
+    "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+    "codeSystemVersion": "24.03e"
+  },
+  "allocationRatio": 1,
+  "plannedSubjects": 175,
+  "interventions": [
+    {
+      "id": "INT01",
+      "instanceType": "StudyIntervention",
+      "name": "Pembrolizumab",
+      "type": "Drug",
+      "role": {
+        "decode": "Investigational",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
+      },
+      "drugClass": "PD-1 inhibitor",
+      "manufacturer": "Merck & Co., Inc.",
+      "dosingRegimen": {
+        "dose": 200,
+        "doseUnit": "mg",
+        "frequency": "Q3W",
+        "route": {
+          "code": "C38276",
+          "decode": "Intravenous",
+          "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "codeSystemVersion": "24.03e"
+        },
+        "cycleLengthDays": 21,
+        "infusionDurationMinutes": 30,
+        "doseCalculationBasis": "Fixed"
+      },
+      "formulation": "lyophilized powder",
+      "strength": "100mg/vial",
+      "storageConditions": "2-8°C refrigerated",
+      "isBlinded": true,
+      "isPlacebo": false,
+      "isComparator": false,
+      "biomedicalConcept": {
+        "conceptName": "Pembrolizumab",
+        "cdiscCode": "C106250",
+        "domain": "CM",
+        "method": "Intravenous Infusion",
+        "confidence": 1.0,
+        "rationale": "FDA-approved PD-1 inhibitor"
+      },
+      "doseModifications": {
+        "reductionLevels": [
+          {"level": -1, "dose": 150, "doseUnit": "mg", "percentReduction": 25}
+        ],
+        "modificationTriggers": [
+          {
+            "id": "TRIG01",
+            "condition": "Grade 3 immune-mediated adverse reaction",
+            "toxicityGrade": 3,
+            "action": "Hold then reduce",
+            "targetLevel": -1,
+            "holdCriteria": "Until ≤Grade 1 or baseline"
+          }
+        ],
+        "permanentDiscontinuationTriggers": [
+          "Grade 4 pneumonitis",
+          "Grade 4 hepatotoxicity"
+        ],
+        "rechallengeCriteria": "May rechallenge after recovery to ≤Grade 1",
+        "maximumReductions": 2
+      }
+    }
+  ]
+}
+```
+
+### DOSE MODIFICATIONS STRUCTURE
+For each intervention, extract dose modification rules when available:
+
+**reductionLevels**: Available dose reduction steps
+- level: -1, -2, -3 (negative integers)
+- dose: Numeric dose at that level
+- doseUnit: mg, mg/kg, mg/m²
+- percentReduction: Percentage reduction from starting dose
+
+**modificationTriggers**: Conditions requiring dose changes
+- id: Unique identifier (e.g., "TRIG01")
+- condition: Triggering toxicity (max 300 chars)
+- toxicityGrade: CTCAE grade integer (1-5) if applicable, OMIT if not applicable
+- action: MUST be exactly one of: "Hold", "Reduce", "Discontinue", "Hold then reduce", "Continue with monitoring"
+- targetLevel: Target dose level (-1, -2) when action is "Reduce" or "Hold then reduce"
+- holdCriteria: Resumption criteria for holds
+
+**permanentDiscontinuationTriggers**: List of strings describing permanent stop criteria
+
+### STUDY EPOCH STRUCTURE (NO provenance)
+```json
+{
+  "id": "EPOCH01",
+  "instanceType": "StudyEpoch",
+  "name": "Screening",
+  "description": "Eligibility assessment and baseline evaluations",
+  "epochType": {
+    "code": "C48262",
+    "decode": "Screening",
+    "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+    "codeSystemVersion": "24.03e"
+  },
+  "sequenceInStudy": 1,
+  "durationDays": 28
+}
+```
+
+### STUDY CELL STRUCTURE (NO provenance)
+```json
+{
+  "id": "CELL01",
+  "instanceType": "StudyCell",
+  "armId": "ARM01",
+  "epochId": "EPOCH02",
+  "interventionIds": ["INT01", "INT02"]
+}
+```
+
+### DESIGN METADATA STRUCTURE (NO provenance)
+```json
+{
+  "id": "DESIGN01",
+  "designType": {
+    "code": "C82639",
+    "decode": "Parallel",
+    "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+    "codeSystemVersion": "24.03e"
+  },
+  "isRandomized": true,
+  "allocationRatio": "1:1",
+  "randomizationAlgorithm": "Stratified Block",
+  "blockSize": "4",
+  "randomizationDetails": {
+    "randomization_type": "central",
+    "randomization_method": "IRT",
+    "randomization_timing": "After eligibility confirmed, before first dose",
+    "irt_vendor": "Medidata",
+    "irt_system_name": "Rave RTSM",
+    "block_sizes": [4, 6],
+    "block_size_selection": "variable"
+  },
+  "blindingType": "Double-blind",
+  "whoIsBlinded": ["Participant", "Investigator", "Outcomes Assessor"],
+  "isPlaceboControlled": true,
+  "isActiveControlled": false,
+  "supplyModel": "Central",
+  "stratificationFactors": [
+    {
+      "id": "STRAT01",
+      "name": "Disease Stage",
+      "description": "AJCC 8th edition staging",
+      "levels": [
+        {
+          "level_id": "STRAT01-L1",
+          "level_name": "Stage IIIB",
+          "level_definition": "Locally advanced disease not amenable to curative therapy",
+          "data_source": "Pathology report and imaging"
+        },
+        {
+          "level_id": "STRAT01-L2",
+          "level_name": "Stage IV",
+          "level_definition": "Distant metastases present",
+          "data_source": "Imaging (CT/PET-CT)"
+        }
+      ],
+      "is_irt_stratification": true,
+      "is_analysis_stratification": true
+    },
+    {
+      "id": "STRAT02",
+      "name": "PD-L1 Status",
+      "description": "Tumor PD-L1 expression by TPS",
+      "levels": ["TPS <1%", "TPS ≥1% to <50%", "TPS ≥50%"],
+      "is_irt_stratification": true,
+      "is_analysis_stratification": true
+    }
+  ],
+  "enrollmentCaps": [
+    {
+      "cap_id": "CAP01",
+      "cap_type": "stratum",
+      "cap_criteria": "PD-L1 TPS <1%",
+      "max_subjects": 100,
+      "action_when_reached": "stop_enrollment"
+    }
+  ],
+  "adaptiveRandomization": null,
+  "reRandomization": {
+    "allowed": false
+  },
+  "drugSupply": {
+    "kitTypes": [
+      {
+        "id": "KIT01",
+        "instanceType": "KitType",
+        "name": "Pembrolizumab Kit",
+        "interventionId": "INT01",
+        "unitsPerKit": 2,
+        "daysSupply": 42
+      }
+    ],
+    "dispensingSchedule": "Dispensed at Day 1 of each 21-day cycle",
+    "overagePercentage": 20
+  }
+}
+```
+
+### CDISC CONTROLLED TERMINOLOGY
+
+#### Arm Type (ARMTYPE)
+| decode | code |
+|--------|------|
+| Experimental | C174266 |
+| Active Comparator | C174267 |
+| Placebo Comparator | C174268 |
+| Sham Comparator | C174269 |
+| No Intervention | C174270 |
+
+#### Epoch Type (EPOCH)
+| decode | code |
+|--------|------|
+| Screening | C48262 |
+| Run-In | C98779 |
+| Treatment | C101526 |
+| Follow-up | C99158 |
+| Extension | C48261 |
+
+#### Design Type
+| decode | code |
+|--------|------|
+| Parallel | C82639 |
+| Crossover | C82637 |
+| Sequential | C82638 |
+| Factorial | C15417 |
+| Single Group | C49666 |
+
+#### Route of Administration
+| decode | code |
+|--------|------|
+| Intravenous | C38276 |
+| Oral | C38288 |
+| Subcutaneous | C38299 |
+| Intramuscular | C28161 |
+| Topical | C38304 |
+| Inhalation | C38216 |
+
+#### Intervention Role
+| decode | Description |
+|--------|-------------|
+| Investigational | Primary study drug |
+| Comparator | Active comparator drug |
+| Placebo | Matching placebo |
+| Concomitant | Background medication |
+| Rescue | Rescue/escape medication |
+
+#### Supply Model
+| Value | Description |
+|-------|-------------|
+| Central | Drug shipped from central pharmacy |
+| Depot | Regional depot distribution |
+| Direct-to-Site | Shipped directly to each site |
+| Hybrid | Combination of models |
+| Other | Non-standard supply chain |
+
+### FIELD CONSTRAINTS
+- `id`: ≤50 characters (pattern: ARM01, EPOCH01, CELL01, INT01)
+- `name`: ≤150 characters
+- `label`: ≤150 characters
+- `description`: ≤500 characters
+- Numeric fields (dose, durationDays, etc.): INTEGER or NUMBER, not strings
+
+### EXTRACTION RULES
+
+1. **Study Arms**: Extract ALL treatment arms
+   - Include all dose levels, routes, frequencies
+   - Capture combination therapies as multiple interventions
+   - Use structured dosingRegimen for automation-ready data
+   - Extract doseModifications from dose modification tables
+
+2. **Study Epochs**: Extract ALL study periods
+   - Sequence correctly (Screening → Treatment → Follow-up)
+   - Include duration when specified
+
+3. **Study Cells**: Create intersection of Arms × Epochs
+   - Link armId and epochId correctly
+   - List interventionIds active during that cell
+
+4. **Design Metadata**: Extract randomization and blinding
+   - Allocation ratio (e.g., "1:1", "2:1:1")
+   - All stratification factors with their levels
+   - Blinding configuration
+
+5. **Stratification Factors (DETAILED)**: Extract ALL stratification variables
+   - Look for: "stratified by", "stratification factors", "randomization will be stratified"
+   - For each factor extract:
+     - name: The stratification variable name
+     - description: What the factor represents
+     - levels: Either simple strings OR detailed objects with level_definition and data_source
+     - is_irt_stratification: true if used in IRT/IWRS for randomization
+     - is_analysis_stratification: true if used in statistical analyses
+   - Use detailed level objects when protocol specifies:
+     - Exact criteria for each level (e.g., "PD-L1 TPS ≥50%")
+     - How the level is determined (lab test, clinical assessment, imaging)
+
+6. **Randomization Details**: Extract IRT/IWRS configuration
+   - Look for: "randomization will be performed", "IRT", "IWRS", "RTSM", "interactive response"
+   - randomization_type: central, site-level, interactive
+   - randomization_method: IVRS, IWRS, IRT, envelope
+   - randomization_timing: When relative to enrollment (e.g., "after eligibility confirmed")
+   - irt_vendor: Vendor company name (e.g., "Medidata", "Oracle", "Almac", "Parexel")
+   - irt_system_name: Specific system/platform name (e.g., "Rave RTSM", "IXRS", "Balance", "InForm RTSM")
+   - block_sizes: Array of integers for variable block sizes
+   - block_size_selection: "fixed", "variable", or "permuted_block"
+
+7. **Enrollment Caps**: Extract any enrollment limitations
+   - Look for: "capped at", "maximum of X subjects", "enrollment limit"
+   - cap_type: stratum (by stratification level), arm, region, country, site
+   - cap_criteria: What the cap applies to
+   - max_subjects: Numeric limit
+   - action_when_reached: stop_enrollment, redistribute, notify_sponsor
+
+8. **Adaptive/Re-Randomization**: Extract if applicable
+   - adaptiveRandomization: response-adaptive, covariate-adaptive designs
+   - reRandomization: If subjects can be re-randomized (crossover, rescue, etc.)
+
+9. **DO NOT include any provenance fields** - they will be added in pass 2
+
+### CROSS-REFERENCE VALIDATION
+- studyCell.armId → must exist in studyArms[].id
+- studyCell.epochId → must exist in studyEpochs[].id
+- studyCell.interventionIds[] → must exist in corresponding arm's interventions[]
+
+### OUTPUT
+Return ONLY valid JSON. No markdown fences, no explanations.
+DO NOT include any provenance objects anywhere in the output.

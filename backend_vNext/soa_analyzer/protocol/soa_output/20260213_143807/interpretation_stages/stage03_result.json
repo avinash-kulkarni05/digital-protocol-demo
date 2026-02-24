@@ -1,0 +1,1923 @@
+{
+  "stage": 3,
+  "stageName": "Hierarchy Builder",
+  "success": true,
+  "hierarchy": {
+    "id": "HIER-A0085434",
+    "rootNodes": [
+      {
+        "id": "DOM-DM",
+        "name": "Demographics",
+        "nodeType": "category",
+        "order": 1,
+        "isExpanded": true,
+        "cdashDomain": "DM",
+        "children": [
+          {
+            "id": "ACT-004",
+            "name": "Demography",
+            "nodeType": "activity",
+            "order": 0,
+            "isExpanded": false,
+            "cdashDomain": "DM"
+          }
+        ]
+      },
+      {
+        "id": "DOM-MH",
+        "name": "Medical History",
+        "nodeType": "category",
+        "order": 2,
+        "isExpanded": true,
+        "cdashDomain": "MH",
+        "children": [
+          {
+            "id": "ACT-005",
+            "name": "Medical and ophthalmic history",
+            "nodeType": "activity",
+            "order": 0,
+            "isExpanded": true,
+            "cdashDomain": "MH",
+            "children": [
+              {
+                "id": "COMP-BB323677",
+                "name": "History of tobacco use",
+                "nodeType": "component",
+                "order": 0,
+                "isExpanded": false,
+                "cdashDomain": "MH",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 55,
+                  "textSnippet": "A complete medical history including demographics, history of tobacco, alcohol, and drug use will be taken at screening.",
+                  "rationale": "Explicitly listed as a component of the medical history assessment in Section 3.2."
+                }
+              },
+              {
+                "id": "COMP-5FFEB3AB",
+                "name": "History of alcohol use",
+                "nodeType": "component",
+                "order": 1,
+                "isExpanded": false,
+                "cdashDomain": "MH",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 55,
+                  "textSnippet": "A complete medical history including demographics, history of tobacco, alcohol, and drug use will be taken at screening.",
+                  "rationale": "Explicitly listed as a component of the medical history assessment in Section 3.2."
+                }
+              },
+              {
+                "id": "COMP-8B31879C",
+                "name": "History of drug use",
+                "nodeType": "component",
+                "order": 2,
+                "isExpanded": false,
+                "cdashDomain": "MH",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 55,
+                  "textSnippet": "A complete medical history including demographics, history of tobacco, alcohol, and drug use will be taken at screening.",
+                  "rationale": "Explicitly listed as a component of the medical history assessment in Section 3.2."
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DOM-PE",
+        "name": "Physical Examination",
+        "nodeType": "category",
+        "order": 3,
+        "isExpanded": true,
+        "cdashDomain": "PE",
+        "children": [
+          {
+            "id": "ACT-003",
+            "name": "Iris color assessment",
+            "nodeType": "activity",
+            "order": 0,
+            "isExpanded": false,
+            "cdashDomain": "PE"
+          },
+          {
+            "id": "ACT-012",
+            "name": "Dominant eye determination",
+            "nodeType": "activity",
+            "order": 1,
+            "isExpanded": false,
+            "cdashDomain": "PE"
+          },
+          {
+            "id": "ACT-015",
+            "name": "Pupillary reaction to light assessment",
+            "nodeType": "activity",
+            "order": 2,
+            "isExpanded": true,
+            "cdashDomain": "PE",
+            "children": [
+              {
+                "id": "COMP-4887D4BB",
+                "name": "Pupillary reaction to light",
+                "nodeType": "component",
+                "order": 0,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 64,
+                  "textSnippet": "Judge whether the subject's pupillary reaction to light is normal or abnormal. Enter into the source document and eCRF.",
+                  "rationale": "The protocol explicitly defines the specific data point to be recorded in the eCRF for this assessment, specifying a judgment of Normal vs Abnormal."
+                }
+              }
+            ]
+          },
+          {
+            "id": "ACT-027",
+            "name": "Slit-lamp biomicroscopy",
+            "nodeType": "activity",
+            "order": 3,
+            "isExpanded": true,
+            "cdashDomain": "PE",
+            "children": [
+              {
+                "id": "COMP-380BDBBA",
+                "name": "Eyelid Edema",
+                "nodeType": "component",
+                "order": 0,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 75,
+                  "textSnippet": "Eyelid/Eyelid Margins/Lashes:\nEdema\n0 (None) = No edema\n+0.5 (Trace) = Localized, minimal (trace) swelling",
+                  "rationale": "Explicitly listed as a graded parameter for Eyelids in the Slit-lamp Biomicroscopy section."
+                }
+              },
+              {
+                "id": "COMP-0C50B126",
+                "name": "Eyelid Erythema",
+                "nodeType": "component",
+                "order": 1,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 75,
+                  "textSnippet": "Erythema\n0 (None) = No erythema\n+0.5 (Trace) = Localized, minimal (trace), flush reddish color",
+                  "rationale": "Explicitly listed as a graded parameter for Eyelids in the Slit-lamp Biomicroscopy section."
+                }
+              },
+              {
+                "id": "COMP-B9067DAA",
+                "name": "Eyelid Crusting",
+                "nodeType": "component",
+                "order": 2,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 75,
+                  "textSnippet": "Crusting:\n0 (None)\n+0.5 (Trace)\n+1 (Mild)",
+                  "rationale": "Explicitly listed as a graded parameter for Eyelids in the Slit-lamp Biomicroscopy section."
+                }
+              },
+              {
+                "id": "COMP-8E50AC7E",
+                "name": "Conjunctiva (Bulbar) Hyperemia",
+                "nodeType": "component",
+                "order": 3,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 76,
+                  "textSnippet": "Conjunctiva (Bulbar):\nHyperemia\n0 (None) = No hyperemia\n+0.5 (Trace) = Minimal (trace) flush, reddish color",
+                  "rationale": "Explicitly listed as a graded parameter for Bulbar Conjunctiva in the Slit-lamp Biomicroscopy section."
+                }
+              },
+              {
+                "id": "COMP-443CF7B2",
+                "name": "Conjunctiva (Bulbar) Edema",
+                "nodeType": "component",
+                "order": 4,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 76,
+                  "textSnippet": "Conjunctiva (Bulbar):\n...\nEdema\n0 (None) = No edema\n+0.5 (Trace) = Localized, minimal (trace) swelling",
+                  "rationale": "Explicitly listed as a graded parameter for Bulbar Conjunctiva in the Slit-lamp Biomicroscopy section."
+                }
+              },
+              {
+                "id": "COMP-6DD36252",
+                "name": "Conjunctiva (Palpebral) Hyperemia",
+                "nodeType": "component",
+                "order": 5,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 76,
+                  "textSnippet": "Conjunctiva (Palpebral):\nHyperemia\n0 (None) = No hyperemia\n+0.5 (Trace) = Minimal (trace) flush, reddish color",
+                  "rationale": "Explicitly listed as a graded parameter for Palpebral Conjunctiva in the Slit-lamp Biomicroscopy section."
+                }
+              },
+              {
+                "id": "COMP-DC6F77F4",
+                "name": "Conjunctiva (Palpebral) Edema",
+                "nodeType": "component",
+                "order": 6,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 76,
+                  "textSnippet": "Conjunctiva (Palpebral):\n...\nEdema\n0 (None) = No edema\n+0.5 (Trace) = Localized, minimal (trace) swelling",
+                  "rationale": "Explicitly listed as a graded parameter for Palpebral Conjunctiva in the Slit-lamp Biomicroscopy section."
+                }
+              },
+              {
+                "id": "COMP-90754D8B",
+                "name": "Cornea Edema",
+                "nodeType": "component",
+                "order": 7,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 77,
+                  "textSnippet": "Cornea:\nEdema\n0 (None) = No edema\n+0.5 (Trace) = Localized, minimal (trace) epithelial haze",
+                  "rationale": "Explicitly listed as a graded parameter for Cornea in the Slit-lamp Biomicroscopy section."
+                }
+              },
+              {
+                "id": "COMP-46DC6696",
+                "name": "Cornea Superficial Punctate Keratopathy",
+                "nodeType": "component",
+                "order": 8,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 77,
+                  "textSnippet": "Superficial Punctate Keratopathy\n0 = No superficial punctate keratopathy\n+0.5 = Trace",
+                  "rationale": "Explicitly listed as a graded parameter for Cornea in the Slit-lamp Biomicroscopy section."
+                }
+              },
+              {
+                "id": "COMP-7B01F308",
+                "name": "Anterior Chamber Cells",
+                "nodeType": "component",
+                "order": 9,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 77,
+                  "textSnippet": "Anterior Chamber:\nCells, Flare, Anterior Synechiae, Hypopyon, Hyphema will be graded as 0,+ 0.5, +1, +2, +3, +4.",
+                  "rationale": "Explicitly listed as a graded parameter for Anterior Chamber in the Slit-lamp Biomicroscopy section."
+                }
+              },
+              {
+                "id": "COMP-A63491C8",
+                "name": "Anterior Chamber Flare",
+                "nodeType": "component",
+                "order": 10,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 77,
+                  "textSnippet": "Anterior Chamber:\nCells, Flare, Anterior Synechiae, Hypopyon, Hyphema will be graded as 0,+ 0.5, +1, +2, +3, +4.",
+                  "rationale": "Explicitly listed as a graded parameter for Anterior Chamber in the Slit-lamp Biomicroscopy section."
+                }
+              },
+              {
+                "id": "COMP-BC1CADA2",
+                "name": "Anterior Chamber Anterior Synechiae",
+                "nodeType": "component",
+                "order": 11,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 77,
+                  "textSnippet": "Anterior Chamber:\nCells, Flare, Anterior Synechiae, Hypopyon, Hyphema will be graded as 0,+ 0.5, +1, +2, +3, +4.",
+                  "rationale": "Explicitly listed as a graded parameter for Anterior Chamber in the Slit-lamp Biomicroscopy section."
+                }
+              },
+              {
+                "id": "COMP-D4CDB8F5",
+                "name": "Anterior Chamber Hypopyon",
+                "nodeType": "component",
+                "order": 12,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 77,
+                  "textSnippet": "Anterior Chamber:\nCells, Flare, Anterior Synechiae, Hypopyon, Hyphema will be graded as 0,+ 0.5, +1, +2, +3, +4.",
+                  "rationale": "Explicitly listed as a graded parameter for Anterior Chamber in the Slit-lamp Biomicroscopy section."
+                }
+              },
+              {
+                "id": "COMP-0FC5A8F9",
+                "name": "Anterior Chamber Hyphema",
+                "nodeType": "component",
+                "order": 13,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 77,
+                  "textSnippet": "Anterior Chamber:\nCells, Flare, Anterior Synechiae, Hypopyon, Hyphema will be graded as 0,+ 0.5, +1, +2, +3, +4.",
+                  "rationale": "Explicitly listed as a graded parameter for Anterior Chamber in the Slit-lamp Biomicroscopy section."
+                }
+              },
+              {
+                "id": "COMP-9AADE4FA",
+                "name": "Iris/Pupil Rubeosis Iridis",
+                "nodeType": "component",
+                "order": 14,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 77,
+                  "textSnippet": "Iris/Pupil:\nRubeosis Iridis... Afferent Pupillary Defect, Posterior Synechiae, Transillumination Defects, Pseudoexfoliative Material... will be evaluated with no grading.",
+                  "rationale": "Explicitly listed as a parameter to be evaluated for Iris/Pupil in the Slit-lamp Biomicroscopy section."
+                }
+              },
+              {
+                "id": "COMP-0CC4A57A",
+                "name": "Iris/Pupil Afferent Pupillary Defect",
+                "nodeType": "component",
+                "order": 15,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 77,
+                  "textSnippet": "Iris/Pupil:\nRubeosis Iridis... Afferent Pupillary Defect, Posterior Synechiae, Transillumination Defects, Pseudoexfoliative Material... will be evaluated with no grading.",
+                  "rationale": "Explicitly listed as a parameter to be evaluated for Iris/Pupil in the Slit-lamp Biomicroscopy section."
+                }
+              },
+              {
+                "id": "COMP-50B6A92F",
+                "name": "Iris/Pupil Posterior Synechiae",
+                "nodeType": "component",
+                "order": 16,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 77,
+                  "textSnippet": "Iris/Pupil:\nRubeosis Iridis... Afferent Pupillary Defect, Posterior Synechiae, Transillumination Defects, Pseudoexfoliative Material... will be evaluated with no grading.",
+                  "rationale": "Explicitly listed as a parameter to be evaluated for Iris/Pupil in the Slit-lamp Biomicroscopy section."
+                }
+              },
+              {
+                "id": "COMP-727BFDD4",
+                "name": "Iris/Pupil Transillumination Defects",
+                "nodeType": "component",
+                "order": 17,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 77,
+                  "textSnippet": "Iris/Pupil:\nRubeosis Iridis... Afferent Pupillary Defect, Posterior Synechiae, Transillumination Defects, Pseudoexfoliative Material... will be evaluated with no grading.",
+                  "rationale": "Explicitly listed as a parameter to be evaluated for Iris/Pupil in the Slit-lamp Biomicroscopy section."
+                }
+              },
+              {
+                "id": "COMP-15E0B2AF",
+                "name": "Iris/Pupil Pseudoexfoliative Material",
+                "nodeType": "component",
+                "order": 18,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 77,
+                  "textSnippet": "Iris/Pupil:\nRubeosis Iridis... Afferent Pupillary Defect, Posterior Synechiae, Transillumination Defects, Pseudoexfoliative Material... will be evaluated with no grading.",
+                  "rationale": "Explicitly listed as a parameter to be evaluated for Iris/Pupil in the Slit-lamp Biomicroscopy section."
+                }
+              }
+            ]
+          },
+          {
+            "id": "ACT-033",
+            "name": "Dilated fundoscopic examination",
+            "nodeType": "activity",
+            "order": 4,
+            "isExpanded": true,
+            "cdashDomain": "PE",
+            "children": [
+              {
+                "id": "COMP-EE270235",
+                "name": "Lens evaluation",
+                "nodeType": "component",
+                "order": 0,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 79,
+                  "textSnippet": "The examinations will include evaluation of the lens, vitreous, fundus, and optic nerve.",
+                  "rationale": "Explicitly listed as a primary component of the dilated fundoscopic examination in Section 3.22."
+                }
+              },
+              {
+                "id": "COMP-4232E9B5",
+                "name": "Nuclear cataract severity",
+                "nodeType": "component",
+                "order": 1,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 79,
+                  "textSnippet": "presence and severity of nuclear, cortical, and posterior subcapsular cataract lens opacities should be evaluated... graded using the scale below",
+                  "rationale": "Explicitly listed as a specific cataract type to be graded."
+                }
+              },
+              {
+                "id": "COMP-54F6C385",
+                "name": "Cortical cataract severity",
+                "nodeType": "component",
+                "order": 2,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 79,
+                  "textSnippet": "presence and severity of nuclear, cortical, and posterior subcapsular cataract lens opacities should be evaluated... graded using the scale below",
+                  "rationale": "Explicitly listed as a specific cataract type to be graded."
+                }
+              },
+              {
+                "id": "COMP-2AEF5EDA",
+                "name": "Posterior subcapsular cataract severity",
+                "nodeType": "component",
+                "order": 3,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 79,
+                  "textSnippet": "presence and severity of nuclear, cortical, and posterior subcapsular cataract lens opacities should be evaluated... graded using the scale below",
+                  "rationale": "Explicitly listed as a specific cataract type to be graded."
+                }
+              },
+              {
+                "id": "COMP-3A9E29A0",
+                "name": "Capsular bag evaluation",
+                "nodeType": "component",
+                "order": 4,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 79,
+                  "textSnippet": "Capsular bag should also be evaluated.",
+                  "rationale": "Explicitly listed as a component of the lens assessment."
+                }
+              },
+              {
+                "id": "COMP-8017F705",
+                "name": "Vitreous evaluation",
+                "nodeType": "component",
+                "order": 5,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 79,
+                  "textSnippet": "The examinations will include evaluation of the lens, vitreous, fundus, and optic nerve.",
+                  "rationale": "Explicitly listed as a primary component of the dilated fundoscopic examination."
+                }
+              },
+              {
+                "id": "COMP-1E858A46",
+                "name": "Vitreous cells",
+                "nodeType": "component",
+                "order": 6,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 79,
+                  "textSnippet": "Cells, Vitreous Haze, Vitreous Hemorrhage and Posterior Vitreous Detachment should be graded",
+                  "rationale": "Explicitly listed as a specific vitreous parameter to be graded."
+                }
+              },
+              {
+                "id": "COMP-6B86CF68",
+                "name": "Vitreous haze",
+                "nodeType": "component",
+                "order": 7,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 79,
+                  "textSnippet": "Cells, Vitreous Haze, Vitreous Hemorrhage and Posterior Vitreous Detachment should be graded",
+                  "rationale": "Explicitly listed as a specific vitreous parameter to be graded."
+                }
+              },
+              {
+                "id": "COMP-C0F7E6C5",
+                "name": "Vitreous hemorrhage",
+                "nodeType": "component",
+                "order": 8,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 79,
+                  "textSnippet": "Cells, Vitreous Haze, Vitreous Hemorrhage and Posterior Vitreous Detachment should be graded",
+                  "rationale": "Explicitly listed as a specific vitreous parameter to be graded."
+                }
+              },
+              {
+                "id": "COMP-9ADBB2C8",
+                "name": "Posterior vitreous detachment",
+                "nodeType": "component",
+                "order": 9,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 79,
+                  "textSnippet": "Cells, Vitreous Haze, Vitreous Hemorrhage and Posterior Vitreous Detachment should be graded",
+                  "rationale": "Explicitly listed as a specific vitreous parameter to be graded."
+                }
+              },
+              {
+                "id": "COMP-BA3D7AC4",
+                "name": "Fundus evaluation",
+                "nodeType": "component",
+                "order": 10,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 79,
+                  "textSnippet": "The examinations will include evaluation of the lens, vitreous, fundus, and optic nerve.",
+                  "rationale": "Explicitly listed as a primary component of the dilated fundoscopic examination."
+                }
+              },
+              {
+                "id": "COMP-373B5FFD",
+                "name": "Macula evaluation",
+                "nodeType": "component",
+                "order": 11,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 79,
+                  "textSnippet": "The macula will be evaluated for any of the following pathology: intraretinal fluid, subretinal fluid, intraretinal hemorrhage...",
+                  "rationale": "Explicitly listed as a specific area of the fundus to be evaluated."
+                }
+              },
+              {
+                "id": "COMP-8CB27B8B",
+                "name": "Retina periphery evaluation",
+                "nodeType": "component",
+                "order": 12,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 80,
+                  "textSnippet": "The retina periphery will be evaluated for any of the following pathology and the approximate clock location",
+                  "rationale": "Explicitly listed as a specific area of the fundus to be evaluated."
+                }
+              },
+              {
+                "id": "COMP-345634C0",
+                "name": "Optic nerve evaluation",
+                "nodeType": "component",
+                "order": 13,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 80,
+                  "textSnippet": "The optic nerve should be evaluated for pathology.",
+                  "rationale": "Explicitly listed as a primary component of the dilated fundoscopic examination."
+                }
+              },
+              {
+                "id": "COMP-BB8581BB",
+                "name": "Cup-to-Disc (C/D) Ratio",
+                "nodeType": "component",
+                "order": 14,
+                "isExpanded": false,
+                "cdashDomain": "PE",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 80,
+                  "textSnippet": "C/D ratio should be reported using a 0.0 to 1.0 scale.",
+                  "rationale": "Explicitly listed as a specific measurement to be reported."
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DOM-VS",
+        "name": "Vital Signs",
+        "nodeType": "category",
+        "order": 4,
+        "isExpanded": true,
+        "cdashDomain": "VS",
+        "children": [
+          {
+            "id": "ACT-010",
+            "name": "Vital signs",
+            "nodeType": "activity",
+            "order": 0,
+            "isExpanded": true,
+            "cdashDomain": "VS",
+            "children": [
+              {
+                "id": "COMP-B30E12BC",
+                "name": "Systolic Blood Pressure",
+                "nodeType": "component",
+                "order": 0,
+                "isExpanded": false,
+                "cdashDomain": "VS",
+                "confidence": 0.95,
+                "unit": "mmHg",
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 61,
+                  "textSnippet": "Vital sign determinations of systolic and diastolic blood pressure and pulse rate will be obtained at visits as specified in Section 2.1.",
+                  "rationale": "Explicitly listed as a component of vital signs in the Operations Manual Section 3.7."
+                }
+              },
+              {
+                "id": "COMP-D1EA4673",
+                "name": "Diastolic Blood Pressure",
+                "nodeType": "component",
+                "order": 1,
+                "isExpanded": false,
+                "cdashDomain": "VS",
+                "confidence": 0.95,
+                "unit": "mmHg",
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 61,
+                  "textSnippet": "Vital sign determinations of systolic and diastolic blood pressure and pulse rate will be obtained at visits as specified in Section 2.1.",
+                  "rationale": "Explicitly listed as a component of vital signs in the Operations Manual Section 3.7."
+                }
+              },
+              {
+                "id": "COMP-B4DEF0BD",
+                "name": "Pulse Rate",
+                "nodeType": "component",
+                "order": 2,
+                "isExpanded": false,
+                "cdashDomain": "VS",
+                "confidence": 0.95,
+                "unit": "beats/min",
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 61,
+                  "textSnippet": "Vital sign determinations of systolic and diastolic blood pressure and pulse rate will be obtained at visits as specified in Section 2.1.",
+                  "rationale": "Explicitly listed as a component of vital signs in the Operations Manual Section 3.7 (also referred to as 'heart rate' in Section 3.6 on page 12)."
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DOM-LB",
+        "name": "Laboratory Tests",
+        "nodeType": "category",
+        "order": 6,
+        "isExpanded": true,
+        "cdashDomain": "LB",
+        "children": [
+          {
+            "id": "ACT-011",
+            "name": "Urine pregnancy test",
+            "nodeType": "activity",
+            "order": 0,
+            "isExpanded": false,
+            "cdashDomain": "LB"
+          }
+        ]
+      },
+      {
+        "id": "DOM-PC",
+        "name": "Pharmacokinetics",
+        "nodeType": "category",
+        "order": 9,
+        "isExpanded": true,
+        "cdashDomain": "PC",
+        "children": [
+          {
+            "id": "ACT-035",
+            "name": "PK",
+            "nodeType": "activity",
+            "order": 0,
+            "isExpanded": true,
+            "cdashDomain": "PC",
+            "children": [
+              {
+                "id": "COMP-B9733AF1",
+                "name": "AGN-190584",
+                "nodeType": "component",
+                "order": 0,
+                "isExpanded": false,
+                "cdashDomain": "PC",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 12,
+                  "textSnippet": "Blood samples for the quantitation of AGN-190584 in subject's plasma will be collected",
+                  "rationale": "Explicitly identified as the analyte to be quantified in plasma for the Pharmacokinetic Endpoints."
+                }
+              },
+              {
+                "id": "COMP-3F5DA794",
+                "name": "AUC0-tau",
+                "nodeType": "component",
+                "order": 1,
+                "isExpanded": false,
+                "cdashDomain": "PC",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 28,
+                  "textSnippet": "PK parameters calculated after the first and second dose on Day 1 will include area under the concentration versus time curve from 0 to the end of the dosing interval (AUC0-tau)",
+                  "rationale": "Explicitly listed as a calculated PK parameter for Day 1."
+                }
+              },
+              {
+                "id": "COMP-4940BCF4",
+                "name": "Cmax",
+                "nodeType": "component",
+                "order": 2,
+                "isExpanded": false,
+                "cdashDomain": "PC",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 28,
+                  "textSnippet": "maximum observed concentration (Cmax)",
+                  "rationale": "Explicitly listed as a calculated PK parameter for Day 1."
+                }
+              },
+              {
+                "id": "COMP-6CC228D9",
+                "name": "Tmax",
+                "nodeType": "component",
+                "order": 3,
+                "isExpanded": false,
+                "cdashDomain": "PC",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 28,
+                  "textSnippet": "time to maximum observed concentration (Tmax)",
+                  "rationale": "Explicitly listed as a calculated PK parameter for Day 1."
+                }
+              },
+              {
+                "id": "COMP-CA531BCE",
+                "name": "Ctrough",
+                "nodeType": "component",
+                "order": 4,
+                "isExpanded": false,
+                "cdashDomain": "PC",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 28,
+                  "textSnippet": "Additionally, the observed concentration at the end of the dosing interval (Ctrough)... will be calculated after the first dose on Day 1.",
+                  "rationale": "Explicitly listed as a calculated PK parameter for Day 1."
+                }
+              },
+              {
+                "id": "COMP-6DBB8D8D",
+                "name": "Peak-to-trough ratio",
+                "nodeType": "component",
+                "order": 5,
+                "isExpanded": false,
+                "cdashDomain": "PC",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 28,
+                  "textSnippet": "peak-to-trough ratio will be calculated after the first dose on Day 1.",
+                  "rationale": "Explicitly listed as a calculated PK parameter for Day 1."
+                }
+              },
+              {
+                "id": "COMP-87A7B707",
+                "name": "AUC0-tau,ss",
+                "nodeType": "component",
+                "order": 6,
+                "isExpanded": false,
+                "cdashDomain": "PC",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 29,
+                  "textSnippet": "Steady-state PK parameters calculated after the first and second dose on Day 14 will include AUC0-tau,ss",
+                  "rationale": "Explicitly listed as a calculated steady-state PK parameter for Day 14."
+                }
+              },
+              {
+                "id": "COMP-2E17B95B",
+                "name": "Cmax,ss",
+                "nodeType": "component",
+                "order": 7,
+                "isExpanded": false,
+                "cdashDomain": "PC",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 29,
+                  "textSnippet": "Steady-state PK parameters calculated after the first and second dose on Day 14 will include... Cmax,ss",
+                  "rationale": "Explicitly listed as a calculated steady-state PK parameter for Day 14."
+                }
+              },
+              {
+                "id": "COMP-5BF6ED00",
+                "name": "Tmax,ss",
+                "nodeType": "component",
+                "order": 8,
+                "isExpanded": false,
+                "cdashDomain": "PC",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 29,
+                  "textSnippet": "Steady-state PK parameters calculated after the first and second dose on Day 14 will include... Tmax,ss",
+                  "rationale": "Explicitly listed as a calculated steady-state PK parameter for Day 14."
+                }
+              },
+              {
+                "id": "COMP-62E20469",
+                "name": "Ctrough,ss",
+                "nodeType": "component",
+                "order": 9,
+                "isExpanded": false,
+                "cdashDomain": "PC",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 29,
+                  "textSnippet": "Additionally, Ctrough,ss... will be calculated after the first dose on Day 14.",
+                  "rationale": "Explicitly listed as a calculated steady-state PK parameter for Day 14."
+                }
+              },
+              {
+                "id": "COMP-8528F857",
+                "name": "Accumulation Index (AI)",
+                "nodeType": "component",
+                "order": 10,
+                "isExpanded": false,
+                "cdashDomain": "PC",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 29,
+                  "textSnippet": "Systemic accumulation will be assessed by calculating the accumulation index (AI) for AUC and Cmax on Day 14.",
+                  "rationale": "Explicitly listed as a calculated PK parameter for Day 14."
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DOM-EX",
+        "name": "Exposure/Treatment",
+        "nodeType": "category",
+        "order": 10,
+        "isExpanded": true,
+        "cdashDomain": "EX",
+        "children": [
+          {
+            "id": "ACT-031",
+            "name": "Dilating drop administration",
+            "nodeType": "activity",
+            "order": 0,
+            "isExpanded": false,
+            "cdashDomain": "EX"
+          },
+          {
+            "id": "ACT-036",
+            "name": "Study drug administration",
+            "nodeType": "activity",
+            "order": 1,
+            "isExpanded": false,
+            "cdashDomain": "EX"
+          },
+          {
+            "id": "ACT-039",
+            "name": "Study drug dispensing to subject",
+            "nodeType": "activity",
+            "order": 2,
+            "isExpanded": false,
+            "cdashDomain": "EX"
+          }
+        ]
+      },
+      {
+        "id": "DOM-CM",
+        "name": "Concomitant Medications",
+        "nodeType": "category",
+        "order": 11,
+        "isExpanded": true,
+        "cdashDomain": "CM",
+        "children": [
+          {
+            "id": "ACT-006",
+            "name": "Prestudy/ concomitant medication query",
+            "nodeType": "activity",
+            "order": 0,
+            "isExpanded": false,
+            "cdashDomain": "CM"
+          }
+        ]
+      },
+      {
+        "id": "DOM-AE",
+        "name": "Adverse Events",
+        "nodeType": "category",
+        "order": 12,
+        "isExpanded": true,
+        "cdashDomain": "AE",
+        "children": [
+          {
+            "id": "ACT-009",
+            "name": "AE query",
+            "nodeType": "activity",
+            "order": 0,
+            "isExpanded": false,
+            "cdashDomain": "AE"
+          }
+        ]
+      },
+      {
+        "id": "DOM-QS",
+        "name": "Questionnaires/PROs",
+        "nodeType": "category",
+        "order": 13,
+        "isExpanded": true,
+        "cdashDomain": "QS",
+        "children": [
+          {
+            "id": "ACT-007",
+            "name": "NEI VFQ-25 and near vision subscale in the Appendix of Optional Additional Questions",
+            "nodeType": "activity",
+            "order": 0,
+            "isExpanded": true,
+            "cdashDomain": "QS",
+            "children": [
+              {
+                "id": "COMP-A9AD5DCD",
+                "name": "NEI VFQ-25 Question 5",
+                "nodeType": "component",
+                "order": 0,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 14,
+                  "textSnippet": "NEI VFQ-25 Questions 5 to 7 in the main questionnaire",
+                  "rationale": "Explicitly identified as part of the Near Vision Subscale in the eligibility criteria."
+                }
+              },
+              {
+                "id": "COMP-50BA8166",
+                "name": "NEI VFQ-25 Question 6",
+                "nodeType": "component",
+                "order": 1,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 14,
+                  "textSnippet": "NEI VFQ-25 Questions 5 to 7 in the main questionnaire",
+                  "rationale": "Explicitly identified as part of the Near Vision Subscale in the eligibility criteria."
+                }
+              },
+              {
+                "id": "COMP-9B714C9F",
+                "name": "NEI VFQ-25 Question 7",
+                "nodeType": "component",
+                "order": 2,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 14,
+                  "textSnippet": "NEI VFQ-25 Questions 5 to 7 in the main questionnaire",
+                  "rationale": "Explicitly identified as part of the Near Vision Subscale in the eligibility criteria."
+                }
+              },
+              {
+                "id": "COMP-14EEC3B3",
+                "name": "NEI VFQ-25 Appendix Question A3",
+                "nodeType": "component",
+                "order": 3,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 14,
+                  "textSnippet": "Questions A3 to A5 in the Appendix of Optional Additional Questions",
+                  "rationale": "Explicitly identified as part of the Appendix of Optional Additional Questions in the eligibility criteria."
+                }
+              },
+              {
+                "id": "COMP-81856B2E",
+                "name": "NEI VFQ-25 Appendix Question A4",
+                "nodeType": "component",
+                "order": 4,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 14,
+                  "textSnippet": "Questions A3 to A5 in the Appendix of Optional Additional Questions",
+                  "rationale": "Explicitly identified as part of the Appendix of Optional Additional Questions in the eligibility criteria."
+                }
+              },
+              {
+                "id": "COMP-C8A79C34",
+                "name": "NEI VFQ-25 Appendix Question A5",
+                "nodeType": "component",
+                "order": 5,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 14,
+                  "textSnippet": "Questions A3 to A5 in the Appendix of Optional Additional Questions",
+                  "rationale": "Explicitly identified as part of the Appendix of Optional Additional Questions in the eligibility criteria."
+                }
+              }
+            ]
+          },
+          {
+            "id": "ACT-008",
+            "name": "OSDI",
+            "nodeType": "activity",
+            "order": 1,
+            "isExpanded": true,
+            "cdashDomain": "QS",
+            "children": [
+              {
+                "id": "COMP-D825A1D7",
+                "name": "Eyes that are sensitive to light",
+                "nodeType": "component",
+                "order": 0,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 108,
+                  "textSnippet": "1 Eyes that are sensitive to light",
+                  "rationale": "Explicitly listed as Question 1 in the OSDI Scoring Sheet in Appendix 7.3."
+                }
+              },
+              {
+                "id": "COMP-C6E4D094",
+                "name": "Eyes that feel gritty",
+                "nodeType": "component",
+                "order": 1,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 108,
+                  "textSnippet": "2 Eyes that feel gritty",
+                  "rationale": "Explicitly listed as Question 2 in the OSDI Scoring Sheet in Appendix 7.3."
+                }
+              },
+              {
+                "id": "COMP-D713F09F",
+                "name": "Painful or sore eyes",
+                "nodeType": "component",
+                "order": 2,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 108,
+                  "textSnippet": "3 Painful or sore eyes",
+                  "rationale": "Explicitly listed as Question 3 in the OSDI Scoring Sheet in Appendix 7.3."
+                }
+              },
+              {
+                "id": "COMP-27E9C0A8",
+                "name": "Blurred vision",
+                "nodeType": "component",
+                "order": 3,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 108,
+                  "textSnippet": "4 Blurred vision",
+                  "rationale": "Explicitly listed as Question 4 in the OSDI Scoring Sheet in Appendix 7.3."
+                }
+              },
+              {
+                "id": "COMP-0A9DFBCE",
+                "name": "Poor vision",
+                "nodeType": "component",
+                "order": 4,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 108,
+                  "textSnippet": "5 Poor vision",
+                  "rationale": "Explicitly listed as Question 5 in the OSDI Scoring Sheet in Appendix 7.3."
+                }
+              },
+              {
+                "id": "COMP-C00144F8",
+                "name": "Reading",
+                "nodeType": "component",
+                "order": 5,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 108,
+                  "textSnippet": "6 Reading",
+                  "rationale": "Explicitly listed as Question 6 in the OSDI Scoring Sheet in Appendix 7.3."
+                }
+              },
+              {
+                "id": "COMP-41447E12",
+                "name": "Driving at night",
+                "nodeType": "component",
+                "order": 6,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 108,
+                  "textSnippet": "7 Driving at night",
+                  "rationale": "Explicitly listed as Question 7 in the OSDI Scoring Sheet in Appendix 7.3."
+                }
+              },
+              {
+                "id": "COMP-885446EE",
+                "name": "Working with a computer or bank machine (ATM)",
+                "nodeType": "component",
+                "order": 7,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 108,
+                  "textSnippet": "8 Working with a computer or bank machine (ATM)",
+                  "rationale": "Explicitly listed as Question 8 in the OSDI Scoring Sheet in Appendix 7.3."
+                }
+              },
+              {
+                "id": "COMP-CE3961CF",
+                "name": "Watching TV",
+                "nodeType": "component",
+                "order": 8,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 108,
+                  "textSnippet": "9 Watching TV",
+                  "rationale": "Explicitly listed as Question 9 in the OSDI Scoring Sheet in Appendix 7.3."
+                }
+              },
+              {
+                "id": "COMP-014ADDF2",
+                "name": "Windy conditions",
+                "nodeType": "component",
+                "order": 9,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 108,
+                  "textSnippet": "10 Windy conditions",
+                  "rationale": "Explicitly listed as Question 10 in the OSDI Scoring Sheet in Appendix 7.3."
+                }
+              },
+              {
+                "id": "COMP-F0535801",
+                "name": "Places or areas with low humidity (very dry)",
+                "nodeType": "component",
+                "order": 10,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 108,
+                  "textSnippet": "11 Places or areas with low humidity (very dry)",
+                  "rationale": "Explicitly listed as Question 11 in the OSDI Scoring Sheet in Appendix 7.3."
+                }
+              },
+              {
+                "id": "COMP-2B4856C1",
+                "name": "Areas that are air conditioned",
+                "nodeType": "component",
+                "order": 11,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 108,
+                  "textSnippet": "12 Areas that are air conditioned",
+                  "rationale": "Explicitly listed as Question 12 in the OSDI Scoring Sheet in Appendix 7.3."
+                }
+              },
+              {
+                "id": "COMP-48C6E24E",
+                "name": "Total Score",
+                "nodeType": "component",
+                "order": 12,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 108,
+                  "textSnippet": "Total Score (sum of numbers 1 \u2013 12):",
+                  "rationale": "Explicitly listed as a calculated component in the OSDI Scoring Sheet in Appendix 7.3."
+                }
+              },
+              {
+                "id": "COMP-0F9C3DC3",
+                "name": "OSDI Score",
+                "nodeType": "component",
+                "order": 13,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 57,
+                  "textSnippet": "The OSDI is scored using the formula: (sum of scores x 25)/number of questions answered.",
+                  "rationale": "Explicitly defined as the final calculated score derived from the questionnaire responses."
+                }
+              }
+            ]
+          },
+          {
+            "id": "ACT-014",
+            "name": "PICQ",
+            "nodeType": "activity",
+            "order": 2,
+            "isExpanded": true,
+            "cdashDomain": "QS",
+            "children": [
+              {
+                "id": "COMP-A867B7A3",
+                "name": "Coping score",
+                "nodeType": "component",
+                "order": 0,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 11,
+                  "textSnippet": "Change from baseline in Presbyopia Impact and Coping Questionnaire (PICQ) Coping score at Day 14, Hour 3",
+                  "rationale": "Explicitly defined as an additional efficacy endpoint in Section 3.4."
+                }
+              }
+            ]
+          },
+          {
+            "id": "ACT-020",
+            "name": "Mesopic NVPTQ",
+            "nodeType": "activity",
+            "order": 3,
+            "isExpanded": true,
+            "cdashDomain": "QS",
+            "children": [
+              {
+                "id": "COMP-987E93F2",
+                "name": "Ability to read",
+                "nodeType": "component",
+                "order": 0,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 59,
+                  "textSnippet": "answer 3 questions about their ability to read, whether they squinted while reading, and satisfaction with their ability to read",
+                  "rationale": "Explicitly defined as one of the 3 questions asked for each reading task in the NVPTQ."
+                }
+              },
+              {
+                "id": "COMP-54B04F19",
+                "name": "Squinting while reading",
+                "nodeType": "component",
+                "order": 1,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 59,
+                  "textSnippet": "answer 3 questions about their ability to read, whether they squinted while reading, and satisfaction with their ability to read",
+                  "rationale": "Explicitly defined as one of the 3 questions asked for each reading task in the NVPTQ."
+                }
+              },
+              {
+                "id": "COMP-4B06BBF7",
+                "name": "Satisfaction with ability to read",
+                "nodeType": "component",
+                "order": 2,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 59,
+                  "textSnippet": "answer 3 questions about their ability to read, whether they squinted while reading, and satisfaction with their ability to read",
+                  "rationale": "Explicitly defined as one of the 3 questions asked for each reading task in the NVPTQ."
+                }
+              },
+              {
+                "id": "COMP-0BD0BF1E",
+                "name": "Performance score",
+                "nodeType": "component",
+                "order": 3,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 11,
+                  "textSnippet": "Change from baseline in mesopic Near Vision Presbyopia Task-based Questionnaire (NVPTQ) Performance score",
+                  "rationale": "Explicitly listed as the scored output/endpoint for the NVPTQ activity."
+                }
+              }
+            ]
+          },
+          {
+            "id": "ACT-024",
+            "name": "Single-item PGIS",
+            "nodeType": "activity",
+            "order": 4,
+            "isExpanded": false,
+            "cdashDomain": "QS"
+          },
+          {
+            "id": "ACT-025",
+            "name": "Single-item PGIC",
+            "nodeType": "activity",
+            "order": 5,
+            "isExpanded": true,
+            "cdashDomain": "QS",
+            "children": [
+              {
+                "id": "COMP-069B2808",
+                "name": "Impression of study medication's effect on near vision",
+                "nodeType": "component",
+                "order": 0,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 59,
+                  "textSnippet": "Subjects will be asked to complete a single-item questionnaire asking about their impression of the study medication's effect on their near vision.",
+                  "rationale": "The protocol explicitly defines the Single-item PGIC as a single question assessing this specific parameter in the Operations Manual."
+                }
+              }
+            ]
+          },
+          {
+            "id": "ACT-026",
+            "name": "Visual Function Assessment application (VFA app)",
+            "nodeType": "activity",
+            "order": 6,
+            "isExpanded": true,
+            "cdashDomain": "QS",
+            "children": [
+              {
+                "id": "COMP-F8BB933A",
+                "name": "Average number of blinks per minute",
+                "nodeType": "component",
+                "order": 0,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 11,
+                  "textSnippet": "Change from baseline in Visual Function Assessment application (VFA app)... Change from baseline in average number of blinks per minute",
+                  "rationale": "Explicitly listed as a component/endpoint of the Visual Function Assessment application in Section 3.4 Additional Efficacy Endpoints."
+                }
+              },
+              {
+                "id": "COMP-1C48A042",
+                "name": "Median working distance",
+                "nodeType": "component",
+                "order": 1,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "unit": "centimeters",
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 11,
+                  "textSnippet": "Change from baseline in median working distance (centimeters)",
+                  "rationale": "Explicitly listed as a component/endpoint of the Visual Function Assessment application in Section 3.4 Additional Efficacy Endpoints."
+                }
+              },
+              {
+                "id": "COMP-394C755E",
+                "name": "Median magnification level",
+                "nodeType": "component",
+                "order": 2,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "unit": "%",
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 11,
+                  "textSnippet": "Change from baseline in median magnification level (%) from the original size",
+                  "rationale": "Explicitly listed as a component/endpoint of the Visual Function Assessment application in Section 3.4 Additional Efficacy Endpoints."
+                }
+              },
+              {
+                "id": "COMP-2A3EDBF3",
+                "name": "Reading speed",
+                "nodeType": "component",
+                "order": 3,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "unit": "words per minute",
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 11,
+                  "textSnippet": "Change from baseline in reading speed (words per minute)",
+                  "rationale": "Explicitly listed as a component/endpoint of the Visual Function Assessment application in Section 3.4 Additional Efficacy Endpoints."
+                }
+              },
+              {
+                "id": "COMP-08285A2D",
+                "name": "Median contrast level",
+                "nodeType": "component",
+                "order": 4,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "unit": "%",
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 11,
+                  "textSnippet": "Change from baseline in median contrast level (%) based on the original value",
+                  "rationale": "Explicitly listed as a component/endpoint of the Visual Function Assessment application in Section 3.4 Additional Efficacy Endpoints."
+                }
+              }
+            ]
+          },
+          {
+            "id": "ACT-037",
+            "name": "Drop comfort questionnaire",
+            "nodeType": "activity",
+            "order": 7,
+            "isExpanded": true,
+            "cdashDomain": "QS",
+            "children": [
+              {
+                "id": "COMP-6673E3E1",
+                "name": "Subject Evaluation of Drop Comfort",
+                "nodeType": "component",
+                "order": 0,
+                "isExpanded": false,
+                "cdashDomain": "QS",
+                "confidence": 0.95,
+                "isRequired": true,
+                "provenance": {
+                  "source": "pdf_text",
+                  "pageNumber": 55,
+                  "textSnippet": "The Subject Evaluation of Drop Comfort single-item question should be assessed immediately.",
+                  "rationale": "The Operations Manual explicitly defines this questionnaire as a single-item question named 'Subject Evaluation of Drop Comfort'."
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DOM-UNKNOWN",
+        "name": "Uncategorized",
+        "nodeType": "category",
+        "order": 999,
+        "isExpanded": true,
+        "cdashDomain": "UNKNOWN",
+        "children": [
+          {
+            "id": "ACT-001",
+            "name": "Informed consent",
+            "nodeType": "activity",
+            "order": 0,
+            "isExpanded": true
+          },
+          {
+            "id": "ACT-002",
+            "name": "Contact IRT for subject ID number",
+            "nodeType": "activity",
+            "order": 1,
+            "isExpanded": true
+          },
+          {
+            "id": "ACT-013",
+            "name": "Contact IRT for kit assignment/ randomization",
+            "nodeType": "activity",
+            "order": 2,
+            "isExpanded": true
+          },
+          {
+            "id": "ACT-016",
+            "name": "Dark adaptation",
+            "nodeType": "activity",
+            "order": 3,
+            "isExpanded": true
+          },
+          {
+            "id": "ACT-017",
+            "name": "Mesopic manifest refraction (distance and near)",
+            "nodeType": "activity",
+            "order": 4,
+            "isExpanded": true
+          },
+          {
+            "id": "ACT-018",
+            "name": "Mesopic, high-contrast CDVA + pupil diameter",
+            "nodeType": "activity",
+            "order": 5,
+            "isExpanded": true
+          },
+          {
+            "id": "ACT-019",
+            "name": "Mesopic, high-contrast DCNVA + pupil diameter",
+            "nodeType": "activity",
+            "order": 6,
+            "isExpanded": true
+          },
+          {
+            "id": "ACT-021",
+            "name": "Photopic manifest refraction (distance and near)",
+            "nodeType": "activity",
+            "order": 7,
+            "isExpanded": true
+          },
+          {
+            "id": "ACT-022",
+            "name": "Photopic high-contrast CDVA + pupil diameter",
+            "nodeType": "activity",
+            "order": 8,
+            "isExpanded": true
+          },
+          {
+            "id": "ACT-023",
+            "name": "Photopic, high-contrast DCNVA + pupil diameter",
+            "nodeType": "activity",
+            "order": 9,
+            "isExpanded": true
+          },
+          {
+            "id": "ACT-028",
+            "name": "Fluorescein corneal staining",
+            "nodeType": "activity",
+            "order": 10,
+            "isExpanded": true
+          },
+          {
+            "id": "ACT-029",
+            "name": "IOP measurement",
+            "nodeType": "activity",
+            "order": 11,
+            "isExpanded": true
+          },
+          {
+            "id": "ACT-030",
+            "name": "Gonioscopy/angle assessment",
+            "nodeType": "activity",
+            "order": 12,
+            "isExpanded": true
+          },
+          {
+            "id": "ACT-032",
+            "name": "Cycloplegic refraction",
+            "nodeType": "activity",
+            "order": 13,
+            "isExpanded": true
+          },
+          {
+            "id": "ACT-034",
+            "name": "Review inclusion and exclusion criteria",
+            "nodeType": "activity",
+            "order": 14,
+            "isExpanded": true
+          },
+          {
+            "id": "ACT-038",
+            "name": "Post-Dose Tolerability Assessment",
+            "nodeType": "activity",
+            "order": 15,
+            "isExpanded": true
+          }
+        ]
+      }
+    ],
+    "totalActivities": 39,
+    "totalCategories": 11,
+    "confidence": 1.0,
+    "provenance": null
+  },
+  "headerRows": [],
+  "metrics": {
+    "activitiesProcessed": 39,
+    "categoriesCreated": 11,
+    "headerRowsDetected": 0,
+    "activitiesWithComponents": 13,
+    "totalComponents": 84,
+    "leafActivities": 26,
+    "domainCounts": {
+      "PE": 5,
+      "DM": 1,
+      "MH": 1,
+      "CM": 1,
+      "QS": 8,
+      "AE": 1,
+      "VS": 1,
+      "LB": 1,
+      "EX": 3,
+      "PC": 1,
+      "UNKNOWN": 16
+    }
+  },
+  "reviewItems": [
+    {
+      "id": "REV-C854BFA5",
+      "itemType": "hierarchy",
+      "title": "16 uncategorized activities",
+      "description": "These activities could not be assigned to a CDISC domain",
+      "sourceEntityId": null,
+      "sourceEntityType": null,
+      "priority": "medium",
+      "status": "pending",
+      "options": [],
+      "selectedOption": null,
+      "customValue": null,
+      "reviewerNotes": null,
+      "confidence": 0.0,
+      "canAutoApply": false,
+      "provenance": null
+    }
+  ],
+  "_agentDefinition": {
+    "stageNumber": 3,
+    "stageName": "Hierarchy Building",
+    "displayName": "Activity Hierarchy Organizer",
+    "purpose": "Builds parent-child hierarchies for activities that naturally group together (e.g., 'Safety Labs' containing CBC, CMP, UA), enabling logical form organization and visit structure.",
+    "extractionMethodology": "Semantic clustering of activities by domain and purpose. LLM-based grouping inference using activity names and protocol context. Hierarchy depth limited to 3 levels for practical CRF organization.",
+    "keyOutputs": [
+      {
+        "field": "hierarchyGroups",
+        "description": "Organized groups of related activities"
+      },
+      {
+        "field": "parentActivityId",
+        "description": "Parent activity for grouped items"
+      },
+      {
+        "field": "childActivityIds",
+        "description": "List of child activities in the group"
+      },
+      {
+        "field": "groupingRationale",
+        "description": "Reason for the hierarchical grouping"
+      },
+      {
+        "field": "displayOrder",
+        "description": "Suggested ordering within the hierarchy"
+      }
+    ],
+    "downstreamIntegrations": [
+      {
+        "system": "EDC Build",
+        "useCase": "Form section organization and navigation",
+        "automationType": "configuration",
+        "fieldsUsed": [
+          "hierarchyGroups",
+          "displayOrder"
+        ],
+        "automationExample": "'Safety Labs' parent creates collapsible form section containing CBC, CMP, UA sub-forms"
+      },
+      {
+        "system": "CTMS",
+        "useCase": "Visit procedure grouping for site training",
+        "automationType": "direct_mapping",
+        "fieldsUsed": [
+          "hierarchyGroups",
+          "parentActivityId"
+        ],
+        "automationExample": "Site manual organizes procedures by hierarchy for clear workflow guidance"
+      },
+      {
+        "system": "Reporting",
+        "useCase": "Hierarchical data aggregation for listings",
+        "automationType": "rule_generation",
+        "fieldsUsed": [
+          "hierarchyGroups",
+          "childActivityIds"
+        ],
+        "automationExample": "Safety reports aggregate child lab results under parent safety category"
+      }
+    ],
+    "automationInsights": [
+      {
+        "insight": "Section Generation",
+        "description": "Hierarchy groups map directly to EDC form sections"
+      },
+      {
+        "insight": "Completion Tracking",
+        "description": "Parent completion requires all children complete - drives edit checks"
+      },
+      {
+        "insight": "Training Materials",
+        "description": "Hierarchy provides structure for site training documents"
+      }
+    ],
+    "dataQualityIndicators": [
+      "no circular references",
+      "depth <= 3 levels",
+      "all children have valid parent"
+    ],
+    "humanReviewTriggers": [
+      "unusual grouping pattern",
+      "single-child parent",
+      "cross-domain hierarchy"
+    ]
+  }
+}

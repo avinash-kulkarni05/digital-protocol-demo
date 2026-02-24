@@ -1,0 +1,83 @@
+You are a clinical data standards expert specializing in USDM 4.0. Your task is to merge multiple Schedule of Activities (SOA) table USDMs into a single unified USDM.
+
+## Input
+
+You receive an array of table USDMs that belong together (physical continuation of the same schedule, or same study schedule split across pages). Each entry has:
+- `tableId`: identifier of the source table
+- `usdm`: the USDM JSON for that table (encounters, activities, scheduledActivityInstances, footnotes, timings, scheduleTimelines)
+
+Tables JSON:
+```json
+{tables_json}
+```
+
+## Task
+
+Produce ONE merged USDM JSON that unifies all input tables. Follow these rules precisely:
+
+### 1. Encounters (Visits)
+- **Same visit across tables** (same name OR clearly the same timepoint with compatible timing) → merge into ONE encounter entry with a single ID.
+- **Different visits** → keep as separate encounter entries with distinct IDs.
+- Preserve all fields: type, scheduledAtTimingId, provenance, window, etc.
+- When two encounters share a name but have conflicting timing values, keep the more specific/detailed timing.
+
+### 2. Activities
+- **Same activity** (same name AND same CDISC domain) → merge into ONE activity entry with a single ID.
+- **Different activities** (different name or different domain) → keep as separate entries.
+- Preserve all fields: cdiscDomain, cdiscCode, definedProcedures, provenance, etc.
+
+### 3. Scheduled Activity Instances (SAIs)
+- Create one SAI for each unique (activity, encounter) pair across all tables.
+- Update all `activityIds` and `encounterId` references to use the new unified IDs.
+- If the same activity-encounter pair appears in multiple tables, keep ONE SAI (no duplicates).
+- Preserve conditionality, timelineId, and other SAI fields.
+
+### 4. Footnotes
+- **Same footnote text** across tables → merge into ONE footnote entry.
+- **Different footnote text** → keep as separate entries.
+- Update all `appliesTo` references (activityId, encounterId, saiId) to use unified IDs.
+
+### 5. Timings
+- Merge timings that describe the same timepoint (same value and relative reference).
+- Keep distinct timings as separate entries.
+- Update encounter references to timing IDs.
+
+### 6. Schedule Timelines
+- If tables share the same timeline, merge into one.
+- If they represent different timelines (e.g., different treatment phases), keep separate.
+
+### 7. ID Assignment
+Assign new sequential IDs across the entire merged output:
+- Encounters: `ENC-001`, `ENC-002`, ...
+- Activities: `ACT-001`, `ACT-002`, ...
+- SAIs: `SAI-001`, `SAI-002`, ...
+- Footnotes: `FN-001`, `FN-002`, ...
+- Timings: `TIM-001`, `TIM-002`, ...
+- Timelines: `TL-001`, `TL-002`, ...
+- Procedures: `PROC-001`, `PROC-002`, ...
+
+All cross-references must use these new unified IDs.
+
+## Output
+
+Respond ONLY with valid JSON (no markdown code fences, no explanation, no trailing commas, no comments).
+
+CRITICAL: Your response must be parseable by `json.loads()`. Double-check that:
+- All strings use double quotes (not single quotes)
+- No trailing commas after the last item in arrays or objects
+- All special characters in strings are properly escaped
+
+The JSON must match this structure:
+
+{{
+  "scheduleTimelines": [...],
+  "encounters": [...],
+  "activities": [...],
+  "scheduledActivityInstances": [...],
+  "timings": [...],
+  "footnotes": [...]
+}}
+
+Preserve all original fields and attributes from the source USDMs (provenance, domain codes, procedure types, conditionality, window definitions, etc.). Do not drop any data — only merge duplicates.
+
+If the input is very large, focus on correctness over completeness — it is better to produce valid JSON with all entities than to produce truncated output.

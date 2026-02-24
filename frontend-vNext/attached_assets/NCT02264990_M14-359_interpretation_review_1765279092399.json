@@ -1,0 +1,1164 @@
+{
+  "schemaVersion": "1.0",
+  "reviewType": "INTERPRETATION_WIZARD",
+  "protocolId": "NCT02264990_M14-359",
+  "protocolTitle": "AbbVie NSCLC Protocol",
+  "generatedAt": "2025-12-09T02:19:53.380504Z",
+  "wizardConfig": {
+    "totalSteps": 6,
+    "autoApproveThreshold": 0.95,
+    "allowBatchOperations": true,
+    "allowSkipToEnd": false
+  },
+  "summary": {
+    "totalItems": 17,
+    "autoApproved": 11,
+    "pendingReview": 6,
+    "byCategory": {
+      "domain_mapping": {
+        "total": 0,
+        "autoApproved": 0,
+        "pending": 0
+      },
+      "activity_expansion": {
+        "total": 6,
+        "autoApproved": 4,
+        "pending": 2
+      },
+      "alternatives": {
+        "total": 1,
+        "autoApproved": 0,
+        "pending": 1
+      },
+      "specimens": {
+        "total": 7,
+        "autoApproved": 7,
+        "pending": 0
+      },
+      "conditions": {
+        "total": 3,
+        "autoApproved": 0,
+        "pending": 3
+      },
+      "timing_cycles": {
+        "total": 0,
+        "autoApproved": 0,
+        "pending": 0
+      }
+    }
+  },
+  "steps": [
+    {
+      "stepNumber": 1,
+      "stepId": "DOMAIN_MAPPING",
+      "title": "Domain Categorization",
+      "description": "Review how activities are mapped to CDISC domains (VS, LB, EG, etc.)",
+      "icon": "category",
+      "status": "COMPLETED",
+      "progress": {
+        "reviewed": 0,
+        "total": 0
+      }
+    },
+    {
+      "stepNumber": 2,
+      "stepId": "ACTIVITY_EXPANSION",
+      "title": "Activity Expansion",
+      "description": "Review decomposition of parent activities into measurable components",
+      "icon": "expand",
+      "status": "PENDING",
+      "progress": {
+        "reviewed": 0,
+        "total": 2
+      },
+      "autoApprovedItems": [
+        {
+          "activityId": "",
+          "activityName": "",
+          "components": [
+            {
+              "id": "COMP-534E6E94",
+              "name": "Blood Pressure",
+              "isRequired": true,
+              "order": 0,
+              "confidence": 0.95,
+              "cdashDomain": "VS",
+              "provenance": {
+                "source": "pdf_text",
+                "pageNumber": 44,
+                "textSnippet": "Vital signs (blood pressure, pulse, respiratory rate, and temperature) will be obtained at the timepoints specified in Table 2.",
+                "rationale": "Explicitly listed as a component of the 'Vital signs' assessment in the study procedures section of the protocol."
+              }
+            },
+            {
+              "id": "COMP-8F698EA2",
+              "name": "Pulse",
+              "isRequired": true,
+              "order": 1,
+              "confidence": 0.95,
+              "cdashDomain": "VS",
+              "provenance": {
+                "source": "pdf_text",
+                "pageNumber": 44,
+                "textSnippet": "Vital signs (blood pressure, pulse, respiratory rate, and temperature) will be obtained at the timepoints specified in Table 2.",
+                "rationale": "Explicitly listed as a component of the 'Vital signs' assessment in the study procedures section of the protocol."
+              }
+            },
+            {
+              "id": "COMP-F369F04A",
+              "name": "Respiratory Rate",
+              "isRequired": true,
+              "order": 2,
+              "confidence": 0.95,
+              "cdashDomain": "VS",
+              "provenance": {
+                "source": "pdf_text",
+                "pageNumber": 44,
+                "textSnippet": "Vital signs (blood pressure, pulse, respiratory rate, and temperature) will be obtained at the timepoints specified in Table 2.",
+                "rationale": "Explicitly listed as a component of the 'Vital signs' assessment in the study procedures section of the protocol."
+              }
+            },
+            {
+              "id": "COMP-D4DA4D18",
+              "name": "Temperature",
+              "isRequired": true,
+              "order": 3,
+              "confidence": 0.95,
+              "cdashDomain": "VS",
+              "provenance": {
+                "source": "pdf_text",
+                "pageNumber": 44,
+                "textSnippet": "Vital signs (blood pressure, pulse, respiratory rate, and temperature) will be obtained at the timepoints specified in Table 2.",
+                "rationale": "Explicitly listed as a component of the 'Vital signs' assessment in the study procedures section of the protocol."
+              }
+            },
+            {
+              "id": "COMP-98F496DB",
+              "name": "Height",
+              "isRequired": true,
+              "order": 4,
+              "confidence": 0.95,
+              "cdashDomain": "VS",
+              "provenance": {
+                "source": "pdf_text",
+                "pageNumber": 44,
+                "textSnippet": "Height and weight will be measured at Screening.",
+                "rationale": "Explicitly listed as a measurement to be taken in the vital signs section of the protocol."
+              }
+            },
+            {
+              "id": "COMP-1FAF262B",
+              "name": "Weight",
+              "isRequired": true,
+              "order": 5,
+              "confidence": 0.95,
+              "cdashDomain": "VS",
+              "provenance": {
+                "source": "pdf_text",
+                "pageNumber": 44,
+                "textSnippet": "Height and weight will be measured at Screening.",
+                "rationale": "Explicitly listed as a measurement to be taken in the vital signs section of the protocol."
+              }
+            },
+            {
+              "id": "COMP-F302C27C",
+              "name": "Body Mass Index",
+              "isRequired": true,
+              "order": 6,
+              "confidence": 0.95,
+              "cdashDomain": "VS",
+              "provenance": {
+                "source": "pdf_text",
+                "pageNumber": 44,
+                "textSnippet": "Body mass index (BMI) will be calculated at Screening.",
+                "rationale": "Explicitly listed as a calculation to be performed in the vital signs section of the protocol."
+              }
+            }
+          ],
+          "confidence": 0.95,
+          "reasoning": "",
+          "source": "protocol_extraction"
+        },
+        {
+          "activityId": "",
+          "activityName": "",
+          "components": [
+            {
+              "id": "COMP-22FBF9CB",
+              "name": "Specific gravity",
+              "isRequired": true,
+              "order": 0,
+              "confidence": 0.95,
+              "cdashDomain": "LB",
+              "provenance": {
+                "source": "extraction_json",
+                "jsonPath": "laboratory_specifications.data.laboratory_tests[32].test_name",
+                "pageNumber": 48,
+                "textSnippet": "Urinalysis\nSpecific gravity",
+                "rationale": "This test is explicitly listed as a component of the 'Urinalysis' panel in the laboratory specifications table."
+              }
+            },
+            {
+              "id": "COMP-080DB564",
+              "name": "Ketones",
+              "isRequired": true,
+              "order": 1,
+              "confidence": 0.95,
+              "cdashDomain": "LB",
+              "provenance": {
+                "source": "extraction_json",
+                "jsonPath": "laboratory_specifications.data.laboratory_tests[33].test_name",
+                "pageNumber": 48,
+                "textSnippet": "Urinalysis\nKetones",
+                "rationale": "This test is explicitly listed as a component of the 'Urinalysis' panel in the laboratory specifications table."
+              }
+            },
+            {
+              "id": "COMP-F2DFB84B",
+              "name": "pH",
+              "isRequired": true,
+              "order": 2,
+              "confidence": 0.95,
+              "cdashDomain": "LB",
+              "provenance": {
+                "source": "extraction_json",
+                "jsonPath": "laboratory_specifications.data.laboratory_tests[34].test_name",
+                "pageNumber": 48,
+                "textSnippet": "Urinalysis\npH",
+                "rationale": "This test is explicitly listed as a component of the 'Urinalysis' panel in the laboratory specifications table."
+              }
+            },
+            {
+              "id": "COMP-B76D17B2",
+              "name": "Protein",
+              "isRequired": true,
+              "order": 3,
+              "confidence": 0.95,
+              "cdashDomain": "LB",
+              "provenance": {
+                "source": "extraction_json",
+                "jsonPath": "laboratory_specifications.data.laboratory_tests[35].test_name",
+                "pageNumber": 48,
+                "textSnippet": "Urinalysis\nProtein",
+                "rationale": "This test is explicitly listed as a component of the 'Urinalysis' panel in the laboratory specifications table."
+              }
+            },
+            {
+              "id": "COMP-47D6FE48",
+              "name": "Blood",
+              "isRequired": true,
+              "order": 4,
+              "confidence": 0.95,
+              "cdashDomain": "LB",
+              "provenance": {
+                "source": "extraction_json",
+                "jsonPath": "laboratory_specifications.data.laboratory_tests[36].test_name",
+                "pageNumber": 48,
+                "textSnippet": "Urinalysis\nBlood",
+                "rationale": "This test is explicitly listed as a component of the 'Urinalysis' panel in the laboratory specifications table."
+              }
+            },
+            {
+              "id": "COMP-96480B59",
+              "name": "Glucose",
+              "isRequired": true,
+              "order": 5,
+              "confidence": 0.95,
+              "cdashDomain": "LB",
+              "provenance": {
+                "source": "extraction_json",
+                "jsonPath": "laboratory_specifications.data.laboratory_tests[37].test_name",
+                "pageNumber": 48,
+                "textSnippet": "Urinalysis\nGlucose",
+                "rationale": "This test is explicitly listed as a component of the 'Urinalysis' panel in the laboratory specifications table."
+              }
+            },
+            {
+              "id": "COMP-54B4F2AD",
+              "name": "Urobilinogen",
+              "isRequired": true,
+              "order": 6,
+              "confidence": 0.95,
+              "cdashDomain": "LB",
+              "provenance": {
+                "source": "extraction_json",
+                "jsonPath": "laboratory_specifications.data.laboratory_tests[38].test_name",
+                "pageNumber": 48,
+                "textSnippet": "Urinalysis\nUrobilinogen",
+                "rationale": "This test is explicitly listed as a component of the 'Urinalysis' panel in the laboratory specifications table."
+              }
+            },
+            {
+              "id": "COMP-C2D471F4",
+              "name": "Bilirubin",
+              "isRequired": true,
+              "order": 7,
+              "confidence": 0.95,
+              "cdashDomain": "LB",
+              "provenance": {
+                "source": "extraction_json",
+                "jsonPath": "laboratory_specifications.data.laboratory_tests[39].test_name",
+                "pageNumber": 48,
+                "textSnippet": "Urinalysis\nBilirubin",
+                "rationale": "This test is explicitly listed as a component of the 'Urinalysis' panel in the laboratory specifications table."
+              }
+            }
+          ],
+          "confidence": 0.95,
+          "reasoning": "",
+          "source": "protocol_extraction"
+        },
+        {
+          "activityId": "",
+          "activityName": "",
+          "components": [
+            {
+              "id": "COMP-F4295CD4",
+              "name": "Activated Partial Thromboplastin Time (aPTT)",
+              "isRequired": true,
+              "order": 0,
+              "confidence": 0.95,
+              "cdashDomain": "LB",
+              "provenance": {
+                "source": "extraction_json",
+                "jsonPath": "laboratory_specifications.data.laboratory_tests[40].test_name",
+                "pageNumber": 48,
+                "textSnippet": "Coagulation\nActivated Partial Thromboplastin Time (aPTT)*",
+                "rationale": "This test is explicitly listed as a component of the Coagulation panel, which corresponds to the 'aPTT, INR' activity mentioned in the Schedule of Assessments."
+              }
+            },
+            {
+              "id": "COMP-135A0B53",
+              "name": "International Normalized Ratio (INR)",
+              "isRequired": true,
+              "order": 1,
+              "confidence": 0.95,
+              "cdashDomain": "LB",
+              "provenance": {
+                "source": "extraction_json",
+                "jsonPath": "laboratory_specifications.data.laboratory_tests[41].test_name",
+                "pageNumber": 48,
+                "textSnippet": "Coagulation\nInternational Normalized Ratio (INR)*",
+                "rationale": "This test is explicitly listed as a component of the Coagulation panel, which corresponds to the 'aPTT, INR' activity mentioned in the Schedule of Assessments."
+              }
+            }
+          ],
+          "confidence": 0.95,
+          "reasoning": "",
+          "source": "protocol_extraction"
+        },
+        {
+          "activityId": "",
+          "activityName": "",
+          "components": [
+            {
+              "id": "COMP-B5E4EECD",
+              "name": "RECIST 1.1 Assessment",
+              "isRequired": true,
+              "order": 0,
+              "confidence": 0.95,
+              "cdashDomain": "TU",
+              "provenance": {
+                "source": "both",
+                "jsonPath": "imaging_central_reading.data.response_criteria",
+                "pageNumber": 114,
+                "textSnippet": "Response criteria will be assessed using RECIST (version 1.1). Changes in the measurable lesions over the course of therapy must be evaluated using the criteria listed below.",
+                "rationale": "The protocol explicitly defines RECIST version 1.1 as the standard criteria for evaluating tumor response."
+              }
+            },
+            {
+              "id": "COMP-B2A5D6C1",
+              "name": "CT Scan of Chest and Abdomen",
+              "isRequired": true,
+              "order": 1,
+              "confidence": 0.95,
+              "cdashDomain": "TU",
+              "provenance": {
+                "source": "both",
+                "jsonPath": "imaging_central_reading.data.imaging_modalities[0]",
+                "pageNumber": 116,
+                "textSnippet": "Conventional CT should be performed with cuts of 5 mm or less in slice thickness contiguously. This applies to tumors of the chest and abdomen.",
+                "rationale": "The protocol specifies CT of the chest and abdomen as a primary imaging modality for tumor assessment."
+              }
+            },
+            {
+              "id": "COMP-9E5037BA",
+              "name": "MRI of Brain",
+              "isRequired": true,
+              "order": 2,
+              "confidence": 0.95,
+              "cdashDomain": "TU",
+              "provenance": {
+                "source": "both",
+                "jsonPath": "imaging_central_reading.data.imaging_modalities[1]",
+                "pageNumber": 49,
+                "textSnippet": "A baseline MRI (or CT if MRI is contraindicated) of the brain is to be performed on any subject with signs or symptoms suggesting CNS involvement by tumor.",
+                "rationale": "The protocol specifies a brain MRI is required for subjects with signs or symptoms of CNS involvement, making it a defined component of tumor assessment."
+              }
+            }
+          ],
+          "confidence": 0.95,
+          "reasoning": "",
+          "source": "protocol_extraction"
+        }
+      ],
+      "reviewItems": [
+        {
+          "itemId": "EXP-001",
+          "type": "ACTIVITY_EXPANSION",
+          "confidence": 0.94,
+          "status": "PENDING",
+          "proposal": {
+            "components": [
+              {
+                "id": "COMP-47F87045",
+                "name": "Hematocrit",
+                "isRequired": true,
+                "order": 0,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[0].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Hematology\nHematocrit",
+                  "rationale": "This test is explicitly listed under the 'Hematology' panel (PNL-001), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-52995979",
+                "name": "Hemoglobin",
+                "isRequired": true,
+                "order": 1,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "unit": "g/dL",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[1].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Hematology\nHemoglobin",
+                  "rationale": "This test is explicitly listed under the 'Hematology' panel (PNL-001), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-527DFD66",
+                "name": "Red blood cell (RBC) count",
+                "isRequired": true,
+                "order": 2,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[2].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Hematology\nRed blood cell (RBC) count",
+                  "rationale": "This test is explicitly listed under the 'Hematology' panel (PNL-001), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-6D5871A2",
+                "name": "White blood cell (WBC) count",
+                "isRequired": true,
+                "order": 3,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[3].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Hematology\nWhite blood cell (WBC) count",
+                  "rationale": "This test is explicitly listed under the 'Hematology' panel (PNL-001), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-8505A5D6",
+                "name": "Neutrophils",
+                "isRequired": true,
+                "order": 4,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "unit": "/mm3",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[4].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Hematology\nNeutrophils",
+                  "rationale": "This test is explicitly listed under the 'Hematology' panel (PNL-001), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-B21A7433",
+                "name": "Bands (if indicated)",
+                "isRequired": true,
+                "order": 5,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[5].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Hematology\nBands (if indicated)",
+                  "rationale": "This test is explicitly listed under the 'Hematology' panel (PNL-001), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-3C552E96",
+                "name": "Lymphocytes",
+                "isRequired": true,
+                "order": 6,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[6].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Hematology\nLymphocytes",
+                  "rationale": "This test is explicitly listed under the 'Hematology' panel (PNL-001), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-89CD1E1E",
+                "name": "Monocytes",
+                "isRequired": true,
+                "order": 7,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[7].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Hematology\nMonocytes",
+                  "rationale": "This test is explicitly listed under the 'Hematology' panel (PNL-001), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-1F7E90FE",
+                "name": "Basophils (if indicated)",
+                "isRequired": true,
+                "order": 8,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[8].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Hematology\nBasophils (if indicated)",
+                  "rationale": "This test is explicitly listed under the 'Hematology' panel (PNL-001), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-CCEBF68F",
+                "name": "Eosinophils (if indicated)",
+                "isRequired": true,
+                "order": 9,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[9].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Hematology\nEosinophils (if indicated)",
+                  "rationale": "This test is explicitly listed under the 'Hematology' panel (PNL-001), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-01C1D465",
+                "name": "Platelet count",
+                "isRequired": true,
+                "order": 10,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "unit": "/mm3",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[10].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Hematology\nPlatelet count (estimate not acceptable)",
+                  "rationale": "This test is explicitly listed under the 'Hematology' panel (PNL-001), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-31479A13",
+                "name": "Mean corpuscular volume",
+                "isRequired": true,
+                "order": 11,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[11].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Hematology\nMean corpuscular volume",
+                  "rationale": "This test is explicitly listed under the 'Hematology' panel (PNL-001), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-38C4AB4B",
+                "name": "Mean corpuscular hemoglobin concentration",
+                "isRequired": true,
+                "order": 12,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[12].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Hematology\nMean corpuscular hemoglobin concentration",
+                  "rationale": "This test is explicitly listed under the 'Hematology' panel (PNL-001), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-9960F413",
+                "name": "RBC distribution width",
+                "isRequired": true,
+                "order": 13,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[13].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Hematology\nRBC distribution width",
+                  "rationale": "This test is explicitly listed under the 'Hematology' panel (PNL-001), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-E343D045",
+                "name": "Blood urea nitrogen (BUN)",
+                "isRequired": true,
+                "order": 14,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[14].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Clinical Chemistry\nBlood urea nitrogen (BUN)",
+                  "rationale": "This test is explicitly listed under the 'Clinical Chemistry' panel (PNL-002), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-6410B1B1",
+                "name": "Serum creatinine",
+                "isRequired": true,
+                "order": 15,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[15].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Clinical Chemistry\nSerum creatinine**",
+                  "rationale": "This test is explicitly listed under the 'Clinical Chemistry' panel (PNL-002), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-37D932E6",
+                "name": "Total bilirubin",
+                "isRequired": true,
+                "order": 16,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "unit": "x ULN",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[16].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Clinical Chemistry\nTotal bilirubin",
+                  "rationale": "This test is explicitly listed under the 'Clinical Chemistry' panel (PNL-002), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-7ED9B6F1",
+                "name": "Serum glutamic-pyruvic transaminase (SGPT/ALT)",
+                "isRequired": true,
+                "order": 17,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "unit": "x ULN",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[17].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Clinical Chemistry\nSerum glutamic-pyruvic transaminase (SGPT/ALT)",
+                  "rationale": "This test is explicitly listed under the 'Clinical Chemistry' panel (PNL-002), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-2D2B2563",
+                "name": "Serum glutamic-oxaloacetic transaminase (SGOT/AST)",
+                "isRequired": true,
+                "order": 18,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "unit": "x ULN",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[18].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Clinical Chemistry\nSerum glutamic-oxaloacetic transaminase (SGOT/AST)",
+                  "rationale": "This test is explicitly listed under the 'Clinical Chemistry' panel (PNL-002), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-C831ED69",
+                "name": "Alkaline phosphatase",
+                "isRequired": true,
+                "order": 19,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[19].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Clinical Chemistry\nAlkaline phosphatase",
+                  "rationale": "This test is explicitly listed under the 'Clinical Chemistry' panel (PNL-002), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-54208E0A",
+                "name": "Sodium",
+                "isRequired": true,
+                "order": 20,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[20].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Clinical Chemistry\nSodium",
+                  "rationale": "This test is explicitly listed under the 'Clinical Chemistry' panel (PNL-002), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-0E4CFB5A",
+                "name": "Potassium",
+                "isRequired": true,
+                "order": 21,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[21].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Clinical Chemistry\nPotassium",
+                  "rationale": "This test is explicitly listed under the 'Clinical Chemistry' panel (PNL-002), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-87330D02",
+                "name": "Calcium",
+                "isRequired": true,
+                "order": 22,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[22].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Clinical Chemistry\nCalcium",
+                  "rationale": "This test is explicitly listed under the 'Clinical Chemistry' panel (PNL-002), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-8F3E97CB",
+                "name": "Inorganic phosphorus",
+                "isRequired": true,
+                "order": 23,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[23].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Clinical Chemistry\nInorganic phosphorus",
+                  "rationale": "This test is explicitly listed under the 'Clinical Chemistry' panel (PNL-002), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-A1962385",
+                "name": "Uric acid",
+                "isRequired": true,
+                "order": 24,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[24].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Clinical Chemistry\nUric acid",
+                  "rationale": "This test is explicitly listed under the 'Clinical Chemistry' panel (PNL-002), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-28AAC4A6",
+                "name": "Total protein",
+                "isRequired": true,
+                "order": 25,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[25].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Clinical Chemistry\nTotal protein",
+                  "rationale": "This test is explicitly listed under the 'Clinical Chemistry' panel (PNL-002), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-0131E2BD",
+                "name": "Glucose",
+                "isRequired": true,
+                "order": 26,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[26].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Clinical Chemistry\nGlucose",
+                  "rationale": "This test is explicitly listed under the 'Clinical Chemistry' panel (PNL-002), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-C8EB9E82",
+                "name": "Albumin",
+                "isRequired": true,
+                "order": 27,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[27].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Clinical Chemistry\nAlbumin",
+                  "rationale": "This test is explicitly listed under the 'Clinical Chemistry' panel (PNL-002), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-29A163C9",
+                "name": "Lactate dehydrogenase (LDH)",
+                "isRequired": true,
+                "order": 28,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[28].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Clinical Chemistry\nLactate dehydrogenase (LDH)",
+                  "rationale": "This test is explicitly listed under the 'Clinical Chemistry' panel (PNL-002), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-9C3E6D9D",
+                "name": "Magnesium",
+                "isRequired": true,
+                "order": 29,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[29].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Clinical Chemistry\nMagnesium",
+                  "rationale": "This test is explicitly listed under the 'Clinical Chemistry' panel (PNL-002), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-5EF28B37",
+                "name": "Chloride",
+                "isRequired": true,
+                "order": 30,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[30].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Clinical Chemistry\nChloride",
+                  "rationale": "This test is explicitly listed under the 'Clinical Chemistry' panel (PNL-002), which is part of the 'Chemistry/Hematology' activity."
+                }
+              },
+              {
+                "id": "COMP-5112DBE6",
+                "name": "Bicarbonate",
+                "isRequired": true,
+                "order": 31,
+                "confidence": 0.94,
+                "cdashDomain": "LB",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "laboratory_specifications.data.laboratory_tests[31].test_name",
+                  "pageNumber": 48,
+                  "textSnippet": "Clinical Chemistry\nBicarbonate",
+                  "rationale": "This test is explicitly listed under the 'Clinical Chemistry' panel (PNL-002), which is part of the 'Chemistry/Hematology' activity."
+                }
+              }
+            ],
+            "source": "protocol_extraction",
+            "reasoning": ""
+          },
+          "context": {
+            "originalText": ""
+          },
+          "userDecision": null
+        },
+        {
+          "itemId": "EXP-002",
+          "type": "ACTIVITY_EXPANSION",
+          "confidence": 0.9,
+          "status": "PENDING",
+          "proposal": {
+            "components": [
+              {
+                "id": "COMP-026B1FF2",
+                "name": "NCCN-Functional Assessment of Cancer Therapy (FACT) Lung Symptom Index-17 (NFLSI-17)",
+                "isRequired": true,
+                "order": 0,
+                "confidence": 0.9,
+                "cdashDomain": "QS",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "pro_specifications.data.pro_instruments[0].instrument_name",
+                  "pageNumber": 50,
+                  "textSnippet": "To assess the subject's health-related quality of life and symptoms, two questionnaires will be administered: the NCCN-Functional Assessment of Cancer Therapy (FACT) Lung Symptom Index-17 (NFLSI-17)...",
+                  "rationale": "This is one of the two specific questionnaires explicitly named in the protocol to assess the subject's health-related quality of life."
+                }
+              },
+              {
+                "id": "COMP-935E4BD0",
+                "name": "European Quality of Life-5 Dimensions 5 Level (EQ-5D-5L)",
+                "isRequired": true,
+                "order": 1,
+                "confidence": 0.9,
+                "cdashDomain": "QS",
+                "provenance": {
+                  "source": "extraction_json",
+                  "jsonPath": "pro_specifications.data.pro_instruments[1].instrument_name",
+                  "pageNumber": 50,
+                  "textSnippet": "...two questionnaires will be administered: the NCCN-Functional Assessment of Cancer Therapy (FACT) Lung Symptom Index-17 (NFLSI-17) questionnaire and the European Quality of Life-5 Dimensions (EQ-5D-5L).",
+                  "rationale": "This is one of the two specific questionnaires explicitly named in the protocol to assess the subject's health-related quality of life."
+                }
+              }
+            ],
+            "source": "protocol_extraction",
+            "reasoning": ""
+          },
+          "context": {
+            "originalText": ""
+          },
+          "userDecision": null
+        }
+      ]
+    },
+    {
+      "stepNumber": 3,
+      "stepId": "ALTERNATIVES",
+      "title": "Alternative Resolution",
+      "description": "Review 'X or Y' choice points - determine if mutually exclusive or both required",
+      "icon": "fork",
+      "status": "PENDING",
+      "progress": {
+        "reviewed": 0,
+        "total": 1
+      },
+      "isCritical": true,
+      "reviewItems": [
+        {
+          "itemId": "ALT-001",
+          "type": "ALTERNATIVE_RESOLUTION",
+          "confidence": 0.98,
+          "status": "PENDING",
+          "proposal": {
+            "resolution": "MUTUALLY_EXCLUSIVE",
+            "reasoning": "",
+            "expandedActivities": []
+          },
+          "context": {
+            "originalText": ""
+          },
+          "userDecision": null,
+          "isCritical": true,
+          "alternatives": [
+            {
+              "resolution": "MUTUALLY_EXCLUSIVE",
+              "reasoning": "One or the other, not both"
+            },
+            {
+              "resolution": "BOTH_REQUIRED",
+              "reasoning": "Both options are required"
+            },
+            {
+              "resolution": "CONDITIONAL_CHOICE",
+              "reasoning": "Choice depends on clinical need"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepNumber": 4,
+      "stepId": "SPECIMENS",
+      "title": "Specimen Details",
+      "description": "Review specimen collection requirements (tube types, volumes)",
+      "icon": "biotech",
+      "status": "AUTO_APPROVED",
+      "progress": {
+        "reviewed": 0,
+        "total": 0
+      },
+      "autoApprovedItems": [
+        {
+          "activityId": "",
+          "activityName": "",
+          "specimen": {},
+          "confidence": 0.98,
+          "reasoning": "Standard specimen requirements"
+        },
+        {
+          "activityId": "",
+          "activityName": "",
+          "specimen": {},
+          "confidence": 0.95,
+          "reasoning": "Standard specimen requirements"
+        },
+        {
+          "activityId": "",
+          "activityName": "",
+          "specimen": {},
+          "confidence": 0.98,
+          "reasoning": "Standard specimen requirements"
+        },
+        {
+          "activityId": "",
+          "activityName": "",
+          "specimen": {},
+          "confidence": 1.0,
+          "reasoning": "Standard specimen requirements"
+        },
+        {
+          "activityId": "",
+          "activityName": "",
+          "specimen": {},
+          "confidence": 1.0,
+          "reasoning": "Standard specimen requirements"
+        },
+        {
+          "activityId": "",
+          "activityName": "",
+          "specimen": {},
+          "confidence": 1.0,
+          "reasoning": "Standard specimen requirements"
+        },
+        {
+          "activityId": "",
+          "activityName": "",
+          "specimen": {},
+          "confidence": 1.0,
+          "reasoning": "Standard specimen requirements"
+        }
+      ]
+    },
+    {
+      "stepNumber": 5,
+      "stepId": "CONDITIONS",
+      "title": "Conditional Logic",
+      "description": "Review conditions that apply to specific activities or visits",
+      "icon": "rule",
+      "status": "PENDING",
+      "progress": {
+        "reviewed": 0,
+        "total": 3
+      },
+      "reviewItems": [
+        {
+          "itemId": "COND-001",
+          "type": "CONDITION_INTERPRETATION",
+          "confidence": 0.0,
+          "status": "PENDING",
+          "proposal": {
+            "conditionType": "",
+            "structuredRule": {
+              "appliesTo": []
+            },
+            "reasoning": "Footnote interpretation"
+          },
+          "context": {
+            "sourceFootnote": {}
+          },
+          "userDecision": null,
+          "activityId": "COND-9D41B89E"
+        },
+        {
+          "itemId": "COND-002",
+          "type": "CONDITION_INTERPRETATION",
+          "confidence": 0.0,
+          "status": "PENDING",
+          "proposal": {
+            "conditionType": "",
+            "structuredRule": {
+              "appliesTo": []
+            },
+            "reasoning": "Footnote interpretation"
+          },
+          "context": {
+            "sourceFootnote": {}
+          },
+          "userDecision": null,
+          "activityId": "COND-DE29E7CA"
+        },
+        {
+          "itemId": "COND-003",
+          "type": "CONDITION_INTERPRETATION",
+          "confidence": 0.0,
+          "status": "PENDING",
+          "proposal": {
+            "conditionType": "",
+            "structuredRule": {
+              "appliesTo": []
+            },
+            "reasoning": "Footnote interpretation"
+          },
+          "context": {
+            "sourceFootnote": {}
+          },
+          "userDecision": null,
+          "activityId": "COND-A8B602CA"
+        }
+      ]
+    },
+    {
+      "stepNumber": 6,
+      "stepId": "TIMING_CYCLES",
+      "title": "Timing & Cycles",
+      "description": "Review visit timing, windows, and cycle expansion patterns",
+      "icon": "schedule",
+      "status": "COMPLETED",
+      "progress": {
+        "reviewed": 0,
+        "total": 0
+      },
+      "isCritical": true
+    }
+  ],
+  "wizardActions": {
+    "allowedOperations": [
+      "APPROVE_ITEM",
+      "REJECT_ITEM",
+      "MODIFY_ITEM",
+      "SELECT_ALTERNATIVE",
+      "ANSWER_QUESTION",
+      "ADD_COMMENT",
+      "APPROVE_ALL_IN_STEP",
+      "SKIP_STEP",
+      "GO_BACK"
+    ],
+    "completionRequired": {
+      "criticalItems": true,
+      "allItems": false
+    },
+    "nextStep": "GENERATE_USDM"
+  }
+}

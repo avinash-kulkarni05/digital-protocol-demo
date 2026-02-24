@@ -1,0 +1,122 @@
+{
+  "stage": 9,
+  "stageName": "Protocol Mining",
+  "success": false,
+  "enrichments": [],
+  "decisions": {},
+  "reviewItems": [],
+  "metrics": {
+    "totalActivitiesProcessed": 0,
+    "activitiesEnriched": 0,
+    "activitiesNoMatch": 0,
+    "modulesUsed": {},
+    "cacheHits": 0,
+    "llmCalls": 0,
+    "pdfValidations": 0,
+    "avgConfidence": 0.0,
+    "processingTimeSeconds": 0.0,
+    "errorCount": 1,
+    "reviewItemCount": 0
+  },
+  "errors": [
+    "extraction_outputs not provided - protocol mining skipped"
+  ],
+  "_agentDefinition": {
+    "stageNumber": 9,
+    "stageName": "Protocol Mining",
+    "displayName": "Cross-Reference Enricher",
+    "purpose": "Cross-references SOA activities with other extracted protocol sections (lab specs, biospecimen handling, safety monitoring) to enrich activity details beyond the SOA table.",
+    "extractionMethodology": "Module matching using extraction outputs from other agents (laboratory, biospecimen, safety, etc.). PDF validation for low-confidence matches using Gemini File API. Confidence scoring based on semantic similarity and field coverage.",
+    "keyOutputs": [
+      {
+        "field": "enrichments",
+        "description": "Additional details from protocol mining"
+      },
+      {
+        "field": "sourcesUsed",
+        "description": "Which extraction modules provided data"
+      },
+      {
+        "field": "labManualEnrichment",
+        "description": "Lab-specific details from lab specs module"
+      },
+      {
+        "field": "biospecimenEnrichment",
+        "description": "Specimen details from biospecimen module"
+      },
+      {
+        "field": "safetyEnrichment",
+        "description": "Safety monitoring details"
+      },
+      {
+        "field": "overallConfidence",
+        "description": "Combined confidence from all sources"
+      }
+    ],
+    "downstreamIntegrations": [
+      {
+        "system": "EDC Build",
+        "useCase": "Pre-populated form field values",
+        "automationType": "direct_mapping",
+        "fieldsUsed": [
+          "labManualEnrichment",
+          "biospecimenEnrichment"
+        ],
+        "automationExample": "Lab form pre-fills expected ranges, units, and collection requirements from mining"
+      },
+      {
+        "system": "Central Lab",
+        "useCase": "Test panel configuration",
+        "automationType": "configuration",
+        "fieldsUsed": [
+          "labManualEnrichment",
+          "sourcesUsed"
+        ],
+        "automationExample": "Central lab system receives exact test codes and expected values from protocol"
+      },
+      {
+        "system": "Safety Database",
+        "useCase": "AE expectedness determination",
+        "automationType": "rule_generation",
+        "fieldsUsed": [
+          "safetyEnrichment"
+        ],
+        "automationExample": "Safety system pre-configured with expected AEs and monitoring thresholds"
+      },
+      {
+        "system": "Site Training",
+        "useCase": "Comprehensive procedure documentation",
+        "automationType": "direct_mapping",
+        "fieldsUsed": [
+          "enrichments",
+          "sourcesUsed"
+        ],
+        "automationExample": "Site manual combines SOA with enriched details for complete procedure guides"
+      }
+    ],
+    "automationInsights": [
+      {
+        "insight": "Data Completeness",
+        "description": "Mining fills gaps that SOA table alone cannot provide"
+      },
+      {
+        "insight": "Cross-Validation",
+        "description": "Multiple sources increase confidence in extracted values"
+      },
+      {
+        "insight": "Protocol Consistency",
+        "description": "Mining detects discrepancies between SOA and detailed sections"
+      }
+    ],
+    "dataQualityIndicators": [
+      "at least one source used",
+      "confidence >= 0.70",
+      "no conflicting enrichments"
+    ],
+    "humanReviewTriggers": [
+      "confidence < 0.70",
+      "conflicting data between sources",
+      "sparse enrichment data"
+    ]
+  }
+}

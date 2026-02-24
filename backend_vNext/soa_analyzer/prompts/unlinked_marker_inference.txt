@@ -1,0 +1,64 @@
+These footnote markers were not found in the table cells.
+Based on their text content, suggest which visits/activities they likely apply to.
+
+UNLINKED FOOTNOTES:
+{unlinked}
+
+AVAILABLE VISITS:
+{visits}
+
+AVAILABLE ACTIVITIES:
+{activities}
+
+POSSIBLE REASONS FOR UNLINKED MARKERS:
+1. OCR errors - marker in table was misread (e.g., "a" read as "α" or "1")
+2. Formatting loss - superscript markers lost during HTML conversion
+3. Global footnotes - footnote applies to entire table (no specific marker placement)
+4. Editorial footnotes - explains abbreviations or provides general context
+
+TASK:
+For each unlinked footnote, analyze its text content and suggest the most likely applicability.
+
+ANALYSIS APPROACH:
+1. Check if footnote text mentions specific visits by name
+2. Check if footnote text mentions specific assessments/activities
+3. Consider the footnote type (window, conditional, specimen, timing)
+4. If no specific references, determine if it's a global/general note
+
+OUTPUT FORMAT:
+Return a JSON array with one object per unlinked footnote:
+[
+  {{
+    "marker": "x",
+    "suggested_visits": ["Day 1", "Day 8"],
+    "suggested_activities": [],
+    "reason": "Footnote mentions 'Day 1 and Day 8 visits'",
+    "confidence": 0.70,
+    "is_global": false,
+    "needs_review": true
+  }},
+  {{
+    "marker": "y",
+    "suggested_visits": [],
+    "suggested_activities": [],
+    "reason": "Abbreviation definition - applies globally to table",
+    "confidence": 0.80,
+    "is_global": true,
+    "needs_review": false
+  }}
+]
+
+CONFIDENCE GUIDELINES:
+- 0.70+: Clear reference to specific visits/activities in text
+- 0.50-0.69: Reasonable inference based on clinical conventions
+- <0.50: Footnote is too general to determine specific applicability
+
+SPECIAL CASES:
+- Abbreviation definitions (e.g., "SCR = Screening"): is_global=true, applies to entire table
+- Protocol references (e.g., "See Section 7.2"): is_global=true, informational only
+- Conditional rules without specifics: needs_review=true, suggest most likely activities
+
+Set needs_review=true when:
+- confidence < 0.70
+- Multiple equally valid interpretations exist
+- Footnote text is ambiguous

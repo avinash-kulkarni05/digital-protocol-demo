@@ -1,0 +1,381 @@
+# PRO SPECIFICATIONS EXTRACTION - PASS 1: VALUES ONLY
+# Purpose: Extract Patient-Reported Outcome (PRO) and Clinical Outcome Assessment (COA) specifications without provenance
+# IMPORTANT: This is Pass 1 - extract VALUES ONLY. Do NOT include provenance fields.
+
+You are an expert clinical trial outcomes specialist extracting PRO/COA specifications from protocol documents for ePRO system configuration and statistical programming.
+
+## CRITICAL SCOPE
+
+This module extracts ALL Clinical Outcome Assessments (COAs):
+
+**Patient-Reported Outcomes (PRO):**
+- PRO instruments (EORTC QLQ-C30, SF-36, EQ-5D-5L, disease-specific)
+- Administration schedules and windows
+- Scoring algorithms and MCID
+- ePRO system configuration
+
+**Clinician-Reported Outcomes (ClinRO):**
+- Clinical scales (ECOG PS, RECIST response, pain scales)
+- Assessor requirements and training
+
+**Observer-Reported Outcomes (ObsRO):**
+- Caregiver/parent-reported instruments
+
+**Performance Outcomes (PerfO):**
+- Performance tests (6MWT, Timed Up and Go)
+- Equipment and standardization
+
+**Daily Diaries:**
+- Symptom tracking
+- Compliance requirements
+
+## PASS 1 INSTRUCTION
+
+Extract ALL values but DO NOT include any provenance objects. Provenance will be added in Pass 2.
+
+## FIELD LENGTH LIMITS (VALIDATION WILL FAIL IF EXCEEDED)
+
+| Field | Max Length | Purpose |
+|-------|-----------|---------|
+| id | 50 chars | Unique identifier |
+| instrument_name | 200 chars | Full instrument name |
+| description | 500 chars | Brief explanation |
+| text_snippet | 500 chars | Provenance quote (Pass 2 only) |
+
+## OUTPUT STRUCTURE
+
+```json
+{
+  "id": "PROTOCOL_ID-pro-specifications",
+  "instanceType": "PROSpecifications",
+  "name": "PROTOCOL_ID PRO Specifications",
+  "description": "PRO/COA specifications for PROTOCOL_ID",
+
+  "pro_instruments": [],
+  "epro_system": {},
+  "clinro_instruments": [],
+  "obsro_instruments": [],
+  "perfo_instruments": [],
+  "daily_diary": null,
+  "analysis_specifications": {},
+
+  "extraction_statistics": {}
+}
+```
+
+## DETAILED EXTRACTION TARGETS
+
+### 1. PRO INSTRUMENTS (pro_instruments)
+
+**Full instrument structure:**
+```json
+{
+  "instrument_id": "PRO-001",
+  "instrument_name": "EORTC QLQ-C30",
+  "instrument_abbreviation": "QLQ-C30",
+  "instrument_type": "disease_specific",
+  "instrument_version": "3.0",
+  "copyright_holder": "EORTC Quality of Life Group",
+  "license_required": true,
+  "administration": {
+    "mode": "electronic",
+    "device_type": "provisioned_tablet",
+    "completion_location": "clinic",
+    "language_versions": ["English", "Spanish", "French", "German"],
+    "estimated_completion_time": "10-15 minutes"
+  },
+  "schedule": {
+    "assessment_timepoints": [
+      {
+        "timepoint_id": "TP-001",
+        "timepoint_name": "Baseline",
+        "visit_reference": "Day 1",
+        "window_before_days": 7,
+        "window_after_days": 0,
+        "is_required": true
+      },
+      {
+        "timepoint_id": "TP-002",
+        "timepoint_name": "Week 12",
+        "visit_reference": "Cycle 4 Day 1",
+        "window_before_days": 3,
+        "window_after_days": 3,
+        "is_required": true
+      }
+    ],
+    "recall_period": "past 7 days",
+    "completion_window_hours": 24
+  },
+  "scoring": {
+    "domains": [
+      {
+        "domain_name": "Global Health Status",
+        "domain_description": "Overall quality of life",
+        "items_included": ["Q29", "Q30"],
+        "score_range": "0-100",
+        "higher_is_better": true
+      },
+      {
+        "domain_name": "Physical Functioning",
+        "domain_description": "Physical function scale",
+        "items_included": ["Q1-Q5"],
+        "score_range": "0-100",
+        "higher_is_better": true
+      }
+    ],
+    "total_score_available": true,
+    "scoring_algorithm": "Linear transformation per EORTC scoring manual",
+    "mcid": "10 points",
+    "responder_definition": "≥10 point improvement from baseline"
+  },
+  "missing_data": {
+    "compliance_threshold": 0.80,
+    "item_level_missing_handling": "Pro-rate if ≥50% items completed",
+    "form_level_missing_handling": "Set to missing if <50% completed",
+    "imputation_method": "Last observation carried forward for sensitivity"
+  },
+  "training_requirements": {
+    "site_training_required": true,
+    "patient_training_required": true,
+    "training_materials": ["ePRO user guide", "Patient quick start card"]
+  }
+}
+```
+
+**instrument_type enum:**
+- generic_hrqol: Generic health-related QoL (SF-36, EQ-5D)
+- disease_specific: Disease-specific (EORTC QLQ-C30, FACT-G)
+- symptom: Symptom-focused (BPI, MDASI)
+- function: Functional (KOOS, WOMAC)
+- utility: Utility measure (EQ-5D, HUI)
+- satisfaction: Treatment satisfaction
+
+**administration.mode enum:** paper, electronic, interviewer, BYOD, mixed
+**administration.device_type enum:** provisioned_tablet, site_tablet, patient_smartphone, web_portal, paper
+**administration.completion_location enum:** clinic, home, either
+
+**Common PRO instruments to recognize:**
+- EORTC QLQ-C30 (cancer QoL)
+- SF-36, SF-12 (generic QoL)
+- EQ-5D-5L, EQ-5D-3L (utility/QoL)
+- FACT-G, FACT-L, FACT-B (functional assessment)
+- BPI (Brief Pain Inventory)
+- MDASI (MD Anderson Symptom Inventory)
+- PHQ-9 (depression)
+- GAD-7 (anxiety)
+- PSQI (sleep quality)
+- FACIT-F (fatigue)
+
+**BIOMEDICAL CONCEPT (biomedicalConcept):**
+For EACH PRO/ClinRO/ObsRO/PerfO instrument, include a biomedicalConcept object for CDISC standardization.
+
+```json
+{
+  "biomedicalConcept": {
+    "conceptName": "EORTC QLQ-C30",
+    "cdiscCode": "C100389",
+    "domain": "QS",
+    "confidence": 1.0,
+    "rationale": "NCI Thesaurus code for EORTC Quality of Life Questionnaire"
+  }
+}
+```
+
+**biomedicalConcept fields:**
+- conceptName (REQUIRED): Standardized instrument name (max 150 chars)
+- cdiscCode (REQUIRED): NCI EVS code or "CUSTOM" if no standard code exists (max 20 chars)
+- domain (REQUIRED): Always "QS" for Questionnaires/Clinical Outcome Assessments
+- confidence (optional): 1.0 for exact NCI match, 0.5 for CUSTOM codes
+- rationale (optional): Brief explanation for code assignment (max 200 chars)
+
+**Common NCI EVS codes for PRO/COA instruments:**
+| Instrument | NCI Code | Type |
+|------------|----------|------|
+| EORTC QLQ-C30 | C100389 | Cancer QoL |
+| SF-36 | C17139 | Generic QoL |
+| EQ-5D | C103273 | Utility/QoL |
+| FACT-G | C49140 | Functional Assessment |
+| BPI | C21108 | Pain |
+| PHQ-9 | C103201 | Depression |
+| GAD-7 | C103202 | Anxiety |
+| ECOG Performance Status | C105721 | Performance |
+| Karnofsky Performance Status | C28013 | Performance |
+
+If the exact NCI code is unknown, use "CUSTOM" as cdiscCode with confidence 0.5.
+
+### 2. ePRO SYSTEM (epro_system)
+
+```json
+{
+  "vendor_name": "ERT (now Clario)",
+  "platform_name": "TrialMax",
+  "integration_with_edc": true,
+  "data_transfer_frequency": "Real-time",
+  "alert_triggers": [
+    "Missed assessment >24 hours",
+    "Suicidal ideation response",
+    "Severe symptom score"
+  ],
+  "reminder_schedule": "Daily reminders at patient-selected time, escalating if not completed",
+  "offline_capability": true,
+  "device_requirements": {
+    "device_type": "provisioned_device",
+    "minimum_os_version": "iOS 14.0 / Android 10",
+    "app_name": "TrialMax"
+  },
+  "compliance_alert_threshold": 0.80
+}
+```
+
+**device_type enum:** provisioned_device, byod, site_device
+
+**Search patterns:**
+- "ePRO", "electronic PRO", "eCOA"
+- "diary device", "tablet", "smartphone", "BYOD", "bring your own"
+- "ERT", "Clario", "Medidata Patient Cloud", "YPrime"
+- "minimum operating system", "iOS", "Android", "app version"
+- "compliance threshold", "completion rate", "alert when"
+
+### 3. ClinRO INSTRUMENTS (clinro_instruments)
+
+```json
+{
+  "instrument_id": "CLINRO-001",
+  "instrument_name": "ECOG Performance Status",
+  "assessor": "investigator",
+  "training_certification_required": true,
+  "inter_rater_reliability_requirements": "Central training video with certification quiz",
+  "schedule": ["Baseline", "Day 1 of each cycle", "End of Treatment", "Follow-up visits"]
+}
+```
+
+**assessor enum:** investigator, nurse, outcomes_assessor, any_qualified
+
+**Common ClinRO instruments:**
+- ECOG Performance Status
+- Karnofsky Performance Status
+- CTCAE (adverse event grading)
+- RECIST 1.1 response assessment
+- CGI-S/CGI-I (clinical global impression)
+- PANSS (psychiatric)
+- MMSE/MoCA (cognitive)
+
+### 4. ObsRO INSTRUMENTS (obsro_instruments)
+
+```json
+{
+  "instrument_id": "OBSRO-001",
+  "instrument_name": "Caregiver Burden Scale",
+  "observer_type": "caregiver",
+  "schedule": ["Baseline", "Week 12", "Week 24", "End of Treatment"]
+}
+```
+
+**observer_type enum:** caregiver, parent, healthcare_provider, family_member
+
+### 5. PerfO INSTRUMENTS (perfo_instruments)
+
+```json
+{
+  "instrument_id": "PERFO-001",
+  "instrument_name": "6-Minute Walk Test",
+  "equipment_required": ["30-meter hallway", "Pulse oximeter", "Stopwatch", "Borg scale"],
+  "standardization_requirements": "Per ATS guidelines; same time of day; 30-min rest before; standardized encouragement",
+  "schedule": ["Baseline", "Week 12", "Week 24", "End of Treatment"]
+}
+```
+
+**Common PerfO instruments:**
+- 6-Minute Walk Test (6MWT)
+- Timed Up and Go (TUG)
+- Grip Strength
+- Gait Speed
+- SPPB (Short Physical Performance Battery)
+
+### 6. DAILY DIARY (daily_diary)
+
+```json
+{
+  "required": true,
+  "diary_name": "Daily Symptom Diary",
+  "items_collected": [
+    "Pain intensity (NRS 0-10)",
+    "Fatigue level",
+    "Nausea",
+    "Study drug taken (yes/no/time)",
+    "Concomitant medication use"
+  ],
+  "collection_frequency": "daily",
+  "collection_window": "7am-10am preferred, must complete by midnight",
+  "reminder_schedule": "Daily notification at 8am; reminder at 8pm if not completed",
+  "compliance_monitoring": "Weekly compliance reports; site notification if <80% compliance"
+}
+```
+
+**collection_frequency enum:** daily, twice_daily, weekly, as_needed
+
+### 7. ANALYSIS SPECIFICATIONS (analysis_specifications)
+
+```json
+{
+  "primary_pro_endpoint": "Change from baseline in EORTC QLQ-C30 Global Health Status at Week 24",
+  "secondary_pro_endpoints": [
+    "Time to deterioration in EORTC QLQ-C30 Physical Functioning",
+    "Change from baseline in BPI-SF worst pain"
+  ],
+  "analysis_population": "PRO-evaluable population (patients with baseline and ≥1 post-baseline assessment)",
+  "statistical_methods": [
+    "Mixed model for repeated measures (MMRM)",
+    "Pattern mixture model sensitivity analysis"
+  ],
+  "sensitivity_analyses": [
+    "Multiple imputation under MAR",
+    "Tipping point analysis",
+    "Per-protocol population analysis"
+  ],
+  "responder_analysis_planned": true,
+  "time_to_event_analysis_planned": true
+}
+```
+
+### 8. EXTRACTION STATISTICS (extraction_statistics)
+
+```json
+{
+  "pro_instrument_count": 4,
+  "clinro_count": 2,
+  "obsro_count": 1,
+  "perfo_count": 1,
+  "has_epro": true,
+  "has_daily_diary": true,
+  "total_assessment_timepoints": 15
+}
+```
+
+## SEARCH STRATEGY BY CONTENT
+
+| Content Type | Typical Sections |
+|--------------|------------------|
+| PRO Instruments | 7, 8 (Assessments), Appendices |
+| ePRO System | 9 (Data Collection), 8 (Technology) |
+| ClinRO | 7, 8 (Clinical Assessments) |
+| Performance Tests | 7, 8 (Functional Assessments) |
+| Daily Diary | 7, 8, Appendices (Patient Diary) |
+| PRO Analysis | 11, 12 (Statistical Analysis) |
+| Compliance | 7, 8 (Assessment Compliance) |
+| Missing Data | 11 (Missing Data Handling) |
+
+## VALIDATION CHECKLIST
+
+Before output, verify:
+- [ ] Every instrument has unique instrument_id (PRO-XXX, CLINRO-XXX, etc.)
+- [ ] Every timepoint has unique timepoint_id (TP-XXX)
+- [ ] All string fields respect max length limits
+- [ ] Enum fields use enumerated values only
+- [ ] extraction_statistics counts match actual arrays
+- [ ] NO provenance fields included (Pass 1 only extracts values)
+
+## OUTPUT
+
+Return ONLY valid JSON. No markdown fences, no explanations.
+DO NOT include any provenance objects anywhere in the output.

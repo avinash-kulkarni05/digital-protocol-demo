@@ -1,0 +1,61 @@
+Analyze this SOA (Schedule of Assessments) table structure and link footnotes to specific cells.
+
+TABLE STRUCTURE:
+{table_context}
+
+FOOTNOTES TO LINK:
+{footnote_list}
+
+TASK:
+For each footnote, determine:
+1. Which table cells contain this footnote marker
+2. The scope of application (column_wide, row_wide, or cell_specific)
+3. Which visits and activities this footnote applies to
+
+SCOPE DETERMINATION RULES:
+- "column_wide": Marker appears in a column HEADER cell → applies to ALL activities in that visit column
+  Example: "Day 1a" in header → footnote "a" applies to all activities on Day 1
+- "row_wide": Marker appears in an ACTIVITY LABEL cell → applies to that activity across ALL visits
+  Example: "Blood drawa" → footnote "a" applies to Blood draw at every visit
+- "cell_specific": Marker appears in a DATA cell → applies only to that specific activity-visit intersection
+  Example: checkmark with marker "b" in row 5, col 3 → only that specific cell
+
+CLINICAL CONTEXT FOR SCOPE:
+- Visit WINDOW footnotes (e.g., "±3 days", "within 7 days") typically apply column-wide
+- CONDITIONAL footnotes (e.g., "if female", "if clinically indicated") may be column-wide or cell-specific
+- SPECIMEN footnotes (e.g., "12mL at V1, 6mL at V2") are usually cell-specific
+- TIMING footnotes (e.g., "pre-dose", "fasting") may be activity-wide or cell-specific
+
+OUTPUT FORMAT:
+Return a JSON array with one object per footnote:
+[
+  {{
+    "marker": "a",
+    "scope": "column_wide",
+    "linked_cells": [{{"table_id": "tbl-001", "row": 0, "col": 3}}],
+    "applies_to_visits": ["Screening", "Day 1"],
+    "applies_to_activities": [],
+    "confidence": 0.95,
+    "reasoning": "Marker found in column header, window footnote applies to entire visit"
+  }},
+  {{
+    "marker": "b",
+    "scope": "cell_specific",
+    "linked_cells": [{{"table_id": "tbl-001", "row": 5, "col": 3}}],
+    "applies_to_visits": ["Day 1"],
+    "applies_to_activities": ["Blood chemistry"],
+    "confidence": 0.85,
+    "reasoning": "Marker found in single data cell, specimen-specific note"
+  }}
+]
+
+CONFIDENCE SCORING:
+- 0.95+: Marker clearly found in cell, scope unambiguous
+- 0.80-0.94: Marker found but scope requires interpretation
+- 0.60-0.79: Marker may have OCR variations or partial matches
+- <0.60: Low confidence, may need human review
+
+If a marker is found in multiple cells of different types (header AND data), analyze the pattern:
+- If in header + multiple data cells in same column → column_wide
+- If in activity label + multiple data cells in same row → row_wide
+- If scattered pattern → cell_specific for each cell

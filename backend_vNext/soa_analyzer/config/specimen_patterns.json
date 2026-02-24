@@ -1,0 +1,366 @@
+{
+  "_metadata": {
+    "description": "Specimen pattern validation registry for Stage 5 Specimen Enrichment",
+    "purpose": "Cross-check LLM decisions - NOT for primary routing",
+    "design_principle": "LLM-first: patterns validate, don't route decisions",
+    "version": "1.0.0",
+    "last_updated": "2025-12-06"
+  },
+  "activity_specimen_mappings": {
+    "_description": "Known activity-to-specimen mappings for validation",
+    "hematology": {
+      "category": "blood",
+      "subtype": "whole_blood",
+      "tube_type": "edta",
+      "tube_color": "lavender",
+      "typical_volume_ml": 3,
+      "aliases": ["cbc", "complete blood count", "blood count", "hemogram", "fbc", "full blood count"]
+    },
+    "differential": {
+      "category": "blood",
+      "subtype": "whole_blood",
+      "tube_type": "edta",
+      "tube_color": "lavender",
+      "typical_volume_ml": 3,
+      "aliases": ["diff", "white cell differential", "wbc differential", "leukocyte differential"]
+    },
+    "chemistry": {
+      "category": "blood",
+      "subtype": "serum",
+      "tube_type": "sst",
+      "tube_color": "gold",
+      "typical_volume_ml": 5,
+      "aliases": ["clinical chemistry", "serum chemistry", "chem panel", "metabolic panel", "cmp", "bmp"]
+    },
+    "liver_function": {
+      "category": "blood",
+      "subtype": "serum",
+      "tube_type": "sst",
+      "tube_color": "gold",
+      "typical_volume_ml": 5,
+      "aliases": ["lft", "lfts", "liver function tests", "hepatic panel", "liver panel"]
+    },
+    "renal_function": {
+      "category": "blood",
+      "subtype": "serum",
+      "tube_type": "sst",
+      "tube_color": "gold",
+      "typical_volume_ml": 5,
+      "aliases": ["kidney function", "renal panel", "kidney panel"]
+    },
+    "coagulation": {
+      "category": "blood",
+      "subtype": "citrate_plasma",
+      "tube_type": "sodium_citrate",
+      "tube_color": "light_blue",
+      "typical_volume_ml": 2.7,
+      "fill_requirement": "critical",
+      "aliases": ["coag", "coags", "coagulation panel", "clotting", "pt/inr", "aptt"]
+    },
+    "lipid_panel": {
+      "category": "blood",
+      "subtype": "serum",
+      "tube_type": "sst",
+      "tube_color": "gold",
+      "typical_volume_ml": 5,
+      "fasting_required": true,
+      "aliases": ["lipids", "lipid profile", "cholesterol panel", "fasting lipids"]
+    },
+    "thyroid": {
+      "category": "blood",
+      "subtype": "serum",
+      "tube_type": "sst",
+      "tube_color": "gold",
+      "typical_volume_ml": 5,
+      "aliases": ["thyroid panel", "tsh", "thyroid function", "tfts"]
+    },
+    "urinalysis": {
+      "category": "urine",
+      "subtype": "urine_spot",
+      "tube_type": null,
+      "typical_volume_ml": 30,
+      "aliases": ["ua", "urine analysis", "urine test", "dipstick"]
+    },
+    "urine_culture": {
+      "category": "urine",
+      "subtype": "urine_spot",
+      "tube_type": null,
+      "typical_volume_ml": 30,
+      "aliases": ["uc", "urine c&s", "urine cx"]
+    },
+    "pregnancy_test": {
+      "category": "blood",
+      "subtype": "serum",
+      "tube_type": "sst",
+      "tube_color": "gold",
+      "typical_volume_ml": 5,
+      "alternate_category": "urine",
+      "aliases": ["serum pregnancy", "hcg", "bhcg", "beta-hcg", "pregnancy"]
+    },
+    "pk_sample": {
+      "category": "blood",
+      "subtype": "plasma",
+      "tube_type": "edta",
+      "tube_color": "lavender",
+      "typical_volume_ml": 5,
+      "purpose": "pk",
+      "aliases": ["pk", "pharmacokinetic", "drug level", "drug concentration"]
+    },
+    "pd_sample": {
+      "category": "blood",
+      "subtype": "plasma",
+      "tube_type": "edta",
+      "tube_color": "lavender",
+      "typical_volume_ml": 5,
+      "purpose": "pd",
+      "aliases": ["pd", "pharmacodynamic", "biomarker"]
+    },
+    "immunogenicity": {
+      "category": "blood",
+      "subtype": "serum",
+      "tube_type": "sst",
+      "tube_color": "gold",
+      "typical_volume_ml": 5,
+      "purpose": "immunogenicity",
+      "aliases": ["ada", "anti-drug antibody", "immunogenic"]
+    },
+    "dna_sample": {
+      "category": "blood",
+      "subtype": "whole_blood",
+      "tube_type": "edta",
+      "tube_color": "lavender",
+      "typical_volume_ml": 10,
+      "purpose": "genetic",
+      "aliases": ["dna", "genetic", "pharmacogenomic", "pgx", "genotyping"]
+    },
+    "rna_sample": {
+      "category": "blood",
+      "subtype": "whole_blood",
+      "tube_type": "paxgene",
+      "tube_color": "tan",
+      "typical_volume_ml": 2.5,
+      "purpose": "genetic",
+      "aliases": ["rna", "gene expression", "transcriptomic"]
+    },
+    "tumor_biopsy": {
+      "category": "tissue",
+      "subtype": "fresh_tissue",
+      "tube_type": null,
+      "aliases": ["biopsy", "tumor sample", "tissue biopsy", "core biopsy"]
+    },
+    "csf_sample": {
+      "category": "csf",
+      "subtype": null,
+      "tube_type": "plain",
+      "typical_volume_ml": 10,
+      "aliases": ["lumbar puncture", "spinal tap", "cerebrospinal fluid"]
+    }
+  },
+  "volume_patterns": {
+    "_description": "Regex patterns for extracting volume specifications",
+    "explicit_volume": [
+      "\\d+\\.?\\d*\\s*m[lL]",
+      "\\d+\\.?\\d*\\s*milliliter",
+      "\\d+\\.?\\d*\\s*cc"
+    ],
+    "visit_dependent": [
+      "(\\d+\\.?\\d*)\\s*m[lL]\\s+(at|for)\\s+(\\w+)",
+      "(screening|baseline|week\\s*\\d+).*?(\\d+\\.?\\d*)\\s*m[lL]",
+      "(\\d+\\.?\\d*)\\s*m[lL]\\s+at\\s+(screening|baseline|week\\s*\\d+)"
+    ],
+    "pk_intensive": [
+      "pre-?dose.*post-?dose",
+      "\\d+h?\\s*(,|and)\\s*\\d+h?\\s*(,|and)\\s*\\d+h?",
+      "(full|intensive|serial)\\s*(pk|pharmacokinetic)"
+    ],
+    "pk_sparse": [
+      "(sparse|trough|single)\\s*(pk|pharmacokinetic|sample)",
+      "pre-?dose\\s+only"
+    ],
+    "per_timepoint": [
+      "(\\d+\\.?\\d*)\\s*m[lL]\\s+(per|each|at each)\\s+(timepoint|sample|draw)"
+    ]
+  },
+  "conditional_patterns": {
+    "_description": "Patterns indicating optional/conditional specimen collection",
+    "optional_indicators": [
+      "optional",
+      "if\\s+indicated",
+      "if\\s+clinically\\s+indicated",
+      "if\\s+available",
+      "when\\s+possible",
+      "per\\s+investigator",
+      "at\\s+discretion"
+    ],
+    "population_conditions": [
+      "females?\\s+only",
+      "women\\s+only",
+      "wocbp",
+      "women?\\s+of\\s+childbearing\\s+potential",
+      "if\\s+female",
+      "male\\s+only",
+      "age\\s*[<>]\\s*\\d+",
+      "pediatric",
+      "adult"
+    ],
+    "clinical_conditions": [
+      "if\\s+abnormal",
+      "if\\s+elevated",
+      "if\\s+positive",
+      "if\\s+pk\\s+performed",
+      "if\\s+dose\\s+modified",
+      "after\\s+dose\\s+adjustment",
+      "if\\s+hepatic\\s+impairment",
+      "if\\s+renal\\s+impairment"
+    ],
+    "timing_conditions": [
+      "if\\s+not\\s+performed\\s+within",
+      "if\\s+>\\s*\\d+\\s*days",
+      "if\\s+<\\s*\\d+\\s*days",
+      "if\\s+visit\\s+occurs"
+    ]
+  },
+  "fasting_patterns": {
+    "_description": "Patterns indicating fasting requirements",
+    "fasting_indicators": [
+      "fasting",
+      "fasted",
+      "fast\\s+for",
+      "after\\s+\\d+\\s*hour\\s*fast",
+      "\\d+\\s*hour\\s*fast",
+      "overnight\\s*fast",
+      "no\\s+food",
+      "nothing\\s+by\\s+mouth",
+      "npo"
+    ],
+    "non_fasting_indicators": [
+      "non-?fasting",
+      "not\\s+fasting",
+      "random",
+      "any\\s+time"
+    ],
+    "fasting_durations": {
+      "default": "8 hours",
+      "lipids": "12 hours",
+      "glucose": "8 hours"
+    }
+  },
+  "tube_volume_defaults": {
+    "_description": "Default volume ranges by tube type",
+    "edta": {
+      "min_ml": 2,
+      "max_ml": 10,
+      "typical_ml": 4,
+      "common_sizes_ml": [2, 3, 4, 6, 10]
+    },
+    "sst": {
+      "min_ml": 3,
+      "max_ml": 10,
+      "typical_ml": 5,
+      "common_sizes_ml": [3.5, 5, 8.5, 10]
+    },
+    "sodium_citrate": {
+      "min_ml": 2.7,
+      "max_ml": 4.5,
+      "typical_ml": 2.7,
+      "common_sizes_ml": [2.7, 4.5],
+      "fill_requirement": "Must fill to line (9:1 ratio critical)"
+    },
+    "lithium_heparin": {
+      "min_ml": 2,
+      "max_ml": 10,
+      "typical_ml": 4,
+      "common_sizes_ml": [2, 4, 6, 10]
+    },
+    "paxgene": {
+      "min_ml": 2.5,
+      "max_ml": 2.5,
+      "typical_ml": 2.5,
+      "common_sizes_ml": [2.5],
+      "special_note": "Fixed volume tube"
+    },
+    "plain": {
+      "min_ml": 3,
+      "max_ml": 10,
+      "typical_ml": 6,
+      "common_sizes_ml": [3, 6, 10]
+    }
+  },
+  "non_specimen_activities": {
+    "_description": "Activities that do NOT require specimen collection",
+    "categories": [
+      "vital_signs",
+      "ecg",
+      "physical_exam",
+      "imaging",
+      "questionnaire",
+      "consent",
+      "demographics"
+    ],
+    "keywords": [
+      "vital signs",
+      "blood pressure",
+      "pulse",
+      "temperature",
+      "weight",
+      "height",
+      "bmi",
+      "ecg",
+      "ekg",
+      "electrocardiogram",
+      "physical exam",
+      "physical examination",
+      "pe",
+      "ct scan",
+      "mri",
+      "x-ray",
+      "xray",
+      "pet scan",
+      "ultrasound",
+      "imaging",
+      "questionnaire",
+      "pro",
+      "patient reported outcome",
+      "sf-36",
+      "eq-5d",
+      "informed consent",
+      "demographics",
+      "medical history",
+      "concomitant medications",
+      "adverse events",
+      "study drug administration",
+      "dosing"
+    ]
+  },
+  "specimen_domains": {
+    "_description": "CDISC domains that involve specimen collection",
+    "primary_domains": ["LB", "PC", "PP", "BS", "IS", "MB", "MS", "GF"],
+    "domain_descriptions": {
+      "LB": "Laboratory Test Results",
+      "PC": "Pharmacokinetic Concentrations",
+      "PP": "Pharmacokinetic Parameters",
+      "BS": "Biospecimen",
+      "IS": "Immunogenicity Specimen",
+      "MB": "Microbiology",
+      "MS": "Microbiology Susceptibility",
+      "GF": "Genomics Findings"
+    }
+  },
+  "validation_rules": {
+    "_description": "Rules for validating LLM decisions",
+    "volume_sanity_checks": {
+      "blood_max_single_draw_ml": 50,
+      "blood_max_per_visit_ml": 100,
+      "urine_spot_max_ml": 100,
+      "urine_24h_max_ml": 3000,
+      "csf_max_ml": 20
+    },
+    "tube_compatibility": {
+      "edta": ["whole_blood", "plasma", "edta_plasma"],
+      "sst": ["serum"],
+      "lithium_heparin": ["plasma", "lithium_heparin_plasma"],
+      "sodium_citrate": ["citrate_plasma"],
+      "paxgene": ["whole_blood"]
+    }
+  }
+}

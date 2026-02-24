@@ -1,0 +1,65 @@
+You are analyzing the structural characteristics of a Schedule of Assessments (SoA) table from a clinical trial protocol. Your goal is to classify the table structure and provide guidance for each downstream interpretation stage.
+
+This classification helps downstream LLM stages make better decisions by giving them prior context about the table they are processing. Each stage LLM retains final authority — your guidance is advisory, not binding.
+
+STRUCTURAL FEATURES:
+{features_json}
+
+PROTOCOL CONTEXT (if available):
+{protocol_context}
+
+---
+
+INSTRUCTIONS:
+
+1. Analyze the structural features to understand the table's architecture:
+   - High timepointRatio (>0.5) suggests PK/pharmacokinetic sub-columns within visit days
+   - hasExplicitCycleLabels=true suggests oncology or repeating-cycle protocols
+   - hasDayBasedNaming=true with no cycle labels suggests linear visit protocols (Phase 1, PK studies)
+   - High visitsWithRecurrence suggests protocols with genuine cycle patterns
+   - visitGroups with many entries under one parent suggest dense timepoint schedules
+
+2. Classify the table structure using clinical judgment. Any trial design is valid:
+   - Oncology cyclic (e.g., "21-day cycle oncology with 6 treatment cycles")
+   - PK-heavy linear (e.g., "Phase 1 PK study with dense Day 1 timepoints")
+   - Multi-period sequential (e.g., "4-visit presbyopia study across screening/treatment/follow-up")
+   - Adaptive/crossover (e.g., "2-period crossover with washout")
+   - Simple linear (e.g., "single-arm study with fixed visit schedule")
+   - Dense monitoring (e.g., "early-phase with intensive safety monitoring")
+   - Or any other appropriate clinical classification
+
+3. Provide per-stage guidance:
+   - stage7_timing: Advice for timing distribution (BI/EOI, pre/post-dose expansion)
+   - stage8_cycles: Advice for cycle expansion decisions
+   - stage9_mining: Advice for protocol mining priorities
+   - general: Cross-cutting observations relevant to all stages
+
+4. Flag ambiguous cases with lower confidence.
+
+Return ONLY a valid JSON object:
+
+{{
+    "tableStructureType": "Free-text clinical classification of this table structure",
+    "confidence": 0.85,
+    "characteristics": [
+        "Key observation 1",
+        "Key observation 2",
+        "Key observation 3"
+    ],
+    "stageGuidance": {{
+        "stage7_timing": "Natural language guidance for Stage 7 timing distribution. E.g., 'This table has dense PK timepoints under Day 1 — BI/EOI columns are sub-visit timing modifiers, not separate visits.'",
+        "stage8_cycles": "Natural language guidance for Stage 8 cycle expansion. E.g., 'These are PK timepoints within single visit days, NOT evidence of repeating cycles. Do not expand Day 1 Hour 0/1/3 as cycles.'",
+        "stage9_mining": "Natural language guidance for Stage 9 protocol mining. E.g., 'Focus on PK sampling windows and bioanalytical methods rather than cycle-based dosing.'",
+        "general": "Cross-cutting observations. E.g., 'This is a PK-heavy Phase 1 study. Timepoint columns represent hourly samples within visit days, not separate visits.'"
+    }}
+}}
+
+CRITICAL RULES:
+- tableStructureType must be a free-text clinical description, not a fixed enum
+- confidence must be between 0.0 and 1.0
+- characteristics must be a list of strings (3-6 observations)
+- stageGuidance must include all four keys: stage7_timing, stage8_cycles, stage9_mining, general
+- Each guidance string should be 1-3 sentences of actionable, specific advice
+- Do NOT hardcode to specific protocol types — any trial design is valid
+- If the features are ambiguous, set confidence lower and explain in general guidance
+- Return ONLY the JSON object, no preamble or explanation

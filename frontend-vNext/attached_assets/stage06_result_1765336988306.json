@@ -1,0 +1,272 @@
+{
+  "stage": 6,
+  "stageName": "Conditional Expansion",
+  "success": true,
+  "conditions": [
+    {
+      "id": "COND-3C1721CF",
+      "instanceType": "Condition",
+      "name": "Prior to Screening",
+      "text": "Must be performed prior to any screening procedures.",
+      "conditionType": {
+        "id": "CODE-COND-3C1721CF-TYPE",
+        "instanceType": "Code",
+        "code": "C25676",
+        "decode": "Sequence",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "provenance": {
+        "page_number": null,
+        "text_snippet": "Prior to any screening procedures.",
+        "source": "footnote",
+        "footnote_id": "FN-informed_consent",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T03:08:23.073567Z",
+        "cache_hit": false,
+        "confidence_source": "llm",
+        "validation_flags": null,
+        "rationale": "Footnote specifies a strict temporal sequence, requiring this activity to be completed before any screening procedures can begin."
+      },
+      "sourceFootnoteMarker": "informed_consent"
+    },
+    {
+      "id": "COND-CEDED334",
+      "instanceType": "Condition",
+      "name": "Investigator Judgement of Causality",
+      "text": "Collect AEs prior to initial dose only if the Investigator considers them causally related to study procedures.",
+      "conditionType": {
+        "id": "CODE-COND-CEDED334-TYPE",
+        "instanceType": "Code",
+        "code": "C41331",
+        "decode": "Clinical Indication",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "provenance": {
+        "page_number": null,
+        "text_snippet": "Medications (prescription or over-the-counter, including vitamins and herbal supplements) will be documented beginning with the Screening Visit and continuing until 30 days following the last dose of ",
+        "source": "footnote",
+        "footnote_id": "FN-conmed_ae",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T03:08:23.076053Z",
+        "cache_hit": false,
+        "confidence_source": "llm",
+        "validation_flags": [
+          "LLM returned CLINICAL_INDICATION, pattern expected DEMOGRAPHIC_SEX"
+        ],
+        "rationale": "The collection of adverse events in the pre-dose window is explicitly conditioned on the investigator's clinical judgment regarding causality."
+      },
+      "sourceFootnoteMarker": "conmed_ae"
+    },
+    {
+      "id": "COND-AEBF3A0F",
+      "instanceType": "Condition",
+      "name": "Japan and France Sites Only",
+      "text": "For subjects enrolled in Japan and France only.",
+      "criterion": {
+        "country": [
+          "JP",
+          "FR"
+        ]
+      },
+      "provenance": {
+        "page_number": null,
+        "text_snippet": "JAPAN and FRANCE ONLY",
+        "source": "footnote",
+        "footnote_id": "FN-abg_japan_france",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T03:08:23.076221Z",
+        "cache_hit": false,
+        "confidence_source": "llm",
+        "validation_flags": null,
+        "rationale": "Footnote explicitly restricts the activity to subjects in specific geographic locations (Japan and France)."
+      },
+      "sourceFootnoteMarker": "abg_japan_france"
+    },
+    {
+      "id": "COND-FB886849",
+      "instanceType": "Condition",
+      "name": "France Sites Only",
+      "text": "For subjects enrolled in France only.",
+      "criterion": {
+        "country": [
+          "FR"
+        ]
+      },
+      "provenance": {
+        "page_number": null,
+        "text_snippet": "FRANCE ONLY",
+        "source": "footnote",
+        "footnote_id": "FN-chest_ct_france",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T03:08:23.076271Z",
+        "cache_hit": false,
+        "confidence_source": "llm",
+        "validation_flags": null,
+        "rationale": "Footnote explicitly restricts the activity to subjects in a specific geographic location (France)."
+      },
+      "sourceFootnoteMarker": "chest_ct_france"
+    },
+    {
+      "id": "COND-A770C203",
+      "instanceType": "Condition",
+      "name": "Women of Childbearing Potential",
+      "text": "For women of childbearing potential only.",
+      "conditionType": {
+        "id": "CODE-COND-A770C203-TYPE",
+        "instanceType": "Code",
+        "code": "C100128",
+        "decode": "Childbearing Potential",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "criterion": {
+        "sex": {
+          "id": "CODE-COND-A770C203-CRIT-1",
+          "instanceType": "Code",
+          "code": "C16576",
+          "decode": "Female",
+          "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "codeSystemVersion": "24.12"
+        },
+        "fertilityStatus": {
+          "id": "CODE-COND-A770C203-CRIT-2",
+          "instanceType": "Code",
+          "code": "C100128",
+          "decode": "Childbearing Potential",
+          "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "codeSystemVersion": "24.12"
+        }
+      },
+      "provenance": {
+        "page_number": null,
+        "text_snippet": "Serum pregnancy test within 21 days prior to randomization for women of childbearing potential. Will be completed per certified local laboratory.",
+        "source": "footnote",
+        "footnote_id": "FN-pregnancy_test",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T03:08:23.076354Z",
+        "cache_hit": false,
+        "confidence_source": "llm",
+        "validation_flags": null,
+        "rationale": "Footnote explicitly restricts the pregnancy test to the 'women of childbearing potential' sub-population."
+      },
+      "sourceFootnoteMarker": "pregnancy_test"
+    },
+    {
+      "id": "COND-9F8D5E30",
+      "instanceType": "Condition",
+      "name": "Use of Historical Results",
+      "text": "Historical results may be used if obtained within 30 days prior to randomization.",
+      "conditionType": {
+        "id": "CODE-COND-9F8D5E30-TYPE",
+        "instanceType": "Code",
+        "code": "C53277",
+        "decode": "Prior",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "provenance": {
+        "page_number": null,
+        "text_snippet": "Skeletal survey consists of lateral radiograph of skull, anteroposterior and lateral views of spine, and antero-posterior views of pelvis, ribs, femora, tibiae, fibulae, humeri, ulnae and radii. Histo",
+        "source": "footnote",
+        "footnote_id": "FN-skeletal_survey",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T03:08:23.076417Z",
+        "cache_hit": false,
+        "confidence_source": "llm",
+        "validation_flags": [
+          "LLM returned TEMPORAL_PRIOR, pattern expected DEMOGRAPHIC_SEX"
+        ],
+        "rationale": "The footnote allows for the use of historical results, but this is conditional on them being performed within a specific prior timeframe (30 days)."
+      },
+      "sourceFootnoteMarker": "skeletal_survey"
+    },
+    {
+      "id": "COND-CFAD54DC",
+      "instanceType": "Condition",
+      "name": "Japan Sites Only",
+      "text": "For subjects enrolled in Japan only.",
+      "criterion": {
+        "country": [
+          "JP"
+        ]
+      },
+      "provenance": {
+        "page_number": null,
+        "text_snippet": "JAPAN ONLY",
+        "source": "footnote",
+        "footnote_id": "FN-chest_ct_japan",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T03:08:23.076457Z",
+        "cache_hit": false,
+        "confidence_source": "llm",
+        "validation_flags": null,
+        "rationale": "Footnote explicitly restricts the activity to subjects in a specific geographic location (Japan)."
+      },
+      "sourceFootnoteMarker": "chest_ct_japan"
+    },
+    {
+      "id": "COND-E7FC8EA9",
+      "instanceType": "Condition",
+      "name": "History of Plasmacytomas or Clinically Indicated",
+      "text": "Perform in subjects with a history of plasmacytomas or if clinically indicated at baseline.",
+      "conditionType": {
+        "id": "CODE-COND-E7FC8EA9-TYPE",
+        "instanceType": "Code",
+        "code": "C25499",
+        "decode": "Clinical Event",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "provenance": {
+        "page_number": null,
+        "text_snippet": "CT, PET/CT or MRI (same method should be used throughout study) should be performed in all subjects with a history of plasmacytomas or if clinically indicated at baseline to assess for the presence of",
+        "source": "footnote",
+        "footnote_id": "FN-plasmacytoma_eval",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T03:08:23.076499Z",
+        "cache_hit": false,
+        "confidence_source": "llm",
+        "validation_flags": [
+          "LLM returned CLINICAL_EVENT, pattern expected CLINICAL_INDICATION"
+        ],
+        "rationale": "The performance of this assessment is explicitly conditional on either a specific medical history (history of plasmacytomas) or a clinical indication."
+      },
+      "sourceFootnoteMarker": "plasmacytoma_eval"
+    }
+  ],
+  "assignments": [],
+  "markerToCondition": {
+    "informed_consent": "COND-3C1721CF",
+    "conmed_ae": "COND-CEDED334",
+    "abg_japan_france": "COND-AEBF3A0F",
+    "chest_ct_france": "COND-FB886849",
+    "lab_details": "COND-CEDED334",
+    "pregnancy_test": "COND-A770C203",
+    "skeletal_survey": "COND-9F8D5E30",
+    "chest_ct_japan": "COND-CFAD54DC",
+    "plasmacytoma_eval": "COND-E7FC8EA9",
+    "randomization": "COND-3C1721CF"
+  },
+  "metrics": {
+    "footnotesAnalyzed": 13,
+    "conditionsCreated": 8,
+    "assignmentsCreated": 0,
+    "saisLinked": 0,
+    "highConfidence": 8,
+    "needsReview": 0,
+    "cacheHits": 0,
+    "llmCalls": 1,
+    "conditionCoverage": 0.6153846153846154
+  },
+  "reviewItems": []
+}

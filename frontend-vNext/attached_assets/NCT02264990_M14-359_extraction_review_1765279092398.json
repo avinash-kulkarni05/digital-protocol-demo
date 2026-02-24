@@ -1,0 +1,4652 @@
+{
+  "schemaVersion": "1.0",
+  "reviewType": "EXTRACTION_VALIDATION",
+  "protocolId": "NCT02264990_M14-359",
+  "protocolTitle": "AbbVie NSCLC Protocol",
+  "generatedAt": "2025-12-09T02:19:53.369172Z",
+  "extractionSummary": {
+    "totalTables": 1,
+    "totalVisits": 10,
+    "totalActivities": 25,
+    "totalScheduledInstances": 81,
+    "totalFootnotes": 10,
+    "confidence": 0.9,
+    "warnings": [
+      "Table on pages 41-43 spans multiple pages - verify continuity"
+    ]
+  },
+  "tables": [
+    {
+      "tableId": "SOA-1",
+      "tableName": "Schedule of Activities",
+      "category": "MAIN_SOA",
+      "pageRange": {
+        "start": 41,
+        "end": 43
+      },
+      "pdfImageUrls": [
+        "/api/soa/images/page41.png",
+        "/api/soa/images/page43.png"
+      ],
+      "visits": [
+        {
+          "id": "ENC-001",
+          "columnIndex": 0,
+          "displayName": "Screening",
+          "originalText": "Screening",
+          "timing": {
+            "value": -28,
+            "unit": "days",
+            "relativeTo": "randomization",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 1
+            }
+          },
+          "window": {
+            "earlyBound": 28,
+            "lateBound": 0,
+            "type": "early_only",
+            "description": "Within 28 days of randomization",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 1
+            }
+          },
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "id": "ENC-002",
+          "columnIndex": 1,
+          "displayName": "Cycle 1 Day -2",
+          "originalText": "Cycle 1 Day -2",
+          "timing": {
+            "value": -2,
+            "unit": "days",
+            "relativeTo": "cycle_start",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 2
+            }
+          },
+          "window": {
+            "earlyBound": 0,
+            "lateBound": 0,
+            "type": "exact",
+            "description": "Day -2 of cycle 1",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 2
+            }
+          },
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "id": "ENC-003",
+          "columnIndex": 2,
+          "displayName": "Cycle 1 Day 1",
+          "originalText": "Cycle 1 Day 1",
+          "timing": {
+            "value": 1,
+            "unit": "days",
+            "relativeTo": "cycle_start",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 3
+            }
+          },
+          "window": {
+            "earlyBound": 0,
+            "lateBound": 0,
+            "type": "exact",
+            "description": "Day 1 of cycle 1",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 3
+            }
+          },
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              0,
+              3
+            ]
+          }
+        },
+        {
+          "id": "ENC-004",
+          "columnIndex": 3,
+          "displayName": "Cycle 1 Day 15",
+          "originalText": "Cycle 1 Day 15",
+          "timing": {
+            "value": 15,
+            "unit": "days",
+            "relativeTo": "cycle_start",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 4
+            }
+          },
+          "window": {
+            "earlyBound": 0,
+            "lateBound": 0,
+            "type": "exact",
+            "description": "Day 15 of cycle 1",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 4
+            }
+          },
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              0,
+              4
+            ]
+          }
+        },
+        {
+          "id": "ENC-005",
+          "columnIndex": 4,
+          "displayName": "Cycles 2-6 Day 1",
+          "originalText": "Cycles 2-6 Day 1",
+          "timing": {
+            "value": 1,
+            "unit": "days",
+            "relativeTo": "cycle_start",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 5
+            }
+          },
+          "window": {
+            "earlyBound": 0,
+            "lateBound": 0,
+            "type": "exact",
+            "description": "Day 1 of cycles 2-6",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 5
+            }
+          },
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              0,
+              5
+            ]
+          }
+        },
+        {
+          "id": "ENC-006",
+          "columnIndex": 5,
+          "displayName": "Final Visit",
+          "originalText": "Final Visit",
+          "timing": {
+            "value": null,
+            "unit": "days",
+            "relativeTo": "treatment_discontinuation",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 6
+            }
+          },
+          "window": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              0,
+              6
+            ]
+          }
+        },
+        {
+          "id": "ENC-007",
+          "columnIndex": 6,
+          "displayName": "30-day Follow-up Visit",
+          "originalText": "30-day Follow-up Visit",
+          "timing": {
+            "value": 30,
+            "unit": "days",
+            "relativeTo": "last_dose",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 7
+            }
+          },
+          "window": {
+            "earlyBound": 0,
+            "lateBound": 0,
+            "type": "exact",
+            "description": "30 days after last dose",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 7
+            }
+          },
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              0,
+              7
+            ]
+          }
+        },
+        {
+          "id": "ENC-008",
+          "columnIndex": 7,
+          "displayName": "Maintenance Therapy",
+          "originalText": "Maintenance Therapy",
+          "timing": {
+            "value": null,
+            "unit": "weeks",
+            "relativeTo": "end_of_induction",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 8
+            }
+          },
+          "window": {
+            "earlyBound": 7,
+            "lateBound": 7,
+            "type": "symmetric",
+            "description": "Every 3 weeks (21 days)",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 8
+            }
+          },
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              0,
+              8
+            ]
+          }
+        },
+        {
+          "id": "ENC-009",
+          "columnIndex": 8,
+          "displayName": "Post-Treatment Visits",
+          "originalText": "Post-Treatment Visits",
+          "timing": {
+            "value": null,
+            "unit": "weeks",
+            "relativeTo": "treatment_discontinuation",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 9
+            }
+          },
+          "window": {
+            "earlyBound": 7,
+            "lateBound": 7,
+            "type": "symmetric",
+            "description": "Every 9 weeks then every 12 weeks",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 9
+            }
+          },
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              0,
+              9
+            ]
+          }
+        },
+        {
+          "id": "ENC-010",
+          "columnIndex": 9,
+          "displayName": "Survival Period",
+          "originalText": "Survival Period",
+          "timing": {
+            "value": null,
+            "unit": "weeks",
+            "relativeTo": "randomization",
+            "provenance": {
+              "pageNumber": 41,
+              "tableId": "SOA-2",
+              "colIdx": 10
+            }
+          },
+          "window": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              0,
+              10
+            ]
+          }
+        }
+      ],
+      "activities": [
+        {
+          "id": "ACT-001",
+          "rowIndex": 0,
+          "displayName": "Informed Consent",
+          "originalText": "Informed Consent",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              1,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-002",
+          "rowIndex": 1,
+          "displayName": "Medical and Cancer History",
+          "originalText": "Medical and Cancer History",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              2,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-003",
+          "rowIndex": 2,
+          "displayName": "Physical Exam",
+          "originalText": "Physical Exam",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              3,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-004",
+          "rowIndex": 3,
+          "displayName": "Vital Signs",
+          "originalText": "Vital Signs",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              4,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-005",
+          "rowIndex": 4,
+          "displayName": "12-Lead ECG",
+          "originalText": "12-Lead ECG",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              5,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-006",
+          "rowIndex": 5,
+          "displayName": "Performance Status (ECOG)",
+          "originalText": "Performance Status (ECOG)",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              6,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-007",
+          "rowIndex": 6,
+          "displayName": "Documentation of Non-Childbearing Status or Pregnancy Test",
+          "originalText": "Documentation of Non-Childbearing Status or Pregnancy Test",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              7,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-008",
+          "rowIndex": 7,
+          "displayName": "Chemistry/Hematology",
+          "originalText": "Chemistry/Hematology",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              8,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-009",
+          "rowIndex": 8,
+          "displayName": "Urinalysis",
+          "originalText": "Urinalysis",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              9,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-010",
+          "rowIndex": 9,
+          "displayName": "aPTT, INR",
+          "originalText": "aPTT, INR",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              10,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-011",
+          "rowIndex": 10,
+          "displayName": "Tumor Assessments",
+          "originalText": "Tumor Assessments",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              11,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-012",
+          "rowIndex": 11,
+          "displayName": "MRI of the Brain",
+          "originalText": "MRI of the Brain",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              12,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-013",
+          "rowIndex": 12,
+          "displayName": "QoL Questionnaires",
+          "originalText": "QoL Questionnaires",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              13,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-014",
+          "rowIndex": 13,
+          "displayName": "Adverse Event and Concomitant Medication Assessment",
+          "originalText": "Adverse Event and Concomitant Medication Assessment",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              14,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-015",
+          "rowIndex": 14,
+          "displayName": "Randomization",
+          "originalText": "Randomization",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              15,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-016",
+          "rowIndex": 15,
+          "displayName": "Dispense veliparib",
+          "originalText": "Dispense veliparib",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              16,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-017",
+          "rowIndex": 16,
+          "displayName": "Administer premedication",
+          "originalText": "Administer premedication",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              17,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-018",
+          "rowIndex": 17,
+          "displayName": "Administer platinum doublet chemotherapy",
+          "originalText": "Administer platinum doublet chemotherapy",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              18,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-019",
+          "rowIndex": 18,
+          "displayName": "Administer maintenance pemetrexed",
+          "originalText": "Administer maintenance pemetrexed",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              19,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-020",
+          "rowIndex": 19,
+          "displayName": "Survival",
+          "originalText": "Survival",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "cellCoords": [
+              20,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-021",
+          "rowIndex": 20,
+          "displayName": "Optional PG Blood Sampling",
+          "originalText": "Optional PG Blood Sampling",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 43,
+            "cellCoords": [
+              21,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-022",
+          "rowIndex": 21,
+          "displayName": "PD Blood Sampling Plasma Markers",
+          "originalText": "PD Blood Sampling Plasma Markers",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 43,
+            "cellCoords": [
+              22,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-023",
+          "rowIndex": 22,
+          "displayName": "Serum Markers",
+          "originalText": "Serum Markers",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 43,
+            "cellCoords": [
+              23,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-024",
+          "rowIndex": 23,
+          "displayName": "Tissue Sample Collection",
+          "originalText": "Tissue Sample Collection",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 43,
+            "cellCoords": [
+              24,
+              0
+            ]
+          }
+        },
+        {
+          "id": "ACT-025",
+          "rowIndex": 24,
+          "displayName": "Veliparib PK Sampling",
+          "originalText": "Veliparib PK Sampling",
+          "category": null,
+          "footnoteRefs": [],
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 43,
+            "cellCoords": [
+              25,
+              0
+            ]
+          }
+        }
+      ],
+      "matrix": {
+        "description": "Activity-Visit matrix showing scheduled instances",
+        "legend": {
+          "X": "Required assessment",
+          "O": "Optional assessment",
+          "-": "Not scheduled",
+          "": "Empty cell (not applicable)"
+        },
+        "grid": [
+          {
+            "activityId": "ACT-001",
+            "activityName": "Informed Consent",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    1,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    1,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    1,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    1,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    1,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    1,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    1,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    1,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    1,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    1,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-002",
+            "activityName": "Medical and Cancer History",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    2,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    2,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    2,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    2,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    2,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    2,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    2,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    2,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    2,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    2,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-003",
+            "activityName": "Physical Exam",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    3,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    3,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    3,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    3,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    3,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    3,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    3,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    3,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    3,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    3,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-004",
+            "activityName": "Vital Signs",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    4,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    4,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    4,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    4,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    4,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    4,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    4,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    4,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    4,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    4,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-005",
+            "activityName": "12-Lead ECG",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    5,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    5,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    5,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    5,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    5,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    5,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    5,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    5,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    5,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    5,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-006",
+            "activityName": "Performance Status (ECOG)",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    6,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    6,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    6,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    6,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    6,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    6,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    6,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    6,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    6,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    6,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-007",
+            "activityName": "Documentation of Non-Childbearing Status or Pregnancy Test",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    7,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    7,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    7,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    7,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    7,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    7,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    7,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    7,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    7,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    7,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-008",
+            "activityName": "Chemistry/Hematology",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    8,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    8,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    8,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    8,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    8,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    8,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    8,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    8,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    8,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    8,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-009",
+            "activityName": "Urinalysis",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    9,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    9,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    9,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    9,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    9,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    9,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    9,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    9,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    9,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    9,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-010",
+            "activityName": "aPTT, INR",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    10,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    10,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    10,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    10,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    10,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    10,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    10,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    10,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    10,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    10,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-011",
+            "activityName": "Tumor Assessments",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    11,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    11,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    11,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    11,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    11,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    11,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    11,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    11,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    11,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    11,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-012",
+            "activityName": "MRI of the Brain",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    12,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    12,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    12,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    12,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    12,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    12,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    12,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    12,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    12,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    12,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-013",
+            "activityName": "QoL Questionnaires",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    13,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    13,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    13,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    13,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    13,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    13,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    13,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    13,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    13,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    13,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-014",
+            "activityName": "Adverse Event and Concomitant Medication Assessment",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    14,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    14,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    14,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    14,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    14,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    14,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    14,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    14,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    14,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    14,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-015",
+            "activityName": "Randomization",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    15,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    15,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    15,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    15,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    15,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    15,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    15,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    15,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    15,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    15,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-016",
+            "activityName": "Dispense veliparib",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    16,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    16,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    16,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    16,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    16,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    16,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    16,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    16,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    16,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    16,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-017",
+            "activityName": "Administer premedication",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    17,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    17,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    17,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    17,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    17,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    17,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    17,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    17,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    17,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    17,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-018",
+            "activityName": "Administer platinum doublet chemotherapy",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    18,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    18,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    18,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    18,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    18,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    18,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    18,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    18,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    18,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    18,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-019",
+            "activityName": "Administer maintenance pemetrexed",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    19,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    19,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    19,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    19,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    19,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    19,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    19,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    19,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    19,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    19,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-020",
+            "activityName": "Survival",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    20,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    20,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    20,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    20,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    20,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    20,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    20,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    20,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    20,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    20,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-021",
+            "activityName": "Optional PG Blood Sampling",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    21,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    21,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    21,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    21,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    21,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    21,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    21,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    21,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    21,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    21,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-022",
+            "activityName": "PD Blood Sampling Plasma Markers",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    22,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    22,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    22,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    22,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    22,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    22,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    22,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    22,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    22,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    22,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-023",
+            "activityName": "Serum Markers",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    23,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    23,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    23,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    23,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    23,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    23,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    23,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    23,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    23,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    23,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-024",
+            "activityName": "Tissue Sample Collection",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    24,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    24,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    24,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    24,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    24,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    24,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    24,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    24,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    24,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    24,
+                    10
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "activityId": "ACT-025",
+            "activityName": "Veliparib PK Sampling",
+            "cells": [
+              {
+                "visitId": "ENC-001",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    25,
+                    1
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-002",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    25,
+                    2
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-003",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    25,
+                    3
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-004",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    25,
+                    4
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-005",
+                "value": "X",
+                "footnoteRefs": [],
+                "rawContent": "X",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 41,
+                  "cellCoords": [
+                    25,
+                    5
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-006",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    25,
+                    6
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-007",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    25,
+                    7
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-008",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    25,
+                    8
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-009",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    25,
+                    9
+                  ]
+                }
+              },
+              {
+                "visitId": "ENC-010",
+                "value": "",
+                "footnoteRefs": [],
+                "rawContent": "",
+                "provenance": {
+                  "tableId": "SOA-1",
+                  "pageNumber": 43,
+                  "cellCoords": [
+                    25,
+                    10
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "footnotes": [
+        {
+          "id": "FN-001",
+          "marker": "a",
+          "text": "The Screening Visit must be performed within 28 days of randomization.",
+          "appliesTo": {
+            "visits": [],
+            "activities": [],
+            "cells": []
+          },
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "location": "table_footer"
+          }
+        },
+        {
+          "id": "FN-002",
+          "marker": "b",
+          "text": "When an Investigator has determined that a subject should discontinue the study, a Final Visit will be conducted.",
+          "appliesTo": {
+            "visits": [],
+            "activities": [],
+            "cells": []
+          },
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "location": "table_footer"
+          }
+        },
+        {
+          "id": "FN-003",
+          "marker": "c",
+          "text": "A Follow-Up visit is required if the Final Visit is < 30 days from the last administration of drug.",
+          "appliesTo": {
+            "visits": [],
+            "activities": [],
+            "cells": []
+          },
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "location": "table_footer"
+          }
+        },
+        {
+          "id": "FN-004",
+          "marker": "d",
+          "text": "Following completion of platinum doublet therapy, maintenance pemetrexed 500 mg q3 weeks is strongly encouraged for all subjects who are suitable candidates. For those subjects in maintenance therapy, tumor assessments will be completed q9 weeks until radiographic progression.",
+          "appliesTo": {
+            "visits": [],
+            "activities": [],
+            "cells": []
+          },
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "location": "table_footer"
+          }
+        },
+        {
+          "id": "FN-005",
+          "marker": "f",
+          "text": "Physical exam not required, if performed within 7 days prior to randomization. Height is only measured at Screening.",
+          "appliesTo": {
+            "visits": [],
+            "activities": [],
+            "cells": []
+          },
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "location": "table_footer"
+          }
+        },
+        {
+          "id": "FN-006",
+          "marker": "g",
+          "text": "May occur up to 4 calendar days before C1D-2 to facilitate dispensing and morning administration of Study Drug.",
+          "appliesTo": {
+            "visits": [],
+            "activities": [],
+            "cells": []
+          },
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "location": "table_footer"
+          }
+        },
+        {
+          "id": "FN-007",
+          "marker": "h",
+          "text": "Serum pregnancy test will be done at Screening. Urine pregnancy test will be done prior to dosing at C1D-2 unless the serum pregnancy test was collected within 7 days of C1D-2. Local urine pregnancy testing should also be performed at each subsequent Cycle Day 1 visit.",
+          "appliesTo": {
+            "visits": [],
+            "activities": [],
+            "cells": []
+          },
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "location": "table_footer"
+          }
+        },
+        {
+          "id": "FN-008",
+          "marker": "i",
+          "text": "Study samples for central laboratory analysis may be performed within 72 hours of the scheduled day. A qualified local laboratory may be used to perform laboratory analyses for treatment decisions but this cannot replace the central laboratory analysis on a protocol defined visit.",
+          "appliesTo": {
+            "visits": [],
+            "activities": [],
+            "cells": []
+          },
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "location": "table_footer"
+          }
+        },
+        {
+          "id": "FN-009",
+          "marker": "j",
+          "text": "Baseline tumor assessments must be conducted within 28 days (inclusive) of randomization. Post-baseline tumor assessment will be conducted within 7 days prior to chemotherapy on C3D1 and C5D1, every 9 weeks \u00b1 7 days from the last scan after treatment discontinuation until 1 year on study, and then every 12 weeks \u00b1 7 days.",
+          "appliesTo": {
+            "visits": [],
+            "activities": [],
+            "cells": []
+          },
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "location": "table_footer"
+          }
+        },
+        {
+          "id": "FN-010",
+          "marker": "p",
+          "text": "Following treatment discontinuation, subjects will have post-treatment visits q9 weeks until one year after randomization, then q12 weeks until radiographic progression or death.",
+          "appliesTo": {
+            "visits": [],
+            "activities": [],
+            "cells": []
+          },
+          "provenance": {
+            "tableId": "SOA-1",
+            "pageNumber": 41,
+            "location": "table_footer"
+          }
+        }
+      ]
+    }
+  ],
+  "validationChecklist": {
+    "description": "Items for user to verify before approving extraction",
+    "items": [
+      {
+        "id": "CHK-001",
+        "category": "COMPLETENESS",
+        "question": "Are all visits/columns captured correctly?",
+        "autoStatus": "PASS",
+        "confidence": 0.98,
+        "details": "Found 10 visits across 1 tables"
+      },
+      {
+        "id": "CHK-002",
+        "category": "COMPLETENESS",
+        "question": "Are all activities/rows captured correctly?",
+        "autoStatus": "PASS",
+        "confidence": 0.95,
+        "details": "Found 25 activities"
+      },
+      {
+        "id": "CHK-003",
+        "category": "ACCURACY",
+        "question": "Are X marks correctly placed in the matrix?",
+        "autoStatus": "REVIEW",
+        "confidence": 0.89,
+        "details": "81 scheduled instances found"
+      },
+      {
+        "id": "CHK-004",
+        "category": "FOOTNOTES",
+        "question": "Are all footnotes linked to correct activities/visits?",
+        "autoStatus": "REVIEW",
+        "confidence": 0.85,
+        "details": "10 footnotes found"
+      },
+      {
+        "id": "CHK-005",
+        "category": "ACCURACY",
+        "question": "Are multi-page tables merged correctly?",
+        "autoStatus": "REVIEW",
+        "confidence": 0.75,
+        "details": "1 tables span multiple pages"
+      }
+    ]
+  },
+  "userActions": {
+    "allowedOperations": [
+      "APPROVE_ALL",
+      "EDIT_VISIT",
+      "EDIT_ACTIVITY",
+      "EDIT_CELL",
+      "ADD_VISIT",
+      "ADD_ACTIVITY",
+      "DELETE_VISIT",
+      "DELETE_ACTIVITY",
+      "EDIT_FOOTNOTE",
+      "LINK_FOOTNOTE",
+      "UNLINK_FOOTNOTE"
+    ],
+    "approvalRequired": true,
+    "nextStep": "INTERPRETATION_WIZARD"
+  }
+}

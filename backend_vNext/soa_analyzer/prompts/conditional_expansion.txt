@@ -1,0 +1,105 @@
+You are a clinical trial protocol expert analyzing Schedule of Assessments (SOA) footnotes.
+
+## Task
+For each footnote, determine if it describes a CONDITION that affects when, how, or to whom an activity applies. A condition limits the applicability of an activity to a subset of subjects or circumstances.
+
+## Condition Types
+
+### Demographic Conditions
+- **DEMOGRAPHIC_SEX** - Sex-based restrictions
+  Examples: "female subjects only", "males only", "for female patients"
+
+- **DEMOGRAPHIC_AGE** - Age-based restrictions
+  Examples: "elderly patients (65 years or older)", "pediatric patients (<18 years)", "subjects ≥65 years"
+
+- **DEMOGRAPHIC_FERTILITY** - Fertility/reproductive status
+  Examples: "women of childbearing potential", "WOCBP", "females of reproductive potential", "post-menopausal women"
+
+### Clinical Conditions
+- **CLINICAL_INDICATION** - Based on clinical judgment
+  Examples: "if clinically indicated", "as needed", "when clinically appropriate"
+
+- **CLINICAL_RESULT** - Based on prior test results
+  Examples: "if labs abnormal, repeat", "if positive result", "if values out of range"
+
+- **CLINICAL_EVENT** - Based on clinical events
+  Examples: "if adverse event occurs", "if dose modification required", "if treatment discontinued"
+
+### Temporal Conditions
+- **TEMPORAL_PRIOR** - Based on prior assessments
+  Examples: "if not performed within 72 hours", "if not obtained at screening"
+
+- **TEMPORAL_SEQUENCE** - Based on sequence requirements
+  Examples: "after completing baseline", "before first dose"
+
+### Visit/Optional Conditions
+- **VISIT_OPTIONAL** - At discretion of investigator
+  Examples: "at investigator discretion", "optional", "may be performed"
+
+- **VISIT_TRIGGERED** - Triggered by specific events
+  Examples: "if dose modification required", "at early termination only"
+
+## What is NOT a Condition
+The following footnotes do NOT describe conditions:
+- Timing specifications: "within 30 minutes of dosing"
+- Procedure instructions: "must be performed before dosing"
+- Cross-references: "see Appendix B for details"
+- Definitions: "defined as..."
+- General information: "samples are shipped to central lab"
+
+## Input Footnotes
+{footnotes_json}
+
+## Output Format
+Return a JSON object with the following structure:
+
+```json
+{
+  "conditions": [
+    {
+      "footnote_marker": "a",
+      "has_condition": true,
+      "condition_type": "DEMOGRAPHIC_FERTILITY",
+      "condition_name": "Female of Childbearing Potential",
+      "condition_text": "For female subjects of childbearing potential only",
+      "criterion": {
+        "sex": "F",
+        "fertilityStatus": "fertile"
+      },
+      "confidence": 0.95,
+      "rationale": "Footnote explicitly identifies WOCBP population"
+    },
+    {
+      "footnote_marker": "b",
+      "has_condition": false,
+      "rationale": "Footnote describes timing requirements, not a population condition"
+    },
+    {
+      "footnote_marker": "c",
+      "has_condition": true,
+      "condition_type": "CLINICAL_INDICATION",
+      "condition_name": "Clinically Indicated",
+      "condition_text": "Perform if clinically indicated based on investigator judgment",
+      "criterion": null,
+      "confidence": 0.90,
+      "rationale": "Activity is optional based on clinical judgment"
+    }
+  ]
+}
+```
+
+## Confidence Guidelines
+- **0.95-1.00**: Explicit condition statement with clear population/criteria
+- **0.85-0.94**: Implied condition with strong indicators
+- **0.70-0.84**: Possible condition, some ambiguity
+- **<0.70**: Uncertain, flag for human review
+
+## Instructions
+1. Analyze each footnote independently
+2. Determine if it describes a condition (population restriction or circumstantial trigger)
+3. If yes, classify the condition type and extract the criterion
+4. Assign a confidence score based on clarity
+5. Provide rationale for your decision
+6. Return valid JSON only - no additional text or markdown
+
+Analyze the input footnotes and return the structured JSON output.

@@ -1,0 +1,469 @@
+{
+  "stage": 6,
+  "stageName": "Conditional Expansion",
+  "success": true,
+  "conditions": [
+    {
+      "id": "COND-3C1D63AA",
+      "instanceType": "Condition",
+      "name": "Post-Treatment Follow-up",
+      "text": "Subjects who complete up to 6 treatment cycles or who discontinue treatment prior to reaching an event of disease progression are to continue visits and radiographic assessments until progression.",
+      "conditionType": {
+        "id": "CODE-COND-3C1D63AA-TYPE",
+        "instanceType": "Code",
+        "code": "C25499",
+        "decode": "Clinical Event",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "criterion": {
+        "event": "treatment completion or early discontinuation without progression"
+      },
+      "provenance": {
+        "pageNumber": 41,
+        "page_number": 41,
+        "text_snippet": "Subjects who complete up to 6 treatment cycles or who discontinue treatment prior to reaching an event of disease progression are to continue visits and radiographic assessments until progression.",
+        "source": "footnote",
+        "footnote_id": "FN-*",
+        "tableId": "SOA-1",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T17:39:17.690169Z",
+        "cache_hit": true,
+        "confidence_source": "cached",
+        "validation_flags": [
+          "LLM returned CLINICAL_EVENT, pattern expected DEMOGRAPHIC_SEX"
+        ],
+        "rationale": "The footnote defines a specific sub-population based on clinical events (treatment completion/discontinuation) who must undergo continued assessments."
+      },
+      "sourceFootnoteMarker": "*"
+    },
+    {
+      "id": "COND-C8F4233C",
+      "instanceType": "Condition",
+      "name": "Positive Pregnancy Test",
+      "text": "A positive urine pregnancy test will be confirmed with a serum pregnancy test.",
+      "conditionType": {
+        "id": "CODE-COND-C8F4233C-TYPE",
+        "instanceType": "Code",
+        "code": "C70856",
+        "decode": "Clinical Laboratory Result",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "criterion": {
+        "test": "urine pregnancy",
+        "result": "positive"
+      },
+      "provenance": {
+        "pageNumber": 41,
+        "page_number": 41,
+        "text_snippet": "Serum pregnancy test will be done at Screening. Urine pregnancy test will be done prior to dosing at C1D-2 unless the serum pregnancy test was collected within 7 days of C1D-2. Local urine pregnancy t",
+        "source": "footnote",
+        "footnote_id": "FN-0",
+        "tableId": "SOA-1",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T17:39:17.691474Z",
+        "cache_hit": true,
+        "confidence_source": "cached",
+        "validation_flags": [
+          "LLM returned CLINICAL_RESULT, pattern expected TEMPORAL_PRIOR"
+        ],
+        "rationale": "The footnote explicitly states that a serum pregnancy test is triggered by a positive urine pregnancy test result. It also contains a TEMPORAL_PRIOR condition ('unless the serum pregnancy test was collected within 7 days') and a VISIT_OPTIONAL condition ('may also be repeated per the discretion of the Investigator')."
+      },
+      "sourceFootnoteMarker": "0"
+    },
+    {
+      "id": "COND-2478F021",
+      "instanceType": "Condition",
+      "name": "Suspected Brain Metastases",
+      "text": "Baseline MRI of the brain only for subjects with suspected metastases due to neurologic signs or symptoms.",
+      "conditionType": {
+        "id": "CODE-COND-2478F021-TYPE",
+        "instanceType": "Code",
+        "code": "C41331",
+        "decode": "Clinical Indication",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "criterion": {
+        "symptoms": "neurologic signs or symptoms"
+      },
+      "provenance": {
+        "pageNumber": 41,
+        "page_number": 41,
+        "text_snippet": "Baseline MRI of the brain only for subjects with suspected metastases due to neurologic signs or symptoms. A CT scan may be performed if an MRI is contraindicated.",
+        "source": "footnote",
+        "footnote_id": "FN-1",
+        "tableId": "SOA-1",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T17:39:17.692288Z",
+        "cache_hit": true,
+        "confidence_source": "cached",
+        "validation_flags": [
+          "LLM returned CLINICAL_INDICATION, pattern expected VISIT_OPTIONAL"
+        ],
+        "rationale": "The footnote explicitly limits the MRI assessment to a subset of subjects based on clinical signs and symptoms, which is a clinical indication."
+      },
+      "sourceFootnoteMarker": "1"
+    },
+    {
+      "id": "COND-4110F604",
+      "instanceType": "Condition",
+      "name": "Study Discontinuation",
+      "text": "When an Investigator has determined that a subject should discontinue the study",
+      "conditionType": {
+        "id": "CODE-COND-4110F604-TYPE",
+        "instanceType": "Code",
+        "code": "C82547",
+        "decode": "Triggered",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "provenance": {
+        "pageNumber": 41,
+        "page_number": 41,
+        "text_snippet": "When an Investigator has determined that a subject should discontinue the study, a Final Visit will be conducted.",
+        "source": "footnote",
+        "footnote_id": "FN-b",
+        "tableId": "SOA-1",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T17:39:17.692416Z",
+        "cache_hit": true,
+        "confidence_source": "cached",
+        "validation_flags": null,
+        "rationale": "The footnote describes a specific event (an investigator's decision to discontinue a subject) that triggers the Final Visit. This visit only applies to subjects under this specific circumstance."
+      },
+      "sourceFootnoteMarker": "b"
+    },
+    {
+      "id": "COND-B3A37B6C",
+      "instanceType": "Condition",
+      "name": "Final Visit Timing",
+      "text": "if the Final Visit is < 30 days from the last administration of drug",
+      "conditionType": {
+        "id": "CODE-COND-B3A37B6C-TYPE",
+        "instanceType": "Code",
+        "code": "C53277",
+        "decode": "Prior",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "provenance": {
+        "pageNumber": 41,
+        "page_number": 41,
+        "text_snippet": "A Follow-Up visit is required if the Final Visit is < 30 days from the last administration of drug.",
+        "source": "footnote",
+        "footnote_id": "FN-c",
+        "tableId": "SOA-1",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T17:39:17.692486Z",
+        "cache_hit": true,
+        "confidence_source": "cached",
+        "validation_flags": null,
+        "rationale": "The requirement for a Follow-Up visit is explicitly conditional on the timing of a prior event (the Final Visit relative to the last drug dose). The 'if' clause makes this a clear condition."
+      },
+      "sourceFootnoteMarker": "c"
+    },
+    {
+      "id": "COND-7437BCBA",
+      "instanceType": "Condition",
+      "name": "Subjects in Maintenance Therapy",
+      "text": "For those subjects in maintenance therapy",
+      "conditionType": {
+        "id": "CODE-COND-7437BCBA-TYPE",
+        "instanceType": "Code",
+        "code": "C25499",
+        "decode": "Clinical Event",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "provenance": {
+        "pageNumber": 41,
+        "page_number": 41,
+        "text_snippet": "Following completion of platinum doublet therapy, maintenance pemetrexed 500 mg q3 weeks is strongly encouraged for all subjects who are suitable candidates. For those subjects in maintenance therapy,",
+        "source": "footnote",
+        "footnote_id": "FN-d",
+        "tableId": "SOA-1",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T17:39:17.692550Z",
+        "cache_hit": true,
+        "confidence_source": "cached",
+        "validation_flags": [
+          "LLM returned CLINICAL_EVENT, pattern expected DEMOGRAPHIC_SEX"
+        ],
+        "rationale": "The footnote specifies a particular tumor assessment schedule that applies only to the subset of subjects who are receiving maintenance therapy. This limits the applicability of this specific schedule to a sub-population defined by a clinical event."
+      },
+      "sourceFootnoteMarker": "d"
+    },
+    {
+      "id": "COND-43451D22",
+      "instanceType": "Condition",
+      "name": "Discontinuation without recent scan",
+      "text": "An unscheduled tumor assessment should be performed if the subject discontinues from the study for a reason other than radiographic progression, and no scan has been performed within the last 4 weeks.",
+      "conditionType": {
+        "id": "CODE-COND-43451D22-TYPE",
+        "instanceType": "Code",
+        "code": "C82547",
+        "decode": "Triggered",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "criterion": {
+        "event": "discontinuation for reason other than progression",
+        "prior_assessment": "no scan within last 4 weeks"
+      },
+      "provenance": {
+        "pageNumber": 41,
+        "page_number": 41,
+        "text_snippet": "An unscheduled tumor assessment should be performed if the subject discontinues from the study for a reason other than radiographic progression, and no scan has been performed within the last 4 weeks.",
+        "source": "footnote",
+        "footnote_id": "FN-k",
+        "tableId": "SOA-1",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T17:39:17.693274Z",
+        "cache_hit": true,
+        "confidence_source": "cached",
+        "validation_flags": [
+          "LLM returned VISIT_TRIGGERED, pattern expected DEMOGRAPHIC_SEX"
+        ],
+        "rationale": "The footnote describes a clear set of criteria (a clinical event and a temporal condition) that trigger an unscheduled assessment."
+      },
+      "sourceFootnoteMarker": "k"
+    },
+    {
+      "id": "COND-35C480A9",
+      "instanceType": "Condition",
+      "name": "Post-Veliparib Dosing Confirmation",
+      "text": "Carboplatin and paclitaxel are to be given only after veliparib dosing on cycle Day -2 and Day -1 are confirmed.",
+      "conditionType": {
+        "id": "CODE-COND-35C480A9-TYPE",
+        "instanceType": "Code",
+        "code": "C25676",
+        "decode": "Sequence",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "criterion": {
+        "prior_event": "confirmed veliparib dosing"
+      },
+      "provenance": {
+        "pageNumber": 41,
+        "page_number": 41,
+        "text_snippet": "Carboplatin and paclitaxel are to be given only after veliparib dosing on cycle Day -2 and Day -1 are confirmed.",
+        "source": "footnote",
+        "footnote_id": "FN-o",
+        "tableId": "SOA-1",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T17:39:17.693419Z",
+        "cache_hit": true,
+        "confidence_source": "cached",
+        "validation_flags": null,
+        "rationale": "The footnote establishes a strict sequence, making the administration of certain drugs conditional on the confirmed completion of a prior dosing event."
+      },
+      "sourceFootnoteMarker": "o"
+    },
+    {
+      "id": "COND-E9FF91FC",
+      "instanceType": "Condition",
+      "name": "Randomization Timing",
+      "text": "Screening ECOG may be used to stratify during a randomization call if randomization is performed prior to C1D-2.",
+      "conditionType": {
+        "id": "CODE-COND-E9FF91FC-TYPE",
+        "instanceType": "Code",
+        "code": "C25676",
+        "decode": "Sequence",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "criterion": {
+        "event_timing": "randomization before C1D-2"
+      },
+      "provenance": {
+        "pageNumber": 41,
+        "page_number": 41,
+        "text_snippet": "Screening ECOG may be used to stratify during a randomization call if randomization is performed prior to C1D-2.",
+        "source": "footnote",
+        "footnote_id": "FN-q",
+        "tableId": "SOA-1",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T17:39:17.693464Z",
+        "cache_hit": true,
+        "confidence_source": "cached",
+        "validation_flags": null,
+        "rationale": "The footnote describes a condition (the timing of randomization relative to a visit) that affects how a subsequent procedure (stratification) is performed using assessment data."
+      },
+      "sourceFootnoteMarker": "q"
+    },
+    {
+      "id": "COND-591CEA1C",
+      "instanceType": "Condition",
+      "name": "If Applicable and Available",
+      "text": "if applicable and available",
+      "conditionType": {
+        "id": "CODE-COND-591CEA1C-TYPE",
+        "instanceType": "Code",
+        "code": "C41331",
+        "decode": "Clinical Indication",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "provenance": {
+        "pageNumber": 41,
+        "page_number": 41,
+        "text_snippet": "All systemic post treatment anti-cancer therapy, if applicable and available, will be collected in the survival follow-up period.",
+        "source": "footnote",
+        "footnote_id": "FN-r",
+        "tableId": "SOA-1",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-2.5-pro",
+        "timestamp": "2025-12-10T17:39:17.693486Z",
+        "cache_hit": true,
+        "confidence_source": "cached",
+        "validation_flags": [
+          "LLM returned CLINICAL_INDICATION, pattern expected DEMOGRAPHIC_SEX"
+        ],
+        "rationale": "The footnote states that data collection will occur 'if applicable and available,' making the activity conditional on the subject's clinical circumstances (i.e., whether they are receiving post-treatment anti-cancer therapy and if that information is accessible)."
+      },
+      "sourceFootnoteMarker": "r"
+    }
+  ],
+  "assignments": [],
+  "markerToCondition": {
+    "*": "COND-3C1D63AA",
+    "0": "COND-C8F4233C",
+    "1": "COND-2478F021",
+    "b": "COND-4110F604",
+    "c": "COND-B3A37B6C",
+    "d": "COND-7437BCBA",
+    "f": "COND-B3A37B6C",
+    "h": "COND-C8F4233C",
+    "k": "COND-43451D22",
+    "l": "COND-2478F021",
+    "o": "COND-35C480A9",
+    "p": "COND-7437BCBA",
+    "q": "COND-E9FF91FC",
+    "r": "COND-591CEA1C"
+  },
+  "metrics": {
+    "footnotesAnalyzed": 21,
+    "conditionsCreated": 10,
+    "assignmentsCreated": 0,
+    "saisLinked": 0,
+    "highConfidence": 10,
+    "needsReview": 0,
+    "cacheHits": 20,
+    "llmCalls": 1,
+    "conditionCoverage": 0.47619047619047616
+  },
+  "reviewItems": [],
+  "_agentDefinition": {
+    "stageNumber": 6,
+    "stageName": "Conditional Expansion",
+    "displayName": "Population Condition Applier",
+    "purpose": "Applies population-specific and clinical conditions from SOA footnotes to activities (e.g., 'females only', 'if clinically indicated'), enabling conditional scheduling.",
+    "extractionMethodology": "Footnote marker detection and text extraction. LLM classification of condition types (population, clinical, timing). Rule structure generation with applicable activity linkage. Provenance tracking to source footnote.",
+    "keyOutputs": [
+      {
+        "field": "conditions",
+        "description": "Structured condition objects with rules"
+      },
+      {
+        "field": "conditionType",
+        "description": "Type: POPULATION, CLINICAL, TIMING, SAFETY"
+      },
+      {
+        "field": "ruleExpression",
+        "description": "Structured rule in evaluatable format"
+      },
+      {
+        "field": "applicableActivities",
+        "description": "Activities this condition applies to"
+      },
+      {
+        "field": "footnoteSource",
+        "description": "Source footnote marker and text"
+      },
+      {
+        "field": "edcImpact",
+        "description": "How this affects EDC form logic"
+      }
+    ],
+    "downstreamIntegrations": [
+      {
+        "system": "EDC Build",
+        "useCase": "Dynamic form visibility and edit checks",
+        "automationType": "rule_generation",
+        "fieldsUsed": [
+          "conditions",
+          "ruleExpression",
+          "applicableActivities"
+        ],
+        "automationExample": "Pregnancy test form shows only when SEX='F' AND AGE>=childbearing age"
+      },
+      {
+        "system": "IRT Build",
+        "useCase": "Conditional visit scheduling",
+        "automationType": "configuration",
+        "fieldsUsed": [
+          "conditions",
+          "conditionType",
+          "applicableActivities"
+        ],
+        "automationExample": "IRT schedules MRI only for subjects with brain metastases at baseline"
+      },
+      {
+        "system": "Eligibility",
+        "useCase": "Screening criteria validation",
+        "automationType": "rule_generation",
+        "fieldsUsed": [
+          "conditions",
+          "ruleExpression"
+        ],
+        "automationExample": "Population conditions feed eligibility check automation"
+      },
+      {
+        "system": "Safety Monitoring",
+        "useCase": "Conditional safety assessment triggers",
+        "automationType": "rule_generation",
+        "fieldsUsed": [
+          "conditions",
+          "conditionType"
+        ],
+        "automationExample": "Additional ECG triggered when QTc > threshold per footnote rule"
+      }
+    ],
+    "automationInsights": [
+      {
+        "insight": "Edit Check Generation",
+        "description": "Conditions translate directly to EDC conditional logic"
+      },
+      {
+        "insight": "Visit Customization",
+        "description": "Population conditions enable subject-specific visit schedules"
+      },
+      {
+        "insight": "Protocol Deviation Prevention",
+        "description": "Automated condition checking prevents missed assessments"
+      }
+    ],
+    "dataQualityIndicators": [
+      "condition has valid rule expression",
+      "footnote source is traceable",
+      "applicable activities exist"
+    ],
+    "humanReviewTriggers": [
+      "complex nested conditions",
+      "ambiguous condition text",
+      "condition conflicts with other rules"
+    ]
+  }
+}

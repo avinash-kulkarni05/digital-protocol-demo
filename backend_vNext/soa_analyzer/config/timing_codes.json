@@ -1,0 +1,149 @@
+{
+  "_metadata": {
+    "description": "CDISC code mapping for atomic timing modifiers used in Stage 7 Timing Distribution",
+    "source": "NCI EVS Thesaurus (https://ncithesaurus.nci.nih.gov/)",
+    "version": "1.0.0",
+    "usage": "Maps atomic timing strings to USDM 4.0 compliant 6-field Code objects"
+  },
+  "atomic_timing_codes": {
+    "BI": {
+      "code": "C71148",
+      "decode": "Before Infusion",
+      "codeSystem": "NCI_EVS"
+    },
+    "EOI": {
+      "code": "C71149",
+      "decode": "End of Infusion",
+      "codeSystem": "NCI_EVS"
+    },
+    "SOI": {
+      "code": "C71150",
+      "decode": "Start of Infusion",
+      "codeSystem": "NCI_EVS"
+    },
+    "pre-dose": {
+      "code": "C82489",
+      "decode": "Pre-dose",
+      "codeSystem": "NCI_EVS"
+    },
+    "predose": {
+      "code": "C82489",
+      "decode": "Pre-dose",
+      "codeSystem": "NCI_EVS"
+    },
+    "post-dose": {
+      "code": "C82490",
+      "decode": "Post-dose",
+      "codeSystem": "NCI_EVS"
+    },
+    "postdose": {
+      "code": "C82490",
+      "decode": "Post-dose",
+      "codeSystem": "NCI_EVS"
+    },
+    "trough": {
+      "code": "C64639",
+      "decode": "Trough",
+      "codeSystem": "NCI_EVS"
+    },
+    "peak": {
+      "code": "C64638",
+      "decode": "Peak",
+      "codeSystem": "NCI_EVS"
+    },
+    "fasting": {
+      "code": "C49666",
+      "decode": "Fasting",
+      "codeSystem": "NCI_EVS"
+    },
+    "fed": {
+      "code": "C64846",
+      "decode": "Fed State",
+      "codeSystem": "NCI_EVS"
+    },
+    "baseline": {
+      "code": "C25213",
+      "decode": "Baseline",
+      "codeSystem": "NCI_EVS"
+    },
+    "screening": {
+      "code": "C48262",
+      "decode": "Screening",
+      "codeSystem": "NCI_EVS"
+    }
+  },
+  "hour_offset_codes": {
+    "0h": {
+      "code": "C83095",
+      "decode": "0 Hour",
+      "codeSystem": "NCI_EVS"
+    },
+    "1h": {
+      "code": "C83096",
+      "decode": "1 Hour",
+      "codeSystem": "NCI_EVS"
+    },
+    "2h": {
+      "code": "C83097",
+      "decode": "2 Hour",
+      "codeSystem": "NCI_EVS"
+    },
+    "4h": {
+      "code": "C83098",
+      "decode": "4 Hour",
+      "codeSystem": "NCI_EVS"
+    },
+    "6h": {
+      "code": "C83099",
+      "decode": "6 Hour",
+      "codeSystem": "NCI_EVS"
+    },
+    "8h": {
+      "code": "C83100",
+      "decode": "8 Hour",
+      "codeSystem": "NCI_EVS"
+    },
+    "12h": {
+      "code": "C83101",
+      "decode": "12 Hour",
+      "codeSystem": "NCI_EVS"
+    },
+    "24h": {
+      "code": "C83102",
+      "decode": "24 Hour",
+      "codeSystem": "NCI_EVS"
+    }
+  },
+  "composite_timing_codes": {
+    "0h post-dose": {
+      "code": "C83095",
+      "decode": "0 Hour Post-dose",
+      "codeSystem": "NCI_EVS"
+    },
+    "2h post-dose": {
+      "code": "C83097",
+      "decode": "2 Hour Post-dose",
+      "codeSystem": "NCI_EVS"
+    },
+    "4h post-dose": {
+      "code": "C83098",
+      "decode": "4 Hour Post-dose",
+      "codeSystem": "NCI_EVS"
+    },
+    "6h post-dose": {
+      "code": "C83099",
+      "decode": "6 Hour Post-dose",
+      "codeSystem": "NCI_EVS"
+    },
+    "30min pre-dose": {
+      "code": "C82489",
+      "decode": "30 Minute Pre-dose",
+      "codeSystem": "NCI_EVS"
+    },
+    "60min pre-dose": {
+      "code": "C82489",
+      "decode": "60 Minute Pre-dose",
+      "codeSystem": "NCI_EVS"
+    }
+  }
+}

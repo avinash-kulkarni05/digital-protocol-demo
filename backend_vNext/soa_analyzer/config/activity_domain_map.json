@@ -1,0 +1,297 @@
+{
+  "_description": "CDISC CDASH Domain mapping reference for SOA activity categorization",
+  "_version": "1.0.0",
+  "_last_updated": "2025-12-05",
+
+  "domains": {
+    "LB": {
+      "name": "Laboratory",
+      "description": "Laboratory test results including hematology, chemistry, urinalysis",
+      "keywords": ["hematology", "chemistry", "urinalysis", "cbc", "blood", "serum", "plasma", "urine", "liver function", "renal function", "thyroid", "lipid", "coagulation", "pregnancy test", "hiv", "hepatitis", "biomarker"],
+      "cdisc_code": "C78429"
+    },
+    "VS": {
+      "name": "Vital Signs",
+      "description": "Vital sign measurements",
+      "keywords": ["vital signs", "blood pressure", "heart rate", "pulse", "temperature", "weight", "height", "bmi", "respiratory rate", "oxygen saturation", "spo2"],
+      "cdisc_code": "C54706"
+    },
+    "EG": {
+      "name": "ECG",
+      "description": "Electrocardiogram and cardiac function tests",
+      "keywords": ["ecg", "electrocardiogram", "12-lead", "echo", "echocardiogram", "muga", "lvef", "cardiac", "holter"],
+      "cdisc_code": "C83167"
+    },
+    "PE": {
+      "name": "Physical Examination",
+      "description": "Physical examination and performance status",
+      "keywords": ["physical exam", "physical examination", "ecog", "performance status", "karnofsky", "neurological", "ophthalmologic", "eye exam", "dermatologic", "skin exam"],
+      "cdisc_code": "C62596"
+    },
+    "QS": {
+      "name": "Questionnaire",
+      "description": "Patient-reported outcomes and quality of life assessments",
+      "keywords": ["questionnaire", "eortc", "eq-5d", "sf-36", "fact", "pro-ctcae", "quality of life", "qol", "patient reported", "pro", "diary", "symptom"],
+      "cdisc_code": "C62737"
+    },
+    "MI": {
+      "name": "Medical Imaging",
+      "description": "Imaging studies including CT, MRI, PET",
+      "keywords": ["ct scan", "mri", "pet", "x-ray", "ultrasound", "bone scan", "imaging", "tumor assessment", "recist", "radiologic", "radiology"],
+      "cdisc_code": "C62598"
+    },
+    "CM": {
+      "name": "Concomitant Medications",
+      "description": "Prior and concomitant medication records",
+      "keywords": ["concomitant medication", "prior medication", "medication", "drug", "prescription", "conmed"],
+      "cdisc_code": "C49236"
+    },
+    "AE": {
+      "name": "Adverse Events",
+      "description": "Adverse event monitoring and collection",
+      "keywords": ["adverse event", "ae", "sae", "safety", "toxicity", "side effect", "adverse reaction"],
+      "cdisc_code": "C41331"
+    },
+    "EX": {
+      "name": "Exposure",
+      "description": "Study drug administration and dosing",
+      "keywords": ["study drug", "administration", "dosing", "infusion", "injection", "drug administration", "treatment", "dose"],
+      "cdisc_code": "C62597"
+    },
+    "BS": {
+      "name": "Biospecimen",
+      "description": "Sample collection for research purposes",
+      "keywords": ["biospecimen", "biopsy", "tumor biopsy", "tissue", "sample", "pk sample", "pd sample", "biomarker sample", "cfdna", "ctdna", "archival"],
+      "cdisc_code": "C63505"
+    },
+    "DM": {
+      "name": "Demographics",
+      "description": "Subject demographics and consent",
+      "keywords": ["demographics", "informed consent", "consent", "enrollment", "registration"],
+      "cdisc_code": "C53190"
+    },
+    "MH": {
+      "name": "Medical History",
+      "description": "Medical history and prior conditions",
+      "keywords": ["medical history", "disease history", "prior condition", "history"],
+      "cdisc_code": "C62599"
+    },
+    "DS": {
+      "name": "Disposition",
+      "description": "Subject disposition and study completion",
+      "keywords": ["disposition", "survival", "follow-up", "completion", "discontinuation", "withdrawal"],
+      "cdisc_code": "C49238"
+    },
+    "PR": {
+      "name": "Procedures",
+      "description": "Medical procedures and interventions",
+      "keywords": ["procedure", "surgery", "intervention", "radiation", "therapy"],
+      "cdisc_code": "C25218"
+    },
+    "TU": {
+      "name": "Tumor/Oncology",
+      "description": "Tumor identification and oncology assessments",
+      "keywords": ["tumor", "lesion", "target lesion", "non-target", "disease status", "response"],
+      "cdisc_code": "C94531"
+    },
+    "PC": {
+      "name": "Pharmacokinetics",
+      "description": "Pharmacokinetic sampling and analysis",
+      "keywords": ["pharmacokinetic", "pk", "pharmacodynamic", "pd", "concentration", "absorption"],
+      "cdisc_code": "C62735"
+    }
+  },
+
+  "activity_examples": {
+    "_comment": "Laboratory Tests (LB)",
+    "Hematology": {"domain": "LB", "code": "C78713", "decode": "Complete Blood Count"},
+    "Chemistry/Hematology": {"domain": "LB", "code": "C78713", "decode": "Complete Blood Count"},
+    "Clinical Chemistry": {"domain": "LB", "code": "C62637", "decode": "Serum Chemistry"},
+    "Chemistry Panel": {"domain": "LB", "code": "C62637", "decode": "Serum Chemistry"},
+    "Serum Chemistry": {"domain": "LB", "code": "C62637", "decode": "Serum Chemistry"},
+    "Liver Function Tests": {"domain": "LB", "code": "C74696", "decode": "Liver Function Test"},
+    "LFTs": {"domain": "LB", "code": "C74696", "decode": "Liver Function Test"},
+    "Renal Function": {"domain": "LB", "code": "C62637", "decode": "Serum Chemistry"},
+    "Thyroid Function": {"domain": "LB", "code": "C94490", "decode": "Thyroid Function Test"},
+    "TSH": {"domain": "LB", "code": "C94490", "decode": "Thyroid Function Test"},
+    "Lipid Panel": {"domain": "LB", "code": "C62637", "decode": "Serum Chemistry"},
+    "Urinalysis": {"domain": "LB", "code": "C62736", "decode": "Urinalysis"},
+    "Urine Analysis": {"domain": "LB", "code": "C62736", "decode": "Urinalysis"},
+    "Serum Pregnancy Test": {"domain": "LB", "code": "C71563", "decode": "Pregnancy Test"},
+    "Pregnancy Test": {"domain": "LB", "code": "C71563", "decode": "Pregnancy Test"},
+    "Documentation of Non-Childbearing Status or Pregnancy Test": {"domain": "LB", "code": "C71563", "decode": "Pregnancy Test"},
+    "Coagulation": {"domain": "LB", "code": "C62089", "decode": "Coagulation Test"},
+    "aPTT, INR": {"domain": "LB", "code": "C62089", "decode": "Coagulation Test"},
+    "PT/INR": {"domain": "LB", "code": "C62089", "decode": "Coagulation Test"},
+    "Coagulation Panel": {"domain": "LB", "code": "C62089", "decode": "Coagulation Test"},
+    "HIV Test": {"domain": "LB", "code": "C16668", "decode": "HIV Test"},
+    "Hepatitis Panel": {"domain": "LB", "code": "C62637", "decode": "Serum Chemistry"},
+    "HbA1c": {"domain": "LB", "code": "C64849", "decode": "Hemoglobin A1C Measurement"},
+    "Serum Markers": {"domain": "LB", "code": "C16342", "decode": "Biomarker"},
+    "Tumor Markers": {"domain": "LB", "code": "C16342", "decode": "Biomarker"},
+    "CBC": {"domain": "LB", "code": "C78713", "decode": "Complete Blood Count"},
+    "Complete Blood Count": {"domain": "LB", "code": "C78713", "decode": "Complete Blood Count"},
+
+    "_comment2": "Vital Signs (VS)",
+    "Vital Signs": {"domain": "VS", "code": "C54706", "decode": "Vital Signs"},
+    "Blood Pressure": {"domain": "VS", "code": "C54706", "decode": "Vital Signs"},
+    "Heart Rate": {"domain": "VS", "code": "C54706", "decode": "Vital Signs"},
+    "Weight": {"domain": "VS", "code": "C25208", "decode": "Body Weight"},
+    "Height": {"domain": "VS", "code": "C25347", "decode": "Body Height"},
+    "Body Weight": {"domain": "VS", "code": "C25208", "decode": "Body Weight"},
+    "Temperature": {"domain": "VS", "code": "C54706", "decode": "Vital Signs"},
+    "Oxygen Saturation": {"domain": "VS", "code": "C54706", "decode": "Vital Signs"},
+    "SpO2": {"domain": "VS", "code": "C54706", "decode": "Vital Signs"},
+
+    "_comment3": "ECG/Cardiac (EG)",
+    "12-Lead ECG": {"domain": "EG", "code": "C83167", "decode": "Electrocardiogram"},
+    "ECG": {"domain": "EG", "code": "C83167", "decode": "Electrocardiogram"},
+    "Electrocardiogram": {"domain": "EG", "code": "C83167", "decode": "Electrocardiogram"},
+    "ECHO": {"domain": "EG", "code": "C38058", "decode": "Echocardiography"},
+    "Echocardiogram": {"domain": "EG", "code": "C38058", "decode": "Echocardiography"},
+    "ECHO or MUGA": {"domain": "EG", "code": "C38058", "decode": "Echocardiography"},
+    "MUGA": {"domain": "EG", "code": "C38058", "decode": "Echocardiography"},
+    "LVEF": {"domain": "EG", "code": "C38058", "decode": "Echocardiography"},
+    "Cardiac Assessment": {"domain": "EG", "code": "C83167", "decode": "Electrocardiogram"},
+    "Holter Monitor": {"domain": "EG", "code": "C83167", "decode": "Electrocardiogram"},
+
+    "_comment4": "Physical Examination (PE)",
+    "Physical Examination": {"domain": "PE", "code": "C62596", "decode": "Physical Examination"},
+    "Physical Exam": {"domain": "PE", "code": "C62596", "decode": "Physical Examination"},
+    "ECOG Performance Status": {"domain": "PE", "code": "C105721", "decode": "ECOG Performance Status"},
+    "Performance Status (ECOG)": {"domain": "PE", "code": "C105721", "decode": "ECOG Performance Status"},
+    "Performance Status": {"domain": "PE", "code": "C105721", "decode": "ECOG Performance Status"},
+    "Karnofsky Performance Status": {"domain": "PE", "code": "C28013", "decode": "Karnofsky Performance Status"},
+    "Neurological Examination": {"domain": "PE", "code": "C62596", "decode": "Physical Examination"},
+    "Ophthalmologic Examination": {"domain": "PE", "code": "C62596", "decode": "Physical Examination"},
+    "Eye Exam": {"domain": "PE", "code": "C62596", "decode": "Physical Examination"},
+    "Dermatologic Examination": {"domain": "PE", "code": "C62596", "decode": "Physical Examination"},
+
+    "_comment5": "Medical Imaging (MI)",
+    "CT Scan": {"domain": "MI", "code": "C38101", "decode": "Computed Tomography"},
+    "CT/MRI Chest": {"domain": "MI", "code": "C38101", "decode": "Computed Tomography"},
+    "MRI": {"domain": "MI", "code": "C40678", "decode": "Magnetic Resonance Imaging"},
+    "MRI of the Brain": {"domain": "MI", "code": "C40678", "decode": "Magnetic Resonance Imaging"},
+    "Brain MRI": {"domain": "MI", "code": "C40678", "decode": "Magnetic Resonance Imaging"},
+    "PET Scan": {"domain": "MI", "code": "C17007", "decode": "Positron Emission Tomography"},
+    "PET/CT": {"domain": "MI", "code": "C17007", "decode": "Positron Emission Tomography"},
+    "Tumor Assessment": {"domain": "MI", "code": "C94531", "decode": "Tumor Assessment"},
+    "Tumor Assessments": {"domain": "MI", "code": "C94531", "decode": "Tumor Assessment"},
+    "RECIST Assessment": {"domain": "MI", "code": "C94531", "decode": "Tumor Assessment"},
+    "Disease Assessment": {"domain": "MI", "code": "C94531", "decode": "Tumor Assessment"},
+    "X-ray": {"domain": "MI", "code": "C38101", "decode": "Computed Tomography"},
+    "Chest X-ray": {"domain": "MI", "code": "C38101", "decode": "Computed Tomography"},
+    "Ultrasound": {"domain": "MI", "code": "C17230", "decode": "Ultrasonography"},
+    "Bone Scan": {"domain": "MI", "code": "C17007", "decode": "Positron Emission Tomography"},
+
+    "_comment6": "Questionnaires/PROs (QS)",
+    "EORTC-QLQ-C30": {"domain": "QS", "code": "C100141", "decode": "EORTC QLQ-C30"},
+    "QoL Questionnaires": {"domain": "QS", "code": "C62737", "decode": "Quality of Life Questionnaire"},
+    "Quality of Life": {"domain": "QS", "code": "C62737", "decode": "Quality of Life Questionnaire"},
+    "EQ-5D": {"domain": "QS", "code": "C100142", "decode": "EQ-5D"},
+    "SF-36": {"domain": "QS", "code": "C62737", "decode": "Quality of Life Questionnaire"},
+    "FACT-G": {"domain": "QS", "code": "C62737", "decode": "Quality of Life Questionnaire"},
+    "PRO-CTCAE": {"domain": "QS", "code": "C115296", "decode": "PRO-CTCAE"},
+    "Patient Diary": {"domain": "QS", "code": "C62737", "decode": "Quality of Life Questionnaire"},
+    "Patient Reported Outcomes": {"domain": "QS", "code": "C62737", "decode": "Quality of Life Questionnaire"},
+
+    "_comment7": "Adverse Events (AE)",
+    "AE/SAE Monitoring": {"domain": "AE", "code": "C41331", "decode": "Adverse Event"},
+    "Adverse Event Assessment": {"domain": "AE", "code": "C41331", "decode": "Adverse Event"},
+    "Adverse Event and Concomitant Medication Assessment": {"domain": "AE", "code": "C41331", "decode": "Adverse Event"},
+    "Safety Assessment": {"domain": "AE", "code": "C41331", "decode": "Adverse Event"},
+    "Safety Monitoring": {"domain": "AE", "code": "C41331", "decode": "Adverse Event"},
+
+    "_comment8": "Concomitant Medications (CM)",
+    "Concomitant Medications": {"domain": "CM", "code": "C49236", "decode": "Concomitant Medication"},
+    "Prior Medications": {"domain": "CM", "code": "C49236", "decode": "Concomitant Medication"},
+    "Medication Review": {"domain": "CM", "code": "C49236", "decode": "Concomitant Medication"},
+
+    "_comment9": "Exposure/Drug Administration (EX)",
+    "Study Drug Administration": {"domain": "EX", "code": "C62597", "decode": "Exposure"},
+    "Drug Administration": {"domain": "EX", "code": "C62597", "decode": "Exposure"},
+    "Dosing": {"domain": "EX", "code": "C62597", "decode": "Exposure"},
+    "Infusion": {"domain": "EX", "code": "C62597", "decode": "Exposure"},
+    "Dispense veliparib": {"domain": "EX", "code": "C62597", "decode": "Exposure"},
+    "Administer premedication": {"domain": "EX", "code": "C62597", "decode": "Exposure"},
+    "Administer chemotherapy": {"domain": "EX", "code": "C62597", "decode": "Exposure"},
+    "Administer platinum doublet chemotherapy": {"domain": "EX", "code": "C62597", "decode": "Exposure"},
+    "Administer maintenance pemetrexed": {"domain": "EX", "code": "C62597", "decode": "Exposure"},
+    "Treatment Administration": {"domain": "EX", "code": "C62597", "decode": "Exposure"},
+
+    "_comment10": "Biospecimen (BS)",
+    "Tumor Biopsy": {"domain": "BS", "code": "C15189", "decode": "Biopsy"},
+    "Biopsy": {"domain": "BS", "code": "C15189", "decode": "Biopsy"},
+    "Tissue Sample": {"domain": "BS", "code": "C63505", "decode": "Biospecimen Collection"},
+    "Tissue Sample Collection": {"domain": "BS", "code": "C63505", "decode": "Biospecimen Collection"},
+    "Biomarker Samples": {"domain": "BS", "code": "C63505", "decode": "Biospecimen Collection"},
+    "Biospecimen Collection": {"domain": "BS", "code": "C63505", "decode": "Biospecimen Collection"},
+    "cfDNA Sample": {"domain": "BS", "code": "C63505", "decode": "Biospecimen Collection"},
+    "ctDNA Sample": {"domain": "BS", "code": "C63505", "decode": "Biospecimen Collection"},
+    "Archival Tissue": {"domain": "BS", "code": "C63505", "decode": "Biospecimen Collection"},
+    "Optional PG Blood Sampling": {"domain": "BS", "code": "C63505", "decode": "Biospecimen Collection"},
+    "PD Blood Sampling": {"domain": "BS", "code": "C63505", "decode": "Biospecimen Collection"},
+    "PD Blood Sampling Plasma Markers": {"domain": "BS", "code": "C63505", "decode": "Biospecimen Collection"},
+
+    "_comment11": "Pharmacokinetics (PC)",
+    "PK Sampling": {"domain": "PC", "code": "C62735", "decode": "Pharmacokinetics"},
+    "Pharmacokinetic Sampling": {"domain": "PC", "code": "C62735", "decode": "Pharmacokinetics"},
+    "PK Sample": {"domain": "PC", "code": "C62735", "decode": "Pharmacokinetics"},
+    "Veliparib PK Sampling": {"domain": "PC", "code": "C62735", "decode": "Pharmacokinetics"},
+    "Drug Concentration": {"domain": "PC", "code": "C62735", "decode": "Pharmacokinetics"},
+
+    "_comment12": "Demographics (DM)",
+    "Informed Consent": {"domain": "DM", "code": "C16735", "decode": "Informed Consent"},
+    "Demographics": {"domain": "DM", "code": "C53190", "decode": "Demographics"},
+    "Enrollment": {"domain": "DM", "code": "C53190", "decode": "Demographics"},
+    "Registration": {"domain": "DM", "code": "C53190", "decode": "Demographics"},
+    "Randomization": {"domain": "DM", "code": "C25196", "decode": "Randomization"},
+
+    "_comment13": "Medical History (MH)",
+    "Medical History": {"domain": "MH", "code": "C62599", "decode": "Medical History"},
+    "Medical and Cancer History": {"domain": "MH", "code": "C62599", "decode": "Medical History"},
+    "Disease History": {"domain": "MH", "code": "C62599", "decode": "Medical History"},
+    "Cancer History": {"domain": "MH", "code": "C62599", "decode": "Medical History"},
+    "Prior Cancer Treatment": {"domain": "MH", "code": "C62599", "decode": "Medical History"},
+
+    "_comment14": "Disposition (DS)",
+    "Survival Follow-up": {"domain": "DS", "code": "C25717", "decode": "Survival"},
+    "Survival": {"domain": "DS", "code": "C25717", "decode": "Survival"},
+    "Study Completion": {"domain": "DS", "code": "C49238", "decode": "Disposition"},
+    "End of Treatment": {"domain": "DS", "code": "C49238", "decode": "Disposition"},
+    "Discontinuation": {"domain": "DS", "code": "C49238", "decode": "Disposition"},
+    "Follow-up": {"domain": "DS", "code": "C49238", "decode": "Disposition"},
+
+    "_comment15": "Tumor/Oncology (TU)",
+    "Tumor Identification": {"domain": "TU", "code": "C94531", "decode": "Tumor Assessment"},
+    "Lesion Measurement": {"domain": "TU", "code": "C94531", "decode": "Tumor Assessment"},
+    "Target Lesions": {"domain": "TU", "code": "C94531", "decode": "Tumor Assessment"},
+    "Non-Target Lesions": {"domain": "TU", "code": "C94531", "decode": "Tumor Assessment"},
+    "Disease Status": {"domain": "TU", "code": "C94531", "decode": "Tumor Assessment"},
+    "Response Assessment": {"domain": "TU", "code": "C94531", "decode": "Tumor Assessment"},
+
+    "_comment16": "Procedures (PR)",
+    "Surgery": {"domain": "PR", "code": "C25218", "decode": "Procedure"},
+    "Radiation Therapy": {"domain": "PR", "code": "C15313", "decode": "Radiation Therapy"},
+    "Intervention": {"domain": "PR", "code": "C25218", "decode": "Procedure"}
+  },
+
+  "category_display_names": {
+    "LB": "LABORATORY",
+    "VS": "VITAL_SIGNS",
+    "EG": "ECG",
+    "PE": "PHYSICAL_EXAMINATION",
+    "QS": "QUESTIONNAIRE",
+    "MI": "IMAGING",
+    "CM": "CONCOMITANT_MEDICATIONS",
+    "AE": "ADVERSE_EVENTS",
+    "EX": "EXPOSURE",
+    "BS": "BIOSPECIMEN",
+    "DM": "DEMOGRAPHICS",
+    "MH": "MEDICAL_HISTORY",
+    "DS": "DISPOSITION",
+    "PR": "PROCEDURES",
+    "TU": "ONCOLOGY",
+    "PC": "PHARMACOKINETICS"
+  }
+}

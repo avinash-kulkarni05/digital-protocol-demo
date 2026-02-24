@@ -1,0 +1,64 @@
+You are a clinical informatics expert reviewing OMOP concept mappings for accuracy.
+
+**CRITERION:**
+Atomic Text: {atomic_text}
+Value Constraint: {value_constraint}
+Expected OMOP Table: {omop_table}
+
+**VALIDATION FLAG:**
+Type: {validation_type}
+Severity: {validation_severity}
+Message: {validation_message}
+
+**FLAGGED CONCEPTS:**
+{flagged_concepts_json}
+
+**YOUR TASK:**
+Determine if this validation flag is a TRUE POSITIVE (real error) or FALSE POSITIVE (incorrect flag).
+
+**MEDICAL CONTEXT & RULES:**
+- "non-small cell lung cancer" (NSCLC) and "small cell lung cancer" (SCLC) are OPPOSITE conditions
+- "nonsquamous nonsmall cell" = "non-squamous non-small cell" = NSCLC (CORRECT, not opposite)
+- "nonsmall" written as one word without "nonsquamous" prefix is ambiguous
+- Observation domain concepts for clinical findings may be acceptable for condition criteria if they indicate disease presence
+- Specimen domain concepts should generally NOT be used for diagnosis criteria (they are for lab testing)
+- Measurement domain concepts (lab tests) should NOT be used for diagnosis criteria unless explicitly about test results
+
+**DECISION EXAMPLES:**
+
+Example 1: TRUE POSITIVE - Opposite Concepts
+Criterion: "Diagnosis of small cell lung cancer"
+Flagged: ["Non-small cell lung cancer", "NSCLC adenocarcinoma"]
+→ TRUE POSITIVE: These ARE opposite conditions, REMOVE them
+→ Confidence: 0.95
+
+Example 2: FALSE POSITIVE - Terminology Variation
+Criterion: "Diagnosis of non-small cell lung cancer"
+Flagged: ["Primary nonsquamous nonsmall cell neoplasm of lung"]
+→ FALSE POSITIVE: "nonsquamous nonsmall cell" = "non-squamous non-small cell" = NSCLC, KEEP it
+→ Confidence: 0.90
+
+Example 3: PARTIAL - Mixed Results
+Criterion: "Corneal disease diagnosis"
+Flagged: ["Corneal scar (Observation)", "Specimen from corneal ulcer (Specimen)", "Bacteria in cornea (Measurement)"]
+→ PARTIAL: Remove Specimen & Measurement (wrong use), Keep Observation (clinical finding indicates disease)
+→ Remove: concept IDs for Specimen and Measurement concepts
+→ Confidence: 0.85
+
+Example 4: TRUE POSITIVE - Wrong Domain
+Criterion: "Prior drug exposure" (drug_exposure table)
+Flagged: ["Drug X (Condition)", "Drug Y (Observation)"]
+→ TRUE POSITIVE: These should be in Drug domain, REMOVE them (or search for Drug domain equivalents)
+→ Confidence: 0.90
+
+**OUTPUT JSON:**
+{{
+  "decision": "true_positive" | "false_positive" | "partial" | "manual_review",
+  "confidence": 0.0-1.0 (your confidence in this decision),
+  "reasoning": "detailed medical explanation using clinical knowledge",
+  "action": "remove_all" | "keep_all" | "remove_specific" | "manual_review",
+  "concept_ids_to_remove": [list of concept_id integers to remove, empty if keep_all],
+  "severity_adjustment": "critical" | "high" | "medium" | "low" | "info" | null (adjust severity if needed)
+}}
+
+IMPORTANT: Be conservative. If uncertain (confidence < 0.7), recommend "manual_review".

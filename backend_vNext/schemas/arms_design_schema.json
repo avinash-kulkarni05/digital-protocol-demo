@@ -1,0 +1,1294 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "description": "USDM 4.0 compliant schema for Study Arms, Epochs, Cells, and Study Design extraction. Version 2.0 with enhanced provenance and CDISC CT compliance.",
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "description": "Schema version for migration compatibility"
+    },
+    "sourceDocument": {
+      "type": "object",
+      "description": "Immutable document fingerprint for regulatory traceability",
+      "properties": {
+        "documentId": {
+          "type": "string",
+          "description": "Unique document identifier (typically SHA256 hash)"
+        },
+        "filename": {
+          "type": "string",
+          "description": "Original filename of the uploaded document"
+        },
+        "sha256Hash": {
+          "type": "string",
+          "description": "SHA256 hash of document content for integrity verification",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "byteSize": {
+          "type": "integer",
+          "description": "Document size in bytes",
+          "minimum": 1
+        },
+        "uploadTimestamp": {
+          "type": "string",
+          "description": "ISO 8601 timestamp when document was uploaded",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+        },
+        "pageCount": {
+          "type": "integer",
+          "description": "Total number of pages in document",
+          "minimum": 1
+        }
+      },
+      "required": ["documentId", "filename", "sha256Hash", "uploadTimestamp"],
+      "additionalProperties": false
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this extraction resource",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "instanceType": {
+      "type": "string",
+      "enum": ["StudyDesign"],
+      "description": "USDM resource type - MUST be 'StudyDesign'"
+    },
+    "name": {
+      "type": "string",
+      "description": "Descriptive name for this extraction",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "provenance": {
+      "$ref": "#/$defs/provenance",
+      "description": "Root-level provenance for extraction"
+    },
+    "studyArms": {
+      "type": "array",
+      "description": "USDM 4.0 StudyArm resources for IRT/EDC/IWRS systems",
+      "items": {
+        "$ref": "#/$defs/studyArm"
+      },
+      "minItems": 1
+    },
+    "studyEpochs": {
+      "type": "array",
+      "description": "USDM 4.0 StudyEpoch resources representing treatment periods/phases",
+      "items": {
+        "$ref": "#/$defs/studyEpoch"
+      },
+      "minItems": 1
+    },
+    "studyCells": {
+      "type": "array",
+      "description": "USDM 4.0 StudyCell resources (arm x epoch intersections)",
+      "items": {
+        "$ref": "#/$defs/studyCell"
+      },
+      "minItems": 1
+    },
+    "designMetadata": {
+      "$ref": "#/$defs/designMetadata",
+      "description": "Study design metadata including randomization and blinding"
+    },
+    "_metadata": {
+      "type": "object",
+      "description": "Internal extraction metadata (optional, added by LLM)",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "id",
+    "instanceType",
+    "name",
+    "provenance",
+    "studyArms",
+    "studyEpochs",
+    "studyCells",
+    "designMetadata"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "provenance": {
+      "type": "object",
+      "description": "Source tracking for regulatory traceability - REQUIRED for every extracted element",
+      "properties": {
+        "section_number": {
+          "type": ["string", "null"],
+          "description": "Protocol section number (e.g., '3.1', '4.1', '10.1')",
+          "maxLength": 20
+        },
+        "page_number": {
+          "type": "integer",
+          "description": "Page number where information appears (1-indexed)",
+          "minimum": 1
+        },
+        "text_snippet": {
+          "type": "string",
+          "description": "Direct quote from source document (max 500 chars)",
+          "minLength": 10,
+          "maxLength": 500
+        },
+        "highlight_rects": {
+          "type": "array",
+          "description": "Pre-computed highlight rectangles for PDF annotation (computed post-extraction)",
+          "items": {
+            "type": "object",
+            "properties": {
+              "x0": { "type": "number", "description": "Left edge coordinate" },
+              "y0": { "type": "number", "description": "Top edge coordinate" },
+              "x1": { "type": "number", "description": "Right edge coordinate" },
+              "y1": { "type": "number", "description": "Bottom edge coordinate" }
+            },
+            "required": ["x0", "y0", "x1", "y1"]
+          }
+        },
+        "is_ocr": {
+          "type": "boolean",
+          "description": "True if coordinates were computed using OCR (image-based page)",
+          "default": false
+        }
+      },
+      "required": ["section_number", "page_number", "text_snippet"],
+      "additionalProperties": false
+    },
+    "codeObject": {
+      "type": "object",
+      "description": "CDISC CT compliant code object with NCI Thesaurus reference",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "NCI Thesaurus code",
+          "minLength": 1,
+          "maxLength": 20
+        },
+        "decode": {
+          "type": "string",
+          "description": "CDISC CT Preferred Term",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "codeSystem": {
+          "type": "string",
+          "const": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
+        },
+        "codeSystemVersion": {
+          "type": "string",
+          "description": "CDISC CT version",
+          "minLength": 1,
+          "maxLength": 20
+        }
+      },
+      "required": ["code", "decode", "codeSystem", "codeSystemVersion"],
+      "additionalProperties": false
+    },
+    "armTypeCode": {
+      "type": "object",
+      "description": "Study arm type per CDISC CT (ARMTYPE codelist) - code-decode pairs enforced via oneOf",
+      "oneOf": [
+        {
+          "properties": {
+            "code": {"const": "C174266"},
+            "decode": {"const": "Experimental"}
+          }
+        },
+        {
+          "properties": {
+            "code": {"const": "C174267"},
+            "decode": {"const": "Active Comparator"}
+          }
+        },
+        {
+          "properties": {
+            "code": {"const": "C174268"},
+            "decode": {"const": "Placebo Comparator"}
+          }
+        },
+        {
+          "properties": {
+            "code": {"const": "C174269"},
+            "decode": {"const": "Sham Comparator"}
+          }
+        },
+        {
+          "properties": {
+            "code": {"const": "C174270"},
+            "decode": {"const": "No Intervention"}
+          }
+        }
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "NCI Thesaurus code for arm type"
+        },
+        "decode": {
+          "type": "string",
+          "description": "CDISC CT Preferred Term for arm type"
+        },
+        "codeSystem": {
+          "type": "string",
+          "const": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
+        },
+        "codeSystemVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20
+        }
+      },
+      "required": ["code", "decode", "codeSystem", "codeSystemVersion"],
+      "additionalProperties": false
+    },
+    "epochTypeCode": {
+      "type": "object",
+      "description": "Study epoch type per CDISC CT (EPOCH codelist) - code-decode pairs enforced via oneOf",
+      "oneOf": [
+        {
+          "properties": {
+            "code": {"const": "C48262"},
+            "decode": {"const": "Screening"}
+          }
+        },
+        {
+          "properties": {
+            "code": {"const": "C98779"},
+            "decode": {"const": "Run-In"}
+          }
+        },
+        {
+          "properties": {
+            "code": {"const": "C101526"},
+            "decode": {"const": "Treatment"}
+          }
+        },
+        {
+          "properties": {
+            "code": {"const": "C99158"},
+            "decode": {"const": "Follow-up"}
+          }
+        },
+        {
+          "properties": {
+            "code": {"const": "C48261"},
+            "decode": {"const": "Extension"}
+          }
+        }
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "NCI Thesaurus code for epoch type"
+        },
+        "decode": {
+          "type": "string",
+          "description": "CDISC CT Preferred Term for epoch type"
+        },
+        "codeSystem": {
+          "type": "string",
+          "const": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
+        },
+        "codeSystemVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20
+        }
+      },
+      "required": ["code", "decode", "codeSystem", "codeSystemVersion"],
+      "additionalProperties": false
+    },
+    "designTypeCode": {
+      "type": "object",
+      "description": "Study design type per CDISC CT - code-decode pairs enforced via oneOf",
+      "oneOf": [
+        {
+          "properties": {
+            "code": {"const": "C82639"},
+            "decode": {"const": "Parallel"}
+          }
+        },
+        {
+          "properties": {
+            "code": {"const": "C82637"},
+            "decode": {"const": "Crossover"}
+          }
+        },
+        {
+          "properties": {
+            "code": {"const": "C82638"},
+            "decode": {"const": "Sequential"}
+          }
+        },
+        {
+          "properties": {
+            "code": {"const": "C15417"},
+            "decode": {"const": "Factorial"}
+          }
+        },
+        {
+          "properties": {
+            "code": {"const": "C49666"},
+            "decode": {"const": "Single Group"}
+          }
+        }
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "NCI Thesaurus code for design type"
+        },
+        "decode": {
+          "type": "string",
+          "description": "CDISC CT Preferred Term for design type"
+        },
+        "codeSystem": {
+          "type": "string",
+          "const": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
+        },
+        "codeSystemVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20
+        }
+      },
+      "required": ["code", "decode", "codeSystem", "codeSystemVersion"],
+      "additionalProperties": false
+    },
+    "routeOfAdministration": {
+      "type": "object",
+      "description": "Route of administration per CDISC CT - code-decode pairs enforced via oneOf",
+      "oneOf": [
+        {
+          "properties": {
+            "code": {"const": "C38276"},
+            "decode": {"const": "Intravenous"}
+          }
+        },
+        {
+          "properties": {
+            "code": {"const": "C38288"},
+            "decode": {"const": "Oral"}
+          }
+        },
+        {
+          "properties": {
+            "code": {"const": "C38299"},
+            "decode": {"const": "Subcutaneous"}
+          }
+        },
+        {
+          "properties": {
+            "code": {"const": "C28161"},
+            "decode": {"const": "Intramuscular"}
+          }
+        },
+        {
+          "properties": {
+            "code": {"const": "C38304"},
+            "decode": {"const": "Topical"}
+          }
+        },
+        {
+          "properties": {
+            "code": {"const": "C38216"},
+            "decode": {"const": "Inhalation"}
+          }
+        }
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "NCI code for route"
+        },
+        "decode": {
+          "type": "string",
+          "description": "CDISC CT Preferred Term for route"
+        },
+        "codeSystem": {
+          "type": "string",
+          "const": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
+        },
+        "codeSystemVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20
+        }
+      },
+      "required": ["code", "decode", "codeSystem", "codeSystemVersion"],
+      "additionalProperties": false
+    },
+    "interventionRole": {
+      "type": "object",
+      "description": "Intervention role per CDISC CT (from InvestigationalProduct module)",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "NCI code for intervention role"
+        },
+        "decode": {
+          "type": "string",
+          "description": "Role classification",
+          "enum": ["Investigational", "Comparator", "Placebo", "Concomitant", "Rescue"]
+        },
+        "codeSystem": {
+          "type": "string",
+          "description": "NCI Thesaurus URL"
+        },
+        "codeSystemVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20
+        }
+      },
+      "required": ["decode"],
+      "additionalProperties": false
+    },
+    "biomedicalConcept": {
+      "type": "object",
+      "description": "CDISC biomedical concept for regulatory compliance",
+      "properties": {
+        "conceptName": {
+          "type": "string",
+          "description": "Standardized drug/intervention name",
+          "maxLength": 150
+        },
+        "cdiscCode": {
+          "type": "string",
+          "description": "CDISC CT code or 'CUSTOM' for novel compounds",
+          "maxLength": 20
+        },
+        "domain": {
+          "type": "string",
+          "description": "CDISC domain (CM for Concomitant Meds)",
+          "enum": ["CM", "EX", "DS", "OTHER"],
+          "default": "CM"
+        },
+        "specimen": {
+          "type": "string",
+          "description": "Specimen type (N/A for interventions)",
+          "maxLength": 50
+        },
+        "method": {
+          "type": "string",
+          "description": "Administration method (route)",
+          "maxLength": 100
+        },
+        "confidence": {
+          "type": "number",
+          "description": "Mapping confidence (0.0-1.0)",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "rationale": {
+          "type": "string",
+          "description": "Brief explanation for code assignment",
+          "maxLength": 200
+        }
+      },
+      "required": ["conceptName", "cdiscCode", "domain"],
+      "additionalProperties": false
+    },
+    "dosingRegimen": {
+      "type": "object",
+      "description": "Structured dosing details for EDC/IWRS configuration",
+      "properties": {
+        "dose": {
+          "type": "number",
+          "description": "Numeric dose value",
+          "minimum": 0
+        },
+        "doseUnit": {
+          "type": "string",
+          "description": "Dose unit (mg, mg/kg, mg/m², IU, etc.)",
+          "maxLength": 20
+        },
+        "frequency": {
+          "type": "string",
+          "description": "Dosing frequency (QD, BID, TID, Q3W, Q4W, etc.)",
+          "maxLength": 30
+        },
+        "route": {
+          "$ref": "#/$defs/routeOfAdministration"
+        },
+        "cycleLengthDays": {
+          "type": "integer",
+          "description": "Treatment cycle length in days",
+          "minimum": 1
+        },
+        "infusionDurationMinutes": {
+          "type": "integer",
+          "description": "Infusion duration in minutes (for IV)",
+          "minimum": 1
+        },
+        "doseCalculationBasis": {
+          "type": "string",
+          "description": "Basis for dose calculation (fixed, weight-based, BSA-based)",
+          "enum": ["Fixed", "Weight-based", "BSA-based", "AUC-based"]
+        },
+        "maxDose": {
+          "type": "number",
+          "description": "Maximum dose cap (if applicable)",
+          "minimum": 0
+        },
+        "maxDoseUnit": {
+          "type": "string",
+          "description": "Unit for maximum dose cap",
+          "maxLength": 20
+        }
+      },
+      "additionalProperties": false
+    },
+    "doseReductionLevel": {
+      "type": "object",
+      "description": "A single dose reduction level for dose modification",
+      "properties": {
+        "level": {
+          "type": "integer",
+          "description": "Reduction level (-1, -2, -3, etc.)",
+          "minimum": -5,
+          "maximum": -1
+        },
+        "dose": {
+          "type": "number",
+          "description": "Dose at this reduction level",
+          "minimum": 0
+        },
+        "doseUnit": {
+          "type": "string",
+          "description": "Dose unit (mg, mg/kg, mg/m²)",
+          "maxLength": 20
+        },
+        "percentReduction": {
+          "type": ["number", "null"],
+          "description": "Percent reduction from starting dose",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance",
+          "description": "Optional provenance for this specific reduction level"
+        }
+      },
+      "required": ["level", "dose", "doseUnit"],
+      "additionalProperties": false
+    },
+    "doseModificationTrigger": {
+      "type": "object",
+      "description": "A condition that triggers dose modification",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique trigger identifier",
+          "maxLength": 50
+        },
+        "condition": {
+          "type": "string",
+          "description": "Triggering condition (e.g., 'Grade 3 nausea', 'Neutrophil count <1000')",
+          "maxLength": 300
+        },
+        "toxicityGrade": {
+          "type": ["integer", "null"],
+          "description": "CTCAE grade if applicable (1-5)",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "action": {
+          "type": "string",
+          "description": "Required action (e.g., 'Hold until ≤Grade 1, resume at -1')",
+          "enum": ["Hold", "Reduce", "Discontinue", "Hold then reduce", "Hold then Discontinue", "Hold or Reduce", "Continue with monitoring"]
+        },
+        "targetLevel": {
+          "type": ["integer", "null"],
+          "description": "Target dose level after modification (-1, -2, etc.)",
+          "minimum": -5,
+          "maximum": 0
+        },
+        "holdCriteria": {
+          "type": ["string", "null"],
+          "description": "Criteria for resumption after hold (e.g., 'Until ≤Grade 1')",
+          "maxLength": 500
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      },
+      "required": ["id", "condition", "action", "provenance"],
+      "additionalProperties": false
+    },
+    "doseModifications": {
+      "type": "object",
+      "description": "Dose modification rules for IRT/IWRS and safety monitoring systems",
+      "properties": {
+        "reductionLevels": {
+          "type": "array",
+          "description": "Available dose reduction levels",
+          "items": {
+            "$ref": "#/$defs/doseReductionLevel"
+          }
+        },
+        "modificationTriggers": {
+          "type": "array",
+          "description": "Conditions that trigger dose modifications",
+          "items": {
+            "$ref": "#/$defs/doseModificationTrigger"
+          }
+        },
+        "permanentDiscontinuationTriggers": {
+          "type": "array",
+          "description": "Conditions requiring permanent discontinuation",
+          "items": {
+            "anyOf": [
+              {"type": "string", "maxLength": 300},
+              {
+                "type": "object",
+                "properties": {
+                  "value": {"type": "string", "maxLength": 300},
+                  "provenance": {"$ref": "#/$defs/provenance"}
+                },
+                "required": ["value"],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "rechallengeCriteria": {
+          "type": ["string", "null"],
+          "description": "Criteria for drug rechallenge after discontinuation",
+          "maxLength": 500
+        },
+        "maximumReductions": {
+          "type": "integer",
+          "description": "Maximum number of dose reductions allowed before discontinuation",
+          "minimum": 1
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      },
+      "additionalProperties": false
+    },
+    "intervention": {
+      "type": "object",
+      "description": "Treatment intervention with provenance for drug supply and IRT configuration. Includes InvestigationalProduct fields for complete product specification.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Intervention identifier (INT01, INT02, etc.)",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "instanceType": {
+          "type": "string",
+          "enum": ["StudyIntervention"],
+          "description": "MUST be 'StudyIntervention'"
+        },
+        "name": {
+          "type": "string",
+          "description": "Intervention name (drug name, procedure, etc.)",
+          "minLength": 1,
+          "maxLength": 150
+        },
+        "type": {
+          "type": "string",
+          "description": "Intervention type",
+          "enum": ["Drug", "Biological", "Device", "Procedure", "Dietary Supplement", "Other"]
+        },
+        "role": {
+          "$ref": "#/$defs/interventionRole",
+          "description": "Intervention role (Investigational, Comparator, Placebo, etc.)"
+        },
+        "drugClass": {
+          "type": "string",
+          "description": "Pharmacological drug class (e.g., 'PD-1 inhibitor', 'Platinum-based chemotherapy')",
+          "maxLength": 150
+        },
+        "manufacturer": {
+          "type": "string",
+          "description": "Drug manufacturer or supplier name",
+          "maxLength": 150
+        },
+        "dosingRegimen": {
+          "$ref": "#/$defs/dosingRegimen"
+        },
+        "formulation": {
+          "type": "string",
+          "description": "Drug formulation (e.g., 'lyophilized powder', 'solution')",
+          "maxLength": 100
+        },
+        "strength": {
+          "type": ["string", "null"],
+          "description": "Drug strength per unit (e.g., '100mg/vial', '50mg/mL')",
+          "maxLength": 50
+        },
+        "storageConditions": {
+          "type": "string",
+          "description": "Storage requirements (e.g., '2-8°C refrigerated')",
+          "maxLength": 250
+        },
+        "isBlinded": {
+          "type": "boolean",
+          "description": "Whether this intervention is blinded"
+        },
+        "isPlacebo": {
+          "type": "boolean",
+          "description": "Whether this is a placebo intervention"
+        },
+        "isComparator": {
+          "type": "boolean",
+          "description": "Whether this is an active comparator"
+        },
+        "biomedicalConcept": {
+          "$ref": "#/$defs/biomedicalConcept",
+          "description": "CDISC biomedical concept mapping for regulatory compliance"
+        },
+        "doseModifications": {
+          "$ref": "#/$defs/doseModifications",
+          "description": "Dose modification rules for this intervention"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      },
+      "required": ["id", "instanceType", "name", "type", "provenance"],
+      "additionalProperties": true
+    },
+    "studyArm": {
+      "type": "object",
+      "description": "USDM 4.0 StudyArm resource",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique arm identifier (ARM01, ARM02, etc.)",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "instanceType": {
+          "type": "string",
+          "enum": ["StudyArm"],
+          "description": "MUST be 'StudyArm'"
+        },
+        "name": {
+          "type": "string",
+          "description": "Short arm name with key treatment info",
+          "minLength": 1,
+          "maxLength": 150
+        },
+        "label": {
+          "type": "string",
+          "description": "Descriptive label (e.g., 'Treatment Arm A')",
+          "maxLength": 150
+        },
+        "description": {
+          "type": "string",
+          "description": "Brief regimen description",
+          "maxLength": 500
+        },
+        "armType": {
+          "$ref": "#/$defs/armTypeCode"
+        },
+        "allocationRatio": {
+          "type": "integer",
+          "description": "Randomization ratio component (1 for 1:1, 2 for 2:1)",
+          "minimum": 1
+        },
+        "plannedSubjects": {
+          "type": "integer",
+          "description": "Target enrollment for this arm",
+          "minimum": 1
+        },
+        "dosingRegimen": {
+          "$ref": "#/$defs/dosingRegimen",
+          "description": "Structured dosing details"
+        },
+        "interventions": {
+          "type": "array",
+          "description": "List of interventions/treatments in this arm",
+          "items": {
+            "$ref": "#/$defs/intervention"
+          },
+          "minItems": 1
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      },
+      "required": ["id", "instanceType", "name", "armType", "allocationRatio", "interventions", "provenance"],
+      "additionalProperties": false
+    },
+    "studyEpoch": {
+      "type": "object",
+      "description": "USDM 4.0 StudyEpoch resource",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique epoch identifier (EPOCH01, SCREENING, TREATMENT, etc.)",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "instanceType": {
+          "type": "string",
+          "enum": ["StudyEpoch"],
+          "description": "MUST be 'StudyEpoch'"
+        },
+        "name": {
+          "type": "string",
+          "description": "Epoch name",
+          "minLength": 1,
+          "maxLength": 150
+        },
+        "description": {
+          "type": "string",
+          "description": "Epoch description",
+          "maxLength": 500
+        },
+        "epochType": {
+          "$ref": "#/$defs/epochTypeCode"
+        },
+        "sequenceInStudy": {
+          "type": "integer",
+          "description": "Order of epoch (1, 2, 3, etc.)",
+          "minimum": 1
+        },
+        "durationDays": {
+          "type": ["integer", "null"],
+          "description": "Epoch duration in days (if fixed)",
+          "minimum": 1
+        },
+        "durationDescription": {
+          "type": "string",
+          "description": "Duration description for variable-length epochs",
+          "maxLength": 200
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      },
+      "required": ["id", "instanceType", "name", "epochType", "sequenceInStudy", "provenance"],
+      "additionalProperties": false
+    },
+    "studyCell": {
+      "type": "object",
+      "description": "USDM 4.0 StudyCell resource (arm x epoch intersection)",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique cell identifier",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "instanceType": {
+          "type": "string",
+          "enum": ["StudyCell"],
+          "description": "MUST be 'StudyCell'"
+        },
+        "armId": {
+          "type": "string",
+          "description": "Reference to studyArms[].id",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "epochId": {
+          "type": "string",
+          "description": "Reference to studyEpochs[].id",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "interventionIds": {
+          "type": "array",
+          "description": "Intervention IDs active during this cell",
+          "items": {
+            "type": "string",
+            "maxLength": 50
+          }
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      },
+      "required": ["id", "instanceType", "armId", "epochId", "provenance"],
+      "additionalProperties": false
+    },
+    "designMetadata": {
+      "type": "object",
+      "description": "Study design metadata with IRT/IWRS and drug supply configuration",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Design metadata identifier",
+          "maxLength": 50
+        },
+        "designType": {
+          "$ref": "#/$defs/designTypeCode"
+        },
+        "isRandomized": {
+          "type": "boolean",
+          "description": "Is study randomized"
+        },
+        "allocationRatio": {
+          "type": "string",
+          "description": "Overall allocation ratio (e.g., '1:1', '2:1:1')",
+          "maxLength": 20
+        },
+        "randomizationAlgorithm": {
+          "type": "string",
+          "description": "Randomization algorithm type for IRT/IWRS",
+          "enum": ["Permuted Block", "Stratified Block", "Stratified", "Minimization", "Simple", "Adaptive"]
+        },
+        "blockSize": {
+          "type": ["string", "null"],
+          "description": "Randomization block size (e.g., '4', '4,6,8' for variable)",
+          "maxLength": 20
+        },
+        "randomizationDetails": {
+          "type": ["object", "null"],
+          "description": "Detailed randomization configuration for IRT/IWRS",
+          "properties": {
+            "randomization_type": {
+              "type": ["string", "null"],
+              "description": "Type of randomization system",
+              "enum": ["central", "site-level", "interactive", "manual", null]
+            },
+            "randomization_method": {
+              "type": ["string", "null"],
+              "description": "Method of randomization delivery",
+              "enum": ["IVRS", "IWRS", "IRT", "envelope", "computer_generated", null],
+              "maxLength": 50
+            },
+            "randomization_timing": {
+              "type": ["string", "null"],
+              "description": "When randomization occurs (e.g., 'after screening', 'at baseline')",
+              "maxLength": 200
+            },
+            "irt_vendor": {
+              "type": ["string", "null"],
+              "description": "IRT/RTSM vendor name (e.g., 'Almac', 'Medidata RTSM', 'Oracle Siebel')",
+              "maxLength": 100
+            },
+            "irt_system_name": {
+              "type": ["string", "null"],
+              "description": "IRT/IWRS system or platform name (e.g., 'Almac IXRS', 'Balance', 'InForm RTSM')",
+              "maxLength": 100
+            },
+            "block_sizes": {
+              "type": ["array", "null"],
+              "description": "Block sizes for variable block randomization (e.g., [4, 6, 8])",
+              "items": {
+                "type": "integer",
+                "minimum": 2
+              }
+            },
+            "block_size_selection": {
+              "type": ["string", "null"],
+              "description": "How block size is selected",
+              "enum": ["fixed", "variable", "random_permuted", null]
+            },
+            "seed_documentation": {
+              "type": ["string", "null"],
+              "description": "Documentation requirements for randomization seed",
+              "maxLength": 300
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          },
+          "additionalProperties": false
+        },
+        "enrollmentCaps": {
+          "type": ["array", "null"],
+          "description": "Enrollment caps by stratum, arm, region, or site",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cap_id": {
+                "type": "string",
+                "maxLength": 50
+              },
+              "cap_type": {
+                "type": "string",
+                "description": "Type of enrollment cap",
+                "enum": ["stratum", "arm", "region", "country", "site", "overall"]
+              },
+              "cap_criteria": {
+                "type": "string",
+                "description": "Description of what this cap applies to",
+                "maxLength": 300
+              },
+              "max_subjects": {
+                "type": "integer",
+                "description": "Maximum number of subjects",
+                "minimum": 1
+              },
+              "action_when_reached": {
+                "type": ["string", "null"],
+                "description": "Action when cap is reached",
+                "enum": ["stop_enrollment", "redistribute", "notify_sponsor", null]
+              },
+              "provenance": {
+                "$ref": "#/$defs/provenance"
+              }
+            },
+            "required": ["cap_id", "cap_type", "cap_criteria", "max_subjects"],
+            "additionalProperties": false
+          }
+        },
+        "adaptiveRandomization": {
+          "type": ["object", "null"],
+          "description": "Adaptive randomization configuration (if applicable)",
+          "properties": {
+            "is_adaptive": {
+              "type": ["boolean", "null"],
+              "description": "Whether adaptive randomization is used"
+            },
+            "adaptation_method": {
+              "type": ["string", "null"],
+              "description": "Type of adaptive randomization",
+              "enum": ["response-adaptive", "covariate-adaptive", "outcome-adaptive", "urn", null]
+            },
+            "adaptation_triggers": {
+              "type": ["array", "null"],
+              "description": "Events that trigger adaptation",
+              "items": {
+                "type": "string",
+                "maxLength": 200
+              }
+            },
+            "interim_analysis_points": {
+              "type": ["array", "null"],
+              "description": "Planned interim analysis timepoints",
+              "items": {
+                "type": "string",
+                "maxLength": 100
+              }
+            },
+            "adaptation_rules": {
+              "type": ["string", "null"],
+              "description": "Rules governing adaptation",
+              "maxLength": 500
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          },
+          "additionalProperties": false
+        },
+        "reRandomization": {
+          "type": ["object", "null"],
+          "description": "Re-randomization rules (if applicable)",
+          "properties": {
+            "allowed": {
+              "type": ["boolean", "null"],
+              "description": "Whether re-randomization is allowed"
+            },
+            "triggers": {
+              "type": ["array", "null"],
+              "description": "Events that trigger re-randomization",
+              "items": {
+                "type": "string",
+                "maxLength": 200
+              }
+            },
+            "conditions": {
+              "type": ["string", "null"],
+              "description": "Conditions under which re-randomization occurs",
+              "maxLength": 500
+            },
+            "maximum_rerandomizations": {
+              "type": ["integer", "null"],
+              "description": "Maximum number of times a subject can be re-randomized",
+              "minimum": 1
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          },
+          "additionalProperties": false
+        },
+        "blindingType": {
+          "type": "string",
+          "description": "Type of blinding",
+          "enum": ["Open-label", "Single-blind", "Double-blind", "Triple-blind", "Quadruple-blind"]
+        },
+        "whoIsBlinded": {
+          "type": "array",
+          "description": "Who is blinded",
+          "items": {
+            "type": "string",
+            "enum": ["Participant", "Investigator", "Outcomes Assessor", "Caregiver", "Sponsor"]
+          }
+        },
+        "isPlaceboControlled": {
+          "type": "boolean",
+          "description": "Is study placebo-controlled"
+        },
+        "isActiveControlled": {
+          "type": "boolean",
+          "description": "Is study active-controlled"
+        },
+        "stratificationFactors": {
+          "type": "array",
+          "description": "Randomization stratification factors with detailed level definitions",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 50
+              },
+              "instanceType": {
+                "type": "string",
+                "description": "USDM type identifier"
+              },
+              "name": {
+                "type": "string",
+                "maxLength": 150
+              },
+              "description": {
+                "type": ["string", "null"],
+                "description": "Description of this stratification factor",
+                "maxLength": 500
+              },
+              "levels": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    "minItems": 2
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "level_id": {
+                          "type": "string",
+                          "maxLength": 50
+                        },
+                        "level_name": {
+                          "type": "string",
+                          "maxLength": 100
+                        },
+                        "level_definition": {
+                          "type": ["string", "null"],
+                          "description": "Detailed criteria for this level",
+                          "maxLength": 500
+                        },
+                        "data_source": {
+                          "type": ["string", "null"],
+                          "description": "How this level is determined (lab, clinical assessment, etc.)",
+                          "maxLength": 200
+                        }
+                      },
+                      "required": ["level_id", "level_name"]
+                    },
+                    "minItems": 2
+                  }
+                ]
+              },
+              "is_irt_stratification": {
+                "type": ["boolean", "null"],
+                "description": "Whether this factor is used in IRT/IWRS stratification"
+              },
+              "is_analysis_stratification": {
+                "type": ["boolean", "null"],
+                "description": "Whether this factor is used in statistical analysis stratification"
+              },
+              "enrollment_cap_per_level": {
+                "type": ["integer", "null"],
+                "description": "Maximum enrollment per level (if capped)",
+                "minimum": 1
+              },
+              "provenance": {
+                "$ref": "#/$defs/provenance"
+              }
+            },
+            "required": ["id", "name", "levels", "provenance"],
+            "additionalProperties": true
+          }
+        },
+        "supplyModel": {
+          "type": "string",
+          "description": "Drug supply distribution model",
+          "enum": ["Central", "Depot", "Direct-to-Site", "Hybrid", "Other"],
+          "maxLength": 50
+        },
+        "drugSupply": {
+          "description": "Drug supply and kit management configuration for IRT",
+          "anyOf": [
+            {"type": "null"},
+            {
+              "type": "object",
+              "properties": {
+                "kitTypes": {
+                  "type": "array",
+                  "description": "Kit/package configurations",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "maxLength": 50
+                      },
+                      "instanceType": {
+                        "type": "string",
+                        "enum": ["KitType"],
+                        "description": "MUST be 'KitType'"
+                      },
+                      "name": {
+                        "type": "string",
+                        "maxLength": 150
+                      },
+                      "interventionId": {
+                        "type": "string",
+                        "description": "Reference to intervention",
+                        "maxLength": 50
+                      },
+                      "unitsPerKit": {
+                        "type": "integer",
+                        "description": "Number of units per kit",
+                        "minimum": 1
+                      },
+                      "daysSupply": {
+                        "type": "integer",
+                        "description": "Days of supply per kit",
+                        "minimum": 1
+                      },
+                      "provenance": {
+                        "$ref": "#/$defs/provenance"
+                      }
+                    },
+                    "required": ["id", "instanceType", "name", "provenance"],
+                    "additionalProperties": false
+                  }
+                },
+                "dispensingSchedule": {
+                  "type": "string",
+                  "description": "Dispensing schedule description",
+                  "maxLength": 300
+                },
+                "overagePercentage": {
+                  "type": "number",
+                  "description": "Drug supply overage percentage",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "provenance": {
+                  "$ref": "#/$defs/provenance"
+                }
+              },
+              "required": ["provenance"],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      },
+      "required": ["designType", "blindingType", "provenance"],
+      "additionalProperties": false
+    }
+  }
+}

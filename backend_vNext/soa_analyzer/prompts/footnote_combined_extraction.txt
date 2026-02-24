@@ -1,0 +1,130 @@
+You are a clinical trial protocol expert analyzing SOA table footnotes.
+
+## Task
+
+Classify AND extract structured rules from MULTIPLE footnotes in a single response.
+
+## Rule Types
+
+1. **visit_window**: Timing windows for when a visit can occur. PRIORITY KEYWORDS: "window", "within X days", "±X days", "X day window", "screening window", "no earlier than X days", "no later than X days"
+   - IMPORTANT: If text contains the word "window" or "within X days of randomization/screening/baseline", classify as visit_window even if other patterns exist
+2. **conditional**: Conditions like "if clinically indicated", "for female subjects", "only if"
+3. **specimen_variant**: Volume variations like "12mL at V1, 6mL at V2"
+4. **timing_constraint**: Within-visit timing like "pre-dose", "2h post-dose", "fasting"
+5. **frequency**: Repetition patterns like "every 2 cycles", "q3 weeks"
+6. **abbreviation**: Definition like "SCR = Screening"
+7. **general_note**: Explanatory text with no scheduling rule
+
+## Extraction Schemas by Rule Type
+
+### visit_window
+```json
+{
+  "rule_type": "visit_window",
+  "structured_rule": {
+    "window": {
+      "target": 0,
+      "minus": 28,
+      "plus": 0,
+      "unit": "days",
+      "relativeTo": "RANDOMIZATION|FIRST_DOSE|SCREENING|BASELINE|CYCLE_START"
+    },
+    "appliesTo": { "type": "visit", "names": ["Screening"] }
+  }
+}
+```
+
+### conditional
+```json
+{
+  "rule_type": "conditional",
+  "structured_rule": {
+    "condition": {
+      "type": "clinical|demographic|laboratory|procedural",
+      "expression": "original condition text",
+      "structured": { "parameter": null, "operator": null, "value": null }
+    },
+    "appliesTo": { "type": "visit|activity", "names": [] }
+  }
+}
+```
+
+### specimen_variant
+```json
+{
+  "rule_type": "specimen_variant",
+  "structured_rule": {
+    "variants": [
+      { "visits": ["Visit1"], "volume": 12, "unit": "mL", "specimen": "blood" }
+    ],
+    "appliesTo": { "type": "activity", "names": [] }
+  }
+}
+```
+
+### timing_constraint
+```json
+{
+  "rule_type": "timing_constraint",
+  "structured_rule": {
+    "timing": {
+      "type": "pre_dose|post_dose|fasting|specific_time",
+      "value": null,
+      "unit": "minutes|hours"
+    },
+    "appliesTo": { "type": "activity", "names": [] }
+  }
+}
+```
+
+### frequency
+```json
+{
+  "rule_type": "frequency",
+  "structured_rule": {
+    "frequency": {
+      "interval": 2,
+      "unit": "cycles|weeks|days",
+      "pattern": "every|alternating",
+      "maxOccurrences": null
+    },
+    "appliesTo": { "type": "activity", "names": [] }
+  }
+}
+```
+
+### abbreviation / general_note
+```json
+{
+  "rule_type": "abbreviation",
+  "structured_rule": {}
+}
+```
+
+## Input Footnotes
+
+{footnotes}
+
+## Output Format
+
+Return a JSON array where each object contains marker, rule_type, confidence, and structured_rule:
+
+```json
+[
+  {
+    "marker": "a",
+    "rule_type": "visit_window",
+    "confidence": 0.95,
+    "structured_rule": { ... }
+  },
+  {
+    "marker": "b",
+    "rule_type": "conditional",
+    "confidence": 0.85,
+    "structured_rule": { ... }
+  }
+]
+```
+
+## Your Response (JSON only)
+

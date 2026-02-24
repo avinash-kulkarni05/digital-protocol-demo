@@ -1,0 +1,226 @@
+{
+  "_metadata": {
+    "description": "Codes for alternative resolution in SOA interpretation pipeline",
+    "version": "2.0.0",
+    "created": "2025-12-07",
+    "note": "Alternative resolution codes are EXTENSION codes (not official NCI EVS). Real NCI codes are used where available and validated against local thesaurus.",
+    "validation": "All NCI codes verified against config/cdisc_codelists.json and config/cdisc_protocol_terminology.txt"
+  },
+  "extension_code_system": {
+    "uri": "http://protocol-digitalization.example.org/codesystem/soa-alternative-resolution",
+    "version": "1.0.0",
+    "name": "SOA_ALTERNATIVE_RESOLUTION",
+    "description": "Extension codes for Schedule of Activities alternative resolution. These are NOT official NCI EVS codes."
+  },
+  "nci_code_system": {
+    "uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+    "version": "24.12",
+    "name": "NCI_EVS"
+  },
+  "condition_type_codes": {
+    "_note": "EXTENSION CODES - not in official NCI EVS terminology",
+    "ALTERNATIVE_SELECTION": {
+      "code": "EXT-ALT-001",
+      "decode": "Alternative Selection Condition",
+      "description": "Condition indicating subject has selected one of multiple alternative options",
+      "isExtension": true
+    },
+    "MUTUALLY_EXCLUSIVE": {
+      "code": "EXT-ALT-002",
+      "decode": "Mutually Exclusive Alternative",
+      "description": "Condition for mutually exclusive choice between alternatives (X or Y, not both)",
+      "isExtension": true
+    },
+    "INVESTIGATOR_DISCRETION": {
+      "code": "EXT-ALT-003",
+      "decode": "Investigator Discretion",
+      "description": "Activity performed at investigator's discretion",
+      "isExtension": true
+    },
+    "PREFERRED_ALTERNATIVE": {
+      "code": "EXT-ALT-004",
+      "decode": "Preferred Alternative",
+      "description": "Preferred option with fallback alternative",
+      "isExtension": true
+    },
+    "CONDITIONAL_ALTERNATIVE": {
+      "code": "EXT-ALT-005",
+      "decode": "Conditional Alternative",
+      "description": "Alternative selection based on clinical condition",
+      "isExtension": true
+    }
+  },
+  "alternative_marker_codes": {
+    "_note": "EXTENSION CODES for alternative option markers",
+    "OPTION_A": {
+      "code": "EXT-OPT-A",
+      "decode": "Alternative Option A",
+      "description": "First alternative option",
+      "isExtension": true
+    },
+    "OPTION_B": {
+      "code": "EXT-OPT-B",
+      "decode": "Alternative Option B",
+      "description": "Second alternative option",
+      "isExtension": true
+    },
+    "OPTION_C": {
+      "code": "EXT-OPT-C",
+      "decode": "Alternative Option C",
+      "description": "Third alternative option",
+      "isExtension": true
+    },
+    "OPTION_D": {
+      "code": "EXT-OPT-D",
+      "decode": "Alternative Option D",
+      "description": "Fourth alternative option",
+      "isExtension": true
+    },
+    "OPTION_E": {
+      "code": "EXT-OPT-E",
+      "decode": "Alternative Option E",
+      "description": "Fifth alternative option",
+      "isExtension": true
+    }
+  },
+  "imaging_modality_codes": {
+    "_note": "NCI EVS CODES - validated against NCI Thesaurus",
+    "_validation_source": "https://ncithesaurus.nci.nih.gov/",
+    "CT_SCAN": {
+      "code": "C17204",
+      "decode": "Computed Tomography",
+      "description": "CT scan imaging modality",
+      "isExtension": false,
+      "nciValidated": true
+    },
+    "MRI": {
+      "code": "C16809",
+      "decode": "Magnetic Resonance Imaging",
+      "description": "MRI imaging modality",
+      "isExtension": false,
+      "nciValidated": true
+    },
+    "PET_SCAN": {
+      "code": "C17007",
+      "decode": "Positron Emission Tomography",
+      "description": "PET scan imaging modality",
+      "isExtension": false,
+      "nciValidated": true
+    },
+    "XRAY": {
+      "code": "C38101",
+      "decode": "X-Ray",
+      "description": "X-ray imaging",
+      "isExtension": false,
+      "nciValidated": true
+    },
+    "ULTRASOUND": {
+      "code": "C17230",
+      "decode": "Ultrasound",
+      "description": "Ultrasound imaging",
+      "isExtension": false,
+      "nciValidated": true
+    },
+    "ECHOCARDIOGRAM": {
+      "code": "C168232",
+      "decode": "Echocardiogram",
+      "description": "Cardiac ultrasound imaging",
+      "isExtension": false,
+      "nciValidated": true
+    },
+    "MUGA_SCAN": {
+      "code": "C17649",
+      "decode": "MUGA Scan",
+      "description": "Multiple-gated acquisition scan for cardiac function",
+      "isExtension": false,
+      "nciValidated": true
+    },
+    "BONE_SCAN": {
+      "code": "C17646",
+      "decode": "Bone Scan",
+      "description": "Nuclear medicine bone scan",
+      "isExtension": false,
+      "nciValidated": true
+    }
+  },
+  "specimen_type_codes": {
+    "_note": "NCI EVS CODES - validated against NCI Thesaurus",
+    "BLOOD": {
+      "code": "C17610",
+      "decode": "Blood",
+      "description": "Blood specimen",
+      "isExtension": false,
+      "nciValidated": true
+    },
+    "URINE": {
+      "code": "C13283",
+      "decode": "Urine",
+      "description": "Urine specimen",
+      "isExtension": false,
+      "nciValidated": true
+    },
+    "SERUM": {
+      "code": "C13352",
+      "decode": "Serum",
+      "description": "Serum specimen",
+      "isExtension": false,
+      "nciValidated": true
+    },
+    "PLASMA": {
+      "code": "C13356",
+      "decode": "Plasma",
+      "description": "Plasma specimen",
+      "isExtension": false,
+      "nciValidated": true
+    }
+  },
+  "ecg_type_codes": {
+    "_note": "NCI EVS CODES - validated against NCI Thesaurus",
+    "12_LEAD_ECG": {
+      "code": "C168825",
+      "decode": "12-lead ECG",
+      "description": "Standard 12-lead electrocardiogram",
+      "isExtension": false,
+      "nciValidated": true
+    },
+    "HOLTER_MONITOR": {
+      "code": "C62252",
+      "decode": "Holter Monitor",
+      "description": "Continuous ambulatory ECG monitoring",
+      "isExtension": false,
+      "nciValidated": true
+    }
+  },
+  "administration_route_codes": {
+    "_note": "NCI EVS CODES - validated against config/cdisc_codelists.json",
+    "_validation_source": "config/cdisc_codelists.json routeOfAdministration",
+    "ORAL": {
+      "code": "C38288",
+      "decode": "Oral",
+      "description": "Oral administration",
+      "isExtension": false,
+      "nciValidated": true
+    },
+    "INTRAVENOUS": {
+      "code": "C38276",
+      "decode": "Intravenous",
+      "description": "IV administration",
+      "isExtension": false,
+      "nciValidated": true
+    },
+    "SUBCUTANEOUS": {
+      "code": "C38299",
+      "decode": "Subcutaneous",
+      "description": "SC administration",
+      "isExtension": false,
+      "nciValidated": true
+    },
+    "INTRAMUSCULAR": {
+      "code": "C38274",
+      "decode": "Intramuscular",
+      "description": "IM administration",
+      "isExtension": false,
+      "nciValidated": true
+    }
+  }
+}

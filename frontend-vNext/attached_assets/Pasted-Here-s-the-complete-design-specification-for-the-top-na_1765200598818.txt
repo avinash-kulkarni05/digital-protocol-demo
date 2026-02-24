@@ -1,0 +1,124 @@
+Here's the complete design specification for the top navbar:
+
+TOP NAVBAR DESIGN SPECS
+Overall Container
+Height: 52px (py-3 padding + content)
+Background: White (bg-white)
+Padding: 24px horizontal (px-6), 12px vertical (py-3)
+Position: Sticky (stays at top when scrolling)
+Z-index: 50 (high stacking order)
+Border: 1px bottom in gray-200 (border-b border-gray-200)
+Shadow: Subtle shadow (shadow-sm)
+Layout: Flexbox, space-between, items centered, 32px gap between sections (flex items-center justify-between gap-8)
+LEFT SECTION - Logo & Branding
+Container:
+
+Layout: Flex with 12px gap (flex items-center gap-3)
+No flex-grow (stays fixed width)
+Logo:
+
+Image: /saama-logo.png
+Size: 40px height (h-10)
+Flex: No shrinking (flex-shrink-0)
+Divider:
+
+Width: 1px (w-px)
+Height: 32px (h-8)
+Color: Gray-300 (bg-gray-300)
+Flex: No shrinking
+Platform Text:
+
+Content: "Digital Study Platform"
+Font Size: 20px (text-xl)
+Font Weight: 300 light (font-light)
+Color: Gray-600 (text-gray-600)
+Line Height: None (leading-none)
+CENTER SECTION - Search Bar
+Container:
+
+Display: Hidden on mobile, visible on large screens (hidden lg:flex)
+Flex-grow: Yes (flex-1)
+Max Width: max-w-2xl (672px)
+Margin: Horizontal (mx-8)
+Input Field:
+
+Placeholder: "Search sites, protocols, or investigators..."
+Padding: 10px vertical, 10px left, 16px right (py-2.5 pl-10 pr-4)
+Border: 1px gray-300 (border border-gray-300)
+Shape: Pill-shaped (rounded-full)
+Font Size: Small (text-sm)
+Background: White
+Text Color: Gray-900
+Placeholder Color: Gray-500
+Focus State: Ring-2 gray-400 (focus:ring-2 focus:ring-gray-400)
+Focus Border: Transparent
+Outline: None
+Search Icon:
+
+Position: Absolute left
+Size: 20px (w-5 h-5)
+Color: Gray-400
+Padding: 16px from left
+RIGHT SECTION - User Menu
+Avatar Button:
+
+Layout: Flex with 8px gap (flex items-center gap-2)
+No shrinking (flex-shrink-0)
+Hover: Light gray background (hover:bg-gray-100)
+Border: Pill-shaped (rounded-full)
+Padding: 12px horizontal, 8px vertical (px-3 py-2)
+Transition: Color transition
+Relative positioning for dropdown
+User Avatar Circle:
+
+Size: 32px × 32px (w-8 h-8)
+Background: Black (bg-black)
+Shape: Perfect circle (rounded-full)
+Layout: Flex centered
+No shrinking (flex-shrink-0)
+Initials Text (in avatar):
+
+Font Size: Extra small (text-xs)
+Font Weight: Semibold (font-semibold)
+Color: White
+Display Name:
+
+Font Size: Small (text-sm)
+Font Weight: Medium (font-medium)
+Color: Gray-900
+Hidden on mobile, inline on small+ screens (hidden sm:inline)
+Chevron Icon:
+
+Size: 16px (w-4 h-4)
+Color: Gray-600
+No shrinking
+Dropdown Menu (when open):
+
+Position: Absolute right (right-0)
+Top margin: 8px (mt-2)
+Width: 256px (w-64)
+Background: White
+Border: 1px gray-200
+Border-radius: 8px (rounded-lg)
+Shadow: Large (shadow-xl)
+Padding vertical: 8px (py-2)
+Z-index: 20
+Dropdown Content:
+
+User name: Small bold text (text-sm font-medium)
+Email: Extra small gray text (text-xs text-gray-500)
+Divider: 1px gray-200
+Sign Out button: Red text on hover bg-red-50
+Color Palette
+Primary: Black (text, avatars, active states)
+Secondary: White (backgrounds)
+Neutral: Gray-300 to Gray-600 (borders, secondary text)
+Accent: Red-600 (logout action)
+Typography
+Font Sizes: text-xl (20px), text-sm (14px), text-xs (12px)
+Font Weights: Light (300), Medium (500), Semibold (600)
+Line Height: None (tight navbar)
+Responsive Behavior
+Search bar: Hidden on mobile (hidden lg:flex)
+User display name: Hidden on mobile (hidden sm:inline)
+Buttons container: Full-width flex on mobile

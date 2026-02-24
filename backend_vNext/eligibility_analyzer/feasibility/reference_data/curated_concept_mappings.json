@@ -1,0 +1,4620 @@
+{
+  "metadata": {
+    "description": "Curated OMOP and FHIR concept mappings for oncology clinical trial eligibility criteria",
+    "version": "3.1",
+    "last_updated": "2025-12-19",
+    "purpose": "Bypass pattern-based database lookup for well-known clinical concepts to prevent semantic mismatches",
+    "sources": [
+      "ASCO-Friends of Cancer Research Working Groups",
+      "FDA Cancer Clinical Trial Eligibility Criteria Guidance",
+      "ClinicalTrials.gov common oncology criteria analysis"
+    ],
+    "categories": [
+      "lab_mappings (34 entries)",
+      "organ_function_mappings (6 entries)",
+      "biomarker_mappings (23 entries)",
+      "functional_status_mappings (3 entries)",
+      "condition_mappings (37 entries)",
+      "comorbidity_mappings (24 entries)",
+      "clinical_findings_mappings (12 entries)",
+      "prior_treatment_mappings (20 entries)",
+      "medication_mappings (8 entries)",
+      "demographic_mappings (4 entries)",
+      "procedure_mappings (4 entries)",
+      "allergy_hypersensitivity_mappings (3 entries)",
+      "non_queryable_concepts (3 entries)"
+    ],
+    "total_mappings": 181
+  },
+  "lab_mappings": {
+    "anc": {
+      "patterns": [
+        "anc",
+        "absolute neutrophil count",
+        "neutrophil count",
+        "neutrophils"
+      ],
+      "omop_concept": {
+        "concept_id": 3017732,
+        "concept_name": "Neutrophils [#/volume] in Blood",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "26499-4"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "26499-4",
+          "display": "Neutrophils [#/volume] in Blood"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3017732",
+      "unit": "/mm3",
+      "typical_threshold": ">= 1500/mm3"
+    },
+    "hemoglobin": {
+      "patterns": [
+        "hemoglobin",
+        "hgb",
+        "hb level",
+        "hb >=",
+        "hb >"
+      ],
+      "omop_concept": {
+        "concept_id": 3000963,
+        "concept_name": "Hemoglobin [Mass/volume] in Blood",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "718-7"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "718-7",
+          "display": "Hemoglobin [Mass/volume] in Blood"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3000963",
+      "unit": "g/dL",
+      "typical_threshold": ">= 8.0-9.0 g/dL"
+    },
+    "platelets": {
+      "patterns": [
+        "platelet",
+        "platelet count",
+        "plt",
+        "thrombocyte"
+      ],
+      "omop_concept": {
+        "concept_id": 3007461,
+        "concept_name": "Platelets [#/volume] in Blood",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "26515-7"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "26515-7",
+          "display": "Platelets [#/volume] in Blood"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3007461",
+      "unit": "/mm3",
+      "typical_threshold": ">= 100,000/mm3"
+    },
+    "creatinine": {
+      "patterns": [
+        "creatinine",
+        "serum creatinine",
+        "creatinine level"
+      ],
+      "omop_concept": {
+        "concept_id": 3016723,
+        "concept_name": "Creatinine [Mass/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "2160-0"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "2160-0",
+          "display": "Creatinine [Mass/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3016723",
+      "unit": "mg/dL"
+    },
+    "creatinine_clearance": {
+      "patterns": [
+        "creatinine clearance",
+        "crcl",
+        "cockcroft-gault",
+        "cockcroft gault"
+      ],
+      "omop_concept": {
+        "concept_id": 3035529,
+        "concept_name": "Creatinine renal clearance predicted by Cockcroft-Gault formula",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "35591-7"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "35591-7",
+          "display": "Creatinine renal clearance predicted by Cockcroft-Gault formula"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3035529",
+      "unit": "mL/min",
+      "typical_threshold": ">= 50-60 mL/min"
+    },
+    "ast": {
+      "patterns": [
+        "ast",
+        "aspartate aminotransferase",
+        "sgot",
+        "ast level"
+      ],
+      "omop_concept": {
+        "concept_id": 3013721,
+        "concept_name": "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "1920-8"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "1920-8",
+          "display": "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3013721",
+      "unit": "U/L",
+      "typical_threshold": "<= 3x ULN (5x with liver mets)"
+    },
+    "alt": {
+      "patterns": [
+        "alt",
+        "alanine aminotransferase",
+        "sgpt",
+        "alt level"
+      ],
+      "omop_concept": {
+        "concept_id": 3006923,
+        "concept_name": "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "1742-6"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "1742-6",
+          "display": "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3006923",
+      "unit": "U/L",
+      "typical_threshold": "<= 3x ULN (5x with liver mets)"
+    },
+    "bilirubin": {
+      "patterns": [
+        "bilirubin",
+        "total bilirubin",
+        "serum bilirubin",
+        "tbili"
+      ],
+      "omop_concept": {
+        "concept_id": 3024128,
+        "concept_name": "Bilirubin.total [Mass/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "1975-2"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "1975-2",
+          "display": "Bilirubin.total [Mass/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3024128",
+      "unit": "mg/dL",
+      "typical_threshold": "<= 1.5x ULN"
+    },
+    "wbc": {
+      "patterns": [
+        "wbc",
+        "white blood cell",
+        "leukocyte count",
+        "white cell count",
+        "leukocytes"
+      ],
+      "omop_concept": {
+        "concept_id": 3010813,
+        "concept_name": "Leukocytes [#/volume] in Blood",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "26464-8"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "26464-8",
+          "display": "Leukocytes [#/volume] in Blood"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3010813",
+      "unit": "/mm3"
+    },
+    "inr": {
+      "patterns": [
+        "inr",
+        "international normalized ratio",
+        "prothrombin time inr"
+      ],
+      "omop_concept": {
+        "concept_id": 3022217,
+        "concept_name": "INR in Platelet poor plasma by Coagulation assay",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "6301-6"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "6301-6",
+          "display": "INR in Platelet poor plasma by Coagulation assay"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3022217",
+      "unit": ""
+    },
+    "albumin": {
+      "patterns": [
+        "albumin",
+        "serum albumin"
+      ],
+      "omop_concept": {
+        "concept_id": 3024561,
+        "concept_name": "Albumin [Mass/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "1751-7"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "1751-7",
+          "display": "Albumin [Mass/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3024561",
+      "unit": "g/dL"
+    },
+    "alkaline_phosphatase": {
+      "patterns": [
+        "alkaline phosphatase",
+        "alp",
+        "alk phos"
+      ],
+      "omop_concept": {
+        "concept_id": 3035995,
+        "concept_name": "Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "6768-6"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "6768-6",
+          "display": "Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3035995",
+      "unit": "U/L"
+    },
+    "ldh": {
+      "patterns": [
+        "ldh",
+        "lactate dehydrogenase"
+      ],
+      "omop_concept": {
+        "concept_id": 3016436,
+        "concept_name": "Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "2532-0"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "2532-0",
+          "display": "Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3016436",
+      "unit": "U/L"
+    },
+    "potassium": {
+      "patterns": [
+        "potassium",
+        "serum potassium",
+        "k+"
+      ],
+      "omop_concept": {
+        "concept_id": 3023103,
+        "concept_name": "Potassium [Moles/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "2823-3"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "2823-3",
+          "display": "Potassium [Moles/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3023103",
+      "unit": "mEq/L"
+    },
+    "sodium": {
+      "patterns": [
+        "sodium",
+        "serum sodium",
+        "na+"
+      ],
+      "omop_concept": {
+        "concept_id": 3019550,
+        "concept_name": "Sodium [Moles/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "2951-2"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "2951-2",
+          "display": "Sodium [Moles/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3019550",
+      "unit": "mEq/L"
+    },
+    "calcium": {
+      "patterns": [
+        "calcium",
+        "serum calcium",
+        "ca2+"
+      ],
+      "omop_concept": {
+        "concept_id": 3006906,
+        "concept_name": "Calcium [Mass/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "17861-6"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "17861-6",
+          "display": "Calcium [Mass/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3006490",
+      "unit": "mg/dL"
+    },
+    "glucose": {
+      "patterns": [
+        "glucose",
+        "blood glucose",
+        "fasting glucose"
+      ],
+      "omop_concept": {
+        "concept_id": 3004501,
+        "concept_name": "Glucose [Mass/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "2345-7"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "2345-7",
+          "display": "Glucose [Mass/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3004501",
+      "unit": "mg/dL"
+    },
+    "hba1c": {
+      "patterns": [
+        "hba1c",
+        "hemoglobin a1c",
+        "glycated hemoglobin",
+        "a1c"
+      ],
+      "omop_concept": {
+        "concept_id": 3004410,
+        "concept_name": "Hemoglobin A1c/Hemoglobin.total in Blood",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "4548-4"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "4548-4",
+          "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3004410",
+      "unit": "%"
+    },
+    "uric_acid": {
+      "patterns": [
+        "uric acid",
+        "serum uric acid",
+        "urate"
+      ],
+      "omop_concept": {
+        "concept_id": 3037556,
+        "concept_name": "Urate [Mass/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "3084-1"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "3084-1",
+          "display": "Urate [Mass/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3020460",
+      "unit": "mg/dL"
+    },
+    "magnesium": {
+      "patterns": [
+        "magnesium",
+        "serum magnesium",
+        "mg2+"
+      ],
+      "omop_concept": {
+        "concept_id": 3001420,
+        "concept_name": "Magnesium [Mass/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "19123-9"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "19123-9",
+          "display": "Magnesium [Mass/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3014576",
+      "unit": "mg/dL"
+    },
+    "phosphorus": {
+      "patterns": [
+        "phosphorus",
+        "serum phosphorus",
+        "phosphate"
+      ],
+      "omop_concept": {
+        "concept_id": 3011904,
+        "concept_name": "Phosphate [Mass/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "2777-1"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "2777-1",
+          "display": "Phosphate [Mass/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3020891",
+      "unit": "mg/dL"
+    },
+    "tsh": {
+      "patterns": [
+        "tsh",
+        "thyroid stimulating hormone",
+        "thyrotropin"
+      ],
+      "omop_concept": {
+        "concept_id": 3009201,
+        "concept_name": "Thyrotropin [Units/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "3016-3"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "3016-3",
+          "display": "Thyrotropin [Units/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3016502",
+      "unit": "mIU/L"
+    },
+    "aptt": {
+      "patterns": [
+        "aptt",
+        "ptt",
+        "activated partial thromboplastin time",
+        "partial thromboplastin"
+      ],
+      "omop_concept": {
+        "concept_id": 3013466,
+        "concept_name": "aPTT in Blood by Coagulation assay",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "3173-2"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "3173-2",
+          "display": "aPTT in Blood by Coagulation assay"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3013466",
+      "unit": "sec"
+    },
+    "lymphocytes": {
+      "patterns": [
+        "lymphocyte",
+        "lymphocyte count",
+        "alc",
+        "absolute lymphocyte count"
+      ],
+      "omop_concept": {
+        "concept_id": 3019198,
+        "concept_name": "Lymphocytes [#/volume] in Blood",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "26474-7"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "26474-7",
+          "display": "Lymphocytes [#/volume] in Blood"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "unit": "/mm3"
+    },
+    "prothrombin_time": {
+      "patterns": [
+        "prothrombin time",
+        "pt",
+        "pt/inr"
+      ],
+      "omop_concept": {
+        "concept_id": 3034426,
+        "concept_name": "Prothrombin time (PT)",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "5902-2"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "5902-2",
+          "display": "Prothrombin time (PT)"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "unit": "sec"
+    },
+    "fibrinogen": {
+      "patterns": [
+        "fibrinogen",
+        "fibrinogen level"
+      ],
+      "omop_concept": {
+        "concept_id": 3016407,
+        "concept_name": "Fibrinogen [Mass/volume] in Platelet poor plasma by Coagulation assay",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "3255-7"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "3255-7",
+          "display": "Fibrinogen [Mass/volume] in Platelet poor plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "unit": "mg/dL"
+    },
+    "d_dimer": {
+      "patterns": [
+        "d-dimer",
+        "d dimer",
+        "ddimer"
+      ],
+      "omop_concept": {
+        "concept_id": 3051714,
+        "concept_name": "Fibrin D-dimer FEU [Mass/volume] in Platelet poor plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "48065-7"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "48065-7",
+          "display": "Fibrin D-dimer FEU [Mass/volume] in Platelet poor plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "unit": "ng/mL FEU"
+    },
+    "troponin": {
+      "patterns": [
+        "troponin",
+        "troponin i",
+        "troponin t",
+        "cardiac troponin"
+      ],
+      "omop_concept": {
+        "concept_id": 3021337,
+        "concept_name": "Troponin I.cardiac [Mass/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "10839-9"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "10839-9",
+          "display": "Troponin I.cardiac [Mass/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "unit": "ng/mL"
+    },
+    "bnp": {
+      "patterns": [
+        "bnp",
+        "brain natriuretic peptide",
+        "nt-probnp",
+        "ntprobnp",
+        "pro-bnp"
+      ],
+      "omop_concept": {
+        "concept_id": 3029187,
+        "concept_name": "Natriuretic peptide.B prohormone N-Terminal [Mass/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "33762-6"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "33762-6",
+          "display": "NT-proBNP [Mass/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "unit": "pg/mL"
+    },
+    "amylase": {
+      "patterns": [
+        "amylase",
+        "serum amylase"
+      ],
+      "omop_concept": {
+        "concept_id": 3016771,
+        "concept_name": "Amylase [Enzymatic activity/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "1798-8"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "1798-8",
+          "display": "Amylase [Enzymatic activity/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "unit": "U/L"
+    },
+    "lipase": {
+      "patterns": [
+        "lipase",
+        "serum lipase"
+      ],
+      "omop_concept": {
+        "concept_id": 3004905,
+        "concept_name": "Lipase [Enzymatic activity/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "3040-3"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "3040-3",
+          "display": "Lipase [Enzymatic activity/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "unit": "U/L"
+    },
+    "ferritin": {
+      "patterns": [
+        "ferritin",
+        "serum ferritin"
+      ],
+      "omop_concept": {
+        "concept_id": 3001122,
+        "concept_name": "Ferritin [Mass/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "2276-4"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "2276-4",
+          "display": "Ferritin [Mass/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "unit": "ng/mL"
+    },
+    "direct_bilirubin": {
+      "patterns": [
+        "direct bilirubin",
+        "conjugated bilirubin",
+        "dbili"
+      ],
+      "omop_concept": {
+        "concept_id": 3027597,
+        "concept_name": "Bilirubin.direct [Mass/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "1968-7"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "1968-7",
+          "display": "Bilirubin.direct [Mass/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "unit": "mg/dL"
+    },
+    "ggt": {
+      "patterns": [
+        "ggt",
+        "gamma-glutamyl transferase",
+        "gamma glutamyl",
+        "ggtp"
+      ],
+      "omop_concept": {
+        "concept_id": 3026910,
+        "concept_name": "Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "2324-2"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "2324-2",
+          "display": "Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "unit": "U/L"
+    }
+  },
+  "organ_function_mappings": {
+    "lvef": {
+      "patterns": [
+        "lvef",
+        "left ventricular ejection fraction",
+        "ejection fraction",
+        "cardiac ejection fraction"
+      ],
+      "omop_concept": {
+        "concept_id": 3027172,
+        "concept_name": "Left ventricular Ejection fraction",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "10230-1"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "10230-1",
+          "display": "Left ventricular Ejection fraction"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3027457",
+      "unit": "%",
+      "typical_threshold": ">= 50%"
+    },
+    "gfr": {
+      "patterns": [
+        "gfr",
+        "egfr",
+        "glomerular filtration rate",
+        "estimated gfr"
+      ],
+      "omop_concept": {
+        "concept_id": 40764999,
+        "concept_name": "Glomerular filtration rate/1.73 sq M.predicted [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI)",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "62238-1"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "33914-3",
+          "display": "Glomerular filtration rate/1.73 sq M predicted"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3030354",
+      "unit": "mL/min/1.73m2",
+      "typical_threshold": ">= 50 mL/min/1.73m2"
+    },
+    "fev1": {
+      "patterns": [
+        "fev1",
+        "forced expiratory volume",
+        "fev 1"
+      ],
+      "omop_concept": {
+        "concept_id": 3024653,
+        "concept_name": "FEV1",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "20150-9"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "20150-9",
+          "display": "FEV1"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3024653",
+      "unit": "L"
+    },
+    "oxygen_saturation": {
+      "patterns": [
+        "oxygen saturation",
+        "o2 sat",
+        "spo2",
+        "pulse oximetry"
+      ],
+      "omop_concept": {
+        "concept_id": 40762499,
+        "concept_name": "Oxygen saturation in Arterial blood by Pulse oximetry",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "59408-5"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "59408-5",
+          "display": "Oxygen saturation in Arterial blood by Pulse oximetry"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3016502",
+      "unit": "%"
+    },
+    "qtc_interval": {
+      "patterns": [
+        "qtc",
+        "qtc interval",
+        "corrected qt",
+        "qt interval"
+      ],
+      "omop_concept": {
+        "concept_id": 3026258,
+        "concept_name": "Q-T interval corrected",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "8636-3"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "8636-3",
+          "display": "QTc interval"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3022621",
+      "unit": "ms",
+      "typical_threshold": "<= 470 ms (male) / 480 ms (female)"
+    },
+    "cd4_count": {
+      "patterns": [
+        "cd4",
+        "cd4 count",
+        "cd4+ t-cell",
+        "cd4 t-cell count"
+      ],
+      "omop_concept": {
+        "concept_id": 3028167,
+        "concept_name": "CD3+CD4+ (T4 helper) cells [#/volume] in Blood",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "24467-3"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "24467-3",
+          "display": "CD4 cells [#/volume] in Blood"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 3017732",
+      "unit": "cells/uL",
+      "typical_threshold": ">= 350 cells/uL (for HIV+ patients)"
+    }
+  },
+  "biomarker_mappings": {
+    "egfr_mutation": {
+      "patterns": [
+        "egfr mutation",
+        "egfr exon 19",
+        "egfr l858r",
+        "egfr gene mutation",
+        "egfr exon 21",
+        "egfr del19",
+        "egfr t790m"
+      ],
+      "omop_concept": {
+        "concept_id": 3014444,
+        "concept_name": "EGFR gene mutations tested for in Blood or Tissue by Molecular genetics method Nominal",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "21666-3"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "50917-9",
+          "display": "EGFR gene mutation analysis"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "note": "Requires value interpretation (Positive/Negative)"
+    },
+    "alk_rearrangement": {
+      "patterns": [
+        "alk rearrangement",
+        "alk fusion",
+        "alk translocation",
+        "alk positive",
+        "alk-positive",
+        "alk gene"
+      ],
+      "omop_concept": {
+        "concept_id": 21492143,
+        "concept_name": "ALK gene rearrangements [Presence] in Blood or Tissue by FISH",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "78205-2"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "62385-0",
+          "display": "ALK gene rearrangement analysis"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "ros1_rearrangement": {
+      "patterns": [
+        "ros1 rearrangement",
+        "ros1 fusion",
+        "ros1 translocation",
+        "ros1 positive"
+      ],
+      "omop_concept": {
+        "concept_id": 37021561,
+        "concept_name": "PROS1 gene full mutation analysis in Blood or Tissue by Sequencing",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "92994-3"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "69750-5",
+          "display": "ROS1 gene rearrangement analysis"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "braf_mutation": {
+      "patterns": [
+        "braf mutation",
+        "braf v600",
+        "braf v600e",
+        "braf v600k"
+      ],
+      "omop_concept": {
+        "concept_id": 1259735,
+        "concept_name": "BRAF gene mutations tested for in Blood or Tissue by Molecular genetics method Nominal",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "104278-7"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "69965-9",
+          "display": "BRAF gene mutation analysis"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "kras_mutation": {
+      "patterns": [
+        "kras mutation",
+        "kras wild-type",
+        "kras wt",
+        "kras g12c"
+      ],
+      "omop_concept": {
+        "concept_id": 3027034,
+        "concept_name": "KRAS gene mutations tested for in Blood or Tissue by Molecular genetics method Nominal",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "21703-4"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "67317-5",
+          "display": "KRAS gene mutation analysis"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "pd_l1": {
+      "patterns": [
+        "pd-l1",
+        "pdl1",
+        "pd l1 expression",
+        "programmed death ligand",
+        "pd-l1 tps",
+        "pd-l1 score"
+      ],
+      "omop_concept": {
+        "concept_id": 1988568,
+        "concept_name": "PD-L1 by clone SP263 in Tissue Document",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "99064-8"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "85147-1",
+          "display": "PD-L1 tumor proportion score"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "her2": {
+      "patterns": [
+        "her2",
+        "her2/neu",
+        "erbb2",
+        "her-2",
+        "her2 positive",
+        "her2 negative"
+      ],
+      "omop_concept": {
+        "concept_id": 3019066,
+        "concept_name": "HER2 Ag [Presence] in Tissue by Immune stain",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "18474-7"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "62862-8",
+          "display": "ERBB2 gene amplification analysis"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "brca_mutation": {
+      "patterns": [
+        "brca mutation",
+        "brca1",
+        "brca2",
+        "brca1/2",
+        "brca positive"
+      ],
+      "omop_concept": {
+        "concept_id": 40762134,
+        "concept_name": "BRCA1+BRCA2 gene mutations tested for in Blood or Tissue by Molecular genetics method Nominal",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "59041-4"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "62863-6",
+          "display": "BRCA1+BRCA2 gene mutation analysis"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "msi_status": {
+      "patterns": [
+        "msi",
+        "microsatellite instability",
+        "msi-h",
+        "msi high",
+        "msi-l",
+        "mss"
+      ],
+      "omop_concept": {
+        "concept_id": 21493972,
+        "concept_name": "Microsatellite instability [Interpretation] in Cancer specimen Qualitative",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "81695-9"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "67348-0",
+          "display": "Microsatellite instability [Presence] in Tumor"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "ntrk_fusion": {
+      "patterns": [
+        "ntrk fusion",
+        "ntrk rearrangement",
+        "ntrk1",
+        "ntrk2",
+        "ntrk3",
+        "trk fusion"
+      ],
+      "omop_concept": {
+        "concept_id": 1001807,
+        "concept_name": "NTRK1, NTRK2 and NTRK3 gene rearrangements in Tissue by Molecular genetics method",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "93813-4"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "81704-9",
+          "display": "NTRK gene fusion panel"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "ret_fusion": {
+      "patterns": [
+        "ret fusion",
+        "ret rearrangement",
+        "ret positive"
+      ],
+      "omop_concept": {
+        "concept_id": 1175704,
+        "concept_name": "RET gene rearrangements in Blood or Tissue by FISH",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "90927-5"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "81703-1",
+          "display": "RET gene rearrangement"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "met_amplification": {
+      "patterns": [
+        "met amplification",
+        "met exon 14",
+        "met skipping",
+        "c-met"
+      ],
+      "omop_concept": {
+        "concept_id": 1175757,
+        "concept_name": "MET gene amplification in Blood or Tissue by FISH",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "90926-7"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "81702-3",
+          "display": "MET gene amplification"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "estrogen_receptor": {
+      "patterns": [
+        "estrogen receptor",
+        "er positive",
+        "er negative",
+        "er status"
+      ],
+      "omop_concept": {
+        "concept_id": 3004390,
+        "concept_name": "Estrogen receptor [Interpretation] in Tissue",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "16112-5"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "16112-5",
+          "display": "Estrogen receptor [Presence] in Tissue"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "progesterone_receptor": {
+      "patterns": [
+        "progesterone receptor",
+        "pr positive",
+        "pr negative",
+        "pr status"
+      ],
+      "omop_concept": {
+        "concept_id": 3003289,
+        "concept_name": "Progesterone receptor [Interpretation] in Tissue",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "16113-3"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "16113-3",
+          "display": "Progesterone receptor [Presence] in Tissue"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "tmb": {
+      "patterns": [
+        "tmb",
+        "tumor mutational burden",
+        "mutation burden"
+      ],
+      "omop_concept": {
+        "concept_id": 1001563,
+        "concept_name": "Mutations/Megabase [# Ratio] in Tumor",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "94076-7"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "94076-7",
+          "display": "Tumor mutation burden"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "unit": "mutations/Mb"
+    },
+    "pik3ca_mutation": {
+      "patterns": [
+        "pik3ca mutation",
+        "pik3ca",
+        "pi3k mutation"
+      ],
+      "omop_concept": {
+        "concept_id": 40763093,
+        "concept_name": "PIK3CA gene targeted mutation analysis in Blood or Tissue by Molecular genetics method",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "60034-6"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "85315-8",
+          "display": "PIK3CA gene mutation analysis"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "idh1_mutation": {
+      "patterns": [
+        "idh1 mutation",
+        "idh1",
+        "isocitrate dehydrogenase 1"
+      ],
+      "omop_concept": {
+        "concept_id": 1989518,
+        "concept_name": "IDH1 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "100022-3"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "94077-5",
+          "display": "IDH1 gene mutation analysis"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "idh2_mutation": {
+      "patterns": [
+        "idh2 mutation",
+        "idh2",
+        "isocitrate dehydrogenase 2"
+      ],
+      "omop_concept": {
+        "concept_id": 1989106,
+        "concept_name": "IDH2 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "100023-1"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "94078-3",
+          "display": "IDH2 gene mutation analysis"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "fgfr_alteration": {
+      "patterns": [
+        "fgfr alteration",
+        "fgfr mutation",
+        "fgfr fusion",
+        "fgfr1",
+        "fgfr2",
+        "fgfr3"
+      ],
+      "omop_concept": {
+        "concept_id": 36032016,
+        "concept_name": "FGFR2 gene rearrangements in Tissue by FISH",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "95784-5"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "85310-9",
+          "display": "FGFR gene alteration analysis"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "pten_loss": {
+      "patterns": [
+        "pten loss",
+        "pten mutation",
+        "pten deletion"
+      ],
+      "omop_concept": {
+        "concept_id": 21493987,
+        "concept_name": "PTEN gene [Presence] in Cancer specimen by FISH",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "81710-6"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "85320-8",
+          "display": "PTEN gene analysis"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "tp53_mutation": {
+      "patterns": [
+        "tp53 mutation",
+        "tp53",
+        "p53 mutation"
+      ],
+      "omop_concept": {
+        "concept_id": 1259990,
+        "concept_name": "TP53 gene full mutation analysis in Blood or Tissue by Molecular genetics method",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "103680-5"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "85323-2",
+          "display": "TP53 gene mutation analysis"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "cps": {
+      "patterns": [
+        "combined positive score",
+        "cps",
+        "cps score"
+      ],
+      "omop_concept": {
+        "concept_id": 600107577,
+        "concept_name": "Combined Positive Score",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Measurement",
+        "concept_code": "C204670"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "96207-6",
+          "display": "PD-L1 combined positive score"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    },
+    "dmmr": {
+      "patterns": [
+        "dmmr",
+        "mismatch repair deficient",
+        "mmr deficient",
+        "mmrd"
+      ],
+      "omop_concept": {
+        "concept_id": 21493972,
+        "concept_name": "Microsatellite instability [Interpretation] in Cancer specimen Qualitative",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "81695-9"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "85338-0",
+          "display": "MMR deficiency analysis"
+        }
+      ],
+      "fhir_resource_type": "Observation"
+    }
+  },
+  "functional_status_mappings": {
+    "ecog": {
+      "patterns": [
+        "ecog",
+        "ecog performance",
+        "ecog ps",
+        "ecog status",
+        "performance status"
+      ],
+      "omop_concept": {
+        "concept_id": 36305384,
+        "concept_name": "ECOG Performance Status score",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "89247-1"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "89247-1",
+          "display": "ECOG Performance Status score"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 36305384",
+      "typical_threshold": "0-2 (most trials)"
+    },
+    "karnofsky": {
+      "patterns": [
+        "karnofsky",
+        "kps",
+        "karnofsky performance",
+        "karnofsky score"
+      ],
+      "omop_concept": {
+        "concept_id": 36303287,
+        "concept_name": "Karnofsky Performance Status score",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Measurement",
+        "concept_code": "89243-0"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "89243-0",
+          "display": "Karnofsky Performance Status score"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 36303287",
+      "typical_threshold": ">= 70%"
+    },
+    "nyha": {
+      "patterns": [
+        "nyha",
+        "nyha class",
+        "new york heart association",
+        "heart failure class"
+      ],
+      "omop_concept": {
+        "concept_id": 36305765,
+        "concept_name": "Functional capacity NYHA",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Observation",
+        "concept_code": "88020-3"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "88020-3",
+          "display": "Functional capacity NYHA"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM observation WHERE observation_concept_id = 36305765"
+    }
+  },
+  "condition_mappings": {
+    "nsclc": {
+      "patterns": [
+        "nsclc",
+        "non-small cell lung cancer",
+        "non small cell lung cancer",
+        "non-small cell lung carcinoma"
+      ],
+      "omop_concept": {
+        "concept_id": 4115276,
+        "concept_name": "Non-small cell lung cancer",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "254637007"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "254637007",
+          "display": "Non-small cell lung cancer"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C34.90",
+          "display": "Malignant neoplasm of unspecified part of bronchus or lung"
+        }
+      ],
+      "fhir_resource_type": "Condition",
+      "sql_template": "SELECT DISTINCT person_id FROM condition_occurrence WHERE condition_concept_id = 4115276"
+    },
+    "sclc": {
+      "patterns": [
+        "sclc",
+        "small cell lung cancer",
+        "small cell lung carcinoma"
+      ],
+      "omop_concept": {
+        "concept_id": 4110591,
+        "concept_name": "Small cell carcinoma of lung",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "254632001"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "254632001",
+          "display": "Small cell carcinoma of lung"
+        }
+      ],
+      "fhir_resource_type": "Condition",
+      "sql_template": "SELECT DISTINCT person_id FROM condition_occurrence WHERE condition_concept_id = 4110591"
+    },
+    "squamous_cell_lung": {
+      "patterns": [
+        "squamous cell lung",
+        "squamous nsclc",
+        "squamous cell carcinoma of lung"
+      ],
+      "omop_concept": {
+        "concept_id": 4110705,
+        "concept_name": "Squamous cell carcinoma of lung",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "254634000"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "254634000",
+          "display": "Squamous cell carcinoma of lung"
+        }
+      ],
+      "fhir_resource_type": "Condition",
+      "sql_template": "SELECT DISTINCT person_id FROM condition_occurrence WHERE condition_concept_id = 4110705"
+    },
+    "adenocarcinoma_lung": {
+      "patterns": [
+        "adenocarcinoma of lung",
+        "lung adenocarcinoma",
+        "non-squamous nsclc"
+      ],
+      "omop_concept": {
+        "concept_id": 4112738,
+        "concept_name": "Adenocarcinoma of lung",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "254626006"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "254626006",
+          "display": "Adenocarcinoma of lung"
+        }
+      ],
+      "fhir_resource_type": "Condition",
+      "sql_template": "SELECT DISTINCT person_id FROM condition_occurrence WHERE condition_concept_id = 4112738"
+    },
+    "breast_cancer": {
+      "patterns": [
+        "breast cancer",
+        "breast carcinoma",
+        "breast malignancy"
+      ],
+      "omop_concept": {
+        "concept_id": 4112853,
+        "concept_name": "Malignant tumor of breast",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "254837009"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "254837009",
+          "display": "Malignant tumor of breast"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C50.919",
+          "display": "Malignant neoplasm of unspecified site of unspecified female breast"
+        }
+      ],
+      "fhir_resource_type": "Condition",
+      "sql_template": "SELECT DISTINCT person_id FROM condition_occurrence WHERE condition_concept_id = 4112853"
+    },
+    "colorectal_cancer": {
+      "patterns": [
+        "colorectal cancer",
+        "colon cancer",
+        "rectal cancer",
+        "crc"
+      ],
+      "omop_concept": {
+        "concept_id": 4180790,
+        "concept_name": "Malignant tumor of colon",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "363406005"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "363406005",
+          "display": "Malignant tumor of colon"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C18.9",
+          "display": "Malignant neoplasm of colon, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition",
+      "sql_template": "SELECT DISTINCT person_id FROM condition_occurrence WHERE condition_concept_id = 4180790"
+    },
+    "melanoma": {
+      "patterns": [
+        "melanoma",
+        "malignant melanoma",
+        "cutaneous melanoma"
+      ],
+      "omop_concept": {
+        "concept_id": 141232,
+        "concept_name": "Malignant melanoma of skin",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "93655004"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "93655004",
+          "display": "Malignant melanoma of skin"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C43.9",
+          "display": "Malignant melanoma of skin, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition",
+      "sql_template": "SELECT DISTINCT person_id FROM condition_occurrence WHERE condition_concept_id = 141232"
+    },
+    "renal_cell_carcinoma": {
+      "patterns": [
+        "renal cell carcinoma",
+        "rcc",
+        "kidney cancer",
+        "clear cell renal"
+      ],
+      "omop_concept": {
+        "concept_id": 4215373,
+        "concept_name": "Renal cell carcinoma",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Observation",
+        "concept_code": "41607009"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "41607009",
+          "display": "Renal cell carcinoma"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C64.9",
+          "display": "Malignant neoplasm of unspecified kidney, except renal pelvis"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "prostate_cancer": {
+      "patterns": [
+        "prostate cancer",
+        "prostate carcinoma",
+        "prostatic adenocarcinoma"
+      ],
+      "omop_concept": {
+        "concept_id": 4163261,
+        "concept_name": "Malignant tumor of prostate",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "399068003"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "399068003",
+          "display": "Malignant tumor of prostate"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C61",
+          "display": "Malignant neoplasm of prostate"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "ovarian_cancer": {
+      "patterns": [
+        "ovarian cancer",
+        "ovarian carcinoma",
+        "epithelial ovarian"
+      ],
+      "omop_concept": {
+        "concept_id": 4181351,
+        "concept_name": "Malignant tumor of ovary",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "363443007"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "363443007",
+          "display": "Malignant tumor of ovary"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C56.9",
+          "display": "Malignant neoplasm of unspecified ovary"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "pancreatic_cancer": {
+      "patterns": [
+        "pancreatic cancer",
+        "pancreatic adenocarcinoma",
+        "pancreatic carcinoma"
+      ],
+      "omop_concept": {
+        "concept_id": 4180793,
+        "concept_name": "Malignant tumor of pancreas",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "363418001"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "363418001",
+          "display": "Malignant tumor of pancreas"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C25.9",
+          "display": "Malignant neoplasm of pancreas, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "liver_metastases": {
+      "patterns": [
+        "liver metastases",
+        "hepatic metastases",
+        "metastatic liver",
+        "liver mets"
+      ],
+      "omop_concept": {
+        "concept_id": 36770544,
+        "concept_name": "Metastasis to liver",
+        "vocabulary_id": "Cancer Modifier",
+        "domain_id": "Measurement",
+        "concept_code": "OMOP5000224"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C78.7",
+          "display": "Secondary malignant neoplasm of liver and intrahepatic bile duct"
+        }
+      ],
+      "fhir_resource_type": "Condition",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 36770544"
+    },
+    "brain_metastases": {
+      "patterns": [
+        "brain metastases",
+        "cns metastases",
+        "cerebral metastases",
+        "brain mets",
+        "intracranial metastases"
+      ],
+      "omop_concept": {
+        "concept_id": 36768862,
+        "concept_name": "Metastasis to brain",
+        "vocabulary_id": "Cancer Modifier",
+        "domain_id": "Measurement",
+        "concept_code": "OMOP4998538"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C79.31",
+          "display": "Secondary malignant neoplasm of brain"
+        }
+      ],
+      "fhir_resource_type": "Condition",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 36768862"
+    },
+    "bone_metastases": {
+      "patterns": [
+        "bone metastases",
+        "skeletal metastases",
+        "bone mets",
+        "osseous metastases"
+      ],
+      "omop_concept": {
+        "concept_id": 36769301,
+        "concept_name": "Metastasis to bone",
+        "vocabulary_id": "Cancer Modifier",
+        "domain_id": "Measurement",
+        "concept_code": "OMOP4998978"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C79.51",
+          "display": "Secondary malignant neoplasm of bone"
+        }
+      ],
+      "fhir_resource_type": "Condition",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 36769301"
+    },
+    "lung_metastases": {
+      "patterns": [
+        "lung metastases",
+        "pulmonary metastases",
+        "lung mets"
+      ],
+      "omop_concept": {
+        "concept_id": 36770283,
+        "concept_name": "Metastasis to lung",
+        "vocabulary_id": "Cancer Modifier",
+        "domain_id": "Measurement",
+        "concept_code": "OMOP4999962"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C78.00",
+          "display": "Secondary malignant neoplasm of unspecified lung"
+        }
+      ],
+      "fhir_resource_type": "Condition",
+      "sql_template": "SELECT DISTINCT person_id FROM measurement WHERE measurement_concept_id = 36770283"
+    },
+    "leptomeningeal_disease": {
+      "patterns": [
+        "leptomeningeal disease",
+        "leptomeningeal metastases",
+        "leptomeningeal carcinomatosis",
+        "carcinomatous meningitis"
+      ],
+      "omop_concept": {
+        "concept_id": 600131150,
+        "concept_name": "Meningeal Carcinomatosis",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Observation",
+        "concept_code": "C27383"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://ncithesaurus-stage.nci.nih.gov",
+          "code": "C27383",
+          "display": "Meningeal Carcinomatosis"
+        }
+      ],
+      "fhir_resource_type": "Condition",
+      "sql_template": "SELECT DISTINCT person_id FROM observation WHERE observation_concept_id = 600131150"
+    },
+    "interstitial_lung_disease": {
+      "patterns": [
+        "interstitial lung disease",
+        "ild",
+        "pulmonary fibrosis",
+        "pneumonitis"
+      ],
+      "omop_concept": {
+        "concept_id": 4119786,
+        "concept_name": "Interstitial lung disease",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "233703007"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "233703007",
+          "display": "Interstitial lung disease"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "J84.9",
+          "display": "Interstitial pulmonary disease, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "metastatic_disease": {
+      "patterns": [
+        "metastatic disease",
+        "stage iv",
+        "advanced disease",
+        "metastatic cancer"
+      ],
+      "omop_concept": {
+        "concept_id": 432851,
+        "concept_name": "Metastatic malignant neoplasm",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "128462008"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "128462008",
+          "display": "Metastatic malignant neoplasm"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "locally_advanced": {
+      "patterns": [
+        "locally advanced",
+        "stage iii",
+        "unresectable",
+        "inoperable"
+      ],
+      "omop_concept": {
+        "concept_id": 37165616,
+        "concept_name": "Locally advanced malignant neoplasm",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "1255249000"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "1255249000",
+          "display": "Locally advanced malignant neoplasm"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "hepatocellular_carcinoma": {
+      "patterns": [
+        "hepatocellular carcinoma",
+        "hcc",
+        "liver cancer",
+        "hepatoma"
+      ],
+      "omop_concept": {
+        "concept_id": 4101758,
+        "concept_name": "Hepatocellular carcinoma",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "25370001"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "25370001",
+          "display": "Hepatocellular carcinoma"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C22.0",
+          "display": "Liver cell carcinoma"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "gastric_cancer": {
+      "patterns": [
+        "gastric cancer",
+        "stomach cancer",
+        "gastric adenocarcinoma",
+        "gastric carcinoma"
+      ],
+      "omop_concept": {
+        "concept_id": 196044,
+        "concept_name": "Primary malignant neoplasm of stomach",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "372014001"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "372014001",
+          "display": "Primary malignant neoplasm of stomach"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C16.9",
+          "display": "Malignant neoplasm of stomach, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "esophageal_cancer": {
+      "patterns": [
+        "esophageal cancer",
+        "esophageal carcinoma",
+        "esophageal adenocarcinoma",
+        "esophageal squamous"
+      ],
+      "omop_concept": {
+        "concept_id": 26638,
+        "concept_name": "Primary malignant neoplasm of esophagus",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "371984007"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "371984007",
+          "display": "Primary malignant neoplasm of esophagus"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C15.9",
+          "display": "Malignant neoplasm of esophagus, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "head_neck_cancer": {
+      "patterns": [
+        "head and neck cancer",
+        "head and neck squamous",
+        "head neck squamous",
+        "hnscc",
+        "oropharyngeal cancer",
+        "laryngeal cancer",
+        "squamous cell carcinoma of head"
+      ],
+      "omop_concept": {
+        "concept_id": 37396745,
+        "concept_name": "Squamous cell carcinoma of head and neck",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "716659002"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "716659002",
+          "display": "Squamous cell carcinoma of head and neck"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "bladder_cancer": {
+      "patterns": [
+        "bladder cancer",
+        "urothelial carcinoma",
+        "transitional cell carcinoma",
+        "urothelial cancer"
+      ],
+      "omop_concept": {
+        "concept_id": 197508,
+        "concept_name": "Malignant neoplasm of urinary bladder",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "399326009"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "399326009",
+          "display": "Malignant tumor of urinary bladder"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C67.9",
+          "display": "Malignant neoplasm of bladder, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "thyroid_cancer": {
+      "patterns": [
+        "thyroid cancer",
+        "thyroid carcinoma",
+        "papillary thyroid",
+        "follicular thyroid"
+      ],
+      "omop_concept": {
+        "concept_id": 133424,
+        "concept_name": "Primary malignant neoplasm of thyroid gland",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "94098005"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "94098005",
+          "display": "Primary malignant neoplasm of thyroid gland"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C73",
+          "display": "Malignant neoplasm of thyroid gland"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "glioblastoma": {
+      "patterns": [
+        "glioblastoma",
+        "gbm",
+        "glioblastoma multiforme",
+        "grade iv glioma"
+      ],
+      "omop_concept": {
+        "concept_id": 40571980,
+        "concept_name": "Glioblastoma multiforme",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "393563007"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "393563007",
+          "display": "Glioblastoma multiforme"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C71.9",
+          "display": "Malignant neoplasm of brain, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "cervical_cancer": {
+      "patterns": [
+        "cervical cancer",
+        "cervical carcinoma",
+        "cancer of the cervix"
+      ],
+      "omop_concept": {
+        "concept_id": 198984,
+        "concept_name": "Malignant tumor of cervix",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "363354003"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "363354003",
+          "display": "Malignant tumor of cervix"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C53.9",
+          "display": "Malignant neoplasm of cervix uteri, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "endometrial_cancer": {
+      "patterns": [
+        "endometrial cancer",
+        "endometrial carcinoma",
+        "uterine cancer",
+        "cancer of the uterus"
+      ],
+      "omop_concept": {
+        "concept_id": 4247238,
+        "concept_name": "Primary malignant neoplasm of endometrium",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "93781006"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "93781006",
+          "display": "Primary malignant neoplasm of endometrium"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C54.1",
+          "display": "Malignant neoplasm of endometrium"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "non_hodgkin_lymphoma": {
+      "patterns": [
+        "non-hodgkin lymphoma",
+        "non-hodgkin",
+        "non hodgkin",
+        "nhl",
+        "diffuse large b-cell",
+        "dlbcl",
+        "follicular lymphoma",
+        "mantle cell lymphoma",
+        "marginal zone lymphoma",
+        "burkitt lymphoma"
+      ],
+      "omop_concept": {
+        "concept_id": 37156353,
+        "concept_name": "Non-Hodgkin lymphoma",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "1172592001"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "1172592001",
+          "display": "Non-Hodgkin lymphoma"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C85.9",
+          "display": "Non-Hodgkin lymphoma, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "hodgkin_lymphoma": {
+      "patterns": [
+        "hodgkin lymphoma",
+        "hodgkin disease",
+        "hodgkin's lymphoma",
+        "hodgkins disease",
+        "classical hodgkin"
+      ],
+      "omop_concept": {
+        "concept_id": 37151896,
+        "concept_name": "Hodgkin lymphoma",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "1163005009"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "1163005009",
+          "display": "Hodgkin lymphoma"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C81.9",
+          "display": "Hodgkin lymphoma, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "multiple_myeloma": {
+      "patterns": [
+        "multiple myeloma",
+        "myeloma",
+        "plasma cell myeloma"
+      ],
+      "omop_concept": {
+        "concept_id": 437233,
+        "concept_name": "Multiple myeloma",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "109989006"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "109989006",
+          "display": "Multiple myeloma"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C90.0",
+          "display": "Multiple myeloma"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "acute_myeloid_leukemia": {
+      "patterns": [
+        "acute myeloid leukemia",
+        "aml",
+        "acute myelogenous leukemia"
+      ],
+      "omop_concept": {
+        "concept_id": 140352,
+        "concept_name": "Acute myeloid leukemia, disease",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "91861009"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "91861009",
+          "display": "Acute myeloid leukemia"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C92.0",
+          "display": "Acute myeloblastic leukemia"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "chronic_lymphocytic_leukemia": {
+      "patterns": [
+        "chronic lymphocytic leukemia",
+        "cll",
+        "b-cell cll"
+      ],
+      "omop_concept": {
+        "concept_id": 4173824,
+        "concept_name": "B-cell chronic lymphocytic leukemia variant",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "277474005"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "277474005",
+          "display": "B-cell chronic lymphocytic leukemia variant"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C91.1",
+          "display": "Chronic lymphocytic leukemia of B-cell type"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "sarcoma": {
+      "patterns": [
+        "sarcoma",
+        "soft tissue sarcoma",
+        "osteosarcoma",
+        "liposarcoma",
+        "leiomyosarcoma"
+      ],
+      "omop_concept": {
+        "concept_id": 4311439,
+        "concept_name": "Sarcoma",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "424413001"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "424413001",
+          "display": "Sarcoma"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "mesothelioma": {
+      "patterns": [
+        "mesothelioma",
+        "malignant mesothelioma",
+        "pleural mesothelioma"
+      ],
+      "omop_concept": {
+        "concept_id": 4111917,
+        "concept_name": "Malignant mesothelioma of pleura",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "254645002"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "254645002",
+          "display": "Malignant mesothelioma of pleura"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C45.0",
+          "display": "Mesothelioma of pleura"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "cholangiocarcinoma": {
+      "patterns": [
+        "cholangiocarcinoma",
+        "bile duct cancer",
+        "biliary tract cancer",
+        "intrahepatic cholangiocarcinoma"
+      ],
+      "omop_concept": {
+        "concept_id": 4321680,
+        "concept_name": "Cholangiocarcinoma",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "70179006"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "70179006",
+          "display": "Cholangiocarcinoma"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C22.1",
+          "display": "Intrahepatic bile duct carcinoma"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "neuroendocrine_tumor": {
+      "patterns": [
+        "neuroendocrine tumor",
+        "net",
+        "carcinoid",
+        "neuroendocrine carcinoma"
+      ],
+      "omop_concept": {
+        "concept_id": 4028860,
+        "concept_name": "Neuroendocrine neoplasm",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "128928004"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "128928004",
+          "display": "Neuroendocrine neoplasm"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    }
+  },
+  "comorbidity_mappings": {
+    "hiv": {
+      "patterns": [
+        "hiv",
+        "human immunodeficiency virus",
+        "hiv positive",
+        "hiv infection",
+        "aids"
+      ],
+      "omop_concept": {
+        "concept_id": 439727,
+        "concept_name": "Human immunodeficiency virus infection",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "86406008"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "86406008",
+          "display": "Human immunodeficiency virus infection"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "B20",
+          "display": "Human immunodeficiency virus [HIV] disease"
+        }
+      ],
+      "fhir_resource_type": "Condition",
+      "note": "Per FDA guidance, HIV+ patients with CD4 >= 350 cells/uL may be eligible"
+    },
+    "hepatitis_b": {
+      "patterns": [
+        "hepatitis b",
+        "hbv",
+        "hep b",
+        "hbsag positive",
+        "chronic hepatitis b"
+      ],
+      "omop_concept": {
+        "concept_id": 439674,
+        "concept_name": "Chronic viral hepatitis B without delta-agent",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "186639003"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "186639003",
+          "display": "Chronic viral hepatitis B without delta-agent"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "B18.1",
+          "display": "Chronic viral hepatitis B without delta-agent"
+        }
+      ],
+      "fhir_resource_type": "Condition",
+      "note": "Per FDA guidance, HBV patients on suppressive therapy may be eligible"
+    },
+    "hepatitis_c": {
+      "patterns": [
+        "hepatitis c",
+        "hcv",
+        "hep c",
+        "chronic hepatitis c"
+      ],
+      "omop_concept": {
+        "concept_id": 198964,
+        "concept_name": "Chronic hepatitis C",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "128302006"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "128302006",
+          "display": "Chronic viral hepatitis C"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "B18.2",
+          "display": "Chronic viral hepatitis C"
+        }
+      ],
+      "fhir_resource_type": "Condition",
+      "note": "Per FDA guidance, HCV patients with undetectable viral load may be eligible"
+    },
+    "diabetes": {
+      "patterns": [
+        "diabetes",
+        "diabetes mellitus",
+        "type 2 diabetes",
+        "type 1 diabetes",
+        "diabetic"
+      ],
+      "omop_concept": {
+        "concept_id": 201820,
+        "concept_name": "Diabetes mellitus",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "73211009"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "73211009",
+          "display": "Diabetes mellitus"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "E11.9",
+          "display": "Type 2 diabetes mellitus without complications"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "hypertension": {
+      "patterns": [
+        "hypertension",
+        "high blood pressure",
+        "htn",
+        "uncontrolled hypertension"
+      ],
+      "omop_concept": {
+        "concept_id": 316866,
+        "concept_name": "Hypertensive disorder",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "38341003"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "38341003",
+          "display": "Hypertensive disorder"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "I10",
+          "display": "Essential (primary) hypertension"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "heart_failure": {
+      "patterns": [
+        "heart failure",
+        "congestive heart failure",
+        "chf",
+        "cardiac failure"
+      ],
+      "omop_concept": {
+        "concept_id": 316139,
+        "concept_name": "Heart failure",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "84114007"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "84114007",
+          "display": "Heart failure"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "I50.9",
+          "display": "Heart failure, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "coronary_artery_disease": {
+      "patterns": [
+        "coronary artery disease",
+        "cad",
+        "ischemic heart disease",
+        "coronary heart disease"
+      ],
+      "omop_concept": {
+        "concept_id": 317576,
+        "concept_name": "Coronary arteriosclerosis",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "53741008"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "53741008",
+          "display": "Coronary arteriosclerosis"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "I25.10",
+          "display": "Atherosclerotic heart disease of native coronary artery without angina pectoris"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "myocardial_infarction": {
+      "patterns": [
+        "myocardial infarction",
+        "mi",
+        "heart attack",
+        "acute mi",
+        "stemi",
+        "nstemi"
+      ],
+      "omop_concept": {
+        "concept_id": 4329847,
+        "concept_name": "Myocardial infarction",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "22298006"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "22298006",
+          "display": "Myocardial infarction"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "I21.9",
+          "display": "Acute myocardial infarction, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "stroke": {
+      "patterns": [
+        "stroke",
+        "cerebrovascular accident",
+        "cva",
+        "ischemic stroke",
+        "hemorrhagic stroke"
+      ],
+      "omop_concept": {
+        "concept_id": 381316,
+        "concept_name": "Cerebrovascular accident",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "230690007"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "230690007",
+          "display": "Cerebrovascular accident"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "I63.9",
+          "display": "Cerebral infarction, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "autoimmune_disease": {
+      "patterns": [
+        "autoimmune disease",
+        "autoimmune disorder",
+        "autoimmunity"
+      ],
+      "omop_concept": {
+        "concept_id": 434621,
+        "concept_name": "Autoimmune disease",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "85828009"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "85828009",
+          "display": "Autoimmune disease"
+        }
+      ],
+      "fhir_resource_type": "Condition",
+      "note": "Important exclusion for immunotherapy trials"
+    },
+    "rheumatoid_arthritis": {
+      "patterns": [
+        "rheumatoid arthritis",
+        "ra"
+      ],
+      "omop_concept": {
+        "concept_id": 80809,
+        "concept_name": "Rheumatoid arthritis",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "69896004"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "69896004",
+          "display": "Rheumatoid arthritis"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "M06.9",
+          "display": "Rheumatoid arthritis, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "lupus": {
+      "patterns": [
+        "lupus",
+        "sle",
+        "systemic lupus erythematosus"
+      ],
+      "omop_concept": {
+        "concept_id": 257628,
+        "concept_name": "Systemic lupus erythematosus",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "55464009"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "55464009",
+          "display": "Systemic lupus erythematosus"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "M32.9",
+          "display": "Systemic lupus erythematosus, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "chronic_kidney_disease": {
+      "patterns": [
+        "chronic kidney disease",
+        "ckd",
+        "renal insufficiency",
+        "chronic renal failure"
+      ],
+      "omop_concept": {
+        "concept_id": 46271022,
+        "concept_name": "Chronic kidney disease",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "709044004"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "709044004",
+          "display": "Chronic kidney disease"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "N18.9",
+          "display": "Chronic kidney disease, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "copd": {
+      "patterns": [
+        "copd",
+        "chronic obstructive pulmonary disease",
+        "emphysema",
+        "chronic bronchitis"
+      ],
+      "omop_concept": {
+        "concept_id": 255573,
+        "concept_name": "Chronic obstructive pulmonary disease",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "13645005"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "13645005",
+          "display": "Chronic obstructive pulmonary disease"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "J44.9",
+          "display": "Chronic obstructive pulmonary disease, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "tuberculosis": {
+      "patterns": [
+        "tuberculosis",
+        "tb",
+        "active tb",
+        "latent tb"
+      ],
+      "omop_concept": {
+        "concept_id": 434557,
+        "concept_name": "Tuberculosis",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "56717001"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "56717001",
+          "display": "Tuberculosis"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "A15.9",
+          "display": "Respiratory tuberculosis unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "active_infection": {
+      "patterns": [
+        "active infection",
+        "ongoing infection",
+        "uncontrolled infection"
+      ],
+      "omop_concept": {
+        "concept_id": 432250,
+        "concept_name": "Infectious disease",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "40733004"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "40733004",
+          "display": "Infectious disease"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "atrial_fibrillation": {
+      "patterns": [
+        "atrial fibrillation",
+        "afib",
+        "a-fib",
+        "af"
+      ],
+      "omop_concept": {
+        "concept_id": 313217,
+        "concept_name": "Atrial fibrillation",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "49436004"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "49436004",
+          "display": "Atrial fibrillation"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "I48.91",
+          "display": "Unspecified atrial fibrillation"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "cirrhosis": {
+      "patterns": [
+        "cirrhosis",
+        "liver cirrhosis",
+        "hepatic cirrhosis"
+      ],
+      "omop_concept": {
+        "concept_id": 4064161,
+        "concept_name": "Cirrhosis of liver",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "19943007"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "19943007",
+          "display": "Cirrhosis of liver"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "K74.60",
+          "display": "Unspecified cirrhosis of liver"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "pancreatitis": {
+      "patterns": [
+        "pancreatitis",
+        "acute pancreatitis",
+        "chronic pancreatitis"
+      ],
+      "omop_concept": {
+        "concept_id": 4192640,
+        "concept_name": "Pancreatitis",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "75694006"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "75694006",
+          "display": "Pancreatitis"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "K85.9",
+          "display": "Acute pancreatitis, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "organ_transplant": {
+      "patterns": [
+        "organ transplant",
+        "transplant recipient",
+        "solid organ transplant",
+        "prior transplant"
+      ],
+      "omop_concept": {
+        "concept_id": 4208341,
+        "concept_name": "Solid organ transplant",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Procedure",
+        "concept_code": "313039003"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "313039003",
+          "display": "Solid organ transplant"
+        }
+      ],
+      "fhir_resource_type": "Procedure"
+    },
+    "gilberts_syndrome": {
+      "patterns": [
+        "gilbert's syndrome",
+        "gilberts syndrome",
+        "gilbert syndrome"
+      ],
+      "omop_concept": {
+        "concept_id": 4099740,
+        "concept_name": "Gilbert's syndrome",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "27503000"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "27503000",
+          "display": "Gilbert's syndrome"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "E80.4",
+          "display": "Gilbert syndrome"
+        }
+      ],
+      "fhir_resource_type": "Condition",
+      "note": "May affect bilirubin eligibility interpretation"
+    },
+    "psychiatric_disorder": {
+      "patterns": [
+        "psychiatric disorder",
+        "mental illness",
+        "psychiatric condition",
+        "major depression",
+        "bipolar disorder",
+        "schizophrenia"
+      ],
+      "omop_concept": {
+        "concept_id": 432586,
+        "concept_name": "Mental disorder",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "74732009"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "74732009",
+          "display": "Mental disorder"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "substance_abuse": {
+      "patterns": [
+        "substance abuse",
+        "drug abuse",
+        "alcohol abuse",
+        "addiction",
+        "substance use disorder"
+      ],
+      "omop_concept": {
+        "concept_id": 4279309,
+        "concept_name": "Substance abuse",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "66214007"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "66214007",
+          "display": "Substance abuse"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "second_malignancy": {
+      "patterns": [
+        "second malignancy",
+        "other malignancy",
+        "prior malignancy",
+        "history of cancer",
+        "another cancer"
+      ],
+      "omop_concept": {
+        "concept_id": 600055953,
+        "concept_name": "Prior Invasive Malignancy",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Observation",
+        "concept_code": "C154619"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "code": "C154619",
+          "display": "Prior Invasive Malignancy"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "note": "Common exclusion criterion - often allows curatively treated cancers >3-5 years ago"
+    }
+  },
+  "prior_treatment_mappings": {
+    "prior_chemotherapy": {
+      "patterns": [
+        "prior chemotherapy",
+        "previous chemotherapy",
+        "prior cytotoxic",
+        "chemotherapy naive",
+        "treatment naive"
+      ],
+      "omop_concept": {
+        "concept_id": 4273629,
+        "concept_name": "Chemotherapy",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Procedure",
+        "concept_code": "367336001"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "367336001",
+          "display": "Chemotherapy"
+        }
+      ],
+      "fhir_resource_type": "Procedure",
+      "sql_template": "SELECT DISTINCT person_id FROM procedure_occurrence WHERE procedure_concept_id = 4273629"
+    },
+    "prior_immunotherapy": {
+      "patterns": [
+        "prior immunotherapy",
+        "previous immunotherapy",
+        "prior pd-1",
+        "prior pd-l1",
+        "prior checkpoint inhibitor",
+        "cpi naive"
+      ],
+      "omop_concept": {
+        "concept_id": 600054095,
+        "concept_name": "Immunotherapy",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Procedure",
+        "concept_code": "C15262"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "code": "C15262",
+          "display": "Immunotherapy"
+        }
+      ],
+      "fhir_resource_type": "Procedure"
+    },
+    "prior_targeted_therapy": {
+      "patterns": [
+        "prior targeted therapy",
+        "previous targeted therapy",
+        "prior tki",
+        "tyrosine kinase inhibitor"
+      ],
+      "omop_concept": {
+        "concept_id": 600195086,
+        "concept_name": "Targeted Therapy",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Procedure",
+        "concept_code": "C93352"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "code": "C93352",
+          "display": "Targeted Therapy"
+        }
+      ],
+      "fhir_resource_type": "Procedure"
+    },
+    "prior_radiation": {
+      "patterns": [
+        "prior radiation",
+        "previous radiation",
+        "prior radiotherapy",
+        "radiation therapy",
+        "prior rt"
+      ],
+      "omop_concept": {
+        "concept_id": 600054592,
+        "concept_name": "Radiation Therapy",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Procedure",
+        "concept_code": "C15313"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "code": "C15313",
+          "display": "Radiation Therapy"
+        }
+      ],
+      "fhir_resource_type": "Procedure",
+      "sql_template": "SELECT DISTINCT person_id FROM procedure_occurrence WHERE procedure_concept_id = 600054592"
+    },
+    "prior_surgery": {
+      "patterns": [
+        "prior surgery",
+        "previous surgery",
+        "surgical resection",
+        "tumor resection"
+      ],
+      "omop_concept": {
+        "concept_id": 4301351,
+        "concept_name": "Surgical procedure",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Procedure",
+        "concept_code": "387713003"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "387713003",
+          "display": "Surgical procedure"
+        }
+      ],
+      "fhir_resource_type": "Procedure"
+    },
+    "prior_stem_cell_transplant": {
+      "patterns": [
+        "stem cell transplant",
+        "bone marrow transplant",
+        "bmt",
+        "hsct",
+        "autologous transplant",
+        "allogeneic transplant"
+      ],
+      "omop_concept": {
+        "concept_id": 4028623,
+        "concept_name": "Transplantation of bone marrow",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Procedure",
+        "concept_code": "23719005"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "23719005",
+          "display": "Transplantation of bone marrow"
+        }
+      ],
+      "fhir_resource_type": "Procedure"
+    },
+    "prior_car_t": {
+      "patterns": [
+        "car-t",
+        "car t cell",
+        "chimeric antigen receptor",
+        "prior car-t"
+      ],
+      "omop_concept": {
+        "concept_id": 600171047,
+        "concept_name": "Cellular Therapy",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Procedure",
+        "concept_code": "C70601"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "code": "C70601",
+          "display": "Cellular Therapy"
+        }
+      ],
+      "fhir_resource_type": "Procedure",
+      "note": "CAR-T is a type of cellular immunotherapy - use drug_exposure for specific CAR-T products"
+    },
+    "prior_parp_inhibitor": {
+      "patterns": [
+        "parp inhibitor",
+        "prior parp",
+        "olaparib",
+        "rucaparib",
+        "niraparib",
+        "talazoparib"
+      ],
+      "omop_concept": {
+        "concept_id": 600195086,
+        "concept_name": "Targeted Therapy",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Procedure",
+        "concept_code": "C93352"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "code": "C93352",
+          "display": "Targeted Therapy"
+        }
+      ],
+      "fhir_resource_type": "Procedure",
+      "note": "PARP inhibitors are targeted therapies - use drug_exposure for specific agents"
+    },
+    "prior_hormonal_therapy": {
+      "patterns": [
+        "hormonal therapy",
+        "hormone therapy",
+        "endocrine therapy",
+        "prior antiandrogen",
+        "prior antiestrogen"
+      ],
+      "omop_concept": {
+        "concept_id": 4061650,
+        "concept_name": "Hormone therapy",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Procedure",
+        "concept_code": "169413002"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "169413002",
+          "display": "Hormone therapy"
+        }
+      ],
+      "fhir_resource_type": "Procedure"
+    },
+    "prior_egfr_inhibitor": {
+      "patterns": [
+        "egfr inhibitor",
+        "prior egfr tki",
+        "osimertinib",
+        "erlotinib",
+        "gefitinib",
+        "afatinib"
+      ],
+      "omop_concept": {
+        "concept_id": 600195086,
+        "concept_name": "Targeted Therapy",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Procedure",
+        "concept_code": "C93352"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "code": "C93352",
+          "display": "Targeted Therapy"
+        }
+      ],
+      "fhir_resource_type": "Procedure",
+      "note": "EGFR inhibitors are targeted therapies - use drug_exposure for specific agents"
+    },
+    "prior_alk_inhibitor": {
+      "patterns": [
+        "alk inhibitor",
+        "prior alk tki",
+        "crizotinib",
+        "alectinib",
+        "brigatinib",
+        "lorlatinib"
+      ],
+      "omop_concept": {
+        "concept_id": 600195086,
+        "concept_name": "Targeted Therapy",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Procedure",
+        "concept_code": "C93352"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "code": "C93352",
+          "display": "Targeted Therapy"
+        }
+      ],
+      "fhir_resource_type": "Procedure",
+      "note": "ALK inhibitors are targeted therapies - use drug_exposure for specific agents"
+    },
+    "prior_anti_vegf": {
+      "patterns": [
+        "anti-vegf",
+        "bevacizumab",
+        "prior vegf inhibitor",
+        "vegf therapy"
+      ],
+      "omop_concept": {
+        "concept_id": 600195086,
+        "concept_name": "Targeted Therapy",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Procedure",
+        "concept_code": "C93352"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "code": "C93352",
+          "display": "Targeted Therapy"
+        }
+      ],
+      "fhir_resource_type": "Procedure",
+      "note": "Anti-VEGF agents are targeted therapies - use drug_exposure for specific agents"
+    },
+    "prior_cdk46_inhibitor": {
+      "patterns": [
+        "cdk4/6 inhibitor",
+        "cdk 4/6",
+        "palbociclib",
+        "ribociclib",
+        "abemaciclib",
+        "prior cdk"
+      ],
+      "omop_concept": {
+        "concept_id": 600195086,
+        "concept_name": "Targeted Therapy",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Procedure",
+        "concept_code": "C93352"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "code": "C93352",
+          "display": "Targeted Therapy"
+        }
+      ],
+      "fhir_resource_type": "Procedure",
+      "note": "CDK4/6 inhibitors are targeted therapies - use drug_exposure for specific agents"
+    },
+    "prior_mtor_inhibitor": {
+      "patterns": [
+        "mtor inhibitor",
+        "everolimus",
+        "temsirolimus",
+        "prior mtor"
+      ],
+      "omop_concept": {
+        "concept_id": 600195086,
+        "concept_name": "Targeted Therapy",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Procedure",
+        "concept_code": "C93352"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "code": "C93352",
+          "display": "Targeted Therapy"
+        }
+      ],
+      "fhir_resource_type": "Procedure",
+      "note": "mTOR inhibitors are targeted therapies - use drug_exposure for specific agents"
+    },
+    "prior_mek_inhibitor": {
+      "patterns": [
+        "mek inhibitor",
+        "trametinib",
+        "cobimetinib",
+        "binimetinib",
+        "prior mek"
+      ],
+      "omop_concept": {
+        "concept_id": 600195086,
+        "concept_name": "Targeted Therapy",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Procedure",
+        "concept_code": "C93352"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "code": "C93352",
+          "display": "Targeted Therapy"
+        }
+      ],
+      "fhir_resource_type": "Procedure",
+      "note": "MEK inhibitors are targeted therapies - use drug_exposure for specific agents"
+    },
+    "prior_platinum": {
+      "patterns": [
+        "platinum chemotherapy",
+        "platinum-based",
+        "cisplatin",
+        "carboplatin",
+        "oxaliplatin",
+        "prior platinum"
+      ],
+      "omop_concept": {
+        "concept_id": 4273629,
+        "concept_name": "Chemotherapy",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Procedure",
+        "concept_code": "367336001"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "367336001",
+          "display": "Chemotherapy"
+        }
+      ],
+      "fhir_resource_type": "Procedure",
+      "note": "Platinum agents are cytotoxic chemotherapy - use drug_exposure for specific agents"
+    },
+    "prior_anthracycline": {
+      "patterns": [
+        "anthracycline",
+        "doxorubicin",
+        "epirubicin",
+        "daunorubicin",
+        "prior anthracycline"
+      ],
+      "omop_concept": {
+        "concept_id": 4273629,
+        "concept_name": "Chemotherapy",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Procedure",
+        "concept_code": "367336001"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "367336001",
+          "display": "Chemotherapy"
+        }
+      ],
+      "fhir_resource_type": "Procedure",
+      "note": "Anthracyclines are cytotoxic chemotherapy - use drug_exposure for specific agents"
+    },
+    "prior_taxane": {
+      "patterns": [
+        "taxane",
+        "paclitaxel",
+        "docetaxel",
+        "nab-paclitaxel",
+        "prior taxane"
+      ],
+      "omop_concept": {
+        "concept_id": 4273629,
+        "concept_name": "Chemotherapy",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Procedure",
+        "concept_code": "367336001"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "367336001",
+          "display": "Chemotherapy"
+        }
+      ],
+      "fhir_resource_type": "Procedure",
+      "note": "Taxanes are cytotoxic chemotherapy - use drug_exposure for specific agents"
+    },
+    "prior_pd1_inhibitor": {
+      "patterns": [
+        "pd-1 inhibitor",
+        "anti-pd1",
+        "pembrolizumab",
+        "nivolumab",
+        "cemiplimab",
+        "prior pd-1"
+      ],
+      "omop_concept": {
+        "concept_id": 600054095,
+        "concept_name": "Immunotherapy",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Procedure",
+        "concept_code": "C15262"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "code": "C15262",
+          "display": "Immunotherapy"
+        }
+      ],
+      "fhir_resource_type": "Procedure",
+      "note": "PD-1 inhibitors are checkpoint inhibitor immunotherapy - use drug_exposure for specific agents"
+    },
+    "prior_ctla4_inhibitor": {
+      "patterns": [
+        "ctla-4 inhibitor",
+        "anti-ctla4",
+        "ipilimumab",
+        "tremelimumab",
+        "prior ctla-4"
+      ],
+      "omop_concept": {
+        "concept_id": 600054095,
+        "concept_name": "Immunotherapy",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Procedure",
+        "concept_code": "C15262"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "code": "C15262",
+          "display": "Immunotherapy"
+        }
+      ],
+      "fhir_resource_type": "Procedure",
+      "note": "CTLA-4 inhibitors are checkpoint inhibitor immunotherapy - use drug_exposure for specific agents"
+    }
+  },
+  "medication_mappings": {
+    "anticoagulants": {
+      "patterns": [
+        "anticoagulant",
+        "warfarin",
+        "coumadin",
+        "heparin",
+        "enoxaparin",
+        "rivaroxaban",
+        "apixaban",
+        "dabigatran",
+        "blood thinner"
+      ],
+      "omop_concept": {
+        "concept_id": 4056822,
+        "concept_name": "Anticoagulant therapy",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Procedure",
+        "concept_code": "182764009"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "182764009",
+          "display": "Anticoagulant therapy"
+        }
+      ],
+      "fhir_resource_type": "MedicationStatement",
+      "note": "Often excluded due to bleeding risk"
+    },
+    "corticosteroids": {
+      "patterns": [
+        "corticosteroid",
+        "prednisone",
+        "dexamethasone",
+        "methylprednisolone",
+        "hydrocortisone",
+        "steroid"
+      ],
+      "omop_concept": {
+        "concept_id": 1243048,
+        "concept_name": "Systemic corticosteroid therapy",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Procedure",
+        "concept_code": "1290388005"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "1290388005",
+          "display": "Systemic corticosteroid therapy"
+        }
+      ],
+      "fhir_resource_type": "MedicationStatement",
+      "note": "May be limited to <= 10 mg prednisone equivalent"
+    },
+    "immunosuppressants": {
+      "patterns": [
+        "immunosuppressant",
+        "immunosuppressive",
+        "cyclosporine",
+        "tacrolimus",
+        "methotrexate",
+        "azathioprine",
+        "mycophenolate"
+      ],
+      "omop_concept": {
+        "concept_id": 4314777,
+        "concept_name": "Immunosuppressive therapy",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Procedure",
+        "concept_code": "86553008"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "86553008",
+          "display": "Immunosuppressive therapy"
+        }
+      ],
+      "fhir_resource_type": "MedicationStatement"
+    },
+    "cyp3a4_inhibitors": {
+      "patterns": [
+        "cyp3a4 inhibitor",
+        "strong cyp3a4",
+        "ketoconazole",
+        "itraconazole",
+        "clarithromycin",
+        "ritonavir"
+      ],
+      "omop_concept": {
+        "concept_id": 600012566,
+        "concept_name": "CYP3A4 Inhibitor",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Observation",
+        "concept_code": "C111373"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "code": "C111373",
+          "display": "CYP3A4 Inhibitor"
+        }
+      ],
+      "fhir_resource_type": "MedicationStatement",
+      "note": "Often excluded due to drug-drug interactions"
+    },
+    "cyp3a4_inducers": {
+      "patterns": [
+        "cyp3a4 inducer",
+        "strong cyp3a4 inducer",
+        "rifampin",
+        "phenytoin",
+        "carbamazepine",
+        "st john's wort"
+      ],
+      "omop_concept": {
+        "concept_id": 600012567,
+        "concept_name": "CYP3A4 Inducer",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Observation",
+        "concept_code": "C111374"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "code": "C111374",
+          "display": "CYP3A4 Inducer"
+        }
+      ],
+      "fhir_resource_type": "MedicationStatement",
+      "note": "Often excluded due to drug-drug interactions"
+    },
+    "antiviral_therapy": {
+      "patterns": [
+        "antiviral",
+        "hiv antiretroviral",
+        "hepatitis antiviral",
+        "tenofovir",
+        "entecavir"
+      ],
+      "omop_concept": {
+        "concept_id": 4140762,
+        "concept_name": "Antiviral therapy",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Procedure",
+        "concept_code": "427314002"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "427314002",
+          "display": "Antiviral therapy"
+        }
+      ],
+      "fhir_resource_type": "MedicationStatement"
+    },
+    "live_vaccines": {
+      "patterns": [
+        "live vaccine",
+        "live attenuated vaccine",
+        "mmr vaccine",
+        "yellow fever vaccine",
+        "varicella vaccine"
+      ],
+      "omop_concept": {
+        "concept_id": 600199174,
+        "concept_name": "Attenuated Live Vaccine",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Observation",
+        "concept_code": "C97116"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "code": "C97116",
+          "display": "Attenuated Live Vaccine"
+        }
+      ],
+      "fhir_resource_type": "Immunization",
+      "note": "Often excluded within 30 days prior to study treatment"
+    },
+    "investigational_drug": {
+      "patterns": [
+        "investigational drug",
+        "experimental drug",
+        "study drug",
+        "investigational agent"
+      ],
+      "omop_concept": {
+        "concept_id": 600058216,
+        "concept_name": "Other Investigational Agent",
+        "vocabulary_id": "NCIt_Full",
+        "domain_id": "Observation",
+        "concept_code": "C156875"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "code": "C156875",
+          "display": "Other Investigational Agent"
+        }
+      ],
+      "fhir_resource_type": "MedicationStatement",
+      "note": "Typically requires washout of 4-5 half-lives or 28 days"
+    }
+  },
+  "demographic_mappings": {
+    "smoking_status": {
+      "patterns": [
+        "smoking history",
+        "smoker",
+        "smoking status",
+        "tobacco use",
+        "current smoker",
+        "former smoker",
+        "never smoker",
+        "pack years",
+        "smoking events",
+        "lifetime smoking",
+        "smoked"
+      ],
+      "omop_concept": {
+        "concept_id": 43054909,
+        "concept_name": "Tobacco smoking status",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Observation",
+        "concept_code": "72166-2"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "72166-2",
+          "display": "Tobacco smoking status"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM observation WHERE observation_concept_id = 43054909",
+      "note": "Do NOT use 'Family history of smoking' - patient's own smoking status"
+    },
+    "pregnancy": {
+      "patterns": [
+        "pregnancy",
+        "pregnant",
+        "childbearing potential",
+        "wocbp",
+        "nursing",
+        "breastfeeding",
+        "lactating"
+      ],
+      "omop_concept": {
+        "concept_id": 42528957,
+        "concept_name": "Pregnancy status",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Observation",
+        "concept_code": "82810-3"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "82810-3",
+          "display": "Pregnancy status"
+        },
+        {
+          "system": "http://snomed.info/sct",
+          "code": "77386006",
+          "display": "Pregnancy"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM observation WHERE observation_concept_id = 42528957"
+    },
+    "age": {
+      "patterns": [
+        "age",
+        "years old",
+        "years of age"
+      ],
+      "omop_concept": {
+        "concept_id": 4265453,
+        "concept_name": "Age",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Observation",
+        "concept_code": "397669002"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "30525-0",
+          "display": "Age"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "sql_template": "SELECT DISTINCT person_id FROM person WHERE EXTRACT(YEAR FROM AGE(CURRENT_DATE, birth_datetime)) >= 18",
+      "note": "Most oncology trials require age >= 18"
+    },
+    "life_expectancy": {
+      "patterns": [
+        "life expectancy",
+        "expected survival",
+        "prognosis"
+      ],
+      "omop_concept": {
+        "concept_id": 3050013,
+        "concept_name": "Life expectancy [OASIS]",
+        "vocabulary_id": "LOINC",
+        "domain_id": "Observation",
+        "concept_code": "46525-2"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://loinc.org",
+          "code": "46525-2",
+          "display": "Life expectancy [OASIS]"
+        }
+      ],
+      "fhir_resource_type": "Observation",
+      "note": "Typically requires >= 12 weeks life expectancy"
+    }
+  },
+  "clinical_findings_mappings": {
+    "ascites": {
+      "patterns": [
+        "ascites",
+        "abdominal fluid",
+        "peritoneal fluid"
+      ],
+      "omop_concept": {
+        "concept_id": 200528,
+        "concept_name": "Ascites",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "389026000"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "389026000",
+          "display": "Ascites"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "R18.8",
+          "display": "Other ascites"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "pleural_effusion": {
+      "patterns": [
+        "pleural effusion",
+        "fluid in chest",
+        "pleural fluid"
+      ],
+      "omop_concept": {
+        "concept_id": 254061,
+        "concept_name": "Pleural effusion",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "60046008"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "60046008",
+          "display": "Pleural effusion"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "J91.8",
+          "display": "Pleural effusion in other conditions"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "pericardial_effusion": {
+      "patterns": [
+        "pericardial effusion",
+        "fluid around heart",
+        "pericardial fluid"
+      ],
+      "omop_concept": {
+        "concept_id": 4161701,
+        "concept_name": "Pericardial effusion",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "373945007"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "373945007",
+          "display": "Pericardial effusion"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "I31.3",
+          "display": "Pericardial effusion (noninflammatory)"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "peripheral_neuropathy": {
+      "patterns": [
+        "peripheral neuropathy",
+        "neuropathy",
+        "sensory neuropathy",
+        "motor neuropathy"
+      ],
+      "omop_concept": {
+        "concept_id": 4117779,
+        "concept_name": "Peripheral nerve disease",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "302226006"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "302226006",
+          "display": "Peripheral nerve disease"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "G62.9",
+          "display": "Polyneuropathy, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "active_bleeding": {
+      "patterns": [
+        "active bleeding",
+        "hemorrhage",
+        "bleeding disorder",
+        "active hemorrhage"
+      ],
+      "omop_concept": {
+        "concept_id": 437312,
+        "concept_name": "Bleeding",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "131148009"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "131148009",
+          "display": "Bleeding"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "seizure_disorder": {
+      "patterns": [
+        "seizure",
+        "seizure disorder",
+        "epilepsy",
+        "convulsion"
+      ],
+      "omop_concept": {
+        "concept_id": 377091,
+        "concept_name": "Seizure",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "91175000"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "91175000",
+          "display": "Seizure"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "G40.909",
+          "display": "Epilepsy, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "dyspnea": {
+      "patterns": [
+        "dyspnea",
+        "shortness of breath",
+        "breathlessness",
+        "respiratory distress"
+      ],
+      "omop_concept": {
+        "concept_id": 312437,
+        "concept_name": "Dyspnea",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "267036007"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "267036007",
+          "display": "Dyspnea"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "R06.00",
+          "display": "Dyspnea, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "deep_vein_thrombosis": {
+      "patterns": [
+        "deep vein thrombosis",
+        "dvt",
+        "deep venous thrombosis",
+        "leg clot"
+      ],
+      "omop_concept": {
+        "concept_id": 4133004,
+        "concept_name": "Deep venous thrombosis",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "128053003"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "128053003",
+          "display": "Deep venous thrombosis"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "I82.40",
+          "display": "Acute embolism and thrombosis of unspecified deep veins of lower extremity"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "pulmonary_embolism": {
+      "patterns": [
+        "pulmonary embolism",
+        "pe",
+        "lung clot",
+        "pulmonary thromboembolism"
+      ],
+      "omop_concept": {
+        "concept_id": 440417,
+        "concept_name": "Pulmonary embolism",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "59282003"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "59282003",
+          "display": "Pulmonary embolism"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "I26.99",
+          "display": "Other pulmonary embolism without acute cor pulmonale"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "venous_thromboembolism": {
+      "patterns": [
+        "venous thromboembolism",
+        "vte"
+      ],
+      "omop_concept": {
+        "concept_id": 4327889,
+        "concept_name": "Thromboembolism of vein",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "429098002"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "429098002",
+          "display": "Thromboembolism of vein"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "gi_hemorrhage": {
+      "patterns": [
+        "gastrointestinal hemorrhage",
+        "gi bleed",
+        "gi bleeding",
+        "upper gi bleed",
+        "lower gi bleed"
+      ],
+      "omop_concept": {
+        "concept_id": 192671,
+        "concept_name": "Gastrointestinal hemorrhage",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "74474003"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "74474003",
+          "display": "Gastrointestinal hemorrhage"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "K92.2",
+          "display": "Gastrointestinal hemorrhage, unspecified"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    },
+    "bowel_obstruction": {
+      "patterns": [
+        "bowel obstruction",
+        "intestinal obstruction",
+        "ileus"
+      ],
+      "omop_concept": {
+        "concept_id": 193518,
+        "concept_name": "Intestinal obstruction",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "concept_code": "81060008"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "81060008",
+          "display": "Intestinal obstruction"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "K56.60",
+          "display": "Unspecified intestinal obstruction"
+        }
+      ],
+      "fhir_resource_type": "Condition"
+    }
+  },
+  "procedure_mappings": {
+    "ct_scan": {
+      "patterns": [
+        "ct scan",
+        "computed tomography",
+        "cat scan",
+        "ct imaging"
+      ],
+      "omop_concept": {
+        "concept_id": 4306655,
+        "concept_name": "Computed tomography",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Procedure",
+        "concept_code": "77477000"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "77477000",
+          "display": "Computed tomography"
+        }
+      ],
+      "fhir_resource_type": "Procedure",
+      "note": "CT scan is a procedure - NEVER a drug formulation"
+    },
+    "mri": {
+      "patterns": [
+        "mri",
+        "magnetic resonance imaging",
+        "mr imaging",
+        "mri scan"
+      ],
+      "omop_concept": {
+        "concept_id": 4013636,
+        "concept_name": "Magnetic resonance imaging",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Procedure",
+        "concept_code": "113091000"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "113091000",
+          "display": "Magnetic resonance imaging"
+        }
+      ],
+      "fhir_resource_type": "Procedure"
+    },
+    "pet_scan": {
+      "patterns": [
+        "pet scan",
+        "positron emission tomography",
+        "pet-ct",
+        "pet/ct"
+      ],
+      "omop_concept": {
+        "concept_id": 4282560,
+        "concept_name": "Positron emission tomography",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Procedure",
+        "concept_code": "82918005"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "82918005",
+          "display": "Positron emission tomography"
+        }
+      ],
+      "fhir_resource_type": "Procedure"
+    },
+    "xray": {
+      "patterns": [
+        "x-ray",
+        "xray",
+        "radiograph",
+        "radiography",
+        "plain film"
+      ],
+      "omop_concept": {
+        "concept_id": 4021780,
+        "concept_name": "Plain radiography",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Procedure",
+        "concept_code": "363680008"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "363680008",
+          "display": "Plain radiography"
+        }
+      ],
+      "fhir_resource_type": "Procedure"
+    }
+  },
+  "allergy_hypersensitivity_mappings": {
+    "paclitaxel_hypersensitivity": {
+      "patterns": [
+        "hypersensitivity to paclitaxel",
+        "paclitaxel allergy",
+        "allergy to paclitaxel",
+        "taxol allergy",
+        "cremophor hypersensitivity",
+        "polyethoxylated castor oil allergy"
+      ],
+      "omop_concept": {
+        "concept_id": 43020460,
+        "concept_name": "Allergy to Paclitaxel",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Observation",
+        "concept_code": "294453005"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "294453005",
+          "display": "Allergy to Paclitaxel"
+        }
+      ],
+      "fhir_resource_type": "AllergyIntolerance",
+      "sql_template": "SELECT DISTINCT person_id FROM observation WHERE observation_concept_id = 43020460",
+      "note": "Hypersensitivity reactions to paclitaxel often related to Cremophor EL vehicle"
+    },
+    "platinum_hypersensitivity": {
+      "patterns": [
+        "hypersensitivity to platinum",
+        "platinum allergy",
+        "carboplatin allergy",
+        "cisplatin allergy",
+        "oxaliplatin allergy",
+        "platinum compound hypersensitivity"
+      ],
+      "omop_concept": {
+        "concept_id": 4022306,
+        "concept_name": "Drug allergy",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Observation",
+        "concept_code": "416098002"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "416098002",
+          "display": "Drug allergy"
+        }
+      ],
+      "fhir_resource_type": "AllergyIntolerance",
+      "sql_template": "SELECT DISTINCT person_id FROM observation WHERE observation_concept_id = 4022306",
+      "note": "Platinum compound allergies - use general drug allergy with specific agent in notes"
+    },
+    "docetaxel_hypersensitivity": {
+      "patterns": [
+        "hypersensitivity to docetaxel",
+        "docetaxel allergy",
+        "taxotere allergy"
+      ],
+      "omop_concept": {
+        "concept_id": 43020458,
+        "concept_name": "Allergy to Docetaxel",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Observation",
+        "concept_code": "294451007"
+      },
+      "fhir_codes": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "294451007",
+          "display": "Allergy to Docetaxel"
+        }
+      ],
+      "fhir_resource_type": "AllergyIntolerance",
+      "sql_template": "SELECT DISTINCT person_id FROM observation WHERE observation_concept_id = 43020458"
+    }
+  },
+  "non_queryable_concepts": {
+    "herbal_remedies": {
+      "patterns": [
+        "herbal remedy",
+        "herbal medicine",
+        "chinese medicine",
+        "traditional medicine",
+        "anti-cancer herbal",
+        "herbal supplement"
+      ],
+      "queryable_status": "requires_manual",
+      "non_queryable_reason": "Traditional/herbal medicines are not systematically coded in standard medical vocabularies. Requires patient interview or chart review.",
+      "note": "Mark as non-queryable - herbal medicines not in OMOP CDM"
+    },
+    "investigator_discretion": {
+      "patterns": [
+        "investigator discretion",
+        "investigator's discretion",
+        "opinion of the investigator",
+        "investigator judgment",
+        "clinical judgment"
+      ],
+      "queryable_status": "requires_manual",
+      "non_queryable_reason": "Subjective clinical assessment made at screening - inherently non-queryable",
+      "note": "Inherently subjective criteria that cannot be pre-screened"
+    },
+    "informed_consent": {
+      "patterns": [
+        "informed consent",
+        "consent to provide",
+        "agrees to provide",
+        "willing to provide",
+        "consent to participate"
+      ],
+      "queryable_status": "screening_only",
+      "non_queryable_reason": "Consent is obtained during screening visit - not a pre-screening criterion",
+      "note": "Consent criteria are screening-time requirements, not database queries"
+    }
+  }
+}

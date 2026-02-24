@@ -1,0 +1,638 @@
+{
+  "stage": 6,
+  "stageName": "Conditional Expansion",
+  "success": true,
+  "conditions": [
+    {
+      "id": "COND-6A2BE162",
+      "instanceType": "Condition",
+      "name": "Adverse Event Occurrence",
+      "text": "Subjects reporting a headache AE",
+      "conditionType": {
+        "id": "CODE-COND-6A2BE162-TYPE",
+        "instanceType": "Code",
+        "code": "C25499",
+        "decode": "Clinical Event",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "criterion": {
+        "event": "Headache Adverse Event"
+      },
+      "provenance": {
+        "pageNumber": 40,
+        "page_number": 40,
+        "text_snippet": "Subjects reporting a headache AE will be provided the supplemental headache AE assessment form.",
+        "source": "footnote",
+        "footnote_id": "FN-c",
+        "tableId": "SOA-1",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-3-pro-preview",
+        "timestamp": "2026-02-13T22:53:47.573594Z",
+        "cache_hit": true,
+        "confidence_source": "cached",
+        "validation_flags": [
+          "LLM returned CLINICAL_EVENT, pattern expected DEMOGRAPHIC_SEX"
+        ],
+        "rationale": "Activity is triggered only if a specific adverse event (headache) occurs."
+      },
+      "sourceFootnoteMarker": "c"
+    },
+    {
+      "id": "COND-EFADB1E0",
+      "instanceType": "Condition",
+      "name": "Women of Childbearing Potential",
+      "text": "WOCBP only",
+      "conditionType": {
+        "id": "CODE-COND-EFADB1E0-TYPE",
+        "instanceType": "Code",
+        "code": "C100128",
+        "decode": "Childbearing Potential",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "criterion": {
+        "sex": {
+          "id": "CODE-COND-EFADB1E0-CRIT-1",
+          "instanceType": "Code",
+          "code": "C16576",
+          "decode": "Female",
+          "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+          "codeSystemVersion": "24.12"
+        },
+        "fertilityStatus": "WOCBP"
+      },
+      "provenance": {
+        "pageNumber": 40,
+        "page_number": 40,
+        "text_snippet": "WOCBP only",
+        "source": "footnote",
+        "footnote_id": "FN-e",
+        "tableId": "SOA-1",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-3-pro-preview",
+        "timestamp": "2026-02-13T22:53:47.573833Z",
+        "cache_hit": true,
+        "confidence_source": "cached",
+        "validation_flags": null,
+        "rationale": "Explicit restriction to a specific demographic sub-population."
+      },
+      "sourceFootnoteMarker": "e"
+    },
+    {
+      "id": "COND-8A76669C",
+      "instanceType": "Condition",
+      "name": "Vision Loss Threshold",
+      "text": "If a subject loses \u2265 1 line (\u2265 5 letters) of CDVA or DCNVA compared with Hour 0",
+      "conditionType": {
+        "id": "CODE-COND-8A76669C-TYPE",
+        "instanceType": "Code",
+        "code": "C70856",
+        "decode": "Clinical Laboratory Result",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "criterion": {
+        "test": "CDVA or DCNVA",
+        "threshold": "loss \u2265 1 line or 5 letters",
+        "comparator": "Hour 0"
+      },
+      "provenance": {
+        "pageNumber": 41,
+        "page_number": 41,
+        "text_snippet": "If a subject loses \u2265 1 line (\u2265 5 letters) of CDVA or DCNVA compared with Hour 0 of the same study visit at Hour 1 after dosing, a manifest refraction should be repeated under the same lighting conditi",
+        "source": "footnote",
+        "footnote_id": "FN-i",
+        "tableId": "SOA-1",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-3-pro-preview",
+        "timestamp": "2026-02-13T22:53:47.573969Z",
+        "cache_hit": true,
+        "confidence_source": "cached",
+        "validation_flags": [
+          "LLM returned CLINICAL_RESULT, pattern expected DEMOGRAPHIC_SEX"
+        ],
+        "rationale": "Activity (repeat refraction) is triggered conditionally based on the results of a prior test."
+      },
+      "sourceFootnoteMarker": "i"
+    },
+    {
+      "id": "COND-7B978409",
+      "instanceType": "Condition",
+      "name": "Site Selection",
+      "text": "at selected sites",
+      "conditionType": {
+        "id": "CODE-COND-7B978409-TYPE",
+        "instanceType": "Code",
+        "code": "C49690",
+        "decode": "Optional",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "criterion": {
+        "location": "selected sites"
+      },
+      "provenance": {
+        "pageNumber": 41,
+        "page_number": 41,
+        "text_snippet": "Blood collection for PK at selected sites (on Days 1 and 14 at Hours 0, 0.25, 0.5, 1, 3, 6 [pre-dose], 6.25, 6.5, 7, 9, and 12). Collection windows of \u00b1 5 minutes should be used for Hours 0.25, 0.5, 6",
+        "source": "footnote",
+        "footnote_id": "FN-p",
+        "tableId": "SOA-1",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-3-pro-preview",
+        "timestamp": "2026-02-13T22:53:47.574122Z",
+        "cache_hit": true,
+        "confidence_source": "cached",
+        "validation_flags": null,
+        "rationale": "Limits the activity to a subset of subjects based on their site assignment."
+      },
+      "sourceFootnoteMarker": "p"
+    },
+    {
+      "id": "COND-1111222D",
+      "instanceType": "Condition",
+      "name": "Symptom Reporting",
+      "text": "Only those who reported ocular discomfort symptom(s)",
+      "conditionType": {
+        "id": "CODE-COND-1111222D-TYPE",
+        "instanceType": "Code",
+        "code": "C25499",
+        "decode": "Clinical Event",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12"
+      },
+      "criterion": {
+        "symptom": "ocular discomfort"
+      },
+      "provenance": {
+        "pageNumber": 41,
+        "page_number": 41,
+        "text_snippet": "Conducted 5 to 10 minutes post-dosing. Only those who reported ocular discomfort symptom(s) will be further queried on the severity and duration of each symptom.",
+        "source": "footnote",
+        "footnote_id": "FN-r",
+        "tableId": "SOA-1",
+        "extraction_stage": "Stage6ConditionalExpansion",
+        "model": "gemini-3-pro-preview",
+        "timestamp": "2026-02-13T22:53:47.574203Z",
+        "cache_hit": true,
+        "confidence_source": "cached",
+        "validation_flags": null,
+        "rationale": "Further querying is conditional on the subject reporting a specific symptom."
+      },
+      "sourceFootnoteMarker": "r"
+    }
+  ],
+  "assignments": [
+    {
+      "id": "CA-800F064A",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-6A2BE162",
+      "conditionTargetId": "SAI-012",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "c",
+        "timestamp": "2026-02-13T22:53:47.578784Z"
+      }
+    },
+    {
+      "id": "CA-071D7B5E",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-6A2BE162",
+      "conditionTargetId": "SAI-013",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "c",
+        "timestamp": "2026-02-13T22:53:47.578864Z"
+      }
+    },
+    {
+      "id": "CA-FD902928",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-6A2BE162",
+      "conditionTargetId": "SAI-014",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "c",
+        "timestamp": "2026-02-13T22:53:47.578887Z"
+      }
+    },
+    {
+      "id": "CA-85F3A1FB",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-6A2BE162",
+      "conditionTargetId": "SAI-015",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "c",
+        "timestamp": "2026-02-13T22:53:47.578901Z"
+      }
+    },
+    {
+      "id": "CA-6DB878D1",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-6A2BE162",
+      "conditionTargetId": "SAI-016",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "c",
+        "timestamp": "2026-02-13T22:53:47.578912Z"
+      }
+    },
+    {
+      "id": "CA-EE1B0B1F",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-6A2BE162",
+      "conditionTargetId": "SAI-017",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "c",
+        "timestamp": "2026-02-13T22:53:47.578925Z"
+      }
+    },
+    {
+      "id": "CA-6829EA94",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-6A2BE162",
+      "conditionTargetId": "SAI-018",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "c",
+        "timestamp": "2026-02-13T22:53:47.578936Z"
+      }
+    },
+    {
+      "id": "CA-4AC21737",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-6A2BE162",
+      "conditionTargetId": "SAI-019",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "c",
+        "timestamp": "2026-02-13T22:53:47.578949Z"
+      }
+    },
+    {
+      "id": "CA-3E01E502",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-6A2BE162",
+      "conditionTargetId": "SAI-020",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "c",
+        "timestamp": "2026-02-13T22:53:47.578961Z"
+      }
+    },
+    {
+      "id": "CA-E6093EE0",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-6A2BE162",
+      "conditionTargetId": "SAI-021",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "c",
+        "timestamp": "2026-02-13T22:53:47.578973Z"
+      }
+    },
+    {
+      "id": "CA-0039BFBC",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-6A2BE162",
+      "conditionTargetId": "SAI-022",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "c",
+        "timestamp": "2026-02-13T22:53:47.578985Z"
+      }
+    },
+    {
+      "id": "CA-028A57BD",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-6A2BE162",
+      "conditionTargetId": "SAI-023",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "c",
+        "timestamp": "2026-02-13T22:53:47.578998Z"
+      }
+    },
+    {
+      "id": "CA-1C2AED44",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-6A2BE162",
+      "conditionTargetId": "SAI-024",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "c",
+        "timestamp": "2026-02-13T22:53:47.579011Z"
+      }
+    },
+    {
+      "id": "CA-46FD4E6C",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-EFADB1E0",
+      "conditionTargetId": "SAI-036",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "e",
+        "timestamp": "2026-02-13T22:53:47.579031Z"
+      }
+    },
+    {
+      "id": "CA-B9F650BC",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-EFADB1E0",
+      "conditionTargetId": "SAI-037",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "e",
+        "timestamp": "2026-02-13T22:53:47.579043Z"
+      }
+    },
+    {
+      "id": "CA-BA9D3C1A",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-8A76669C",
+      "conditionTargetId": "SAI-106",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "i",
+        "timestamp": "2026-02-13T22:53:47.579111Z"
+      }
+    },
+    {
+      "id": "CA-3B8E9B6A",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-7B978409",
+      "conditionTargetId": "SAI-182",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "p",
+        "timestamp": "2026-02-13T22:53:47.579168Z"
+      }
+    },
+    {
+      "id": "CA-87A27B24",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-7B978409",
+      "conditionTargetId": "SAI-183",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "p",
+        "timestamp": "2026-02-13T22:53:47.579182Z"
+      }
+    },
+    {
+      "id": "CA-0A69DFA8",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-7B978409",
+      "conditionTargetId": "SAI-184",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "p",
+        "timestamp": "2026-02-13T22:53:47.579194Z"
+      }
+    },
+    {
+      "id": "CA-30A674C2",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-7B978409",
+      "conditionTargetId": "SAI-185",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "p",
+        "timestamp": "2026-02-13T22:53:47.579206Z"
+      }
+    },
+    {
+      "id": "CA-6A055D9C",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-7B978409",
+      "conditionTargetId": "SAI-186",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "p",
+        "timestamp": "2026-02-13T22:53:47.579219Z"
+      }
+    },
+    {
+      "id": "CA-BAD25F39",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-7B978409",
+      "conditionTargetId": "SAI-187",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "p",
+        "timestamp": "2026-02-13T22:53:47.579231Z"
+      }
+    },
+    {
+      "id": "CA-835F7A87",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-7B978409",
+      "conditionTargetId": "SAI-188",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "p",
+        "timestamp": "2026-02-13T22:53:47.579243Z"
+      }
+    },
+    {
+      "id": "CA-1C3ADE7D",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-7B978409",
+      "conditionTargetId": "SAI-189",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "p",
+        "timestamp": "2026-02-13T22:53:47.579256Z"
+      }
+    },
+    {
+      "id": "CA-102267AB",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-7B978409",
+      "conditionTargetId": "SAI-190",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "p",
+        "timestamp": "2026-02-13T22:53:47.579269Z"
+      }
+    },
+    {
+      "id": "CA-D40A65B5",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-7B978409",
+      "conditionTargetId": "SAI-191",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "p",
+        "timestamp": "2026-02-13T22:53:47.579282Z"
+      }
+    },
+    {
+      "id": "CA-78236A5F",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-7B978409",
+      "conditionTargetId": "SAI-192",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "p",
+        "timestamp": "2026-02-13T22:53:47.579295Z"
+      }
+    },
+    {
+      "id": "CA-C87CBBF6",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-7B978409",
+      "conditionTargetId": "SAI-193",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "p",
+        "timestamp": "2026-02-13T22:53:47.579309Z"
+      }
+    },
+    {
+      "id": "CA-ABD62AD7",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-7B978409",
+      "conditionTargetId": "SAI-194",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "p",
+        "timestamp": "2026-02-13T22:53:47.579323Z"
+      }
+    },
+    {
+      "id": "CA-EDA5B087",
+      "instanceType": "ConditionAssignment",
+      "conditionId": "COND-7B978409",
+      "conditionTargetId": "SAI-195",
+      "provenance": {
+        "source": "Stage6ConditionalExpansion",
+        "footnote_marker": "p",
+        "timestamp": "2026-02-13T22:53:47.579337Z"
+      }
+    }
+  ],
+  "markerToCondition": {
+    "c": "COND-6A2BE162",
+    "e": "COND-EFADB1E0",
+    "i": "COND-8A76669C",
+    "p": "COND-7B978409",
+    "r": "COND-1111222D"
+  },
+  "metrics": {
+    "footnotesAnalyzed": 19,
+    "conditionsCreated": 5,
+    "assignmentsCreated": 30,
+    "saisLinked": 30,
+    "highConfidence": 5,
+    "needsReview": 0,
+    "cacheHits": 18,
+    "llmCalls": 1,
+    "conditionCoverage": 0.2631578947368421
+  },
+  "reviewItems": [],
+  "_agentDefinition": {
+    "stageNumber": 6,
+    "stageName": "Conditional Expansion",
+    "displayName": "Population Condition Applier",
+    "purpose": "Applies population-specific and clinical conditions from SOA footnotes to activities (e.g., 'females only', 'if clinically indicated'), enabling conditional scheduling.",
+    "extractionMethodology": "Footnote marker detection and text extraction. LLM classification of condition types (population, clinical, timing). Rule structure generation with applicable activity linkage. Provenance tracking to source footnote.",
+    "keyOutputs": [
+      {
+        "field": "conditions",
+        "description": "Structured condition objects with rules"
+      },
+      {
+        "field": "conditionType",
+        "description": "Type: POPULATION, CLINICAL, TIMING, SAFETY"
+      },
+      {
+        "field": "ruleExpression",
+        "description": "Structured rule in evaluatable format"
+      },
+      {
+        "field": "applicableActivities",
+        "description": "Activities this condition applies to"
+      },
+      {
+        "field": "footnoteSource",
+        "description": "Source footnote marker and text"
+      },
+      {
+        "field": "edcImpact",
+        "description": "How this affects EDC form logic"
+      }
+    ],
+    "downstreamIntegrations": [
+      {
+        "system": "EDC Build",
+        "useCase": "Dynamic form visibility and edit checks",
+        "automationType": "rule_generation",
+        "fieldsUsed": [
+          "conditions",
+          "ruleExpression",
+          "applicableActivities"
+        ],
+        "automationExample": "Pregnancy test form shows only when SEX='F' AND AGE>=childbearing age"
+      },
+      {
+        "system": "IRT Build",
+        "useCase": "Conditional visit scheduling",
+        "automationType": "configuration",
+        "fieldsUsed": [
+          "conditions",
+          "conditionType",
+          "applicableActivities"
+        ],
+        "automationExample": "IRT schedules MRI only for subjects with brain metastases at baseline"
+      },
+      {
+        "system": "Eligibility",
+        "useCase": "Screening criteria validation",
+        "automationType": "rule_generation",
+        "fieldsUsed": [
+          "conditions",
+          "ruleExpression"
+        ],
+        "automationExample": "Population conditions feed eligibility check automation"
+      },
+      {
+        "system": "Safety Monitoring",
+        "useCase": "Conditional safety assessment triggers",
+        "automationType": "rule_generation",
+        "fieldsUsed": [
+          "conditions",
+          "conditionType"
+        ],
+        "automationExample": "Additional ECG triggered when QTc > threshold per footnote rule"
+      }
+    ],
+    "automationInsights": [
+      {
+        "insight": "Edit Check Generation",
+        "description": "Conditions translate directly to EDC conditional logic"
+      },
+      {
+        "insight": "Visit Customization",
+        "description": "Population conditions enable subject-specific visit schedules"
+      },
+      {
+        "insight": "Protocol Deviation Prevention",
+        "description": "Automated condition checking prevents missed assessments"
+      }
+    ],
+    "dataQualityIndicators": [
+      "condition has valid rule expression",
+      "footnote source is traceable",
+      "applicable activities exist"
+    ],
+    "humanReviewTriggers": [
+      "complex nested conditions",
+      "ambiguous condition text",
+      "condition conflicts with other rules"
+    ]
+  }
+}

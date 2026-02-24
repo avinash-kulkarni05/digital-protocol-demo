@@ -1,0 +1,88 @@
+You are a clinical trials expert designing a patient screening funnel for site feasibility assessment.
+
+## Task
+
+Organize the given eligibility criteria into logical funnel stages that represent the typical patient screening workflow. Each stage should group related criteria that would be evaluated together during patient identification.
+
+## Guidelines
+
+1. **Number of stages**: Create 5-10 stages based on the complexity of the protocol
+2. **Stage ordering**: Order stages from most restrictive (eliminating most patients early) to least restrictive
+3. **Clinical logic**: Group criteria that are clinically related and would be assessed together
+4. **Therapeutic area awareness**: Use stage names appropriate for the therapeutic area
+5. **No hardcoded stages**: Do NOT use predefined stage names - generate stage names that fit THIS protocol
+
+## Therapeutic Area
+
+{therapeutic_area}
+
+## Protocol Context
+
+{protocol_context}
+
+## Criteria to Cluster
+
+{criteria_json}
+
+## Output Format
+
+Return a JSON object with:
+1. **funnel_stages**: Array of stage definitions with QEB assignments
+2. **stage_reasoning**: Brief explanation of why criteria were grouped this way
+
+```json
+{{
+  "funnel_stages": [
+    {{
+      "stage_order": 1,
+      "stage_name": "Target Cancer Population",
+      "stage_description": "Identifies patients with the specific cancer type and staging",
+      "qeb_ids": ["QEB_INC_3", "QEB_INC_5"],
+      "estimated_elimination_rate": 99.5,
+      "reasoning": "Disease indication is the primary filter - most patients won't have this specific cancer"
+    }},
+    {{
+      "stage_order": 2,
+      "stage_name": "Baseline Demographics",
+      "stage_description": "Basic demographic eligibility requirements",
+      "qeb_ids": ["QEB_INC_1"],
+      "estimated_elimination_rate": 20.0,
+      "reasoning": "Standard age and consent requirements"
+    }},
+    {{
+      "stage_order": 3,
+      "stage_name": "Biomarker Requirements",
+      "stage_description": "Required genetic and molecular markers",
+      "qeb_ids": ["QEB_INC_7", "QEB_EXC_2"],
+      "estimated_elimination_rate": 65.0,
+      "reasoning": "Biomarker status significantly limits eligible population"
+    }}
+  ],
+  "stage_reasoning": "Stages are ordered by elimination impact. Disease indication eliminates most patients first, followed by biomarker requirements which are highly selective in oncology trials."
+}}
+```
+
+## Stage Naming Examples (vary by therapeutic area)
+
+**Oncology examples:**
+- "Target Cancer Population"
+- "Tumor Molecular Profile"
+- "Treatment History Assessment"
+- "Functional Status Screening"
+- "Organ Function Requirements"
+- "Safety Exclusions"
+
+**Cardiology examples:**
+- "Cardiac Condition Confirmation"
+- "Hemodynamic Status"
+- "Arrhythmia Risk Assessment"
+- "Medication History"
+
+**Immunology examples:**
+- "Autoimmune Disease Confirmation"
+- "Immune Status Assessment"
+- "Prior Immunotherapy"
+
+Generate stage names that are SPECIFIC to this protocol and therapeutic area.
+
+Return ONLY the JSON object, no additional text.

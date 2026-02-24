@@ -1,0 +1,529 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "funnel_output_schema.json",
+  "title": "Patient Funnel Analysis Output",
+  "description": "Schema for patient funnel and key criteria normalization results used in site feasibility assessment",
+  "type": "object",
+  "required": ["protocolId", "analysisTimestamp", "keyCriteria", "funnelStages", "populationEstimates"],
+  "properties": {
+    "protocolId": {
+      "type": "string",
+      "description": "Clinical trial protocol identifier (e.g., NCT number)"
+    },
+    "analysisTimestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of when analysis was performed"
+    },
+    "isDraft": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether this is a draft analysis pending validation"
+    },
+    "keyCriteria": {
+      "type": "array",
+      "description": "Normalized key criteria (~10-15) that drive 80% of patient elimination",
+      "items": {
+        "$ref": "#/definitions/keyCriterion"
+      }
+    },
+    "funnelStages": {
+      "type": "array",
+      "description": "Ordered funnel stages showing patient flow",
+      "items": {
+        "$ref": "#/definitions/funnelStage"
+      }
+    },
+    "populationEstimates": {
+      "$ref": "#/definitions/populationEstimates"
+    },
+    "killerCriteria": {
+      "type": "array",
+      "description": "IDs of top 5-8 criteria with highest elimination impact",
+      "items": {
+        "type": "string"
+      }
+    },
+    "optimizationOpportunities": {
+      "type": "array",
+      "description": "Protocol modification suggestions to increase patient pool",
+      "items": {
+        "$ref": "#/definitions/optimizationOpportunity"
+      }
+    },
+    "manualAssessmentCriteria": {
+      "type": "array",
+      "description": "IDs of criteria requiring manual chart review (non-queryable)",
+      "items": {
+        "type": "string"
+      }
+    },
+    "siteRankings": {
+      "type": "array",
+      "description": "Site feasibility rankings if multi-site data provided",
+      "items": {
+        "$ref": "#/definitions/siteRanking"
+      }
+    },
+    "metadata": {
+      "$ref": "#/definitions/analysisMetadata"
+    },
+    "errors": {
+      "type": "array",
+      "description": "Errors encountered during analysis",
+      "items": {
+        "type": "string"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "description": "Warnings generated during analysis",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "definitions": {
+    "keyCriterion": {
+      "type": "object",
+      "required": ["keyId", "category", "normalizedText", "criterionType", "queryableStatus"],
+      "properties": {
+        "keyId": {
+          "type": "string",
+          "pattern": "^KC[0-9]{3}$",
+          "description": "Unique key criterion identifier (e.g., KC001)"
+        },
+        "originalCriterionIds": {
+          "type": "array",
+          "description": "Source criterion IDs from extraction pipeline",
+          "items": {
+            "type": "string"
+          }
+        },
+        "category": {
+          "type": "string",
+          "enum": ["primary_anchor", "biomarker", "treatment_history", "functional", "safety_exclusion", "administrative"],
+          "description": "Classification category for funnel ordering"
+        },
+        "normalizedText": {
+          "type": "string",
+          "description": "Standardized criterion description"
+        },
+        "criterionType": {
+          "type": "string",
+          "enum": ["inclusion", "exclusion"],
+          "description": "Whether this is an inclusion or exclusion criterion"
+        },
+        "queryableStatus": {
+          "type": "string",
+          "enum": ["fully_queryable", "partially_queryable", "non_queryable", "reference_based"],
+          "description": "Assessment of whether criterion can be queried against EHR data"
+        },
+        "normalizedQueryOmop": {
+          "type": "string",
+          "description": "OMOP CDM SQL query template for this criterion"
+        },
+        "normalizedQueryFhir": {
+          "type": "string",
+          "description": "FHIR R4 search query for this criterion"
+        },
+        "omopMappings": {
+          "type": "array",
+          "description": "OMOP concept mappings",
+          "items": {
+            "$ref": "#/definitions/omopMapping"
+          }
+        },
+        "fhirMappings": {
+          "type": "array",
+          "description": "FHIR resource mappings",
+          "items": {
+            "$ref": "#/definitions/fhirMapping"
+          }
+        },
+        "estimatedEliminationRate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Expected patient elimination percentage (0-100)"
+        },
+        "prevalenceEstimate": {
+          "$ref": "#/definitions/prevalenceEstimate"
+        },
+        "dataAvailabilityScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Score indicating data completeness in EHR (0-1)"
+        },
+        "requiresManualAssessment": {
+          "type": "boolean",
+          "description": "Whether manual chart review is required"
+        },
+        "isKillerCriterion": {
+          "type": "boolean",
+          "description": "Whether this is in top 5-8 eliminators"
+        },
+        "funnelPriority": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Order in funnel (lower = applied earlier)"
+        },
+        "sourceText": {
+          "type": "string",
+          "description": "Original criterion text from protocol"
+        },
+        "atomicIds": {
+          "type": "array",
+          "description": "Related atomic criterion IDs",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "omopMapping": {
+      "type": "object",
+      "required": ["conceptId", "conceptName", "vocabularyId", "domainId", "tableName"],
+      "properties": {
+        "conceptId": {
+          "type": "integer",
+          "description": "OMOP concept_id"
+        },
+        "conceptName": {
+          "type": "string",
+          "description": "Human-readable concept name"
+        },
+        "vocabularyId": {
+          "type": "string",
+          "description": "Vocabulary identifier (e.g., SNOMED, LOINC)"
+        },
+        "domainId": {
+          "type": "string",
+          "description": "OMOP domain (e.g., Condition, Measurement)"
+        },
+        "tableName": {
+          "type": "string",
+          "description": "Target OMOP table name"
+        },
+        "isStandard": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether this is a standard concept"
+        }
+      }
+    },
+    "fhirMapping": {
+      "type": "object",
+      "required": ["resourceType", "codeSystem", "code"],
+      "properties": {
+        "resourceType": {
+          "type": "string",
+          "description": "FHIR resource type (e.g., Condition, Observation)"
+        },
+        "codeSystem": {
+          "type": "string",
+          "format": "uri",
+          "description": "Code system URI (e.g., http://snomed.info/sct)"
+        },
+        "code": {
+          "type": "string",
+          "description": "Code value within the system"
+        },
+        "display": {
+          "type": "string",
+          "description": "Human-readable display text"
+        },
+        "searchParameter": {
+          "type": "string",
+          "description": "FHIR search parameter name"
+        }
+      }
+    },
+    "prevalenceEstimate": {
+      "type": "object",
+      "required": ["frequency", "source"],
+      "properties": {
+        "frequency": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Prevalence as proportion (0-1)"
+        },
+        "source": {
+          "type": "string",
+          "description": "Citation for prevalence data"
+        },
+        "year": {
+          "type": "integer",
+          "description": "Publication year"
+        },
+        "population": {
+          "type": "string",
+          "description": "Target population for estimate"
+        },
+        "confidenceLow": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Lower bound of confidence interval"
+        },
+        "confidenceHigh": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Upper bound of confidence interval"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional context"
+        }
+      }
+    },
+    "funnelStage": {
+      "type": "object",
+      "required": ["stageName", "stageType", "stageOrder"],
+      "properties": {
+        "stageName": {
+          "type": "string",
+          "description": "Human-readable stage name (e.g., Disease Indication)"
+        },
+        "stageType": {
+          "type": "string",
+          "enum": ["disease_indication", "demographics", "biomarker_requirements", "treatment_history", "performance_status", "lab_criteria", "safety_exclusions"],
+          "description": "Stage classification"
+        },
+        "stageOrder": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Execution order (1-based)"
+        },
+        "criteriaCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of criteria in this stage"
+        },
+        "criteriaIds": {
+          "type": "array",
+          "description": "Key criterion IDs in this stage",
+          "items": {
+            "type": "string"
+          }
+        },
+        "patientsEntering": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Patient count at stage start"
+        },
+        "patientsExiting": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Patient count after stage"
+        },
+        "eliminationRate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Percentage eliminated at this stage"
+        },
+        "cumulativeElimination": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Total elimination from initial population"
+        },
+        "executionTimeMs": {
+          "type": "number",
+          "description": "Stage execution time in milliseconds"
+        }
+      }
+    },
+    "populationEstimates": {
+      "type": "object",
+      "required": ["initialPopulation", "finalEligibleEstimate"],
+      "properties": {
+        "initialPopulation": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Starting population count"
+        },
+        "finalEligibleEstimate": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Estimated eligible patient count"
+        },
+        "confidenceInterval": {
+          "type": "object",
+          "properties": {
+            "low": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Lower bound estimate"
+            },
+            "high": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Upper bound estimate"
+            }
+          }
+        },
+        "estimationMethod": {
+          "type": "string",
+          "enum": ["query", "prevalence", "hybrid"],
+          "description": "How estimate was calculated"
+        },
+        "dataSources": {
+          "type": "array",
+          "description": "Data sources used for estimation",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "optimizationOpportunity": {
+      "type": "object",
+      "required": ["criterionId", "suggestion", "potentialImpact"],
+      "properties": {
+        "criterionId": {
+          "type": "string",
+          "description": "Key criterion ID to modify"
+        },
+        "criterionText": {
+          "type": "string",
+          "description": "Current criterion text"
+        },
+        "suggestion": {
+          "type": "string",
+          "description": "Recommended modification"
+        },
+        "rationale": {
+          "type": "string",
+          "description": "Clinical rationale for change"
+        },
+        "potentialImpact": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Estimated pool increase percentage"
+        },
+        "riskAssessment": {
+          "type": "string",
+          "description": "Safety/efficacy risk of modification"
+        },
+        "supportingEvidence": {
+          "type": "string",
+          "description": "Literature or data support"
+        }
+      }
+    },
+    "siteRanking": {
+      "type": "object",
+      "required": ["siteId", "siteName", "rank", "score"],
+      "properties": {
+        "siteId": {
+          "type": "string",
+          "description": "Site identifier"
+        },
+        "siteName": {
+          "type": "string",
+          "description": "Human-readable site name"
+        },
+        "initialPopulation": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total patients at site"
+        },
+        "eligiblePatients": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Estimated eligible patients"
+        },
+        "rank": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Overall rank (1 = best)"
+        },
+        "score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Composite feasibility score"
+        },
+        "dataCompletenessScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Site data quality score"
+        },
+        "queryableCriteriaPercent": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Percentage of criteria directly queryable"
+        },
+        "strengths": {
+          "type": "array",
+          "description": "Site strengths for this protocol",
+          "items": {
+            "type": "string"
+          }
+        },
+        "concerns": {
+          "type": "array",
+          "description": "Site concerns or limitations",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "analysisMetadata": {
+      "type": "object",
+      "properties": {
+        "dataSource": {
+          "type": "string",
+          "enum": ["omop", "fhir", "synthetic", "hybrid", "unknown"],
+          "description": "Primary data source used"
+        },
+        "dataQualityScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Overall data quality score"
+        },
+        "estimationConfidence": {
+          "type": "string",
+          "enum": ["high", "medium", "low"],
+          "description": "Confidence level of estimates"
+        },
+        "executionTimeSeconds": {
+          "type": "number",
+          "description": "Total analysis execution time"
+        },
+        "stagesExecuted": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of funnel stages executed"
+        },
+        "totalCriteriaAnalyzed": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total criteria processed"
+        },
+        "overallEliminationRate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Total elimination from initial to final"
+        },
+        "funnelEfficiencyScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Score for killer criteria placement efficiency"
+        }
+      }
+    }
+  }
+}

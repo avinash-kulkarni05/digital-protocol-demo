@@ -1,0 +1,22 @@
+{
+  "stage": 7,
+  "stageName": "Timing Distribution",
+  "success": true,
+  "expansions": [],
+  "decisions": {},
+  "discrepancies": [],
+  "reviewItems": [],
+  "metrics": {
+    "uniqueTimingsAnalyzed": 0,
+    "saisProcessed": 86,
+    "saisWithTiming": 0,
+    "saisExpanded": 0,
+    "saisCreated": 0,
+    "saisUnchanged": 0,
+    "cacheHits": 0,
+    "llmCalls": 0,
+    "validationFlags": 0,
+    "reviewItemsCount": 0,
+    "expansionRate": 0.0
+  }
+}

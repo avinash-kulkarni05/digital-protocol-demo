@@ -1,0 +1,3000 @@
+{
+  "protocolId": "NCT02264990_M14-359",
+  "protocolType": "cycle_based",
+  "primaryReferencePoint": "randomization",
+  "visits": [
+    {
+      "id": "ENC-001",
+      "name": "Screening",
+      "originalName": "SCR",
+      "visitType": "screening",
+      "timing": {
+        "value": -28,
+        "unit": "days",
+        "relativeTo": "randomization",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 1
+        }
+      },
+      "window": {
+        "earlyBound": 28,
+        "lateBound": 0,
+        "type": "early_only",
+        "description": "Within 28 days of randomization",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 1
+        }
+      },
+      "recurrence": null,
+      "footnoteMarkers": [
+        "a"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 1
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-001-TYPE-193654DD",
+        "code": "C48262",
+        "decode": "Screening",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    },
+    {
+      "id": "ENC-002",
+      "name": "Cycle 1 Day -2",
+      "originalName": "Cycle 1 Day \u20132",
+      "visitType": "treatment",
+      "timing": {
+        "value": -2,
+        "unit": "days",
+        "relativeTo": "cycle_start",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 2
+        }
+      },
+      "window": {
+        "earlyBound": 0,
+        "lateBound": 0,
+        "type": "exact",
+        "description": "Day -2 of cycle 1",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 2
+        }
+      },
+      "recurrence": null,
+      "footnoteMarkers": [
+        "g"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 2
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-002-TYPE-6F470612",
+        "code": "C25100",
+        "decode": "Treatment",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    },
+    {
+      "id": "ENC-003",
+      "name": "Cycle 1 Day 1",
+      "originalName": "Cycle 1 Day 1",
+      "visitType": "treatment",
+      "timing": {
+        "value": 1,
+        "unit": "days",
+        "relativeTo": "cycle_start",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 3
+        }
+      },
+      "window": {
+        "earlyBound": 0,
+        "lateBound": 0,
+        "type": "exact",
+        "description": "Day 1 of cycle 1",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 3
+        }
+      },
+      "recurrence": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 3
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-003-TYPE-EFEDE1C2",
+        "code": "C25100",
+        "decode": "Treatment",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    },
+    {
+      "id": "ENC-004",
+      "name": "Cycle 1 Day 15",
+      "originalName": "Cycle 1 Day 15",
+      "visitType": "treatment",
+      "timing": {
+        "value": 15,
+        "unit": "days",
+        "relativeTo": "cycle_start",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 4
+        }
+      },
+      "window": {
+        "earlyBound": 0,
+        "lateBound": 0,
+        "type": "exact",
+        "description": "Day 15 of cycle 1",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 4
+        }
+      },
+      "recurrence": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 4
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-004-TYPE-1D2D73F9",
+        "code": "C25100",
+        "decode": "Treatment",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    },
+    {
+      "id": "ENC-005",
+      "name": "Cycle 2-6 Day 1",
+      "originalName": "Cycle 2 \u2013 6 Day 1*",
+      "visitType": "treatment",
+      "timing": {
+        "value": 1,
+        "unit": "days",
+        "relativeTo": "cycle_start",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 5
+        }
+      },
+      "window": {
+        "earlyBound": 0,
+        "lateBound": 0,
+        "type": "exact",
+        "description": "Day 1 of cycles 2-6",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 5
+        }
+      },
+      "recurrence": {
+        "pattern": "CYCLE:2-6",
+        "type": "cycle_based",
+        "startCycle": 2,
+        "endCycle": 6,
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 5
+        }
+      },
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 5
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-005-TYPE-638A515C",
+        "code": "C25100",
+        "decode": "Treatment",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    },
+    {
+      "id": "ENC-006",
+      "name": "Final Visit",
+      "originalName": "Final Visit b",
+      "visitType": "end_of_treatment",
+      "timing": {
+        "value": null,
+        "unit": "days",
+        "relativeTo": "treatment_discontinuation",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 6
+        }
+      },
+      "window": null,
+      "recurrence": null,
+      "footnoteMarkers": [
+        "b"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 6
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-006-TYPE-69214755",
+        "code": "C25629",
+        "decode": "End of Treatment",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    },
+    {
+      "id": "ENC-007",
+      "name": "30-Day Follow-up Visit",
+      "originalName": "30-day FU Visit c",
+      "visitType": "follow_up",
+      "timing": {
+        "value": 30,
+        "unit": "days",
+        "relativeTo": "last_dose",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 7
+        }
+      },
+      "window": {
+        "earlyBound": 3,
+        "lateBound": 3,
+        "type": "symmetric",
+        "description": "30 days after last dose",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 7
+        }
+      },
+      "recurrence": null,
+      "footnoteMarkers": [
+        "c"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 7
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-007-TYPE-5F9D2F46",
+        "code": "C16033",
+        "decode": "Follow-up",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    },
+    {
+      "id": "ENC-008",
+      "name": "Maintenance Therapy",
+      "originalName": "Maintenance Therapy d",
+      "visitType": "treatment",
+      "timing": {
+        "value": null,
+        "unit": "weeks",
+        "relativeTo": "treatment_completion",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 8
+        }
+      },
+      "window": {
+        "earlyBound": 7,
+        "lateBound": 7,
+        "type": "symmetric",
+        "description": "Every 3 weeks",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 8
+        }
+      },
+      "recurrence": {
+        "pattern": "P3W",
+        "type": "fixed_interval",
+        "interval": 3,
+        "intervalUnit": "weeks",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 8
+        }
+      },
+      "footnoteMarkers": [
+        "d"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 8
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-008-TYPE-B1B4BF61",
+        "code": "C25100",
+        "decode": "Treatment",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    },
+    {
+      "id": "ENC-009",
+      "name": "Post-Treatment Visits",
+      "originalName": "Post-Treatment Visits p",
+      "visitType": "follow_up",
+      "timing": {
+        "value": null,
+        "unit": "weeks",
+        "relativeTo": "treatment_discontinuation",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 9
+        }
+      },
+      "window": {
+        "earlyBound": 7,
+        "lateBound": 7,
+        "type": "symmetric",
+        "description": "Every 9 weeks until 1 year, then every 12 weeks",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 9
+        }
+      },
+      "recurrence": {
+        "pattern": "P9W",
+        "type": "fixed_interval",
+        "interval": 9,
+        "intervalUnit": "weeks",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 9
+        }
+      },
+      "footnoteMarkers": [
+        "p"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 9
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-009-TYPE-7C6CB9A2",
+        "code": "C16033",
+        "decode": "Follow-up",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    },
+    {
+      "id": "ENC-010",
+      "name": "Survival Period",
+      "originalName": "Survival Period",
+      "visitType": "follow_up",
+      "timing": {
+        "value": null,
+        "unit": "weeks",
+        "relativeTo": "treatment_discontinuation",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 10
+        }
+      },
+      "window": {
+        "earlyBound": 7,
+        "lateBound": 7,
+        "type": "symmetric",
+        "description": "Every 12 weeks",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 10
+        }
+      },
+      "recurrence": {
+        "pattern": "P12W",
+        "type": "fixed_interval",
+        "interval": 12,
+        "intervalUnit": "weeks",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 10
+        }
+      },
+      "footnoteMarkers": [
+        "r"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 10
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-010-TYPE-650E559E",
+        "code": "C16033",
+        "decode": "Follow-up",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    }
+  ],
+  "encounters": [
+    {
+      "id": "ENC-001",
+      "name": "Screening",
+      "originalName": "SCR",
+      "visitType": "screening",
+      "timing": {
+        "value": -28,
+        "unit": "days",
+        "relativeTo": "randomization",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 1
+        }
+      },
+      "window": {
+        "earlyBound": 28,
+        "lateBound": 0,
+        "type": "early_only",
+        "description": "Within 28 days of randomization",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 1
+        }
+      },
+      "recurrence": null,
+      "footnoteMarkers": [
+        "a"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 1
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-001-TYPE-193654DD",
+        "code": "C48262",
+        "decode": "Screening",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    },
+    {
+      "id": "ENC-002",
+      "name": "Cycle 1 Day -2",
+      "originalName": "Cycle 1 Day \u20132",
+      "visitType": "treatment",
+      "timing": {
+        "value": -2,
+        "unit": "days",
+        "relativeTo": "cycle_start",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 2
+        }
+      },
+      "window": {
+        "earlyBound": 0,
+        "lateBound": 0,
+        "type": "exact",
+        "description": "Day -2 of cycle 1",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 2
+        }
+      },
+      "recurrence": null,
+      "footnoteMarkers": [
+        "g"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 2
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-002-TYPE-6F470612",
+        "code": "C25100",
+        "decode": "Treatment",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    },
+    {
+      "id": "ENC-003",
+      "name": "Cycle 1 Day 1",
+      "originalName": "Cycle 1 Day 1",
+      "visitType": "treatment",
+      "timing": {
+        "value": 1,
+        "unit": "days",
+        "relativeTo": "cycle_start",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 3
+        }
+      },
+      "window": {
+        "earlyBound": 0,
+        "lateBound": 0,
+        "type": "exact",
+        "description": "Day 1 of cycle 1",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 3
+        }
+      },
+      "recurrence": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 3
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-003-TYPE-EFEDE1C2",
+        "code": "C25100",
+        "decode": "Treatment",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    },
+    {
+      "id": "ENC-004",
+      "name": "Cycle 1 Day 15",
+      "originalName": "Cycle 1 Day 15",
+      "visitType": "treatment",
+      "timing": {
+        "value": 15,
+        "unit": "days",
+        "relativeTo": "cycle_start",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 4
+        }
+      },
+      "window": {
+        "earlyBound": 0,
+        "lateBound": 0,
+        "type": "exact",
+        "description": "Day 15 of cycle 1",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 4
+        }
+      },
+      "recurrence": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 4
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-004-TYPE-1D2D73F9",
+        "code": "C25100",
+        "decode": "Treatment",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    },
+    {
+      "id": "ENC-005",
+      "name": "Cycle 2-6 Day 1",
+      "originalName": "Cycle 2 \u2013 6 Day 1*",
+      "visitType": "treatment",
+      "timing": {
+        "value": 1,
+        "unit": "days",
+        "relativeTo": "cycle_start",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 5
+        }
+      },
+      "window": {
+        "earlyBound": 0,
+        "lateBound": 0,
+        "type": "exact",
+        "description": "Day 1 of cycles 2-6",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 5
+        }
+      },
+      "recurrence": {
+        "pattern": "CYCLE:2-6",
+        "type": "cycle_based",
+        "startCycle": 2,
+        "endCycle": 6,
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 5
+        }
+      },
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 5
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-005-TYPE-638A515C",
+        "code": "C25100",
+        "decode": "Treatment",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    },
+    {
+      "id": "ENC-006",
+      "name": "Final Visit",
+      "originalName": "Final Visit b",
+      "visitType": "end_of_treatment",
+      "timing": {
+        "value": null,
+        "unit": "days",
+        "relativeTo": "treatment_discontinuation",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 6
+        }
+      },
+      "window": null,
+      "recurrence": null,
+      "footnoteMarkers": [
+        "b"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 6
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-006-TYPE-69214755",
+        "code": "C25629",
+        "decode": "End of Treatment",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    },
+    {
+      "id": "ENC-007",
+      "name": "30-Day Follow-up Visit",
+      "originalName": "30-day FU Visit c",
+      "visitType": "follow_up",
+      "timing": {
+        "value": 30,
+        "unit": "days",
+        "relativeTo": "last_dose",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 7
+        }
+      },
+      "window": {
+        "earlyBound": 3,
+        "lateBound": 3,
+        "type": "symmetric",
+        "description": "30 days after last dose",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 7
+        }
+      },
+      "recurrence": null,
+      "footnoteMarkers": [
+        "c"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 7
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-007-TYPE-5F9D2F46",
+        "code": "C16033",
+        "decode": "Follow-up",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    },
+    {
+      "id": "ENC-008",
+      "name": "Maintenance Therapy",
+      "originalName": "Maintenance Therapy d",
+      "visitType": "treatment",
+      "timing": {
+        "value": null,
+        "unit": "weeks",
+        "relativeTo": "treatment_completion",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 8
+        }
+      },
+      "window": {
+        "earlyBound": 7,
+        "lateBound": 7,
+        "type": "symmetric",
+        "description": "Every 3 weeks",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 8
+        }
+      },
+      "recurrence": {
+        "pattern": "P3W",
+        "type": "fixed_interval",
+        "interval": 3,
+        "intervalUnit": "weeks",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 8
+        }
+      },
+      "footnoteMarkers": [
+        "d"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 8
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-008-TYPE-B1B4BF61",
+        "code": "C25100",
+        "decode": "Treatment",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    },
+    {
+      "id": "ENC-009",
+      "name": "Post-Treatment Visits",
+      "originalName": "Post-Treatment Visits p",
+      "visitType": "follow_up",
+      "timing": {
+        "value": null,
+        "unit": "weeks",
+        "relativeTo": "treatment_discontinuation",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 9
+        }
+      },
+      "window": {
+        "earlyBound": 7,
+        "lateBound": 7,
+        "type": "symmetric",
+        "description": "Every 9 weeks until 1 year, then every 12 weeks",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 9
+        }
+      },
+      "recurrence": {
+        "pattern": "P9W",
+        "type": "fixed_interval",
+        "interval": 9,
+        "intervalUnit": "weeks",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 9
+        }
+      },
+      "footnoteMarkers": [
+        "p"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 9
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-009-TYPE-7C6CB9A2",
+        "code": "C16033",
+        "decode": "Follow-up",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    },
+    {
+      "id": "ENC-010",
+      "name": "Survival Period",
+      "originalName": "Survival Period",
+      "visitType": "follow_up",
+      "timing": {
+        "value": null,
+        "unit": "weeks",
+        "relativeTo": "treatment_discontinuation",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 10
+        }
+      },
+      "window": {
+        "earlyBound": 7,
+        "lateBound": 7,
+        "type": "symmetric",
+        "description": "Every 12 weeks",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 10
+        }
+      },
+      "recurrence": {
+        "pattern": "P12W",
+        "type": "fixed_interval",
+        "interval": 12,
+        "intervalUnit": "weeks",
+        "provenance": {
+          "pageNumber": 41,
+          "tableId": "SOA-2",
+          "colIdx": 10
+        }
+      },
+      "footnoteMarkers": [
+        "r"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 10
+      },
+      "instanceType": "Encounter",
+      "type": {
+        "id": "CODE-ENC-ENC-010-TYPE-650E559E",
+        "code": "C16033",
+        "decode": "Follow-up",
+        "codeSystem": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+        "codeSystemVersion": "24.12",
+        "instanceType": "Code"
+      }
+    }
+  ],
+  "activities": [
+    {
+      "id": "ACT-001",
+      "name": "Informed Consent",
+      "category": "OTHER",
+      "cdashDomain": "IC",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 1
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-002",
+      "name": "Medical and Cancer History",
+      "category": "OTHER",
+      "cdashDomain": "MH",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 2
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-003",
+      "name": "Physical Exam",
+      "category": "PHYSICAL_EXAM",
+      "cdashDomain": "PE",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 3
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-004",
+      "name": "Vital Signs",
+      "category": "VITAL_SIGNS",
+      "cdashDomain": "VS",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 4
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-005",
+      "name": "12-Lead ECG",
+      "category": "ECG",
+      "cdashDomain": "EG",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 5
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-006",
+      "name": "Performance Status (ECOG)",
+      "category": "QUESTIONNAIRE",
+      "cdashDomain": "QS",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 6
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-007",
+      "name": "Documentation of Non-Childbearing Status or Pregnancy Test",
+      "category": "LABORATORY",
+      "cdashDomain": "LB",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 7
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-008",
+      "name": "Chemistry/Hematology",
+      "category": "LABORATORY",
+      "cdashDomain": "LB",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 8
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-009",
+      "name": "Urinalysis",
+      "category": "LABORATORY",
+      "cdashDomain": "LB",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 9
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-010",
+      "name": "aPTT, INR",
+      "category": "LABORATORY",
+      "cdashDomain": "LB",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 10
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-011",
+      "name": "Tumor Assessments",
+      "category": "EFFICACY",
+      "cdashDomain": "TU",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 11
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-012",
+      "name": "MRI of the Brain",
+      "category": "IMAGING",
+      "cdashDomain": "MR",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 12
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-013",
+      "name": "QoL Questionnaires",
+      "category": "QUESTIONNAIRE",
+      "cdashDomain": "QS",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 13
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-014",
+      "name": "Adverse Event and Concomitant Medication Assessment",
+      "category": "SAFETY",
+      "cdashDomain": "AE",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 14
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-015",
+      "name": "Randomization",
+      "category": "OTHER",
+      "cdashDomain": "DS",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 15
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-016",
+      "name": "Dispense veliparib",
+      "category": "OTHER",
+      "cdashDomain": "EX",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 16
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-017",
+      "name": "Administer premedication",
+      "category": "OTHER",
+      "cdashDomain": "EX",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 17
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-018",
+      "name": "Administer platinum doublet chemotherapy",
+      "category": "OTHER",
+      "cdashDomain": "EX",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 18
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-019",
+      "name": "Administer maintenance pemetrexed",
+      "category": "OTHER",
+      "cdashDomain": "EX",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 19
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-020",
+      "name": "Survival",
+      "category": "EFFICACY",
+      "cdashDomain": "DS",
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 20
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-021",
+      "name": "Optional PG Blood Sampling",
+      "category": "SPECIMEN_COLLECTION",
+      "cdashDomain": "MB",
+      "provenance": {
+        "pageNumber": 43,
+        "tableId": "SOA-3",
+        "rowIdx": 2
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-022",
+      "name": "PD Blood Sampling Plasma Markers",
+      "category": "SPECIMEN_COLLECTION",
+      "cdashDomain": "MB",
+      "provenance": {
+        "pageNumber": 43,
+        "tableId": "SOA-3",
+        "rowIdx": 3
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-023",
+      "name": "Serum Markers",
+      "category": "SPECIMEN_COLLECTION",
+      "cdashDomain": "MB",
+      "provenance": {
+        "pageNumber": 43,
+        "tableId": "SOA-3",
+        "rowIdx": 5
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-024",
+      "name": "Tissue Sample Collection",
+      "category": "SPECIMEN_COLLECTION",
+      "cdashDomain": "MB",
+      "provenance": {
+        "pageNumber": 43,
+        "tableId": "SOA-3",
+        "rowIdx": 7
+      },
+      "instanceType": "Activity"
+    },
+    {
+      "id": "ACT-025",
+      "name": "Veliparib PK Sampling",
+      "category": "SPECIMEN_COLLECTION",
+      "cdashDomain": "PC",
+      "provenance": {
+        "pageNumber": 43,
+        "tableId": "SOA-4",
+        "rowIdx": 2
+      },
+      "instanceType": "Activity"
+    }
+  ],
+  "scheduledActivityInstances": [
+    {
+      "id": "SAI-001",
+      "activityId": "ACT-001",
+      "activityName": "Informed Consent",
+      "visitId": "ENC-001",
+      "visitName": "Screening",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 1,
+        "colIdx": 1
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-002",
+      "activityId": "ACT-002",
+      "activityName": "Medical and Cancer History",
+      "visitId": "ENC-001",
+      "visitName": "Screening",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 2,
+        "colIdx": 1
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-003",
+      "activityId": "ACT-003",
+      "activityName": "Physical Exam",
+      "visitId": "ENC-001",
+      "visitName": "Screening",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [
+        "f"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 3,
+        "colIdx": 1
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-004",
+      "activityId": "ACT-003",
+      "activityName": "Physical Exam",
+      "visitId": "ENC-002",
+      "visitName": "Cycle 1 Day -2",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [
+        "f"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 3,
+        "colIdx": 2
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-005",
+      "activityId": "ACT-003",
+      "activityName": "Physical Exam",
+      "visitId": "ENC-005",
+      "visitName": "Cycle 2-6 Day 1",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 3,
+        "colIdx": 5
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-006",
+      "activityId": "ACT-003",
+      "activityName": "Physical Exam",
+      "visitId": "ENC-006",
+      "visitName": "Final Visit",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 3,
+        "colIdx": 6
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-007",
+      "activityId": "ACT-003",
+      "activityName": "Physical Exam",
+      "visitId": "ENC-007",
+      "visitName": "30-Day Follow-up Visit",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 3,
+        "colIdx": 7
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-008",
+      "activityId": "ACT-003",
+      "activityName": "Physical Exam",
+      "visitId": "ENC-008",
+      "visitName": "Maintenance Therapy",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 3,
+        "colIdx": 8
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-009",
+      "activityId": "ACT-003",
+      "activityName": "Physical Exam",
+      "visitId": "ENC-009",
+      "visitName": "Post-Treatment Visits",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 3,
+        "colIdx": 9
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-010",
+      "activityId": "ACT-004",
+      "activityName": "Vital Signs",
+      "visitId": "ENC-001",
+      "visitName": "Screening",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 4,
+        "colIdx": 1
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-011",
+      "activityId": "ACT-004",
+      "activityName": "Vital Signs",
+      "visitId": "ENC-002",
+      "visitName": "Cycle 1 Day -2",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 4,
+        "colIdx": 2
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-012",
+      "activityId": "ACT-004",
+      "activityName": "Vital Signs",
+      "visitId": "ENC-004",
+      "visitName": "Cycle 1 Day 15",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 4,
+        "colIdx": 4
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-013",
+      "activityId": "ACT-004",
+      "activityName": "Vital Signs",
+      "visitId": "ENC-005",
+      "visitName": "Cycle 2-6 Day 1",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 4,
+        "colIdx": 5
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-014",
+      "activityId": "ACT-004",
+      "activityName": "Vital Signs",
+      "visitId": "ENC-006",
+      "visitName": "Final Visit",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 4,
+        "colIdx": 6
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-015",
+      "activityId": "ACT-004",
+      "activityName": "Vital Signs",
+      "visitId": "ENC-007",
+      "visitName": "30-Day Follow-up Visit",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 4,
+        "colIdx": 7
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-016",
+      "activityId": "ACT-004",
+      "activityName": "Vital Signs",
+      "visitId": "ENC-008",
+      "visitName": "Maintenance Therapy",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 4,
+        "colIdx": 8
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-017",
+      "activityId": "ACT-004",
+      "activityName": "Vital Signs",
+      "visitId": "ENC-009",
+      "visitName": "Post-Treatment Visits",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 4,
+        "colIdx": 9
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-018",
+      "activityId": "ACT-005",
+      "activityName": "12-Lead ECG",
+      "visitId": "ENC-001",
+      "visitName": "Screening",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 5,
+        "colIdx": 1
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-019",
+      "activityId": "ACT-005",
+      "activityName": "12-Lead ECG",
+      "visitId": "ENC-006",
+      "visitName": "Final Visit",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 5,
+        "colIdx": 6
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-020",
+      "activityId": "ACT-006",
+      "activityName": "Performance Status (ECOG)",
+      "visitId": "ENC-001",
+      "visitName": "Screening",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [
+        "i",
+        "q"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 6,
+        "colIdx": 1
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-021",
+      "activityId": "ACT-006",
+      "activityName": "Performance Status (ECOG)",
+      "visitId": "ENC-002",
+      "visitName": "Cycle 1 Day -2",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [
+        "i"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 6,
+        "colIdx": 2
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-022",
+      "activityId": "ACT-006",
+      "activityName": "Performance Status (ECOG)",
+      "visitId": "ENC-005",
+      "visitName": "Cycle 2-6 Day 1",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 6,
+        "colIdx": 5
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-023",
+      "activityId": "ACT-006",
+      "activityName": "Performance Status (ECOG)",
+      "visitId": "ENC-006",
+      "visitName": "Final Visit",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 6,
+        "colIdx": 6
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-024",
+      "activityId": "ACT-006",
+      "activityName": "Performance Status (ECOG)",
+      "visitId": "ENC-007",
+      "visitName": "30-Day Follow-up Visit",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 6,
+        "colIdx": 7
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-025",
+      "activityId": "ACT-006",
+      "activityName": "Performance Status (ECOG)",
+      "visitId": "ENC-008",
+      "visitName": "Maintenance Therapy",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 6,
+        "colIdx": 8
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-026",
+      "activityId": "ACT-006",
+      "activityName": "Performance Status (ECOG)",
+      "visitId": "ENC-009",
+      "visitName": "Post-Treatment Visits",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 6,
+        "colIdx": 9
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-027",
+      "activityId": "ACT-007",
+      "activityName": "Documentation of Non-Childbearing Status or Pregnancy Test",
+      "visitId": "ENC-001",
+      "visitName": "Screening",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 7,
+        "colIdx": 1
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-028",
+      "activityId": "ACT-007",
+      "activityName": "Documentation of Non-Childbearing Status or Pregnancy Test",
+      "visitId": "ENC-002",
+      "visitName": "Cycle 1 Day -2",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 7,
+        "colIdx": 2
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-029",
+      "activityId": "ACT-007",
+      "activityName": "Documentation of Non-Childbearing Status or Pregnancy Test",
+      "visitId": "ENC-005",
+      "visitName": "Cycle 2-6 Day 1",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 7,
+        "colIdx": 5
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-030",
+      "activityId": "ACT-008",
+      "activityName": "Chemistry/Hematology",
+      "visitId": "ENC-001",
+      "visitName": "Screening",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 8,
+        "colIdx": 1
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-031",
+      "activityId": "ACT-008",
+      "activityName": "Chemistry/Hematology",
+      "visitId": "ENC-002",
+      "visitName": "Cycle 1 Day -2",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 8,
+        "colIdx": 2
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-032",
+      "activityId": "ACT-008",
+      "activityName": "Chemistry/Hematology",
+      "visitId": "ENC-004",
+      "visitName": "Cycle 1 Day 15",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 8,
+        "colIdx": 4
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-033",
+      "activityId": "ACT-008",
+      "activityName": "Chemistry/Hematology",
+      "visitId": "ENC-005",
+      "visitName": "Cycle 2-6 Day 1",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 8,
+        "colIdx": 5
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-034",
+      "activityId": "ACT-008",
+      "activityName": "Chemistry/Hematology",
+      "visitId": "ENC-006",
+      "visitName": "Final Visit",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 8,
+        "colIdx": 6
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-035",
+      "activityId": "ACT-008",
+      "activityName": "Chemistry/Hematology",
+      "visitId": "ENC-007",
+      "visitName": "30-Day Follow-up Visit",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 8,
+        "colIdx": 7
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-036",
+      "activityId": "ACT-008",
+      "activityName": "Chemistry/Hematology",
+      "visitId": "ENC-008",
+      "visitName": "Maintenance Therapy",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 8,
+        "colIdx": 8
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-037",
+      "activityId": "ACT-009",
+      "activityName": "Urinalysis",
+      "visitId": "ENC-001",
+      "visitName": "Screening",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 9,
+        "colIdx": 1
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-038",
+      "activityId": "ACT-009",
+      "activityName": "Urinalysis",
+      "visitId": "ENC-006",
+      "visitName": "Final Visit",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 9,
+        "colIdx": 6
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-039",
+      "activityId": "ACT-010",
+      "activityName": "aPTT, INR",
+      "visitId": "ENC-001",
+      "visitName": "Screening",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 10,
+        "colIdx": 1
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-040",
+      "activityId": "ACT-011",
+      "activityName": "Tumor Assessments",
+      "visitId": "ENC-001",
+      "visitName": "Screening",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [
+        "j"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 11,
+        "colIdx": 1
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-041",
+      "activityId": "ACT-011",
+      "activityName": "Tumor Assessments",
+      "visitId": "ENC-005",
+      "visitName": "Cycle 2-6 Day 1",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [
+        "j"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 11,
+        "colIdx": 5
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-042",
+      "activityId": "ACT-011",
+      "activityName": "Tumor Assessments",
+      "visitId": "ENC-006",
+      "visitName": "Final Visit",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [
+        "k"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 11,
+        "colIdx": 6
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-043",
+      "activityId": "ACT-011",
+      "activityName": "Tumor Assessments",
+      "visitId": "ENC-008",
+      "visitName": "Maintenance Therapy",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 11,
+        "colIdx": 8
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-044",
+      "activityId": "ACT-011",
+      "activityName": "Tumor Assessments",
+      "visitId": "ENC-009",
+      "visitName": "Post-Treatment Visits",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [
+        "j",
+        "k"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 11,
+        "colIdx": 9
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-045",
+      "activityId": "ACT-012",
+      "activityName": "MRI of the Brain",
+      "visitId": "ENC-001",
+      "visitName": "Screening",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 12,
+        "colIdx": 1
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-046",
+      "activityId": "ACT-013",
+      "activityName": "QoL Questionnaires",
+      "visitId": "ENC-002",
+      "visitName": "Cycle 1 Day -2",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 13,
+        "colIdx": 2
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-047",
+      "activityId": "ACT-013",
+      "activityName": "QoL Questionnaires",
+      "visitId": "ENC-005",
+      "visitName": "Cycle 2-6 Day 1",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 13,
+        "colIdx": 5
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-048",
+      "activityId": "ACT-013",
+      "activityName": "QoL Questionnaires",
+      "visitId": "ENC-006",
+      "visitName": "Final Visit",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 13,
+        "colIdx": 6
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-049",
+      "activityId": "ACT-013",
+      "activityName": "QoL Questionnaires",
+      "visitId": "ENC-008",
+      "visitName": "Maintenance Therapy",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 13,
+        "colIdx": 8
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-050",
+      "activityId": "ACT-013",
+      "activityName": "QoL Questionnaires",
+      "visitId": "ENC-009",
+      "visitName": "Post-Treatment Visits",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 13,
+        "colIdx": 9
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-051",
+      "activityId": "ACT-014",
+      "activityName": "Adverse Event and Concomitant Medication Assessment",
+      "visitId": "ENC-001",
+      "visitName": "Screening",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 14,
+        "colIdx": 1
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-052",
+      "activityId": "ACT-014",
+      "activityName": "Adverse Event and Concomitant Medication Assessment",
+      "visitId": "ENC-002",
+      "visitName": "Cycle 1 Day -2",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 14,
+        "colIdx": 2
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-053",
+      "activityId": "ACT-014",
+      "activityName": "Adverse Event and Concomitant Medication Assessment",
+      "visitId": "ENC-004",
+      "visitName": "Cycle 1 Day 15",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 14,
+        "colIdx": 4
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-054",
+      "activityId": "ACT-014",
+      "activityName": "Adverse Event and Concomitant Medication Assessment",
+      "visitId": "ENC-005",
+      "visitName": "Cycle 2-6 Day 1",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 14,
+        "colIdx": 5
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-055",
+      "activityId": "ACT-014",
+      "activityName": "Adverse Event and Concomitant Medication Assessment",
+      "visitId": "ENC-006",
+      "visitName": "Final Visit",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 14,
+        "colIdx": 6
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-056",
+      "activityId": "ACT-014",
+      "activityName": "Adverse Event and Concomitant Medication Assessment",
+      "visitId": "ENC-007",
+      "visitName": "30-Day Follow-up Visit",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 14,
+        "colIdx": 7
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-057",
+      "activityId": "ACT-014",
+      "activityName": "Adverse Event and Concomitant Medication Assessment",
+      "visitId": "ENC-008",
+      "visitName": "Maintenance Therapy",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 14,
+        "colIdx": 8
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-058",
+      "activityId": "ACT-014",
+      "activityName": "Adverse Event and Concomitant Medication Assessment",
+      "visitId": "ENC-009",
+      "visitName": "Post-Treatment Visits",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 14,
+        "colIdx": 9
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-059",
+      "activityId": "ACT-014",
+      "activityName": "Adverse Event and Concomitant Medication Assessment",
+      "visitId": "ENC-010",
+      "visitName": "Survival Period",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [
+        "r"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 14,
+        "colIdx": 10
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-060",
+      "activityId": "ACT-015",
+      "activityName": "Randomization",
+      "visitId": "ENC-002",
+      "visitName": "Cycle 1 Day -2",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [
+        "g"
+      ],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 15,
+        "colIdx": 2
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-061",
+      "activityId": "ACT-016",
+      "activityName": "Dispense veliparib",
+      "visitId": "ENC-002",
+      "visitName": "Cycle 1 Day -2",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 16,
+        "colIdx": 2
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-062",
+      "activityId": "ACT-016",
+      "activityName": "Dispense veliparib",
+      "visitId": "ENC-003",
+      "visitName": "Cycle 1 Day 1",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 16,
+        "colIdx": 3
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-063",
+      "activityId": "ACT-016",
+      "activityName": "Dispense veliparib",
+      "visitId": "ENC-005",
+      "visitName": "Cycle 2-6 Day 1",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 16,
+        "colIdx": 5
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-064",
+      "activityId": "ACT-017",
+      "activityName": "Administer premedication",
+      "visitId": "ENC-003",
+      "visitName": "Cycle 1 Day 1",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 17,
+        "colIdx": 3
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-065",
+      "activityId": "ACT-017",
+      "activityName": "Administer premedication",
+      "visitId": "ENC-005",
+      "visitName": "Cycle 2-6 Day 1",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 17,
+        "colIdx": 5
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-066",
+      "activityId": "ACT-017",
+      "activityName": "Administer premedication",
+      "visitId": "ENC-008",
+      "visitName": "Maintenance Therapy",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 17,
+        "colIdx": 8
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-067",
+      "activityId": "ACT-018",
+      "activityName": "Administer platinum doublet chemotherapy",
+      "visitId": "ENC-003",
+      "visitName": "Cycle 1 Day 1",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 18,
+        "colIdx": 3
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-068",
+      "activityId": "ACT-018",
+      "activityName": "Administer platinum doublet chemotherapy",
+      "visitId": "ENC-005",
+      "visitName": "Cycle 2-6 Day 1",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 18,
+        "colIdx": 5
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-069",
+      "activityId": "ACT-019",
+      "activityName": "Administer maintenance pemetrexed",
+      "visitId": "ENC-008",
+      "visitName": "Maintenance Therapy",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 19,
+        "colIdx": 8
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-070",
+      "activityId": "ACT-020",
+      "activityName": "Survival",
+      "visitId": "ENC-010",
+      "visitName": "Survival Period",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 20,
+        "colIdx": 10
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-071",
+      "activityId": "ACT-021",
+      "activityName": "Optional PG Blood Sampling",
+      "visitId": "ENC-002",
+      "visitName": "Cycle 1 Day -2",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 2,
+        "colIdx": 2
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-072",
+      "activityId": "ACT-022",
+      "activityName": "PD Blood Sampling Plasma Markers",
+      "visitId": "ENC-002",
+      "visitName": "Cycle 1 Day -2",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 3,
+        "colIdx": 2
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-073",
+      "activityId": "ACT-022",
+      "activityName": "PD Blood Sampling Plasma Markers",
+      "visitId": "ENC-005",
+      "visitName": "Cycle 2-6 Day 1",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 3,
+        "colIdx": 5
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-074",
+      "activityId": "ACT-022",
+      "activityName": "PD Blood Sampling Plasma Markers",
+      "visitId": "ENC-006",
+      "visitName": "Final Visit",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 3,
+        "colIdx": 6
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-075",
+      "activityId": "ACT-023",
+      "activityName": "Serum Markers",
+      "visitId": "ENC-002",
+      "visitName": "Cycle 1 Day -2",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 5,
+        "colIdx": 2
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-076",
+      "activityId": "ACT-023",
+      "activityName": "Serum Markers",
+      "visitId": "ENC-005",
+      "visitName": "Cycle 2-6 Day 1",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 5,
+        "colIdx": 5
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-077",
+      "activityId": "ACT-023",
+      "activityName": "Serum Markers",
+      "visitId": "ENC-006",
+      "visitName": "Final Visit",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 5,
+        "colIdx": 6
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-078",
+      "activityId": "ACT-024",
+      "activityName": "Tissue Sample Collection",
+      "visitId": "ENC-001",
+      "visitName": "Screening",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 7,
+        "colIdx": 1
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-079",
+      "activityId": "ACT-025",
+      "activityName": "Veliparib PK Sampling",
+      "visitId": "ENC-002",
+      "visitName": "Cycle 1 Day -2",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 2,
+        "colIdx": 2
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    },
+    {
+      "id": "SAI-080",
+      "activityId": "ACT-025",
+      "activityName": "Veliparib PK Sampling",
+      "visitId": "ENC-005",
+      "visitName": "Cycle 2-6 Day 1",
+      "isRequired": true,
+      "condition": null,
+      "timingModifier": null,
+      "footnoteMarkers": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "rowIdx": 2,
+        "colIdx": 5
+      },
+      "instanceType": "ScheduledActivityInstance",
+      "timelineId": "TIMELINE-C929FA9B"
+    }
+  ],
+  "footnotes": [
+    {
+      "marker": "a",
+      "text": "The Screening Visit must be performed within 28 days of randomization.",
+      "ruleType": "visit_window",
+      "structuredRule": {
+        "earlyBound": 28,
+        "lateBound": 0,
+        "relativeTo": "randomization"
+      },
+      "appliesTo": [
+        "ENC-001"
+      ],
+      "instanceType": "CommentAnnotation"
+    },
+    {
+      "marker": "b",
+      "text": "When an Investigator has determined that a subject should discontinue the study, a Final Visit will be conducted.",
+      "ruleType": "conditional",
+      "structuredRule": {
+        "condition": "treatment_discontinuation"
+      },
+      "appliesTo": [
+        "ENC-006"
+      ],
+      "instanceType": "CommentAnnotation"
+    },
+    {
+      "marker": "c",
+      "text": "A Follow-Up visit is required if the Final Visit is < 30 days from the last administration of drug.",
+      "ruleType": "conditional",
+      "structuredRule": {
+        "condition": "final_visit_within_30_days"
+      },
+      "appliesTo": [
+        "ENC-007"
+      ],
+      "instanceType": "CommentAnnotation"
+    },
+    {
+      "marker": "d",
+      "text": "Following completion of platinum doublet therapy, maintenance pemetrexed 500 mg q3 weeks is strongly encouraged for all subjects who are suitable candidates. For those subjects in maintenance therapy, tumor assessments will be completed q9 weeks until radiographic progression.",
+      "ruleType": "frequency",
+      "structuredRule": {
+        "interval": 3,
+        "intervalUnit": "weeks"
+      },
+      "appliesTo": [
+        "ENC-008"
+      ],
+      "instanceType": "CommentAnnotation"
+    },
+    {
+      "marker": "e",
+      "text": "Must be performed prior to initiation of any screening or study-specific procedures. Informed Consent may be obtained before 28 day screening window.",
+      "ruleType": "timing_modifier",
+      "structuredRule": {
+        "timing": "before_screening"
+      },
+      "appliesTo": [
+        "ACT-001"
+      ],
+      "instanceType": "CommentAnnotation"
+    },
+    {
+      "marker": "f",
+      "text": "Physical exam not required, if performed within 7 days prior to randomization. Height is only measured at Screening.",
+      "ruleType": "conditional",
+      "structuredRule": {
+        "condition": "within_7_days"
+      },
+      "appliesTo": [
+        "ACT-003"
+      ],
+      "instanceType": "CommentAnnotation"
+    },
+    {
+      "marker": "g",
+      "text": "May occur up to 4 calendar days before C1D-2 to facilitate dispensing and morning administration of Study Drug.",
+      "ruleType": "visit_window",
+      "structuredRule": {
+        "earlyBound": 4,
+        "lateBound": 0,
+        "relativeTo": "cycle_1_day_minus_2"
+      },
+      "appliesTo": [
+        "ENC-002"
+      ],
+      "instanceType": "CommentAnnotation"
+    },
+    {
+      "marker": "h",
+      "text": "Serum pregnancy test will be done at Screening. Urine pregnancy test will be done prior to dosing at C1D-2 unless the serum pregnancy test was collected within 7 days of C1D-2.",
+      "ruleType": "specimen",
+      "structuredRule": {
+        "specimenType": "serum_urine"
+      },
+      "appliesTo": [
+        "ACT-007"
+      ],
+      "instanceType": "CommentAnnotation"
+    },
+    {
+      "marker": "i",
+      "text": "Study samples for central laboratory analysis may be performed within 72 hours of the scheduled day. A qualified local laboratory may be used to perform laboratory analyses for treatment decisions but this cannot replace the central laboratory analysis on a protocol defined visit.",
+      "ruleType": "visit_window",
+      "structuredRule": {
+        "earlyBound": 72,
+        "lateBound": 72,
+        "unit": "hours"
+      },
+      "appliesTo": [
+        "ACT-008",
+        "ACT-009",
+        "ACT-010"
+      ],
+      "instanceType": "CommentAnnotation"
+    },
+    {
+      "marker": "j",
+      "text": "Baseline tumor assessments must be conducted within 28 days (inclusive) of randomization. Post-baseline tumor assessment will be conducted within 7 days prior to chemotherapy on C3D1 and C5D1, every 9 weeks \u00b1 7 days from the last scan after treatment discontinuation until 1 year on study (or beyond 1 year until maintenance therapy is discontinued), and then every 12 weeks \u00b1 7 days.",
+      "ruleType": "frequency",
+      "structuredRule": {
+        "interval": 9,
+        "intervalUnit": "weeks",
+        "window": 7
+      },
+      "appliesTo": [
+        "ACT-011"
+      ],
+      "instanceType": "CommentAnnotation"
+    },
+    {
+      "marker": "p",
+      "text": "Following treatment discontinuation, subjects will have post-treatment visits q9 weeks until one year after randomization, then q12 weeks until radiographic progression or death.",
+      "ruleType": "frequency",
+      "structuredRule": {
+        "interval": 9,
+        "intervalUnit": "weeks",
+        "subsequentInterval": 12
+      },
+      "appliesTo": [
+        "ENC-009"
+      ],
+      "instanceType": "CommentAnnotation"
+    },
+    {
+      "marker": "r",
+      "text": "All systemic post treatment anti-cancer therapy, if applicable and available, will be collected in the survival follow-up period.",
+      "ruleType": "conditional",
+      "structuredRule": {
+        "condition": "if_applicable"
+      },
+      "appliesTo": [
+        "ENC-010"
+      ],
+      "instanceType": "CommentAnnotation"
+    }
+  ],
+  "qualityMetrics": {
+    "totalVisits": 10,
+    "visitsWithWindows": 9,
+    "visitsWithRecurrence": 4,
+    "totalActivities": 25,
+    "totalScheduledInstances": 80,
+    "matrixCoverage": 0.32,
+    "footnotesLinked": 12,
+    "mergedTimepoints": 0
+  },
+  "scheduleTimelines": [
+    {
+      "id": "TIMELINE-C929FA9B",
+      "name": "Main Study Schedule",
+      "instanceType": "ScheduleTimeline",
+      "mainTimeline": true,
+      "entryCondition": "Subject enrolled and eligible",
+      "entryId": "ENC-001",
+      "exits": [],
+      "timings": [],
+      "instances": [],
+      "provenance": {
+        "pageNumber": 41,
+        "tableId": "SOA-2",
+        "colIdx": 1
+      }
+    }
+  ],
+  "conditions": [],
+  "conditionAssignments": [],
+  "_draftMetadata": {
+    "generatedAt": "2025-12-09T11:09:26.950552",
+    "stage": 11,
+    "isDraft": true,
+    "autoApprovedCount": 0,
+    "pendingReviewCount": 0,
+    "pendingCriticalCount": 0
+  }
+}

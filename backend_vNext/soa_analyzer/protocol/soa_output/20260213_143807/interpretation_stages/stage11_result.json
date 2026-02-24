@@ -1,0 +1,116 @@
+{
+  "success": true,
+  "isDraft": true,
+  "metrics": {
+    "decisionsApplied": 0,
+    "decisionsSkipped": 0,
+    "pendingCritical": 0,
+    "pendingNonCritical": 0,
+    "approvedCount": 0,
+    "rejectedCount": 0,
+    "modifiedCount": 0,
+    "autoApprovedCount": 0,
+    "pendingReviewCount": 0
+  },
+  "auditTrail": [],
+  "reviewItemLinks": {},
+  "errors": [],
+  "warnings": [],
+  "processingTimeSeconds": 0.001728057861328125,
+  "_agentDefinition": {
+    "stageNumber": 11,
+    "stageName": "Schedule Generation",
+    "displayName": "Final Schedule Generator",
+    "purpose": "Applies human review decisions from Stage 10 to produce the final USDM-compliant visit schedule, resolving all pending choices and confirmations.",
+    "extractionMethodology": "Decision application from Stage 10 review package. Alternative resolution (keep selected, remove rejected). Cycle confirmation (expand or collapse). Audit trail generation for all applied decisions.",
+    "keyOutputs": [
+      {
+        "field": "finalUsdm",
+        "description": "Complete USDM-compliant schedule"
+      },
+      {
+        "field": "decisionsApplied",
+        "description": "Count of decisions applied"
+      },
+      {
+        "field": "auditTrail",
+        "description": "Record of all changes made"
+      },
+      {
+        "field": "approvedCount",
+        "description": "Items approved"
+      },
+      {
+        "field": "rejectedCount",
+        "description": "Items rejected"
+      },
+      {
+        "field": "modifiedCount",
+        "description": "Items modified with custom values"
+      }
+    ],
+    "downstreamIntegrations": [
+      {
+        "system": "EDC Build",
+        "useCase": "Final CRF structure generation",
+        "automationType": "configuration",
+        "fieldsUsed": [
+          "finalUsdm"
+        ],
+        "automationExample": "EDC system receives final schedule for complete CRF build"
+      },
+      {
+        "system": "IRT Build",
+        "useCase": "Confirmed visit structure for randomization",
+        "automationType": "configuration",
+        "fieldsUsed": [
+          "finalUsdm",
+          "auditTrail"
+        ],
+        "automationExample": "IRT receives approved schedule with full decision provenance"
+      },
+      {
+        "system": "CTMS",
+        "useCase": "Study setup with confirmed parameters",
+        "automationType": "direct_mapping",
+        "fieldsUsed": [
+          "finalUsdm"
+        ],
+        "automationExample": "CTMS imports final visit schedule for site management"
+      },
+      {
+        "system": "Regulatory",
+        "useCase": "Schedule documentation for submissions",
+        "automationType": "direct_mapping",
+        "fieldsUsed": [
+          "finalUsdm",
+          "auditTrail"
+        ],
+        "automationExample": "FDA submission includes USDM schedule with decision audit trail"
+      }
+    ],
+    "automationInsights": [
+      {
+        "insight": "Decision Finality",
+        "description": "Applied decisions become immutable for downstream system consumption"
+      },
+      {
+        "insight": "Audit Compliance",
+        "description": "Full audit trail supports regulatory inspection requirements"
+      },
+      {
+        "insight": "Version Control",
+        "description": "Each generation creates a versioned, traceable schedule"
+      }
+    ],
+    "dataQualityIndicators": [
+      "no pending critical items",
+      "all decisions applied",
+      "audit trail complete"
+    ],
+    "humanReviewTriggers": [
+      "pending critical items remain",
+      "decision conflicts detected"
+    ]
+  }
+}

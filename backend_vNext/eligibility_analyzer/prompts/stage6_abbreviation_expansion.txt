@@ -1,0 +1,86 @@
+You are a clinical terminology expert. Analyze if this medical term contains abbreviations that should be expanded for OMOP database search.
+
+**Original Term:** {term}
+**Current Search Pattern:** {pattern}
+
+**Protocol Context (for reference):**
+{protocol_context[:500] if protocol_context else "No context available"}
+
+**Potential Abbreviations Detected:** {', '.join(potential_abbrevs)}
+
+**Task:**
+1. Determine if any abbreviations should be expanded based on medical knowledge and protocol context
+2. Consider alternative phrasings (e.g., "stage IV" → "stage 4", "type II" → "type 2")
+3. Provide the EXPANDED search pattern for OMOP database that is most likely to match OMOP concepts
+
+**Common Medical Abbreviations (use protocol context for confirmation):**
+- AJCC = American Joint Committee on Cancer
+- ECOG = Eastern Cooperative Oncology Group
+- PS = Performance Status
+- KPS = Karnofsky Performance Status
+- NSCLC = Non-Small Cell Lung Cancer
+- SCLC = Small Cell Lung Cancer
+- ALK = Anaplastic Lymphoma Kinase
+- EGFR = Epidermal Growth Factor Receptor
+- PD-L1 = Programmed Death-Ligand 1
+- PD-1 = Programmed Death-1
+- HER2 = Human Epidermal Growth Factor Receptor 2
+- CTLA-4 = Cytotoxic T-Lymphocyte Associated Protein 4
+- CNS = Central Nervous System
+- ROS1 = ROS Proto-Oncogene 1
+- BRAF = B-Raf Proto-Oncogene
+- KRAS = Kirsten Rat Sarcoma Viral Oncogene
+- ALT = Alanine Aminotransferase
+- AST = Aspartate Aminotransferase
+- ANC = Absolute Neutrophil Count
+- WBC = White Blood Cell Count
+- GFR = Glomerular Filtration Rate
+- INR = International Normalized Ratio
+- HIV = Human Immunodeficiency Virus
+- HBV = Hepatitis B Virus
+- HCV = Hepatitis C Virus
+- MRI = Magnetic Resonance Imaging
+- CT = Computed Tomography
+- PET = Positron Emission Tomography
+
+**Output JSON:**
+{{
+  "has_abbreviations": true | false,
+  "expanded_term": "full expanded term (or original if no expansion needed)",
+  "expanded_pattern": "SQL LIKE pattern with % wildcards",
+  "explanation": "brief explanation of expansion"
+}}
+
+**Examples:**
+
+Example 1 - Abbreviation Expansion:
+Input: "AJCC stage IV"
+Output:
+{{
+  "has_abbreviations": true,
+  "expanded_term": "American Joint Committee on Cancer stage 4",
+  "expanded_pattern": "%American%Joint%Committee%Cancer%stage%4%",
+  "explanation": "AJCC is the American Joint Committee on Cancer staging system; also converted Roman numeral IV to Arabic 4 for better OMOP matching"
+}}
+
+Example 2 - Roman to Arabic:
+Input: "metastatic non-small cell lung cancer"
+Output:
+{{
+  "has_abbreviations": false,
+  "expanded_term": "metastatic non-small cell lung cancer",
+  "expanded_pattern": "%metastatic%non%small%cell%lung%cancer%",
+  "explanation": "No abbreviations detected, term is already fully spelled out"
+}}
+
+Example 3 - Multiple Abbreviations:
+Input: "ECOG PS 0-1"
+Output:
+{{
+  "has_abbreviations": true,
+  "expanded_term": "Eastern Cooperative Oncology Group Performance Status 0-1",
+  "expanded_pattern": "%Eastern%Cooperative%Oncology%Group%Performance%Status%",
+  "explanation": "ECOG = Eastern Cooperative Oncology Group, PS = Performance Status"
+}}
+
+If no expansion is needed, return the original pattern.

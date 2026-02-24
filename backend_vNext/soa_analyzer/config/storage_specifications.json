@@ -1,0 +1,305 @@
+{
+  "_metadata": {
+    "description": "Specimen storage and shipping specifications for Stage 5 Specimen Enrichment",
+    "purpose": "Reference data for storage conditions, equipment, and shipping requirements",
+    "version": "1.0.0",
+    "last_updated": "2025-12-06"
+  },
+  "storage_conditions": {
+    "serum": {
+      "temporary_site": {
+        "temperature_celsius": {"min": 2, "max": 8},
+        "description": "Refrigerated",
+        "max_duration": "48 hours"
+      },
+      "short_term": {
+        "temperature_celsius": {"min": -25, "max": -15},
+        "description": "Frozen (-20C)",
+        "max_duration": "1 month"
+      },
+      "long_term": {
+        "temperature_celsius": {"min": -85, "max": -65},
+        "description": "Ultra-frozen (-70C to -80C)",
+        "stability": "5+ years"
+      }
+    },
+    "plasma_general": {
+      "temporary_site": {
+        "temperature_celsius": {"min": 2, "max": 8},
+        "description": "Refrigerated",
+        "max_duration": "24 hours"
+      },
+      "short_term": {
+        "temperature_celsius": {"min": -25, "max": -15},
+        "description": "Frozen (-20C)",
+        "max_duration": "1 month"
+      },
+      "long_term": {
+        "temperature_celsius": {"min": -85, "max": -65},
+        "description": "Ultra-frozen (-70C to -80C)",
+        "stability": "2-5 years"
+      }
+    },
+    "plasma_pk": {
+      "temporary_site": {
+        "temperature_celsius": {"min": -85, "max": -65},
+        "description": "Ultra-frozen immediately",
+        "max_duration": "Until shipment"
+      },
+      "long_term": {
+        "temperature_celsius": {"min": -85, "max": -65},
+        "description": "Ultra-frozen (-70C to -80C)",
+        "stability": "Drug-dependent, typically 2 years"
+      },
+      "critical_note": "No intermediate storage at -20C for most drugs"
+    },
+    "citrate_plasma": {
+      "temporary_site": {
+        "temperature_celsius": {"min": 18, "max": 25},
+        "description": "Room temperature",
+        "max_duration": "4 hours for coag testing"
+      },
+      "frozen": {
+        "temperature_celsius": {"min": -85, "max": -65},
+        "description": "Ultra-frozen (-70C to -80C)",
+        "stability": "6 months"
+      },
+      "critical_note": "Do not store at -20C; coag factors degrade"
+    },
+    "whole_blood": {
+      "for_cbc": {
+        "temperature_celsius": {"min": 18, "max": 25},
+        "description": "Room temperature",
+        "max_duration": "24 hours"
+      },
+      "for_dna": {
+        "temperature_celsius": {"min": 2, "max": 8},
+        "description": "Refrigerated",
+        "max_duration": "7 days",
+        "stability_ambient": "3 days"
+      }
+    },
+    "whole_blood_paxgene": {
+      "post_incubation": {
+        "temperature_celsius": {"min": 18, "max": 25},
+        "description": "Room temperature",
+        "max_duration": "3 days"
+      },
+      "refrigerated": {
+        "temperature_celsius": {"min": 2, "max": 8},
+        "description": "Refrigerated",
+        "max_duration": "5 days"
+      },
+      "frozen": {
+        "temperature_celsius": {"min": -25, "max": -15},
+        "description": "Frozen (-20C)",
+        "stability": "24 months"
+      },
+      "ultra_frozen": {
+        "temperature_celsius": {"min": -85, "max": -65},
+        "description": "Ultra-frozen (-70C to -80C)",
+        "stability": "Long term (years)"
+      }
+    },
+    "urine": {
+      "fresh": {
+        "temperature_celsius": {"min": 18, "max": 25},
+        "description": "Room temperature",
+        "max_duration": "2 hours"
+      },
+      "refrigerated": {
+        "temperature_celsius": {"min": 2, "max": 8},
+        "description": "Refrigerated",
+        "max_duration": "24 hours"
+      },
+      "frozen": {
+        "temperature_celsius": {"min": -25, "max": -15},
+        "description": "Frozen (-20C)",
+        "stability": "Analyte-dependent"
+      }
+    },
+    "csf": {
+      "temporary_site": {
+        "temperature_celsius": {"min": 2, "max": 8},
+        "description": "Refrigerated",
+        "max_duration": "24 hours"
+      },
+      "frozen": {
+        "temperature_celsius": {"min": -85, "max": -65},
+        "description": "Ultra-frozen",
+        "stability": "Long term"
+      }
+    },
+    "tissue_fresh": {
+      "temporary": {
+        "temperature_celsius": {"min": 2, "max": 8},
+        "description": "On ice/refrigerated",
+        "max_duration": "2-4 hours"
+      },
+      "flash_frozen": {
+        "temperature_celsius": {"min": -196, "max": -150},
+        "description": "Liquid nitrogen",
+        "stability": "Long term"
+      }
+    },
+    "tissue_ffpe": {
+      "ambient": {
+        "temperature_celsius": {"min": 18, "max": 25},
+        "description": "Room temperature",
+        "stability": "Years"
+      },
+      "note": "FFPE blocks stable at room temperature"
+    }
+  },
+  "equipment_types": {
+    "refrigerator": {
+      "temperature_range_celsius": {"min": 2, "max": 8},
+      "description": "Standard laboratory refrigerator",
+      "monitoring": "Daily temperature log, min/max recording",
+      "alarm": "High/low temperature alarm recommended"
+    },
+    "freezer_minus20": {
+      "temperature_range_celsius": {"min": -25, "max": -15},
+      "description": "Standard freezer (-20C)",
+      "monitoring": "Daily temperature log, min/max recording",
+      "alarm": "High temperature alarm required"
+    },
+    "freezer_minus80": {
+      "temperature_range_celsius": {"min": -86, "max": -75},
+      "description": "Ultra-low temperature freezer (-80C)",
+      "monitoring": "Continuous electronic monitoring recommended",
+      "alarm": "High temperature alarm required",
+      "backup": "Backup power or CO2 backup recommended"
+    },
+    "liquid_nitrogen_vapor": {
+      "temperature_range_celsius": {"min": -196, "max": -150},
+      "description": "Liquid nitrogen vapor phase storage",
+      "monitoring": "Continuous level and temperature monitoring",
+      "alarm": "Low level and high temperature alarms required"
+    },
+    "liquid_nitrogen_liquid": {
+      "temperature_celsius": -196,
+      "description": "Liquid nitrogen liquid phase storage",
+      "monitoring": "Continuous level monitoring",
+      "alarm": "Low level alarm required",
+      "safety": "Cryogenic safety protocols required"
+    }
+  },
+  "excursion_limits": {
+    "_description": "Acceptable temperature excursions by specimen type",
+    "serum_frozen": {
+      "acceptable_excursion": "≤1 hour above -20C",
+      "unacceptable": ">2 hours above -20C or any thaw",
+      "action": "Document and assess stability"
+    },
+    "plasma_pk_frozen": {
+      "acceptable_excursion": "≤30 minutes above -65C",
+      "unacceptable": "Any complete thaw",
+      "action": "Discard if thawed; document if excursion"
+    },
+    "citrate_plasma_frozen": {
+      "acceptable_excursion": "≤15 minutes above -65C",
+      "unacceptable": "Any thaw; storage at -20C",
+      "action": "Discard if compromised"
+    },
+    "whole_blood_cbc": {
+      "acceptable_excursion": "Brief refrigeration acceptable",
+      "unacceptable": "Freezing",
+      "action": "May affect morphology if refrigerated"
+    }
+  },
+  "shipping_requirements": {
+    "frozen_dry_ice": {
+      "temperature_condition": "Frozen on dry ice",
+      "temperature_celsius": {"min": -80, "max": -60},
+      "packaging": {
+        "insulated_container": "Styrofoam shipper or equivalent",
+        "dry_ice_amount": "≥10 lbs for overnight, ≥20 lbs for 2-day",
+        "specimen_protection": "Samples in secondary container, sealed bags",
+        "absorbent_material": "Required per IATA"
+      },
+      "un_classification": "UN3373",
+      "documentation": ["Shipper declaration", "Packing list", "Chain of custody"],
+      "monitoring": "Temperature indicator recommended"
+    },
+    "frozen_gel_packs": {
+      "temperature_condition": "Frozen with gel packs",
+      "temperature_celsius": {"min": -20, "max": -10},
+      "packaging": {
+        "insulated_container": "Insulated shipper",
+        "gel_packs": "Pre-frozen gel packs (minimum 4)",
+        "specimen_protection": "Samples in secondary container"
+      },
+      "suitable_for": "Short-distance shipment, -20C specimens",
+      "duration": "24-48 hours"
+    },
+    "refrigerated": {
+      "temperature_condition": "Cold chain (2-8C)",
+      "temperature_celsius": {"min": 2, "max": 8},
+      "packaging": {
+        "insulated_container": "Insulated shipper",
+        "gel_packs": "Cold (not frozen) gel packs",
+        "specimen_protection": "Samples in secondary container"
+      },
+      "un_classification": "UN3373",
+      "duration": "24-72 hours depending on ambient temperature"
+    },
+    "ambient_controlled": {
+      "temperature_condition": "Controlled room temperature",
+      "temperature_celsius": {"min": 15, "max": 30},
+      "packaging": {
+        "container": "Cardboard box with cushioning",
+        "specimen_protection": "Samples in secondary container, sealed bags"
+      },
+      "suitable_for": "DNA samples, dried blood spots, stable specimens"
+    }
+  },
+  "un_classifications": {
+    "UN3373": {
+      "proper_shipping_name": "BIOLOGICAL SUBSTANCE, CATEGORY B",
+      "class": "6.2",
+      "packing_instruction": "P650",
+      "marking": "UN3373 diamond marking required",
+      "documentation": "No dangerous goods declaration required",
+      "applies_to": "Most clinical trial specimens"
+    },
+    "UN2814": {
+      "proper_shipping_name": "INFECTIOUS SUBSTANCE, AFFECTING HUMANS",
+      "class": "6.2",
+      "packing_instruction": "P620",
+      "marking": "Infectious substance label required",
+      "documentation": "Dangerous goods declaration required",
+      "applies_to": "Confirmed infectious samples (rare in clinical trials)"
+    },
+    "exempt_human_specimen": {
+      "description": "Specimens with minimal likelihood of pathogens",
+      "marking": "'Exempt Human Specimen' label",
+      "applies_to": "Specimens from healthy volunteers in some jurisdictions"
+    }
+  },
+  "central_lab_requirements": {
+    "_description": "Typical requirements for shipping to central laboratories",
+    "documentation": [
+      "Chain of custody form",
+      "Specimen manifest/packing list",
+      "Requisition form with subject ID (blinded)",
+      "Temperature monitoring documentation",
+      "Kit inventory tracking"
+    ],
+    "packaging_checklist": [
+      "Primary container sealed (no leaks)",
+      "Secondary container (biohazard bag)",
+      "Absorbent material between primary and secondary",
+      "Tertiary container (insulated shipper)",
+      "Coolant (dry ice/gel packs as appropriate)",
+      "Shipping documentation external pouch",
+      "UN3373 marking visible"
+    ],
+    "shipping_frequency": {
+      "pk_samples": "Same day or next day after collection",
+      "safety_labs": "Weekly batch shipment typical",
+      "exploratory_biomarkers": "Per protocol schedule",
+      "genetic_samples": "End of study or per sponsor request"
+    }
+  }
+}
